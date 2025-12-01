@@ -1102,8 +1102,10 @@ function calculateROI() {
     const NOI = (monthlyVacancyAdjustedRent * 12) - (monthlyOperatingExpenses * 12);
     const CoC = cashInvestment > 0 ? (annualCashFlow / cashInvestment) * 100 : 0;
 
-// ---------- Total ROI Combining Base + Adjustments ----------
-const totalROI = baseROI + (annualCashFlow * years - totalRentCollected) + mortgagePaidOff;
+// Total ROI = Purchase Price + Total Rent + Appreciation - Expenses Paid + Mortgage Principal Paid Off
+const totalExpenses = (monthlyOperatingExpenses + mortgagePayment) * 12 * years;
+const totalROI = purchasePrice + totalRentCollected + appreciationGain - totalExpenses + mortgagePaidOff;
+
 
 
     // ---------- Animate & Display ----------
@@ -1131,10 +1133,9 @@ const totalROI = baseROI + (annualCashFlow * years - totalRentCollected) + mortg
     renderROIChart(totalROI, annualCashFlow, NOI, CoC);
 }
 
-// ---------- Auto-Recalculate ----------
-document.querySelectorAll(
-    '#purchasePrice,#cashInvestment,#loanAmount,#rentIncome,#taxes,#insurance,#hoa,#mortgageRate,#mortgageTerm,#vacancyRate,#managementFees,#appreciationRate,#yearsHold'
-).forEach(input => input.addEventListener('input', calculateROI));
+// Calculate ROI only when user clicks the button
+document.getElementById('calculateBtn')?.addEventListener('click', calculateROI);
+
 
 /* =========================================
    AUTO-FORMAT INPUTS
