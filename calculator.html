@@ -588,7 +588,6 @@ input:focus, select:focus {
  <div id="tab-key-details" class="tab-content active">
   <div class="roi-grid">
 
-    <!-- Monthly Rent FIRST -->
     
      <div class="input-group">
 <label>
@@ -603,13 +602,14 @@ input:focus, select:focus {
     Monthly Rent ($)
     <span class="info" title="Expected monthly rental income from tenants.">ⓘ</span>
   </label>
-  <input type="number" 
-         id="rentIncome" 
-         placeholder="2,350" 
-         min="1" 
-         max="999999" 
-         step="50"
-         data-suggest="2350">
+  <input type="number"
+       id="rentIncome"
+       placeholder="2,350"
+       min="1"
+       max="999999"
+       step="1"
+       data-suggest="2350">
+
 </div>
 
     <div class="input-group">
@@ -1217,7 +1217,7 @@ function downloadPDF() {
         element.style.display = "none";
     });
 }
-  function initSuggestedInputs() {
+ function initSuggestedInputs() {
   document.querySelectorAll('#rentIncome, #appreciationRate').forEach(input => {
     const suggest = Number(input.dataset.suggest);
 
@@ -1251,6 +1251,7 @@ function downloadPDF() {
 }
 
 window.addEventListener('load', initSuggestedInputs);
+
 
 </script>
 
