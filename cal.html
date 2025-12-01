@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Real Estate ROI Calculator</title>
+  <!-- PDF generation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<!-- Chart library for graphs -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ===================== */
+/* Base Styles */
+/* ===================== */
+html, body {
+    font-family: 'Plus Jakarta Sans', sans-serif;    
+    background: #f3f5f7;
+    margin: 0;
+    padding: 0;
+    color: #1e0949;
+    touch-action: manipulation; /* prevents unintended zooming/panning */
+    overscroll-behavior: none;  /* prevents jumping on mobile */
+    -webkit-text-size-adjust: 100%; /* disable font zoom on iOS */
+}
+
+body {
+    padding: 40px;
+}
+
+.info {
+    font-size: 10px;
+    color: #555;
+    cursor: help;
+    margin-left: 4px;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.results-container, .inputs-container {
+    background: #fff;
+    border-radius: 45px;
+    padding: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs-container { flex: 1 1 400px; min-width: 350px; }
+.results-container { flex: 1 1 350px; min-width: 300px; }
+
+h2 { text-align: left; font-size: 30px; font-weight: 700; margin-bottom: 0px; }
+  h3 { text-align: left; font-size: 15px; font-weight: 500; margin-bottom: 45px; }
+  h4 { text-align: left; font-size: 15px; font-weight: 500; margin-bottom: 15px; }
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0 35px 0;
+}
+.section-divider::before, .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+}
+.section-divider::before { margin-right: 10px; }
+.section-divider::after { margin-left: 10px; }
+.section-divider span { font-size: 10px; font-weight: 500; color: #888; white-space: nowrap; }
+
+.roi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.input-group { display: flex; flex-direction: column; }
+
+label { font-weight: 500; margin-bottom: 6px; font-size: 12px; }
+
+input, select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    height: 42px;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><polygon points='0,0 14,0 7,7' fill='%23999'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+input:focus, select:focus { 
+    border-color: #005bff;
+    box-shadow: 0 0 5px rgba(0,91,255,0.2);
+    outline: none;
+}
+
+.calc-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    font-size: 17px;
+    background: #005bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.calc-btn:hover { background: #003f9a; }
+
+.total-roi-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    height: 120px;
+}
+.total-roi-display span { font-size: 80px; font-weight: 800; color: #005bff; }
+
+.result-card .label { font-weight: 500; margin-bottom: 6px; font-size: 12px; color: #555; }
+.result-card .value { font-weight: 500; font-size: 12px; color: #1e0949; margin-bottom: 16px; }
+
+.added-expense { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
+.added-expense select, .added-expense input { flex: 1; }
+.remove-btn { background: #ff4d4f; color: white; border: none; border-radius: 6px; padding: 0 8px; cursor: pointer; }
+
+.download-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+}
+.download-text {
+    flex: 1 1 0;
+    min-width: 0; 
+    font-size: 14px;
+    color: #555;
+}
+.download-btn { white-space: nowrap; }
+
+.roi-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+.roi-column {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* ===================== */
+/* Mobile / Responsive Fix */
+/* ===================== */
+
+/* Tablets & smaller screens */
+@media (max-width: 900px) {
+    body { padding: 0; } /* containers now touch edges */
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .inputs-container, .results-container {
+        width: 100% !important;
+        min-width: 0;
+        padding: 20px;
+        border-radius: 0;
+        box-sizing: border-box;
+    }
+    .roi-grid { grid-template-columns: 1fr; gap: 12px; }
+    .total-roi-display span { font-size: 50px; }
+    .calc-btn { font-size: 15px; }
+}
+
+/* Mobile Columns Stack */
+@media (max-width: 600px) {
+    .roi-columns {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    .roi-column {
+        min-width: 0 !important;
+        flex: 1 1 100% !important;
+        text-align: center;
+    }
+}
+
+/* Smallest screens (download section full-width) */
+@media (max-width: 500px) {
+    .download-container {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px;
+    }
+    .download-btn { width: 100% !important; }
+    .download-text { text-align: center; }
+}
+
+/* ----------------------------- */
+/* TAB NAVIGATION (FOLDER DESIGN) */
+/* ----------------------------- */
+
+.tab-container {
+    width: 100%;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    overflow-x: auto;
+}
+
+.tab {
+    padding: 14px 22px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    background: #f7f8fa;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    margin-right: 6px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.tab.active {
+    background: #fff;
+    color: #005bff;
+    border-bottom: 2px solid white;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.25s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Smooth fade transition */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile improvements */
+@media(max-width: 600px) {
+    .tab {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+}
+
+.disclaimer-box {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f7f8fa;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    color: #555;
+}
+
+.disclaimer-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+}
+
+.disclaimer-check input {
+    margin-top: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+/* FULL WIDTH — EACH TAB EQUAL SIZE */
+.tab-container {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 25px;
+}
+
+/* Tabs */
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 14px 0;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    background: #f7f8fa;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;              /* spacing between icon + text */
+    white-space: nowrap;
+}
+
+/* Tab icons */
+.tab-icon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.65;
+    transition: opacity 0.2s;
+}
+
+.tab:hover .tab-icon {
+    opacity: 0.9;
+}
+
+/* Active tab */
+.tab.active {
+    background: #fff;
+    color: #005bff;
+    border-bottom: 2px solid white;
+}
+
+.tab.active .tab-icon {
+    opacity: 1;
+}
+
+/* Mobile */
+@media(max-width: 600px) {
+    .tab { font-size: 12px; padding: 12px 0; }
+    .tab-icon { width: 16px; height: 16px; }
+}
+
+.disabled {
+    background-color: #ccc !important;
+    color: #888 !important;
+    cursor: not-allowed !important;
+}
+
+.value.disabled {
+    color: #aaa !important;
+}
+/* MOBILE: tabs show ICON ONLY — no text */
+@media (max-width: 600px) {
+
+    /* Remove text by setting size to zero */
+    .tab {
+        font-size: 0 !important;
+        gap: 0 !important;              /* no text, so no gap needed */
+        justify-content: center !important;
+    }
+
+    /* Icons always visible */
+    .tab .tab-icon {
+        display: inline-block !important;
+        width: 18px;
+        height: 18px;
+        opacity: 0.9;
+    }
+
+    /* Active tab icon a bit brighter (optional) */
+    .tab.active .tab-icon {
+        opacity: 1;
+    }
+
+    /* Ensure tabs remain full-width columns if desired */
+    .tab {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+}
+
+/* ======================================= */
+/* FULL WIDTH STATS BLOCK (DESKTOP)        */
+/* ======================================= */
+.stats-fullwidth {
+    width: 100%;
+    max-width: 1200px;
+    margin: 10px auto 0 auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 45px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    box-sizing: border-box;
+}
+
+.stats-title {
+    font-size: 18px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #1e0949;
+}
+
+/* Stats grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+/* Individual stat boxes */
+.stat-box {
+    border: 0.5px solid #ddd;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    background: #fafbfc;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.stat-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e0949;
+}
+
+/* Responsive for mobile */
+@media (max-width: 800px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.suggestions-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    z-index: 1000;
+    max-height: 220px;
+    overflow-y: auto;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 10px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background: #f4f0ff;
+    color: #6327e5; /* matches your primary highlight color */
+}
+  
+  /* ===================== */
+/* Top two containers: 50/50 on desktop */
+/* ===================== */
+.container {
+    display: flex;
+    flex-wrap: wrap;       /* allows stacking on smaller screens */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.inputs-container,
+.results-container {
+    background: #fff;
+    border-radius: 45px;
+    padding: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;   /* ensures padding does not overflow */
+}
+
+/* Desktop: exactly 50/50 */
+@media (min-width: 901px) {
+    .inputs-container,
+    .results-container {
+        flex: 1 1 calc(50% - 20px); /* 50% minus half of gap */
+        min-width: 0;
+    }
+}
+
+/* Tablets & smaller screens: stack */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 0 20px; /* optional: reduce body overflow */
+    }
+    .inputs-container,
+    .results-container {
+        width: 100%;
+        padding: 20px;
+        border-radius: 30px;
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="inputs-container">
+  <h2>See your next real estate investment in numbers</h2>
+  <h3>Estimate cash flow, ROI, and leverage to make smarter property decisions</h3>
+
+<div class="tab-container">
+    
+    <div class="tab active" data-tab="key-details">
+        <img src="https://static.wixstatic.com/shapes/1799ca_d59ee459f9db45a3b99a62cdfa84e724.svg" 
+             class="tab-icon">
+        Key Details
+    </div>
+
+    <div class="tab" data-tab="financing">
+        <img src="https://static.wixstatic.com/shapes/1799ca_0e0026550151414baae6bfb1ce82c752.svg" 
+             class="tab-icon">
+        Financing
+    </div>
+
+    <div class="tab" data-tab="operating">
+        <img src="https://static.wixstatic.com/shapes/1799ca_dbd6c6293d664fe1a55914fb987667b3.svg" 
+             class="tab-icon">
+        Expenses
+    </div>
+
+</div>
+
+
+
+  <!-- TAB CONTENT WRAPPER (fixed) -->
+ <div id="tab-key-details" class="tab-content active">
+  <div class="roi-grid">
+
+    <!-- Monthly Rent FIRST -->
+    
+     <div class="input-group">
+<label>
+  Purchase Price ($)
+  <span class="info" title="Enter the total purchase price of the property.">ⓘ</span>
+</label>
+      <input type="text" id="purchasePrice" placeholder="500,000">
+    </div>
+    
+    <div class="input-group">
+<label>
+  Monthly Rent ($)
+  <span class="info" title="Expected monthly rental income from tenants.">ⓘ</span>
+</label>
+      <input type="text" id="rentIncome" placeholder="2,350" value="2,350">
+    </div>
+
+    <div class="input-group">
+<label>
+  Appreciation Rate (%)
+  <span class="info" title="Expected annual percentage increase in the property value.">ⓘ</span>
+</label>
+      <input type="number" id="appreciationRate" placeholder="9.2" step="0.1">
+    </div>
+
+    <div class="input-group">
+<label>
+  Years to Hold
+  <span class="info" title="How long you plan to keep the property before selling.">ⓘ</span>
+</label>
+      <select id="yearsHold">
+        <option value="1">1 Year</option>
+        <option value="3">3 Years</option>
+        <option value="5" selected>5 Years</option>
+        <option value="7">7 Years</option>
+        <option value="10">10 Years</option>
+        <option value="15">15 Years</option>
+      </select>
+    </div>
+<!-- Property Type -->
+<div class="input-group">
+  <label>
+    Property Type 
+    <span class="info" title="Select the type of residential investment property.">ⓘ</span>
+  </label>
+  <select id="propertyType">
+    <option value="Single Family">Single Family</option>
+    <option value="Condo">Condo</option>
+    <option value="Townhouse">Townhouse</option>
+    <option value="Duplex">Duplex</option>
+    <option value="Triplex">Triplex</option>
+    <option value="Fourplex">Fourplex</option>
+  </select>
+</div>
+
+<!-- Market: City + State -->
+<div class="input-group">
+  <label>
+    Market (City & State)
+    <span class="info" title="Your investment market. Auto-detected but you can edit manually.">ⓘ</span>
+  </label>
+  <div style="display:flex; gap:10px; position: relative;">
+    <input type="text" id="marketLocation" placeholder="City, State" autocomplete="off">
+    <div id="citySuggestions" class="suggestions-box"></div>
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+
+  <div id="tab-financing" class="tab-content">
+      <div class="roi-grid">
+        <div class="input-group">
+          <label>Down Payment (%)</label>
+          <input type="number" id="downPaymentPercent" placeholder="30">
+        </div>
+
+        <div class="input-group">
+          <label>Cash Investment ($)</label>
+          <input type="text" id="cashInvestment" placeholder="150,000">
+        </div>
+
+        <div class="input-group">
+          <label>Financed Amount ($)</label>
+          <input type="text" id="loanAmount" placeholder="350,000">
+        </div>
+
+        <div class="input-group">
+          <label>Mortgage Rate (%)</label>
+          <input type="number" id="mortgageRate" placeholder="6.25" step="0.01">
+        </div>
+
+        <div class="input-group">
+          <label>Mortgage Term (Years)</label>
+          <input type="number" id="mortgageTerm" placeholder="30">
+        </div>
+      </div>
+  </div>
+
+  <div id="tab-operating" class="tab-content">
+      <div class="roi-grid">
+          <div class="input-group">
+              <label>Property Taxes ($/yr)</label>
+              <input type="text" id="taxes" placeholder="3,500">
+          </div>
+
+          <div class="input-group">
+              <label>Homeowner’s Insurance ($/yr)</label>
+              <input type="text" id="insurance" placeholder="1,500">
+          </div>
+
+          <div class="input-group">
+              <label>HOA ($/mo)</label>
+              <input type="text" id="hoa" placeholder="250">
+          </div>
+
+          <div class="input-group">
+              <label>Management Fees (%)</label>
+              <input type="number" id="managementFees" placeholder="8">
+          </div>
+
+          <div class="input-group">
+              <label>Vacancy Rate (%)</label>
+              <input type="number" id="vacancyRate" placeholder="5">
+          </div>
+
+          <div id="expensesContainer">
+              <div class="input-group" id="addExpenseWrapper">
+                  <label style="visibility:hidden;">Add Expense</label>
+                  <input type="text" id="addExpenseInput" placeholder="+ Add Expense"
+                        readonly style="cursor:pointer;">
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- ⬅ THIS CLOSING DIV WAS IN THE WRONG PLACE BEFORE -->
+
+
+  <button class="calc-btn" onclick="calculateROI()">Calculate ROI</button> </div>
+
+<!-- Results Column -->
+<div class="results-container">
+  <h4>Investment Results</h4>
+
+  <!-- Main ROI Display -->
+  <div class="total-roi-display">
+    <span id="resultTotalROILarge">$0</span>
+  </div>
+
+  <!-- Detailed Metrics -->
+  <div class="roi-columns" style="display:flex; flex-wrap:wrap; gap:15px; justify-content:space-between; margin-top:20px;">
+
+    <!-- Cash Flow -->
+    <div class="roi-column" style="flex:1; min-width:140px; text-align:center;">
+      <div class="label">
+        Cash Flow <span class="info" title="Monthly income after paying all operating expenses and mortgage.">ⓘ</span>
+      </div>
+      <div class="value" id="resultCashFlowColumn">- n/a</div>
+    </div>
+
+    <!-- NOI -->
+    <div class="roi-column" style="flex:1; min-width:140px; text-align:center;">
+      <div class="label">
+        NOI <span class="info" title="Net Operating Income: Rental income minus operating expenses, excluding mortgage.">ⓘ</span>
+      </div>
+      <div class="value" id="resultNOIColumn">- n/a</div>
+    </div>
+
+    <!-- Cash-on-Cash -->
+    <div class="roi-column" style="flex:1; min-width:140px; text-align:center;">
+      <div class="label">
+        Cash-on-Cash <span class="info" title="Annual cash flow divided by cash invested. Shows real leveraged return.">ⓘ</span>
+      </div>
+      <div class="value" id="resultCoCColumn">- n/a</div>
+    </div>
+
+  </div>
+  <!-- Disclaimer + Checkbox -->
+<div class="disclaimer-box">
+    <label class="disclaimer-check">
+<input type="checkbox" id="disclaimerAgree" checked disabled>
+        I understand that this calculator provides estimates only and does not constitute financial, legal, or investment advice.
+    </label>
+</div>
+
+
+  <!-- Text + Button Container -->
+  <div class="download-container" style="display:flex; justify-content:space-between; align-items:center; margin-top:30px; padding:15px; border-top:1px solid #ddd;">
+    <div class="download-text" style="flex:1; font-size:14px; color:#555;">
+      Generate a detailed PDF report of your investment metrics, including charts and summaries.
+    </div>
+    <button onclick="downloadPDF()" class="download-btn" style="padding:10px 20px; background-color:#005bff; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+      Download PDF
+    </button>
+  </div>
+</div>
+  <!-- =============================== -->
+<!-- FULL-WIDTH STATS CONTAINER     -->
+<!-- =============================== -->
+<div class="stats-fullwidth">
+    <h4 class="stats-title">Additional Investment Metrics</h4>
+
+    <div class="stats-grid">
+        <div class="stat-box">
+            <div class="stat-label">Cap Rate</div>
+            <div class="stat-value" id="capRateValue">- n/a</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-label">Annual Yield</div>
+            <div class="stat-value" id="yieldValue">- n/a</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-label">Expense Ratio</div>
+            <div class="stat-value" id="expenseRatioValue">- n/a</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-label">Debt Coverage Ratio (DCR)</div>
+            <div class="stat-value" id="dcrValue">- n/a</div>
+        </div>
+    </div>
+</div>
+
+<script>
+  
+// =========================================
+// Top 200+ US cities for autocomplete
+// =========================================
+const topCities = [
+  "New York, NY","Los Angeles, CA","Chicago, IL","Houston, TX","Phoenix, AZ",
+  "Philadelphia, PA","San Antonio, TX","San Diego, CA","Dallas, TX","San Jose, CA",
+  "Austin, TX","Jacksonville, FL","Fort Worth, TX","Columbus, OH","Charlotte, NC",
+  "San Francisco, CA","Indianapolis, IN","Seattle, WA","Denver, CO","Washington, DC",
+  "Boston, MA","El Paso, TX","Nashville, TN","Detroit, MI","Oklahoma City, OK",
+  "Portland, OR","Las Vegas, NV","Memphis, TN","Louisville, KY","Baltimore, MD",
+  "Milwaukee, WI","Albuquerque, NM","Tucson, AZ","Fresno, CA","Sacramento, CA",
+  "Kansas City, MO","Long Beach, CA","Mesa, AZ","Atlanta, GA","Colorado Springs, CO",
+  "Virginia Beach, VA","Raleigh, NC","Omaha, NE","Miami, FL","Oakland, CA",
+  "Minneapolis, MN","Tulsa, OK","Wichita, KS","New Orleans, LA","Arlington, TX",
+  // ... add remaining cities to reach 200+
+];
+
+// =========================================
+// AUTOCOMPLETE FUNCTION
+// =========================================
+function autocomplete(inp, arr) {
+  let currentFocus;
+
+  inp.addEventListener("input", function() {
+    let val = this.value;
+    closeAllLists();
+    if (!val) return false;
+    currentFocus = -1;
+
+    const listDiv = document.createElement("DIV");
+    listDiv.setAttribute("id", this.id + "-autocomplete-list");
+    listDiv.setAttribute("class", "autocomplete-items");
+    listDiv.style.border = "1px solid #ccc";
+    listDiv.style.borderTop = "none";
+    listDiv.style.position = "absolute";
+    listDiv.style.backgroundColor = "#fff";
+    listDiv.style.zIndex = "99";
+    listDiv.style.maxHeight = "200px";
+    listDiv.style.overflowY = "auto";
+    this.parentNode.appendChild(listDiv);
+
+    arr.forEach(city => {
+      if (city.toLowerCase().includes(val.toLowerCase())) {
+        const item = document.createElement("DIV");
+        item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
+        item.style.padding = "5px";
+        item.style.cursor = "pointer";
+        item.addEventListener("click", function() {
+          inp.value = city;
+          closeAllLists();
+        });
+        listDiv.appendChild(item);
+      }
+    });
+  });
+
+  inp.addEventListener("keydown", function(e) {
+    let x = document.getElementById(this.id + "-autocomplete-list");
+    if (x) x = x.getElementsByTagName("div");
+    if (e.keyCode == 40) { // down
+      currentFocus++;
+      addActive(x);
+    } else if (e.keyCode == 38) { // up
+      currentFocus--;
+      addActive(x);
+    } else if (e.keyCode == 13) { // enter
+      e.preventDefault();
+      if (currentFocus > -1) if (x) x[currentFocus].click();
+    }
+  });
+
+  function addActive(x) {
+    if (!x) return false;
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = x.length - 1;
+    x[currentFocus].classList.add("autocomplete-active");
+    x[currentFocus].style.backgroundColor = "#e9e9e9";
+  }
+
+  function removeActive(x) {
+    for (let i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+      x[i].style.backgroundColor = "#fff";
+    }
+  }
+
+  function closeAllLists(elmnt) {
+    const x = document.getElementsByClassName("autocomplete-items");
+    for (let i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) x[i].parentNode.removeChild(x[i]);
+    }
+  }
+
+  document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+  });
+}
+
+// =========================================
+// AUTO-DETECT LOCATION
+// =========================================
+function autoDetectLocation() {
+  fetch("https://ipapi.co/json/")
+    .then(res => res.json())
+    .then(data => {
+      let city = data.city || "";
+      let state = data.region || "";
+      if (city || state) {
+        const marketInput = document.getElementById("marketLocation");
+        marketInput.value = `${city}${city && state ? ", " : ""}${state}`;
+        marketInput.dispatchEvent(new Event("input")); // triggers autocomplete suggestions
+      }
+    })
+    .catch(err => console.warn("Location lookup failed:", err));
+}
+
+// Initialize
+window.addEventListener("load", () => {
+  autocomplete(document.getElementById("marketLocation"), topCities);
+  autoDetectLocation();
+});
+/* =========================================
+   FORMAT NUMBERS WITH COMMAS
+========================================= */
+function formatWithCommas(input) {
+    let value = input.value.replace(/[^\d]/g, '');
+    input.value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+/* =========================================
+   ANIMATE VALUE DISPLAY
+========================================= */
+function animateValue(id, start, end, duration) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const range = end - start;
+    const startTime = performance.now();
+
+    function frame(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = start + range * progress;
+        el.innerText = "$" + Math.floor(value).toLocaleString();
+        if (progress < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+}
+
+/* =========================================
+   DYNAMIC EXPENSES
+========================================= */
+const expenseTypes = [
+    "Repairs & Maintenance",
+    "Legal Fees",
+    "Vacancy Cost",
+    "Bookkeeping & Accounting",
+    "Bank Fees",
+    "Other"
+];
+
+function activateAddExpense() {
+    const wrapper = document.getElementById("addExpenseWrapper");
+    const addInput = document.getElementById("addExpenseInput");
+
+    addInput.onclick = () => {
+        wrapper.innerHTML = "";
+        const select = document.createElement("select");
+        select.innerHTML = `<option value="">Select Expense</option>` +
+            expenseTypes.map(t => `<option value="${t}">${t}</option>`).join("");
+        wrapper.appendChild(select);
+
+        select.onchange = () => {
+            if (!select.value) return;
+
+            const row = document.createElement("div");
+            row.className = "input-group added-expense";
+            row.innerHTML = `
+                <label>${select.value}</label>
+                <input type="text" class="expenseValue" placeholder="Amount">
+                <button type="button" class="remove-btn">✕</button>
+            `;
+            row.querySelector(".expenseValue").oninput = e => formatWithCommas(e.target);
+            row.querySelector(".remove-btn").onclick = () => row.remove();
+
+            wrapper.parentElement.insertBefore(row, wrapper);
+
+            wrapper.innerHTML = `
+                <label style="visibility:hidden;">Add Expense</label>
+                <input type="text" id="addExpenseInput" placeholder="+ Add Expense" readonly style="cursor:pointer;">
+            `;
+            activateAddExpense();
+        };
+    };
+}
+activateAddExpense();
+
+function calculateTotalExpenses() {
+    let total = 0;
+    document.querySelectorAll('.expenseValue').forEach(exp => {
+        total += Number(exp.value.replace(/,/g, '')) || 0;
+    });
+    return total;
+}
+
+/* =========================================
+   ROI CALCULATION (FIXED & IMPROVED)
+========================================= */
+
+let roiChart;
+
+function renderROIChart(totalROI, cashFlow, NOI, coc) {
+    const ctxEl = document.getElementById('roiChart');
+    if (!ctxEl) return;
+
+    const ctx = ctxEl.getContext('2d');
+    if (roiChart) roiChart.destroy();
+
+    roiChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Total ROI', 'Cash Flow', 'NOI', 'Cash-on-Cash'],
+            datasets: [{
+                data: [totalROI, cashFlow, NOI, coc],
+                backgroundColor: ['#005bff', '#00c851', '#ffbb33', '#ff4444']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+}
+
+function calculateROI() {
+
+    /* ---------- Helper ---------- */
+    const getVal = id => Number(document.getElementById(id)?.value.replace(/,/g, '')) || 0;
+
+    /* ---------- Inputs ---------- */
+    const purchasePrice = getVal('purchasePrice');
+    const cashInvestment = getVal('cashInvestment');
+    const loan = getVal('loanAmount');
+    const rent = getVal('rentIncome');
+
+    const appreciationRate = (Number(document.getElementById('appreciationRate')?.value) || 0) / 100;
+    const years = Number(document.getElementById('yearsHold')?.value) || 0;
+
+    const mortgageRateMonthly = ((Number(document.getElementById('mortgageRate')?.value) || 0) / 100) / 12;
+    const mortgageTermMonths = (Number(document.getElementById('mortgageTerm')?.value) || 0) * 12;
+
+    const taxes = getVal('taxes');
+    const insurance = getVal('insurance');
+    const hoaAnnual = getVal('hoa') * 12;
+
+    const vacancyRate = (Number(document.getElementById('vacancyRate')?.value) || 0) / 100;
+    const mgmtRate = (Number(document.getElementById('managementFees')?.value) || 0) / 100;
+
+    const dynamicExpenses = calculateTotalExpenses();
+
+    /* ---------- Mortgage Payment ---------- */
+    let mortgagePayment = 0;
+    if (loan > 0 && mortgageRateMonthly > 0 && mortgageTermMonths > 0) {
+        mortgagePayment =
+            loan *
+            (mortgageRateMonthly * Math.pow(1 + mortgageRateMonthly, mortgageTermMonths)) /
+            (Math.pow(1 + mortgageRateMonthly, mortgageTermMonths) - 1);
+    }
+
+    /* ---------- Income ---------- */
+    const totalAnnualIncome = rent * 12;
+
+    // NEW: Rent × 12 × Years
+    const totalRentCollected = rent * 12 * years;
+
+    /* ---------- Operating Costs ---------- */
+    const totalOperatingExpenses =
+        taxes +
+        insurance +
+        hoaAnnual +
+        dynamicExpenses +
+        (rent * mgmtRate);
+
+    const netIncome = totalAnnualIncome - totalOperatingExpenses;
+
+    /* ---------- ROI (fixed incorrect formula) ---------- 
+       Correct ROI = (Net Income × Years + Appreciation Gain + Mortgage Principal Paid)
+    ------------------------------------------------------ */
+
+    const monthlyVacancyAdjustedRent = rent * (1 - vacancyRate);
+
+    const monthlyOperatingExpenses =
+        (taxes + insurance + dynamicExpenses) / 12 +
+        (hoaAnnual / 12) +
+        (rent * mgmtRate);
+
+    const monthlyCashFlow = monthlyVacancyAdjustedRent - monthlyOperatingExpenses - mortgagePayment;
+    const annualCashFlow = monthlyCashFlow * 12;
+
+    const NOI = (monthlyVacancyAdjustedRent * 12) - (monthlyOperatingExpenses * 12);
+
+    const CoC = cashInvestment > 0 ? (annualCashFlow / cashInvestment) * 100 : 0;
+
+    /* ---------- Property Growth ---------- */
+    const futureValue = purchasePrice * Math.pow(1 + appreciationRate, years);
+    const appreciationGain = futureValue - purchasePrice;
+
+    // FIXED — equity isn't “cash + gain – loan”
+    const equity = futureValue - loan;
+
+    /* ---------- Mortgage Payoff & ROI ---------- */
+    const mortgagePaidOff = loan - (loan * Math.pow(1 + mortgageRateMonthly, mortgageTermMonths - years * 12));
+
+    const totalROI =
+        (annualCashFlow * years) +
+        appreciationGain +
+        (mortgagePaidOff > 0 ? mortgagePaidOff : 0);
+
+    /* ---------- Animate Large Display ---------- */
+    animateValue("resultTotalROILarge", 0, totalROI, 1000);
+
+    /* ---------- Update Mini Metrics ---------- */
+    document.getElementById("resultCashFlowColumn").innerText =
+        "Equity: $" + Math.floor(equity).toLocaleString();
+
+    document.getElementById("resultNOIColumn").innerText =
+        "Gain: $" + Math.floor(appreciationGain).toLocaleString();
+
+    document.getElementById("resultCoCColumn").innerText =
+        "Total Rent: $" + Math.floor(totalRentCollected).toLocaleString();
+
+    /* ---------- Additional Metrics ---------- */
+    const capRate = purchasePrice ? (NOI / purchasePrice) * 100 : 0;
+    const annualYield = cashInvestment ? (annualCashFlow / cashInvestment) * 100 : 0;
+    const expenseRatio = totalAnnualIncome ? (totalOperatingExpenses / totalAnnualIncome) * 100 : 0;
+
+    // FIXED Debt Coverage Ratio
+    const DCR = mortgagePayment > 0 ? (NOI / (mortgagePayment * 12)) : 0;
+
+    document.getElementById("capRateValue").innerText = capRate.toFixed(2) + "%";
+    document.getElementById("yieldValue").innerText = annualYield.toFixed(2) + "%";
+    document.getElementById("expenseRatioValue").innerText = expenseRatio.toFixed(2) + "%";
+    document.getElementById("dcrValue").innerText = DCR.toFixed(2);
+
+    /* ---------- Chart Update ---------- */
+    renderROIChart(totalROI, annualCashFlow, NOI, CoC);
+}
+
+/* ---------- Auto-Recalculate ---------- */
+document.querySelectorAll(
+    '#purchasePrice,#cashInvestment,#loanAmount,#rentIncome,#taxes,#insurance,#hoa,#mortgageRate,#mortgageTerm,#vacancyRate,#managementFees,#appreciationRate,#yearsHold'
+).forEach(input => input.addEventListener('input', calculateROI));
+
+/* ---------- Initialize ---------- */
+window.addEventListener('load', calculateROI);
+
+
+/* =========================================
+   AUTO-FORMAT INPUTS
+========================================= */
+document.querySelectorAll('#purchasePrice,#cashInvestment,#loanAmount,#taxes,#insurance,#hoa,#rentIncome')
+    .forEach(input => input.addEventListener('input', () => formatWithCommas(input)));
+
+/* =========================================
+   TABS
+========================================= */
+document.querySelectorAll('.tab-container .tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab-container .tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        const contentEl = document.getElementById("tab-" + tab.dataset.tab);
+        if (contentEl) contentEl.classList.add('active');
+    });
+});
+
+/* =========================================
+   TOOLTIP USING TITLE
+========================================= */
+document.querySelectorAll('.info').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        tooltip.style.position = 'absolute';
+        tooltip.style.background = '#000';
+        tooltip.style.color = '#fff';
+        tooltip.style.padding = '4px 8px';
+        tooltip.style.borderRadius = '4px';
+        tooltip.style.fontSize = '12px';
+        tooltip.style.zIndex = 1000;
+        tooltip.innerText = el.title;
+        document.body.appendChild(tooltip);
+
+        const rect = el.getBoundingClientRect();
+        tooltip.style.left = rect.left + window.scrollX + "px";
+        tooltip.style.top = rect.bottom + window.scrollY + "px";
+
+        el.addEventListener('mouseleave', () => tooltip.remove(), { once: true });
+    });
+});
+
+/* =========================================
+   PDF GENERATOR
+========================================= */
+function downloadPDF() {
+    const agree = document.getElementById("disclaimerAgree");
+    if (!agree.checked) {
+        alert("Please accept the disclaimer to download the PDF.");
+        return;
+    }
+
+    const element = document.getElementById('reportSection');
+    if (!element) return;
+    element.style.display = "block";
+
+    html2canvas(element, { scale: 2 }).then(canvas => {
+        const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+        const width = pdf.internal.pageSize.getWidth();
+        const height = canvas.height * width / canvas.width;
+
+        pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, width, height);
+        pdf.save("Investment_Report.pdf");
+        element.style.display = "none";
+    });
+}
+</script>
+
+
+</body>
+</html>
