@@ -1213,7 +1213,8 @@ function downloadPDF() {
         element.style.display = "none";
     });
 }
-function initCustomInputs() {
+
+function initSuggestedInputs() {
   const inputs = [
     { id: "rentIncome", min: 1, max: 999999, step: 1 },
     { id: "appreciationRate", min: 0.1, max: 99.9, step: 0.1 }
@@ -1225,10 +1226,17 @@ function initCustomInputs() {
     const popup = document.getElementById(cfg.id + "Suggestion");
 
     // Show popup on focus
-    input.addEventListener("focus", () => popup.style.display = "block");
-    input.addEventListener("blur", () => setTimeout(() => popup.style.display = "none", 200));
+    input.addEventListener("focus", () => {
+      popup.style.display = "block";
+      if (!input.value) input.value = suggest;
+    });
 
-    // Start with suggested value if empty
+    input.addEventListener("blur", () => {
+      setTimeout(() => popup.style.display = "none", 200);
+      if (Number(input.value) === suggest) input.value = ""; // restore placeholder
+    });
+
+    // Up/Down arrows
     input.addEventListener("keydown", e => {
       let val = parseFloat(input.value.replace(/,/g,'')) || suggest;
 
@@ -1236,16 +1244,16 @@ function initCustomInputs() {
         e.preventDefault();
         val += cfg.step;
         if (val > cfg.max) val = cfg.max;
-        input.value = val;
+        input.value = cfg.id === "rentIncome" ? Math.round(val).toLocaleString() : val;
       } else if (e.key === "ArrowDown") {
         e.preventDefault();
         val -= cfg.step;
         if (val < cfg.min) val = cfg.min;
-        input.value = val;
+        input.value = cfg.id === "rentIncome" ? Math.round(val).toLocaleString() : val;
       }
     });
 
-    // Format input with commas for rent
+    // Input formatting
     input.addEventListener("input", () => {
       let num = parseFloat(input.value.replace(/[^0-9.]/g,''));
       if (isNaN(num)) return;
@@ -1258,7 +1266,7 @@ function initCustomInputs() {
   });
 }
 
-window.addEventListener("load", initCustomInputs);
+window.addEventListener("load", initSuggestedInputs);
 
 
 </script>
