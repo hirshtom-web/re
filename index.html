@@ -29,13 +29,32 @@ html, body {
   padding:10px 25px;
   background: linear-gradient(90deg, #ffb0b0, #6d00ef);
   color:#fff;
-  position:sticky;top:0;font-size:10px;font-weight:600;
-  display:flex;align-items:center;justify-content:space-between;z-index:1001;
+  position:sticky;
+  top:0;
+  font-size:10px;
+  font-weight:600;
+  display:flex;
+  justify-content:center; /* centers the whole alert content */
+  align-items:center;
+  z-index:1001;
 }
-.alert .material-symbols-outlined{font-size:14px;}
-.alert a.learn-more{color:#fff;text-decoration:underline;}
-.closebtn{cursor:pointer;transition:.3s;}
-.closebtn:hover{font-size:18px;}
+
+/* wrap icon + text together */
+.alert-inner {
+  display:flex;
+  align-items:center;
+  gap:8px; /* spacing between icon + text */
+}
+
+.alert .material-symbols-outlined{
+  font-size:14px;
+}
+
+.alert a.learn-more{
+  color:#fff;
+  text-decoration:underline;
+}
+
 
 /* ===============================
    HEADER
@@ -44,7 +63,7 @@ header{
   display:flex;justify-content:space-between;align-items:center;
   padding:15px 30px;background:#fff;position:sticky;top:0;z-index:1000;
 }
-.logo img{height:30px;}
+.logo img{height:25px;}
 
 /* ===============================
    DESKTOP NAV
@@ -301,12 +320,17 @@ nav > div.services .submenu-right{background:rgba(163,52,175,.08);}
 </head>
 
 <body>
+   
 <!-- ALERT -->
 <div class="alert">
-  <span class="material-symbols-outlined">trending_up</span>
-  <span>2026’s fastest-growing real estate platform. <a href="#" class="learn-more">Learn more</a></span>
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+  <div class="alert-inner">
+    <span class="material-symbols-outlined">trending_up</span>
+    <span>2026’s fastest-growing real estate platform. 
+      <a href="#" class="learn-more">Learn more</a>
+    </span>
+  </div>
 </div>
+
 
 <!-- HEADER -->
 <header>
