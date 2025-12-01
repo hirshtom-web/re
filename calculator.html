@@ -1023,10 +1023,6 @@ function calculateTotalExpenses() {
     return total;
 }
 
-/* =========================================
-   ROI CALCULATION (FIXED & IMPROVED)
-========================================= */
-
 let roiChart;
 
 function renderROIChart(totalROI, cashFlow, NOI, coc) {
@@ -1055,31 +1051,36 @@ function renderROIChart(totalROI, cashFlow, NOI, coc) {
 
 function calculateROI() {
 
-    /* ---------- Helper ---------- */
+    // ---------- Helper ----------
     const getVal = id => Number(document.getElementById(id)?.value.replace(/,/g, '')) || 0;
 
-    /* ---------- Inputs ---------- */
+    // ---------- Inputs ----------
     const purchasePrice = getVal('purchasePrice');
+    const rent = getVal('rentIncome');
+    const years = Number(document.getElementById('yearsHold')?.value) || 0;
+    const appreciationRate = (Number(document.getElementById('appreciationRate')?.value) || 0) / 100;
+
+    // Financing Inputs
     const cashInvestment = getVal('cashInvestment');
     const loan = getVal('loanAmount');
-    const rent = getVal('rentIncome');
-
-    const appreciationRate = (Number(document.getElementById('appreciationRate')?.value) || 0) / 100;
-    const years = Number(document.getElementById('yearsHold')?.value) || 0;
-
     const mortgageRateMonthly = ((Number(document.getElementById('mortgageRate')?.value) || 0) / 100) / 12;
     const mortgageTermMonths = (Number(document.getElementById('mortgageTerm')?.value) || 0) * 12;
 
+    // Expenses Inputs
     const taxes = getVal('taxes');
     const insurance = getVal('insurance');
     const hoaAnnual = getVal('hoa') * 12;
-
     const vacancyRate = (Number(document.getElementById('vacancyRate')?.value) || 0) / 100;
     const mgmtRate = (Number(document.getElementById('managementFees')?.value) || 0) / 100;
-
     const dynamicExpenses = calculateTotalExpenses();
 
-    /* ---------- Mortgage Payment ---------- */
+    // ---------- Base ROI (Always Visible) ----------
+    const totalRentCollected = rent * 12 * years;
+    const futureValue = purchasePrice * Math.pow(1 + appreciationRate, years);
+    const appreciationGain = futureValue - purchasePrice;
+    let baseROI = totalRentCollected + appreciationGain;
+
+    // ---------- Financing Adjustments ----------
     let mortgagePayment = 0;
     if (loan > 0 && mortgageRateMonthly > 0 && mortgageTermMonths > 0) {
         mortgagePayment =
@@ -1087,75 +1088,37 @@ function calculateROI() {
             (mortgageRateMonthly * Math.pow(1 + mortgageRateMonthly, mortgageTermMonths)) /
             (Math.pow(1 + mortgageRateMonthly, mortgageTermMonths) - 1);
     }
+    let mortgagePaidOff = 0;
+    if (loan > 0 && mortgageRateMonthly > 0 && years > 0) {
+        mortgagePaidOff = loan - (loan * Math.pow(1 + mortgageRateMonthly, mortgageTermMonths - years * 12));
+        mortgagePaidOff = mortgagePaidOff > 0 ? mortgagePaidOff : 0;
+    }
 
-    /* ---------- Income ---------- */
-    const totalAnnualIncome = rent * 12;
-
-    // NEW: Rent × 12 × Years
-    const totalRentCollected = rent * 12 * years;
-
-    /* ---------- Operating Costs ---------- */
-    const totalOperatingExpenses =
-        taxes +
-        insurance +
-        hoaAnnual +
-        dynamicExpenses +
-        (rent * mgmtRate);
-
-    const netIncome = totalAnnualIncome - totalOperatingExpenses;
-
-    /* ---------- ROI (fixed incorrect formula) ---------- 
-       Correct ROI = (Net Income × Years + Appreciation Gain + Mortgage Principal Paid)
-    ------------------------------------------------------ */
-
+    // ---------- Expenses / Vacancy Adjustments ----------
     const monthlyVacancyAdjustedRent = rent * (1 - vacancyRate);
-
-    const monthlyOperatingExpenses =
-        (taxes + insurance + dynamicExpenses) / 12 +
-        (hoaAnnual / 12) +
-        (rent * mgmtRate);
-
+    const monthlyOperatingExpenses = (taxes + insurance + dynamicExpenses) / 12 + (hoaAnnual / 12) + (rent * mgmtRate);
     const monthlyCashFlow = monthlyVacancyAdjustedRent - monthlyOperatingExpenses - mortgagePayment;
     const annualCashFlow = monthlyCashFlow * 12;
-
     const NOI = (monthlyVacancyAdjustedRent * 12) - (monthlyOperatingExpenses * 12);
-
     const CoC = cashInvestment > 0 ? (annualCashFlow / cashInvestment) * 100 : 0;
 
-    /* ---------- Property Growth ---------- */
-    const futureValue = purchasePrice * Math.pow(1 + appreciationRate, years);
-    const appreciationGain = futureValue - purchasePrice;
+    // ---------- Total ROI Combining Base + Adjustments ----------
+    const totalROI = baseROI + annualCashFlow * years + mortgagePaidOff;
 
-    // FIXED — equity isn't “cash + gain – loan”
-    const equity = futureValue - loan;
-
-    /* ---------- Mortgage Payoff & ROI ---------- */
-    const mortgagePaidOff = loan - (loan * Math.pow(1 + mortgageRateMonthly, mortgageTermMonths - years * 12));
-
-    const totalROI =
-        (annualCashFlow * years) +
-        appreciationGain +
-        (mortgagePaidOff > 0 ? mortgagePaidOff : 0);
-
-    /* ---------- Animate Large Display ---------- */
+    // ---------- Animate & Display ----------
     animateValue("resultTotalROILarge", 0, totalROI, 1000);
-
-    /* ---------- Update Mini Metrics ---------- */
     document.getElementById("resultCashFlowColumn").innerText =
-        "Equity: $" + Math.floor(equity).toLocaleString();
-
+        "Equity: $" + Math.floor(futureValue - loan).toLocaleString();
     document.getElementById("resultNOIColumn").innerText =
         "Gain: $" + Math.floor(appreciationGain).toLocaleString();
-
     document.getElementById("resultCoCColumn").innerText =
         "Total Rent: $" + Math.floor(totalRentCollected).toLocaleString();
 
-    /* ---------- Additional Metrics ---------- */
+    // ---------- Additional Metrics ----------
     const capRate = purchasePrice ? (NOI / purchasePrice) * 100 : 0;
     const annualYield = cashInvestment ? (annualCashFlow / cashInvestment) * 100 : 0;
-    const expenseRatio = totalAnnualIncome ? (totalOperatingExpenses / totalAnnualIncome) * 100 : 0;
-
-    // FIXED Debt Coverage Ratio
+    const totalOperatingExpenses = taxes + insurance + hoaAnnual + dynamicExpenses + (rent * mgmtRate);
+    const expenseRatio = totalRentCollected ? (totalOperatingExpenses / totalRentCollected) * 100 : 0;
     const DCR = mortgagePayment > 0 ? (NOI / (mortgagePayment * 12)) : 0;
 
     document.getElementById("capRateValue").innerText = capRate.toFixed(2) + "%";
@@ -1163,18 +1126,14 @@ function calculateROI() {
     document.getElementById("expenseRatioValue").innerText = expenseRatio.toFixed(2) + "%";
     document.getElementById("dcrValue").innerText = DCR.toFixed(2);
 
-    /* ---------- Chart Update ---------- */
+    // ---------- Update Chart ----------
     renderROIChart(totalROI, annualCashFlow, NOI, CoC);
 }
 
-/* ---------- Auto-Recalculate ---------- */
+// ---------- Auto-Recalculate ----------
 document.querySelectorAll(
     '#purchasePrice,#cashInvestment,#loanAmount,#rentIncome,#taxes,#insurance,#hoa,#mortgageRate,#mortgageTerm,#vacancyRate,#managementFees,#appreciationRate,#yearsHold'
 ).forEach(input => input.addEventListener('input', calculateROI));
-
-/* ---------- Initialize ---------- */
-window.addEventListener('load', calculateROI);
-
 
 /* =========================================
    AUTO-FORMAT INPUTS
