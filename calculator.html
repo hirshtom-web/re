@@ -406,6 +406,13 @@ input:focus, select:focus {
         text-align: center;
     }
 }
+  .suggestion-popup {
+  display: none;
+  font-size: 12px;
+  color: #555;
+  margin-top: 2px;
+}
+
 
 /* ======================================= */
 /* FULL WIDTH STATS BLOCK (DESKTOP)        */
@@ -602,28 +609,17 @@ input:focus, select:focus {
     Monthly Rent ($)
     <span class="info" title="Expected monthly rental income from tenants.">ⓘ</span>
   </label>
-  <input type="number"
-       id="rentIncome"
-       placeholder="2,350"
-       min="1"
-       max="999999"
-       step="1"
-       data-suggest="2350">
-
+  <input type="text" id="rentIncome" placeholder="2,350" data-suggest="2350">
+  <div class="suggestion-popup" id="rentSuggestion">Suggested: $2,350</div>
 </div>
 
-    <div class="input-group">
+<div class="input-group">
   <label>
     Appreciation Rate (%)
     <span class="info" title="Expected annual percentage increase in the property value.">ⓘ</span>
   </label>
-  <input type="number" 
-         id="appreciationRate" 
-         placeholder="9.2" 
-         min="0.1" 
-         max="99.9" 
-         step="0.1"
-         data-suggest="9.2">
+  <input type="text" id="appreciationRate" placeholder="9.2" data-suggest="9.2">
+  <div class="suggestion-popup" id="appSuggestion">Suggested: 9.2%</div>
 </div>
 
     <div class="input-group">
@@ -1217,40 +1213,52 @@ function downloadPDF() {
         element.style.display = "none";
     });
 }
- function initSuggestedInputs() {
-  document.querySelectorAll('#rentIncome, #appreciationRate').forEach(input => {
+function initCustomInputs() {
+  const inputs = [
+    { id: "rentIncome", min: 1, max: 999999, step: 1 },
+    { id: "appreciationRate", min: 0.1, max: 99.9, step: 0.1 }
+  ];
+
+  inputs.forEach(cfg => {
+    const input = document.getElementById(cfg.id);
     const suggest = Number(input.dataset.suggest);
+    const popup = document.getElementById(cfg.id + "Suggestion");
 
-    input.addEventListener('focus', () => {
-      if (!input.value) input.value = suggest;
-    });
+    // Show popup on focus
+    input.addEventListener("focus", () => popup.style.display = "block");
+    input.addEventListener("blur", () => setTimeout(() => popup.style.display = "none", 200));
 
-    input.addEventListener('blur', () => {
-      if (input.value == suggest) input.value = ""; // show placeholder again
-    });
-
-    input.addEventListener('keydown', (e) => {
-      const step = Number(input.step) || 1;
-      const min = Number(input.min) || 0;
-      const max = Number(input.max) || Infinity;
-      let val = Number(input.value) || suggest;
+    // Start with suggested value if empty
+    input.addEventListener("keydown", e => {
+      let val = parseFloat(input.value.replace(/,/g,'')) || suggest;
 
       if (e.key === "ArrowUp") {
         e.preventDefault();
-        val += step;
-        if (val > max) val = max;
+        val += cfg.step;
+        if (val > cfg.max) val = cfg.max;
         input.value = val;
       } else if (e.key === "ArrowDown") {
         e.preventDefault();
-        val -= step;
-        if (val < min) val = min;
+        val -= cfg.step;
+        if (val < cfg.min) val = cfg.min;
         input.value = val;
+      }
+    });
+
+    // Format input with commas for rent
+    input.addEventListener("input", () => {
+      let num = parseFloat(input.value.replace(/[^0-9.]/g,''));
+      if (isNaN(num)) return;
+      if (cfg.id === "rentIncome") {
+        input.value = Math.min(Math.max(num, cfg.min), cfg.max).toLocaleString();
+      } else {
+        input.value = Math.min(Math.max(num, cfg.min), cfg.max);
       }
     });
   });
 }
 
-window.addEventListener('load', initSuggestedInputs);
+window.addEventListener("load", initCustomInputs);
 
 
 </script>
