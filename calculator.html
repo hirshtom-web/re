@@ -1102,8 +1102,9 @@ function calculateROI() {
     const NOI = (monthlyVacancyAdjustedRent * 12) - (monthlyOperatingExpenses * 12);
     const CoC = cashInvestment > 0 ? (annualCashFlow / cashInvestment) * 100 : 0;
 
-    // ---------- Total ROI Combining Base + Adjustments ----------
-    const totalROI = baseROI + annualCashFlow * years + mortgagePaidOff;
+// ---------- Total ROI Combining Base + Adjustments ----------
+const totalROI = baseROI + (annualCashFlow * years - totalRentCollected) + mortgagePaidOff;
+
 
     // ---------- Animate & Display ----------
     animateValue("resultTotalROILarge", 0, totalROI, 1000);
