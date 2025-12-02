@@ -341,119 +341,137 @@ nav > div.services .submenu-right{background:rgba(163,52,175,.08);}
 <!-- HEADER -->
 <!-- HEADER -->
 <header>
-  <!-- Logo -->
   <div class="logo">
     <img src="https://static.wixstatic.com/shapes/1799ca_f9630561313e4b2d9933265603bc6a0c.svg" alt="Logo">
   </div>
 
-  <!-- RIGHT SIDE BUTTONS (replace burger icon) -->
-  <div class="auth-buttons">
-    <a href="#" class="sign-in-btn">Sign In</a>
-    <button class="sign-up-btn" onclick="toggleMenu()">Sign Up</button>
+  <div class="menu-toggle" onclick="toggleMenu(this)">
+    <span></span><span></span>
   </div>
 
   <!-- DESKTOP NAV -->
   <nav id="nav-menu">
 
-    <!-- LEFT NAV GROUP -->
-    <div class="nav-left">
+    <!-- BUY -->
+    <div class="buy">
+      <a href="#">Buy</a>
+      <div class="submenu">
+        <div class="submenu-inner">
+          <div class="submenu-left">
 
-      <!-- BUY -->
-      <div class="buy">
-        <a href="#">Buy</a>
-        <div class="submenu">
-          <div class="submenu-inner">
-            <div class="submenu-left">
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Residential</div><div class="submenu-subtitle">Buy your dream home</div></div><span class="material-symbols-outlined submenu-icon">home</span></div></a>
 
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Residential</div><div class="submenu-subtitle">Buy your dream home</div></div><span class="material-symbols-outlined submenu-icon">home</span></div></a>
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Commercial</div><div class="submenu-subtitle">Office & Retail Spaces</div></div><span class="material-symbols-outlined submenu-icon">apartment</span></div></a>
 
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Commercial</div><div class="submenu-subtitle">Office & Retail Spaces</div></div><span class="material-symbols-outlined submenu-icon">apartment</span></div></a>
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Luxury</div><div class="submenu-subtitle">High-end Properties</div></div><span class="material-symbols-outlined submenu-icon">diamond</span></div></a>
 
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Luxury</div><div class="submenu-subtitle">High-end Properties</div></div><span class="material-symbols-outlined submenu-icon">diamond</span></div></a>
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Property Mgmt</div><div class="submenu-subtitle">Manage your assets</div></div><span class="material-symbols-outlined submenu-icon">folder_shared</span></div></a>
 
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Property Mgmt</div><div class="submenu-subtitle">Manage your assets</div></div><span class="material-symbols-outlined submenu-icon">folder_shared</span></div></a>
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Tenant Portal</div><div class="submenu-subtitle">Access anytime</div></div><span class="material-symbols-outlined submenu-icon">key</span></div></a>
 
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Tenant Portal</div><div class="submenu-subtitle">Access anytime</div></div><span class="material-symbols-outlined submenu-icon">key</span></div></a>
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Reports</div><div class="submenu-subtitle">Track performance</div></div><span class="material-symbols-outlined submenu-icon">bar_chart</span></div></a>
 
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Reports</div><div class="submenu-subtitle">Track performance</div></div><span class="material-symbols-outlined submenu-icon">bar_chart</span></div></a>
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Residential</div><div class="submenu-subtitle">Buy your dream home</div></div><span class="material-symbols-outlined submenu-icon">home</span></div></a>
 
-            </div>
+          </div>
 
-            <div class="submenu-right map-container">
-              <div id="map"></div>
-              <div class="tooltip" id="tooltip"></div>
-            </div>
+          <div class="submenu-right map-container">
+            <div id="map"></div>
+            <div class="tooltip" id="tooltip"></div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- MANAGE -->
-      <div class="manage">
-        <a href="#">Manage</a>
-        <div class="submenu">
-          <div class="submenu-inner">
-            <div class="submenu-left">
+    <!-- MANAGE -->
+    <div class="manage">
+      <a href="#">Manage</a>
+      <div class="submenu">
+        <div class="submenu-inner">
 
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Property Mgmt</div><div class="submenu-subtitle">Manage your assets</div></div><span class="material-symbols-outlined submenu-icon">folder_shared</span></div></a>
+          <div class="submenu-left">
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Property Mgmt</div><div class="submenu-subtitle">Manage your assets</div></div><span class="material-symbols-outlined submenu-icon">folder_shared</span></div></a>
 
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Tenant Portal</div><div class="submenu-subtitle">Access anytime</div></div><span class="material-symbols-outlined submenu-icon">key</span></div></a>
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Tenant Portal</div><div class="submenu-subtitle">Access anytime</div></div><span class="material-symbols-outlined submenu-icon">key</span></div></a>
 
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Reports</div><div class="submenu-subtitle">Track performance</div></div><span class="material-symbols-outlined submenu-icon">bar_chart</span></div></a>
-
-            </div>
-
-            <div class="submenu-right media-box">
-              <video src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
-              <div class="media-text">
-                <h4>Portfolio Insights</h4>
-                <p>Track your property performance in real time.</p>
-              </div>
-            </div>
-
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Reports</div><div class="submenu-subtitle">Track performance</div></div><span class="material-symbols-outlined submenu-icon">bar_chart</span></div></a>
           </div>
+
+          <div class="submenu-right media-box">
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+            <div class="media-text">
+              <h4>Portfolio Insights</h4>
+              <p>Track your property performance in real time.</p>
+            </div>
+          </div>
+
         </div>
       </div>
+    </div>
 
-      <!-- SERVICES -->
-      <div class="services">
-        <a href="#">Services</a>
-        <div class="submenu">
-          <div class="submenu-inner">
+    <!-- SERVICES -->
+    <div class="services">
+      <a href="#">Services</a>
+      <div class="submenu">
+        <div class="submenu-inner">
 
-            <div class="submenu-left">
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Consulting</div><div class="submenu-subtitle">Professional advice</div></div><span class="material-symbols-outlined submenu-icon">business_center</span></div></a>
+          <div class="submenu-left">
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Consulting</div><div class="submenu-subtitle">Professional advice</div></div><span class="material-symbols-outlined submenu-icon">business_center</span></div></a>
 
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Valuation</div><div class="submenu-subtitle">Property appraisals</div></div><span class="material-symbols-outlined submenu-icon">straighten</span></div></a>
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Valuation</div><div class="submenu-subtitle">Property appraisals</div></div><span class="material-symbols-outlined submenu-icon">straighten</span></div></a>
 
-              <a href="#"><div class="submenu-item"><div><div class="submenu-title">Marketing</div><div class="submenu-subtitle">Promote your property</div></div><span class="material-symbols-outlined submenu-icon">campaign</span></div></a>
-            </div>
-
-            <div class="submenu-right media-box">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600" alt="Service" />
-              <div class="media-text">
-                <h4>Expert Services</h4>
-                <p>Tailored strategies for your success.</p>
-              </div>
-            </div>
-
+            <a href="#"><div class="submenu-item"><div><div class="submenu-title">Marketing</div><div class="submenu-subtitle">Promote your property</div></div><span class="material-symbols-outlined submenu-icon">campaign</span></div></a>
           </div>
+
+          <div class="submenu-right media-box">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600" alt="Service" />
+            <div class="media-text">
+              <h4>Expert Services</h4>
+              <p>Tailored strategies for your success.</p>
+            </div>
+          </div>
+
         </div>
       </div>
+    </div>
 
-      <div><a href="#">Developers</a></div>
-      <div><a href="#">Company</a></div>
+    <div><a href="#">Developers</a></div>
+    <div><a href="#">Company</a></div>
 
-    </div> <!-- END nav-left -->
+    <!-- ⭐ ADDED RIGHT-SIDE GROUP (ONLY CHANGE YOU REQUESTED) -->
+    <div class="nav-right-group" style="margin-left:auto; display:flex; gap:26px; align-items:center;">
 
-    <!-- RIGHT SIDE AUTH LINKS (DESKTOP NAV) -->
-    <div class="nav-right">
-      <a href="#" class="nav-sign-in">Sign In</a>
-      <a href="#" class="nav-sign-up">Sign Up</a>
+      <a href="#" style="color:#000; font-weight:500; font-size:13px;">
+        How It Works
+      </a>
+
+      <a href="#" style="
+        background: linear-gradient(90deg,#3b7cff,#a734ff);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        font-weight:600; font-size:13px;">
+        AI Agent
+      </a>
+
+      <a href="#" style="color:#6327e5; font-weight:600; font-size:13px;">
+        Sign In
+      </a>
+
+      <a href="#" style="
+        padding:10px 20px;
+        background:#6327e5;
+        color:#fff;
+        border-radius:999px;
+        font-size:12px;
+        font-weight:600;">
+        Sign Up
+      </a>
+
     </div>
 
   </nav>
 
-  <!-- MOBILE MENU -->
+  <!-- MOBILE MENU (unchanged) -->
   <ul class="mobile-menu">
     <li>
       <a href="#">Buy <span class="arrow">expand_more</span></a>
@@ -487,9 +505,7 @@ nav > div.services .submenu-right{background:rgba(163,52,175,.08);}
 
     <li><a href="#">Developers</a></li>
     <li><a href="#">Company</a></li>
-
     <li><a href="#" class="btn-bubble">Sign In</a></li>
-    <li><a href="#" class="btn-bubble">Sign Up</a></li>
   </ul>
 
 </header>
