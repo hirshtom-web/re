@@ -595,102 +595,6 @@ input:focus, select:focus {
   }
 }
 
-/* ======================================= */
-/* FULL WIDTH STATS BLOCK (DESKTOP)        */
-/* ======================================= */
-/* Outer container: match stats-fullwidth style */
-.puzzle-section {
-    width: 100%;
-    max-width: 1200px;
-    margin: 40px auto 0 auto;      /* same top margin */
-    padding: 30px;                 /* same as stats-fullwidth */
-    background: #fff;
-    border-radius: 45px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    box-sizing: border-box;
-}
-
-/* Inner wrapper: maintains original puzzle grid layout */
-.puzzle-wrapper {
-    display: grid;
-    grid-template-columns: 2fr 1fr 0.5fr 0.5fr; /* left double, middle, right two */
-    grid-template-rows: 1fr 1fr;
-    gap: 40px;                               /* same gap as other sections */
-}
-
-/* LEFT BLOCK */
-.puzzle-left {
-    grid-column: 1 / 2;
-    grid-row: 1 / span 2;
-    background: #dce4f7;
-    border-radius: 20px;
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* MIDDLE BLOCK */
-.puzzle-middle {
-    grid-column: 2 / 3;
-    grid-row: 1 / span 2;
-    background: #ffe2b8;
-    border-radius: 20px;
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* RIGHT TOP BLOCKS */
-.puzzle-right-top-a {
-    grid-column: 3 / 4;
-    grid-row: 1;
-    background: #c8f5dd;
-    border-radius: 15px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.puzzle-right-top-b {
-    grid-column: 4 / 5;
-    grid-row: 1;
-    background: #c8f5dd;
-    border-radius: 15px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* RIGHT BOTTOM BLOCK */
-.puzzle-right-bottom {
-    grid-column: 3 / span 2;
-    grid-row: 2;
-    background: #f8d5d5;
-    border-radius: 15px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Responsive */
-@media(max-width: 900px) {
-    .puzzle-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-    .puzzle-left, .puzzle-middle, .puzzle-right-top-a, .puzzle-right-top-b, .puzzle-right-bottom {
-        grid-column: auto;
-        grid-row: auto;
-        width: 100%;
-    }
-}
-
 
   </style>
 
@@ -978,22 +882,7 @@ input:focus, select:focus {
     </div>
 </div>
 </div>
-  
 
-  <div class="puzzle-wrapper">
-
-    <div class="puzzle-left">Left 50%</div>
-    <div class="puzzle-middle">Middle 25%</div>
-    <div class="puzzle-right-top-a">Top Right A</div>
-    <div class="puzzle-right-top-b">Top Right B</div>
-    <div class="puzzle-right-bottom">Bottom Right</div>
-
-  </div>
-
-
-
-</div>
-</div>
   
 <script>
 
