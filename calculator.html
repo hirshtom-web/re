@@ -11,6 +11,7 @@
 <!-- Chart library for graphs -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
 <style>
 /* ===================== */
@@ -594,6 +595,8 @@ input:focus, select:focus {
 </head>
 <body>
 
+  <div id="header-container"></div>
+
 <div class="container">
   <div class="inputs-container">
   <h2>See your next real estate investment in numbers</h2>
@@ -868,7 +871,18 @@ input:focus, select:focus {
 </div>
 
 <script>
-  
+
+  // =========================================
+// LOAD HEADER
+// =========================================
+
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-container').innerHTML = data;
+    })
+    .catch(err => console.error('Error loading header:', err));
+
 // =========================================
 // Top 200+ US cities for autocomplete
 // =========================================
