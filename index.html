@@ -78,89 +78,152 @@ header {
 /* ===============================
    DESKTOP NAV
 ================================== */
-nav{display:flex;gap:30px;align-items:center;position:relative;}
-nav > div{position:relative;}
-nav > div > a{
-  color:#130328;font-weight:500;font-size:13px;padding:10px 0;
-  transition:color .3s;
+nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  position: relative;
 }
-nav > div:hover > a{color:#6327e5;}
+nav > div {
+  position: relative;
+}
+nav > div > a {
+  color: #130328;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 10px 0;
+  transition: color .3s;
+}
+nav > div:hover > a {
+  color: #6327e5;
+}
 
 /* ----- SUBMENU ----- */
-.submenu{
-  position:fixed;top:calc(60px + 10px);left:0;width:100%;
-  background:linear-gradient(to bottom,#fff,rgba(99,39,229,.1));
-  border-radius:0 0 20px 20px;box-shadow:0 8px 20px rgba(0,0,0,.08);
-  opacity:0;visibility:hidden;pointer-events:none;
-  transform:translateY(10px);transition:opacity .25s,transform .25s;z-index:999;
+.submenu {
+  position: fixed;
+  top: calc(60px + 10px);
+  left: 0;
+  width: 100%;
+  background: #fff; /* fallback white background */
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .25s, transform .25s;
+  z-index: 999;
 }
-nav > div:hover .submenu{
-  opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);
+nav > div:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
-.submenu-inner{
-  max-width:1300px;margin:auto;padding:30px;display:flex;gap:25px; /* reduced gap between columns */
+.submenu-inner {
+  max-width: 1300px;
+  margin: auto;
+  padding: 30px;
+  display: flex;
+  gap: 25px; /* reduced gap between columns */
 }
 
 /* left side */
-.submenu-left{flex:1;display:flex;flex-wrap:wrap;gap:18px;} /* reduced row spacing */
-.submenu-left a{flex:1 1 calc(33.333% - 18px);min-width:200px;}
+.submenu-left {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px; /* reduced row spacing */
+}
+.submenu-left a {
+  flex: 1 1 calc(33.333% - 18px);
+  min-width: 200px;
+}
 
 /* right side (info / map) */
 .submenu-right {
-  width:320px;
-  flex-shrink:0;
-  border-radius:16px;
-  padding:20px;
-  color:#130328;
-  background:rgba(99,39,229,.08); /* soft light purple background */
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  gap:25px;
+  width: 320px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  padding: 20px;
+  color: #130328;
+  background: #e6d9ff; /* default solid color, overridden per tab */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 25px;
 }
-
-.submenu-right h4{margin:0 0 5px;font-size:16px;font-weight:600;color:#130328;}
-.submenu-right p{font-size:13px;margin:0;color:#555;}
+.submenu-right h4 {
+  margin: 0 0 5px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #130328;
+}
+.submenu-right p {
+  font-size: 13px;
+  margin: 0;
+  color: #555;
+}
 
 /* ----- ITEM ----- */
-.submenu-item{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:18px 20px;background:rgba(99,39,229,.08);
-  border-radius:14px;transition:all .3s;
+.submenu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  background: #e6d9ff; /* default, overridden per tab */
+  border-radius: 14px;
+  transition: all .3s;
 }
-.submenu-item:hover{
-  background:rgba(99,39,229,.2);
-  transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,.08);
+.submenu-item:hover {
+  background: #d1c2ff; /* slightly darker on hover, overridden per tab */
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
 }
-.submenu-title{font-weight:600;font-size:15px;color:#130328;}
-.submenu-subtitle{font-size:11px;color:#555;margin-top:3px;}
-.submenu-icon{
-  width:36px;height:36px;background:#6327e5;color:#fff;
-  border-radius:10px;display:flex;align-items:center;justify-content:center;
-  font-size:16px;border:1px solid #6327e5;
+.submenu-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #130328;
+}
+.submenu-subtitle {
+  font-size: 11px;
+  color: #555;
+  margin-top: 3px;
+}
+.submenu-icon {
+  width: 36px;
+  height: 36px;
+  background: #6327e5; /* default, overridden per tab */
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: 1px solid #6327e5;
 }
 
 /* BUY TAB */
 nav > div.buy .submenu {
-  background: linear-gradient(to bottom, #ffffff, #6327e5); /* solid gradient */
+  background: linear-gradient(to bottom, #ffffff, #e6d9ff); /* fully opaque gradient */
 }
 nav > div.buy .submenu-item {
   background: #6327e5; /* solid color */
 }
 nav > div.buy .submenu-item:hover {
-  background: #501dbf; /* slightly darker on hover */
+  background: #501dbf;
 }
 nav > div.buy .submenu-icon {
   background: #6327e5;
   border-color: #6327e5;
 }
 nav > div.buy .submenu-right {
-  background: #e6d9ff; /* light purple box behind map, fully opaque */
+  background: #e6d9ff; /* solid light purple */
 }
 
 /* MANAGE TAB */
 nav > div.manage .submenu {
-  background: linear-gradient(to bottom, #ffffff, #34a7af); 
+  background: linear-gradient(to bottom, #ffffff, #d1f0f2);
 }
 nav > div.manage .submenu-item {
   background: #34a7af;
@@ -173,12 +236,12 @@ nav > div.manage .submenu-icon {
   border-color: #34a7af;
 }
 nav > div.manage .submenu-right {
-  background: #d1f0f2; /* fully opaque */
+  background: #d1f0f2; /* solid teal */
 }
 
 /* SERVICES TAB */
 nav > div.services .submenu {
-  background: linear-gradient(to bottom, #ffffff, #a734af);
+  background: linear-gradient(to bottom, #ffffff, #f2d1f0);
 }
 nav > div.services .submenu-item {
   background: #a734af;
@@ -191,15 +254,22 @@ nav > div.services .submenu-icon {
   border-color: #a734af;
 }
 nav > div.services .submenu-right {
-  background: #f2d1f0; /* fully opaque */
+  background: #f2d1f0; /* solid pink/purple */
 }
 
 /* ----- BUTTON ----- */
-.btn-bubble{
-  padding:10px 20px;background:#a734af;color:#fff;border-radius:999px;
-  font-size:12px;font-weight:500;transition:all .3s;
+.btn-bubble {
+  padding: 10px 20px;
+  background: #a734af;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all .3s;
 }
-.btn-bubble:hover{box-shadow:0 2px 8px rgba(99,39,229,.3);}
+.btn-bubble:hover {
+  box-shadow: 0 2px 8px rgba(99, 39, 229, .3);
+}
 
 /* ===============================
    MOBILE MENU TOGGLE
