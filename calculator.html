@@ -140,8 +140,9 @@ nav > div:hover > a{color:#6327e5;}
 /* ----- SUBMENU ----- */
 .submenu{
   position:fixed;top:calc(60px + 10px);left:0;width:100%;
-  background:linear-gradient(to bottom,#fff,rgba(99,39,229,.1));
-  border-radius:0 0 20px 20px;box-shadow:0 8px 20px rgba(0,0,0,.08);
+  background:
+      #ffffff, /* NEW solid base layer */
+      linear-gradient(to bottom,#fff,rgba(99,39,229,.1)); /* existing gradient */  border-radius:0 0 20px 20px;box-shadow:0 8px 20px rgba(0,0,0,.08);
   opacity:0;visibility:hidden;pointer-events:none;
   transform:translateY(10px);transition:opacity .25s,transform .25s;z-index:999;
 }
