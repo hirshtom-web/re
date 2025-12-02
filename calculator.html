@@ -579,10 +579,10 @@ input:focus, select:focus {
 }
 
 /* Mobile only */
-#stickyCalcBar {
-  display: none !important; /* force hidden unless JS overrides */
-}
-
+@media (max-width: 768px) {
+  #stickyCalcBar {
+    display: none; /* JS will toggle it */
+  }
 
   #stickyCalcBar button {
     width: 90%;
@@ -1673,18 +1673,6 @@ function watchCalculateButton() {
 
 window.addEventListener("load", watchCalculateButton);
 
-const stickyBar = document.getElementById('stickyCalcBar');
-
-function toggleStickyBar() {
-  if (window.innerWidth <= 768) {
-    stickyBar.style.display = 'block'; // show on mobile
-  } else {
-    stickyBar.style.display = 'none';  // hide on desktop
-  }
-}
-
-window.addEventListener('resize', toggleStickyBar);
-window.addEventListener('load', toggleStickyBar);
 
 </script>
 
