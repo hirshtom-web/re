@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>formulas</title>
+
+  <!-- Google Fonts + Material Symbols -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f3f5f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    /* Slider container */
+    .formula-slider-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+
+    /* Slider track */
+    .formula-slider {
+      display: flex;
+      gap: 40px;
+      transition: transform 0.4s ease;
+    }
+
+    /* Card style */
+    .formula-card {
+      flex: 0 0 420px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 500px;
+    }
+
+    .formula-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .bio {
+      margin-bottom: 15px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .formula-label {
+      font-size: 10px;
+      margin-bottom: 2px;
+      font-weight: 500;
+      color: #999;
+    }
+    
+    .formula-text {
+      display: block;
+      background: #e9f0fe;   
+      color: #005bff;        
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+
+    .keyword-section {
+      margin-bottom: 20px;
+    }
+    .keyword-section p {
+      font-size: 10px;
+      margin-bottom: 10px;
+      font-weight: 500;
+      color: #999;
+    }
+    
+    .keyword-bubble {
+      display: inline-block;
+      background: #ffecb3;
+      color: #333;
+      border-radius: 15px;
+      padding: 3px 10px;
+      margin: 3px 3px 3px 0;
+      font-size: 12px;
+    }
+
+    .purpose-section {
+  display: flex;
+  align-items: center; /* vertically center icon with text */
+  font-size: 14px;     /* size of text */
+  color: #555;
+  margin-top: auto;    /* pushes section to the bottom */
+  gap: 8px;            /* space between icon and text */
+}
+
+.purpose-section .material-symbols-outlined {
+  font-size: 20px;     /* size of the icon */
+  color: #005bff;      /* icon color */
+  flex-shrink: 0;      /* prevents icon from shrinking */
+}
+
+
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .arrow-buttons button {
+      width: 35px;
+      height: 35px;
+      font-size: 18px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      transition: all 0.2s ease;
+    }
+
+    .arrow-buttons button:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    @media (max-width: 700px) {
+      .formula-card {
+        flex: 0 0 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h2>Investment & Homeowner Metrics Explained</h2>
+
+<div class="formula-slider-container">
+  <div class="formula-slider" id="formula-slider">
+
+    <!-- Existing Investor Cards -->
+    <div class="formula-card">
+      <h3>Cash Flow</h3>
+      <p class="bio">Cash flow represents the money left over each month after all property expenses are paid. Positive cash flow indicates a profitable property, while negative cash flow means you’re paying more than you earn.</p>
+      <p class="formula-label">Formula:</p>
+      <p class="formula-text">Cash Flow = Rental Income – (Mortgage + Taxes + Insurance + Maintenance + Other Expenses)</p>
+      <div class="keyword-section">
+        <p>Key Words:</p>
+        <span class="keyword-bubble">Rental Income</span>
+        <span class="keyword-bubble">Mortgage</span>
+        <span class="keyword-bubble">Taxes</span>
+        <span class="keyword-bubble">Insurance</span>
+        <span class="keyword-bubble">Maintenance</span>
+      </div>
+        <div class="purpose-section">
+<span class="material-symbols-outlined">tips_and_updates</span>
+        <span>Measure monthly profitability</span>
+      </div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Return on Investment (ROI)</h3>
+      <p class="bio">ROI measures the efficiency of your investment. It shows how much profit you earn relative to the money you’ve invested in the property.</p>
+      <p class="formula-label">Formula:</p>
+      <p class="formula-text">ROI (%) = (Annual Cash Flow ÷ Total Investment) × 100</p>
+      <div class="keyword-section">
+        <p>Key Words:</p>
+        <span class="keyword-bubble">Annual Cash Flow</span>
+        <span class="keyword-bubble">Total Investment</span>
+        <span class="keyword-bubble">Down Payment</span>
+      </div>
+      <div class="purpose-section">
+<span class="material-symbols-outlined">tips_and_updates</span>
+        <span>Measure investment efficiency</span>
+      </div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Cap Rate</h3>
+      <p class="bio">Cap rate measures annual return relative to property value, ignoring financing.</p>
+      <p class="formula-label">Formula:</p>
+      <p class="formula-text">Cap Rate (%) = Net Operating Income ÷ Property Value × 100</p>
+      <div class="keyword-section">
+        <p>Key Words:</p>
+        <span class="keyword-bubble">Net Operating Income</span>
+        <span class="keyword-bubble">Property Value</span>
+      </div>
+      <div class="purpose-section">
+   <span class="material-symbols-outlined">tips_and_updates</span>
+        <span>Compare property returns</span>
+      </div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Cash-on-Cash Return</h3>
+      <p class="bio">Cash-on-Cash return measures ROI only on the actual cash invested, including financing.</p>
+      <p class="formula-label">Formula:</p>
+      <p class="formula-text">Cash-on-Cash (%) = Annual Pre-Tax Cash Flow ÷ Cash Invested × 100</p>
+      <div class="keyword-section">
+        <p>Key Words:</p>
+        <span class="keyword-bubble">Annual Pre-Tax Cash Flow</span>
+        <span class="keyword-bubble">Cash Invested</span>
+      </div>
+      <div class="purpose-section">
+<span class="material-symbols-outlined">tips_and_updates</span>
+        <span>Evaluate leverage effect</span>
+      </div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Gross Rent Multiplier (GRM)</h3>
+      <p class="bio">Quick estimate of property value relative to rent.</p>
+      <p class="formula-label">Formula:</p>
+      <p class="formula-text">GRM = Property Price ÷ Annual Gross Rental Income</p>
+      <div class="keyword-section">
+        <p>Key Words:</p>
+        <span class="keyword-bubble">Property Price</span>
+        <span class="keyword-bubble">Annual Rent</span>
+      </div>
+      <div class="purpose-section">
+<span class="material-symbols-outlined">tips_and_updates</span>
+        <span>Quick property comparison</span>
+      </div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Occupancy Rate</h3>
+      <p class="bio">Shows what percentage of units or rental time is occupied.</p>
+      <p class="formula-label">Formula:</p>
+      <p class="formula-text">Occupancy Rate (%) = (Occupied Units ÷ Total Units) × 100</p>
+      <div class="keyword-section">
+        <p>Key Words:</p>
+        <span class="keyword-bubble">Occupied Units</span>
+        <span class="keyword-bubble">Total Units</span>
+      </div>
+      <div class="purpose-section">
+<span class="material-symbols-outlined">tips_and_updates</span>
+        <span>Measure income stability</span>
+      </div>
+    </div>
+
+    <!-- Homeowner / Buyer Cards -->
+    <div class="formula-card">
+      <h3>Mortgage Payment</h3>
+      <p class="bio">Monthly payment including principal, interest, taxes, and insurance.</p>
+      <p class="formula-label">Formula:</p>
+      <p class="formula-text">Mortgage Payment = Principal + Interest + Taxes + Insurance</p>
+      <div class="keyword-section">
+        <p>Key Words:</p>
+        <span class="keyword-bubble">Principal</span>
+        <span class="keyword-bubble">Interest</span>
+        <span class="keyword-bubble">Taxes</span>
+        <span class="keyword-bubble">Insurance</span>
+      </div>
+      <div class="purpose-section">
+<span class="material-symbols-outlined">tips_and_updates</span>
+        <span>Ensure home affordability</span>
+      </div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Equity</h3>
+      <p class="bio">Portion of home owned outright.</p>
+      <p class="formula-label">Formula:</p>
+      <p class="formula-text">Equity = Home Value – Mortgage Balance</p>
+      <div class="keyword-section">
+        <p>Key Words:</p>
+        <span class="keyword-bubble">Home Value</span>
+        <span class="keyword-bubble">Mortgage Balance</span>
+      </div>
+      <div class="purpose-section">
+<span class="material-symbols-outlined">tips_and_updates</span>
+        <span>Track net worth and borrowing power</span>
+      </div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Price-to-Rent Ratio</h3>
+      <p class="bio">Compare buying versus renting a home.</p>
+      <p class="formula-label">Formula:</p>
+      <p class="formula-text">Price-to-Rent Ratio = Home Price ÷ Annual Rent</p>
+      <div class="keyword-section">
+        <p>Key Words:</p>
+        <span class="keyword-bubble">Home Price</span>
+        <span class="keyword-bubble">Annual Rent</span>
+      </div>
+      <div class="purpose-section">
+<span class="material-symbols-outlined">tips_and_updates</span>
+        <span>Decide to rent or buy</span>
+      </div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Appreciation</h3>
+      <p class="bio">Measures property value growth over time.</p>
+      <p class="formula-label">Formula:</p>
+      <p class="formula-text">Appreciation (%) = (Current Value – Purchase Price) ÷ Purchase Price × 100</p>
+      <div class="keyword-section">
+        <p>Key Words:</p>
+        <span class="keyword-bubble">Current Value</span>
+        <span class="keyword-bubble">Purchase Price</span>
+      </div>
+      <div class="purpose-section">
+<span class="material-symbols-outlined">tips_and_updates</span>
+        <span>Track long-term wealth building</span>
+      </div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Debt-to-Income Ratio (DTI)</h3>
+      <p class="bio">Shows ability to handle mortgage payments.</p>
+      <p class="formula-label">Formula:</p>
+      <p class="formula-text">DTI (%) = Total Monthly Debt Payments ÷ Gross Monthly Income × 100</p>
+      <div class="keyword-section">
+        <p>Key Words:</p>
+        <span class="keyword-bubble">Monthly Debt</span>
+        <span class="keyword-bubble">Gross Income</span>
+      </div>
+      <div class="purpose-section">
+<span class="material-symbols-outlined">tips_and_updates</span>
+        <span>Mortgage qualification metric</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <div class="slider-controls">
+    <div class="arrow-buttons">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const slider = document.getElementById('formula-slider');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+let currentIndex = 0;
+
+function updateSlider() {
+  const cardWidth = slider.querySelector('.formula-card').offsetWidth + 40; // gap included
+  slider.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+}
+
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) currentIndex--;
+  updateSlider();
+});
+
+nextBtn.addEventListener('click', () => {
+  const visibleCards = Math.floor(slider.parentElement.offsetWidth / (slider.querySelector('.formula-card').offsetWidth + 40));
+  const maxIndex = slider.children.length - visibleCards;
+  if (currentIndex < maxIndex) currentIndex++;
+  updateSlider();
+});
+
+window.addEventListener('resize', updateSlider);
+updateSlider();
+</script>
+
+</body>
+</html>
