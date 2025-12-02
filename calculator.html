@@ -598,96 +598,96 @@ input:focus, select:focus {
 /* ======================================= */
 /* FULL WIDTH STATS BLOCK (DESKTOP)        */
 /* ======================================= */
-.stats-fullwidth {
+ .wrapper {
     width: 100%;
     max-width: 1200px;
-    margin: 10px auto 0 auto;
-    padding: 30px;
-    background: #fff;
-    border-radius: 45px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    box-sizing: border-box;
-}
+    margin: 0 auto;
+    height: 100%;
 
-.stats-title {
-    font-size: 18px;
-    margin-bottom: 25px;
-    font-weight: 600;
-    color: #1e0949;
-}
-
-/* Stats grid */
-.stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-}
+    /* New fractions: left = 2, middle = 1, right-top/bottom share remaining = 1 */
+    grid-template-columns: 2fr 1fr 0.5fr 0.5fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
 
-/* Individual stat boxes */
-.stat-box {
-    border: 0.5px solid #ddd;
-    border-radius: 14px;
-    padding: 18px;
-    text-align: center;
-    background: #fafbfc;
-}
+  /* LEFT 50% BLOCK (now wider) */
+  .left-50 {
+    grid-column: 1 / 2;
+    grid-row: 1 / span 2;
+    background: #dce4f7;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.stat-label {
-    font-size: 12px;
-    color: #666;
-    font-weight: 500;
-    margin-bottom: 6px;
-}
+  /* MIDDLE 25% BLOCK (now wider) */
+  .middle-25 {
+    grid-column: 2 / 3;
+    grid-row: 1 / span 2;
+    background: #ffe2b8;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.stat-value {
-    font-size: 16px;
-    font-weight: 700;
-    color: #1e0949;
-}
+  /* RIGHT TOP 12.5% BLOCKS (smaller to fit) */
+  .top-125-a {
+    grid-column: 3 / 4;
+    grid-row: 1;
+    background: #c8f5dd;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-/* Responsive for mobile */
-@media (max-width: 800px) {
-    .stats-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
+  .top-125-b {
+    grid-column: 4 / 5;
+    grid-row: 1;
+    background: #c8f5dd;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* RIGHT BOTTOM 25% BLOCK */
+  .bottom-25 {
+    grid-column: 3 / span 2;
+    grid-row: 2;
+    background: #f8d5d5;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* RESPONSIVE */
+  @media(max-width: 900px){
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px;
+      gap: 20px;
     }
-}
 
-@media (max-width: 500px) {
-    .stats-grid {
-        grid-template-columns: 1fr;
+    .left-50, .middle-25, .top-125-a, .top-125-b, .bottom-25 {
+      grid-column: auto;
+      grid-row: auto;
+      width: 100%;
+      height: auto;
     }
-}
-.suggestions-box {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    z-index: 1000;
-    max-height: 220px;
-    overflow-y: auto;
-    display: none;
-}
-
-.suggestion-item {
-    padding: 10px 12px;
-    font-size: 14px;
-    cursor: pointer;
-    border-bottom: 1px solid #f1f1f1;
-}
-
-.suggestion-item:last-child {
-    border-bottom: none;
-}
-
-.suggestion-item:hover {
-    background: #f4f0ff;
-    color: #6327e5; /* matches your primary highlight color */
-}
+  }
     
 
   </style>
@@ -977,15 +977,14 @@ input:focus, select:focus {
 </div>
 </div>
   
-  <div class="puzzle-wrapper">
-
-  <div class="puzzle-left">Left Double Width</div>
-  <div class="puzzle-middle">Middle Double Width</div>
-  <div class="puzzle-right-top-a">Top Small A</div>
-  <div class="puzzle-right-top-b">Top Small B</div>
-  <div class="puzzle-right-bottom">Bottom Small</div>
-
+<div class="wrapper">
+  <div class="left-50">Left Double Width</div>
+  <div class="middle-25">Middle Double Width</div>
+  <div class="top-125-a">Top Small A</div>
+  <div class="top-125-b">Top Small B</div>
+  <div class="bottom-25">Bottom Small</div>
 </div>
+
 
 </div>
 </div>
