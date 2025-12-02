@@ -1,0 +1,263 @@
+/* === SECTION WRAPPER === */
+.invest-section-wrapper {
+  background-color: #fafafa;
+  border-radius: 40px;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  padding: 60px 40px;
+  overflow: hidden;
+}
+
+.invest-section-title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 60px;
+}
+
+.invest-section-subtitle {
+  font-size: 16px;
+  color: #333;
+  max-width: 400px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+/* === SLIDER === */
+.invest-slider-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.invest-slider {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s ease;
+}
+
+.invest-card {
+  flex: 0 0 32%;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.invest-card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.invest-card-text {
+  padding: 25px;
+  text-align: left;
+}
+
+.invest-card-category {
+  font-size: 10px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.invest-card-title {
+  font-size: 18px;
+  font-weight: 550;
+  color: #000;
+  margin: 0;
+}
+
+/* === CONTROLS === */
+.invest-slider-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.invest-view-all {
+  font-size: 13px;
+  color: #222;
+  text-decoration: none;
+}
+
+.invest-arrow-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.invest-arrow-buttons button {
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invest-arrow-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .invest-card { flex: 0 0 48%; }
+}
+
+@media (max-width: 700px) {
+  body { padding: 0; }
+
+  .invest-section-wrapper {
+    border-radius: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 40px 0;
+  }
+
+  .invest-slider-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .invest-slider {
+    padding-right: 20px;
+  }
+
+  .invest-card {
+    flex: 0 0 85%;
+  }
+
+  .invest-card-image { height: 180px; }
+
+  .invest-section-title { font-size: 28px; }
+
+  .invest-arrow-buttons button {
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #000;
+  }
+
+  .invest-arrow-buttons button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+}
+
+
+
+
+<div class="invest-section-wrapper">
+  <h1 class="invest-section-title">Related articles</h1>
+
+  <div class="invest-slider-container" id="invest-slider-container">
+    <div class="invest-slider" id="invest-slider">
+      
+      <div class="invest-card">
+        <div class="invest-card-image" style="background-image:url('https://static.wixstatic.com/media/1799ca_5003fbe867f54687b224a76e8a928212~mv2.jpg');"></div>
+        <div class="invest-card-text">
+          <p class="invest-card-category">Investments</p>
+          <h3 class="invest-card-title">How to Choose a Property for Investment</h3>
+        </div>
+      </div>
+
+      <div class="invest-card">
+        <div class="invest-card-image" style="background-image:url('https://static.wixstatic.com/media/1799ca_afbe32d52cd0484ca7ba987d7524bf3e~mv2.jpg');"></div>
+        <div class="invest-card-text">
+          <p class="invest-card-category">Real Estate Market</p>
+          <h3 class="invest-card-title">Trends in the U.S. Real Estate Market</h3>
+        </div>
+      </div>
+
+      <div class="invest-card">
+        <div class="invest-card-image" style="background-image:url('https://static.wixstatic.com/media/1799ca_47f217f57cb849848d60dbff7979806e~mv2.png');"></div>
+        <div class="invest-card-text">
+          <p class="invest-card-category">Economy</p>
+          <h3 class="invest-card-title">Impact of Interest Rates on Investments</h3>
+        </div>
+      </div>
+
+      <div class="invest-card">
+        <div class="invest-card-image" style="background-image:url('https://picsum.photos/600/400?random=4');"></div>
+        <div class="invest-card-text">
+          <p class="invest-card-category">Smart Investments</p>
+          <h3 class="invest-card-title">How to Evaluate Investment Risks</h3>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="invest-slider-controls">
+      <a href="#" class="invest-view-all">View more related articles</a>
+      <div class="invest-arrow-buttons">
+        <button id="invest-prev">&#10094;</button>
+        <button id="invest-next">&#10095;</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+const slider = document.getElementById('invest-slider');
+const container = document.getElementById('invest-slider-container');
+const prevBtn = document.getElementById('invest-prev');
+const nextBtn = document.getElementById('invest-next');
+let currentIndex = 0;
+
+function updateSlider() {
+  const cardWidth = slider.querySelector('.invest-card').offsetWidth + 20;
+  slider.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+}
+
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) currentIndex--;
+  updateSlider();
+});
+
+nextBtn.addEventListener('click', () => {
+  const visibleCards = Math.floor(slider.parentElement.offsetWidth / slider.querySelector('.invest-card').offsetWidth);
+  const maxIndex = slider.children.length - visibleCards;
+  if (currentIndex < maxIndex) currentIndex++;
+  updateSlider();
+});
+
+// --- Touch Swipe ---
+let startX = 0;
+let isDragging = false;
+
+container.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  startX = e.touches[0].clientX;
+  slider.style.transition = 'none';
+});
+
+container.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  const currentX = e.touches[0].clientX;
+  const deltaX = currentX - startX;
+  const cardWidth = slider.querySelector('.invest-card').offsetWidth + 20;
+  const translate = -currentIndex * cardWidth + deltaX;
+  slider.style.transform = `translateX(${translate}px)`;
+});
+
+container.addEventListener('touchend', (e) => {
+  isDragging = false;
+  const endX = e.changedTouches[0].clientX;
+  const deltaX = endX - startX;
+  const threshold = 50;
+
+  if (deltaX < -threshold) nextBtn.click();
+  else if (deltaX > threshold) prevBtn.click();
+
+  slider.style.transition = 'transform 0.4s ease';
+  updateSlider();
+});
+
+window.addEventListener('resize', updateSlider);
+updateSlider();
