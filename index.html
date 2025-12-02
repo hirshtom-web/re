@@ -327,6 +327,38 @@ nav > div.services .submenu-right{background:rgba(163,52,175,.08);}
     display:none !important;
   }
 }
+/* ===== AI AGENT LINK ===== */
+.ai-agent-container {
+  position: relative;
+  display: inline-block;
+}
+
+.ai-agent-link {
+  font-weight: 600;
+  font-size: 13px;
+  background: linear-gradient(90deg,#3b7cff,#a734ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+  padding: 0 4px; /* small padding so bubble doesn't overlap text */
+}
+
+/* ===== NEW BUBBLE ===== */
+.ai-new-bubble {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: linear-gradient(90deg,#3b7cff,#a734ff); /* same gradient as link */
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 2px 4px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
 
 
 </style>
@@ -440,32 +472,12 @@ nav > div.services .submenu-right{background:rgba(163,52,175,.08);}
     <div><a href="#">Developers</a></div>
     <div><a href="#">Company</a></div>
 
-  <!-- AI AGENT LINK WITH "NEW" BADGE TOP-RIGHT -->
-<div class="ai-agent-wrapper" style="position:relative;">
-  <a href="#" style="
-    background: linear-gradient(90deg,#3b7cff,#a734ff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    font-weight:600; font-size:13px;
-    position:relative;
-    display:inline-block;
-  ">
+
+     <!-- AI AGENT LINK WITH "NEW" BUBBLE -->
+<div class="ai-agent-container">
+  <a href="#" class="ai-agent-link">
     AI Agent
-    <span class="new-badge" style="
-      position:absolute;
-      top:-6px;
-      right:-10px;
-      background:#ff0066;
-      color:#fff;
-      font-size:8px;
-      font-weight:700;
-      padding:2px 4px;
-      border-radius:4px;
-      text-transform:uppercase;
-      line-height:1;
-    ">
-      NEW
-    </span>
+    <span class="ai-new-bubble">NEW</span>
   </a>
 </div>
 
