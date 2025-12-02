@@ -146,6 +146,15 @@ nav > div:hover > a{color:#6327e5;}
   opacity:0;visibility:hidden;pointer-events:none;
   transform:translateY(10px);transition:opacity .25s,transform .25s;z-index:999;
 }
+    /* FULL WHITE OPAQUE BACKGROUND LAYER */
+.submenu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffffff;  /* pure white, fully opaque */
+  z-index: -1;
+}
+
 nav > div:hover .submenu{
   opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);
 }
