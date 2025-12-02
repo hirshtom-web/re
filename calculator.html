@@ -595,6 +595,147 @@ input:focus, select:focus {
   }
 }
 
+    /* Main layout */
+.layout-wrapper {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 500px;
+}
+
+/* All containers SAME background */
+.container-left,
+.small-container {
+  background: #f8f7f5;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left large container */
+.container-left {
+  flex: 7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f7f5; /* Changed from gradient to plain white */
+  /* Remove gradient animation */
+}
+
+
+/* Right column */
+.container-right {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Small containers */
+.small-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ------------------------- */
+/*  CHART STYLING (NEW)     */
+/* ------------------------- */
+.chart-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.line {
+  fill: none;
+  stroke: #00c853;
+  stroke-width: 3;
+}
+
+.area {
+  fill: url(#gradient);
+}
+
+.x-axis text {
+  font-size: 10px;
+  text-anchor: middle;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.highlight-circle {
+  fill: #00c853;
+  opacity: 0.25;
+}
+
+.bubble {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #00c853;
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.left-label {
+  position: absolute;
+  top: 29px;
+  left: 20px;
+  font-size: 12px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* MAP */
+#map-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tooltip {
+  position:absolute;
+  background:rgba(0,0,0,.85);
+  color:#fff;
+  padding:6px 10px;
+  border-radius:4px;
+  font-size:13px;
+  opacity:0;
+  pointer-events:none;
+  white-space:nowrap;
+}
+
+.state {
+  fill:#130328;
+  stroke:#fff;
+  stroke-width:.5;
+  cursor:pointer;
+  transition:fill .3s, stroke .3s;
+}
+.state:hover {
+  fill:#ff6b6b;
+  stroke:#333;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .layout-wrapper { flex-direction: column; }
+  .container-right { flex-direction: row; }
+}
 
   </style>
 
@@ -883,8 +1024,161 @@ input:focus, select:focus {
 </div>
 </div>
 
+  <div class="layout-wrapper">
+
+  <!-- LEFT BIG -->
+  <div class="container-left">
+    <div class="cutoff-box"></div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="container-right">
+
+    <!-- TOP SMALL CONTAINER — NOW CONTAINS THE STOCK CHART -->
+    <div class="small-container">
+      <div class="chart-wrapper">
+        <div class="left-label">Performance Overview</div>
+        <div class="bubble" id="bubble">+18.92%</div>
+        <svg id="stockChart">
+          <defs>
+            <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00c853" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#00c853" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path class="area"></path>
+          <path class="line"></path>
+          <circle class="highlight-circle" r="20"></circle>
+          <g class="x-axis"></g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- BOTTOM SMALL CONTAINER — MAP -->
+    <div class="small-container">
+      <div id="map-container">
+        <div class="tooltip" id="tooltip"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
   
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://unpkg.com/topojson@3"></script>
 <script>
+/* ---------------- CHART LOGIC ---------------- */
+const svg = document.getElementById('stockChart');
+const years = ["1Y","2Y","3Y","5Y","10Y"];
+const mainFocusIndex = 3;
+
+const performanceValues = {
+    "1Y": "+4.23%",
+    "2Y": "-2.87%",
+    "3Y": "+6.44%",
+    "5Y": "+18.92%",
+    "10Y": "+32.15%"
+};
+
+function drawChart(){
+    const width = svg.clientWidth;
+    const height = svg.clientHeight;
+
+    const lineStart = 0;
+    const lineEnd = width;
+
+    const axisStart = width * 0.15;
+    const axisEnd   = width * 0.85;
+    const spacing = (axisEnd - axisStart) / (years.length - 1);
+
+    const labelY = height - 30;
+
+    const points = [
+      {x: lineStart, y: height*0.65},
+      {x: axisStart + spacing*0, y: height*0.64},
+      {x: axisStart + spacing*1, y: height*0.75},
+      {x: axisStart + spacing*2, y: height*0.72},
+      {x: axisStart + spacing*3, y: height*0.65},
+      {x: axisEnd, y: height*0.35},
+      {x: lineEnd, y: height*0.32}
+    ];
+
+    const linePath = points.map((p,i)=> (i===0?'M':'L') + p.x + ',' + p.y).join('');
+    svg.querySelector('.line').setAttribute('d', linePath);
+
+    const areaPath = linePath + `L${lineEnd},${height} L${lineStart},${height} Z`;
+    svg.querySelector('.area').setAttribute('d', areaPath);
+
+    const xAxis = svg.querySelector('.x-axis');
+    xAxis.innerHTML = "";
+
+    years.forEach((year,i)=>{
+        const x = axisStart + spacing*i;
+
+        const el = document.createElementNS("http://www.w3.org/2000/svg","text");
+        el.setAttribute("x", x);
+        el.setAttribute("y", labelY);
+        el.textContent = year;
+        el.style.cursor = "pointer";
+
+        el.setAttribute("fill", i === mainFocusIndex ? "#000" : "rgba(0,0,0,0.55)");
+        el.setAttribute("font-weight", i === mainFocusIndex ? "700" : "500");
+
+        el.addEventListener("click", ()=> updateSelection(year, x, labelY - 5));
+
+        xAxis.appendChild(el);
+    });
+
+    updateSelection("5Y", axisStart + spacing*mainFocusIndex, labelY - 5);
+}
+
+function updateSelection(year, x, y){
+    const circle = svg.querySelector('.highlight-circle');
+    const bubble = document.getElementById('bubble');
+
+    circle.setAttribute('cx', x);
+    circle.setAttribute('cy', y);
+
+    bubble.textContent = performanceValues[year];
+}
+
+window.addEventListener("resize", drawChart);
+drawChart();
+
+/* ---------------- MAP LOGIC ---------------- */
+d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(topojsonData => {
+  const states = topojson.feature(topojsonData, topojsonData.objects.states);
+  const width = 960, height = 600;
+  const svgMap = d3.select("#map-container").append("svg")
+      .attr("viewBox", [0, 0, width, height])
+      .style("width", "100%")
+      .style("height", "auto");
+
+  const projection = d3.geoAlbersUsa()
+      .translate([width / 2, height / 2])
+      .scale(1000);
+
+  const path = d3.geoPath().projection(projection);
+  const tooltip = d3.select("#tooltip");
+
+  svgMap.selectAll("path.state")
+     .data(states.features)
+     .enter()
+     .append("path")
+     .attr("class", "state")
+     .attr("d", path)
+     .on("mouseenter", (event, d) => {
+        tooltip.html(d.properties.name).style("opacity", 1);
+     })
+     .on("mousemove", (event) => {
+        tooltip.style("left", event.offsetX + 15 + "px")
+               .style("top", event.offsetY - 10 + "px");
+     })
+     .on("mouseleave", () => {
+        tooltip.style("opacity", 0);
+     });
+});
 
   // =========================================
 // LOAD HEADER
