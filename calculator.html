@@ -604,11 +604,11 @@ input:focus, select:focus {
   max-width: 1200px;
   min-height: 500px;
 
-  /* Center the layout horizontally */
-  margin: 0 auto;
-  justify-content: center;  /* center left and right containers */
-  align-items: center;      /* center vertically if parent allows */
+  margin: 40px auto;          /* 40px from top, centered horizontally */
+  justify-content: center;     /* center left and right containers horizontally */
+  align-items: stretch;        /* stretch children to full height */
 }
+
 
 
 /* All containers SAME background */
@@ -626,9 +626,13 @@ input:focus, select:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff; /* Changed from gradient to plain white */
-  /* Remove gradient animation */
+  background: #fff;       /* plain white */
+  border-radius: 40px;
+  
+  /* Ensure it has height */
+  min-height: 500px;      /* same as layout-wrapper */
 }
+
 
 
 /* Right column */
@@ -1035,7 +1039,6 @@ svg {
 
   <!-- LEFT BIG -->
   <div class="container-left">
-    <div class="cutoff-box"></div>
   </div>
 
   <!-- RIGHT SIDE -->
