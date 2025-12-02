@@ -65,11 +65,15 @@ html, body {
 /* ===============================
    HEADER
 ================================== */
-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:15px 30px;background:#fff;position:sticky;top:0;z-index:1000;
+header {
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  height: 80px;
+  position: relative;
+  background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* White to gray gradient */
 }
-.logo img{height:25px;}
+
 
 /* ===============================
    DESKTOP NAV
@@ -136,24 +140,59 @@ nav > div:hover .submenu{
   font-size:16px;border:1px solid #6327e5;
 }
 
-/* ----- THEME PER TAB ----- */
-nav > div.buy .submenu{background:linear-gradient(to bottom,#fff,rgba(99,39,229,.1));}
-nav > div.buy .submenu-item{background:rgba(99,39,229,.08);}
-nav > div.buy .submenu-item:hover{background:rgba(99,39,229,.2);}
-nav > div.buy .submenu-icon{background:#6327e5;border-color:#6327e5;}
-nav > div.buy .submenu-right{background:rgba(99,39,229,.08);} /* light purple box behind map */
+/* BUY TAB */
+nav > div.buy .submenu {
+  background: linear-gradient(to bottom, #ffffff, #6327e5); /* solid gradient */
+}
+nav > div.buy .submenu-item {
+  background: #6327e5; /* solid color */
+}
+nav > div.buy .submenu-item:hover {
+  background: #501dbf; /* slightly darker on hover */
+}
+nav > div.buy .submenu-icon {
+  background: #6327e5;
+  border-color: #6327e5;
+}
+nav > div.buy .submenu-right {
+  background: #e6d9ff; /* light purple box behind map, fully opaque */
+}
 
-nav > div.manage .submenu{background:linear-gradient(to bottom,#fff,rgba(52,167,175,.1));}
-nav > div.manage .submenu-item{background:rgba(52,167,175,.08);}
-nav > div.manage .submenu-item:hover{background:rgba(52,167,175,.2);}
-nav > div.manage .submenu-icon{background:#34a7af;border-color:#34a7af;}
-nav > div.manage .submenu-right{background:rgba(52,167,175,.08);}
+/* MANAGE TAB */
+nav > div.manage .submenu {
+  background: linear-gradient(to bottom, #ffffff, #34a7af); 
+}
+nav > div.manage .submenu-item {
+  background: #34a7af;
+}
+nav > div.manage .submenu-item:hover {
+  background: #28858f;
+}
+nav > div.manage .submenu-icon {
+  background: #34a7af;
+  border-color: #34a7af;
+}
+nav > div.manage .submenu-right {
+  background: #d1f0f2; /* fully opaque */
+}
 
-nav > div.services .submenu{background:linear-gradient(to bottom,#fff,rgba(163,52,175,.1));}
-nav > div.services .submenu-item{background:rgba(163,52,175,.08);}
-nav > div.services .submenu-item:hover{background:rgba(163,52,175,.2);}
-nav > div.services .submenu-icon{background:#a734af;border-color:#a734af;}
-nav > div.services .submenu-right{background:rgba(163,52,175,.08);}
+/* SERVICES TAB */
+nav > div.services .submenu {
+  background: linear-gradient(to bottom, #ffffff, #a734af);
+}
+nav > div.services .submenu-item {
+  background: #a734af;
+}
+nav > div.services .submenu-item:hover {
+  background: #8f2ca1;
+}
+nav > div.services .submenu-icon {
+  background: #a734af;
+  border-color: #a734af;
+}
+nav > div.services .submenu-right {
+  background: #f2d1f0; /* fully opaque */
+}
 
 /* ----- BUTTON ----- */
 .btn-bubble{
