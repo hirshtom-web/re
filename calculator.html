@@ -579,10 +579,10 @@ input:focus, select:focus {
 }
 
 /* Mobile only */
-@media (max-width: 768px) {
-  #stickyCalcBar {
-    display: none; /* JS will toggle it */
-  }
+#stickyCalcBar {
+  display: none !important; /* force hidden unless JS overrides */
+}
+
 
   #stickyCalcBar button {
     width: 90%;
