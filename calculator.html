@@ -1667,7 +1667,25 @@ svg {
   </div> <!-- container-right -->
 </div> <!-- layout-wrapper -->
 
+<div id="articles-container"></div>
 
+  <script>
+  // Make sure this runs after the page loads
+  document.addEventListener("DOMContentLoaded", () => {
+    fetch('articles.html')
+      .then(response => {
+        if (!response.ok) throw new Error("Network response was not ok");
+        return response.text();
+      })
+      .then(html => {
+        // Insert the HTML into the container
+        document.getElementById('articles-container').innerHTML = html;
+      })
+      .catch(error => {
+        console.error("Failed to fetch articles:", error);
+      });
+  });
+</script>
   
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://unpkg.com/topojson@3"></script>
