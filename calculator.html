@@ -579,10 +579,10 @@ input:focus, select:focus {
 }
 
 /* Mobile only */
-#stickyCalcBar {
-  display: none !important; /* force hidden unless JS overrides */
-}
-
+@media (max-width: 768px) {
+  #stickyCalcBar {
+    display: none; /* JS will toggle it */
+  }
 
   #stickyCalcBar button {
     width: 90%;
@@ -628,7 +628,6 @@ input:focus, select:focus {
   align-items: center;
   background: #fff;       /* plain white */
   border-radius: 40px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   
   /* Ensure it has height */
   min-height: 500px;      /* same as layout-wrapper */
@@ -642,7 +641,6 @@ input:focus, select:focus {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 /* Small containers */
@@ -650,7 +648,6 @@ input:focus, select:focus {
   flex: 1;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 /* ------------------------- */
@@ -1675,20 +1672,6 @@ function watchCalculateButton() {
 }
 
 window.addEventListener("load", watchCalculateButton);
-
-
-  const stickyBar = document.getElementById('stickyCalcBar');
-
-function toggleStickyBar() {
-  if (window.innerWidth <= 768) {
-    stickyBar.style.display = 'block'; // show on mobile
-  } else {
-    stickyBar.style.display = 'none';  // hide on desktop
-  }
-}
-
-window.addEventListener('resize', toggleStickyBar);
-window.addEventListener('load', toggleStickyBar);
 
 
 </script>
