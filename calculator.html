@@ -17,6 +17,7 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: #f0f0f0;
+      min-height: 100vh;
     }
 
 
@@ -595,14 +596,20 @@ input:focus, select:focus {
   }
 }
 
-    /* Main layout */
+/* Main layout */
 .layout-wrapper {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   width: 100%;
   max-width: 1200px;
   min-height: 500px;
+
+  /* Center the layout horizontally */
+  margin: 0 auto;
+  justify-content: center;  /* center left and right containers */
+  align-items: center;      /* center vertically if parent allows */
 }
+
 
 /* All containers SAME background */
 .container-left,
