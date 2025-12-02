@@ -50,8 +50,8 @@ body {
     gap: 40px;
     max-width: 1400px;
     margin: 0 auto;
-    align-items: flex-start;
     flex-wrap: wrap;
+    align-items: stretch; /* make children equal height */
 }
 
 .results-container, .inputs-container {
@@ -63,11 +63,11 @@ body {
     flex-direction: column;
 }
 
-/* Set a stable height for desktop */
 .inputs-container,
 .results-container {
-    min-height: 600px; /* adjust to match your current tallest tab */
+    flex: 1; /* equal width + height stretching */
 }
+
 
 /* Keep flex behavior for responsive widths */
 .inputs-container { flex: 1 1 400px; min-width: 350px; }
