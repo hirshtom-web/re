@@ -1620,24 +1620,26 @@ svg {
 </div>
 </div>
 
-  <div class="layout-wrapper">
+ <div class="layout-wrapper">
 
   <!-- LEFT BIG -->
   <div class="container-left">
      <!-- Text + Button Container -->
-  <div class="download-container" style="display:flex; justify-content:space-between; align-items:center; margin-top:30px; padding:15px; border-top:1px solid #ddd;">
-    <div class="download-text" style="flex:1; font-size:14px; color:#555;">
-      Generate a detailed PDF report of your investment metrics, including charts and summaries.
-    </div>
-    <button onclick="downloadPDF()" class="download-btn" style="padding:10px 20px; background-color:#005bff; color:#fff; border:none; border-radius:6px; cursor:pointer;">
-      Download PDF
-    </button>
-  </div>
+     <div class="download-container" style="display:flex; justify-content:space-between; align-items:center; margin-top:30px; padding:15px; border-top:1px solid #ddd;">
+        <div class="download-text" style="flex:1; font-size:14px; color:#555;">
+          Generate a detailed PDF report of your investment metrics, including charts and summaries.
+        </div>
+        <button onclick="downloadPDF()" class="download-btn" style="padding:10px 20px; background-color:#005bff; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+          Download PDF
+        </button>
+     </div>
+  </div> <!-- ✅ FIX: close container-left -->
+
 
   <!-- RIGHT SIDE -->
   <div class="container-right">
 
-    <!-- TOP SMALL CONTAINER — NOW CONTAINS THE STOCK CHART -->
+    <!-- TOP SMALL CONTAINER — CHART -->
     <div class="small-container">
       <div class="chart-wrapper">
         <div class="left-label">Performance Overview</div>
@@ -1664,8 +1666,9 @@ svg {
       </div>
     </div>
 
-  </div>
-</div>
+  </div> <!-- container-right -->
+</div> <!-- layout-wrapper -->
+
 
   
 <script src="https://d3js.org/d3.v7.min.js"></script>
