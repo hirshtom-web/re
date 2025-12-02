@@ -296,20 +296,17 @@ input:focus, select:focus {
     }
 }
 
-.disclaimer-box {
-    margin-top: 25px;
-    padding: 15px;
-    background: #f7f8fa;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 13px;
-    color: #555;
+.disclaimer-box h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1e0949;
 }
 
-.disclaimer-check {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+.disclaimer-box p {
+    font-size: 13px;
+    margin-bottom: 12px;
+    color: #555;
     line-height: 1.4;
 }
 
@@ -318,6 +315,8 @@ input:focus, select:focus {
     transform: scale(1.2);
     cursor: pointer;
 }
+
+    
 /* FULL WIDTH — EACH TAB EQUAL SIZE */
 .tab-container {
     width: 100%;
@@ -986,13 +985,22 @@ svg {
     </div>
 
   </div>
-  <!-- Disclaimer + Checkbox -->
+<!-- Disclaimer + Checkbox -->
 <div class="disclaimer-box">
+    <!-- Title -->
+    <h3>Calculator Disclaimer</h3>
+    <!-- Subtitle / Explanation -->
+    <p>
+        These calculators are for <strong>informational purposes only</strong>. Results are estimates and may not reflect your exact situation. We do not provide financial, legal, or tax advice, and you should verify results independently before making decisions.
+        By using these calculators, you agree that you use them at your own risk, and we are not liable for any losses or damages resulting from their use.
+    </p>
+    <!-- Checkbox -->
     <label class="disclaimer-check">
-<input type="checkbox" id="disclaimerAgree" checked disabled>
-        I understand that this calculator provides estimates only and does not constitute financial, legal, or investment advice.
+        <input type="checkbox" id="disclaimerAgree">
+        I have read and understand this disclaimer.
     </label>
 </div>
+
 
 
   <!-- Text + Button Container -->
