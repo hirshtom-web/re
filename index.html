@@ -349,8 +349,8 @@ nav > div.services .submenu-right{background:rgba(163,52,175,.08);}
   position: absolute;
   top: -6px;
   right: -10px;
-  background: linear-gradient(90deg,#3b7cff,#a734ff); /* same gradient as link */
-  color: #fff;
+  background: linear-gradient(90deg,#3b7cff,#a734ff); /* gradient background */
+  color: #fff; /* solid white text */
   font-size: 8px;
   font-weight: 700;
   padding: 2px 4px;
@@ -358,7 +358,11 @@ nav > div.services .submenu-right{background:rgba(163,52,175,.08);}
   text-transform: uppercase;
   line-height: 1;
   white-space: nowrap;
+  display: inline-flex;           /* make sure text is visible */
+  align-items: center;            /* vertical align */
+  justify-content: center;        /* horizontal align */
 }
+
 
 
 </style>
