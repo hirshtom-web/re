@@ -601,8 +601,7 @@ input:focus, select:focus {
 .puzzle-fullwidth {
     width: 100%;
     max-width: 1200px;
-    margin: 10px auto 0 auto; /* top margin like stats block */
-    padding: 30px;
+    margin: 10px auto 0 auto; /* same top margin as stats */
     background: #fff;
     border-radius: 45px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.06);
@@ -610,8 +609,9 @@ input:focus, select:focus {
 
     display: grid;
     grid-template-columns: 2fr 1fr 0.5fr 0.5fr;
-    grid-template-rows: 1fr 1fr; /* equal height rows */
-    gap: 40px; /* gap between blocks */
+    grid-template-rows: 1fr 1fr;
+    gap: 40px; /* only between blocks */
+    padding: 0; /* remove padding so blocks align like puzzle */
 }
 
 /* ===== LEFT DOUBLE WIDTH BLOCK ===== */
@@ -620,7 +620,6 @@ input:focus, select:focus {
     grid-row: 1 / span 2;
     background: #dce4f7;
     border-radius: 20px;
-    padding: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -632,7 +631,6 @@ input:focus, select:focus {
     grid-row: 1 / span 2;
     background: #ffe2b8;
     border-radius: 20px;
-    padding: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -644,7 +642,6 @@ input:focus, select:focus {
     grid-row: 1;
     background: #c8f5dd;
     border-radius: 15px;
-    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -655,7 +652,6 @@ input:focus, select:focus {
     grid-row: 1;
     background: #c8f5dd;
     border-radius: 15px;
-    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -667,7 +663,6 @@ input:focus, select:focus {
     grid-row: 2;
     background: #f8d5d5;
     border-radius: 15px;
-    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -678,8 +673,7 @@ input:focus, select:focus {
     .puzzle-fullwidth {
         display: flex;
         flex-direction: column;
-        gap: 20px; /* smaller gap for mobile */
-        padding: 20px;
+        gap: 20px;
     }
 
     .puzzle-left, 
@@ -687,10 +681,10 @@ input:focus, select:focus {
     .puzzle-right-top-a, 
     .puzzle-right-top-b, 
     .puzzle-right-bottom {
-        grid-column: auto;
-        grid-row: auto;
         width: 100%;
         height: auto;
+        grid-column: auto;
+        grid-row: auto;
     }
 }
 
