@@ -138,37 +138,21 @@ nav > div > a{
 nav > div:hover > a{color:#6327e5;}
 
 /* ----- SUBMENU ----- */
-.submenu {
-  position: fixed;
-  top: calc(60px + 10px);
-  left: 0;
-  width: 100%;
-  background: linear-gradient(to bottom, #fff, rgba(99,39,229,.1));   /* gradient ON TOP */
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.08);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(10px);
-  transition: opacity .25s, transform .25s;
-  z-index: 999;
-
-  position: fixed;
+.submenu{
+  position:fixed;top:calc(60px + 10px);left:0;width:100%;
+  background:
+      #ffffff, /* NEW solid base layer */
+      linear-gradient(to bottom,#fff,rgba(99,39,229,.1)); /* existing gradient */  border-radius:0 0 20px 20px;box-shadow:0 8px 20px rgba(0,0,0,.08);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translateY(10px);transition:opacity .25s,transform .25s;z-index:999;
 }
-
-/* SOLID WHITE BASE LAYER (behind gradient) */
+    /* FULL WHITE OPAQUE BACKGROUND LAYER */
 .submenu::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: #ffffff;
-  z-index: -2;  /* ↓ lower than gradient */
-}
-
-/* FORCE .submenu to sit above ::before */
-.submenu {
-  position: relative;
-  z-index: 1;
+  background: #ffffff;  /* pure white, fully opaque */
+  z-index: -1;
 }
 
 nav > div:hover .submenu{
