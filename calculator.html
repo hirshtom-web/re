@@ -1673,6 +1673,18 @@ function watchCalculateButton() {
 
 window.addEventListener("load", watchCalculateButton);
 
+const stickyBar = document.getElementById('stickyCalcBar');
+
+function toggleStickyBar() {
+  if (window.innerWidth <= 768) {
+    stickyBar.style.display = 'block'; // show on mobile
+  } else {
+    stickyBar.style.display = 'none';  // hide on desktop
+  }
+}
+
+window.addEventListener('resize', toggleStickyBar);
+window.addEventListener('load', toggleStickyBar);
 
 </script>
 
