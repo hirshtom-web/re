@@ -17,20 +17,19 @@
 /* ===================== */
 /* Base Styles */
 /* ===================== */
-html, body {
-    font-family: 'Plus Jakarta Sans', sans-serif;    
-    background: #f3f5f7;
-    margin: 0;
-    padding: 0;
-    color: #1e0949;
-    touch-action: manipulation; /* prevents unintended zooming/panning */
-    overscroll-behavior: none;  /* prevents jumping on mobile */
-    -webkit-text-size-adjust: 100%; /* disable font zoom on iOS */
-}
 
 body {
-    padding: 40px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #f3f5f7;
+    margin: 0;
+    padding: 0; /* remove 40px from body */
+    color: #1e0949;
 }
+
+.main-content {
+    padding: 40px; /* your previous body padding goes here */
+}
+
 
 .info {
     font-size: 10px;
@@ -596,7 +595,8 @@ input:focus, select:focus {
 <body>
 
   <div id="header-container"></div>
-
+  
+<div class="main-content">
 <div class="container">
   <div class="inputs-container">
   <h2>See your next real estate investment in numbers</h2>
@@ -869,7 +869,8 @@ input:focus, select:focus {
         </div>
     </div>
 </div>
-
+</div>
+  
 <script>
 
   // =========================================
