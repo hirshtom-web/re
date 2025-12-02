@@ -557,6 +557,38 @@ input:focus, select:focus {
     }
 }
 
+  /* Hidden by default */
+#stickyCalcBar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  background: rgba(255,255,255,0.98);
+  border-top: 1px solid #ddd;
+  z-index: 9999;
+  text-align: center;
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+  #stickyCalcBar {
+    display: none; /* JS will toggle it */
+  }
+
+  #stickyCalcBar button {
+    width: 90%;
+    padding: 14px;
+    border-radius: 10px;
+    background: #6a39ff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+  }
+}
+
 
 </style>
 </head>
@@ -738,7 +770,16 @@ input:focus, select:focus {
   <!-- ⬅ THIS CLOSING DIV WAS IN THE WRONG PLACE BEFORE -->
 
 
-  <button class="calc-btn" onclick="calculateROI()">Calculate ROI</button> </div>
+<div class="calculate-container">
+  <button id="calculateBtn" class="calc-btn" onclick="calculateROI()">Calculate ROI</button>
+</div>
+
+<!-- Sticky button that appears only after scrolling -->
+<div id="stickyCalcBar">
+  <button id="stickyCalculateBtn">Calculate ROI</button>
+</div>
+
+
 
 <!-- Results Column -->
 <div class="results-container">
@@ -1267,6 +1308,37 @@ function initSuggestedInputs() {
 }
 
 window.addEventListener("load", initSuggestedInputs);
+function watchCalculateButton() {
+  const mainBtn = document.getElementById("calculateBtn");
+  const stickyBar = document.getElementById("stickyCalcBar");
+  const stickyBtn = document.getElementById("stickyCalculateBtn");
+
+  if (!mainBtn || !stickyBar) return;
+
+  function check() {
+    const rect = mainBtn.getBoundingClientRect();
+
+    // If button is out of view → show sticky version
+    if (rect.bottom < 0 || rect.top > window.innerHeight) {
+      stickyBar.style.display = "block";
+    } else {
+      stickyBar.style.display = "none";
+    }
+  }
+
+  // Scroll listening
+  window.addEventListener("scroll", check);
+  window.addEventListener("resize", check);
+
+  // Sticky button triggers calculation
+  stickyBtn.addEventListener("click", () => {
+    mainBtn.click();
+  });
+
+  check(); // initial check
+}
+
+window.addEventListener("load", watchCalculateButton);
 
 
 </script>
