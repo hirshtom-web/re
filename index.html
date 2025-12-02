@@ -341,28 +341,26 @@ nav > div.services .submenu-right{background:rgba(163,52,175,.08);}
   -webkit-text-fill-color: transparent;
   position: relative;
   display: inline-block;
-  padding: 0 4px; /* small padding so bubble doesn't overlap text */
-}
-
-/* ===== NEW BUBBLE ===== */
+  padding: 0 12px; /* ← added extra padding for bubble */
+} 
+   
 .ai-new-bubble {
   position: absolute;
   top: -6px;
-  right: -10px;
-  background: linear-gradient(90deg,#3b7cff,#a734ff); /* gradient background */
-  color: #fff; /* solid white text */
+  right: 0; /* align with link padding */
+  background: linear-gradient(90deg,#3b7cff,#a734ff);
+  color: #fff;
   font-size: 8px;
   font-weight: 700;
-  padding: 2px 4px;
+  padding: 2px 5px;
   border-radius: 4px;
   text-transform: uppercase;
   line-height: 1;
   white-space: nowrap;
-  display: inline-flex;           /* make sure text is visible */
-  align-items: center;            /* vertical align */
-  justify-content: center;        /* horizontal align */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
-
 
 
 </style>
