@@ -1672,6 +1672,8 @@ svg {
   </div> <!-- container-right -->
 </div> <!-- layout-wrapper -->
 
+  <div id="footer-container"></div>
+
 
   <script>
   // Make sure this runs after the page loads
@@ -1807,15 +1809,15 @@ d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(topojson
 });
 
   // =========================================
-// LOAD HEADER
+// LOAD FOOTER
 // =========================================
 
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-container').innerHTML = data;
-    })
-    .catch(err => console.error('Error loading header:', err));
+<script>
+fetch('footer.html')
+  .then(r => r.text())
+  .then(html => document.getElementById('footer-container').innerHTML = html);
+</script>
+
 
 // =========================================
 // Top 200+ US cities for autocomplete
