@@ -1812,11 +1812,10 @@ d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(topojson
 // LOAD FOOTER
 // =========================================
 
-<script>
+
 fetch('footer.html')
   .then(r => r.text())
   .then(html => document.getElementById('footer-container').innerHTML = html);
-</script>
 
 
 // =========================================
