@@ -3,13 +3,15 @@
 // ===============================
 const calculators = {
   roi: {
-    title: "ROI Calculator",
-    fields: [
-      { id: "purchasePrice", label: "Purchase Price ($)", type: "number", placeholder: "500000" },
-      { id: "rentIncome", label: "Monthly Rent ($)", type: "number", placeholder: "2350" },
-      { id: "appreciationRate", label: "Appreciation Rate (%)", type: "number", placeholder: "9.2" },
-      { id: "yearsHold", label: "Years to Hold", type: "select", options: [1,3,5,7,10,15] }
-    ],
+    title: "See your next real estate investment in numbers",
+    subtitle: "Estimate cash flow, ROI, and leverage to make smarter property decisions",
+    mandatoryFields: ["purchasePrice", "rentIncome"],
+    // Keep the tab fields the same, just some can be optional/mandatory
+    tabs: {
+      "key-details": ["purchasePrice", "rentIncome", "appreciationRate", "yearsHold", "propertyType", "marketLocation"],
+      "financing": ["downPaymentPercent", "cashInvestment", "loanAmount", "mortgageRate", "mortgageTerm"],
+      "operating": ["taxes", "insurance", "hoa", "managementFees", "vacancyRate"]
+    },
     calculate: (values) => {
       const purchase = Number(values.purchasePrice);
       const rent = Number(values.rentIncome);
@@ -24,12 +26,15 @@ const calculators = {
     }
   },
 
-  cashOnCash: {
-    title: "Cash-on-Cash Return",
-    fields: [
-      { id: "cashInvestment", label: "Cash Investment ($)", type: "number", placeholder: "150000" },
-      { id: "annualCashFlow", label: "Annual Cash Flow ($)", type: "number", placeholder: "15000" }
-    ],
+  coc: {
+    title: "Cash-on-Cash Return Calculator",
+    subtitle: "See how your cash investment performs compared to rental income",
+    mandatoryFields: ["cashInvestment", "annualCashFlow"],
+    tabs: {
+      "key-details": ["cashInvestment", "annualCashFlow"],
+      "financing": ["downPaymentPercent", "loanAmount"],
+      "operating": ["managementFees", "vacancyRate"]
+    },
     calculate: (values) => {
       const cash = Number(values.cashInvestment);
       const flow = Number(values.annualCashFlow);
@@ -40,89 +45,86 @@ const calculators = {
 };
 
 // ===============================
-// 2️⃣ Render Fields Dynamically
+// 2️⃣ Set Active Calculator
 // ===============================
-function renderCalculator(calcKey) {
+let activeCalculator = "roi";
+
+// Update title/subtitle
+function updateHeader(calcKey) {
   const calc = calculators[calcKey];
-  const container = document.getElementById("calculator-fields");
-  container.innerHTML = ""; // Clear existing fields
+  document.querySelector(".title").innerText = calc.title;
+  document.querySelector(".subtitle").innerText = calc.subtitle;
+}
 
-  // Update calculator title
-  document.getElementById("calculator-title").innerText = calc.title;
+// ===============================
+// 3️⃣ Mark mandatory fields per calculator
+// ===============================
+function markMandatory(calcKey) {
+  const calc = calculators[calcKey];
+  const allInputs = document.querySelectorAll("#calculator-fields input, #calculator-fields select");
 
-  // Create each input dynamically
-  calc.fields.forEach(field => {
-    const group = document.createElement("div");
-    group.className = "input-group";
-
-    const label = document.createElement("label");
-    label.innerText = field.label;
-    group.appendChild(label);
-
-    let input;
-    if (field.type === "select") {
-      input = document.createElement("select");
-      field.options.forEach(opt => {
-        const option = document.createElement("option");
-        option.value = opt;
-        option.text = opt;
-        input.appendChild(option);
-      });
+  allInputs.forEach(input => {
+    if(calc.mandatoryFields.includes(input.id)){
+      input.required = true;
+      input.style.borderColor = "#ff4d4f"; // highlight mandatory
     } else {
-      input = document.createElement("input");
-      input.type = field.type;
-      input.placeholder = field.placeholder || "";
+      input.required = false;
+      input.style.borderColor = ""; // reset style
     }
-    input.id = field.id;
-    group.appendChild(input);
-
-    container.appendChild(group);
   });
 }
 
 // ===============================
-// 3️⃣ Calculate Results
+// 4️⃣ Calculate function
 // ===============================
-function calculateDynamic(calcKey) {
-  const calc = calculators[calcKey];
+function calculateCurrent() {
+  const calc = calculators[activeCalculator];
   const values = {};
 
-  calc.fields.forEach(field => {
-    values[field.id] = document.getElementById(field.id).value || 0;
+  const allInputs = document.querySelectorAll("#calculator-fields input, #calculator-fields select");
+  allInputs.forEach(input => {
+    values[input.id] = input.value || 0;
   });
 
-  const result = calc.calculate(values);
+  // Check mandatory fields
+  for(const fieldId of calc.mandatoryFields){
+    if(!values[fieldId] || values[fieldId] === "0"){
+      alert(`Please fill the mandatory field: ${fieldId}`);
+      return;
+    }
+  }
 
-  // Display results
+  const result = calc.calculate(values);
   document.getElementById("resultTotalROILarge").innerText = `$${result.totalROI}`;
 }
 
 // ===============================
-// 4️⃣ Tab Switching Logic
+// 5️⃣ Handle calculator page switching
 // ===============================
-let activeCalculator = "roi"; // default
+function switchCalculator(calcKey) {
+  activeCalculator = calcKey;
+  updateHeader(calcKey);
+  markMandatory(calcKey);
 
-// Render default calculator
-renderCalculator(activeCalculator);
+  // Optionally, reset tab content inputs (keep tabs design)
+  // Here we just keep current inputs and highlight mandatory
+}
 
-// Bind calculate buttons
-document.getElementById("calculateBtn").onclick = () => calculateDynamic(activeCalculator);
-document.getElementById("stickyCalculateBtn").onclick = () => calculateDynamic(activeCalculator);
+// ===============================
+// 6️⃣ Event Listeners
+// ===============================
+document.getElementById("calculateBtn").addEventListener("click", calculateCurrent);
+document.getElementById("stickyCalculateBtn").addEventListener("click", calculateCurrent);
 
-// Tab click handling (optional integration with your tabs)
+// Example: switching calculators programmatically
+// switchCalculator("coc");
+
+// Optional: bind to tabs if you want
 document.querySelectorAll(".tab").forEach(tab => {
   tab.addEventListener("click", () => {
+    // keep tab functionality
     document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
     tab.classList.add("active");
-
-    const tabType = tab.dataset.tab;
-
-    // Map tabType to calculator
-    if(tabType === "key-details") activeCalculator = "roi";
-    if(tabType === "financing") activeCalculator = "cashOnCash";
-    // Add more mappings if you have more calculators
-
-    renderCalculator(activeCalculator);
+    // you can still map tab to calculator if desired
   });
 });
-
