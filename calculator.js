@@ -714,7 +714,7 @@ function renderCalculator(calcKey) {
 }
 
 // 5️⃣ On page load
-const calcKey = getCalculatorFromURL();
-renderCalculator(calcKey);
-
-};
+window.addEventListener("DOMContentLoaded", () => {
+  const calcKey = getCalculatorFromURL();
+  renderCalculator(calcKey);
+});
