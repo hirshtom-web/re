@@ -979,15 +979,20 @@ input:focus, select:focus {
         flex-direction: column;
         gap: 20px;
         width: 100%;
-        padding: 0 20px; /* optional: reduce body overflow */
+        margin: 0; /* reset default container margin */
+        padding: 0 10px; /* 10px padding on left & right */
+        box-sizing: border-box;
     }
+
     .inputs-container,
     .results-container {
         width: 100%;
-        padding: 20px;
-        border-radius: 30px;
+        padding: 20px; /* inner padding */
+        border-radius: 30px; /* optional, keeps rounded corners */
+        box-sizing: border-box;
     }
 }
+
 
 /* Default (desktop): force hidden */
 #stickyCalcBar {
