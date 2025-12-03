@@ -1,4 +1,367 @@
-  <footer>
+/* ================= Footer Wrapper for Desktop ================= */
+.footer-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+}
+
+/* ================= Footer Container ================= */
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: #130328;
+  padding: 100px 0;
+}
+
+/* ================= Top Section (6 Columns) ================= */
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ================= Footer Columns ================= */
+.footer-column {
+  width: 100%;
+}
+
+.footer-column h4 {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+  padding: 10px 0;
+}
+
+.footer-column h4 .arrow {
+  display: none;
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.footer-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  max-height: none; /* desktop default */
+  transition: max-height 0.3s ease;
+}
+
+.footer-column li {
+  margin-bottom: 6px;
+}
+
+.footer-column a {
+  color: #dbdbdb;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s;
+}
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+/* ================= Bottom Section ================= */
+.footer-section {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 50px;
+  border-top: 0.25px solid #9999;
+}
+
+/* ================= Country Selector ================= */
+.flag {
+  width: 21px;
+  height: 13px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.country-selector {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.country-link {
+  font-size: 12px;
+  color: #fff;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+.country-popup {
+  position: absolute;
+  background-color: #130328;
+  border: 0.3px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  padding: 10px;
+  z-index: 100;
+  min-width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(-10px);
+}
+
+.country-popup.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.country-option {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.country-option:hover {
+  background-color: #333;
+}
+
+.country-option img {
+  width: 20px;
+  height: 13px;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+/* ================= Social Icons ================= */
+.social-icons a {
+  margin-right: 10px;
+  margin-top: 6px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+}
+
+.social-icons a img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+}
+
+/* ================= Privacy Section ================= */
+.privacy {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: 15px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+.privacy-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+.privacy-popup {
+  position: absolute;
+  background-color: #130328;
+  border: 0.3px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  padding: 12px 16px;
+  z-index: 200;
+  width: 230px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  font-size: 12px;
+  transform: translateY(-10px);
+}
+
+.privacy-popup.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.privacy-popup h4 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #fff;
+}
+
+.privacy-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.privacy-option input {
+  margin-right: 8px;
+}
+
+.privacy-popup button {
+  background-color: #4e2b9a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.privacy-popup button:hover {
+  background-color: #6a3fd1;
+}
+
+/* ================= Copyright ================= */
+.copyright {
+  font-size: 12px;
+  color: #fff;
+}
+
+/* ================= Bubble ================= */
+.hiring-bubble {
+  background-color: #6327e5;
+  color: #fff;
+  font-size: 7px;
+  font-weight: 400;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin-left: 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ================= Fade Animation ================= */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+
+/* ================= Mobile Footer Accordion ================= */
+@media (max-width: 600px) {
+  /* easy control variables */
+  :root {
+    --footer-gap-mobile: 10px; /* space between categories */
+    --accordion-padding: 10px;  /* left/right padding for header and links */
+    --accordion-link-gap: 5px;  /* spacing between links inside a category */
+  }
+
+  .footer-wrapper {
+    padding: 0 10px;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: var(--footer-gap-mobile); /* vertical spacing between columns */
+  }
+
+  .footer-column h4 {
+    cursor: pointer;
+    padding-left: var(--accordion-padding);
+    padding-right: var(--accordion-padding);
+    margin: 0; /* remove extra margin */
+  }
+
+  .footer-column h4 .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .footer-column ul {
+    list-style: none;
+    margin: 0;
+    padding-left: var(--accordion-padding); /* align links with header */
+    padding-top: 0;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease, padding-top 0.3s ease;
+  }
+
+  /* Active accordion: expand dynamically without freezing scroll */
+  .footer-column.active ul {
+    max-height: 999px; /* large enough for all links */
+    padding-top: 5px;
+  }
+
+  .footer-column ul li {
+    margin-bottom: var(--accordion-link-gap);
+  }
+
+  .footer-column.active h4 .arrow {
+    transform: rotate(180deg);
+  }
+
+  .footer-column {
+    border-bottom: none;
+  }
+
+  /* Popups fixed: hide completely when closed to prevent scroll blocking */
+  .country-popup,
+  .privacy-popup {
+    position: absolute;
+    display: none;        /* hide fully when closed */
+    opacity: 0;
+    pointer-events: none;
+    bottom: auto !important;
+    top: -10px;
+    left: 50%;
+    transform: translate(-50%, -10px);
+    width: auto;
+    min-width: 180px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    z-index: 9999;
+  }
+
+  .country-popup.open,
+  .privacy-popup.open {
+    display: block;       /* show when open */
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+}
+
+<footer>
   
   <div class="footer-wrapper">
     <div class="footer-top" dir="ltr">
