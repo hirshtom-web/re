@@ -1026,7 +1026,13 @@ input:focus, select:focus {
     border: none;
   }
 }
-
+@media (min-width: 769px) {
+  #stickyCalcBar {
+    display: none !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+  }
+}
 
 /* Main layout */
 .layout-wrapper {
