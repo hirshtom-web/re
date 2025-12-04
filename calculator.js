@@ -14,9 +14,7 @@
       });
   });
   
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="https://unpkg.com/topojson@3"></script>
-<script>
+
 /* ---------------- CHART LOGIC ---------------- */
 const svg = document.getElementById('stockChart');
 const years = ["1Y","2Y","3Y","5Y","10Y"];
