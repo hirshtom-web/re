@@ -716,3 +716,28 @@ window.addEventListener("DOMContentLoaded", () => {
   const calcKey = getCalculatorFromURL();
   renderCalculator(calcKey);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // EVERYTHING that uses the DOM goes here:
+  drawChart();
+  watchCalculateButton();
+  activateAddExpense();
+  autocomplete(document.getElementById("marketLocation"), topCities);
+  autoDetectLocation();
+
+  document.querySelectorAll('.tab-container .tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+          document.querySelectorAll('.tab-container .tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+          tab.classList.add('active');
+          const contentEl = document.getElementById("tab-" + tab.dataset.tab);
+          if (contentEl) contentEl.classList.add('active');
+      });
+  });
+
+  const calcKey = getCalculatorFromURL();
+  renderCalculator(calcKey);
+
+});
