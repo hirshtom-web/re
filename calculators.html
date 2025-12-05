@@ -763,7 +763,7 @@ select {
 };
 
 
-    // ---------- TABS ----------
+// ---------- TABS ----------
 const tabContainer = document.createElement("div");
 tabContainer.className = "tab-container";
 form.appendChild(tabContainer);
@@ -772,37 +772,39 @@ const tabContents = document.createElement("div");
 tabContents.className = "tab-contents";
 form.appendChild(tabContents);
 
-// NEW: Your universal left→right order
+// Global order
 const TAB_ORDER = ["Key Details", "Financing", "Income", "Expenses"];
 
-// Sort the existing tabs in the calculator based on your global order
+// Sort tabs safely (tabs not in order appear at the end)
 const tabNames = Object.keys(calc.tabs).sort((a, b) => {
-  return TAB_ORDER.indexOf(a) - TAB_ORDER.indexOf(b);
+  const ai = TAB_ORDER.indexOf(a);
+  const bi = TAB_ORDER.indexOf(b);
+  return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
 });
 
 // First tab active
 let activeTab = tabNames[0];
 
-// Render inputs EXACTLY like before (no removals)
+// Render inputs EXACTLY like before
 function renderTabInputs(tab) {
-  tabContents.innerHTML = ""; // Clear previous inputs
+  tabContents.innerHTML = "";
   activeTab = tab;
 
   calc.tabs[tab].inputs.forEach((inputDef) => {
     const inputGroup = document.createElement("div");
     inputGroup.className = "input-group";
 
-    // Support for advanced input definitions
-    // Accepts string ("Price") OR object ({ id, label, type, placeholder })
     let id, label, type, placeholder;
 
+    // STRING input → default behavior
     if (typeof inputDef === "string") {
       id = label = placeholder = inputDef;
-      type = "number"; // default
-    } else {
-      // object-based configuration
+      type = "number";
+    } 
+    // OBJECT input → advanced configuration
+    else {
       id = inputDef.id || inputDef.label;
-      label = inputDef.label || id;
+      label = inputDef.label || inputDef.id;
       type = inputDef.type || "number";
       placeholder = inputDef.placeholder || label;
     }
@@ -813,14 +815,16 @@ function renderTabInputs(tab) {
 
     const inputEl = document.createElement("input");
     inputEl.type = type;
-    inputEl.placeholder = placeholder;
     inputEl.id = id;
+    inputEl.placeholder = placeholder;
 
-    // carry through advanced options (min, max, step, defaultValue, etc.)
-    if (inputDef.min) inputEl.min = inputDef.min;
-    if (inputDef.max) inputEl.max = inputDef.max;
-    if (inputDef.step) inputEl.step = inputDef.step;
-    if (inputDef.value) inputEl.value = inputDef.value;
+    // Safe assignment for advanced options
+    if (typeof inputDef === "object") {
+      if ("min" in inputDef) inputEl.min = inputDef.min;
+      if ("max" in inputDef) inputEl.max = inputDef.max;
+      if ("step" in inputDef) inputEl.step = inputDef.step;
+      if ("value" in inputDef) inputEl.value = inputDef.value;
+    }
 
     inputGroup.appendChild(labelEl);
     inputGroup.appendChild(inputEl);
@@ -828,11 +832,12 @@ function renderTabInputs(tab) {
   });
 }
 
-// Create tab buttons
+// Tab buttons
 tabNames.forEach((tab) => {
   const tabBtn = document.createElement("div");
   tabBtn.className = "tab";
   tabBtn.textContent = tab;
+
   if (tab === activeTab) tabBtn.classList.add("active");
 
   tabBtn.onclick = () => {
@@ -844,7 +849,7 @@ tabNames.forEach((tab) => {
   tabContainer.appendChild(tabBtn);
 });
 
-// Render first tab initially
+// Render first tab
 renderTabInputs(activeTab);
 
 
