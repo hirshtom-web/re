@@ -561,12 +561,12 @@ select {
   
   /* --------- CALCULATOR DEFINITIONS ----------- */
 
-  const calculators = {
+ const calculators = {
   cashFlow: {
     CalculatorName: "Cash Flow Calculator",
     pageTitle: "Cash Flow Calculator",
-    calculatorTitle: "Cash Flow",
-    subtitle: "Calculates monthly or annual cash flow after all expenses.",
+    calculatorTitle: "Visualize your property’s cash flow instantly.",
+    subtitle: "See monthly income and expenses to understand your net cash position.",
     tabs: { "Income": { inputs: ["Income"] }, "Expenses": { inputs: ["Expenses"] }, "Financing": { inputs: ["Mortgage Payment"] } },
     cat: "analysis",
     icon: "payments",
@@ -576,8 +576,8 @@ select {
   cashOnCash: {
     CalculatorName: "Cash-on-Cash ROI Calculator",
     pageTitle: "Cash-on-Cash ROI Calculator",
-    calculatorTitle: "Cash-on-Cash Return",
-    subtitle: "Shows annual ROI on actual cash invested.",
+    calculatorTitle: "Measure your cash-on-cash returns with ease.",
+    subtitle: "Compare your investment vs. actual cash profit to make informed decisions.",
     tabs: { "Key Details": { inputs: ["Annual Cash Flow", "Total Cash Invested"] } },
     cat: "returns",
     icon: "percent",
@@ -587,8 +587,8 @@ select {
   capRate: {
     CalculatorName: "Cap Rate Calculator",
     pageTitle: "Cap Rate Calculator",
-    calculatorTitle: "Cap Rate",
-    subtitle: "Valuation measure ignoring financing—NOI ÷ property value.",
+    calculatorTitle: "Assess the profitability of your property quickly.",
+    subtitle: "Evaluate annual returns relative to property value for smarter investing.",
     tabs: { "Key Details": { inputs: ["Net Operating Income", "Property Value"] } },
     cat: "valuation",
     icon: "speed",
@@ -598,8 +598,8 @@ select {
   grm: {
     CalculatorName: "Gross Rent Multiplier Calculator",
     pageTitle: "Gross Rent Multiplier Calculator",
-    calculatorTitle: "GRM",
-    subtitle: "Price divided by annual rent. Lower GRM is better.",
+    calculatorTitle: "Understand your property’s rent potential at a glance.",
+    subtitle: "Estimate Gross Rent Multiplier to compare multiple investment opportunities.",
     tabs: { "Key Details": { inputs: ["Property Price", "Annual Rent"] } },
     cat: "valuation",
     icon: "calculate",
@@ -609,8 +609,8 @@ select {
   mortgage: {
     CalculatorName: "Mortgage Payment Calculator",
     pageTitle: "Mortgage Payment Calculator",
-    calculatorTitle: "Mortgage Payment",
-    subtitle: "Monthly loan payment based on rate & term.",
+    calculatorTitle: "Calculate your mortgage payments effortlessly.",
+    subtitle: "Determine monthly principal and interest to plan your financing strategy.",
     tabs: { "Financing": { inputs: ["Loan Amount", "Interest Rate (%)", "Loan Term (years)"] } },
     cat: "financing",
     icon: "account_balance",
@@ -624,19 +624,19 @@ select {
   breakEven: {
     CalculatorName: "Break-even Analysis Calculator",
     pageTitle: "Break-even Analysis Calculator",
-    calculatorTitle: "Break-even Analysis",
-    subtitle: "Units needed to cover all expenses.",
+    calculatorTitle: "Find your break-even point quickly.",
+    subtitle: "Discover how many units or revenue you need to cover all costs.",
     tabs: { "Expenses": { inputs: ["Fixed Costs", "Variable Costs per Unit"] }, "Income": { inputs: ["Revenue per Unit"] } },
     cat: "analysis",
     icon: "bar_chart",
     tooltip: "Units needed to cover all expenses.",
     calculate: (Fixed, Variable, Revenue) => (Fixed / (Revenue - Variable)).toFixed(2)
   },
-   roi: {
+  roi: {
     CalculatorName: "ROI Calculator",
     pageTitle: "Return on Investment Calculator",
-    calculatorTitle: "ROI",
-    subtitle: "Calculates ROI based on purchase, financing, income, and expenses.",
+    calculatorTitle: "Calculate your overall return on investment.",
+    subtitle: "Combine purchase, financing, income, and expenses for a complete ROI picture.",
     tabs: {
       "Key Details": {
         inputs: [
@@ -673,7 +673,6 @@ select {
     icon: "trending_up",
     tooltip: "ROI calculation including purchase, financing, income, and expenses.",
     calculate: function(values) {
-      // Example: Simple ROI = (Net Profit / Investment) * 100
       const investment = parseFloat(values["Cash Investment ($)"] || 0);
       const netProfit = parseFloat(values["Monthly Rent ($)"] || 0) * 12 * parseFloat(values["Years to Hold"] || 1) 
                         - parseFloat(values["Property Taxes ($/yr)"] || 0)
@@ -685,8 +684,8 @@ select {
   noi: {
     CalculatorName: "Net Operating Income Calculator",
     pageTitle: "Net Operating Income Calculator",
-    calculatorTitle: "NOI",
-    subtitle: "Income minus operating expenses.",
+    calculatorTitle: "Determine Net Operating Income for your property.",
+    subtitle: "Subtract operating expenses from income to see what the property really earns.",
     tabs: { "Income": { inputs: ["Gross Income"] }, "Expenses": { inputs: ["Operating Expenses"] } },
     cat: "analysis",
     icon: "account_balance_wallet",
@@ -696,8 +695,8 @@ select {
   dscr: {
     CalculatorName: "Debt Service Coverage Ratio Calculator",
     pageTitle: "Debt Service Coverage Ratio Calculator",
-    calculatorTitle: "DSCR",
-    subtitle: "NOI ÷ debt service — lenders want 1.2+.",
+    calculatorTitle: "Check your debt service coverage ratio.",
+    subtitle: "Measure your property’s ability to cover debt with its net operating income.",
     tabs: { "Income": { inputs: ["NOI"] }, "Financing": { inputs: ["Debt Service"] } },
     cat: "financing",
     icon: "shield",
@@ -707,8 +706,8 @@ select {
   priceToRent: {
     CalculatorName: "Price-to-Rent Ratio Calculator",
     pageTitle: "Price-to-Rent Ratio Calculator",
-    calculatorTitle: "Price-to-Rent Ratio",
-    subtitle: "Home price compared to rental income.",
+    calculatorTitle: "Analyze the price-to-rent ratio of your property.",
+    subtitle: "Compare property value to rental income to spot lucrative deals.",
     tabs: { "Key Details": { inputs: ["Property Price", "Annual Rent"] } },
     cat: "valuation",
     icon: "home",
@@ -718,8 +717,8 @@ select {
   vacancy: {
     CalculatorName: "Vacancy Rate Calculator",
     pageTitle: "Vacancy Rate Calculator",
-    calculatorTitle: "Vacancy Rate",
-    subtitle: "Vacant units ÷ total units.",
+    calculatorTitle: "Estimate losses from vacancy periods.",
+    subtitle: "Understand potential revenue gaps to make more realistic forecasts.",
     tabs: { "Income": { inputs: ["Vacant Units", "Total Units"] } },
     cat: "analysis",
     icon: "hotel",
@@ -729,8 +728,8 @@ select {
   expenseRatio: {
     CalculatorName: "Operating Expense Ratio Calculator",
     pageTitle: "Operating Expense Ratio Calculator",
-    calculatorTitle: "Expense Ratio",
-    subtitle: "Expenses ÷ income — lower is better.",
+    calculatorTitle: "Track your operating expense ratio accurately.",
+    subtitle: "See how much of your income goes toward expenses for better planning.",
     tabs: { "Income": { inputs: ["Gross Income"] }, "Expenses": { inputs: ["Operating Expenses"] } },
     cat: "analysis",
     icon: "receipt_long",
@@ -740,8 +739,8 @@ select {
   longTermROI: {
     CalculatorName: "Long-Term ROI Calculator",
     pageTitle: "Long-Term ROI Calculator",
-    calculatorTitle: "Long-Term ROI",
-    subtitle: "Total rent + appreciation returns.",
+    calculatorTitle: "Forecast your long-term returns from rent and appreciation.",
+    subtitle: "Combine cash flow and property value growth for a complete investment outlook.",
     tabs: { "Income": { inputs: ["Rental Income", "Property Appreciation"] }, "Key Details": { inputs: ["Investment Cost"] } },
     cat: "returns",
     icon: "timeline",
@@ -751,8 +750,8 @@ select {
   flip: {
     CalculatorName: "Fix & Flip Profit Calculator",
     pageTitle: "Fix & Flip Profit Calculator",
-    calculatorTitle: "Fix & Flip Profit",
-    subtitle: "Sale price minus purchase & renovation costs.",
+    calculatorTitle: "Project profits from your fix & flip projects.",
+    subtitle: "Calculate renovation costs, resale value, and potential ROI in one view.",
     tabs: { "Key Details": { inputs: ["Sale Price", "Purchase Price", "Renovation Costs"] } },
     cat: "returns",
     icon: "construction",
@@ -762,8 +761,8 @@ select {
   renovationROI: {
     CalculatorName: "Renovation ROI Calculator",
     pageTitle: "Renovation ROI Calculator",
-    calculatorTitle: "Renovation ROI",
-    subtitle: "Return generated from renovation expenditures.",
+    calculatorTitle: "Measure ROI from property improvements.",
+    subtitle: "See how each renovation affects your investment’s profitability.",
     tabs: { "Key Details": { inputs: ["Profit from Renovation", "Renovation Cost"] } },
     cat: "returns",
     icon: "build",
@@ -773,8 +772,8 @@ select {
   taxDepreciation: {
     CalculatorName: "Tax / Depreciation Impact Calculator",
     pageTitle: "Tax / Depreciation Impact Calculator",
-    calculatorTitle: "Tax / Depreciation",
-    subtitle: "Taxable income minus depreciation benefits.",
+    calculatorTitle: "Estimate tax impacts and depreciation benefits.",
+    subtitle: "Plan for deductions and understand their effect on net returns.",
     tabs: { "Income": { inputs: ["Taxable Income"] }, "Expenses": { inputs: ["Depreciation"] } },
     cat: "analysis",
     icon: "receipt",
@@ -784,8 +783,8 @@ select {
   cma: {
     CalculatorName: "Comparative Market Analysis Calculator",
     pageTitle: "Comparative Market Analysis Calculator",
-    calculatorTitle: "CMA",
-    subtitle: "Property value vs market value.",
+    calculatorTitle: "Perform a comparative market analysis easily.",
+    subtitle: "Compare properties to determine fair market value and pricing strategy.",
     tabs: { "Key Details": { inputs: ["Market Value", "Property Value"] } },
     cat: "valuation",
     icon: "analytics",
@@ -795,8 +794,8 @@ select {
   leverageROI: {
     CalculatorName: "Leverage ROI Calculator",
     pageTitle: "Leverage ROI Calculator",
-    calculatorTitle: "Leverage ROI",
-    subtitle: "Return based on leveraged equity invested.",
+    calculatorTitle: "Evaluate leveraged returns with financing.",
+    subtitle: "See how loans amplify your ROI and understand associated risks.",
     tabs: { "Income": { inputs: ["Cash Flow"] }, "Key Details": { inputs: ["Equity Invested"] } },
     cat: "returns",
     icon: "trending_up",
