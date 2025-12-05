@@ -763,183 +763,89 @@ select {
 };
 
 
-    /* CATEGORY CONTAINERS */
-    const categories = {
-      financing: document.getElementById("cat-financing"),
-      returns: document.getElementById("cat-returns"),
-      valuation: document.getElementById("cat-valuation"),
-      analysis: document.getElementById("cat-analysis")
-    };
+    // ---------- TABS ----------
+const tabContainer = document.createElement("div");
+tabContainer.className = "tab-container";
+form.appendChild(tabContainer);
 
-/* --------- RENDER TILES ----------- */
-Object.entries(calculators).forEach(([key, c]) => {
-  const tile = document.createElement("div");
-  tile.className = "tile";
-  tile.dataset.tooltip = c.tooltip;
+const tabContents = document.createElement("div");
+tabContents.className = "tab-contents";
+form.appendChild(tabContents);
 
-tile.innerHTML = `
-    <span class="material-icons-outlined">${c.icon}</span>
-    <div>${c.calculatorTitle}</div>
-`;
+// NEW: Your universal left→right order
+const TAB_ORDER = ["Key Details", "Financing", "Income", "Expenses"];
 
-
-  tile.onclick = () => {
-    loadCalculator(key);
-    window.location.hash = key;
-  };
-
-  categories[c.cat].appendChild(tile);
+// Sort the existing tabs in the calculator based on your global order
+const tabNames = Object.keys(calc.tabs).sort((a, b) => {
+  return TAB_ORDER.indexOf(a) - TAB_ORDER.indexOf(b);
 });
 
-/* --------- IMPORTANT: GET ALL TILE ELEMENTS ----------- */
-const allTiles = document.getElementsByClassName("tile");
+// First tab active
+let activeTab = tabNames[0];
 
-/* --------- GET COMMON ELEMENTS ----------- */
-const titleEl = document.getElementById("calculatorTitle");
-const form = document.getElementById("calculatorForm");
-const resultEl = document.getElementById("result");
+// Render inputs EXACTLY like before (no removals)
+function renderTabInputs(tab) {
+  tabContents.innerHTML = ""; // Clear previous inputs
+  activeTab = tab;
 
-/* --------- LOAD CALCULATOR ----------- */
+  calc.tabs[tab].inputs.forEach((inputDef) => {
+    const inputGroup = document.createElement("div");
+    inputGroup.className = "input-group";
 
-  function loadCalculator(key) {
-  if (!calculators[key]) return;
+    // Support for advanced input definitions
+    // Accepts string ("Price") OR object ({ id, label, type, placeholder })
+    let id, label, type, placeholder;
 
-  const calc = calculators[key];
-
-  // Show calculator screen, hide grid
-  document.getElementById("screenGrid").style.display = "none";
-  document.getElementById("screenCalculator").style.display = "block";
-
-  // Highlight selected tile
-  [...allTiles].forEach((t, i) => {
-    t.classList.toggle("active", Object.keys(calculators)[i] === key);
-  });
-
-  // Set page titles
-  document.getElementById("pageTitle").textContent = calc.pageTitle;
-  titleEl.textContent = calc.calculatorTitle;
-  document.getElementById("subtitle").textContent = calc.subtitle;
-
-  // Reset form and result
-  form.innerHTML = "";
-  resultEl.textContent = "";
-
-  // Optional location input
-  if (calc.location) {
-    const locInput = document.createElement("input");
-    locInput.type = "text";
-    locInput.placeholder = "City, State";
-    locInput.id = "location";
-    form.appendChild(locInput);
-  }
-
-  // ---------- TABS ----------
-  const tabContainer = document.createElement("div");
-  tabContainer.className = "tab-container";
-  form.appendChild(tabContainer);
-
-  const tabContents = document.createElement("div");
-  tabContents.className = "tab-contents";
-  form.appendChild(tabContents);
-
-  const tabNames = Object.keys(calc.tabs);
-  let activeTab = tabNames[0];
-
-  function renderTabInputs(tab) {
-    tabContents.innerHTML = ""; // clear previous inputs
-    activeTab = tab;
-
-    calc.tabs[tab].inputs.forEach((name) => {
-      const inputGroup = document.createElement("div");
-      inputGroup.className = "input-group";
-
-      const label = document.createElement("label");
-      label.textContent = name;
-      label.htmlFor = name;
-
-      const input = document.createElement("input");
-      input.type = "number";
-      input.placeholder = name;
-      input.id = name;
-
-      inputGroup.appendChild(label);
-      inputGroup.appendChild(input);
-      tabContents.appendChild(inputGroup);
-    });
-  }
-
-  // Create tab buttons
-  tabNames.forEach((tab) => {
-    const tabBtn = document.createElement("div");
-    tabBtn.className = "tab";
-    tabBtn.textContent = tab;
-    if (tab === activeTab) tabBtn.classList.add("active");
-
-    tabBtn.onclick = () => {
-      [...tabContainer.children].forEach(t => t.classList.remove("active"));
-      tabBtn.classList.add("active");
-      renderTabInputs(tab);
-    };
-
-    tabContainer.appendChild(tabBtn);
-  });
-
-  // Render initial tab inputs
-  renderTabInputs(activeTab);
-
-  // ---------- CALCULATE BUTTON ----------
-  const button = document.createElement("button");
-  button.textContent = "Calculate";
-  button.className = "calc-btn";
-
-  button.onclick = (e) => {
-    e.preventDefault();
-
-    const values = calc.tabs[activeTab].inputs.map(id => {
-      const el = document.getElementById(id);
-      return el ? Number(el.value) : NaN;
-    });
-
-    const locationValue = calc.location ? document.getElementById("location").value : null;
-
-    if (values.some(v => isNaN(v))) {
-      resultEl.textContent = "Please fill in all required inputs!";
-      return;
+    if (typeof inputDef === "string") {
+      id = label = placeholder = inputDef;
+      type = "number"; // default
+    } else {
+      // object-based configuration
+      id = inputDef.id || inputDef.label;
+      label = inputDef.label || id;
+      type = inputDef.type || "number";
+      placeholder = inputDef.placeholder || label;
     }
 
-    try {
-      resultEl.textContent = `Result: ${calc.calculate(...values, locationValue)}`;
-    } catch (err) {
-      resultEl.textContent = "Error in calculation. Check your inputs.";
-      console.error(err);
-    }
+    const labelEl = document.createElement("label");
+    labelEl.textContent = label;
+    labelEl.htmlFor = id;
+
+    const inputEl = document.createElement("input");
+    inputEl.type = type;
+    inputEl.placeholder = placeholder;
+    inputEl.id = id;
+
+    // carry through advanced options (min, max, step, defaultValue, etc.)
+    if (inputDef.min) inputEl.min = inputDef.min;
+    if (inputDef.max) inputEl.max = inputDef.max;
+    if (inputDef.step) inputEl.step = inputDef.step;
+    if (inputDef.value) inputEl.value = inputDef.value;
+
+    inputGroup.appendChild(labelEl);
+    inputGroup.appendChild(inputEl);
+    tabContents.appendChild(inputGroup);
+  });
+}
+
+// Create tab buttons
+tabNames.forEach((tab) => {
+  const tabBtn = document.createElement("div");
+  tabBtn.className = "tab";
+  tabBtn.textContent = tab;
+  if (tab === activeTab) tabBtn.classList.add("active");
+
+  tabBtn.onclick = () => {
+    [...tabContainer.children].forEach(t => t.classList.remove("active"));
+    tabBtn.classList.add("active");
+    renderTabInputs(tab);
   };
 
-  form.appendChild(button);
-}
-
-  /* --------- BACK BUTTON ----------- */
-document.getElementById("backBtn").onclick = () => {
-  document.getElementById("screenCalculator").style.display = "none";
-  document.getElementById("screenGrid").style.display = "block";
-  resultEl.textContent = "";
-  window.location.hash = "";
-};
-
-  function tryLoadFromHash() {
-  const hash = window.location.hash.replace("#", "");
-  if (hash && calculators[hash]) {
-    loadCalculator(hash);
-  }
-}
-
-// On initial load
-window.addEventListener("load", tryLoadFromHash);
-
-// Also respond if the hash changes later
-window.addEventListener("hashchange", () => {
-  tryLoadFromHash();
+  tabContainer.appendChild(tabBtn);
 });
+
+// Render first tab initially
+renderTabInputs(activeTab);
 
 
   </script>
