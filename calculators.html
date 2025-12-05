@@ -552,9 +552,10 @@ select {
 </div>
 
 
-
 <script>
-    /* --------- CALCULATOR DEFINITIONS ----------- */
+
+  
+  /* --------- CALCULATOR DEFINITIONS ----------- */
 
   const calculators = {
   cashFlow: {
@@ -799,34 +800,27 @@ const form = document.getElementById("calculatorForm");
 const resultEl = document.getElementById("result");
 
 /* --------- LOAD CALCULATOR ----------- */
-function loadCalculator(key) {
+
+  function loadCalculator(key) {
   if (!calculators[key]) return;
 
+  const calc = calculators[key];
+
+  // Show calculator screen, hide grid
   document.getElementById("screenGrid").style.display = "none";
   document.getElementById("screenCalculator").style.display = "block";
 
-  [...allTiles].forEach(t => t.classList.remove("active"));
-  const index = Object.keys(calculators).indexOf(key);
-  if (allTiles[index]) allTiles[index].classList.add("active");
+  // Highlight selected tile
+  [...allTiles].forEach((t, i) => {
+    t.classList.toggle("active", Object.keys(calculators)[i] === key);
+  });
 
-  const calc = calculators[key];
-
-  // Page title H1
+  // Set page titles
   document.getElementById("pageTitle").textContent = calc.pageTitle;
-
-  // Calculator title H2
   titleEl.textContent = calc.calculatorTitle;
-
-  // Subtitle H3
   document.getElementById("subtitle").textContent = calc.subtitle;
 
-  // Highlight selected tile
-  [...allTiles].forEach(t => t.classList.remove("active"));
-  const index = Object.keys(calculators).indexOf(key);
-  if (allTiles[index]) allTiles[index].classList.add("active");
-
-  const calc = calculators[key];
-  titleEl.textContent = calc.calculatorTitle; // corrected title
+  // Reset form and result
   form.innerHTML = "";
   resultEl.textContent = "";
 
@@ -882,7 +876,6 @@ function loadCalculator(key) {
     if (tab === activeTab) tabBtn.classList.add("active");
 
     tabBtn.onclick = () => {
-      // switch active tab button
       [...tabContainer.children].forEach(t => t.classList.remove("active"));
       tabBtn.classList.add("active");
       renderTabInputs(tab);
@@ -907,7 +900,6 @@ function loadCalculator(key) {
       return el ? Number(el.value) : NaN;
     });
 
-    // Optional location value
     const locationValue = calc.location ? document.getElementById("location").value : null;
 
     if (values.some(v => isNaN(v))) {
@@ -926,7 +918,7 @@ function loadCalculator(key) {
   form.appendChild(button);
 }
 
-/* --------- BACK BUTTON ----------- */
+  /* --------- BACK BUTTON ----------- */
 document.getElementById("backBtn").onclick = () => {
   document.getElementById("screenCalculator").style.display = "none";
   document.getElementById("screenGrid").style.display = "block";
