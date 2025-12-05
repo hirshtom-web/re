@@ -947,6 +947,7 @@ function loadCalculator(key) {
   renderTabInputs(activeTab);
 
   // ---------- CALCULATE BUTTON ----------
+// ---------- CALCULATE BUTTON ----------
 const button = document.createElement("button");
 button.textContent = "Calculate";
 button.className = "calc-btn";
@@ -958,21 +959,32 @@ resultEl.textContent = "$0";
 button.onclick = (e) => {
     e.preventDefault();
 
-    const values = calc.tabs[activeTab].inputs.map(id => {
-        const val = inputValues[id];
-        return val !== undefined ? Number(val) : NaN;
+    // Collect all inputs from all tabs
+    let allValues = [];
+    calc.tabs.forEach(tab => {
+        tab.inputs.forEach(id => {
+            const val = inputValues[id];
+            // Convert empty string or undefined to NaN
+            allValues.push(val !== undefined && val !== "" ? Number(val) : NaN);
+        });
     });
 
+    // Optional location input
     const locationValue = calc.location ? inputValues["location"] : null;
 
-    if (values.some(v => isNaN(v))) {
+    // Check for missing/invalid inputs
+    if (allValues.some(v => isNaN(v))) {
         resultEl.textContent = "Please fill in all required inputs!";
         return;
     }
 
     try {
-        const calcResult = calc.calculate(...values, locationValue);
-        resultEl.textContent = `$${calcResult}`; // prepend $ symbol
+        // Call the calculation function
+        const calcResult = calc.calculate(...allValues, locationValue);
+
+        // Use unit if defined, default to empty string
+        const unit = calc.unit || "";
+        resultEl.textContent = `${unit}${calcResult}`;
     } catch (err) {
         resultEl.textContent = "Error in calculation. Check your inputs.";
         console.error(err);
