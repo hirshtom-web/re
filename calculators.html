@@ -75,9 +75,7 @@ label {
 /* ===================== */
 /* BUTTON & INPUT STYLES */
 /* ===================== */
-/* ===================== */
-/* UNIFIED INPUT STYLES  */
-/* ===================== */
+
 input, select, textarea {
     width: 100%;                /* consistent width */
     padding: 12px 15px;         /* spacing inside input */
@@ -221,6 +219,7 @@ select {
 }
 
 .input-group { display: flex; flex-direction: column; }
+   
 
 .roi-columns {
     display: flex;
@@ -339,6 +338,13 @@ select {
 
 .tab-content { display: none; animation: fadeIn 0.25s ease; }
 .tab-content.active { display: block; }
+ 
+   .tab-contents {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(4px); }
@@ -470,6 +476,7 @@ select {
     .download-container { flex-direction: column !important; align-items: stretch !important; gap: 10px; }
     .download-btn { width: 100% !important; }
     .download-text { text-align: center; }
+    .tab-contents { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 500px) {
@@ -477,12 +484,9 @@ select {
 }
 
 
-
 </style>
 
-
-
-  </style>
+  
 </head>
 <body>
 <!-- SCREEN 1: GRID -->
