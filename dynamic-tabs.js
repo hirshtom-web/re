@@ -2,11 +2,11 @@ function loadCalculator(calculatorType) {
   const tabContainer = document.querySelector(".tab-container");
   const mainContent = document.querySelector(".inputs-container");
 
-  // Clear existing tabs & tab contents
+  // Clear existing tabs & contents
   tabContainer.innerHTML = "";
   mainContent.querySelectorAll(".tab-content").forEach(tc => tc.remove());
 
-  const calc = calculators[calculatorType];
+  const calc = calculators[calculatorType]; // your config object
   if (!calc) return;
 
   let first = true;
@@ -17,10 +17,20 @@ function loadCalculator(calculatorType) {
     tab.className = "tab";
     if (first) tab.classList.add("active");
     tab.dataset.tab = tabName;
-    tab.textContent = tabName; // Replace with icon+label if needed
+
+    // Optional: add icon
+    const icon = document.createElement("img");
+    icon.src = calc.tabs[tabName].icon || "";
+    icon.className = "tab-icon";
+    tab.appendChild(icon);
+
+    const label = document.createElement("span");
+    label.textContent = tabName;
+    tab.appendChild(label);
+
     tabContainer.appendChild(tab);
 
-    // Create tab content container
+    // Create tab content
     const tabContent = document.createElement("div");
     tabContent.className = "tab-content";
     if (first) tabContent.classList.add("active");
@@ -28,7 +38,7 @@ function loadCalculator(calculatorType) {
     mainContent.appendChild(tabContent);
 
     // Add inputs dynamically
-    calc.tabs[tabName].forEach(inputId => {
+    calc.tabs[tabName].inputs.forEach(inputId => {
       const inputEl = document.getElementById(inputId);
       if (inputEl) {
         tabContent.appendChild(inputEl.parentElement.cloneNode(true));
@@ -38,10 +48,9 @@ function loadCalculator(calculatorType) {
     first = false;
   });
 
-  // Add tab switching behavior
+  // Add tab click behavior
   const tabs = document.querySelectorAll(".tab");
   const tabContents = document.querySelectorAll(".tab-content");
-
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
       const target = tab.dataset.tab;
