@@ -1,0 +1,276 @@
+<h1 id="page-title"></h1>
+<p id="page-description" class="page-description"></p>
+
+  
+<div class="main-content">
+<div class="container">
+  <div class="inputs-container">
+    <h2 class="mini-title"></h2>
+      <h3 class="subtitle"></h3>
+
+
+<div class="tab-container">
+    
+    <div class="tab active" data-tab="key-details">
+        <img src="https://static.wixstatic.com/shapes/1799ca_d59ee459f9db45a3b99a62cdfa84e724.svg" 
+             class="tab-icon">
+        Key Details
+    </div>
+
+    <div class="tab" data-tab="financing">
+        <img src="https://static.wixstatic.com/shapes/1799ca_0e0026550151414baae6bfb1ce82c752.svg" 
+             class="tab-icon">
+        Financing
+    </div>
+
+    <div class="tab" data-tab="operating">
+        <img src="https://static.wixstatic.com/shapes/1799ca_dbd6c6293d664fe1a55914fb987667b3.svg" 
+             class="tab-icon">
+        Expenses
+    </div>
+
+</div>
+
+
+
+  <!-- TAB CONTENT WRAPPER (fixed) -->
+ <div id="tab-key-details" class="tab-content active">
+  <div class="roi-grid">
+
+    
+     <div class="input-group">
+<label>
+  Purchase Price ($)
+  <span class="info" title="Enter the total purchase price of the property.">ⓘ</span>
+</label>
+      <input type="text" id="purchasePrice" placeholder="500,000">
+    </div>
+    
+ <div class="input-group">
+  <label>
+    Monthly Rent ($)
+    <span class="info" title="Expected monthly rental income from tenants.">ⓘ</span>
+  </label>
+  <input type="text" id="rentIncome" placeholder="2,350" data-suggest="2350">
+  <div class="suggestion-popup" id="rentSuggestion">Suggested: $2,350</div>
+</div>
+
+<div class="input-group">
+  <label>
+    Appreciation Rate (%)
+    <span class="info" title="Expected annual percentage increase in the property value.">ⓘ</span>
+  </label>
+  <input type="text" id="appreciationRate" placeholder="9.2" data-suggest="9.2">
+  <div class="suggestion-popup" id="appSuggestion">Suggested: 9.2%</div>
+</div>
+
+    <div class="input-group">
+<label>
+  Years to Hold
+  <span class="info" title="How long you plan to keep the property before selling.">ⓘ</span>
+</label>
+      <select id="yearsHold">
+        <option value="1">1 Year</option>
+        <option value="3">3 Years</option>
+        <option value="5" selected>5 Years</option>
+        <option value="7">7 Years</option>
+        <option value="10">10 Years</option>
+        <option value="15">15 Years</option>
+      </select>
+    </div>
+<!-- Property Type -->
+<div class="input-group">
+  <label>
+    Property Type 
+    <span class="info" title="Select the type of residential investment property.">ⓘ</span>
+  </label>
+  <select id="propertyType">
+    <option value="Single Family">Single Family</option>
+    <option value="Condo">Condo</option>
+    <option value="Townhouse">Townhouse</option>
+    <option value="Duplex">Duplex</option>
+    <option value="Triplex">Triplex</option>
+    <option value="Fourplex">Fourplex</option>
+  </select>
+</div>
+
+<!-- Market: City + State -->
+<div class="input-group">
+  <label>
+    Market (City & State)
+    <span class="info" title="Your investment market. Auto-detected but you can edit manually.">ⓘ</span>
+  </label>
+  <div style="display:flex; gap:10px; position: relative;">
+    <input type="text" id="marketLocation" placeholder="City, State" autocomplete="off">
+    <div id="citySuggestions" class="suggestions-box"></div>
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+
+  <div id="tab-financing" class="tab-content">
+      <div class="roi-grid">
+        <div class="input-group">
+          <label>Down Payment (%)</label>
+          <input type="number" id="downPaymentPercent" placeholder="30">
+        </div>
+
+        <div class="input-group">
+          <label>Cash Investment ($)</label>
+          <input type="text" id="cashInvestment" placeholder="150,000">
+        </div>
+
+        <div class="input-group">
+          <label>Financed Amount ($)</label>
+          <input type="text" id="loanAmount" placeholder="350,000">
+        </div>
+
+        <div class="input-group">
+          <label>Mortgage Rate (%)</label>
+          <input type="number" id="mortgageRate" placeholder="6.25" step="0.01">
+        </div>
+
+        <div class="input-group">
+          <label>Mortgage Term (Years)</label>
+          <input type="number" id="mortgageTerm" placeholder="30">
+        </div>
+      </div>
+  </div>
+
+  <div id="tab-operating" class="tab-content">
+      <div class="roi-grid">
+          <div class="input-group">
+              <label>Property Taxes ($/yr)</label>
+              <input type="text" id="taxes" placeholder="3,500">
+          </div>
+
+          <div class="input-group">
+              <label>Homeowner’s Insurance ($/yr)</label>
+              <input type="text" id="insurance" placeholder="1,500">
+          </div>
+
+          <div class="input-group">
+              <label>HOA ($/mo)</label>
+              <input type="text" id="hoa" placeholder="250">
+          </div>
+
+          <div class="input-group">
+              <label>Management Fees (%)</label>
+              <input type="number" id="managementFees" placeholder="8">
+          </div>
+
+          <div class="input-group">
+              <label>Vacancy Rate (%)</label>
+              <input type="number" id="vacancyRate" placeholder="5">
+          </div>
+
+          <div id="expensesContainer">
+              <div class="input-group" id="addExpenseWrapper">
+                  <label style="visibility:hidden;">Add Expense</label>
+                  <input type="text" id="addExpenseInput" placeholder="+ Add Expense"
+                        readonly style="cursor:pointer;">
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- ⬅ THIS CLOSING DIV WAS IN THE WRONG PLACE BEFORE -->
+
+
+<div class="calculate-container">
+<button id="calculateBtn" class="calc-btn">Calculate</button>
+</div>
+
+<!-- Sticky button that appears only after scrolling -->
+<div id="stickyCalcBar">
+  <button id="stickyCalculateBtn">Calculate ROI</button>
+</div>
+
+  </div>
+
+
+<!-- Results Column -->
+<div class="results-container">
+  <h4>Investment Results</h4>
+
+  <!-- Main ROI Display -->
+  <div class="total-roi-display">
+    <span id="resultTotalROILarge">$0</span>
+  </div>
+
+  <!-- Detailed Metrics -->
+  <div class="roi-columns" style="display:flex; flex-wrap:wrap; gap:15px; justify-content:space-between; margin-top:20px;">
+
+    <!-- Equity Build-Up -->
+    <div class="roi-column" style="flex:1; min-width:140px; text-align:center;">
+      <div class="label">
+        Equity Build-Up <span class="info" title="Estimated property equity after loan payoff and appreciation over holding period.">ⓘ</span>
+      </div>
+      <div class="value" id="resultCashFlowColumn">- n/a</div>
+    </div>
+
+    <!-- Net Operating Income -->
+    <div class="roi-column" style="flex:1; min-width:140px; text-align:center;">
+      <div class="label">
+        Net Operating Income <span class="info" title="Total rental income minus operating expenses, before debt service.">ⓘ</span>
+      </div>
+      <div class="value" id="resultNOIColumn">- n/a</div>
+    </div>
+
+    <!-- Total Rental Income -->
+    <div class="roi-column" style="flex:1; min-width:140px; text-align:center;">
+      <div class="label">
+        Total Rental Income <span class="info" title="Cumulative rental income expected during the holding period.">ⓘ</span>
+      </div>
+      <div class="value" id="resultCoCColumn">- n/a</div>
+    </div>
+
+  </div>
+<!-- Disclaimer + Checkbox -->
+<div class="disclaimer-box">
+    <!-- Title -->
+    <h4>Calculator Disclaimer</h4>
+    <!-- Subtitle / Explanation -->
+    <p>
+        These calculators are for <strong>informational purposes only</strong>. Results are estimates and may not reflect your exact situation. We do not provide financial, legal, or tax advice, and you should verify results independently before making decisions.
+        By using these calculators, you agree that you use them at your own risk, and we are not liable for any losses or damages resulting from their use.
+    </p>
+  
+</div>
+  </div>
+
+
+  <!-- =============================== -->
+<!-- FULL-WIDTH STATS CONTAINER     -->
+<!-- =============================== -->
+<div class="stats-fullwidth">
+    <h4 class="stats-title">Additional Investment Metrics</h4>
+
+    <div class="stats-grid">
+        <div class="stat-box">
+            <div class="stat-label">Cap Rate</div>
+            <div class="stat-value" id="capRateValue">- n/a</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-label">Annual Yield</div>
+            <div class="stat-value" id="yieldValue">- n/a</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-label">Expense Ratio</div>
+            <div class="stat-value" id="expenseRatioValue">- n/a</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-label">Debt Coverage Ratio (DCR)</div>
+            <div class="stat-value" id="dcrValue">- n/a</div>
+        </div>
+    </div>
+</div>
+</div>
+
+
