@@ -239,20 +239,20 @@ select {
 /* ===================== */
 /* RESULTS DISPLAY       */
 /* ===================== */
-/* Container for the result */
-.result-display {
+.total-roi-display {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120px;        /* Adjust as needed */
     margin-bottom: 25px;
-    color: #005bff;       /* Blue text */
-    font-size: 100px;     /* Big text */
-    font-weight: 800;     /* Bold */
-    text-align: center;
+    height: 120px;
 }
 
-/* Optional: smaller label or additional text below */
+.total-roi-display span {
+    font-size: 80px;
+    font-weight: 800;
+    color: #005bff;
+}
+
 .result-card .label { 
     font-weight: 500; 
     margin-bottom: 6px; 
@@ -266,8 +266,6 @@ select {
     color: #1e0949; 
     margin-bottom: 16px; 
 }
-
-
 
 /* ===================== */
 /* EXPENSES & DOWNLOAD   */
@@ -540,7 +538,7 @@ select {
       <h3>Results</h3>
       
       <!-- Result Output -->
-<div id="result">$0</div>
+      <div id="result"></div>
     </div>
 
   </div>
@@ -947,51 +945,35 @@ function loadCalculator(key) {
   renderTabInputs(activeTab);
 
   // ---------- CALCULATE BUTTON ----------
-// ---------- CALCULATE BUTTON ----------
-const button = document.createElement("button");
-button.textContent = "Calculate";
-button.className = "calc-btn";
+  const button = document.createElement("button");
+  button.textContent = "Calculate";
+  button.className = "calc-btn";
 
-// Initialize result
-resultEl.textContent = "$0";
-
-// On calculation:
-button.onclick = (e) => {
+  button.onclick = (e) => {
     e.preventDefault();
 
-    // Collect all inputs from all tabs
-    let allValues = [];
-    calc.tabs.forEach(tab => {
-        tab.inputs.forEach(id => {
-            const val = inputValues[id];
-            // Convert empty string or undefined to NaN
-            allValues.push(val !== undefined && val !== "" ? Number(val) : NaN);
-        });
+    const values = calc.tabs[activeTab].inputs.map(id => {
+      const val = inputValues[id];
+      return val !== undefined ? Number(val) : NaN;
     });
 
-    // Optional location input
     const locationValue = calc.location ? inputValues["location"] : null;
 
-    // Check for missing/invalid inputs
-    if (allValues.some(v => isNaN(v))) {
-        resultEl.textContent = "Please fill in all required inputs!";
-        return;
+    if (values.some(v => isNaN(v))) {
+      resultEl.textContent = "Please fill in all required inputs!";
+      return;
     }
 
     try {
-        // Call the calculation function
-        const calcResult = calc.calculate(...allValues, locationValue);
-
-        // Use unit if defined, default to empty string
-        const unit = calc.unit || "";
-        resultEl.textContent = `${unit}${calcResult}`;
+      resultEl.textContent = `Result: ${calc.calculate(...values, locationValue)}`;
     } catch (err) {
-        resultEl.textContent = "Error in calculation. Check your inputs.";
-        console.error(err);
+      resultEl.textContent = "Error in calculation. Check your inputs.";
+      console.error(err);
     }
-};
+  };
 
-form.appendChild(button);
+  form.appendChild(button);
+}
 
 
   /* --------- BACK BUTTON ----------- */
