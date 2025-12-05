@@ -390,6 +390,21 @@ document.getElementById("backBtn").onclick = () => {
   window.location.hash = "";
 };
 
+  function tryLoadFromHash() {
+  const hash = window.location.hash.replace("#", "");
+  if (hash && calculators[hash]) {
+    loadCalculator(hash);
+  }
+}
+
+// On initial load
+window.addEventListener("load", tryLoadFromHash);
+
+// Also respond if the hash changes later
+window.addEventListener("hashchange", () => {
+  tryLoadFromHash();
+});
+
 
   </script>
 
