@@ -537,156 +537,255 @@ select {
 <script>
     /* --------- CALCULATOR DEFINITIONS ----------- */
 
-    const calculators = {
-      cashFlow: {
-        title: "Cash Flow Calculator",
-        cat: "analysis",
-        icon: "payments",
-        tooltip: "Calculates monthly or annual cash flow after all expenses.",
-        inputs: ["Income", "Expenses", "Mortgage Payment"],
-        calculate: (Income, Expenses, MortgagePayment) => Income - Expenses - MortgagePayment,
-      },
-      cashOnCash: {
-        title: "Cash-on-Cash Return",
-        cat: "returns",
-        icon: "percent",
-        tooltip: "Shows annual ROI on actual cash invested.",
-        inputs: ["Annual Cash Flow", "Total Cash Invested"],
-        calculate: (CF, Invested) => ((CF / Invested) * 100).toFixed(2) + "%"
-      },
-      capRate: {
-        title: "Cap Rate",
-        cat: "valuation",
-        icon: "speed",
-        tooltip: "Valuation measure ignoring financing—NOI ÷ property value.",
-        inputs: ["Net Operating Income", "Property Value"],
-        calculate: (NOI, PV) => ((NOI / PV) * 100).toFixed(2) + "%"
-      },
-      grm: {
-        title: "Gross Rent Multiplier",
-        cat: "valuation",
-        icon: "calculate",
-        tooltip: "Price divided by annual rent. Lower GRM is better.",
-        inputs: ["Property Price", "Annual Rent"],
-        calculate: (Price, Rent) => (Price / Rent).toFixed(2)
-      },
-      mortgage: {
-        title: "Mortgage Payment",
-        cat: "financing",
-        icon: "account_balance",
-        tooltip: "Monthly loan payment based on rate & term.",
-        inputs: ["Loan Amount", "Interest Rate (%)", "Loan Term (years)"],
-        calculate: (Loan, Rate, Term) => {
-          const r = Rate/100/12;
-          const n = Term*12;
-          return (Loan*r/(1-Math.pow(1+r, -n))).toFixed(2);
-        }
-      },
-      breakEven: {
-        title: "Break-even Analysis",
-        cat: "analysis",
-        icon: "bar_chart",
-        tooltip: "Units needed to cover all expenses.",
-        inputs: ["Fixed Costs", "Variable Costs per Unit", "Revenue per Unit"],
-        calculate: (Fixed, Variable, Revenue) => (Fixed / (Revenue - Variable)).toFixed(2)
-      },
-      roi: {
-        title: "Return on Investment",
-        cat: "returns",
-        icon: "trending_up",
-        tooltip: "Net profit divided by investment cost.",
-        inputs: ["Net Profit", "Investment Cost"],
-        calculate: (Profit, Cost) => ((Profit/Cost)*100).toFixed(2) + "%"
-      },
-      noi: {
-        title: "Net Operating Income",
-        cat: "analysis",
-        icon: "account_balance_wallet",
-        tooltip: "Income minus operating expenses.",
-        inputs: ["Gross Income", "Operating Expenses"],
-        calculate: (GI, OE) => GI - OE
-      },
-      dscr: {
-        title: "Debt Service Coverage Ratio",
-        cat: "financing",
-        icon: "shield",
-        tooltip: "NOI ÷ debt service — lenders want 1.2+.",
-        inputs: ["NOI", "Debt Service"],
-        calculate: (NOI, Debt) => (NOI / Debt).toFixed(2)
-      },
-      priceToRent: {
-        title: "Price-to-Rent Ratio",
-        cat: "valuation",
-        icon: "home",
-        tooltip: "Home price compared to rental income.",
-        inputs: ["Property Price", "Annual Rent"],
-        calculate: (Price, Rent) => (Price / Rent).toFixed(2)
-      },
-      vacancy: {
-        title: "Vacancy Rate",
-        cat: "analysis",
-        icon: "hotel",
-        tooltip: "Vacant units ÷ total units.",
-        inputs: ["Vacant Units", "Total Units"],
-        calculate: (Vacant, Total) => ((Vacant/Total)*100).toFixed(2) + "%"
-      },
-      expenseRatio: {
-        title: "Operating Expense Ratio",
-        cat: "analysis",
-        icon: "receipt_long",
-        tooltip: "Expenses ÷ income — lower is better.",
-        inputs: ["Operating Expenses", "Gross Income"],
-        calculate: (E, I) => ((E/I)*100).toFixed(2) + "%"
-      },
-      longTermROI: {
-        title: "Long-Term ROI",
-        cat: "returns",
-        icon: "timeline",
-        tooltip: "Total rent + appreciation returns.",
-        inputs: ["Rental Income", "Property Appreciation", "Investment Cost"],
-        calculate: (Rent, App, Cost) => (((Rent+App)/Cost)*100).toFixed(2) + "%"
-      },
-      flip: {
-        title: "Fix & Flip Profit",
-        cat: "returns",
-        icon: "construction",
-        tooltip: "Sale price minus purchase & renovation costs.",
-        inputs: ["Sale Price", "Purchase Price", "Renovation Costs"],
-        calculate: (Sale, Purchase, Reno) => Sale - Purchase - Reno
-      },
-      renovationROI: {
-        title: "Renovation ROI",
-        cat: "returns",
-        icon: "build",
-        tooltip: "Return generated from renovation expenditures.",
-        inputs: ["Profit from Renovation", "Renovation Cost"],
-        calculate: (Profit, Cost) => ((Profit/Cost)*100).toFixed(2) + "%"
-      },
-      taxDepreciation: {
-        title: "Tax / Depreciation Impact",
-        cat: "analysis",
-        icon: "receipt",
-        tooltip: "Taxable income minus depreciation benefits.",
-        inputs: ["Taxable Income", "Depreciation"],
-        calculate: (Inc, Dep) => Inc - Dep
-      },
-      cma: {
-        title: "Comparative Market Analysis",
-        cat: "valuation",
-        icon: "analytics",
-        tooltip: "Property value vs market value.",
-        inputs: ["Market Value", "Property Value"],
-        calculate: (M, P) => ((M/P)*100).toFixed(2) + "%"
-      },
-      leverageROI: {
-        title: "Leverage ROI",
-        cat: "returns",
-        icon: "trending_up",
-        tooltip: "Return based on leveraged equity invested.",
-        inputs: ["Cash Flow", "Equity Invested"],
-        calculate: (CF, EQ) => ((CF/EQ)*100).toFixed(2) + "%"
-      }
-    };
+   const calculators = {
+  cashFlow: {
+    pageTitle: "Cash Flow Calculator",
+    calculatorTitle: "Cash Flow",
+    subtitle: "Calculates monthly or annual cash flow after all expenses.",
+    tabs: {
+      "Income": { inputs: ["Income"] },
+      "Expenses": { inputs: ["Expenses"] },
+      "Financing": { inputs: ["Mortgage Payment"] }
+    },
+    cat: "analysis",
+    icon: "payments",
+    tooltip: "Calculates monthly or annual cash flow after all expenses.",
+    calculate: (Income, Expenses, MortgagePayment) => Income - Expenses - MortgagePayment
+  },
+
+  cashOnCash: {
+    pageTitle: "Cash-on-Cash ROI Calculator",
+    calculatorTitle: "Cash-on-Cash Return",
+    subtitle: "Shows annual ROI on actual cash invested.",
+    tabs: {
+      "Key Details": { inputs: ["Annual Cash Flow", "Total Cash Invested"] }
+    },
+    cat: "returns",
+    icon: "percent",
+    tooltip: "Shows annual ROI on actual cash invested.",
+    calculate: (CF, Invested) => ((CF / Invested) * 100).toFixed(2) + "%"
+  },
+
+  capRate: {
+    pageTitle: "Cap Rate Calculator",
+    calculatorTitle: "Cap Rate",
+    subtitle: "Valuation measure ignoring financing—NOI ÷ property value.",
+    tabs: {
+      "Key Details": { inputs: ["Net Operating Income", "Property Value"] }
+    },
+    cat: "valuation",
+    icon: "speed",
+    tooltip: "Valuation measure ignoring financing—NOI ÷ property value.",
+    calculate: (NOI, PV) => ((NOI / PV) * 100).toFixed(2) + "%"
+  },
+
+  grm: {
+    pageTitle: "Gross Rent Multiplier Calculator",
+    calculatorTitle: "GRM",
+    subtitle: "Price divided by annual rent. Lower GRM is better.",
+    tabs: {
+      "Key Details": { inputs: ["Property Price", "Annual Rent"] }
+    },
+    cat: "valuation",
+    icon: "calculate",
+    tooltip: "Price divided by annual rent. Lower GRM is better.",
+    calculate: (Price, Rent) => (Price / Rent).toFixed(2)
+  },
+
+  mortgage: {
+    pageTitle: "Mortgage Payment Calculator",
+    calculatorTitle: "Mortgage Payment",
+    subtitle: "Monthly loan payment based on rate & term.",
+    tabs: {
+      "Financing": { inputs: ["Loan Amount", "Interest Rate (%)", "Loan Term (years)"] }
+    },
+    cat: "financing",
+    icon: "account_balance",
+    tooltip: "Monthly loan payment based on rate & term.",
+    calculate: (Loan, Rate, Term) => {
+      const r = Rate / 100 / 12;
+      const n = Term * 12;
+      return (Loan * r / (1 - Math.pow(1 + r, -n))).toFixed(2);
+    }
+  },
+
+  breakEven: {
+    pageTitle: "Break-even Analysis Calculator",
+    calculatorTitle: "Break-even Analysis",
+    subtitle: "Units needed to cover all expenses.",
+    tabs: {
+      "Expenses": { inputs: ["Fixed Costs", "Variable Costs per Unit"] },
+      "Income": { inputs: ["Revenue per Unit"] }
+    },
+    cat: "analysis",
+    icon: "bar_chart",
+    tooltip: "Units needed to cover all expenses.",
+    calculate: (Fixed, Variable, Revenue) => (Fixed / (Revenue - Variable)).toFixed(2)
+  },
+
+  roi: {
+    pageTitle: "Return on Investment Calculator",
+    calculatorTitle: "ROI",
+    subtitle: "Net profit divided by investment cost.",
+    tabs: {
+      "Key Details": { inputs: ["Net Profit", "Investment Cost"] }
+    },
+    cat: "returns",
+    icon: "trending_up",
+    tooltip: "Net profit divided by investment cost.",
+    calculate: (Profit, Cost) => ((Profit / Cost) * 100).toFixed(2) + "%"
+  },
+
+  noi: {
+    pageTitle: "Net Operating Income Calculator",
+    calculatorTitle: "NOI",
+    subtitle: "Income minus operating expenses.",
+    tabs: {
+      "Income": { inputs: ["Gross Income"] },
+      "Expenses": { inputs: ["Operating Expenses"] }
+    },
+    cat: "analysis",
+    icon: "account_balance_wallet",
+    tooltip: "Income minus operating expenses.",
+    calculate: (GI, OE) => GI - OE
+  },
+
+  dscr: {
+    pageTitle: "Debt Service Coverage Ratio Calculator",
+    calculatorTitle: "DSCR",
+    subtitle: "NOI ÷ debt service — lenders want 1.2+.",
+    tabs: {
+      "Income": { inputs: ["NOI"] },
+      "Financing": { inputs: ["Debt Service"] }
+    },
+    cat: "financing",
+    icon: "shield",
+    tooltip: "NOI ÷ debt service — lenders want 1.2+.",
+    calculate: (NOI, Debt) => (NOI / Debt).toFixed(2)
+  },
+
+  priceToRent: {
+    pageTitle: "Price-to-Rent Ratio Calculator",
+    calculatorTitle: "Price-to-Rent Ratio",
+    subtitle: "Home price compared to rental income.",
+    tabs: {
+      "Key Details": { inputs: ["Property Price", "Annual Rent"] }
+    },
+    cat: "valuation",
+    icon: "home",
+    tooltip: "Home price compared to rental income.",
+    calculate: (Price, Rent) => (Price / Rent).toFixed(2)
+  },
+
+  vacancy: {
+    pageTitle: "Vacancy Rate Calculator",
+    calculatorTitle: "Vacancy Rate",
+    subtitle: "Vacant units ÷ total units.",
+    tabs: {
+      "Income": { inputs: ["Vacant Units", "Total Units"] }
+    },
+    cat: "analysis",
+    icon: "hotel",
+    tooltip: "Vacant units ÷ total units.",
+    calculate: (Vacant, Total) => ((Vacant / Total) * 100).toFixed(2) + "%"
+  },
+
+  expenseRatio: {
+    pageTitle: "Operating Expense Ratio Calculator",
+    calculatorTitle: "Expense Ratio",
+    subtitle: "Expenses ÷ income — lower is better.",
+    tabs: {
+      "Income": { inputs: ["Gross Income"] },
+      "Expenses": { inputs: ["Operating Expenses"] }
+    },
+    cat: "analysis",
+    icon: "receipt_long",
+    tooltip: "Expenses ÷ income — lower is better.",
+    calculate: (Income, Expenses) => ((Expenses / Income) * 100).toFixed(2) + "%"
+  },
+
+  longTermROI: {
+    pageTitle: "Long-Term ROI Calculator",
+    calculatorTitle: "Long-Term ROI",
+    subtitle: "Total rent + appreciation returns.",
+    tabs: {
+      "Income": { inputs: ["Rental Income", "Property Appreciation"] },
+      "Key Details": { inputs: ["Investment Cost"] }
+    },
+    cat: "returns",
+    icon: "timeline",
+    tooltip: "Total rent + appreciation returns.",
+    calculate: (Rent, App, Cost) => (((Rent + App) / Cost) * 100).toFixed(2) + "%"
+  },
+
+  flip: {
+    pageTitle: "Fix & Flip Profit Calculator",
+    calculatorTitle: "Fix & Flip Profit",
+    subtitle: "Sale price minus purchase & renovation costs.",
+    tabs: {
+      "Key Details": { inputs: ["Sale Price", "Purchase Price", "Renovation Costs"] }
+    },
+    cat: "returns",
+    icon: "construction",
+    tooltip: "Sale price minus purchase & renovation costs.",
+    calculate: (Sale, Purchase, Reno) => Sale - Purchase - Reno
+  },
+
+  renovationROI: {
+    pageTitle: "Renovation ROI Calculator",
+    calculatorTitle: "Renovation ROI",
+    subtitle: "Return generated from renovation expenditures.",
+    tabs: {
+      "Key Details": { inputs: ["Profit from Renovation", "Renovation Cost"] }
+    },
+    cat: "returns",
+    icon: "build",
+    tooltip: "Return generated from renovation expenditures.",
+    calculate: (Profit, Cost) => ((Profit / Cost) * 100).toFixed(2) + "%"
+  },
+
+  taxDepreciation: {
+    pageTitle: "Tax / Depreciation Impact Calculator",
+    calculatorTitle: "Tax / Depreciation",
+    subtitle: "Taxable income minus depreciation benefits.",
+    tabs: {
+      "Income": { inputs: ["Taxable Income"] },
+      "Expenses": { inputs: ["Depreciation"] }
+    },
+    cat: "analysis",
+    icon: "receipt",
+    tooltip: "Taxable income minus depreciation benefits.",
+    calculate: (Inc, Dep) => Inc - Dep
+  },
+
+  cma: {
+    pageTitle: "Comparative Market Analysis Calculator",
+    calculatorTitle: "CMA",
+    subtitle: "Property value vs market value.",
+    tabs: {
+      "Key Details": { inputs: ["Market Value", "Property Value"] }
+    },
+    cat: "valuation",
+    icon: "analytics",
+    tooltip: "Property value vs market value.",
+    calculate: (M, P) => ((M / P) * 100).toFixed(2) + "%"
+  },
+
+  leverageROI: {
+    pageTitle: "Leverage ROI Calculator",
+    calculatorTitle: "Leverage ROI",
+    subtitle: "Return based on leveraged equity invested.",
+    tabs: {
+      "Income": { inputs: ["Cash Flow"] },
+      "Key Details": { inputs: ["Equity Invested"] }
+    },
+    cat: "returns",
+    icon: "trending_up",
+    tooltip: "Return based on leveraged equity invested.",
+    calculate: (CF, EQ) => ((CF / EQ) * 100).toFixed(2) + "%"
+  }
+};
+
 
     /* CATEGORY CONTAINERS */
     const categories = {
