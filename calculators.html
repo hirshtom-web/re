@@ -128,10 +128,10 @@
   </style>
 </head>
 <body>
+<!-- SCREEN 1: GRID -->
+<div id="screenGrid">
+  <h1>Select a Calculator</h1>
 
-  <h1 id="calculatorTitle">Select a Calculator</h1>
-
-  <!-- CATEGORY SECTIONS -->
   <h2 class="category-title">Financing</h2>
   <div class="grid" id="cat-financing"></div>
 
@@ -143,11 +143,18 @@
 
   <h2 class="category-title">Analysis & Metrics</h2>
   <div class="grid" id="cat-analysis"></div>
+</div>
 
+<!-- SCREEN 2: CALCULATOR VIEW -->
+<div id="screenCalculator" style="display:none;">
+  <button id="backBtn" class="back-button">
+    <span class="material-icons-outlined">arrow_back</span> Back
+  </button>
+  <h1 id="calculatorTitle"></h1>
   <form id="calculatorForm"></form>
   <p id="result"></p>
+</div>
 
-  <script>
     /* --------- CALCULATOR DEFINITIONS ----------- */
 
     const calculators = {
@@ -309,72 +316,80 @@
       analysis: document.getElementById("cat-analysis")
     };
 
-    /* --------- RENDER TILES ----------- */
+/* --------- RENDER TILES ----------- */
+Object.entries(calculators).forEach(([key, c]) => {
+  const tile = document.createElement("div");
+  tile.className = "tile";
+  tile.dataset.tooltip = c.tooltip;
 
-    Object.entries(calculators).forEach(([key, c]) => {
-      const tile = document.createElement("div");
-      tile.className = "tile";
-      tile.dataset.tooltip = c.tooltip;
+  tile.innerHTML = `
+    <span class="material-icons-outlined">${c.icon}</span>
+    <div>${c.title}</div>
+  `;
 
-      tile.innerHTML = `
-        <span class="material-icons-outlined">${c.icon}</span>
-        <div>${c.title}</div>
-      `;
+  tile.onclick = () => {
+    loadCalculator(key);
+    window.location.hash = key;
+  };
 
-      tile.onclick = () => {
-        loadCalculator(key);
-        window.location.hash = key;
-      };
+  categories[c.cat].appendChild(tile);
+});
 
-      categories[c.cat].appendChild(tile);
-    });
+/* --------- IMPORTANT: GET ALL TILE ELEMENTS ----------- */
+const allTiles = document.getElementsByClassName("tile");
 
-    /* --------- LOAD CALCULATOR ----------- */
+/* --------- GET COMMON ELEMENTS ----------- */
+const titleEl = document.getElementById("calculatorTitle");
+const form = document.getElementById("calculatorForm");
+const resultEl = document.getElementById("result");
 
-    const form = document.getElementById("calculatorForm");
-    const resultEl = document.getElementById("result");
-    const titleEl = document.getElementById("calculatorTitle");
-    const allTiles = document.getElementsByClassName("tile");
+/* --------- LOAD CALCULATOR ----------- */
+function loadCalculator(key) {
+  if (!calculators[key]) return;
 
-    function loadCalculator(key) {
-      if (!calculators[key]) return;
+  // Switch screens
+  document.getElementById("screenGrid").style.display = "none";
+  document.getElementById("screenCalculator").style.display = "block";
 
-      [...allTiles].forEach(t => t.classList.remove("active"));
-      const tiles = [...allTiles];
-      const index = Object.keys(calculators).indexOf(key);
-      if (tiles[index]) tiles[index].classList.add("active");
+  // Highlight selected tile
+  [...allTiles].forEach(t => t.classList.remove("active"));
+  const index = Object.keys(calculators).indexOf(key);
+  if (allTiles[index]) allTiles[index].classList.add("active");
 
-      const calc = calculators[key];
-      titleEl.textContent = calc.title;
-      form.innerHTML = "";
-      resultEl.textContent = "";
+  const calc = calculators[key];
+  titleEl.textContent = calc.title;
+  form.innerHTML = "";
+  resultEl.textContent = "";
 
-      calc.inputs.forEach(name => {
-        const input = document.createElement("input");
-        input.type = "number";
-        input.placeholder = name;
-        input.id = name;
-        form.appendChild(input);
-      });
+  calc.inputs.forEach(name => {
+    const input = document.createElement("input");
+    input.type = "number";
+    input.placeholder = name;
+    input.id = name;
+    form.appendChild(input);
+  });
 
-      const button = document.createElement("button");
-      button.textContent = "Calculate";
-      button.onclick = () => {
-        const values = calc.inputs.map(id => Number(document.getElementById(id).value));
-        if(values.some(v => isNaN(v))) {
-          resultEl.textContent = "Please fill in all inputs!";
-          return;
-        }
-        resultEl.textContent = `Result: ${calc.calculate(...values)}`;
-      };
-      form.appendChild(button);
+  const button = document.createElement("button");
+  button.textContent = "Calculate";
+  button.onclick = () => {
+    const values = calc.inputs.map(id => Number(document.getElementById(id).value));
+    if(values.some(v => isNaN(v))) {
+      resultEl.textContent = "Please fill in all inputs!";
+      return;
     }
+    resultEl.textContent = `Result: ${calc.calculate(...values)}`;
+  };
+  form.appendChild(button);
+}
 
-    /* Load from hash on page load */
-    window.addEventListener("load", () => {
-      const hash = window.location.hash.replace("#", "");
-      if (hash) loadCalculator(hash);
-    });
+/* --------- BACK BUTTON ----------- */
+document.getElementById("backBtn").onclick = () => {
+  document.getElementById("screenCalculator").style.display = "none";
+  document.getElementById("screenGrid").style.display = "block";
+  resultEl.textContent = "";
+  window.location.hash = "";
+};
+
 
   </script>
 
