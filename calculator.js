@@ -4,6 +4,79 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* =========================================
+     DYNAMIC PAGE TITLES, MINI-TITLES, SUBTITLES, DESCRIPTIONS
+  ========================================== */
+
+  const calculatorTitles = {
+
+    "roi-calculator": {
+      pageTitle: "ROI Calculator",
+      pageDescription: "Quickly evaluate the long-term return on your rental property investment.",
+      miniTitle: "See your next real estate investment in numbers",
+      subtitle: "Estimate cash flow, ROI, and leverage to make smarter property decisions"
+    },
+
+    "mortgage-calculator": {
+      pageTitle: "Mortgage Calculator",
+      pageDescription: "Understand your mortgage costs, interest, and monthly payments.",
+      miniTitle: "Understand your mortgage structure clearly",
+      subtitle: "Estimate monthly payments and total loan cost with accurate amortization"
+    },
+
+    "airbnb-calculator": {
+      pageTitle: "Airbnb Profit Calculator",
+      pageDescription: "Calculate short-term rental revenue and actual hosting profits.",
+      miniTitle: "Measure your short-term rental performance",
+      subtitle: "Forecast occupancy, nightly revenue, and real hosting profits"
+    },
+
+    "expenses-calculator": {
+      pageTitle: "Operating Expenses Calculator",
+      pageDescription: "See a full breakdown of all recurring property-related expenses.",
+      miniTitle: "Track every cost tied to your rental property",
+      subtitle: "Include taxes, insurance, management, repairs, and vacancy impacts"
+    },
+
+    "financing-calculator": {
+      pageTitle: "Financing Calculator",
+      pageDescription: "Compare financing structures and loan types instantly.",
+      miniTitle: "Compare financing structures instantly",
+      subtitle: "Simulate down payment, interest rates, amortization and loan options"
+    }
+  };
+
+  // Detect current page
+  const page = window.location.pathname.split("/").pop().replace(".html", "");
+  const content = calculatorTitles[page];
+
+  if (content) {
+    const titleEl = document.getElementById("page-title");
+    const descEl = document.getElementById("page-description"); // <-- NEW ELEMENT YOU WILL ADD IN HTML
+    const miniTitleEl = document.querySelector(".mini-title");
+    const subtitleEl = document.querySelector(".subtitle");
+
+    if (titleEl) titleEl.textContent = content.pageTitle;
+    if (descEl) descEl.textContent = content.pageDescription;
+    if (miniTitleEl) miniTitleEl.textContent = content.miniTitle;
+    if (subtitleEl) subtitleEl.textContent = content.subtitle;
+  }
+
+  /* =========================================
+     LOAD FOOTER + FORMULAS + ARTICLES
+  ========================================== */
+
+  fetch('footer.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('footer-container').innerHTML = html);
+
+  fetch('formulas.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('formulas-container').innerHTML = html);
+
+  fetch('articles.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('articles-container').innerHTML = html);
 
   // ---------------- LOAD FOOTER ----------------
   fetch('footer.html')
