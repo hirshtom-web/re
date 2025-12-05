@@ -554,27 +554,21 @@ select {
 
 <script>
 
-/* -------------------------------------------------
-   CALCULATOR DEFINITIONS
-------------------------------------------------- */
+  
+  /* --------- CALCULATOR DEFINITIONS ----------- */
 
-const calculators = {
+  const calculators = {
   cashFlow: {
     CalculatorName: "Cash Flow Calculator",
     pageTitle: "Cash Flow Calculator",
     calculatorTitle: "Cash Flow",
     subtitle: "Calculates monthly or annual cash flow after all expenses.",
-    tabs: {
-      "Income": { inputs: ["Income"] },
-      "Expenses": { inputs: ["Expenses"] },
-      "Financing": { inputs: ["Mortgage Payment"] }
-    },
+    tabs: { "Income": { inputs: ["Income"] }, "Expenses": { inputs: ["Expenses"] }, "Financing": { inputs: ["Mortgage Payment"] } },
     cat: "analysis",
     icon: "payments",
     tooltip: "Calculates monthly or annual cash flow after all expenses.",
     calculate: (Income, Expenses, MortgagePayment) => Income - Expenses - MortgagePayment
   },
-
   cashOnCash: {
     CalculatorName: "Cash-on-Cash ROI Calculator",
     pageTitle: "Cash-on-Cash ROI Calculator",
@@ -586,7 +580,6 @@ const calculators = {
     tooltip: "Shows annual ROI on actual cash invested.",
     calculate: (CF, Invested) => ((CF / Invested) * 100).toFixed(2) + "%"
   },
-
   capRate: {
     CalculatorName: "Cap Rate Calculator",
     pageTitle: "Cap Rate Calculator",
@@ -598,7 +591,6 @@ const calculators = {
     tooltip: "Valuation measure ignoring financing—NOI ÷ property value.",
     calculate: (NOI, PV) => ((NOI / PV) * 100).toFixed(2) + "%"
   },
-
   grm: {
     CalculatorName: "Gross Rent Multiplier Calculator",
     pageTitle: "Gross Rent Multiplier Calculator",
@@ -610,15 +602,12 @@ const calculators = {
     tooltip: "Price divided by annual rent. Lower GRM is better.",
     calculate: (Price, Rent) => (Price / Rent).toFixed(2)
   },
-
   mortgage: {
     CalculatorName: "Mortgage Payment Calculator",
     pageTitle: "Mortgage Payment Calculator",
     calculatorTitle: "Mortgage Payment",
     subtitle: "Monthly loan payment based on rate & term.",
-    tabs: {
-      "Financing": { inputs: ["Loan Amount", "Interest Rate (%)", "Loan Term (years)"] }
-    },
+    tabs: { "Financing": { inputs: ["Loan Amount", "Interest Rate (%)", "Loan Term (years)"] } },
     cat: "financing",
     icon: "account_balance",
     tooltip: "Monthly loan payment based on rate & term.",
@@ -628,24 +617,19 @@ const calculators = {
       return (Loan * r / (1 - Math.pow(1 + r, -n))).toFixed(2);
     }
   },
-
   breakEven: {
     CalculatorName: "Break-even Analysis Calculator",
     pageTitle: "Break-even Analysis Calculator",
     calculatorTitle: "Break-even Analysis",
     subtitle: "Units needed to cover all expenses.",
-    tabs: {
-      "Expenses": { inputs: ["Fixed Costs", "Variable Costs per Unit"] },
-      "Income": { inputs: ["Revenue per Unit"] }
-    },
+    tabs: { "Expenses": { inputs: ["Fixed Costs", "Variable Costs per Unit"] }, "Income": { inputs: ["Revenue per Unit"] } },
     cat: "analysis",
     icon: "bar_chart",
     tooltip: "Units needed to cover all expenses.",
     calculate: (Fixed, Variable, Revenue) => (Fixed / (Revenue - Variable)).toFixed(2)
   },
-
   roi: {
-    CalculatorName: "Return on Investment Calculator",
+    CalculatorName: "ROI Calculator",
     pageTitle: "Return on Investment Calculator",
     calculatorTitle: "ROI",
     subtitle: "Net profit divided by investment cost.",
@@ -655,37 +639,28 @@ const calculators = {
     tooltip: "Net profit divided by investment cost.",
     calculate: (Profit, Cost) => ((Profit / Cost) * 100).toFixed(2) + "%"
   },
-
   noi: {
     CalculatorName: "Net Operating Income Calculator",
     pageTitle: "Net Operating Income Calculator",
     calculatorTitle: "NOI",
     subtitle: "Income minus operating expenses.",
-    tabs: {
-      "Income": { inputs: ["Gross Income"] },
-      "Expenses": { inputs: ["Operating Expenses"] }
-    },
+    tabs: { "Income": { inputs: ["Gross Income"] }, "Expenses": { inputs: ["Operating Expenses"] } },
     cat: "analysis",
     icon: "account_balance_wallet",
     tooltip: "Income minus operating expenses.",
     calculate: (GI, OE) => GI - OE
   },
-
   dscr: {
     CalculatorName: "Debt Service Coverage Ratio Calculator",
     pageTitle: "Debt Service Coverage Ratio Calculator",
     calculatorTitle: "DSCR",
     subtitle: "NOI ÷ debt service — lenders want 1.2+.",
-    tabs: {
-      "Income": { inputs: ["NOI"] },
-      "Financing": { inputs: ["Debt Service"] }
-    },
+    tabs: { "Income": { inputs: ["NOI"] }, "Financing": { inputs: ["Debt Service"] } },
     cat: "financing",
     icon: "shield",
     tooltip: "NOI ÷ debt service — lenders want 1.2+.",
     calculate: (NOI, Debt) => (NOI / Debt).toFixed(2)
   },
-
   priceToRent: {
     CalculatorName: "Price-to-Rent Ratio Calculator",
     pageTitle: "Price-to-Rent Ratio Calculator",
@@ -697,7 +672,6 @@ const calculators = {
     tooltip: "Home price compared to rental income.",
     calculate: (Price, Rent) => (Price / Rent).toFixed(2)
   },
-
   vacancy: {
     CalculatorName: "Vacancy Rate Calculator",
     pageTitle: "Vacancy Rate Calculator",
@@ -709,37 +683,28 @@ const calculators = {
     tooltip: "Vacant units ÷ total units.",
     calculate: (Vacant, Total) => ((Vacant / Total) * 100).toFixed(2) + "%"
   },
-
   expenseRatio: {
     CalculatorName: "Operating Expense Ratio Calculator",
     pageTitle: "Operating Expense Ratio Calculator",
     calculatorTitle: "Expense Ratio",
     subtitle: "Expenses ÷ income — lower is better.",
-    tabs: {
-      "Income": { inputs: ["Gross Income"] },
-      "Expenses": { inputs: ["Operating Expenses"] }
-    },
+    tabs: { "Income": { inputs: ["Gross Income"] }, "Expenses": { inputs: ["Operating Expenses"] } },
     cat: "analysis",
     icon: "receipt_long",
     tooltip: "Expenses ÷ income — lower is better.",
     calculate: (Income, Expenses) => ((Expenses / Income) * 100).toFixed(2) + "%"
   },
-
   longTermROI: {
     CalculatorName: "Long-Term ROI Calculator",
     pageTitle: "Long-Term ROI Calculator",
     calculatorTitle: "Long-Term ROI",
     subtitle: "Total rent + appreciation returns.",
-    tabs: {
-      "Income": { inputs: ["Rental Income", "Property Appreciation"] },
-      "Key Details": { inputs: ["Investment Cost"] }
-    },
+    tabs: { "Income": { inputs: ["Rental Income", "Property Appreciation"] }, "Key Details": { inputs: ["Investment Cost"] } },
     cat: "returns",
     icon: "timeline",
     tooltip: "Total rent + appreciation returns.",
     calculate: (Rent, App, Cost) => (((Rent + App) / Cost) * 100).toFixed(2) + "%"
   },
-
   flip: {
     CalculatorName: "Fix & Flip Profit Calculator",
     pageTitle: "Fix & Flip Profit Calculator",
@@ -751,7 +716,6 @@ const calculators = {
     tooltip: "Sale price minus purchase & renovation costs.",
     calculate: (Sale, Purchase, Reno) => Sale - Purchase - Reno
   },
-
   renovationROI: {
     CalculatorName: "Renovation ROI Calculator",
     pageTitle: "Renovation ROI Calculator",
@@ -763,22 +727,17 @@ const calculators = {
     tooltip: "Return generated from renovation expenditures.",
     calculate: (Profit, Cost) => ((Profit / Cost) * 100).toFixed(2) + "%"
   },
-
   taxDepreciation: {
     CalculatorName: "Tax / Depreciation Impact Calculator",
     pageTitle: "Tax / Depreciation Impact Calculator",
     calculatorTitle: "Tax / Depreciation",
     subtitle: "Taxable income minus depreciation benefits.",
-    tabs: {
-      "Income": { inputs: ["Taxable Income"] },
-      "Expenses": { inputs: ["Depreciation"] }
-    },
+    tabs: { "Income": { inputs: ["Taxable Income"] }, "Expenses": { inputs: ["Depreciation"] } },
     cat: "analysis",
     icon: "receipt",
     tooltip: "Taxable income minus depreciation benefits.",
     calculate: (Inc, Dep) => Inc - Dep
   },
-
   cma: {
     CalculatorName: "Comparative Market Analysis Calculator",
     pageTitle: "Comparative Market Analysis Calculator",
@@ -790,16 +749,12 @@ const calculators = {
     tooltip: "Property value vs market value.",
     calculate: (M, P) => ((M / P) * 100).toFixed(2) + "%"
   },
-
   leverageROI: {
     CalculatorName: "Leverage ROI Calculator",
     pageTitle: "Leverage ROI Calculator",
     calculatorTitle: "Leverage ROI",
     subtitle: "Return based on leveraged equity invested.",
-    tabs: {
-      "Income": { inputs: ["Cash Flow"] },
-      "Key Details": { inputs: ["Equity Invested"] }
-    },
+    tabs: { "Income": { inputs: ["Cash Flow"] }, "Key Details": { inputs: ["Equity Invested"] } },
     cat: "returns",
     icon: "trending_up",
     tooltip: "Return based on leveraged equity invested.",
@@ -807,26 +762,26 @@ const calculators = {
   }
 };
 
-/* -------------------------------------------------
-   CATEGORIES / TILE GRID
-------------------------------------------------- */
 
-const categories = {
-  financing: document.getElementById("cat-financing"),
-  returns: document.getElementById("cat-returns"),
-  valuation: document.getElementById("cat-valuation"),
-  analysis: document.getElementById("cat-analysis")
-};
+    /* CATEGORY CONTAINERS */
+    const categories = {
+      financing: document.getElementById("cat-financing"),
+      returns: document.getElementById("cat-returns"),
+      valuation: document.getElementById("cat-valuation"),
+      analysis: document.getElementById("cat-analysis")
+    };
 
+/* --------- RENDER TILES ----------- */
 Object.entries(calculators).forEach(([key, c]) => {
   const tile = document.createElement("div");
   tile.className = "tile";
   tile.dataset.tooltip = c.tooltip;
 
-  tile.innerHTML = `
+tile.innerHTML = `
     <span class="material-icons-outlined">${c.icon}</span>
     <div>${c.calculatorTitle}</div>
-  `;
+`;
+
 
   tile.onclick = () => {
     loadCalculator(key);
@@ -836,122 +791,88 @@ Object.entries(calculators).forEach(([key, c]) => {
   categories[c.cat].appendChild(tile);
 });
 
+/* --------- IMPORTANT: GET ALL TILE ELEMENTS ----------- */
 const allTiles = document.getElementsByClassName("tile");
 
-/* -------------------------------------------------
-   LOAD CALCULATOR
-------------------------------------------------- */
+/* --------- GET COMMON ELEMENTS ----------- */
+const titleEl = document.getElementById("calculatorTitle");
+const form = document.getElementById("calculatorForm");
+const resultEl = document.getElementById("result");
 
-function loadCalculator(id) {
-  if (!calculators[id]) return;
-  const calc = calculators[id];
+/* --------- LOAD CALCULATOR ----------- */
 
+  function loadCalculator(key) {
+  if (!calculators[key]) return;
+
+  const calc = calculators[key];
+
+  // Show calculator screen, hide grid
   document.getElementById("screenGrid").style.display = "none";
   document.getElementById("screenCalculator").style.display = "block";
 
+  // Highlight selected tile
   [...allTiles].forEach((t, i) => {
-    t.classList.toggle("active", Object.keys(calculators)[i] === id);
+    t.classList.toggle("active", Object.keys(calculators)[i] === key);
   });
 
+  // Set page titles
   document.getElementById("pageTitle").textContent = calc.pageTitle;
-  document.getElementById("calculatorTitle").textContent = calc.calculatorTitle;
+  titleEl.textContent = calc.calculatorTitle;
   document.getElementById("subtitle").textContent = calc.subtitle;
 
-  const form = document.getElementById("calculatorForm");
+  // Reset form and result
   form.innerHTML = "";
+  resultEl.textContent = "";
 
-  savedValues = {};  
+  // Optional location input
+  if (calc.location) {
+    const locInput = document.createElement("input");
+    locInput.type = "text";
+    locInput.placeholder = "City, State";
+    locInput.id = "location";
+    form.appendChild(locInput);
+  }
 
-  /* ----------------------------------------------
-     TABS (FIXED + UNIVERSAL ORDER)
-  ---------------------------------------------- */
-
-  const calcTabs = calc.tabs;
-
+  // ---------- TABS ----------
   const tabContainer = document.createElement("div");
   tabContainer.className = "tab-container";
+  form.appendChild(tabContainer);
 
   const tabContents = document.createElement("div");
   tabContents.className = "tab-contents";
-
-  form.appendChild(tabContainer);
   form.appendChild(tabContents);
 
-  const TAB_ORDER = ["Key Details", "Financing", "Income", "Expenses"];
-
-  const tabNames = Object.keys(calcTabs).sort((a, b) => {
-    const ai = TAB_ORDER.includes(a) ? TAB_ORDER.indexOf(a) : 999;
-    const bi = TAB_ORDER.includes(b) ? TAB_ORDER.indexOf(b) : 999;
-    return ai - bi;
-  });
-
+  const tabNames = Object.keys(calc.tabs);
   let activeTab = tabNames[0];
-  // Stores all input values for this calculator
-let savedValues = {};
 
+  function renderTabInputs(tab) {
+    tabContents.innerHTML = ""; // clear previous inputs
+    activeTab = tab;
 
- function renderTabInputs(tab) {
-  tabContents.innerHTML = "";
+    calc.tabs[tab].inputs.forEach((name) => {
+      const inputGroup = document.createElement("div");
+      inputGroup.className = "input-group";
 
-  calcTabs[tab].inputs.forEach((inputDef) => {
-    const inputGroup = document.createElement("div");
-    inputGroup.className = "input-group";
+      const label = document.createElement("label");
+      label.textContent = name;
+      label.htmlFor = name;
 
-    let id, label, type, placeholder;
+      const input = document.createElement("input");
+      input.type = "number";
+      input.placeholder = name;
+      input.id = name;
 
-    // STRING input
-    if (typeof inputDef === "string") {
-      id = label = placeholder = inputDef;
-      type = "number";
-    }
-    // OBJECT input
-    else {
-      id = inputDef.id || inputDef.label;
-      label = inputDef.label || id;
-      type = inputDef.type || "number";
-      placeholder = inputDef.placeholder || label;
-    }
-
-    const labelEl = document.createElement("label");
-    labelEl.textContent = label;
-    labelEl.htmlFor = id;
-
-    const inputEl = document.createElement("input");
-    inputEl.type = type;
-    inputEl.placeholder = placeholder;
-    inputEl.id = id;
-
-    // Restore saved values
-    if (savedValues[id] !== undefined) {
-      inputEl.value = savedValues[id];
-    }
-
-    // Attributes for advanced config
-    if (typeof inputDef === "object") {
-      if (inputDef.min) inputEl.min = inputDef.min;
-      if (inputDef.max) inputEl.max = inputDef.max;
-      if (inputDef.step) inputEl.step = inputDef.step;
-      if (inputDef.value && savedValues[id] === undefined) {
-        inputEl.value = inputDef.value;
-      }
-    }
-
-    // Save value whenever user types
-    inputEl.addEventListener("input", () => {
-      savedValues[id] = inputEl.value;
+      inputGroup.appendChild(label);
+      inputGroup.appendChild(input);
+      tabContents.appendChild(inputGroup);
     });
+  }
 
-    inputGroup.appendChild(labelEl);
-    inputGroup.appendChild(inputEl);
-    tabContents.appendChild(inputGroup);
-  });
-}
-
+  // Create tab buttons
   tabNames.forEach((tab) => {
     const tabBtn = document.createElement("div");
     tabBtn.className = "tab";
     tabBtn.textContent = tab;
-
     if (tab === activeTab) tabBtn.classList.add("active");
 
     tabBtn.onclick = () => {
@@ -963,15 +884,10 @@ let savedValues = {};
     tabContainer.appendChild(tabBtn);
   });
 
+  // Render initial tab inputs
   renderTabInputs(activeTab);
 
-  /* ----------------------------------------------
-     CALCULATE BUTTON
-  ---------------------------------------------- */
-
-  const resultEl = document.getElementById("result");
-  resultEl.textContent = "";
-
+  // ---------- CALCULATE BUTTON ----------
   const button = document.createElement("button");
   button.textContent = "Calculate";
   button.className = "calc-btn";
@@ -979,12 +895,12 @@ let savedValues = {};
   button.onclick = (e) => {
     e.preventDefault();
 
-    const values = calcTabs[activeTab].inputs.map(id => {
-      const el = document.getElementById(
-        typeof id === "string" ? id : id.id
-      );
+    const values = calc.tabs[activeTab].inputs.map(id => {
+      const el = document.getElementById(id);
       return el ? Number(el.value) : NaN;
     });
+
+    const locationValue = calc.location ? document.getElementById("location").value : null;
 
     if (values.some(v => isNaN(v))) {
       resultEl.textContent = "Please fill in all required inputs!";
@@ -992,9 +908,9 @@ let savedValues = {};
     }
 
     try {
-      resultEl.textContent = `Result: ${calc.calculate(...values)}`;
+      resultEl.textContent = `Result: ${calc.calculate(...values, locationValue)}`;
     } catch (err) {
-      resultEl.textContent = "Error in calculation.";
+      resultEl.textContent = "Error in calculation. Check your inputs.";
       console.error(err);
     }
   };
@@ -1002,31 +918,28 @@ let savedValues = {};
   form.appendChild(button);
 }
 
-/* -------------------------------------------------
-   BACK BUTTON
-------------------------------------------------- */
-
+  /* --------- BACK BUTTON ----------- */
 document.getElementById("backBtn").onclick = () => {
   document.getElementById("screenCalculator").style.display = "none";
   document.getElementById("screenGrid").style.display = "block";
-  document.getElementById("result").textContent = "";
+  resultEl.textContent = "";
   window.location.hash = "";
 };
 
-/* -------------------------------------------------
-   HASH LOADING
-------------------------------------------------- */
-
-function tryLoadFromHash() {
+  function tryLoadFromHash() {
   const hash = window.location.hash.replace("#", "");
-  if (hash && calculators[hash]) loadCalculator(hash);
+  if (hash && calculators[hash]) {
+    loadCalculator(hash);
+  }
 }
 
+// On initial load
 window.addEventListener("load", tryLoadFromHash);
-window.addEventListener("hashchange", tryLoadFromHash);
 
-
-
+// Also respond if the hash changes later
+window.addEventListener("hashchange", () => {
+  tryLoadFromHash();
+});
 
 
   </script>
