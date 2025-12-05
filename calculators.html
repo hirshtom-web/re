@@ -628,16 +628,55 @@ select {
     tooltip: "Units needed to cover all expenses.",
     calculate: (Fixed, Variable, Revenue) => (Fixed / (Revenue - Variable)).toFixed(2)
   },
-  roi: {
+   roi: {
     CalculatorName: "ROI Calculator",
     pageTitle: "Return on Investment Calculator",
     calculatorTitle: "ROI",
-    subtitle: "Net profit divided by investment cost.",
-    tabs: { "Key Details": { inputs: ["Net Profit", "Investment Cost"] } },
+    subtitle: "Calculates ROI based on purchase, financing, income, and expenses.",
+    tabs: {
+      "Key Details": {
+        inputs: [
+          "Purchase Price ($)",
+          "Appreciation Rate (%)",
+          "Years to Hold",
+          "Property Type",
+          "Market (City & State)"
+        ]
+      },
+      "Financing": {
+        inputs: [
+          "Down Payment (%)",
+          "Cash Investment ($)",
+          "Financed Amount ($)",
+          "Mortgage Rate (%)",
+          "Mortgage Term (Years)"
+        ]
+      },
+      "Income": {
+        inputs: ["Monthly Rent ($)"]
+      },
+      "Expenses": {
+        inputs: [
+          "Property Taxes ($/yr)",
+          "Homeowner’s Insurance ($/yr)",
+          "HOA ($/mo)",
+          "Management Fees (%)",
+          "Vacancy Rate (%)"
+        ]
+      }
+    },
     cat: "returns",
     icon: "trending_up",
-    tooltip: "Net profit divided by investment cost.",
-    calculate: (Profit, Cost) => ((Profit / Cost) * 100).toFixed(2) + "%"
+    tooltip: "ROI calculation including purchase, financing, income, and expenses.",
+    calculate: function(values) {
+      // Example: Simple ROI = (Net Profit / Investment) * 100
+      const investment = parseFloat(values["Cash Investment ($)"] || 0);
+      const netProfit = parseFloat(values["Monthly Rent ($)"] || 0) * 12 * parseFloat(values["Years to Hold"] || 1) 
+                        - parseFloat(values["Property Taxes ($/yr)"] || 0)
+                        - parseFloat(values["Homeowner’s Insurance ($/yr)"] || 0)
+                        - parseFloat(values["HOA ($/mo)"] || 0) * 12;
+      return investment ? ((netProfit / investment) * 100).toFixed(2) + "%" : "N/A";
+    }
   },
   noi: {
     CalculatorName: "Net Operating Income Calculator",
