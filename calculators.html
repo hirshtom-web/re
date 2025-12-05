@@ -801,7 +801,7 @@ const resultEl = document.getElementById("result");
 
 /* --------- LOAD CALCULATOR ----------- */
 
-  function loadCalculator(key) {
+function loadCalculator(key) {
   if (!calculators[key]) return;
 
   const calc = calculators[key];
@@ -824,12 +824,17 @@ const resultEl = document.getElementById("result");
   form.innerHTML = "";
   resultEl.textContent = "";
 
+  // Persisted input values across tabs
+  const inputValues = {};
+
   // Optional location input
   if (calc.location) {
     const locInput = document.createElement("input");
     locInput.type = "text";
     locInput.placeholder = "City, State";
     locInput.id = "location";
+    locInput.value = inputValues["location"] || "";
+    locInput.oninput = () => inputValues["location"] = locInput.value;
     form.appendChild(locInput);
   }
 
@@ -842,7 +847,11 @@ const resultEl = document.getElementById("result");
   tabContents.className = "tab-contents";
   form.appendChild(tabContents);
 
-  const tabNames = Object.keys(calc.tabs);
+  // Enforce tab order
+  const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
+  const tabNames = preferredOrder.filter(t => calc.tabs[t]).concat(
+    Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t))
+  );
   let activeTab = tabNames[0];
 
   function renderTabInputs(tab) {
@@ -861,6 +870,12 @@ const resultEl = document.getElementById("result");
       input.type = "number";
       input.placeholder = name;
       input.id = name;
+
+      // Restore previously entered value if exists
+      if (inputValues[name] !== undefined) input.value = inputValues[name];
+
+      // Save input value on change
+      input.oninput = () => inputValues[name] = input.value;
 
       inputGroup.appendChild(label);
       inputGroup.appendChild(input);
@@ -896,11 +911,11 @@ const resultEl = document.getElementById("result");
     e.preventDefault();
 
     const values = calc.tabs[activeTab].inputs.map(id => {
-      const el = document.getElementById(id);
-      return el ? Number(el.value) : NaN;
+      const val = inputValues[id];
+      return val !== undefined ? Number(val) : NaN;
     });
 
-    const locationValue = calc.location ? document.getElementById("location").value : null;
+    const locationValue = calc.location ? inputValues["location"] : null;
 
     if (values.some(v => isNaN(v))) {
       resultEl.textContent = "Please fill in all required inputs!";
@@ -917,6 +932,7 @@ const resultEl = document.getElementById("result");
 
   form.appendChild(button);
 }
+
 
   /* --------- BACK BUTTON ----------- */
 document.getElementById("backBtn").onclick = () => {
