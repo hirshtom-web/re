@@ -236,6 +236,14 @@ select {
     text-align: center;
 }
 
+   .grid-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #005bff;
+}
+
+
 /* ===================== */
 /* RESULTS DISPLAY       */
 /* ===================== */
@@ -564,6 +572,7 @@ select {
  const calculators = {
   cashFlow: {
     CalculatorName: "Cash Flow Calculator",
+    gridName: "Cash Flow",
     pageTitle: "Cash Flow Calculator",
     calculatorTitle: "Visualize your property’s cash flow instantly.",
     subtitle: "See monthly income and expenses to understand your net cash position.",
@@ -575,6 +584,7 @@ select {
   },
   cashOnCash: {
     CalculatorName: "Cash-on-Cash ROI Calculator",
+    gridName: "Cash-on-Cash",
     pageTitle: "Cash-on-Cash ROI Calculator",
     calculatorTitle: "Measure your cash-on-cash returns with ease.",
     subtitle: "Compare your investment vs. actual cash profit to make informed decisions.",
@@ -586,6 +596,7 @@ select {
   },
   capRate: {
     CalculatorName: "Cap Rate Calculator",
+    gridName: "Cap Rate",
     pageTitle: "Cap Rate Calculator",
     calculatorTitle: "Assess the profitability of your property quickly.",
     subtitle: "Evaluate annual returns relative to property value for smarter investing.",
@@ -597,6 +608,7 @@ select {
   },
   grm: {
     CalculatorName: "Gross Rent Multiplier Calculator",
+    gridName: "GRM",
     pageTitle: "Gross Rent Multiplier Calculator",
     calculatorTitle: "Understand your property’s rent potential at a glance.",
     subtitle: "Estimate Gross Rent Multiplier to compare multiple investment opportunities.",
@@ -608,6 +620,7 @@ select {
   },
   mortgage: {
     CalculatorName: "Mortgage Payment Calculator",
+    gridName: "Mortgage",
     pageTitle: "Mortgage Payment Calculator",
     calculatorTitle: "Calculate your mortgage payments effortlessly.",
     subtitle: "Determine monthly principal and interest to plan your financing strategy.",
@@ -623,6 +636,7 @@ select {
   },
   breakEven: {
     CalculatorName: "Break-even Analysis Calculator",
+    gridName: "Break-even",
     pageTitle: "Break-even Analysis Calculator",
     calculatorTitle: "Find your break-even point quickly.",
     subtitle: "Discover how many units or revenue you need to cover all costs.",
@@ -634,6 +648,7 @@ select {
   },
   roi: {
     CalculatorName: "ROI Calculator",
+    gridName: "ROI",
     pageTitle: "Return on Investment Calculator",
     calculatorTitle: "Calculate your overall return on investment.",
     subtitle: "Combine purchase, financing, income, and expenses for a complete ROI picture.",
@@ -683,6 +698,7 @@ select {
   },
   noi: {
     CalculatorName: "Net Operating Income Calculator",
+    gridName: "NOI",
     pageTitle: "Net Operating Income Calculator",
     calculatorTitle: "Determine Net Operating Income for your property.",
     subtitle: "Subtract operating expenses from income to see what the property really earns.",
@@ -694,6 +710,7 @@ select {
   },
   dscr: {
     CalculatorName: "Debt Service Coverage Ratio Calculator",
+    gridName: "DSCR",
     pageTitle: "Debt Service Coverage Ratio Calculator",
     calculatorTitle: "Check your debt service coverage ratio.",
     subtitle: "Measure your property’s ability to cover debt with its net operating income.",
@@ -705,6 +722,7 @@ select {
   },
   priceToRent: {
     CalculatorName: "Price-to-Rent Ratio Calculator",
+    gridName: "Price-to-Rent",
     pageTitle: "Price-to-Rent Ratio Calculator",
     calculatorTitle: "Analyze the price-to-rent ratio of your property.",
     subtitle: "Compare property value to rental income to spot lucrative deals.",
@@ -716,6 +734,7 @@ select {
   },
   vacancy: {
     CalculatorName: "Vacancy Rate Calculator",
+    gridName: "Vacancy",
     pageTitle: "Vacancy Rate Calculator",
     calculatorTitle: "Estimate losses from vacancy periods.",
     subtitle: "Understand potential revenue gaps to make more realistic forecasts.",
@@ -727,6 +746,7 @@ select {
   },
   expenseRatio: {
     CalculatorName: "Operating Expense Ratio Calculator",
+    gridName: "Expense Ratio",
     pageTitle: "Operating Expense Ratio Calculator",
     calculatorTitle: "Track your operating expense ratio accurately.",
     subtitle: "See how much of your income goes toward expenses for better planning.",
@@ -738,6 +758,7 @@ select {
   },
   longTermROI: {
     CalculatorName: "Long-Term ROI Calculator",
+    gridName: "Long-Term ROI",
     pageTitle: "Long-Term ROI Calculator",
     calculatorTitle: "Forecast your long-term returns from rent and appreciation.",
     subtitle: "Combine cash flow and property value growth for a complete investment outlook.",
@@ -749,6 +770,7 @@ select {
   },
   flip: {
     CalculatorName: "Fix & Flip Profit Calculator",
+    gridName: "Fix & Flip",
     pageTitle: "Fix & Flip Profit Calculator",
     calculatorTitle: "Project profits from your fix & flip projects.",
     subtitle: "Calculate renovation costs, resale value, and potential ROI in one view.",
@@ -760,6 +782,7 @@ select {
   },
   renovationROI: {
     CalculatorName: "Renovation ROI Calculator",
+    gridName: "Renovation ROI",
     pageTitle: "Renovation ROI Calculator",
     calculatorTitle: "Measure ROI from property improvements.",
     subtitle: "See how each renovation affects your investment’s profitability.",
@@ -771,6 +794,7 @@ select {
   },
   taxDepreciation: {
     CalculatorName: "Tax / Depreciation Impact Calculator",
+    gridName: "Tax / Depreciation",
     pageTitle: "Tax / Depreciation Impact Calculator",
     calculatorTitle: "Estimate tax impacts and depreciation benefits.",
     subtitle: "Plan for deductions and understand their effect on net returns.",
@@ -782,6 +806,7 @@ select {
   },
   cma: {
     CalculatorName: "Comparative Market Analysis Calculator",
+    gridName: "CMA",
     pageTitle: "Comparative Market Analysis Calculator",
     calculatorTitle: "Perform a comparative market analysis easily.",
     subtitle: "Compare properties to determine fair market value and pricing strategy.",
@@ -793,6 +818,7 @@ select {
   },
   leverageROI: {
     CalculatorName: "Leverage ROI Calculator",
+    gridName: "Leverage ROI",
     pageTitle: "Leverage ROI Calculator",
     calculatorTitle: "Evaluate leveraged returns with financing.",
     subtitle: "See how loans amplify your ROI and understand associated risks.",
@@ -821,8 +847,12 @@ Object.entries(calculators).forEach(([key, c]) => {
 
 tile.innerHTML = `
     <span class="material-icons-outlined">${c.icon}</span>
-    <div>${c.calculatorTitle}</div>
+    <div>
+      <div class="grid-name">${c.gridName}</div>
+      <div>${c.calculatorTitle}</div>
+    </div>
 `;
+
 
 
   tile.onclick = () => {
