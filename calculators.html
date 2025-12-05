@@ -549,7 +549,7 @@ select {
  
 
   </div>
-</div>
+
 
 
 <script>
@@ -860,6 +860,8 @@ function loadCalculator(id) {
   const form = document.getElementById("calculatorForm");
   form.innerHTML = "";
 
+  savedValues = {};  
+
   /* ----------------------------------------------
      TABS (FIXED + UNIVERSAL ORDER)
   ---------------------------------------------- */
@@ -884,47 +886,66 @@ function loadCalculator(id) {
   });
 
   let activeTab = tabNames[0];
+  // Stores all input values for this calculator
+let savedValues = {};
 
-  function renderTabInputs(tab) {
-    tabContents.innerHTML = "";
 
-    calcTabs[tab].inputs.forEach((inputDef) => {
-      const inputGroup = document.createElement("div");
-      inputGroup.className = "input-group";
+ function renderTabInputs(tab) {
+  tabContents.innerHTML = "";
 
-      let id, label, type, placeholder;
+  calcTabs[tab].inputs.forEach((inputDef) => {
+    const inputGroup = document.createElement("div");
+    inputGroup.className = "input-group";
 
-      if (typeof inputDef === "string") {
-        id = label = placeholder = inputDef;
-        type = "number";
-      } else {
-        id = inputDef.id || inputDef.label;
-        label = inputDef.label || id;
-        type = inputDef.type || "number";
-        placeholder = inputDef.placeholder || label;
+    let id, label, type, placeholder;
+
+    // STRING input
+    if (typeof inputDef === "string") {
+      id = label = placeholder = inputDef;
+      type = "number";
+    }
+    // OBJECT input
+    else {
+      id = inputDef.id || inputDef.label;
+      label = inputDef.label || id;
+      type = inputDef.type || "number";
+      placeholder = inputDef.placeholder || label;
+    }
+
+    const labelEl = document.createElement("label");
+    labelEl.textContent = label;
+    labelEl.htmlFor = id;
+
+    const inputEl = document.createElement("input");
+    inputEl.type = type;
+    inputEl.placeholder = placeholder;
+    inputEl.id = id;
+
+    // Restore saved values
+    if (savedValues[id] !== undefined) {
+      inputEl.value = savedValues[id];
+    }
+
+    // Attributes for advanced config
+    if (typeof inputDef === "object") {
+      if (inputDef.min) inputEl.min = inputDef.min;
+      if (inputDef.max) inputEl.max = inputDef.max;
+      if (inputDef.step) inputEl.step = inputDef.step;
+      if (inputDef.value && savedValues[id] === undefined) {
+        inputEl.value = inputDef.value;
       }
+    }
 
-      const labelEl = document.createElement("label");
-      labelEl.textContent = label;
-      labelEl.htmlFor = id;
-
-      const inputEl = document.createElement("input");
-      inputEl.type = type;
-      inputEl.placeholder = placeholder;
-      inputEl.id = id;
-
-      if (typeof inputDef === "object") {
-        if (inputDef.min) inputEl.min = inputDef.min;
-        if (inputDef.max) inputEl.max = inputDef.max;
-        if (inputDef.step) inputEl.step = inputDef.step;
-        if (inputDef.value) inputEl.value = inputDef.value;
-      }
-
-      inputGroup.appendChild(labelEl);
-      inputGroup.appendChild(inputEl);
-      tabContents.appendChild(inputGroup);
+    // Save value whenever user types
+    inputEl.addEventListener("input", () => {
+      savedValues[id] = inputEl.value;
     });
-  }
+
+    inputGroup.appendChild(labelEl);
+    inputGroup.appendChild(inputEl);
+    tabContents.appendChild(inputGroup);
+  });
+}
 
   tabNames.forEach((tab) => {
     const tabBtn = document.createElement("div");
