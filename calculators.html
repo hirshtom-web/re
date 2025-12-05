@@ -848,6 +848,7 @@ select {
 
 
 /* ------------------ CATEGORY CONTAINERS ------------------ */
+/* ------------------ CATEGORY CONTAINERS ------------------ */
 const categories = {
   financing: document.getElementById("cat-financing"),
   returns: document.getElementById("cat-returns"),
@@ -869,28 +870,26 @@ Object.entries(calculators).forEach(([key, c]) => {
     </div>
   `;
 
-  tile.addEventListener("click", () => {
+  tile.onclick = () => {
     loadCalculator(key);
     window.location.hash = key;
-  });
+  };
 
-  if (categories[c.cat]) {
-    categories[c.cat].appendChild(tile);
-  } else {
-    console.warn(`Category ${c.cat} not found for calculator ${key}`);
-  }
+  categories[c.cat].appendChild(tile);
 });
 
-/* ------------------ COMMON ELEMENTS ------------------ */
+/* ------------------ GET COMMON ELEMENTS ------------------ */
 const allTiles = document.getElementsByClassName("tile");
 const titleEl = document.getElementById("calculatorTitle");
 const form = document.getElementById("calculatorForm");
+// ✅ FIX: make sure this matches your HTML
 const resultEl = document.getElementById("mainResult");
 
-/* ------------------ LOAD CALCULATOR ------------------ */
+/* ------------------ LOAD CALCULATOR FUNCTION ------------------ */
 function loadCalculator(key) {
+  if (!calculators[key]) return;
+
   const calc = calculators[key];
-  if (!calc) return;
 
   // Show calculator screen, hide grid
   document.getElementById("screenGrid").style.display = "none";
@@ -901,7 +900,7 @@ function loadCalculator(key) {
     t.classList.toggle("active", Object.keys(calculators)[i] === key);
   });
 
-  // Set titles
+  // Set page titles
   document.getElementById("pageTitle").textContent = calc.pageTitle;
   titleEl.textContent = calc.calculatorTitle;
   document.getElementById("subtitle").textContent = calc.subtitle;
@@ -910,21 +909,21 @@ function loadCalculator(key) {
   form.innerHTML = "";
   resultEl.textContent = "";
 
-  // Persisted input values
+  // Persisted input values across tabs
   const inputValues = {};
 
-  /* ------------------ LOCATION INPUT ------------------ */
+  // Optional location input
   if (calc.location) {
     const locInput = document.createElement("input");
     locInput.type = "text";
     locInput.placeholder = "City, State";
     locInput.id = "location";
     locInput.value = inputValues["location"] || "";
-    locInput.addEventListener("input", () => inputValues["location"] = locInput.value);
+    locInput.oninput = () => inputValues["location"] = locInput.value;
     form.appendChild(locInput);
   }
 
-  /* ------------------ TABS ------------------ */
+  // ---------- TABS ----------
   const tabContainer = document.createElement("div");
   tabContainer.className = "tab-container";
   form.appendChild(tabContainer);
@@ -933,6 +932,7 @@ function loadCalculator(key) {
   tabContents.className = "tab-contents";
   form.appendChild(tabContents);
 
+  // Enforce tab order
   const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
   const tabNames = preferredOrder.filter(t => calc.tabs[t])
     .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
@@ -940,7 +940,7 @@ function loadCalculator(key) {
   let activeTab = tabNames[0];
 
   function renderTabInputs(tab) {
-    tabContents.innerHTML = "";
+    tabContents.innerHTML = ""; // clear previous inputs
     activeTab = tab;
 
     calc.tabs[tab].inputs.forEach((name) => {
@@ -956,9 +956,11 @@ function loadCalculator(key) {
       input.placeholder = name;
       input.id = name;
 
+      // Restore previously entered value if exists
       if (inputValues[name] !== undefined) input.value = inputValues[name];
 
-      input.addEventListener("input", () => inputValues[name] = input.value);
+      // Save input value on change
+      input.oninput = () => inputValues[name] = input.value;
 
       inputGroup.appendChild(label);
       inputGroup.appendChild(input);
@@ -966,38 +968,39 @@ function loadCalculator(key) {
     });
   }
 
-  /* ------------------ TAB BUTTONS ------------------ */
+  // Create tab buttons
   tabNames.forEach((tab) => {
     const tabBtn = document.createElement("div");
     tabBtn.className = "tab";
     tabBtn.textContent = tab;
     if (tab === activeTab) tabBtn.classList.add("active");
 
-    tabBtn.addEventListener("click", () => {
+    tabBtn.onclick = () => {
       [...tabContainer.children].forEach(t => t.classList.remove("active"));
       tabBtn.classList.add("active");
       renderTabInputs(tab);
-    });
+    };
 
     tabContainer.appendChild(tabBtn);
   });
 
+  // Render initial tab inputs
   renderTabInputs(activeTab);
 
-  /* ------------------ CALCULATE BUTTON ------------------ */
+  // ---------- CALCULATE BUTTON ----------
   const button = document.createElement("button");
   button.textContent = "Calculate";
   button.className = "calc-btn";
 
-  button.addEventListener("click", (e) => {
+  button.onclick = (e) => {
     e.preventDefault();
 
     const values = calc.tabs[activeTab].inputs.map(id => {
-      const val = inputValues[id]?.trim();
-      return val ? Number(val) : NaN;
+      const val = inputValues[id];
+      return val !== undefined ? Number(val) : NaN;
     });
 
-    const locationValue = calc.location ? inputValues["location"]?.trim() : null;
+    const locationValue = calc.location ? inputValues["location"] : null;
 
     if (values.some(v => isNaN(v))) {
       resultEl.textContent = "Please fill in all required inputs!";
@@ -1005,35 +1008,41 @@ function loadCalculator(key) {
     }
 
     try {
-      const result = calc.calculate(...values, locationValue);
-      resultEl.textContent = typeof result === "number" ? `$${result.toFixed(2)}` : result;
+      resultEl.textContent = `Result: ${calc.calculate(...values, locationValue)}`;
     } catch (err) {
       resultEl.textContent = "Error in calculation. Check your inputs.";
       console.error(err);
     }
-  });
+  };
 
   form.appendChild(button);
 }
 
 /* ------------------ BACK BUTTON ------------------ */
-document.getElementById("backBtn").addEventListener("click", () => {
+document.getElementById("backBtn").onclick = () => {
   document.getElementById("screenCalculator").style.display = "none";
   document.getElementById("screenGrid").style.display = "block";
   resultEl.textContent = "";
   window.location.hash = "";
-});
+};
 
-/* ------------------ HASH LOADING ------------------ */
+/* ------------------ HASH LOAD ------------------ */
 function tryLoadFromHash() {
   const hash = window.location.hash.replace("#", "");
-  if (hash && calculators[hash]) loadCalculator(hash);
+  if (hash && calculators[hash]) {
+    loadCalculator(hash);
+  }
 }
 
+// On initial load
 window.addEventListener("load", tryLoadFromHash);
-window.addEventListener("hashchange", tryLoadFromHash);
 
+// Also respond if the hash changes later
+window.addEventListener("hashchange", () => {
+  tryLoadFromHash();
+});
 
+  
   </script>
 
 </body>
