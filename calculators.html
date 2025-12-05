@@ -275,6 +275,19 @@ select {
     margin-bottom: 16px; 
 }
 
+   #mainResult {
+    font-size: 100px;
+    font-weight: 800;
+    color: #005bff;
+    display: block;
+}
+
+@keyframes countUp {
+    from { opacity: 0.2; }
+    to { opacity: 1; }
+}
+
+
 /* ===================== */
 /* EXPENSES & DOWNLOAD   */
 /* ===================== */
@@ -540,16 +553,19 @@ select {
     </div>
 
     <!-- Results Section -->
-    <div class="results-container">
-      
-      <!-- Results Header -->
-      <h3>Results</h3>
-      
-      <!-- Result Output -->
-      <div id="result"></div>
-    </div>
+<div class="results-container">
+  <!-- Results Header -->
+  <h3>Results</h3>
 
+  <!-- Main Result Display -->
+  <div class="total-roi-display">
+    <span id="mainResult">$0</span>
   </div>
+
+  <!-- Stats Section -->
+  <div id="resultStats" class="stats-grid"></div>
+</div>
+
 
   <!-- Back Button -->
   <button id="backBtn" class="back-button">
@@ -831,52 +847,50 @@ select {
 };
 
 
-    /* CATEGORY CONTAINERS */
-    const categories = {
-      financing: document.getElementById("cat-financing"),
-      returns: document.getElementById("cat-returns"),
-      valuation: document.getElementById("cat-valuation"),
-      analysis: document.getElementById("cat-analysis")
-    };
+/* ------------------ CATEGORY CONTAINERS ------------------ */
+const categories = {
+  financing: document.getElementById("cat-financing"),
+  returns: document.getElementById("cat-returns"),
+  valuation: document.getElementById("cat-valuation"),
+  analysis: document.getElementById("cat-analysis")
+};
 
-/* --------- RENDER TILES ----------- */
+/* ------------------ RENDER TILES ------------------ */
 Object.entries(calculators).forEach(([key, c]) => {
   const tile = document.createElement("div");
   tile.className = "tile";
   tile.dataset.tooltip = c.tooltip;
 
-tile.innerHTML = `
+  tile.innerHTML = `
     <span class="material-icons-outlined">${c.icon}</span>
     <div>
       <div class="grid-name">${c.gridName}</div>
       <div>${c.calculatorTitle}</div>
     </div>
-`;
+  `;
 
-
-
-  tile.onclick = () => {
+  tile.addEventListener("click", () => {
     loadCalculator(key);
     window.location.hash = key;
-  };
+  });
 
-  categories[c.cat].appendChild(tile);
+  if (categories[c.cat]) {
+    categories[c.cat].appendChild(tile);
+  } else {
+    console.warn(`Category ${c.cat} not found for calculator ${key}`);
+  }
 });
 
-/* --------- IMPORTANT: GET ALL TILE ELEMENTS ----------- */
+/* ------------------ COMMON ELEMENTS ------------------ */
 const allTiles = document.getElementsByClassName("tile");
-
-/* --------- GET COMMON ELEMENTS ----------- */
 const titleEl = document.getElementById("calculatorTitle");
 const form = document.getElementById("calculatorForm");
 const resultEl = document.getElementById("result");
 
-/* --------- LOAD CALCULATOR ----------- */
-
+/* ------------------ LOAD CALCULATOR ------------------ */
 function loadCalculator(key) {
-  if (!calculators[key]) return;
-
   const calc = calculators[key];
+  if (!calc) return;
 
   // Show calculator screen, hide grid
   document.getElementById("screenGrid").style.display = "none";
@@ -887,7 +901,7 @@ function loadCalculator(key) {
     t.classList.toggle("active", Object.keys(calculators)[i] === key);
   });
 
-  // Set page titles
+  // Set titles
   document.getElementById("pageTitle").textContent = calc.pageTitle;
   titleEl.textContent = calc.calculatorTitle;
   document.getElementById("subtitle").textContent = calc.subtitle;
@@ -896,21 +910,21 @@ function loadCalculator(key) {
   form.innerHTML = "";
   resultEl.textContent = "";
 
-  // Persisted input values across tabs
+  // Persisted input values
   const inputValues = {};
 
-  // Optional location input
+  /* ------------------ LOCATION INPUT ------------------ */
   if (calc.location) {
     const locInput = document.createElement("input");
     locInput.type = "text";
     locInput.placeholder = "City, State";
     locInput.id = "location";
     locInput.value = inputValues["location"] || "";
-    locInput.oninput = () => inputValues["location"] = locInput.value;
+    locInput.addEventListener("input", () => inputValues["location"] = locInput.value);
     form.appendChild(locInput);
   }
 
-  // ---------- TABS ----------
+  /* ------------------ TABS ------------------ */
   const tabContainer = document.createElement("div");
   tabContainer.className = "tab-container";
   form.appendChild(tabContainer);
@@ -919,15 +933,14 @@ function loadCalculator(key) {
   tabContents.className = "tab-contents";
   form.appendChild(tabContents);
 
-  // Enforce tab order
   const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
-  const tabNames = preferredOrder.filter(t => calc.tabs[t]).concat(
-    Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t))
-  );
+  const tabNames = preferredOrder.filter(t => calc.tabs[t])
+    .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
+
   let activeTab = tabNames[0];
 
   function renderTabInputs(tab) {
-    tabContents.innerHTML = ""; // clear previous inputs
+    tabContents.innerHTML = "";
     activeTab = tab;
 
     calc.tabs[tab].inputs.forEach((name) => {
@@ -943,11 +956,9 @@ function loadCalculator(key) {
       input.placeholder = name;
       input.id = name;
 
-      // Restore previously entered value if exists
       if (inputValues[name] !== undefined) input.value = inputValues[name];
 
-      // Save input value on change
-      input.oninput = () => inputValues[name] = input.value;
+      input.addEventListener("input", () => inputValues[name] = input.value);
 
       inputGroup.appendChild(label);
       inputGroup.appendChild(input);
@@ -955,39 +966,38 @@ function loadCalculator(key) {
     });
   }
 
-  // Create tab buttons
+  /* ------------------ TAB BUTTONS ------------------ */
   tabNames.forEach((tab) => {
     const tabBtn = document.createElement("div");
     tabBtn.className = "tab";
     tabBtn.textContent = tab;
     if (tab === activeTab) tabBtn.classList.add("active");
 
-    tabBtn.onclick = () => {
+    tabBtn.addEventListener("click", () => {
       [...tabContainer.children].forEach(t => t.classList.remove("active"));
       tabBtn.classList.add("active");
       renderTabInputs(tab);
-    };
+    });
 
     tabContainer.appendChild(tabBtn);
   });
 
-  // Render initial tab inputs
   renderTabInputs(activeTab);
 
-  // ---------- CALCULATE BUTTON ----------
+  /* ------------------ CALCULATE BUTTON ------------------ */
   const button = document.createElement("button");
   button.textContent = "Calculate";
   button.className = "calc-btn";
 
-  button.onclick = (e) => {
+  button.addEventListener("click", (e) => {
     e.preventDefault();
 
     const values = calc.tabs[activeTab].inputs.map(id => {
-      const val = inputValues[id];
-      return val !== undefined ? Number(val) : NaN;
+      const val = inputValues[id]?.trim();
+      return val ? Number(val) : NaN;
     });
 
-    const locationValue = calc.location ? inputValues["location"] : null;
+    const locationValue = calc.location ? inputValues["location"]?.trim() : null;
 
     if (values.some(v => isNaN(v))) {
       resultEl.textContent = "Please fill in all required inputs!";
@@ -995,39 +1005,33 @@ function loadCalculator(key) {
     }
 
     try {
-      resultEl.textContent = `Result: ${calc.calculate(...values, locationValue)}`;
+      const result = calc.calculate(...values, locationValue);
+      resultEl.textContent = typeof result === "number" ? `$${result.toFixed(2)}` : result;
     } catch (err) {
       resultEl.textContent = "Error in calculation. Check your inputs.";
       console.error(err);
     }
-  };
+  });
 
   form.appendChild(button);
 }
 
-
-  /* --------- BACK BUTTON ----------- */
-document.getElementById("backBtn").onclick = () => {
+/* ------------------ BACK BUTTON ------------------ */
+document.getElementById("backBtn").addEventListener("click", () => {
   document.getElementById("screenCalculator").style.display = "none";
   document.getElementById("screenGrid").style.display = "block";
   resultEl.textContent = "";
   window.location.hash = "";
-};
+});
 
-  function tryLoadFromHash() {
+/* ------------------ HASH LOADING ------------------ */
+function tryLoadFromHash() {
   const hash = window.location.hash.replace("#", "");
-  if (hash && calculators[hash]) {
-    loadCalculator(hash);
-  }
+  if (hash && calculators[hash]) loadCalculator(hash);
 }
 
-// On initial load
 window.addEventListener("load", tryLoadFromHash);
-
-// Also respond if the hash changes later
-window.addEventListener("hashchange", () => {
-  tryLoadFromHash();
-});
+window.addEventListener("hashchange", tryLoadFromHash);
 
 
   </script>
