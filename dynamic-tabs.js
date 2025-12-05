@@ -1,49 +1,54 @@
 function loadCalculator(calculatorType) {
-    const tabContainer = document.querySelector(".tab-container");
-    const tabContentsContainer = document.querySelector(".main-content");
+  const tabContainer = document.querySelector(".tab-container");
+  const mainContent = document.querySelector(".inputs-container");
 
-    tabContainer.innerHTML = ""; // Clear existing tabs
-    // Hide all existing tab contents
-    document.querySelectorAll(".tab-content").forEach(tc => tc.remove());
+  // Clear existing tabs & tab contents
+  tabContainer.innerHTML = "";
+  mainContent.querySelectorAll(".tab-content").forEach(tc => tc.remove());
 
-    const calc = calculators[calculatorType];
+  const calc = calculators[calculatorType];
+  if (!calc) return;
 
-    calc.tabs.forEach((tab, index) => {
-        // Create tab
-        const tabEl = document.createElement("div");
-        tabEl.className = "tab";
-        if(index === 0) tabEl.classList.add("active"); // make first tab active
-        tabEl.dataset.tab = tab.id;
-        tabEl.innerHTML = `<img src="${tab.icon}" class="tab-icon">${tab.label}`;
-        tabContainer.appendChild(tabEl);
+  let first = true;
 
-        // Create tab content container
-        const tabContentEl = document.createElement("div");
-        tabContentEl.id = `tab-${tab.id}`;
-        tabContentEl.className = "tab-content";
-        if(index === 0) tabContentEl.classList.add("active"); // first tab active
-        tabContentsContainer.appendChild(tabContentEl);
+  Object.keys(calc.tabs).forEach(tabName => {
+    // Create tab button
+    const tab = document.createElement("div");
+    tab.className = "tab";
+    if (first) tab.classList.add("active");
+    tab.dataset.tab = tabName;
+    tab.textContent = tabName; // Replace with icon+label if needed
+    tabContainer.appendChild(tab);
 
-        // You can then dynamically append the input fields for each tab
-        calc.inputs[tab.id].forEach(inputId => {
-            const inputGroup = document.getElementById(inputId);
-            if(inputGroup) {
-                tabContentEl.appendChild(inputGroup.parentElement.cloneNode(true));
-            }
-        });
+    // Create tab content container
+    const tabContent = document.createElement("div");
+    tabContent.className = "tab-content";
+    if (first) tabContent.classList.add("active");
+    tabContent.id = `tab-${tabName}`;
+    mainContent.appendChild(tabContent);
+
+    // Add inputs dynamically
+    calc.tabs[tabName].forEach(inputId => {
+      const inputEl = document.getElementById(inputId);
+      if (inputEl) {
+        tabContent.appendChild(inputEl.parentElement.cloneNode(true));
+      }
     });
 
-    // Add the tab click behavior
-    const tabs = document.querySelectorAll(".tab");
-    const tabContents = document.querySelectorAll(".tab-content");
+    first = false;
+  });
 
-    tabs.forEach(tab => {
-        tab.addEventListener("click", function() {
-            const target = tab.dataset.tab;
-            tabs.forEach(t => t.classList.remove("active"));
-            tabContents.forEach(tc => tc.classList.remove("active"));
-            tab.classList.add("active");
-            document.getElementById(`tab-${target}`).classList.add("active");
-        });
+  // Add tab switching behavior
+  const tabs = document.querySelectorAll(".tab");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.tab;
+      tabs.forEach(t => t.classList.remove("active"));
+      tabContents.forEach(tc => tc.classList.remove("active"));
+      tab.classList.add("active");
+      document.getElementById(`tab-${target}`).classList.add("active");
     });
+  });
 }
