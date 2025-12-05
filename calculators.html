@@ -776,10 +776,11 @@ Object.entries(calculators).forEach(([key, c]) => {
   tile.className = "tile";
   tile.dataset.tooltip = c.tooltip;
 
-  tile.innerHTML = `
+tile.innerHTML = `
     <span class="material-icons-outlined">${c.icon}</span>
-    <div>${c.CalculatorName}</div>
-  `;
+    <div>${c.calculatorTitle}</div>
+`;
+
 
   tile.onclick = () => {
     loadCalculator(key);
