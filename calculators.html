@@ -505,13 +505,33 @@ select {
 
 <!-- SCREEN 2: CALCULATOR VIEW -->
 <div id="screenCalculator" style="display:none;">
+  
+  <!-- Back Button -->
   <button id="backBtn" class="back-button">
     <span class="material-icons-outlined">arrow_back</span> Back
   </button>
+
+  <!-- Page Title -->
   <h1 id="calculatorTitle"></h1>
-  <form id="calculatorForm"></form>
-  <p id="result"></p>
+
+  <!-- Main Container: inputs + results -->
+  <div class="container">
+
+    <!-- Inputs Container -->
+    <div class="inputs-container">
+      <form id="calculatorForm">
+        <!-- Input groups will go here -->
+      </form>
+    </div>
+
+    <!-- Results Container -->
+    <div class="results-container">
+      <div id="result"></div>
+    </div>
+
+  </div>
 </div>
+
 
 
 <script>
