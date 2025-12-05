@@ -836,7 +836,7 @@ function loadCalculator(key) {
   if (allTiles[index]) allTiles[index].classList.add("active");
 
   const calc = calculators[key];
-  titleEl.textContent = calc.title;
+  titleEl.textContent = calc.calculatorTitle; // corrected title
   form.innerHTML = "";
   resultEl.textContent = "";
 
@@ -849,36 +849,90 @@ function loadCalculator(key) {
     form.appendChild(locInput);
   }
 
-  // Main inputs
-  calc.inputs.forEach((name, i) => {
-    const input = document.createElement("input");
-    input.type = "number";
-    input.placeholder = name;
-    input.id = name;
+  // ---------- TABS ----------
+  const tabContainer = document.createElement("div");
+  tabContainer.className = "tab-container";
+  form.appendChild(tabContainer);
 
-    // If suggestedInputs exists, prefill
-    if (calc.suggestedInputs && calc.suggestedInputs[i] !== undefined) {
-      input.value = calc.suggestedInputs[i];
-    }
+  const tabContents = document.createElement("div");
+  tabContents.className = "tab-contents";
+  form.appendChild(tabContents);
 
-    form.appendChild(input);
+  const tabNames = Object.keys(calc.tabs);
+  let activeTab = tabNames[0];
+
+  function renderTabInputs(tab) {
+    tabContents.innerHTML = ""; // clear previous inputs
+    activeTab = tab;
+
+    calc.tabs[tab].inputs.forEach((name) => {
+      const inputGroup = document.createElement("div");
+      inputGroup.className = "input-group";
+
+      const label = document.createElement("label");
+      label.textContent = name;
+      label.htmlFor = name;
+
+      const input = document.createElement("input");
+      input.type = "number";
+      input.placeholder = name;
+      input.id = name;
+
+      inputGroup.appendChild(label);
+      inputGroup.appendChild(input);
+      tabContents.appendChild(inputGroup);
+    });
+  }
+
+  // Create tab buttons
+  tabNames.forEach((tab) => {
+    const tabBtn = document.createElement("div");
+    tabBtn.className = "tab";
+    tabBtn.textContent = tab;
+    if (tab === activeTab) tabBtn.classList.add("active");
+
+    tabBtn.onclick = () => {
+      // switch active tab button
+      [...tabContainer.children].forEach(t => t.classList.remove("active"));
+      tabBtn.classList.add("active");
+      renderTabInputs(tab);
+    };
+
+    tabContainer.appendChild(tabBtn);
   });
 
+  // Render initial tab inputs
+  renderTabInputs(activeTab);
+
+  // ---------- CALCULATE BUTTON ----------
   const button = document.createElement("button");
   button.textContent = "Calculate";
-  button.onclick = () => {
-    const values = calc.inputs.map(id => Number(document.getElementById(id).value));
+  button.className = "calc-btn";
+
+  button.onclick = (e) => {
+    e.preventDefault();
+
+    const values = calc.tabs[activeTab].inputs.map(id => {
+      const el = document.getElementById(id);
+      return el ? Number(el.value) : NaN;
+    });
 
     // Optional location value
-    let locationValue = calc.location ? document.getElementById("location").value : null;
+    const locationValue = calc.location ? document.getElementById("location").value : null;
 
-    if(values.some(v => isNaN(v))) {
+    if (values.some(v => isNaN(v))) {
       resultEl.textContent = "Please fill in all required inputs!";
       return;
     }
 
-    resultEl.textContent = `Result: ${calc.calculate(...values, locationValue)}`;
+    try {
+      resultEl.textContent = `Result: ${calc.calculate(...values, locationValue)}`;
+    } catch (err) {
+      resultEl.textContent = "Error in calculation. Check your inputs.";
+      console.error(err);
+    }
   };
+
   form.appendChild(button);
 }
 
