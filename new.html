@@ -951,19 +951,31 @@ function autocomplete(inp, arr) {
     this.parentNode.appendChild(listDiv);
 
 arr.forEach(city => {
-      if (city.toLowerCase().includes(val.toLowerCase())) {
-        const item = document.createElement("DIV");
-        item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
-        item.style.padding = "5px";
-        item.style.cursor = "pointer";
-        item.addEventListener("click", function() {
-          inp.value = city;
-          closeAllLists();
-        });
-        listDiv.appendChild(item);
+  if (city.toLowerCase().includes(val.toLowerCase())) {
+    const item = document.createElement("DIV");
+    item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
+    item.style.padding = "5px";
+    item.style.cursor = "pointer";
+
+    item.addEventListener("click", function() {
+      inp.value = city;
+      closeAllLists();
+
+      // ✅ Save selected city in the correct inputValues object
+      const formEl = inp.closest("form"); // find the calculator form
+      if (formEl && formEl.inputValues) {
+        formEl.inputValues[inp.placeholder] = city;
+      }
+
+      // ✅ Save globally for auto-detect fallback
+      if (typeof savedLocation !== "undefined") {
+        savedLocation.value = city;
       }
     });
-  });
+
+    listDiv.appendChild(item);
+  }
+});
 
   inp.addEventListener("keydown", function(e) {
     let x = document.getElementById(this.id + "-autocomplete-list");
@@ -1046,6 +1058,8 @@ function loadCalculator(key) {
   resultEl.textContent = "";
 
   const inputValues = {};
+form.inputValues = inputValues; // attach it to the form
+  
 
   
   /* ------------------ TABS ------------------ */
