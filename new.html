@@ -579,11 +579,9 @@ select {
   </div>
 </div>
 
-
 <script>
-
   
-  /* --------- CALCULATOR DEFINITIONS ----------- */
+ ? /* --------- CALCULATOR DEFINITIONS ----------- */
 
  const calculators = {
   cashFlow: {
@@ -1021,7 +1019,6 @@ const titleEl = document.getElementById("calculatorTitle");
 const form = document.getElementById("calculatorForm");
 const resultEl = document.getElementById("mainResult");
 
-  
 /* ------------------ LOAD CALCULATOR ------------------ */
 function loadCalculator(key) {
   if (!calculators[key]) return;
@@ -1042,25 +1039,24 @@ function loadCalculator(key) {
   form.innerHTML = "";
   resultEl.textContent = "";
 
-  /* ------------------ PERSISTENT INPUT VALUES ------------------ */
-  window.inputValuesStore = window.inputValuesStore || {};
-  if (!inputValuesStore[key]) inputValuesStore[key] = {};
-  const inputValues = inputValuesStore[key];
+  const inputValues = {};
 
   /* ------------------ OPTIONAL LOCATION ------------------ */
-  if (calc.location) {
-    const loc = document.createElement("input");
-    loc.type = "text";
-    loc.placeholder = "City, State";
 
-    // Restore previous value if exists
-    if (inputValues["location"]) loc.value = inputValues["location"];
+if (calc.location) {
+  const loc = document.createElement("input");
+  loc.type = "text";
+  loc.placeholder = "City, State";
 
-    // Save value on input
-    loc.oninput = () => inputValues["location"] = loc.value;
+  // Restore previous value if exists
+  if (inputValues["location"]) loc.value = inputValues["location"];
 
-    form.appendChild(loc);
-  }
+  // Save value on input
+  loc.oninput = () => inputValues["location"] = loc.value;
+
+  form.appendChild(loc);
+}
+
 
   /* ------------------ TABS ------------------ */
   const tabContainer = document.createElement("div");
@@ -1123,61 +1119,7 @@ function loadCalculator(key) {
     tabContainer.appendChild(btn);
   });
 
-  renderTabInputs(activeTab);
-
-  /* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
-  if (calc.gridName === "ROI") {
-    const marketInput = [...form.querySelectorAll("input")].find(i => i.placeholder.includes("Market"));
-    if (marketInput) {
-      marketInput.id = "marketLocation"; // give it an ID for reference
-      autocomplete(marketInput, topCities); // attach autocomplete
-      autoDetectLocation(marketInput);      // auto-fill based on IP
-    }
-  }
-
-  /* ------------------ CALCULATE BUTTON ------------------ */
-  const button = document.createElement("button");
-  button.className = "calc-btn";
-  button.textContent = "Calculate";
-
-  button.onclick = (e) => {
-    e.preventDefault();
-
-    const values = calc.tabs[activeTab].inputs.map(id => {
-      const val = inputValues[id];
-      return val !== undefined ? Number(val.replace(/,/g, "")) : NaN;
-    });
-
-    const locationValue = calc.location ? inputValues["location"] : null;
-
-    if (values.some(v => isNaN(v))) {
-      resultEl.innerHTML = "<h3>Please fill all inputs!</h3>";
-      return;
-    }
-
-    let raw = calc.calculate(...values, locationValue);
-
-    // Percent (string like "8.3%")
-    if (typeof raw === "string" && raw.includes("%")) {
-      resultEl.textContent = parseFloat(raw).toFixed(2) + "%";
-      return;
-    }
-
-    let num = Number(raw);
-
-    // shorten if more than 9 digits
-    const digitCount = Math.floor(Math.log10(Math.abs(num))) + 1;
-
-    if (digitCount > 9) {
-      resultEl.textContent = shortenBigNumber(num);
-    } else {
-      resultEl.textContent = num.toLocaleString();
-    }
-  };
-
-  form.appendChild(button);
-}
-
+renderTabInputs(activeTab);
 
 /* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
 if (calc.gridName === "ROI") {
@@ -1257,7 +1199,6 @@ window.addEventListener("hashchange", tryLoadFromHash);
 
 
 </script>
-
 
 
 </body>
