@@ -951,29 +951,19 @@ function autocomplete(inp, arr) {
     this.parentNode.appendChild(listDiv);
 
 arr.forEach(city => {
-  if (city.toLowerCase().includes(val.toLowerCase())) {
-    const item = document.createElement("DIV");
-    item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
-    item.style.padding = "5px";
-    item.style.cursor = "pointer";
-
-    item.addEventListener("click", function() {
-      inp.value = city;
-
-      // ✅ Only save if inputValues and savedLocation exist
-      if (typeof inputValues !== "undefined") {
-        inputValues[inp.placeholder] = city;
+      if (city.toLowerCase().includes(val.toLowerCase())) {
+        const item = document.createElement("DIV");
+        item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
+        item.style.padding = "5px";
+        item.style.cursor = "pointer";
+        item.addEventListener("click", function() {
+          inp.value = city;
+          closeAllLists();
+        });
+        listDiv.appendChild(item);
       }
-      if (typeof savedLocation !== "undefined") {
-        savedLocation.value = city;
-      }
-
-      closeAllLists();
     });
-
-    listDiv.appendChild(item);
-  }
-});
+  });
 
 
 
