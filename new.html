@@ -1075,13 +1075,12 @@ function renderTabInputs(tab) {
     const group = document.createElement("div");
     group.className = "input-group";
 
-    // Create label with ⓘ info icon
+    // Label with info icon
     const label = document.createElement("label");
     label.textContent = name;
-
     const info = document.createElement("span");
     info.textContent = " ⓘ";
-    info.title = `Instruction for ${name}`; // Customize instructions as needed
+    info.title = `Instruction for ${name}`; // Customize per field
     label.appendChild(info);
 
     let input;
@@ -1097,7 +1096,6 @@ function renderTabInputs(tab) {
         input.appendChild(option);
       });
 
-      // Restore saved value if exists
       if (inputValues[name]) input.value = inputValues[name];
 
       input.addEventListener("input", () => {
@@ -1105,39 +1103,44 @@ function renderTabInputs(tab) {
       });
 
     } else {
-      // Regular text input
+      // Regular text / numeric input
       input = document.createElement("input");
       input.type = "text";
       input.placeholder = name;
 
       // Restore saved value if exists
       if (inputValues[name]) {
-        const raw = inputValues[name];
-        const parts = raw.toString().split(".");
-        parts[0] = Number(parts[0]).toLocaleString();
-        input.value = parts.join(".");
+        if (!isNaN(inputValues[name]) && inputValues[name] !== "" && name !== "Market (City & State)") {
+          const raw = inputValues[name];
+          const parts = raw.toString().split(".");
+          parts[0] = Number(parts[0]).toLocaleString();
+          input.value = parts.join(".");
+        } else {
+          input.value = inputValues[name];
+        }
       }
 
-      // Format numbers with commas
-      formatInputWithCommas(input, inputValues, name);
+      // Format numbers with commas except Market
+      if (name !== "Market (City & State)") {
+        formatInputWithCommas(input, inputValues, name);
+      }
 
+      // Market (City, State) input
       if (name.includes("Market")) {
         input.id = "marketLocation";
 
-        // Restore saved location if available
         if (savedLocation.value) {
           input.value = savedLocation.value;
           inputValues[name] = savedLocation.value;
         }
 
-        // Save input as user types
         input.addEventListener("input", () => {
           inputValues[name] = input.value;
         });
 
-        // Attach autocomplete with callback for selection
+        // Attach autocomplete only for Market
         setTimeout(() => {
-          autocomplete(input, topCities, (selectedCity) => {
+          autocomplete(input, topCities, selectedCity => {
             input.value = selectedCity;
             savedLocation.value = selectedCity;
             inputValues[name] = selectedCity;
@@ -1147,9 +1150,8 @@ function renderTabInputs(tab) {
             autoDetectLocation(input);
           }
         }, 50);
-
       } else {
-        // Save every other input automatically
+        // Save all other inputs automatically
         input.addEventListener("input", () => {
           inputValues[name] = input.value;
         });
@@ -1162,11 +1164,11 @@ function renderTabInputs(tab) {
   });
 }
 
+// Tabs
 tabNames.forEach(tab => {
   const btn = document.createElement("div");
   btn.className = "tab";
   btn.textContent = tab;
-
   if (tab === activeTab) btn.classList.add("active");
 
   btn.onclick = () => {
@@ -1179,6 +1181,7 @@ tabNames.forEach(tab => {
 });
 
 renderTabInputs(activeTab);
+
 
 
 /* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
