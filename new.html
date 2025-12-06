@@ -914,6 +914,109 @@ Object.entries(calculators).forEach(([key, c]) => {
   categories[c.cat].appendChild(tile);
 });
 
+  /* --------- TOP US CITIES FOR AUTOCOMPLETE --------- */
+const topCities = [
+  "New York, NY","Los Angeles, CA","Chicago, IL","Houston, TX","Phoenix, AZ",
+  "Philadelphia, PA","San Antonio, TX","San Diego, CA","Dallas, TX","San Jose, CA",
+  "Austin, TX","Jacksonville, FL","Fort Worth, TX","Columbus, OH","Charlotte, NC",
+  "San Francisco, CA","Indianapolis, IN","Seattle, WA","Denver, CO","Washington, DC",
+  "Boston, MA","El Paso, TX","Nashville, TN","Detroit, MI","Oklahoma City, OK",
+  "Portland, OR","Las Vegas, NV","Memphis, TN","Louisville, KY","Baltimore, MD",
+  "Milwaukee, WI","Albuquerque, NM","Tucson, AZ","Fresno, CA","Sacramento, CA",
+  "Kansas City, MO","Long Beach, CA","Mesa, AZ","Atlanta, GA","Colorado Springs, CO",
+  "Virginia Beach, VA","Raleigh, NC","Omaha, NE","Miami, FL","Oakland, CA",
+  "Minneapolis, MN","Tulsa, OK","Wichita, KS","New Orleans, LA","Arlington, TX"
+  // ...add more cities if needed
+];
+
+  /* ------------------ AUTOCOMPLETE FUNCTION ------------------ */
+function autocomplete(inp, arr) {
+  let currentFocus;
+
+  inp.addEventListener("input", function() {
+    let val = this.value;
+    closeAllLists();
+    if (!val) return false;
+    currentFocus = -1;
+
+    const listDiv = document.createElement("DIV");
+    listDiv.setAttribute("id", this.id + "-autocomplete-list");
+    listDiv.setAttribute("class", "autocomplete-items");
+    listDiv.style.border = "1px solid #ccc";
+    listDiv.style.borderTop = "none";
+    listDiv.style.position = "absolute";
+    listDiv.style.backgroundColor = "#fff";
+    listDiv.style.zIndex = "99";
+    listDiv.style.maxHeight = "200px";
+    listDiv.style.overflowY = "auto";
+    this.parentNode.appendChild(listDiv);
+
+    arr.forEach(city => {
+      if (city.toLowerCase().includes(val.toLowerCase())) {
+        const item = document.createElement("DIV");
+        item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
+        item.style.padding = "5px";
+        item.style.cursor = "pointer";
+        item.addEventListener("click", function() {
+          inp.value = city;
+          closeAllLists();
+        });
+        listDiv.appendChild(item);
+      }
+    });
+  });
+
+  inp.addEventListener("keydown", function(e) {
+    let x = document.getElementById(this.id + "-autocomplete-list");
+    if (x) x = x.getElementsByTagName("div");
+    if (e.keyCode == 40) { currentFocus++; addActive(x); } // down
+    else if (e.keyCode == 38) { currentFocus--; addActive(x); } // up
+    else if (e.keyCode == 13) { e.preventDefault(); if (currentFocus > -1 && x) x[currentFocus].click(); } // enter
+  });
+
+  function addActive(x) {
+    if (!x) return false;
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = x.length - 1;
+    x[currentFocus].classList.add("autocomplete-active");
+    x[currentFocus].style.backgroundColor = "#e9e9e9";
+  }
+
+  function removeActive(x) {
+    for (let i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+      x[i].style.backgroundColor = "#fff";
+    }
+  }
+
+  function closeAllLists(elmnt) {
+    const x = document.getElementsByClassName("autocomplete-items");
+    for (let i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) x[i].parentNode.removeChild(x[i]);
+    }
+  }
+
+  document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+  });
+}
+
+  /* ------------------ AUTO-DETECT LOCATION ------------------ */
+function autoDetectLocation(inputEl) {
+  fetch("https://ipapi.co/json/")
+    .then(res => res.json())
+    .then(data => {
+      let city = data.city || "";
+      let state = data.region || "";
+      if (city || state) {
+        inputEl.value = `${city}${city && state ? ", " : ""}${state}`;
+        inputEl.dispatchEvent(new Event("input")); // triggers autocomplete
+      }
+    })
+    .catch(err => console.warn("Location lookup failed:", err));
+}
+
 /* ------------------ COMMON ELEMENTS ------------------ */
 const allTiles = document.getElementsByClassName("tile");
 const titleEl = document.getElementById("calculatorTitle");
