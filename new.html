@@ -1022,6 +1022,9 @@ const titleEl = document.getElementById("calculatorTitle");
 const form = document.getElementById("calculatorForm");
 const resultEl = document.getElementById("mainResult");
 
+  /* ---------- STEP 1: GLOBAL LOCATION STORE ---------- */
+const savedLocation = { value: "" };
+
 /* ------------------ LOAD CALCULATOR ------------------ */
 function loadCalculator(key) {
   if (!calculators[key]) return;
@@ -1045,13 +1048,26 @@ function loadCalculator(key) {
   const inputValues = {};
 
   /* ------------------ OPTIONAL LOCATION ------------------ */
-  if (calc.location) {
-    const loc = document.createElement("input");
-    loc.type = "text";
-    loc.placeholder = "City, State";
-    loc.oninput = () => inputValues["location"] = loc.value;
-    form.appendChild(loc);
+if (calc.location) {
+  const loc = document.createElement("input");
+  loc.type = "text";
+  loc.placeholder = "City, State";
+
+  // Restore the saved location if it exists
+  if (savedLocation.value) {
+    loc.value = savedLocation.value;
+    inputValues["location"] = savedLocation.value;
   }
+
+  // Save any new value that user types
+  loc.oninput = () => {
+    inputValues["location"] = loc.value;
+    savedLocation.value = loc.value;
+  };
+
+  form.appendChild(loc);
+}
+
 
   /* ------------------ TABS ------------------ */
   const tabContainer = document.createElement("div");
