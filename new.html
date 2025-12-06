@@ -950,21 +950,24 @@ function autocomplete(inp, arr) {
     listDiv.style.overflowY = "auto";
     this.parentNode.appendChild(listDiv);
 
-    arr.forEach(city => {
+arr.forEach(city => {
   if (city.toLowerCase().includes(val.toLowerCase())) {
     const item = document.createElement("DIV");
     item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
     item.style.padding = "5px";
     item.style.cursor = "pointer";
+
     item.addEventListener("click", function() {
-      inp.value = city;               // update input display
-      inp.dataset.selected = city;    // store selected value safely
+      inp.value = city;               // update the input
+      inp.dataset.selected = city;    // store selection safely
+      inp.dispatchEvent(new Event("input")); // triggers the input listener inside loadCalculator()
       closeAllLists();
-      inp.dispatchEvent(new Event("input")); // trigger input listener to save value
     });
+
     listDiv.appendChild(item);
   }
 });
+
 
 
 
