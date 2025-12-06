@@ -1024,27 +1024,12 @@ const resultEl = document.getElementById("mainResult");
   
 /* ------------------ LOAD CALCULATOR ------------------ */
 function loadCalculator(key) {
-  console.log("loadCalculator called with key:", key); // Debug
-
-  if (!calculators[key]) {
-    console.warn("Calculator key not found:", key);
-    return;
-  }
+  if (!calculators[key]) return;
 
   const calc = calculators[key];
 
-  const screenGrid = document.getElementById("screenGrid");
-  const screenCalculator = document.getElementById("screenCalculator");
-  const form = document.getElementById("calculatorForm");
-  const resultEl = document.getElementById("mainResult");
-  const titleEl = document.getElementById("calculatorTitle");
-
-  console.log({screenGrid, screenCalculator, form, resultEl, titleEl}); // Debug
-
-  if (!screenGrid || !screenCalculator || !form || !resultEl || !titleEl) return;
-
-  screenGrid.style.display = "none";
-  screenCalculator.style.display = "block";
+  document.getElementById("screenGrid").style.display = "none";
+  document.getElementById("screenCalculator").style.display = "block";
 
   [...allTiles].forEach((t, i) =>
     t.classList.toggle("active", Object.keys(calculators)[i] === key)
@@ -1058,7 +1043,7 @@ function loadCalculator(key) {
   resultEl.textContent = "";
 
   /* ------------------ PERSISTENT INPUT VALUES ------------------ */
-  if (!window.inputValuesStore) window.inputValuesStore = {};
+  window.inputValuesStore = window.inputValuesStore || {};
   if (!inputValuesStore[key]) inputValuesStore[key] = {};
   const inputValues = inputValuesStore[key];
 
@@ -1192,6 +1177,7 @@ function loadCalculator(key) {
 
   form.appendChild(button);
 }
+
 
 /* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
 if (calc.gridName === "ROI") {
