@@ -958,16 +958,25 @@ arr.forEach(city => {
     item.style.cursor = "pointer";
 
     item.addEventListener("click", function() {
-      inp.value = city;               // update the input
-      inp.dataset.selected = city;    // store selection safely
-      inp.dispatchEvent(new Event("input")); // triggers the input listener inside loadCalculator()
+      inp.value = city;                  // update input display
+
+      // ✅ update the stored value inside inputValues
+      if (typeof inputValues !== "undefined" && inp.placeholder) {
+        inputValues[inp.placeholder] = city;
+      }
+
+      // ✅ update savedLocation if this is the Market input
+      if (inp.id === "marketLocation" && typeof savedLocation !== "undefined") {
+        savedLocation.value = city;
+      }
+
+      inp.dispatchEvent(new Event("input")); // triggers input formatting / listeners
       closeAllLists();
     });
 
     listDiv.appendChild(item);
   }
 });
-
 
 
 
