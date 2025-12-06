@@ -1046,13 +1046,21 @@ function loadCalculator(key) {
   const inputValues = {};
 
   /* ------------------ OPTIONAL LOCATION ------------------ */
-  if (calc.location) {
-    const loc = document.createElement("input");
-    loc.type = "text";
-    loc.placeholder = "City, State";
-    loc.oninput = () => inputValues["location"] = loc.value;
-    form.appendChild(loc);
-  }
+
+if (calc.location) {
+  const loc = document.createElement("input");
+  loc.type = "text";
+  loc.placeholder = "City, State";
+
+  // Restore previous value if exists
+  if (inputValues["location"]) loc.value = inputValues["location"];
+
+  // Save value on input
+  loc.oninput = () => inputValues["location"] = loc.value;
+
+  form.appendChild(loc);
+}
+
 
   /* ------------------ TABS ------------------ */
   const tabContainer = document.createElement("div");
