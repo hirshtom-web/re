@@ -1094,34 +1094,47 @@ function renderTabInputs(tab) {
     // Format numbers with commas
     formatInputWithCommas(input, inputValues, name);
 
-  if (name.includes("Market")) {
-  input.id = "marketLocation";
+    if (name.includes("Market")) {
+      input.id = "marketLocation";
 
-  // Restore saved location if available
-  if (savedLocation.value) {
-    input.value = savedLocation.value;
-    inputValues[name] = savedLocation.value;
-  }
+      // Restore saved location if available
+      if (savedLocation.value) {
+        input.value = savedLocation.value;
+        inputValues[name] = savedLocation.value;
+      }
 
-  // Function to save current input value
-  const saveLocation = () => {
-    savedLocation.value = input.value;
-    inputValues[name] = input.value;
-  };
+      // Function to save current input value
+      const saveLocation = () => {
+        savedLocation.value = input.value;
+        inputValues[name] = input.value;
+      };
 
-  // Save on typing
-  input.addEventListener("input", saveLocation);
-  input.addEventListener("change", saveLocation);
+      // Save on typing
+      input.addEventListener("input", saveLocation);
+      input.addEventListener("change", saveLocation);
 
-  // Attach autocomplete + auto-detect
-  setTimeout(() => {
-    autocomplete(input, topCities);
+      // Attach autocomplete + auto-detect
+      setTimeout(() => {
+        autocomplete(input, topCities);
 
-    if (!savedLocation.value) {
-      autoDetectLocation(input);
+        if (!savedLocation.value) {
+          autoDetectLocation(input);
+        }
+      }, 50);
+
+    } else {
+      // ✅ Save every other input automatically
+      input.addEventListener("input", () => {
+        inputValues[name] = input.value;
+      });
     }
-  }, 50);
+
+    group.appendChild(label);
+    group.appendChild(input);
+    tabContents.appendChild(group);
+  });
 }
+
 
 
     group.appendChild(label);
