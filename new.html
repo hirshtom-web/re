@@ -1047,90 +1047,97 @@ function loadCalculator(key) {
 
   const inputValues = {};
 
-  /* ------------------ OPTIONAL LOCATION ------------------ */
-if (calc.location) {
-  const loc = document.createElement("input");
-  loc.type = "text";
-  loc.placeholder = "City, State";
-
-  // Restore the saved location if it exists
-  if (savedLocation.value) {
-    loc.value = savedLocation.value;
-    inputValues["location"] = savedLocation.value;
-  }
-
-  // Save any new value that user types
-  loc.oninput = () => {
-    inputValues["location"] = loc.value;
-    savedLocation.value = loc.value;
-  };
-
-  form.appendChild(loc);
-}
-
-
+  
   /* ------------------ TABS ------------------ */
-  const tabContainer = document.createElement("div");
-  tabContainer.className = "tab-container";
-  form.appendChild(tabContainer);
+const tabContainer = document.createElement("div");
+tabContainer.className = "tab-container";
+form.appendChild(tabContainer);
 
-  const tabContents = document.createElement("div");
-  tabContents.className = "tab-contents";
-  form.appendChild(tabContents);
+const tabContents = document.createElement("div");
+tabContents.className = "tab-contents";
+form.appendChild(tabContents);
 
-  const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
-  const tabNames = preferredOrder.filter(t => calc.tabs[t])
-    .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
+const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
+const tabNames = preferredOrder.filter(t => calc.tabs[t])
+  .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
 
-  let activeTab = tabNames[0];
+let activeTab = tabNames[0];
 
-  function renderTabInputs(tab) {
-    tabContents.innerHTML = "";
-    activeTab = tab;
+function renderTabInputs(tab) {
+  tabContents.innerHTML = "";
+  activeTab = tab;
 
-    calc.tabs[tab].inputs.forEach(name => {
-      const group = document.createElement("div");
-      group.className = "input-group";
+  calc.tabs[tab].inputs.forEach(name => {
+    const group = document.createElement("div");
+    group.className = "input-group";
 
-      const label = document.createElement("label");
-      label.textContent = name;
+    const label = document.createElement("label");
+    label.textContent = name;
 
-      const input = document.createElement("input");
-      input.type = "text";
-      input.placeholder = name;
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = name;
 
-      if (inputValues[name]) {
-        const raw = inputValues[name];
-        const parts = raw.toString().split(".");
-        parts[0] = Number(parts[0]).toLocaleString();
-        input.value = parts.join(".");
+    // Restore saved value if exists
+    if (inputValues[name]) {
+      const raw = inputValues[name];
+      const parts = raw.toString().split(".");
+      parts[0] = Number(parts[0]).toLocaleString();
+      input.value = parts.join(".");
+    }
+
+    // Format numbers with commas
+    formatInputWithCommas(input, inputValues, name);
+
+    // 🔥 SPECIAL HANDLING FOR "Market (City & State)"
+    if (name.includes("Market")) {
+      input.id = "marketLocation";
+
+      // Restore saved location if available
+      if (savedLocation.value) {
+        input.value = savedLocation.value;
+        inputValues[name] = savedLocation.value;
       }
 
-      formatInputWithCommas(input, inputValues, name);
+      // Save on input
+      input.addEventListener("input", () => {
+        savedLocation.value = input.value;
+        inputValues[name] = input.value;
+      });
 
-      group.appendChild(label);
-      group.appendChild(input);
-      tabContents.appendChild(group);
-    });
-  }
+      // Attach autocomplete + auto-detect once when empty
+      setTimeout(() => {
+        autocomplete(input, topCities);
+        if (!savedLocation.value) {
+          autoDetectLocation(input);
+        }
+      }, 50);
+    }
 
-  tabNames.forEach(tab => {
-    const btn = document.createElement("div");
-    btn.className = "tab";
-    btn.textContent = tab;
-
-    if (tab === activeTab) btn.classList.add("active");
-
-    btn.onclick = () => {
-      [...tabContainer.children].forEach(t => t.classList.remove("active"));
-      btn.classList.add("active");
-      renderTabInputs(tab);
-    };
-
-    tabContainer.appendChild(btn);
+    group.appendChild(label);
+    group.appendChild(input);
+    tabContents.appendChild(group);
   });
+}
+
+tabNames.forEach(tab => {
+  const btn = document.createElement("div");
+  btn.className = "tab";
+  btn.textContent = tab;
+
+  if (tab === activeTab) btn.classList.add("active");
+
+  btn.onclick = () => {
+    [...tabContainer.children].forEach(t => t.classList.remove("active"));
+    btn.classList.add("active");
+    renderTabInputs(tab);
+  };
+
+  tabContainer.appendChild(btn);
+});
 
 renderTabInputs(activeTab);
+
 
 /* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
 if (calc.gridName === "ROI") {
