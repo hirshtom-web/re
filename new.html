@@ -846,6 +846,29 @@ select {
   }
 };
 
+  /* ------- FORMAT INPUT WITH COMMAS (MISSING FUNCTION) ------- */
+function formatInputWithCommas(input, inputValues, key) {
+  input.addEventListener("input", () => {
+    let val = input.value.replace(/,/g, "");
+
+    // Allow decimals but no letters
+    if (!/^\d*\.?\d*$/.test(val)) return;
+
+    // Save raw numeric value
+    inputValues[key] = val;
+
+    if (val === "") {
+      input.value = "";
+      return;
+    }
+
+    // Format with commas
+    const parts = val.split(".");
+    parts[0] = Number(parts[0]).toLocaleString();
+    input.value = parts.join(".");
+  });
+}
+
 
 /* ------------------ CATEGORY CONTAINERS ------------------ */
 const categories = {
