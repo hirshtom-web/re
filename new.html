@@ -960,12 +960,10 @@ arr.forEach(city => {
     item.addEventListener("click", function() {
       inp.value = city;
 
-      // Save the selected city if the variables exist
-      if (typeof inputValues !== "undefined") {
-        inputValues[inp.placeholder] = city; // safely store using placeholder as key
-      }
-      if (typeof savedLocation !== "undefined") {
-        savedLocation.value = city;
+      // Save the selected city correctly
+      if (inputValues && savedLocation) {
+        inputValues[inp.placeholder] = city; // store by input placeholder
+        savedLocation.value = city;          // store globally
       }
 
       closeAllLists();
