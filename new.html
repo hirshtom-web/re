@@ -1115,7 +1115,18 @@ function loadCalculator(key) {
     tabContainer.appendChild(btn);
   });
 
-  renderTabInputs(activeTab);
+renderTabInputs(activeTab);
+
+/* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
+if (calc.gridName === "ROI") {
+  const marketInput = [...form.querySelectorAll("input")].find(i => i.placeholder.includes("Market"));
+  if (marketInput) {
+    marketInput.id = "marketLocation"; // give it an ID for reference
+    autocomplete(marketInput, topCities); // attach autocomplete
+    autoDetectLocation(marketInput);      // auto-fill based on IP
+  }
+}
+
 
   /* ------------------ CALCULATE BUTTON ------------------ */
   const button = document.createElement("button");
