@@ -1052,8 +1052,6 @@ form.inputValues = inputValues;
 
   
 
-  
-  /* ------------------ TABS ------------------ */
 /* ------------------ TABS ------------------ */
 const tabContainer = document.createElement("div");
 tabContainer.className = "tab-container";
@@ -1077,56 +1075,85 @@ function renderTabInputs(tab) {
     const group = document.createElement("div");
     group.className = "input-group";
 
+    // Create label with ⓘ info icon
     const label = document.createElement("label");
     label.textContent = name;
 
-    const input = document.createElement("input");
-    input.type = "text";
-    input.placeholder = name;
+    const info = document.createElement("span");
+    info.textContent = " ⓘ";
+    info.title = `Instruction for ${name}`; // Customize instructions as needed
+    label.appendChild(info);
 
-    // Restore saved value if exists
-    if (inputValues[name]) {
-      const raw = inputValues[name];
-      const parts = raw.toString().split(".");
-      parts[0] = Number(parts[0]).toLocaleString();
-      input.value = parts.join(".");
-    }
+    let input;
 
-    // Format numbers with commas
-    formatInputWithCommas(input, inputValues, name);
+    // Property Type dropdown
+    if (name === "Property Type") {
+      input = document.createElement("select");
+      const propertyTypes = ["Single Family", "Condo", "Townhouse", "Duplex", "Triplex", "Fourplex", "Other"];
+      propertyTypes.forEach(pt => {
+        const option = document.createElement("option");
+        option.value = pt;
+        option.textContent = pt;
+        input.appendChild(option);
+      });
 
-    if (name.includes("Market")) {
-      input.id = "marketLocation";
+      // Restore saved value if exists
+      if (inputValues[name]) input.value = inputValues[name];
 
-      // Restore saved location if available
-      if (savedLocation.value) {
-        input.value = savedLocation.value;
-        inputValues[name] = savedLocation.value;
-      }
-
-      // Save input as user types
       input.addEventListener("input", () => {
         inputValues[name] = input.value;
       });
-
-      // Attach autocomplete with callback for selection
-      setTimeout(() => {
-        autocomplete(input, topCities, (selectedCity) => {
-          input.value = selectedCity;
-          savedLocation.value = selectedCity;
-          inputValues[name] = selectedCity;
-        });
-
-        if (!savedLocation.value) {
-          autoDetectLocation(input);
-        }
-      }, 50);
 
     } else {
-      // Save every other input automatically
-      input.addEventListener("input", () => {
-        inputValues[name] = input.value;
-      });
+      // Regular text input
+      input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = name;
+
+      // Restore saved value if exists
+      if (inputValues[name]) {
+        const raw = inputValues[name];
+        const parts = raw.toString().split(".");
+        parts[0] = Number(parts[0]).toLocaleString();
+        input.value = parts.join(".");
+      }
+
+      // Format numbers with commas
+      formatInputWithCommas(input, inputValues, name);
+
+      if (name.includes("Market")) {
+        input.id = "marketLocation";
+
+        // Restore saved location if available
+        if (savedLocation.value) {
+          input.value = savedLocation.value;
+          inputValues[name] = savedLocation.value;
+        }
+
+        // Save input as user types
+        input.addEventListener("input", () => {
+          inputValues[name] = input.value;
+        });
+
+        // Attach autocomplete with callback for selection
+        setTimeout(() => {
+          autocomplete(input, topCities, (selectedCity) => {
+            input.value = selectedCity;
+            savedLocation.value = selectedCity;
+            inputValues[name] = selectedCity;
+          });
+
+          if (!savedLocation.value) {
+            autoDetectLocation(input);
+          }
+        }, 50);
+
+      } else {
+        // Save every other input automatically
+        input.addEventListener("input", () => {
+          inputValues[name] = input.value;
+        });
+      }
     }
 
     group.appendChild(label);
