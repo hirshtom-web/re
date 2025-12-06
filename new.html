@@ -703,91 +703,15 @@ select {
     cat: "returns",
     icon: "trending_up",
     tooltip: "ROI calculation including purchase, financing, income, and expenses.",
-roi: {
-  CalculatorName: "ROI Calculator",
-  gridName: "ROI",
-  pageTitle: "Return on Investment Calculator",
-  calculatorTitle: "Calculate your overall return on investment.",
-  subtitle: "Combine purchase, financing, income, and expenses for a complete ROI picture.",
-  tabs: {
-    "Key Details": {
-      inputs: [
-        "Purchase Price ($)",
-        "Appreciation Rate (%)",
-        "Years to Hold",
-        "Property Type",
-        "Market (City & State)"
-      ]
-    },
-    "Financing": {
-      inputs: [
-        "Down Payment (%)",
-        "Cash Investment ($)",
-        "Financed Amount ($)",
-        "Mortgage Rate (%)",
-        "Mortgage Term (Years)"
-      ]
-    },
-    "Income": {
-      inputs: ["Monthly Rent ($)"]
-    },
-    "Expenses": {
-      inputs: [
-        "Property Taxes ($/yr)",
-        "Homeowner’s Insurance ($/yr)",
-        "HOA ($/mo)",
-        "Management Fees (%)",
-        "Vacancy Rate (%)"
-      ]
+    calculate: function(values) {
+      const investment = parseFloat(values["Cash Investment ($)"] || 0);
+      const netProfit = parseFloat(values["Monthly Rent ($)"] || 0) * 12 * parseFloat(values["Years to Hold"] || 1) 
+                        - parseFloat(values["Property Taxes ($/yr)"] || 0)
+                        - parseFloat(values["Homeowner’s Insurance ($/yr)"] || 0)
+                        - parseFloat(values["HOA ($/mo)"] || 0) * 12;
+      return investment ? ((netProfit / investment) * 100).toFixed(2) + "%" : "N/A";
     }
   },
-  cat: "returns",
-  icon: "trending_up",
-  tooltip: "ROI calculation including purchase, financing, income, and expenses.",
-  calculate: (
-    PurchasePrice, AppreciationRate, Years, 
-    DownPaymentPercent, CashInvested, FinancedAmount, 
-    MortgageRate, MortgageTerm, Rent, Taxes, Insurance, HOA, 
-    ManagementFeesPercent, VacancyRatePercent
-  ) => {
-    const purchasePrice = Number(PurchasePrice) || 0;
-    const years = Number(Years) || 1;
-
-    // Actual cash invested: use CashInvested or fallback to DownPayment%
-    const investment = Number(CashInvested) || (purchasePrice * (Number(DownPaymentPercent) || 0) / 100);
-    if (investment === 0) return "N/A";
-
-    // Adjusted rent for vacancy
-    const monthlyRent = Number(Rent) || 0;
-    const vacancy = (Number(VacancyRatePercent) || 0) / 100;
-    const effectiveRent = monthlyRent * (1 - vacancy) * 12 * years;
-
-    // Expenses over holding period
-    const expenses =
-      (Number(Taxes) || 0) * years +
-      (Number(Insurance) || 0) * years +
-      (Number(HOA) || 0) * 12 * years +
-      ((Number(ManagementFeesPercent) || 0) / 100) * effectiveRent;
-
-    // Mortgage payment (total over loan term)
-    const loan = Number(FinancedAmount) || 0;
-    const r = (Number(MortgageRate) || 0) / 100 / 12;
-    const n = (Number(MortgageTerm) || 0) * 12;
-    const mortgagePayment = loan ? (loan * r / (1 - Math.pow(1 + r, -n))) * n : 0;
-
-    // Net profit from operations
-    const netProfit = effectiveRent - expenses - mortgagePayment;
-
-    // Appreciation gain (compound)
-    const appreciation = purchasePrice * (Math.pow(1 + (Number(AppreciationRate) || 0) / 100, years) - 1);
-
-    // Total ROI
-    const roiPercent = ((netProfit + appreciation) / investment) * 100;
-
-    return roiPercent.toFixed(2) + "%";
-  }
-},
-
   noi: {
     CalculatorName: "Net Operating Income Calculator",
     gridName: "NOI",
@@ -1157,6 +1081,7 @@ window.addEventListener("hashchange", tryLoadFromHash);
 
 
 </script>
+
 
 
 </body>
