@@ -1,33 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Real Estate ROI Calculator</title>
-  <!-- PDF generation -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Real Estate Calculators</title>
 
-<!-- Chart library for graphs -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- MATERIAL ICONS OUTLINED -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
-<style>
-
+ <style>
 /* ===================== */
-/* Base Styles */
+/* BASE STYLES           */
 /* ===================== */
-
-body {
+html, body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background: #f3f5f7;
     margin: 0;
     padding: 0;
     color: #1e0949;
+    touch-action: manipulation; /* prevents unintended zooming/panning */
+    overscroll-behavior: none;  /* prevents jumping on mobile */
+    -webkit-text-size-adjust: 100%; /* disable font zoom on iOS */
 }
 
-.main-content {
-    padding: 40px; /* optional padding around main content */
+body {
+    padding: 40px;
+}
+
+h1 {
+    color: #1e0949;
+    margin-bottom: 10px;
+}
+
+h2.category-title {
+    color: #1e0949;
+    font-size: 20px;
+    border-left: 4px solid #3498db;
+    padding-left: 10px;
+}
+
+h2 { 
+    text-align: left; 
+    font-size: 30px; 
+    font-weight: 700; 
+    margin-bottom: 0px; 
+}
+
+h3 { 
+    text-align: left; 
+    font-size: 15px; 
+    font-weight: 500; 
+    margin-bottom: 45px; 
+}
+
+h4 { 
+    text-align: left; 
+    font-size: 15px; 
+    font-weight: 500; 
+    margin-bottom: 15px; 
 }
 
 .info {
@@ -37,171 +66,58 @@ body {
     margin-left: 4px;
 }
 
-/* ===================== */
-/* Container Layouts */
-/* ===================== */
-
-.container,
-.layout-wrapper {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    align-items: stretch;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.inputs-container,
-.results-container,
-.container-left,
-.small-container {
-    background: #fff;
-    border-radius: 40px;
-    padding: 50px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-}
-
-/* Desktop 50/50 split */
-@media (min-width: 901px) {
-    .inputs-container,
-    .results-container {
-        flex: 1 1 calc(50% - 20px);
-        min-width: 0;
-    }
-}
-
-/* Left / Right Layout */
-.container-left {
-    flex: 7;
-    justify-content: center;
-    align-items: center;
-    min-height: 500px;
-}
-
-.container-right {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.small-container {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
+label { 
+    font-weight: 500; 
+    margin-bottom: 6px; 
+    font-size: 12px; 
 }
 
 /* ===================== */
-/* Headings */
+/* BUTTON & INPUT STYLES */
 /* ===================== */
 
-h2 {
-    text-align: left;
-    font-size: 30px;
-    font-weight: 700;
-    margin-bottom: 0;
-}
-h3 {
-    text-align: left;
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 45px;
-}
-h4 {
-    text-align: left;
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
-
-/* ===================== */
-/* Section Divider */
-/* ===================== */
-
-.section-divider {
-    display: flex;
-    align-items: center;
-    margin: 25px 0 35px;
-}
-.section-divider::before,
-.section-divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #ddd;
-}
-.section-divider::before { margin-right: 10px; }
-.section-divider::after { margin-left: 10px; }
-.section-divider span {
-    font-size: 10px;
-    font-weight: 500;
-    color: #888;
-    white-space: nowrap;
-}
-
-/* ===================== */
-/* Form / Inputs */
-/* ===================== */
-
-.roi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 18px;
-    margin-bottom: 20px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    font-weight: 500;
-    margin-bottom: 6px;
-    font-size: 12px;
-}
-
-input, select {
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 15px;
-    height: 42px;
+input, select, textarea {
+    width: 100%;                /* consistent width */
+    padding: 12px 15px;         /* spacing inside input */
+    font-size: 15px;            /* readable text */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #1e0949;             /* text color */
+    background-color: #fff;     /* white background */
+    border: 1px solid #ddd;     /* subtle border */
+    border-radius: 8px;         /* rounded corners */
+    box-sizing: border-box;     /* include padding in width */
     line-height: 20px;
-    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-select {
-    appearance: none;
-    background-color: white;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><polygon points='0,0 14,0 7,7' fill='%23999'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 12px;
-    padding-right: 30px;
-    cursor: pointer;
-}
-
-input:focus,
-select:focus { 
-    border-color: #005bff;
+input:focus, select:focus, textarea:focus {
+    border-color: #005bff;      /* highlight on focus */
     box-shadow: 0 0 5px rgba(0,91,255,0.2);
     outline: none;
 }
 
-/* ===================== */
-/* Buttons */
-/* ===================== */
+input[disabled], select[disabled], textarea[disabled] {
+    background-color: #f0f0f0;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><polygon points='0,0 14,0 7,7' fill='%23999'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    cursor: pointer;
+}
 
 .calc-btn {
     width: 100%;
     padding: 14px;
-    margin-top: 10px;
-    font-size: 17px;
+    margin-top: 40px;
+    font-size: 15px;
     background: #005bff;
     color: white;
     border: none;
@@ -209,23 +125,128 @@ select:focus {
     cursor: pointer;
     font-weight: 600;
 }
-.calc-btn:hover {
-    background: #003f9a;
+
+.calc-btn:hover { 
+    background: #003f9a; 
 }
 
-.remove-btn {
-    background: #ff4d4f;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 0 8px;
+/* ===================== */
+/* TILE / CARD LAYOUT    */
+/* ===================== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 16px;
+    margin-top: 15px;
+}
+
+.tile {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    padding: 18px;
     cursor: pointer;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+
+.tile.active {
+    border: 2px solid #005bff;
+    box-shadow: 0px 6px 16px rgba(0, 125, 255, 0.25);
+}
+
+.tile:active {
+    transform: scale(0.97);
+}
+
+.tile .material-icons-outlined {
+    font-size: 32px;
+    color: #005bff;
 }
 
 /* ===================== */
-/* Results / Cards */
+/* CONTAINERS & LAYOUT   */
 /* ===================== */
+.container {
+    display: flex;
+    flex-wrap: wrap;       
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
 
+.inputs-container,
+.results-container {
+    background: #fff;
+    border-radius: 45px;
+    padding: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.inputs-container { flex: 1 1 400px; min-width: 350px; }
+.results-container { flex: 1 1 350px; min-width: 300px; }
+
+/* 50/50 Desktop layout */
+@media (min-width: 901px) {
+    .inputs-container,
+    .results-container {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+/* ===================== */
+/* GRID LAYOUTS          */
+/* ===================== */
+.roi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.input-group { display: flex; flex-direction: column; }
+   
+
+.roi-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.roi-column {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+}
+
+   .grid-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #000;
+}
+
+
+/* ===================== */
+/* RESULTS DISPLAY       */
+/* ===================== */
 .total-roi-display {
     display: flex;
     justify-content: center;
@@ -233,31 +254,46 @@ select:focus {
     margin-bottom: 25px;
     height: 120px;
 }
+
 .total-roi-display span {
     font-size: 80px;
     font-weight: 800;
     color: #005bff;
 }
 
-.result-card .label {
-    font-weight: 500;
-    margin-bottom: 6px;
-    font-size: 12px;
-    color: #555;
-}
-.result-card .value {
-    font-weight: 500;
-    font-size: 12px;
-    color: #1e0949;
-    margin-bottom: 16px;
+.result-card .label { 
+    font-weight: 500; 
+    margin-bottom: 6px; 
+    font-size: 12px; 
+    color: #555; 
 }
 
-/* ===================== */
-/* Extra Sections */
-/* ===================== */
+.result-card .value { 
+    font-weight: 500; 
+    font-size: 12px; 
+    color: #1e0949; 
+    margin-bottom: 16px; 
+}
 
+   #mainResult {
+    font-size: 100px;
+    font-weight: 800;
+    color: #005bff;
+    display: block;
+}
+
+@keyframes countUp {
+    from { opacity: 0.2; }
+    to { opacity: 1; }
+}
+
+
+/* ===================== */
+/* EXPENSES & DOWNLOAD   */
+/* ===================== */
 .added-expense { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
 .added-expense select, .added-expense input { flex: 1; }
+.remove-btn { background: #ff4d4f; color: white; border: none; border-radius: 6px; padding: 0 8px; cursor: pointer; }
 
 .download-container {
     display: flex;
@@ -268,35 +304,22 @@ select:focus {
     margin-top: 30px;
     padding: 15px;
     border-top: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 .download-text {
     flex: 1 1 0;
     min-width: 0; 
     font-size: 14px;
     color: #555;
 }
+
 .download-btn { white-space: nowrap; }
 
 /* ===================== */
-/* ROI Columns */
+/* TAB NAVIGATION        */
 /* ===================== */
-
-.roi-columns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: space-between;
-}
-.roi-column {
-    flex: 1 1 0;
-    min-width: 0;
-    text-align: center;
-}
-
-/* ===================== */
-/* Tabs Navigation */
-/* ===================== */
-
 .tab-container {
     width: 100%;
     display: flex;
@@ -308,74 +331,128 @@ select:focus {
 .tab {
     flex: 1;
     text-align: center;
-    padding: 14px 0;
+    padding: 14px 22px;
     cursor: pointer;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 500;
     background: #f7f8fa;
     border: 1px solid #ddd;
     border-bottom: none;
     border-radius: 10px 10px 0 0;
-    transition: background 0.2s, color 0.2s;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
     white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
 }
 
-.tab-icon {
-    width: 18px;
-    height: 18px;
-    opacity: 0.65;
-    transition: opacity 0.2s;
-}
-
-.tab:hover .tab-icon { opacity: 0.9; }
+.tab-icon { width: 18px; height: 18px; opacity: 0.65; transition: opacity 0.2s; }
 
 .tab.active {
     background: #fff;
     color: #005bff;
-    border-bottom: 2px solid white;
+    border-bottom: 0;
 }
+
 .tab.active .tab-icon { opacity: 1; }
 
 .tab-content { display: none; animation: fadeIn 0.25s ease; }
 .tab-content.active { display: block; }
+ 
+   .tab-contents {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(4px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===================== */
-/* Disclaimers / Suggestions */
-/* ===================== */
+.disabled { background-color: #ccc !important; color: #888 !important; cursor: not-allowed !important; }
+.value.disabled { color: #aaa !important; }
 
-.disclaimer-box h3 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #1e0949;
-}
-.disclaimer-box p {
+/* ===================== */
+/* DISCLAIMER BOX         */
+/* ===================== */
+.disclaimer-box {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f7f8fa;
+    border-radius: 10px;
+    border: 1px solid #ddd;
     font-size: 13px;
-    margin-bottom: 12px;
     color: #555;
+}
+
+.disclaimer-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
     line-height: 1.4;
 }
+
 .disclaimer-check input {
     margin-top: 2px;
     transform: scale(1.2);
     cursor: pointer;
 }
 
-.suggestion-popup,
-.suggestions-box {
-    display: none;
+/* ===================== */
+/* STATS BLOCK           */
+/* ===================== */
+.stats-fullwidth {
+    width: 100%;
+    max-width: 1200px;
+    margin: 10px auto 0;
+    padding: 30px;
+    background: #fff;
+    border-radius: 45px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    box-sizing: border-box;
+}
+
+.stats-title {
+    font-size: 18px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #1e0949;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.stat-box {
+    border: 0.5px solid #ddd;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    background: #fafbfc;
+}
+
+.stat-label {
     font-size: 12px;
-    color: #555;
-    margin-top: 2px;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.stat-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e0949;
+}
+
+/* ===================== */
+/* SUGGESTIONS DROPDOWN  */
+/* ===================== */
+.suggestions-box {
     position: absolute;
     top: 100%;
     left: 0;
@@ -387,401 +464,599 @@ select:focus {
     z-index: 1000;
     max-height: 220px;
     overflow-y: auto;
+    display: none;
 }
+
 .suggestion-item {
     padding: 10px 12px;
     font-size: 14px;
     cursor: pointer;
     border-bottom: 1px solid #f1f1f1;
 }
+
 .suggestion-item:last-child { border-bottom: none; }
 .suggestion-item:hover { background: #f4f0ff; color: #6327e5; }
 
 /* ===================== */
-/* Charts / Map / Stats */
+/* RESPONSIVE / MOBILE    */
 /* ===================== */
-
-.chart-wrapper { width: 100%; height: 100%; position: relative; overflow: hidden; }
-svg { width: 100%; height: 100%; }
-.line { fill: none; stroke: #00c853; stroke-width: 3; }
-.area { fill: url(#gradient); }
-.x-axis text { font-size: 10px; text-anchor: middle; font-weight: 500; cursor: pointer; }
-.highlight-circle { fill: #00c853; opacity: 0.25; }
-.bubble { position: absolute; top: 20px; right: 20px; background: #00c853; color: #fff; padding: 10px; border-radius: 25px; font-weight: 600; font-size: 12px; white-space: nowrap; }
-.left-label { position: absolute; top: 29px; left: 20px; font-size: 12px; color: #555; font-weight: 500; }
-
-#map-container {
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
-    overflow: hidden;
-    position: relative;
-}
-.tooltip {
-    position:absolute;
-    background:rgba(0,0,0,.85);
-    color:#fff;
-    padding:6px 10px;
-    border-radius:4px;
-    font-size:13px;
-    opacity:0;
-    pointer-events:none;
-    white-space:nowrap;
-}
-.state {
-    fill:#130328;
-    stroke:#fff;
-    stroke-width:.5;
-    cursor:pointer;
-    transition:fill .3s, stroke .3s;
-}
-.state:hover { fill:#ff6b6b; stroke:#333; }
-
-/* Stats Full Width */
-.stats-fullwidth {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px;
-    background: #fff;
-    border-radius: 45px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    box-sizing: border-box;
-}
-.stats-title { font-size: 18px; margin-bottom: 25px; font-weight: 600; color: #1e0949; }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-.stat-box { border: 0.5px solid #ddd; border-radius: 14px; padding: 18px; text-align: center; background: #fafbfc; }
-.stat-label { font-size: 12px; color: #666; font-weight: 500; margin-bottom: 6px; }
-.stat-value { font-size: 16px; font-weight: 700; color: #1e0949; }
-
-/* ===================== */
-/* Sticky Mobile Calculator */
-/* ===================== */
-
-#stickyCalcBar {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 12px;
-    background: rgba(255,255,255,0.98);
-    border-top: 1px solid #ddd;
-    text-align: center;
-    z-index: 9999;
+@media (max-width: 900px) {
+    body { padding: 0; }
+    .container { flex-direction: column; gap: 20px; width: 100%; padding: 0 20px; }
+    .inputs-container, .results-container { width: 100%; padding: 20px; border-radius: 30px; }
+    .roi-grid { grid-template-columns: 1fr; gap: 12px; }
+    .total-roi-display span { font-size: 50px; }
+    .calc-btn { font-size: 15px; }
 }
 
-@media (max-width: 768px) {
-    #stickyCalcBar {
-        display: block;
-        visibility: visible;
-        opacity: 1;
-        pointer-events: auto;
-    }
-    #stickyCalcBar button {
-        width: 90%;
-        padding: 14px;
-        border-radius: 10px;
-        background: #6a39ff;
-        color: #fff;
-        font-size: 16px;
-        font-weight: 600;
-        border: none;
-    }
+@media (max-width: 600px) {
+    .roi-columns { flex-direction: column !important; gap: 12px !important; }
+    .roi-column { flex: 1 1 100% !important; text-align: center; }
+    .tab { font-size: 0 !important; gap: 0 !important; justify-content: center !important; flex: 1 1 100%; }
+    .tab-icon { width: 18px; height: 18px; opacity: 0.9; }
+    .download-container { flex-direction: column !important; align-items: stretch !important; gap: 10px; }
+    .download-btn { width: 100% !important; }
+    .download-text { text-align: center; }
+    .tab-contents { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 500px) {
+    .stats-grid { grid-template-columns: 1fr; }
+}
 
 
 </style>
+
+  
 </head>
 <body>
+<!-- SCREEN 1: GRID -->
+<div id="screenGrid">
+  <h1>Select a Calculator</h1>
+
+  <h2 class="category-title">Financing</h2>
+  <div class="grid" id="cat-financing"></div>
+
+  <h2 class="category-title">Returns</h2>
+  <div class="grid" id="cat-returns"></div>
+
+  <h2 class="category-title">Valuation</h2>
+  <div class="grid" id="cat-valuation"></div>
+
+  <h2 class="category-title">Analysis & Metrics</h2>
+  <div class="grid" id="cat-analysis"></div>
+</div>
 
 
-<h1 id="page-title"></h1>
-<p id="page-description" class="page-description"></p>
+<!-- SCREEN 2: CALCULATOR VIEW -->
+<div id="screenCalculator" style="display:none;">
 
-  
-<div class="main-content">
-<div class="container">
-  <div class="inputs-container">
-    <h2 class="mini-title"></h2>
-      <h3 class="subtitle"></h3>
+  <!-- Page Title: Centered at the top of the page -->
+  <h1 id="pageTitle" style="text-align:center;">Page Title</h1>
 
+  <!-- Main Container: inputs + results -->
+  <div class="container">
 
-<div class="tab-container">
-    
-    <div class="tab active" data-tab="key-details">
-        <img src="https://static.wixstatic.com/shapes/1799ca_d59ee459f9db45a3b99a62cdfa84e724.svg" 
-             class="tab-icon">
-        Key Details
+    <!-- Inputs Section -->
+    <div class="inputs-container">
+      
+      <!-- Calculator Title: h2 top-left -->
+      <h2 id="calculatorTitle">Calculator Title</h2>
+      
+      <!-- Subtitle: h3 under calculatorTitle -->
+      <h3 id="subtitle">Subtitle goes here</h3>
+      
+      <!-- Form -->
+      <form id="calculatorForm">
+        <!-- Input fields will go here -->
+      </form>
     </div>
 
-    <div class="tab" data-tab="financing">
-        <img src="https://static.wixstatic.com/shapes/1799ca_0e0026550151414baae6bfb1ce82c752.svg" 
-             class="tab-icon">
-        Financing
-    </div>
-
-    <div class="tab" data-tab="operating">
-        <img src="https://static.wixstatic.com/shapes/1799ca_dbd6c6293d664fe1a55914fb987667b3.svg" 
-             class="tab-icon">
-        Expenses
-    </div>
-
-</div>
-
-
-
-  <!-- TAB CONTENT WRAPPER (fixed) -->
- <div id="tab-key-details" class="tab-content active">
-  <div class="roi-grid">
-
-    
-     <div class="input-group">
-<label>
-  Purchase Price ($)
-  <span class="info" title="Enter the total purchase price of the property.">ⓘ</span>
-</label>
-      <input type="text" id="purchasePrice" placeholder="500,000">
-    </div>
-    
- <div class="input-group">
-  <label>
-    Monthly Rent ($)
-    <span class="info" title="Expected monthly rental income from tenants.">ⓘ</span>
-  </label>
-  <input type="text" id="rentIncome" placeholder="2,350" data-suggest="2350">
-  <div class="suggestion-popup" id="rentSuggestion">Suggested: $2,350</div>
-</div>
-
-<div class="input-group">
-  <label>
-    Appreciation Rate (%)
-    <span class="info" title="Expected annual percentage increase in the property value.">ⓘ</span>
-  </label>
-  <input type="text" id="appreciationRate" placeholder="9.2" data-suggest="9.2">
-  <div class="suggestion-popup" id="appSuggestion">Suggested: 9.2%</div>
-</div>
-
-    <div class="input-group">
-<label>
-  Years to Hold
-  <span class="info" title="How long you plan to keep the property before selling.">ⓘ</span>
-</label>
-      <select id="yearsHold">
-        <option value="1">1 Year</option>
-        <option value="3">3 Years</option>
-        <option value="5" selected>5 Years</option>
-        <option value="7">7 Years</option>
-        <option value="10">10 Years</option>
-        <option value="15">15 Years</option>
-      </select>
-    </div>
-<!-- Property Type -->
-<div class="input-group">
-  <label>
-    Property Type 
-    <span class="info" title="Select the type of residential investment property.">ⓘ</span>
-  </label>
-  <select id="propertyType">
-    <option value="Single Family">Single Family</option>
-    <option value="Condo">Condo</option>
-    <option value="Townhouse">Townhouse</option>
-    <option value="Duplex">Duplex</option>
-    <option value="Triplex">Triplex</option>
-    <option value="Fourplex">Fourplex</option>
-  </select>
-</div>
-
-<!-- Market: City + State -->
-<div class="input-group">
-  <label>
-    Market (City & State)
-    <span class="info" title="Your investment market. Auto-detected but you can edit manually.">ⓘ</span>
-  </label>
-  <div style="display:flex; gap:10px; position: relative;">
-    <input type="text" id="marketLocation" placeholder="City, State" autocomplete="off">
-    <div id="citySuggestions" class="suggestions-box"></div>
-  </div>
-</div>
-
-
-  </div>
-</div>
-
-
-  <div id="tab-financing" class="tab-content">
-      <div class="roi-grid">
-        <div class="input-group">
-          <label>Down Payment (%)</label>
-          <input type="number" id="downPaymentPercent" placeholder="30">
-        </div>
-
-        <div class="input-group">
-          <label>Cash Investment ($)</label>
-          <input type="text" id="cashInvestment" placeholder="150,000">
-        </div>
-
-        <div class="input-group">
-          <label>Financed Amount ($)</label>
-          <input type="text" id="loanAmount" placeholder="350,000">
-        </div>
-
-        <div class="input-group">
-          <label>Mortgage Rate (%)</label>
-          <input type="number" id="mortgageRate" placeholder="6.25" step="0.01">
-        </div>
-
-        <div class="input-group">
-          <label>Mortgage Term (Years)</label>
-          <input type="number" id="mortgageTerm" placeholder="30">
-        </div>
-      </div>
-  </div>
-
-  <div id="tab-operating" class="tab-content">
-      <div class="roi-grid">
-          <div class="input-group">
-              <label>Property Taxes ($/yr)</label>
-              <input type="text" id="taxes" placeholder="3,500">
-          </div>
-
-          <div class="input-group">
-              <label>Homeowner’s Insurance ($/yr)</label>
-              <input type="text" id="insurance" placeholder="1,500">
-          </div>
-
-          <div class="input-group">
-              <label>HOA ($/mo)</label>
-              <input type="text" id="hoa" placeholder="250">
-          </div>
-
-          <div class="input-group">
-              <label>Management Fees (%)</label>
-              <input type="number" id="managementFees" placeholder="8">
-          </div>
-
-          <div class="input-group">
-              <label>Vacancy Rate (%)</label>
-              <input type="number" id="vacancyRate" placeholder="5">
-          </div>
-
-          <div id="expensesContainer">
-              <div class="input-group" id="addExpenseWrapper">
-                  <label style="visibility:hidden;">Add Expense</label>
-                  <input type="text" id="addExpenseInput" placeholder="+ Add Expense"
-                        readonly style="cursor:pointer;">
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <!-- ⬅ THIS CLOSING DIV WAS IN THE WRONG PLACE BEFORE -->
-
-
-<div class="calculate-container">
-<button id="calculateBtn" class="calc-btn">Calculate</button>
-</div>
-
-<!-- Sticky button that appears only after scrolling -->
-<div id="stickyCalcBar">
-  <button id="stickyCalculateBtn">Calculate ROI</button>
-</div>
-
-  </div>
-
-
-<!-- Results Column -->
+    <!-- Results Section -->
 <div class="results-container">
-  <h4>Investment Results</h4>
+  <!-- Results Header -->
+  <h3>Results</h3>
 
-  <!-- Main ROI Display -->
+  <!-- Main Result Display -->
   <div class="total-roi-display">
-    <span id="resultTotalROILarge">$0</span>
+    <span id="mainResult">$0</span>
   </div>
 
-  <!-- Detailed Metrics -->
-  <div class="roi-columns" style="display:flex; flex-wrap:wrap; gap:15px; justify-content:space-between; margin-top:20px;">
+  <!-- Stats Section -->
+  <div id="resultStats" class="stats-grid"></div>
+</div>
 
-    <!-- Equity Build-Up -->
-    <div class="roi-column" style="flex:1; min-width:140px; text-align:center;">
-      <div class="label">
-        Equity Build-Up <span class="info" title="Estimated property equity after loan payoff and appreciation over holding period.">ⓘ</span>
-      </div>
-      <div class="value" id="resultCashFlowColumn">- n/a</div>
-    </div>
 
-    <!-- Net Operating Income -->
-    <div class="roi-column" style="flex:1; min-width:140px; text-align:center;">
-      <div class="label">
-        Net Operating Income <span class="info" title="Total rental income minus operating expenses, before debt service.">ⓘ</span>
-      </div>
-      <div class="value" id="resultNOIColumn">- n/a</div>
-    </div>
+  <!-- Back Button -->
+  <button id="backBtn" class="back-button">
+    <span class="material-icons-outlined">arrow_back</span> Back
+  </button>
 
-    <!-- Total Rental Income -->
-    <div class="roi-column" style="flex:1; min-width:140px; text-align:center;">
-      <div class="label">
-        Total Rental Income <span class="info" title="Cumulative rental income expected during the holding period.">ⓘ</span>
-      </div>
-      <div class="value" id="resultCoCColumn">- n/a</div>
-    </div>
+</div>
+
+ 
 
   </div>
-<!-- Disclaimer + Checkbox -->
-<div class="disclaimer-box">
-    <!-- Title -->
-    <h4>Calculator Disclaimer</h4>
-    <!-- Subtitle / Explanation -->
-    <p>
-        These calculators are for <strong>informational purposes only</strong>. Results are estimates and may not reflect your exact situation. We do not provide financial, legal, or tax advice, and you should verify results independently before making decisions.
-        By using these calculators, you agree that you use them at your own risk, and we are not liable for any losses or damages resulting from their use.
-    </p>
+</div>
+
+
+<script>
+
   
-</div>
-  </div>
+  /* --------- CALCULATOR DEFINITIONS ----------- */
+
+ const calculators = {
+  cashFlow: {
+    CalculatorName: "Cash Flow Calculator",
+    gridName: "Cash Flow",
+    pageTitle: "Cash Flow Calculator",
+    calculatorTitle: "Visualize your property’s cash flow instantly.",
+    subtitle: "See monthly income and expenses to understand your net cash position.",
+    tabs: { "Income": { inputs: ["Income"] }, "Expenses": { inputs: ["Expenses"] }, "Financing": { inputs: ["Mortgage Payment"] } },
+    cat: "analysis",
+    icon: "payments",
+    tooltip: "Calculates monthly or annual cash flow after all expenses.",
+    calculate: (Income, Expenses, MortgagePayment) => Income - Expenses - MortgagePayment
+  },
+  cashOnCash: {
+    CalculatorName: "Cash-on-Cash ROI Calculator",
+    gridName: "Cash-on-Cash",
+    pageTitle: "Cash-on-Cash ROI Calculator",
+    calculatorTitle: "Measure your cash-on-cash returns with ease.",
+    subtitle: "Compare your investment vs. actual cash profit to make informed decisions.",
+    tabs: { "Key Details": { inputs: ["Annual Cash Flow", "Total Cash Invested"] } },
+    cat: "returns",
+    icon: "percent",
+    tooltip: "Shows annual ROI on actual cash invested.",
+    calculate: (CF, Invested) => ((CF / Invested) * 100).toFixed(2) + "%"
+  },
+  capRate: {
+    CalculatorName: "Cap Rate Calculator",
+    gridName: "Cap Rate",
+    pageTitle: "Cap Rate Calculator",
+    calculatorTitle: "Assess the profitability of your property quickly.",
+    subtitle: "Evaluate annual returns relative to property value for smarter investing.",
+    tabs: { "Key Details": { inputs: ["Net Operating Income", "Property Value"] } },
+    cat: "valuation",
+    icon: "speed",
+    tooltip: "Valuation measure ignoring financing—NOI ÷ property value.",
+    calculate: (NOI, PV) => ((NOI / PV) * 100).toFixed(2) + "%"
+  },
+  grm: {
+    CalculatorName: "Gross Rent Multiplier Calculator",
+    gridName: "GRM",
+    pageTitle: "Gross Rent Multiplier Calculator",
+    calculatorTitle: "Understand your property’s rent potential at a glance.",
+    subtitle: "Estimate Gross Rent Multiplier to compare multiple investment opportunities.",
+    tabs: { "Key Details": { inputs: ["Property Price", "Annual Rent"] } },
+    cat: "valuation",
+    icon: "calculate",
+    tooltip: "Price divided by annual rent. Lower GRM is better.",
+    calculate: (Price, Rent) => (Price / Rent).toFixed(2)
+  },
+  mortgage: {
+    CalculatorName: "Mortgage Payment Calculator",
+    gridName: "Mortgage",
+    pageTitle: "Mortgage Payment Calculator",
+    calculatorTitle: "Calculate your mortgage payments effortlessly.",
+    subtitle: "Determine monthly principal and interest to plan your financing strategy.",
+    tabs: { "Financing": { inputs: ["Loan Amount", "Interest Rate (%)", "Loan Term (years)"] } },
+    cat: "financing",
+    icon: "account_balance",
+    tooltip: "Monthly loan payment based on rate & term.",
+    calculate: (Loan, Rate, Term) => {
+      const r = Rate / 100 / 12;
+      const n = Term * 12;
+      return (Loan * r / (1 - Math.pow(1 + r, -n))).toFixed(2);
+    }
+  },
+  breakEven: {
+    CalculatorName: "Break-even Analysis Calculator",
+    gridName: "Break-even",
+    pageTitle: "Break-even Analysis Calculator",
+    calculatorTitle: "Find your break-even point quickly.",
+    subtitle: "Discover how many units or revenue you need to cover all costs.",
+    tabs: { "Expenses": { inputs: ["Fixed Costs", "Variable Costs per Unit"] }, "Income": { inputs: ["Revenue per Unit"] } },
+    cat: "analysis",
+    icon: "bar_chart",
+    tooltip: "Units needed to cover all expenses.",
+    calculate: (Fixed, Variable, Revenue) => (Fixed / (Revenue - Variable)).toFixed(2)
+  },
+  roi: {
+    CalculatorName: "ROI Calculator",
+    gridName: "ROI",
+    pageTitle: "Return on Investment Calculator",
+    calculatorTitle: "Calculate your overall return on investment.",
+    subtitle: "Combine purchase, financing, income, and expenses for a complete ROI picture.",
+    tabs: {
+      "Key Details": {
+        inputs: [
+          "Purchase Price ($)",
+          "Appreciation Rate (%)",
+          "Years to Hold",
+          "Property Type",
+          "Market (City & State)"
+        ]
+      },
+      "Financing": {
+        inputs: [
+          "Down Payment (%)",
+          "Cash Investment ($)",
+          "Financed Amount ($)",
+          "Mortgage Rate (%)",
+          "Mortgage Term (Years)"
+        ]
+      },
+      "Income": {
+        inputs: ["Monthly Rent ($)"]
+      },
+      "Expenses": {
+        inputs: [
+          "Property Taxes ($/yr)",
+          "Homeowner’s Insurance ($/yr)",
+          "HOA ($/mo)",
+          "Management Fees (%)",
+          "Vacancy Rate (%)"
+        ]
+      }
+    },
+    cat: "returns",
+    icon: "trending_up",
+    tooltip: "ROI calculation including purchase, financing, income, and expenses.",
+    calculate: function(values) {
+      const investment = parseFloat(values["Cash Investment ($)"] || 0);
+      const netProfit = parseFloat(values["Monthly Rent ($)"] || 0) * 12 * parseFloat(values["Years to Hold"] || 1) 
+                        - parseFloat(values["Property Taxes ($/yr)"] || 0)
+                        - parseFloat(values["Homeowner’s Insurance ($/yr)"] || 0)
+                        - parseFloat(values["HOA ($/mo)"] || 0) * 12;
+      return investment ? ((netProfit / investment) * 100).toFixed(2) + "%" : "N/A";
+    }
+  },
+  noi: {
+    CalculatorName: "Net Operating Income Calculator",
+    gridName: "NOI",
+    pageTitle: "Net Operating Income Calculator",
+    calculatorTitle: "Determine Net Operating Income for your property.",
+    subtitle: "Subtract operating expenses from income to see what the property really earns.",
+    tabs: { "Income": { inputs: ["Gross Income"] }, "Expenses": { inputs: ["Operating Expenses"] } },
+    cat: "analysis",
+    icon: "account_balance_wallet",
+    tooltip: "Income minus operating expenses.",
+    calculate: (GI, OE) => GI - OE
+  },
+  dscr: {
+    CalculatorName: "Debt Service Coverage Ratio Calculator",
+    gridName: "DSCR",
+    pageTitle: "Debt Service Coverage Ratio Calculator",
+    calculatorTitle: "Check your debt service coverage ratio.",
+    subtitle: "Measure your property’s ability to cover debt with its net operating income.",
+    tabs: { "Income": { inputs: ["NOI"] }, "Financing": { inputs: ["Debt Service"] } },
+    cat: "financing",
+    icon: "shield",
+    tooltip: "NOI ÷ debt service — lenders want 1.2+.",
+    calculate: (NOI, Debt) => (NOI / Debt).toFixed(2)
+  },
+  priceToRent: {
+    CalculatorName: "Price-to-Rent Ratio Calculator",
+    gridName: "Price-to-Rent",
+    pageTitle: "Price-to-Rent Ratio Calculator",
+    calculatorTitle: "Analyze the price-to-rent ratio of your property.",
+    subtitle: "Compare property value to rental income to spot lucrative deals.",
+    tabs: { "Key Details": { inputs: ["Property Price", "Annual Rent"] } },
+    cat: "valuation",
+    icon: "home",
+    tooltip: "Home price compared to rental income.",
+    calculate: (Price, Rent) => (Price / Rent).toFixed(2)
+  },
+  vacancy: {
+    CalculatorName: "Vacancy Rate Calculator",
+    gridName: "Vacancy",
+    pageTitle: "Vacancy Rate Calculator",
+    calculatorTitle: "Estimate losses from vacancy periods.",
+    subtitle: "Understand potential revenue gaps to make more realistic forecasts.",
+    tabs: { "Income": { inputs: ["Vacant Units", "Total Units"] } },
+    cat: "analysis",
+    icon: "hotel",
+    tooltip: "Vacant units ÷ total units.",
+    calculate: (Vacant, Total) => ((Vacant / Total) * 100).toFixed(2) + "%"
+  },
+  expenseRatio: {
+    CalculatorName: "Operating Expense Ratio Calculator",
+    gridName: "Expense Ratio",
+    pageTitle: "Operating Expense Ratio Calculator",
+    calculatorTitle: "Track your operating expense ratio accurately.",
+    subtitle: "See how much of your income goes toward expenses for better planning.",
+    tabs: { "Income": { inputs: ["Gross Income"] }, "Expenses": { inputs: ["Operating Expenses"] } },
+    cat: "analysis",
+    icon: "receipt_long",
+    tooltip: "Expenses ÷ income — lower is better.",
+    calculate: (Income, Expenses) => ((Expenses / Income) * 100).toFixed(2) + "%"
+  },
+  longTermROI: {
+    CalculatorName: "Long-Term ROI Calculator",
+    gridName: "Long-Term ROI",
+    pageTitle: "Long-Term ROI Calculator",
+    calculatorTitle: "Forecast your long-term returns from rent and appreciation.",
+    subtitle: "Combine cash flow and property value growth for a complete investment outlook.",
+    tabs: { "Income": { inputs: ["Rental Income", "Property Appreciation"] }, "Key Details": { inputs: ["Investment Cost"] } },
+    cat: "returns",
+    icon: "timeline",
+    tooltip: "Total rent + appreciation returns.",
+    calculate: (Rent, App, Cost) => (((Rent + App) / Cost) * 100).toFixed(2) + "%"
+  },
+  flip: {
+    CalculatorName: "Fix & Flip Profit Calculator",
+    gridName: "Fix & Flip",
+    pageTitle: "Fix & Flip Profit Calculator",
+    calculatorTitle: "Project profits from your fix & flip projects.",
+    subtitle: "Calculate renovation costs, resale value, and potential ROI in one view.",
+    tabs: { "Key Details": { inputs: ["Sale Price", "Purchase Price", "Renovation Costs"] } },
+    cat: "returns",
+    icon: "construction",
+    tooltip: "Sale price minus purchase & renovation costs.",
+    calculate: (Sale, Purchase, Reno) => Sale - Purchase - Reno
+  },
+  renovationROI: {
+    CalculatorName: "Renovation ROI Calculator",
+    gridName: "Renovation ROI",
+    pageTitle: "Renovation ROI Calculator",
+    calculatorTitle: "Measure ROI from property improvements.",
+    subtitle: "See how each renovation affects your investment’s profitability.",
+    tabs: { "Key Details": { inputs: ["Profit from Renovation", "Renovation Cost"] } },
+    cat: "returns",
+    icon: "build",
+    tooltip: "Return generated from renovation expenditures.",
+    calculate: (Profit, Cost) => ((Profit / Cost) * 100).toFixed(2) + "%"
+  },
+  taxDepreciation: {
+    CalculatorName: "Tax / Depreciation Impact Calculator",
+    gridName: "Tax / Depreciation",
+    pageTitle: "Tax / Depreciation Impact Calculator",
+    calculatorTitle: "Estimate tax impacts and depreciation benefits.",
+    subtitle: "Plan for deductions and understand their effect on net returns.",
+    tabs: { "Income": { inputs: ["Taxable Income"] }, "Expenses": { inputs: ["Depreciation"] } },
+    cat: "analysis",
+    icon: "receipt",
+    tooltip: "Taxable income minus depreciation benefits.",
+    calculate: (Inc, Dep) => Inc - Dep
+  },
+  cma: {
+    CalculatorName: "Comparative Market Analysis Calculator",
+    gridName: "CMA",
+    pageTitle: "Comparative Market Analysis Calculator",
+    calculatorTitle: "Perform a comparative market analysis easily.",
+    subtitle: "Compare properties to determine fair market value and pricing strategy.",
+    tabs: { "Key Details": { inputs: ["Market Value", "Property Value"] } },
+    cat: "valuation",
+    icon: "analytics",
+    tooltip: "Property value vs market value.",
+    calculate: (M, P) => ((M / P) * 100).toFixed(2) + "%"
+  },
+  leverageROI: {
+    CalculatorName: "Leverage ROI Calculator",
+    gridName: "Leverage ROI",
+    pageTitle: "Leverage ROI Calculator",
+    calculatorTitle: "Evaluate leveraged returns with financing.",
+    subtitle: "See how loans amplify your ROI and understand associated risks.",
+    tabs: { "Income": { inputs: ["Cash Flow"] }, "Key Details": { inputs: ["Equity Invested"] } },
+    cat: "returns",
+    icon: "trending_up",
+    tooltip: "Return based on leveraged equity invested.",
+    calculate: (CF, EQ) => ((CF / EQ) * 100).toFixed(2) + "%"
+  }
+};
 
 
-  <!-- =============================== -->
-<!-- FULL-WIDTH STATS CONTAINER     -->
-<!-- =============================== -->
-<div class="stats-fullwidth">
-    <h4 class="stats-title">Additional Investment Metrics</h4>
+/* ------------------ CATEGORY CONTAINERS ------------------ */
+const categories = {
+  financing: document.getElementById("cat-financing"),
+  returns: document.getElementById("cat-returns"),
+  valuation: document.getElementById("cat-valuation"),
+  analysis: document.getElementById("cat-analysis")
+};
 
-    <div class="stats-grid">
-        <div class="stat-box">
-            <div class="stat-label">Cap Rate</div>
-            <div class="stat-value" id="capRateValue">- n/a</div>
-        </div>
+/* ------------------ HELPER FORMATTING FUNCTIONS ------------------ */
+function formatNumber(num) {
+  return Number(num).toLocaleString();
+}
 
-        <div class="stat-box">
-            <div class="stat-label">Annual Yield</div>
-            <div class="stat-value" id="yieldValue">- n/a</div>
-        </div>
+function formatCurrency(num) {
+  return "$" + Number(num).toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
 
-        <div class="stat-box">
-            <div class="stat-label">Expense Ratio</div>
-            <div class="stat-value" id="expenseRatioValue">- n/a</div>
-        </div>
+function formatPercent(num) {
+  return Number(num).toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }) + "%";
+}
 
-        <div class="stat-box">
-            <div class="stat-label">Debt Coverage Ratio (DCR)</div>
-            <div class="stat-value" id="dcrValue">- n/a</div>
-        </div>
+/* ------------------ RENDER TILES ------------------ */
+Object.entries(calculators).forEach(([key, c]) => {
+  const tile = document.createElement("div");
+  tile.className = "tile";
+  tile.dataset.tooltip = c.tooltip;
+
+  tile.innerHTML = `
+    <span class="material-icons-outlined">${c.icon}</span>
+    <div>
+      <div class="grid-name">${c.gridName}</div>
+      <div>${c.calculatorTitle}</div>
     </div>
-</div>
-</div>
+  `;
+
+  tile.onclick = () => {
+    loadCalculator(key);
+    window.location.hash = key;
+  };
+
+  categories[c.cat].appendChild(tile);
+});
+
+/* ------------------ GET COMMON ELEMENTS ------------------ */
+const allTiles = document.getElementsByClassName("tile");
+const titleEl = document.getElementById("calculatorTitle");
+const form = document.getElementById("calculatorForm");
+const resultEl = document.getElementById("mainResult"); // FIXED ID
+
+/* ------------------ LOAD CALCULATOR ------------------ */
+function loadCalculator(key) {
+  if (!calculators[key]) return;
+
+  const calc = calculators[key];
+
+  // Show calculator screen, hide grid
+  document.getElementById("screenGrid").style.display = "none";
+  document.getElementById("screenCalculator").style.display = "block";
+
+  // Highlight selected tile
+  [...allTiles].forEach((t, i) => {
+    t.classList.toggle("active", Object.keys(calculators)[i] === key);
+  });
+
+  // Set titles
+  document.getElementById("pageTitle").textContent = calc.pageTitle;
+  titleEl.textContent = calc.calculatorTitle;
+  document.getElementById("subtitle").textContent = calc.subtitle;
+
+  // Reset form + result
+  form.innerHTML = "";
+  resultEl.textContent = "";
+
+  const inputValues = {};
+
+  // Optional location input
+  if (calc.location) {
+    const locInput = document.createElement("input");
+    locInput.type = "text";
+    locInput.placeholder = "City, State";
+    locInput.id = "location";
+    locInput.oninput = () => inputValues["location"] = locInput.value;
+    form.appendChild(locInput);
+  }
+
+  /* ------------------ TABS ------------------ */
+  const tabContainer = document.createElement("div");
+  tabContainer.className = "tab-container";
+  form.appendChild(tabContainer);
+
+  const tabContents = document.createElement("div");
+  tabContents.className = "tab-contents";
+  form.appendChild(tabContents);
+
+  const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
+  const tabNames = preferredOrder.filter(t => calc.tabs[t])
+    .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
+
+  let activeTab = tabNames[0];
+
+  function renderTabInputs(tab) {
+    tabContents.innerHTML = "";
+    activeTab = tab;
+
+    calc.tabs[tab].inputs.forEach((name) => {
+      const inputGroup = document.createElement("div");
+      inputGroup.className = "input-group";
+
+      const label = document.createElement("label");
+      label.textContent = name;
+
+      const input = document.createElement("input");
+      input.type = "number";
+      input.placeholder = name;
+
+      if (inputValues[name] !== undefined) input.value = inputValues[name];
+
+      input.oninput = () => inputValues[name] = input.value;
+
+      inputGroup.appendChild(label);
+      inputGroup.appendChild(input);
+      tabContents.appendChild(inputGroup);
+    });
+  }
+
+  // Render tabs
+  tabNames.forEach(tab => {
+    const btn = document.createElement("div");
+    btn.className = "tab";
+    btn.textContent = tab;
+
+    if (tab === activeTab) btn.classList.add("active");
+
+    btn.onclick = () => {
+      [...tabContainer.children].forEach(t => t.classList.remove("active"));
+      btn.classList.add("active");
+      renderTabInputs(tab);
+    };
+
+    tabContainer.appendChild(btn);
+  });
+
+  renderTabInputs(activeTab);
+
+  /* ------------------ CALCULATE BUTTON ------------------ */
+  const button = document.createElement("button");
+  button.className = "calc-btn";
+  button.textContent = "Calculate";
+
+  button.onclick = (e) => {
+    e.preventDefault();
+
+    const values = calc.tabs[activeTab].inputs.map(id => {
+      const val = inputValues[id];
+      return val !== undefined ? Number(val) : NaN;
+    });
+
+    const locationValue = calc.location ? inputValues["location"] : null;
+
+    if (values.some(v => isNaN(v))) {
+      resultEl.textContent = "Please fill in all required inputs!";
+      return;
+    }
+
+    try {
+      let rawResult = calc.calculate(...values, locationValue);
+
+      // Detect % vs number
+      if (typeof rawResult === "string" && rawResult.includes("%")) {
+        resultEl.textContent = formatPercent(parseFloat(rawResult));
+      } else {
+        resultEl.textContent = formatNumber(rawResult);
+      }
+
+    } catch (err) {
+      resultEl.textContent = "Error in calculation.";
+      console.error(err);
+    }
+  };
+
+  form.appendChild(button);
+}
+
+/* ------------------ BACK BUTTON ------------------ */
+document.getElementById("backBtn").onclick = () => {
+  document.getElementById("screenCalculator").style.display = "none";
+  document.getElementById("screenGrid").style.display = "block";
+  resultEl.textContent = "";
+  window.location.hash = "";
+};
+
+/* ------------------ HASH LOADING ------------------ */
+function tryLoadFromHash() {
+  const hash = window.location.hash.replace("#", "");
+  if (hash && calculators[hash]) loadCalculator(hash);
+}
+
+window.addEventListener("load", tryLoadFromHash);
+window.addEventListener("hashchange", tryLoadFromHash);
 
 
-  <!-- Your custom JS files -->
-  <script src="footer.js"></script>
-  <script src="calculator.js"></script>
-  <script src="dynamic-tabs.js"></script>
 
-
+  
+  </script>
 
 </body>
 </html>
