@@ -939,7 +939,7 @@ function loadCalculator(key) {
   }
 
   /* ------------------ TABS ------------------ */
-  /* ------------------ TABS ------------------ */
+ /* ------------------ TABS ------------------ */
 const tabContainer = document.createElement("div");
 tabContainer.className = "tab-container";
 form.appendChild(tabContainer);
@@ -970,14 +970,13 @@ function renderTabInputs(tab) {
     input.type = "text";
     input.placeholder = name;
 
-    // Restore saved value, with formatting
     if (inputValues[name] !== undefined) {
-      const parts = inputValues[name].toString().split(".");
+      const raw = inputValues[name];
+      const parts = raw.toString().split(".");
       parts[0] = Number(parts[0]).toLocaleString();
       input.value = parts.join(".");
     }
 
-    // Format on input
     formatInputWithCommas(input, inputValues, name);
 
     inputGroup.appendChild(label);
@@ -1003,7 +1002,9 @@ tabNames.forEach(tab => {
   tabContainer.appendChild(btn);
 });
 
+// Initial tab render
 renderTabInputs(activeTab);
+
 
   /* ------------------ CALCULATE BUTTON ------------------ */
   const button = document.createElement("button");
