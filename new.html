@@ -855,25 +855,6 @@ const categories = {
   analysis: document.getElementById("cat-analysis")
 };
 
-/* ------------------ HELPER FORMATTING FUNCTIONS ------------------ */
-function formatNumber(num) {
-  return Number(num).toLocaleString();
-}
-
-function formatCurrency(num) {
-  return "$" + Number(num).toLocaleString(undefined, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
-}
-
-function formatPercent(num) {
-  return Number(num).toLocaleString(undefined, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  }) + "%";
-}
-
 /* ------------------ RENDER TILES ------------------ */
 Object.entries(calculators).forEach(([key, c]) => {
   const tile = document.createElement("div");
@@ -896,11 +877,11 @@ Object.entries(calculators).forEach(([key, c]) => {
   categories[c.cat].appendChild(tile);
 });
 
-/* ------------------ GET COMMON ELEMENTS ------------------ */
+/* ------------------ COMMON ELEMENTS ------------------ */
 const allTiles = document.getElementsByClassName("tile");
 const titleEl = document.getElementById("calculatorTitle");
 const form = document.getElementById("calculatorForm");
-const resultEl = document.getElementById("mainResult"); // FIXED ID
+const resultEl = document.getElementById("mainResult");
 
 /* ------------------ LOAD CALCULATOR ------------------ */
 function loadCalculator(key) {
@@ -908,103 +889,93 @@ function loadCalculator(key) {
 
   const calc = calculators[key];
 
-  // Show calculator screen, hide grid
   document.getElementById("screenGrid").style.display = "none";
   document.getElementById("screenCalculator").style.display = "block";
 
-  // Highlight selected tile
-  [...allTiles].forEach((t, i) => {
-    t.classList.toggle("active", Object.keys(calculators)[i] === key);
-  });
+  [...allTiles].forEach((t, i) =>
+    t.classList.toggle("active", Object.keys(calculators)[i] === key)
+  );
 
-  // Set titles
   document.getElementById("pageTitle").textContent = calc.pageTitle;
   titleEl.textContent = calc.calculatorTitle;
   document.getElementById("subtitle").textContent = calc.subtitle;
 
-  // Reset form + result
   form.innerHTML = "";
   resultEl.textContent = "";
 
   const inputValues = {};
 
-  // Optional location input
+  /* ------------------ OPTIONAL LOCATION ------------------ */
   if (calc.location) {
-    const locInput = document.createElement("input");
-    locInput.type = "text";
-    locInput.placeholder = "City, State";
-    locInput.id = "location";
-    locInput.oninput = () => inputValues["location"] = locInput.value;
-    form.appendChild(locInput);
+    const loc = document.createElement("input");
+    loc.type = "text";
+    loc.placeholder = "City, State";
+    loc.oninput = () => inputValues["location"] = loc.value;
+    form.appendChild(loc);
   }
 
   /* ------------------ TABS ------------------ */
- /* ------------------ TABS ------------------ */
-const tabContainer = document.createElement("div");
-tabContainer.className = "tab-container";
-form.appendChild(tabContainer);
+  const tabContainer = document.createElement("div");
+  tabContainer.className = "tab-container";
+  form.appendChild(tabContainer);
 
-const tabContents = document.createElement("div");
-tabContents.className = "tab-contents";
-form.appendChild(tabContents);
+  const tabContents = document.createElement("div");
+  tabContents.className = "tab-contents";
+  form.appendChild(tabContents);
 
-// Enforce tab order
-const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
-const tabNames = preferredOrder.filter(t => calc.tabs[t])
-  .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
+  const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
+  const tabNames = preferredOrder.filter(t => calc.tabs[t])
+    .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
 
-let activeTab = tabNames[0];
+  let activeTab = tabNames[0];
 
-function renderTabInputs(tab) {
-  tabContents.innerHTML = "";
-  activeTab = tab;
+  function renderTabInputs(tab) {
+    tabContents.innerHTML = "";
+    activeTab = tab;
 
-  calc.tabs[tab].inputs.forEach((name) => {
-    const inputGroup = document.createElement("div");
-    inputGroup.className = "input-group";
+    calc.tabs[tab].inputs.forEach(name => {
+      const group = document.createElement("div");
+      group.className = "input-group";
 
-    const label = document.createElement("label");
-    label.textContent = name;
+      const label = document.createElement("label");
+      label.textContent = name;
 
-    const input = document.createElement("input");
-    input.type = "text";
-    input.placeholder = name;
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = name;
 
-    if (inputValues[name] !== undefined) {
-      const raw = inputValues[name];
-      const parts = raw.toString().split(".");
-      parts[0] = Number(parts[0]).toLocaleString();
-      input.value = parts.join(".");
-    }
+      if (inputValues[name]) {
+        const raw = inputValues[name];
+        const parts = raw.toString().split(".");
+        parts[0] = Number(parts[0]).toLocaleString();
+        input.value = parts.join(".");
+      }
 
-    formatInputWithCommas(input, inputValues, name);
+      formatInputWithCommas(input, inputValues, name);
 
-    inputGroup.appendChild(label);
-    inputGroup.appendChild(input);
-    tabContents.appendChild(inputGroup);
+      group.appendChild(label);
+      group.appendChild(input);
+      tabContents.appendChild(group);
+    });
+  }
+
+  tabNames.forEach(tab => {
+    const btn = document.createElement("div");
+    btn.className = "tab";
+    btn.textContent = tab;
+
+    if (tab === activeTab) btn.classList.add("active");
+
+    btn.onclick = () => {
+      [...tabContainer.children].forEach(t => t.classList.remove("active"));
+      btn.classList.add("active");
+      renderTabInputs(tab);
+    };
+
+    tabContainer.appendChild(btn);
   });
-}
 
-// Render tab buttons
-tabNames.forEach(tab => {
-  const btn = document.createElement("div");
-  btn.className = "tab";
-  btn.textContent = tab;
-
-  if (tab === activeTab) btn.classList.add("active");
-
-  btn.onclick = () => {
-    [...tabContainer.children].forEach(t => t.classList.remove("active"));
-    btn.classList.add("active");
-    renderTabInputs(tab);
-  };
-
-  tabContainer.appendChild(btn);
-});
-
-// Initial tab render
-renderTabInputs(activeTab);
-
+  renderTabInputs(activeTab);
 
   /* ------------------ CALCULATE BUTTON ------------------ */
   const button = document.createElement("button");
@@ -1016,29 +987,22 @@ renderTabInputs(activeTab);
 
     const values = calc.tabs[activeTab].inputs.map(id => {
       const val = inputValues[id];
-      return val !== undefined ? Number(val) : NaN;
+      return val !== undefined ? Number(val.replace(/,/g, "")) : NaN;
     });
 
     const locationValue = calc.location ? inputValues["location"] : null;
 
     if (values.some(v => isNaN(v))) {
-      resultEl.textContent = "Please fill in all required inputs!";
+      resultEl.textContent = "Please fill all inputs!";
       return;
     }
 
-    try {
-      let rawResult = calc.calculate(...values, locationValue);
+    let raw = calc.calculate(...values, locationValue);
 
-      // Detect % vs number
-      if (typeof rawResult === "string" && rawResult.includes("%")) {
-        resultEl.textContent = formatPercent(parseFloat(rawResult));
-      } else {
-        resultEl.textContent = formatNumber(rawResult);
-      }
-
-    } catch (err) {
-      resultEl.textContent = "Error in calculation.";
-      console.error(err);
+    if (typeof raw === "string" && raw.includes("%")) {
+      resultEl.textContent = formatPercent(parseFloat(raw));
+    } else {
+      resultEl.textContent = formatNumber(raw);
     }
   };
 
@@ -1055,13 +1019,12 @@ document.getElementById("backBtn").onclick = () => {
 
 /* ------------------ HASH LOADING ------------------ */
 function tryLoadFromHash() {
-  const hash = window.location.hash.replace("#", "");
-  if (hash && calculators[hash]) loadCalculator(hash);
+  const h = window.location.hash.replace("#", "");
+  if (h && calculators[h]) loadCalculator(h);
 }
 
 window.addEventListener("load", tryLoadFromHash);
 window.addEventListener("hashchange", tryLoadFromHash);
-
 
 
   
