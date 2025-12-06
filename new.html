@@ -846,27 +846,42 @@ select {
   }
 };
 
-  /* ------- FORMAT INPUT WITH COMMAS (MISSING FUNCTION) ------- */
+<script>
+
+/* ----------------------------------------------------
+   FORMAT INPUT WITH COMMAS + STORE CLEAN RAW NUMBERS
+---------------------------------------------------- */
 function formatInputWithCommas(input, inputValues, key) {
   input.addEventListener("input", () => {
-    let val = input.value.replace(/,/g, "");
+    let raw = input.value.replace(/,/g, "");
 
-    // Allow decimals but no letters
-    if (!/^\d*\.?\d*$/.test(val)) return;
+    // Accept numbers only
+    if (!/^\d*\.?\d*$/.test(raw)) return;
 
-    // Save raw numeric value
-    inputValues[key] = val;
+    inputValues[key] = raw; // save clean number (no commas)
 
-    if (val === "") {
+    if (raw === "") {
       input.value = "";
       return;
     }
 
-    // Format with commas
-    const parts = val.split(".");
+    // Format for display
+    const parts = raw.split(".");
     parts[0] = Number(parts[0]).toLocaleString();
     input.value = parts.join(".");
   });
+}
+
+
+/* ----------------------------------------------------
+   🔥 ADDED: SHORTEN BIG NUMBERS (B, M, K)
+---------------------------------------------------- */
+function shortenBigNumber(num) {
+  num = Number(num);
+  if (num >= 1_000_000_000) return (num / 1_000_000_000).toFixed(2) + "B";
+  if (num >= 1_000_000)     return (num / 1_000_000).toFixed(2) + "M";
+  if (num >= 1000)          return num.toLocaleString();
+  return num.toString();
 }
 
 
@@ -1016,16 +1031,32 @@ function loadCalculator(key) {
     const locationValue = calc.location ? inputValues["location"] : null;
 
     if (values.some(v => isNaN(v))) {
-      resultEl.textContent = "Please fill all inputs!";
+      // 🔥 ADDED — error uses H3
+      resultEl.innerHTML = "<h3>Please fill all inputs!</h3>";
       return;
     }
 
     let raw = calc.calculate(...values, locationValue);
 
+    /* ----------------------------------------------------
+       🔥 REPLACED RESULT HANDLING COMPLETELY
+    ---------------------------------------------------- */
+
+    // Percent (string like "8.3%")
     if (typeof raw === "string" && raw.includes("%")) {
-      resultEl.textContent = formatPercent(parseFloat(raw));
+      resultEl.textContent = parseFloat(raw).toFixed(2) + "%";
+      return;
+    }
+
+    let num = Number(raw);
+
+    // shorten if more than 9 digits
+    const digitCount = Math.floor(Math.log10(Math.abs(num))) + 1;
+
+    if (digitCount > 9) {
+      resultEl.textContent = shortenBigNumber(num);
     } else {
-      resultEl.textContent = formatNumber(raw);
+      resultEl.textContent = num.toLocaleString();
     }
   };
 
@@ -1049,9 +1080,8 @@ function tryLoadFromHash() {
 window.addEventListener("load", tryLoadFromHash);
 window.addEventListener("hashchange", tryLoadFromHash);
 
+</script>
 
-  
-  </script>
 
 </body>
 </html>
