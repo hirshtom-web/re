@@ -1089,30 +1089,33 @@ function renderTabInputs(tab) {
     // Format numbers with commas
     formatInputWithCommas(input, inputValues, name);
 
-    // 🔥 SPECIAL HANDLING FOR "Market (City & State)"
-    if (name.includes("Market")) {
-      input.id = "marketLocation";
+   if (name.includes("Market")) {
+  input.id = "marketLocation";
 
-      // Restore saved location if available
-      if (savedLocation.value) {
-        input.value = savedLocation.value;
-        inputValues[name] = savedLocation.value;
-      }
+  // Restore saved location if available
+  if (savedLocation.value) {
+    input.value = savedLocation.value;
+    inputValues[name] = savedLocation.value;
+  }
 
-      // Save on input
-      input.addEventListener("input", () => {
-        savedLocation.value = input.value;
-        inputValues[name] = input.value;
-      });
+  // Save on input or when value changes (covers autocomplete selection)
+  const saveLocation = () => {
+    savedLocation.value = input.value;
+    inputValues[name] = input.value;
+  };
 
-      // Attach autocomplete + auto-detect once when empty
-      setTimeout(() => {
-        autocomplete(input, topCities);
-        if (!savedLocation.value) {
-          autoDetectLocation(input);
-        }
-      }, 50);
+  input.addEventListener("input", saveLocation);
+  input.addEventListener("change", saveLocation); // 🔥 fix for autocomplete click
+
+  // Attach autocomplete + auto-detect once when empty
+  setTimeout(() => {
+    autocomplete(input, topCities);
+    if (!savedLocation.value) {
+      autoDetectLocation(input);
     }
+  }, 50);
+}
+
 
     group.appendChild(label);
     group.appendChild(input);
