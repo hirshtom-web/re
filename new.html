@@ -1021,160 +1021,176 @@ const titleEl = document.getElementById("calculatorTitle");
 const form = document.getElementById("calculatorForm");
 const resultEl = document.getElementById("mainResult");
 
-/* ------------------ LOAD CALCULATOR ------------------ */
   
-// Global store for persistent input values per calculator
-const inputValuesStore = {};
-
+/* ------------------ LOAD CALCULATOR ------------------ */
 function loadCalculator(key) {
-  try {
-    if (!calculators[key]) return;
+  console.log("loadCalculator called with key:", key); // Debug
 
-    const calc = calculators[key];
+  if (!calculators[key]) {
+    console.warn("Calculator key not found:", key);
+    return;
+  }
 
-    document.getElementById("screenGrid").style.display = "none";
-    document.getElementById("screenCalculator").style.display = "block";
+  const calc = calculators[key];
 
-    [...allTiles].forEach((t, i) =>
-      t.classList.toggle("active", Object.keys(calculators)[i] === key)
-    );
+  const screenGrid = document.getElementById("screenGrid");
+  const screenCalculator = document.getElementById("screenCalculator");
+  const form = document.getElementById("calculatorForm");
+  const resultEl = document.getElementById("mainResult");
+  const titleEl = document.getElementById("calculatorTitle");
 
-    document.getElementById("pageTitle").textContent = calc.pageTitle;
-    titleEl.textContent = calc.calculatorTitle;
-    document.getElementById("subtitle").textContent = calc.subtitle;
+  console.log({screenGrid, screenCalculator, form, resultEl, titleEl}); // Debug
 
-    form.innerHTML = "";
-    resultEl.textContent = "";
+  if (!screenGrid || !screenCalculator || !form || !resultEl || !titleEl) return;
 
-    // ------------------ PERSISTENT INPUT VALUES ------------------
-    if (!inputValuesStore[key]) inputValuesStore[key] = {};
-    const inputValues = inputValuesStore[key];
+  screenGrid.style.display = "none";
+  screenCalculator.style.display = "block";
 
-    // ------------------ OPTIONAL LOCATION ------------------
-    if (calc.location) {
-      const loc = document.createElement("input");
-      loc.type = "text";
-      loc.placeholder = "City, State";
+  [...allTiles].forEach((t, i) =>
+    t.classList.toggle("active", Object.keys(calculators)[i] === key)
+  );
 
-      if (inputValues["location"]) loc.value = inputValues["location"];
-      loc.oninput = () => inputValues["location"] = loc.value;
+  document.getElementById("pageTitle").textContent = calc.pageTitle;
+  titleEl.textContent = calc.calculatorTitle;
+  document.getElementById("subtitle").textContent = calc.subtitle;
 
-      form.appendChild(loc);
-    }
+  form.innerHTML = "";
+  resultEl.textContent = "";
 
-    // ------------------ TABS ------------------
-    const tabContainer = document.createElement("div");
-    tabContainer.className = "tab-container";
-    form.appendChild(tabContainer);
+  /* ------------------ PERSISTENT INPUT VALUES ------------------ */
+  if (!window.inputValuesStore) window.inputValuesStore = {};
+  if (!inputValuesStore[key]) inputValuesStore[key] = {};
+  const inputValues = inputValuesStore[key];
 
-    const tabContents = document.createElement("div");
-    tabContents.className = "tab-contents";
-    form.appendChild(tabContents);
+  /* ------------------ OPTIONAL LOCATION ------------------ */
+  if (calc.location) {
+    const loc = document.createElement("input");
+    loc.type = "text";
+    loc.placeholder = "City, State";
 
-    const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
-    const tabNames = preferredOrder.filter(t => calc.tabs[t])
-      .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
+    // Restore previous value if exists
+    if (inputValues["location"]) loc.value = inputValues["location"];
 
-    let activeTab = tabNames[0];
+    // Save value on input
+    loc.oninput = () => inputValues["location"] = loc.value;
 
-    function renderTabInputs(tab) {
-      tabContents.innerHTML = "";
-      activeTab = tab;
+    form.appendChild(loc);
+  }
 
-      if (!calc.tabs[tab] || !Array.isArray(calc.tabs[tab].inputs)) return;
+  /* ------------------ TABS ------------------ */
+  const tabContainer = document.createElement("div");
+  tabContainer.className = "tab-container";
+  form.appendChild(tabContainer);
 
-      calc.tabs[tab].inputs.forEach(name => {
-        const group = document.createElement("div");
-        group.className = "input-group";
+  const tabContents = document.createElement("div");
+  tabContents.className = "tab-contents";
+  form.appendChild(tabContents);
 
-        const label = document.createElement("label");
-        label.textContent = name;
+  const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
+  const tabNames = preferredOrder.filter(t => calc.tabs[t])
+    .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
 
-        const input = document.createElement("input");
-        input.type = "text";
-        input.placeholder = name;
+  let activeTab = tabNames[0];
 
-        if (inputValues[name]) {
-          const raw = inputValues[name];
-          const parts = raw.toString().split(".");
-          parts[0] = Number(parts[0]).toLocaleString();
-          input.value = parts.join(".");
-        }
+  function renderTabInputs(tab) {
+    tabContents.innerHTML = "";
+    activeTab = tab;
 
-        formatInputWithCommas(input, inputValues, name);
+    calc.tabs[tab].inputs.forEach(name => {
+      const group = document.createElement("div");
+      group.className = "input-group";
 
-        group.appendChild(label);
-        group.appendChild(input);
-        tabContents.appendChild(group);
-      });
-    }
+      const label = document.createElement("label");
+      label.textContent = name;
 
-    tabNames.forEach(tab => {
-      const btn = document.createElement("div");
-      btn.className = "tab";
-      btn.textContent = tab;
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = name;
 
-      if (tab === activeTab) btn.classList.add("active");
+      if (inputValues[name]) {
+        const raw = inputValues[name];
+        const parts = raw.toString().split(".");
+        parts[0] = Number(parts[0]).toLocaleString();
+        input.value = parts.join(".");
+      }
 
-      btn.onclick = () => {
-        [...tabContainer.children].forEach(t => t.classList.remove("active"));
-        btn.classList.add("active");
-        renderTabInputs(tab);
-      };
+      formatInputWithCommas(input, inputValues, name);
 
-      tabContainer.appendChild(btn);
+      group.appendChild(label);
+      group.appendChild(input);
+      tabContents.appendChild(group);
     });
+  }
 
-    renderTabInputs(activeTab);
+  tabNames.forEach(tab => {
+    const btn = document.createElement("div");
+    btn.className = "tab";
+    btn.textContent = tab;
 
-    // ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------
-    if (calc.gridName === "ROI") {
-      const marketInput = [...form.querySelectorAll("input")].find(i => i.placeholder.includes("Market"));
-      if (marketInput && typeof autocomplete === "function" && typeof autoDetectLocation === "function") {
-        marketInput.id = "marketLocation";
-        autocomplete(marketInput, topCities);
-        autoDetectLocation(marketInput);
-      }
-    }
+    if (tab === activeTab) btn.classList.add("active");
 
-    // ------------------ CALCULATE BUTTON ------------------
-    const button = document.createElement("button");
-    button.className = "calc-btn";
-    button.textContent = "Calculate";
-
-    button.onclick = (e) => {
-      e.preventDefault();
-
-      const values = calc.tabs[activeTab].inputs.map(id => {
-        const val = inputValues[id];
-        return val !== undefined ? Number(val.replace(/,/g, "")) : NaN;
-      });
-
-      const locationValue = calc.location ? inputValues["location"] : null;
-
-      if (values.some(v => isNaN(v))) {
-        resultEl.innerHTML = "<h3>Please fill all inputs!</h3>";
-        return;
-      }
-
-      let raw = calc.calculate(...values, locationValue);
-
-      if (typeof raw === "string" && raw.includes("%")) {
-        resultEl.textContent = parseFloat(raw).toFixed(2) + "%";
-        return;
-      }
-
-      let num = Number(raw);
-      const digitCount = Math.floor(Math.log10(Math.abs(num))) + 1;
-
-      resultEl.textContent = digitCount > 9 ? shortenBigNumber(num) : num.toLocaleString();
+    btn.onclick = () => {
+      [...tabContainer.children].forEach(t => t.classList.remove("active"));
+      btn.classList.add("active");
+      renderTabInputs(tab);
     };
 
-    form.appendChild(button);
+    tabContainer.appendChild(btn);
+  });
 
-  } catch (err) {
-    console.error("Error in loadCalculator:", err);
+  renderTabInputs(activeTab);
+
+  /* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
+  if (calc.gridName === "ROI") {
+    const marketInput = [...form.querySelectorAll("input")].find(i => i.placeholder.includes("Market"));
+    if (marketInput) {
+      marketInput.id = "marketLocation"; // give it an ID for reference
+      autocomplete(marketInput, topCities); // attach autocomplete
+      autoDetectLocation(marketInput);      // auto-fill based on IP
+    }
   }
+
+  /* ------------------ CALCULATE BUTTON ------------------ */
+  const button = document.createElement("button");
+  button.className = "calc-btn";
+  button.textContent = "Calculate";
+
+  button.onclick = (e) => {
+    e.preventDefault();
+
+    const values = calc.tabs[activeTab].inputs.map(id => {
+      const val = inputValues[id];
+      return val !== undefined ? Number(val.replace(/,/g, "")) : NaN;
+    });
+
+    const locationValue = calc.location ? inputValues["location"] : null;
+
+    if (values.some(v => isNaN(v))) {
+      resultEl.innerHTML = "<h3>Please fill all inputs!</h3>";
+      return;
+    }
+
+    let raw = calc.calculate(...values, locationValue);
+
+    // Percent (string like "8.3%")
+    if (typeof raw === "string" && raw.includes("%")) {
+      resultEl.textContent = parseFloat(raw).toFixed(2) + "%";
+      return;
+    }
+
+    let num = Number(raw);
+
+    // shorten if more than 9 digits
+    const digitCount = Math.floor(Math.log10(Math.abs(num))) + 1;
+
+    if (digitCount > 9) {
+      resultEl.textContent = shortenBigNumber(num);
+    } else {
+      resultEl.textContent = num.toLocaleString();
+    }
+  };
+
+  form.appendChild(button);
 }
 
 /* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
