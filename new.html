@@ -703,15 +703,39 @@ select {
     cat: "returns",
     icon: "trending_up",
     tooltip: "ROI calculation including purchase, financing, income, and expenses.",
-    calculate: function(values) {
-      const investment = parseFloat(values["Cash Investment ($)"] || 0);
-      const netProfit = parseFloat(values["Monthly Rent ($)"] || 0) * 12 * parseFloat(values["Years to Hold"] || 1) 
-                        - parseFloat(values["Property Taxes ($/yr)"] || 0)
-                        - parseFloat(values["Homeowner’s Insurance ($/yr)"] || 0)
-                        - parseFloat(values["HOA ($/mo)"] || 0) * 12;
-      return investment ? ((netProfit / investment) * 100).toFixed(2) + "%" : "N/A";
-    }
-  },
+calculate: (PurchasePrice, AppreciationRate, Years, DownPaymentPercent, CashInvested, FinancedAmount, MortgageRate, MortgageTerm, Rent, Taxes, Insurance, HOA, ManagementFeesPercent, VacancyRatePercent) => {
+  const investment = Number(CashInvested || 0);
+  const years = Number(Years || 1);
+
+  // Adjusted rent for vacancy
+  const monthlyRent = Number(Rent || 0);
+  const vacancy = Number(VacancyRatePercent || 0) / 100;
+  const effectiveRent = monthlyRent * (1 - vacancy) * 12 * years;
+
+  // Expenses
+  const expenses = Number(Taxes || 0) * years
+                 + Number(Insurance || 0) * years
+                 + Number(HOA || 0) * 12 * years
+                 + (Number(ManagementFeesPercent || 0) / 100) * effectiveRent;
+
+  // Mortgage payment
+  const loan = Number(FinancedAmount || 0);
+  const r = Number(MortgageRate || 0) / 100 / 12;
+  const n = Number(MortgageTerm || 0) * 12;
+  const mortgagePayment = loan ? (loan * r / (1 - Math.pow(1 + r, -n))) * years : 0;
+
+  // Net profit
+  const netProfit = effectiveRent - expenses - mortgagePayment;
+
+  // Appreciation gain
+  const purchasePrice = Number(PurchasePrice || 0);
+  const appreciation = purchasePrice * (Number(AppreciationRate || 0) / 100) * years;
+
+  // Total ROI
+  return investment ? (((netProfit + appreciation) / investment) * 100).toFixed(2) + "%" : "N/A";
+}
+
+
   noi: {
     CalculatorName: "Net Operating Income Calculator",
     gridName: "NOI",
