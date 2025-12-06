@@ -951,28 +951,19 @@ function autocomplete(inp, arr) {
     this.parentNode.appendChild(listDiv);
 
 arr.forEach(city => {
-  if (city.toLowerCase().includes(val.toLowerCase())) {
-    const item = document.createElement("DIV");
-    item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
-    item.style.padding = "5px";
-    item.style.cursor = "pointer";
-
-    item.addEventListener("click", function() {
-      inp.value = city;
-
-      // Save the selected city correctly
-      if (inputValues && savedLocation) {
-        inputValues[inp.placeholder] = city; // store by input placeholder
-        savedLocation.value = city;          // store globally
+      if (city.toLowerCase().includes(val.toLowerCase())) {
+        const item = document.createElement("DIV");
+        item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
+        item.style.padding = "5px";
+        item.style.cursor = "pointer";
+        item.addEventListener("click", function() {
+          inp.value = city;
+          closeAllLists();
+        });
+        listDiv.appendChild(item);
       }
-
-      closeAllLists();
     });
-
-    listDiv.appendChild(item);
-  }
-});
-
+  });
 
   inp.addEventListener("keydown", function(e) {
     let x = document.getElementById(this.id + "-autocomplete-list");
