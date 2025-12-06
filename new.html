@@ -951,19 +951,28 @@ function autocomplete(inp, arr) {
     this.parentNode.appendChild(listDiv);
 
     arr.forEach(city => {
-      if (city.toLowerCase().includes(val.toLowerCase())) {
-        const item = document.createElement("DIV");
-        item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
-        item.style.padding = "5px";
-        item.style.cursor = "pointer";
-        item.addEventListener("click", function() {
-          inp.value = city;
-          closeAllLists();
-        });
-        listDiv.appendChild(item);
+  if (city.toLowerCase().includes(val.toLowerCase())) {
+    const item = document.createElement("DIV");
+    item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
+    item.style.padding = "5px";
+    item.style.cursor = "pointer";
+    item.addEventListener("click", function() {
+      inp.value = city;
+
+      // ✅ Save the selected city for your calculator
+      if (typeof inputValues !== "undefined") {
+        inputValues["Market (City & State)"] = city;
       }
+      if (typeof savedLocation !== "undefined") {
+        savedLocation.value = city;
+      }
+
+      closeAllLists();
     });
-  });
+    listDiv.appendChild(item);
+  }
+});
+
 
   inp.addEventListener("keydown", function(e) {
     let x = document.getElementById(this.id + "-autocomplete-list");
@@ -1089,7 +1098,7 @@ function renderTabInputs(tab) {
     // Format numbers with commas
     formatInputWithCommas(input, inputValues, name);
 
-   if (name.includes("Market")) {
+  if (name.includes("Market")) {
   input.id = "marketLocation";
 
   // Restore saved location if available
@@ -1098,18 +1107,20 @@ function renderTabInputs(tab) {
     inputValues[name] = savedLocation.value;
   }
 
-  // Save on input or when value changes (covers autocomplete selection)
+  // Function to save current input value
   const saveLocation = () => {
     savedLocation.value = input.value;
     inputValues[name] = input.value;
   };
 
+  // Save on typing
   input.addEventListener("input", saveLocation);
-  input.addEventListener("change", saveLocation); // 🔥 fix for autocomplete click
+  input.addEventListener("change", saveLocation);
 
-  // Attach autocomplete + auto-detect once when empty
+  // Attach autocomplete + auto-detect
   setTimeout(() => {
     autocomplete(input, topCities);
+
     if (!savedLocation.value) {
       autoDetectLocation(input);
     }
