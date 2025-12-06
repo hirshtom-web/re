@@ -1099,51 +1099,38 @@ if (calc.location) {
       input.type = "text";
       input.placeholder = name;
 
-/* ----------- RESTORE NORMAL INPUT VALUE (numbers etc.) ----------- */
-if (inputValues[name]) {
-  const raw = inputValues[name];
-  const parts = raw.toString().split(".");
-  parts[0] = Number(parts[0]).toLocaleString();
-  input.value = parts.join(".");
-}
+      if (inputValues[name]) {
+        const raw = inputValues[name];
+        const parts = raw.toString().split(".");
+        parts[0] = Number(parts[0]).toLocaleString();
+        input.value = parts.join(".");
+      }
 
-/* -----------------------------------------------
-   SPECIAL HANDLING FOR "Market (City & State)"
------------------------------------------------- */
-if (name.includes("Market")) {
+      formatInputWithCommas(input, inputValues, name);
 
-  input.id = "marketLocation";
-
-  // Do NOT apply number formatting → override formatted value
-  if (savedLocation) {
-    input.value = savedLocation;
-    inputValues[name] = savedLocation;
+      group.appendChild(label);
+      group.appendChild(input);
+      tabContents.appendChild(group);
+    });
   }
 
-  input.addEventListener("input", () => {
-    savedLocation = input.value;
-    inputValues[name] = input.value;
+  tabNames.forEach(tab => {
+    const btn = document.createElement("div");
+    btn.className = "tab";
+    btn.textContent = tab;
+
+    if (tab === activeTab) btn.classList.add("active");
+
+    btn.onclick = () => {
+      [...tabContainer.children].forEach(t => t.classList.remove("active"));
+      btn.classList.add("active");
+      renderTabInputs(tab);
+    };
+
+    tabContainer.appendChild(btn);
   });
 
-  setTimeout(() => {
-    autocomplete(input, topCities);
-    if (!savedLocation) autoDetectLocation(input);
-  }, 50);
-
-  // IMPORTANT: skip number formatting entirely
-  group.appendChild(label);
-  group.appendChild(input);
-  tabContents.appendChild(group);
-  return;   // <-- prevents formatInputWithCommas from running
-}
-
-/* ----------- NORMAL NUMBER FORMATTING ----------- */
-formatInputWithCommas(input, inputValues, name);
-
-group.appendChild(label);
-group.appendChild(input);
-tabContents.appendChild(group);
-
+renderTabInputs(activeTab);
 
 /* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
 if (calc.gridName === "ROI") {
@@ -1223,6 +1210,8 @@ window.addEventListener("hashchange", tryLoadFromHash);
 
 
 </script>
+
+
 
 
 
