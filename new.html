@@ -1023,158 +1023,158 @@ const resultEl = document.getElementById("mainResult");
 
 /* ------------------ LOAD CALCULATOR ------------------ */
   
+// Global store for persistent input values per calculator
+const inputValuesStore = {};
+
 function loadCalculator(key) {
-  if (!calculators[key]) return;
+  try {
+    if (!calculators[key]) return;
 
-  const calc = calculators[key];
+    const calc = calculators[key];
 
-  document.getElementById("screenGrid").style.display = "none";
-  document.getElementById("screenCalculator").style.display = "block";
+    document.getElementById("screenGrid").style.display = "none";
+    document.getElementById("screenCalculator").style.display = "block";
 
-  [...allTiles].forEach((t, i) =>
-    t.classList.toggle("active", Object.keys(calculators)[i] === key)
-  );
+    [...allTiles].forEach((t, i) =>
+      t.classList.toggle("active", Object.keys(calculators)[i] === key)
+    );
 
-  document.getElementById("pageTitle").textContent = calc.pageTitle;
-  titleEl.textContent = calc.calculatorTitle;
-  document.getElementById("subtitle").textContent = calc.subtitle;
+    document.getElementById("pageTitle").textContent = calc.pageTitle;
+    titleEl.textContent = calc.calculatorTitle;
+    document.getElementById("subtitle").textContent = calc.subtitle;
 
-  form.innerHTML = "";
-  resultEl.textContent = "";
+    form.innerHTML = "";
+    resultEl.textContent = "";
 
-  /* ------------------ PERSISTENT INPUT VALUES ------------------ */
-  if (!inputValuesStore[key]) inputValuesStore[key] = {};
-  const inputValues = inputValuesStore[key];
+    // ------------------ PERSISTENT INPUT VALUES ------------------
+    if (!inputValuesStore[key]) inputValuesStore[key] = {};
+    const inputValues = inputValuesStore[key];
 
-  /* ------------------ OPTIONAL LOCATION ------------------ */
-  if (calc.location) {
-    const loc = document.createElement("input");
-    loc.type = "text";
-    loc.placeholder = "City, State";
+    // ------------------ OPTIONAL LOCATION ------------------
+    if (calc.location) {
+      const loc = document.createElement("input");
+      loc.type = "text";
+      loc.placeholder = "City, State";
 
-    // Restore previous value if exists
-    if (inputValues["location"]) loc.value = inputValues["location"];
+      if (inputValues["location"]) loc.value = inputValues["location"];
+      loc.oninput = () => inputValues["location"] = loc.value;
 
-    // Save value on input
-    loc.oninput = () => inputValues["location"] = loc.value;
+      form.appendChild(loc);
+    }
 
-    form.appendChild(loc);
-  }
+    // ------------------ TABS ------------------
+    const tabContainer = document.createElement("div");
+    tabContainer.className = "tab-container";
+    form.appendChild(tabContainer);
 
-  /* ------------------ TABS ------------------ */
-  const tabContainer = document.createElement("div");
-  tabContainer.className = "tab-container";
-  form.appendChild(tabContainer);
+    const tabContents = document.createElement("div");
+    tabContents.className = "tab-contents";
+    form.appendChild(tabContents);
 
-  const tabContents = document.createElement("div");
-  tabContents.className = "tab-contents";
-  form.appendChild(tabContents);
+    const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
+    const tabNames = preferredOrder.filter(t => calc.tabs[t])
+      .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
 
-  const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
-  const tabNames = preferredOrder.filter(t => calc.tabs[t])
-    .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
+    let activeTab = tabNames[0];
 
-  let activeTab = tabNames[0];
+    function renderTabInputs(tab) {
+      tabContents.innerHTML = "";
+      activeTab = tab;
 
-  function renderTabInputs(tab) {
-    tabContents.innerHTML = "";
-    activeTab = tab;
+      if (!calc.tabs[tab] || !Array.isArray(calc.tabs[tab].inputs)) return;
 
-    calc.tabs[tab].inputs.forEach(name => {
-      const group = document.createElement("div");
-      group.className = "input-group";
+      calc.tabs[tab].inputs.forEach(name => {
+        const group = document.createElement("div");
+        group.className = "input-group";
 
-      const label = document.createElement("label");
-      label.textContent = name;
+        const label = document.createElement("label");
+        label.textContent = name;
 
-      const input = document.createElement("input");
-      input.type = "text";
-      input.placeholder = name;
+        const input = document.createElement("input");
+        input.type = "text";
+        input.placeholder = name;
 
-      if (inputValues[name]) {
-        const raw = inputValues[name];
-        const parts = raw.toString().split(".");
-        parts[0] = Number(parts[0]).toLocaleString();
-        input.value = parts.join(".");
+        if (inputValues[name]) {
+          const raw = inputValues[name];
+          const parts = raw.toString().split(".");
+          parts[0] = Number(parts[0]).toLocaleString();
+          input.value = parts.join(".");
+        }
+
+        formatInputWithCommas(input, inputValues, name);
+
+        group.appendChild(label);
+        group.appendChild(input);
+        tabContents.appendChild(group);
+      });
+    }
+
+    tabNames.forEach(tab => {
+      const btn = document.createElement("div");
+      btn.className = "tab";
+      btn.textContent = tab;
+
+      if (tab === activeTab) btn.classList.add("active");
+
+      btn.onclick = () => {
+        [...tabContainer.children].forEach(t => t.classList.remove("active"));
+        btn.classList.add("active");
+        renderTabInputs(tab);
+      };
+
+      tabContainer.appendChild(btn);
+    });
+
+    renderTabInputs(activeTab);
+
+    // ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------
+    if (calc.gridName === "ROI") {
+      const marketInput = [...form.querySelectorAll("input")].find(i => i.placeholder.includes("Market"));
+      if (marketInput && typeof autocomplete === "function" && typeof autoDetectLocation === "function") {
+        marketInput.id = "marketLocation";
+        autocomplete(marketInput, topCities);
+        autoDetectLocation(marketInput);
+      }
+    }
+
+    // ------------------ CALCULATE BUTTON ------------------
+    const button = document.createElement("button");
+    button.className = "calc-btn";
+    button.textContent = "Calculate";
+
+    button.onclick = (e) => {
+      e.preventDefault();
+
+      const values = calc.tabs[activeTab].inputs.map(id => {
+        const val = inputValues[id];
+        return val !== undefined ? Number(val.replace(/,/g, "")) : NaN;
+      });
+
+      const locationValue = calc.location ? inputValues["location"] : null;
+
+      if (values.some(v => isNaN(v))) {
+        resultEl.innerHTML = "<h3>Please fill all inputs!</h3>";
+        return;
       }
 
-      formatInputWithCommas(input, inputValues, name);
+      let raw = calc.calculate(...values, locationValue);
 
-      group.appendChild(label);
-      group.appendChild(input);
-      tabContents.appendChild(group);
-    });
-  }
+      if (typeof raw === "string" && raw.includes("%")) {
+        resultEl.textContent = parseFloat(raw).toFixed(2) + "%";
+        return;
+      }
 
-  tabNames.forEach(tab => {
-    const btn = document.createElement("div");
-    btn.className = "tab";
-    btn.textContent = tab;
+      let num = Number(raw);
+      const digitCount = Math.floor(Math.log10(Math.abs(num))) + 1;
 
-    if (tab === activeTab) btn.classList.add("active");
-
-    btn.onclick = () => {
-      [...tabContainer.children].forEach(t => t.classList.remove("active"));
-      btn.classList.add("active");
-      renderTabInputs(tab);
+      resultEl.textContent = digitCount > 9 ? shortenBigNumber(num) : num.toLocaleString();
     };
 
-    tabContainer.appendChild(btn);
-  });
+    form.appendChild(button);
 
-  renderTabInputs(activeTab);
-
-  /* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
-  if (calc.gridName === "ROI") {
-    const marketInput = [...form.querySelectorAll("input")].find(i => i.placeholder.includes("Market"));
-    if (marketInput) {
-      marketInput.id = "marketLocation"; // give it an ID for reference
-      autocomplete(marketInput, topCities); // attach autocomplete
-      autoDetectLocation(marketInput);      // auto-fill based on IP
-    }
+  } catch (err) {
+    console.error("Error in loadCalculator:", err);
   }
-
-  /* ------------------ CALCULATE BUTTON ------------------ */
-  const button = document.createElement("button");
-  button.className = "calc-btn";
-  button.textContent = "Calculate";
-
-  button.onclick = (e) => {
-    e.preventDefault();
-
-    const values = calc.tabs[activeTab].inputs.map(id => {
-      const val = inputValues[id];
-      return val !== undefined ? Number(val.replace(/,/g, "")) : NaN;
-    });
-
-    const locationValue = calc.location ? inputValues["location"] : null;
-
-    if (values.some(v => isNaN(v))) {
-      resultEl.innerHTML = "<h3>Please fill all inputs!</h3>";
-      return;
-    }
-
-    let raw = calc.calculate(...values, locationValue);
-
-    // Percent (string like "8.3%")
-    if (typeof raw === "string" && raw.includes("%")) {
-      resultEl.textContent = parseFloat(raw).toFixed(2) + "%";
-      return;
-    }
-
-    let num = Number(raw);
-
-    // shorten if more than 9 digits
-    const digitCount = Math.floor(Math.log10(Math.abs(num))) + 1;
-
-    if (digitCount > 9) {
-      resultEl.textContent = shortenBigNumber(num);
-    } else {
-      resultEl.textContent = num.toLocaleString();
-    }
-  };
-
-  form.appendChild(button);
 }
 
 /* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
