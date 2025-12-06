@@ -891,23 +891,6 @@ const categories = {
   valuation: document.getElementById("cat-valuation"),
   analysis: document.getElementById("cat-analysis")
 };
-  
-/* ============================================================
-   TOP CITIES FOR AUTOCOMPLETE
------------------------------------------------------------- */
-const topCities = [
-  "New York, NY","Los Angeles, CA","Chicago, IL","Houston, TX","Phoenix, AZ",
-  "Philadelphia, PA","San Antonio, TX","San Diego, CA","Dallas, TX","San Jose, CA",
-  "Austin, TX","Jacksonville, FL","Fort Worth, TX","Columbus, OH","Charlotte, NC",
-  "San Francisco, CA","Indianapolis, IN","Seattle, WA","Denver, CO","Washington, DC",
-  "Boston, MA","El Paso, TX","Nashville, TN","Detroit, MI","Oklahoma City, OK",
-  "Portland, OR","Las Vegas, NV","Memphis, TN","Louisville, KY","Baltimore, MD",
-  "Milwaukee, WI","Albuquerque, NM","Tucson, AZ","Fresno, CA","Sacramento, CA",
-  "Kansas City, MO","Long Beach, CA","Mesa, AZ","Atlanta, GA","Colorado Springs, CO",
-  "Virginia Beach, VA","Raleigh, NC","Omaha, NE","Miami, FL","Oakland, CA",
-  "Minneapolis, MN","Tulsa, OK","Wichita, KS","New Orleans, LA","Arlington, TX",
-  // … add remaining cities to reach 200+
-];
 
 /* ------------------ RENDER TILES ------------------ */
 Object.entries(calculators).forEach(([key, c]) => {
@@ -937,100 +920,19 @@ const titleEl = document.getElementById("calculatorTitle");
 const form = document.getElementById("calculatorForm");
 const resultEl = document.getElementById("mainResult");
 
-  /* ============================================================
-   INPUT DROPDOWN SUPPORT
-   ------------------------------------------------------------ */
-function createDropdown(options, selectedValue, inputValues, key) {
-  const wrapper = document.createElement("div");
-  wrapper.className = "dropdown-wrapper";
-
-  const display = document.createElement("div");
-  display.className = "dropdown-display";
-  display.textContent = selectedValue || "Select";
-
-  const list = document.createElement("div");
-  list.className = "dropdown-list";
-
-  options.forEach(opt => {
-    const item = document.createElement("div");
-    item.className = "dropdown-item";
-    item.textContent = opt;
-
-    item.onclick = () => {
-      display.textContent = opt;
-      inputValues[key] = opt;
-      list.style.display = "none";
-    };
-
-    list.appendChild(item);
-  });
-
-  display.onclick = () => {
-    list.style.display = list.style.display === "block" ? "none" : "block";
-  };
-
-  wrapper.appendChild(display);
-  wrapper.appendChild(list);
-
-  return wrapper;
-}
-
-
-/* ============================================================
-   TOOLTIP SUPPORT (ⓘ icon)
-   ------------------------------------------------------------ */
-function createInfoIcon(text) {
-  const icon = document.createElement("span");
-  icon.className = "info-icon";
-  icon.textContent = "ⓘ";
-
-  const bubble = document.createElement("div");
-  bubble.className = "info-bubble";
-  bubble.textContent = text;
-
-  icon.appendChild(bubble);
-  return icon;
-}
-
-
-/* ============================================================
-   LOCATION-BASED SUGGESTED PLACEHOLDERS
-   ------------------------------------------------------------ */
-const suggestedByCity = {
-  "Miami, FL": {
-    "Purchase Price ($)": "$567,000",
-    "Appreciation Rate (%)": "9.2%"
-  },
-  "Los Angeles, CA": {
-    "Purchase Price ($)": "$782,000",
-    "Appreciation Rate (%)": "6.8%"
-  },
-  "New York, NY": {
-    "Purchase Price ($)": "$934,000",
-    "Appreciation Rate (%)": "5.4%"
-  }
-};
-
-function getSuggestedPlaceholder(city, field) {
-  return suggestedByCity[city]?.[field] || "";
-}
-
 /* ------------------ LOAD CALCULATOR ------------------ */
 function loadCalculator(key) {
   if (!calculators[key]) return;
 
   const calc = calculators[key];
 
-  // Show calculator, hide grid
   document.getElementById("screenGrid").style.display = "none";
   document.getElementById("screenCalculator").style.display = "block";
 
-  // Highlight active tile
   [...allTiles].forEach((t, i) =>
     t.classList.toggle("active", Object.keys(calculators)[i] === key)
   );
 
-  // Set titles
   document.getElementById("pageTitle").textContent = calc.pageTitle;
   titleEl.textContent = calc.calculatorTitle;
   document.getElementById("subtitle").textContent = calc.subtitle;
@@ -1042,38 +944,12 @@ function loadCalculator(key) {
 
   /* ------------------ OPTIONAL LOCATION ------------------ */
   if (calc.location) {
-    const group = document.createElement("div");
-    group.className = "input-group";
-
-    const label = document.createElement("label");
-    label.textContent = "Market (City & State)";
-
-    const input = document.createElement("input");
-    input.type = "text";
-    input.id = "marketLocation";
-    input.placeholder = "City, State";
-
-    // Autocomplete for cities
-    autocomplete(input, topCities);
-
-    // Save input value and refresh placeholders when changed
-    input.onchange = () => {
-      inputValues["Market (City & State)"] = input.value;
-      renderTabInputs(activeTab); // refresh placeholders
-    };
-
-    group.appendChild(label);
-    group.appendChild(input);
-    form.appendChild(group);
-
-    // Try auto-detect
-    autoDetectLocation();
+    const loc = document.createElement("input");
+    loc.type = "text";
+    loc.placeholder = "City, State";
+    loc.oninput = () => inputValues["location"] = loc.value;
+    form.appendChild(loc);
   }
-
-  /* ------------------ DROPDOWN FIELDS ------------------ */
-  const dropdownFields = {
-    "Property Type": ["Single Family", "Condo", "Townhouse", "Duplex", "Triplex", "Fourplex"]
-  };
 
   /* ------------------ TABS ------------------ */
   const tabContainer = document.createElement("div");
@@ -1101,44 +977,30 @@ function loadCalculator(key) {
       const label = document.createElement("label");
       label.textContent = name;
 
-      let inputElement;
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = name;
 
-      // Dropdown input
-      if (dropdownFields[name]) {
-        inputElement = createDropdown(dropdownFields[name], inputValues[name] || "", inputValues, name);
-      } 
-      // Regular text input
-      else {
-        inputElement = document.createElement("input");
-        inputElement.type = "text";
-
-        // Suggested placeholder based on location
-        const city = inputValues["Market (City & State)"] || "";
-        inputElement.placeholder = getSuggestedPlaceholder(city, name) || name;
-
-        // Pre-fill value if exists
-        if (inputValues[name]) {
-          const raw = inputValues[name];
-          const parts = raw.toString().split(".");
-          parts[0] = Number(parts[0]).toLocaleString();
-          inputElement.value = parts.join(".");
-        }
-
-        formatInputWithCommas(inputElement, inputValues, name);
+      if (inputValues[name]) {
+        const raw = inputValues[name];
+        const parts = raw.toString().split(".");
+        parts[0] = Number(parts[0]).toLocaleString();
+        input.value = parts.join(".");
       }
 
-      // Append label and input
+      formatInputWithCommas(input, inputValues, name);
+
       group.appendChild(label);
-      group.appendChild(inputElement);
+      group.appendChild(input);
       tabContents.appendChild(group);
     });
   }
 
-  /* ------------------ TABS BUTTONS ------------------ */
   tabNames.forEach(tab => {
     const btn = document.createElement("div");
     btn.className = "tab";
     btn.textContent = tab;
+
     if (tab === activeTab) btn.classList.add("active");
 
     btn.onclick = () => {
@@ -1151,8 +1013,6 @@ function loadCalculator(key) {
   });
 
   renderTabInputs(activeTab);
-}
-
 
   /* ------------------ CALCULATE BUTTON ------------------ */
   const button = document.createElement("button");
@@ -1170,88 +1030,12 @@ function loadCalculator(key) {
     const locationValue = calc.location ? inputValues["location"] : null;
 
     if (values.some(v => isNaN(v))) {
+      // 🔥 ADDED — error uses H3
       resultEl.innerHTML = "<h3>Please fill all inputs!</h3>";
       return;
     }
 
     let raw = calc.calculate(...values, locationValue);
-
-    // Percent
-    if (typeof raw === "string" && raw.includes("%")) {
-      resultEl.textContent = parseFloat(raw).toFixed(2) + "%";
-      return;
-    }
-
-    // Dollar / number formatting
-    const num = Number(raw);
-    const digitCount = Math.floor(Math.log10(Math.abs(num))) + 1;
-
-    if (calc.currencyFields?.includes(activeTab)) {
-      resultEl.textContent = "$" + num.toLocaleString();
-    } else if (digitCount > 9) {
-      resultEl.textContent = shortenBigNumber(num);
-    } else {
-      resultEl.textContent = num.toLocaleString();
-    }
-  };
-
-  form.appendChild(button);
-}
-
-    
-  /* ============================================================
-   CITY AUTOCOMPLETE
-   ------------------------------------------------------------ */
-function autocomplete(input, list) {
-  let currentFocus = -1;
-
-  input.addEventListener("input", function () {
-    const val = this.value;
-    closeAllLists();
-
-    if (!val) return;
-
-    const container = document.createElement("div");
-    container.className = "autocomplete-items";
-    this.parentNode.appendChild(container);
-
-    list.forEach(city => {
-      if (city.toLowerCase().includes(val.toLowerCase())) {
-        const item = document.createElement("div");
-        item.innerHTML = city;
-        item.onclick = () => {
-          input.value = city;
-          input.dispatchEvent(new Event("change"));
-          closeAllLists();
-        };
-        container.appendChild(item);
-      }
-    });
-  });
-
-  function closeAllLists() {
-    document.querySelectorAll(".autocomplete-items").forEach(el => el.remove());
-  }
-}
-
-/* ============================================================
-   AUTO-DETECT USER LOCATION
-   ------------------------------------------------------------ */
-function autoDetectLocation() {
-  fetch("https://ipapi.co/json/")
-    .then(res => res.json())
-    .then(data => {
-      const city = data.city;
-      const region = data.region_code;
-
-      if (city && region) {
-        const input = document.getElementById("marketLocation");
-        input.value = `${city}, ${region}`;
-        input.dispatchEvent(new Event("change"));
-      }
-    })
-    .catch(err => console.warn("Location detection failed:", err));
-}
 
     /* ----------------------------------------------------
        🔥 REPLACED RESULT HANDLING COMPLETELY
@@ -1294,6 +1078,7 @@ function tryLoadFromHash() {
 
 window.addEventListener("load", tryLoadFromHash);
 window.addEventListener("hashchange", tryLoadFromHash);
+
 
 </script>
 
