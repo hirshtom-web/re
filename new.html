@@ -954,29 +954,35 @@ function loadCalculator(key) {
   let activeTab = tabNames[0];
 
   function renderTabInputs(tab) {
-    tabContents.innerHTML = "";
-    activeTab = tab;
+  tabContents.innerHTML = "";
+  activeTab = tab;
 
-    calc.tabs[tab].inputs.forEach((name) => {
-      const inputGroup = document.createElement("div");
-      inputGroup.className = "input-group";
+  calc.tabs[tab].inputs.forEach((name) => {
+    const inputGroup = document.createElement("div");
+    inputGroup.className = "input-group";
 
-      const label = document.createElement("label");
-      label.textContent = name;
+    const label = document.createElement("label");
+    label.textContent = name;
 
-      const input = document.createElement("input");
-      input.type = "number";
-      input.placeholder = name;
+    const input = document.createElement("input");
+    input.type = "text";              // ← CHANGE: text, not number
+    input.placeholder = name;
 
-      if (inputValues[name] !== undefined) input.value = inputValues[name];
+    if (inputValues[name] !== undefined) {
+      const parts = inputValues[name].toString().split(".");
+      parts[0] = Number(parts[0]).toLocaleString();
+      input.value = parts.join(".");
+    }
 
-      input.oninput = () => inputValues[name] = input.value;
+    // NEW: Add comma-formatting handler
+    formatInputWithCommas(input, inputValues, name);
 
-      inputGroup.appendChild(label);
-      inputGroup.appendChild(input);
-      tabContents.appendChild(inputGroup);
-    });
-  }
+    inputGroup.appendChild(label);
+    inputGroup.appendChild(input);
+    tabContents.appendChild(inputGroup);
+  });
+}
+
 
   // Render tabs
   tabNames.forEach(tab => {
