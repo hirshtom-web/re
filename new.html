@@ -939,21 +939,23 @@ function loadCalculator(key) {
   }
 
   /* ------------------ TABS ------------------ */
-  const tabContainer = document.createElement("div");
-  tabContainer.className = "tab-container";
-  form.appendChild(tabContainer);
+  /* ------------------ TABS ------------------ */
+const tabContainer = document.createElement("div");
+tabContainer.className = "tab-container";
+form.appendChild(tabContainer);
 
-  const tabContents = document.createElement("div");
-  tabContents.className = "tab-contents";
-  form.appendChild(tabContents);
+const tabContents = document.createElement("div");
+tabContents.className = "tab-contents";
+form.appendChild(tabContents);
 
-  const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
-  const tabNames = preferredOrder.filter(t => calc.tabs[t])
-    .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
+// Enforce tab order
+const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
+const tabNames = preferredOrder.filter(t => calc.tabs[t])
+  .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
 
-  let activeTab = tabNames[0];
+let activeTab = tabNames[0];
 
-  function renderTabInputs(tab) {
+function renderTabInputs(tab) {
   tabContents.innerHTML = "";
   activeTab = tab;
 
@@ -965,16 +967,17 @@ function loadCalculator(key) {
     label.textContent = name;
 
     const input = document.createElement("input");
-    input.type = "text";              // ← CHANGE: text, not number
+    input.type = "text";
     input.placeholder = name;
 
+    // Restore saved value, with formatting
     if (inputValues[name] !== undefined) {
       const parts = inputValues[name].toString().split(".");
       parts[0] = Number(parts[0]).toLocaleString();
       input.value = parts.join(".");
     }
 
-    // NEW: Add comma-formatting handler
+    // Format on input
     formatInputWithCommas(input, inputValues, name);
 
     inputGroup.appendChild(label);
@@ -983,25 +986,24 @@ function loadCalculator(key) {
   });
 }
 
+// Render tab buttons
+tabNames.forEach(tab => {
+  const btn = document.createElement("div");
+  btn.className = "tab";
+  btn.textContent = tab;
 
-  // Render tabs
-  tabNames.forEach(tab => {
-    const btn = document.createElement("div");
-    btn.className = "tab";
-    btn.textContent = tab;
+  if (tab === activeTab) btn.classList.add("active");
 
-    if (tab === activeTab) btn.classList.add("active");
+  btn.onclick = () => {
+    [...tabContainer.children].forEach(t => t.classList.remove("active"));
+    btn.classList.add("active");
+    renderTabInputs(tab);
+  };
 
-    btn.onclick = () => {
-      [...tabContainer.children].forEach(t => t.classList.remove("active"));
-      btn.classList.add("active");
-      renderTabInputs(tab);
-    };
+  tabContainer.appendChild(btn);
+});
 
-    tabContainer.appendChild(btn);
-  });
-
-  renderTabInputs(activeTab);
+renderTabInputs(activeTab);
 
   /* ------------------ CALCULATE BUTTON ------------------ */
   const button = document.createElement("button");
