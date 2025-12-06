@@ -1054,6 +1054,7 @@ form.inputValues = inputValues;
 
   
   /* ------------------ TABS ------------------ */
+/* ------------------ TABS ------------------ */
 const tabContainer = document.createElement("div");
 tabContainer.className = "tab-container";
 form.appendChild(tabContainer);
@@ -1103,19 +1104,18 @@ function renderTabInputs(tab) {
         inputValues[name] = savedLocation.value;
       }
 
-      // Function to save current input value
-      const saveLocation = () => {
-        savedLocation.value = input.value;
+      // Save input as user types
+      input.addEventListener("input", () => {
         inputValues[name] = input.value;
-      };
+      });
 
-      // Save on typing
-      input.addEventListener("input", saveLocation);
-      input.addEventListener("change", saveLocation);
-
-      // Attach autocomplete + auto-detect
+      // Attach autocomplete with callback for selection
       setTimeout(() => {
-        autocomplete(input, topCities);
+        autocomplete(input, topCities, (selectedCity) => {
+          input.value = selectedCity;
+          savedLocation.value = selectedCity;
+          inputValues[name] = selectedCity;
+        });
 
         if (!savedLocation.value) {
           autoDetectLocation(input);
@@ -1123,19 +1123,11 @@ function renderTabInputs(tab) {
       }, 50);
 
     } else {
-      // ✅ Save every other input automatically
+      // Save every other input automatically
       input.addEventListener("input", () => {
         inputValues[name] = input.value;
       });
     }
-
-    group.appendChild(label);
-    group.appendChild(input);
-    tabContents.appendChild(group);
-  });
-}
-
-
 
     group.appendChild(label);
     group.appendChild(input);
