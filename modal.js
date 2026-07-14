@@ -1,11 +1,16 @@
 function openDeal(page){
 
-document.getElementById("dealFrame").src = page;
+    let modal = document.getElementById("dealModal");
+    let frame = document.getElementById("dealFrame");
 
-document.getElementById("dealModal")
-.classList.add("active");
+    frame.src = page;
 
-document.body.style.overflow="hidden";
+    modal.classList.add("active");
+
+    // update browser URL
+    let dealName = page.replace(".html","");
+
+    history.pushState(null, "", "?deal=" + dealName);
 
 }
 
@@ -13,11 +18,32 @@ document.body.style.overflow="hidden";
 
 function closeDeal(){
 
-document.getElementById("dealModal")
-.classList.remove("active");
+    let modal = document.getElementById("dealModal");
+    let frame = document.getElementById("dealFrame");
 
-document.getElementById("dealFrame").src="";
+    modal.classList.remove("active");
 
-document.body.style.overflow="auto";
+    frame.src = "";
+
+    // remove deal from URL
+    history.pushState(null, "", window.location.pathname);
 
 }
+
+
+
+// Automatically open deal if URL contains ?deal=
+window.addEventListener("load", function(){
+
+    let params = new URLSearchParams(window.location.search);
+
+    let deal = params.get("deal");
+
+
+    if(deal){
+
+        openDeal(deal + ".html");
+
+    }
+
+});
