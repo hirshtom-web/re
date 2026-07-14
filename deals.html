@@ -10,6 +10,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="deals.css">
+<link rel="stylesheet" href="modal.css">
   
 
 </head>
@@ -336,21 +337,20 @@ VIEW OFFERING
 
 <div class="modal" id="dealModal">
 
-<div class="modal-content">
+    <div class="modal-content">
 
-<button class="close" onclick="closeDeal()">
-×
-</button>
+        <button class="close" onclick="closeDeal()">
+            ×
+        </button>
 
+        <iframe id="dealFrame"></iframe>
 
-<div id="dealContent">
-
-</div>
-
+    </div>
 
 </div>
 
-</div>
+
+<script src="modal.js"></script>
 
 
 <footer>
