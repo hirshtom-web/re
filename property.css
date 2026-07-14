@@ -994,6 +994,27 @@ EXECUTIVE SUMMARY
 }
 
 
+.summary-box{
+
+    padding:20px;
+
+    margin-bottom:35px;
+
+}
 
 
+
+@media(max-width:600px){
+
+.summary-box p{
+
+    font-size:13px;
+
+    line-height:1.65;
+
+    margin-bottom:16px;
+
+}
+
+}
 
