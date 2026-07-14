@@ -442,16 +442,50 @@ Prepared for Qualified Investors
 
     <div class="modal-content">
 
-        <button class="close" onclick="closeDeal()">
-            ×
-        </button>
+        <div class="modal-header">
+
+            <div class="modal-left">
+
+                <button class="modal-btn" onclick="closeDeal()">
+
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M15 18L9 12L15 6"/>
+</svg>
+
+Back
+
+</button>
+
+            </div>
+
+            <div class="modal-center">
+
+                <img
+                    class="modal-logo"
+                    src="https://static.wixstatic.com/shapes/1799ca_7155831ea6c34da28a5a12b76fe72255.svg"
+                    alt="Logo">
+
+            </div>
+
+            <div class="modal-right">
+
+                <button class="modal-btn" onclick="copyDealLink()">
+                    Share
+                </button>
+
+                <button class="modal-btn" onclick="window.print()">
+                    PDF
+                </button>
+
+            </div>
+
+        </div>
 
         <iframe id="dealFrame"></iframe>
 
     </div>
 
 </div>
-
 
 <script src="modal.js"></script>
 
