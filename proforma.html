@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Investment Pro Forma</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="proforma.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+
+<div>
+
+<div class="eyebrow">
+REAL ESTATE UNDERWRITING
+</div>
+
+<h1>
+Run Investment Numbers
+</h1>
+
+<p class="subtitle">
+Adjust financing assumptions and instantly evaluate projected returns.
+</p>
+
+</div>
+
+<button class="run-btn" onclick="runModel()">
+RUN MODEL
+</button>
+
+</header>
+
+
+<div class="layout">
+
+
+<!-- LEFT COLUMN -->
+
+<div class="inputs">
+
+
+<div class="card">
+
+<h2>Property</h2>
+
+<div class="field">
+<label>Purchase Price</label>
+<input type="number" id="purchasePrice" value="14000000">
+</div>
+
+<div class="field">
+<label>Annual NOI</label>
+<input type="number" id="noi" value="787000">
+</div>
+
+<div class="field">
+<label>Annual NOI Growth (%)</label>
+<input type="number" id="noiGrowth" value="3">
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Financing</h2>
+
+<div class="field">
+<label>Down Payment (%)</label>
+<input type="number" id="downPayment" value="30">
+</div>
+
+<div class="field">
+<label>Interest Rate (%)</label>
+<input type="number" id="interestRate" step=".01" value="6.25">
+</div>
+
+<div class="field">
+<label>Loan Term (Years)</label>
+<input type="number" id="loanTerm" value="25">
+</div>
+
+<div class="field">
+<label>Amortization (Years)</label>
+<input type="number" id="amortization" value="30">
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Exit Strategy</h2>
+
+<div class="field">
+<label>Hold Period (Years)</label>
+<input type="number" id="holdPeriod" value="10">
+</div>
+
+<div class="field">
+<label>Exit Cap Rate (%)</label>
+<input type="number" id="exitCap" step=".01" value="6">
+</div>
+
+<div class="field">
+
+<label>
+
+<input type="checkbox" id="refi">
+
+ Refinance During Hold
+
+</label>
+
+</div>
+
+<div class="field">
+<label>Refi Year</label>
+<input type="number" id="refiYear" value="5">
+</div>
+
+<div class="field">
+<label>New Loan LTV (%)</label>
+<input type="number" id="refiLTV" value="70">
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- RIGHT COLUMN -->
+
+<div class="results">
+
+
+<div class="card">
+
+<h2>Projected Returns</h2>
+
+
+<div class="metric">
+
+<span>Equity Required</span>
+
+<strong id="equityRequired">
+-
+</strong>
+
+</div>
+
+
+<div class="metric">
+
+<span>Loan Amount</span>
+
+<strong id="loanAmount">
+-
+</strong>
+
+</div>
+
+
+<div class="metric">
+
+<span>Annual Debt Service</span>
+
+<strong id="debtService">
+-
+</strong>
+
+</div>
+
+
+<div class="metric">
+
+<span>Year 1 Cash Flow</span>
+
+<strong id="cashFlow">
+-
+</strong>
+
+</div>
+
+
+<div class="metric">
+
+<span>Cash-on-Cash Return</span>
+
+<strong id="coc">
+-
+</strong>
+
+</div>
+
+
+<div class="metric">
+
+<span>Projected Sale Price</span>
+
+<strong id="salePrice">
+-
+</strong>
+
+</div>
+
+
+<div class="metric">
+
+<span>Estimated Profit</span>
+
+<strong id="profit">
+-
+</strong>
+
+</div>
+
+
+<div class="metric">
+
+<span>IRR</span>
+
+<strong id="irr">
+-
+</strong>
+
+</div>
+
+
+<div class="metric">
+
+<span>Equity Multiple</span>
+
+<strong id="multiple">
+-
+</strong>
+
+</div>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>Annual Cash Flow</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Year</th>
+
+<th>NOI</th>
+
+<th>Debt</th>
+
+<th>Cash Flow</th>
+
+</tr>
+
+</thead>
+
+<tbody id="cashflowTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+<script src="proforma.js"></script>
+
+</body>
+
+</html>
