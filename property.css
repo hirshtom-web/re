@@ -957,3 +957,43 @@ cursor:pointer;
 }
 
 
+/* =========================
+EXECUTIVE SUMMARY
+========================= */
+
+.summary-box{
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    padding:35px;
+
+    margin-bottom:80px;
+
+}
+
+
+.summary-box p{
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    margin-bottom:22px;
+
+}
+
+
+.summary-box p:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+
+
+
