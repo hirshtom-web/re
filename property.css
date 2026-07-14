@@ -934,21 +934,4 @@ footer{
 
 }
   
-  /* EXECUTIVE CARD RADIUS OVERRIDE */
-
-.snapshot,
-.snapshot div,
-.image-card,
-.image-placeholder,
-.image-caption,
-.detail-list,
-.detail-list div,
-.highlight,
-.financial-table,
-.financial-table div,
-.map-placeholder,
-.risk-grid div,
-button {
-    border-radius:10px;
-}
   
