@@ -6,7 +6,8 @@ function openDeal(page){
     frame.src = page;
 
     modal.classList.add("active");
-    document.body.classList.add("modal-open"); // Freeze background
+    document.body.classList.add("modal-open");
+document.documentElement.classList.add("modal-open");
 
     // update browser URL
     let dealName = page.replace(".html","");
@@ -23,7 +24,8 @@ function closeDeal(){
     let frame = document.getElementById("dealFrame");
 
     modal.classList.remove("active");
-    document.body.classList.remove("modal-open"); // Unfreeze background
+    document.body.classList.remove("modal-open");
+document.documentElement.classList.remove("modal-open");
 
     frame.src = "";
 
