@@ -186,83 +186,111 @@ High visibility retail corridor with surrounding commercial demand.
 </div>
 </section>
 
- <section class="proforma-section">
+<section>
+<h2>Investment ROI Analysis</h2>
 
-    <h2>Investment ROI Analysis</h2>
+<div class="proforma-grid">
 
-    <p>Adjust assumptions to analyze potential returns.</p>
+    <div class="proforma-card">
 
-    <div class="proforma-grid">
+        <span>01</span>
 
-        <div class="proforma-inputs">
+        <h3>Investment Assumptions</h3>
 
-            <label>
-                Purchase Price
-                <input id="purchasePrice" value="3500000">
-            </label>
+        <p>
+            Adjust investment variables to analyze potential returns.
+        </p>
 
-            <label>
-                Annual NOI
-                <input id="noi" value="288000">
-            </label>
 
-            <label>
-                NOI Growth %
-                <input id="noiGrowth" value="3">
-            </label>
+        <label>
+            Purchase Price
+            <input id="purchasePrice" value="3500000">
+        </label>
 
-            <label>
-                Down Payment %
-                <input id="downPayment" value="35">
-            </label>
 
-            <label>
-                Interest Rate %
-                <input id="interestRate" value="6.5">
-            </label>
+        <label>
+            Annual NOI
+            <input id="noi" value="288000">
+        </label>
 
-            <label>
-                Hold Period
-                <input id="holdPeriod" value="10">
-            </label>
 
-        </div>
+        <label>
+            NOI Growth %
+            <input id="noiGrowth" value="3">
+        </label>
 
-        <div class="proforma-results">
 
-            <h3>Returns</h3>
+        <label>
+            Down Payment %
+            <input id="downPayment" value="35">
+        </label>
 
-            <p>
-                Equity:
-                <strong id="equityRequired"></strong>
-            </p>
 
-            <p>
-                Cash Flow:
-                <strong id="cashFlow"></strong>
-            </p>
+        <label>
+            Interest Rate %
+            <input id="interestRate" value="6.5">
+        </label>
 
-            <p>
-                Cash-on-Cash:
-                <strong id="coc"></strong>
-            </p>
 
-            <p>
-                Sale Price:
-                <strong id="salePrice"></strong>
-            </p>
+        <label>
+            Hold Period
+            <input id="holdPeriod" value="10">
+        </label>
 
-            <p>
-                Profit:
-                <strong id="profit"></strong>
-            </p>
-
-        </div>
 
     </div>
 
-</section>
 
+
+    <div class="proforma-card">
+
+        <span>02</span>
+
+        <h3>Projected Returns</h3>
+
+
+        <div class="proforma-table">
+
+
+            <div>
+                <span>Investor Equity</span>
+                <strong id="equityRequired"></strong>
+            </div>
+
+
+            <div>
+                <span>Annual Cash Flow</span>
+                <strong id="cashFlow"></strong>
+            </div>
+
+
+            <div>
+                <span>Cash-on-Cash Return</span>
+                <strong id="coc"></strong>
+            </div>
+
+
+            <div>
+                <span>Projected Sale Price</span>
+                <strong id="salePrice"></strong>
+            </div>
+
+
+            <div>
+                <span>Total Profit</span>
+                <strong id="profit"></strong>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+</section>
   
 <!-- LOCATION -->
 <section class="location-section">
