@@ -220,49 +220,43 @@ function runModel() {
 
 function setupTabs(){
 
-
-    document
-    .querySelectorAll(".proforma-tabs button")
-    .forEach(button=>{
+    const buttons = document.querySelectorAll(".proforma-tabs button");
+    const tabs = document.querySelectorAll(".tab-content");
 
 
-        button.addEventListener("click",()=>{
+    buttons.forEach(button => {
+
+        button.addEventListener("click", function(e){
+
+            e.preventDefault();
 
 
-            document
-            .querySelectorAll(".proforma-tabs button")
-            .forEach(btn =>
-                btn.classList.remove("active")
-            );
+            buttons.forEach(btn=>{
+                btn.classList.remove("active");
+            });
 
 
-            button.classList.add("active");
+            tabs.forEach(tab=>{
+                tab.classList.remove("active");
+            });
 
 
-
-            document
-            .querySelectorAll(".tab-content")
-            .forEach(tab =>
-                tab.classList.remove("active")
-            );
+            this.classList.add("active");
 
 
-          const target =
-document.getElementById(button.dataset.tab);
+            const target =
+                document.getElementById(this.dataset.tab);
 
-if(target){
-    target.classList.add("active");
-}
 
+            if(target){
+                target.classList.add("active");
+            }
 
         });
 
-
     });
 
-
 }
-
 
 
 // =========================================
