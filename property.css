@@ -28,9 +28,12 @@
 
 }
 
+html.modal-open,
 body.modal-open {
     overflow: hidden;
+    height: 100%;
 }
+
 
 body{
 
