@@ -1,17 +1,73 @@
 // =========================================
-// SIMPLE REAL ESTATE UNDERWRITING ENGINE
-// Version 1.0
+// REAL ESTATE PROFORMA ENGINE
 // =========================================
 
 
 function formatMoney(value) {
+
     return "$" + Math.round(value).toLocaleString();
+
 }
 
 
 function formatPercent(value) {
+
     return value.toFixed(2) + "%";
+
 }
+
+
+
+// =========================================
+// LOAD PROPERTY DATA
+// =========================================
+
+function loadPropertyData() {
+
+
+    const property = document.body.dataset;
+
+
+    const purchasePrice =
+        document.getElementById("purchasePrice");
+
+
+    if(!purchasePrice) return;
+
+
+    purchasePrice.value =
+        property.price || 0;
+
+
+    document.getElementById("noi").value =
+        property.noi || 0;
+
+
+    document.getElementById("exitCap").value =
+        property.cap || 7;
+
+
+    document.getElementById("downPayment").value =
+        35;
+
+
+    document.getElementById("interestRate").value =
+        6.5;
+
+
+    document.getElementById("amortization").value =
+        25;
+
+
+    document.getElementById("noiGrowth").value =
+        3;
+
+
+    document.getElementById("holdPeriod").value =
+        10;
+
+}
+
 
 
 // =========================================
@@ -20,38 +76,71 @@ function formatPercent(value) {
 
 function runModel() {
 
-    // -----------------------------
-    // Inputs
-    // -----------------------------
 
-    const price = Number(document.getElementById("purchasePrice").value);
-
-    const noi = Number(document.getElementById("noi").value);
-
-    const growth = Number(document.getElementById("noiGrowth").value) / 100;
-
-    const down = Number(document.getElementById("downPayment").value) / 100;
-
-    const rate = Number(document.getElementById("interestRate").value) / 100;
-
-    const amortYears = Number(document.getElementById("amortization").value);
-
-    const hold = Number(document.getElementById("holdPeriod").value);
-
-    const exitCap = Number(document.getElementById("exitCap").value) / 100;
+    const price =
+        Number(
+            document.getElementById("purchasePrice").value
+        );
 
 
-    // -----------------------------
-    // Financing
-    // -----------------------------
+    const noi =
+        Number(
+            document.getElementById("noi").value
+        );
 
-    const equity = price * down;
 
-    const loan = price - equity;
+    const growth =
+        Number(
+            document.getElementById("noiGrowth").value
+        ) / 100;
 
-    const monthlyRate = rate / 12;
 
-    const payments = amortYears * 12;
+    const down =
+        Number(
+            document.getElementById("downPayment").value
+        ) / 100;
+
+
+    const rate =
+        Number(
+            document.getElementById("interestRate").value
+        ) / 100;
+
+
+    const amortYears =
+        Number(
+            document.getElementById("amortization").value
+        );
+
+
+    const hold =
+        Number(
+            document.getElementById("holdPeriod").value
+        );
+
+
+    const exitCap =
+        Number(
+            document.getElementById("exitCap").value
+        ) / 100;
+
+
+
+    const equity =
+        price * down;
+
+
+    const loan =
+        price - equity;
+
+
+    const monthlyRate =
+        rate / 12;
+
+
+    const payments =
+        amortYears * 12;
+
 
 
     const monthlyPayment =
@@ -60,222 +149,147 @@ function runModel() {
         (Math.pow(1 + monthlyRate, payments) - 1);
 
 
-    const annualDebt = monthlyPayment * 12;
+
+    const annualDebt =
+        monthlyPayment * 12;
 
 
-    // -----------------------------
-    // Year One
-    // -----------------------------
 
-    const cashFlow = noi - annualDebt;
-
-    const coc = (cashFlow / equity) * 100;
+    const cashFlow =
+        noi - annualDebt;
 
 
-    // -----------------------------
-    // Future NOI
-    // -----------------------------
 
-    let futureNOI = noi;
+    const coc =
+        (cashFlow / equity) * 100;
 
 
-    for (let i = 1; i < hold; i++) {
+
+    let futureNOI =
+        noi;
+
+
+
+    for(let i = 1; i < hold; i++){
 
         futureNOI *= (1 + growth);
 
     }
 
 
-    // -----------------------------
-    // Sale Price
-    // -----------------------------
 
-    const salePrice = futureNOI / exitCap;
-
-    const profit = salePrice - price;
+    const salePrice =
+        futureNOI / exitCap;
 
 
+    const profit =
+        salePrice - price;
 
-    // -----------------------------
-    // Outputs
-    // -----------------------------
 
-    document.getElementById("equityRequired").innerHTML =
+
+    document.getElementById("resultEquity").innerHTML =
         formatMoney(equity);
 
-    document.getElementById("loanAmount").innerHTML =
+
+    document.getElementById("resultDebt").innerHTML =
         formatMoney(loan);
 
-    document.getElementById("debtService").innerHTML =
-        formatMoney(annualDebt);
 
-    document.getElementById("cashFlow").innerHTML =
+    document.getElementById("resultCashFlow").innerHTML =
         formatMoney(cashFlow);
 
-    document.getElementById("coc").innerHTML =
+
+    document.getElementById("resultCoc").innerHTML =
         formatPercent(coc);
 
-    document.getElementById("salePrice").innerHTML =
+
+    document.getElementById("resultSale").innerHTML =
         formatMoney(salePrice);
 
-    document.getElementById("profit").innerHTML =
+
+    document.getElementById("resultProfit").innerHTML =
         formatMoney(profit);
-
-    document.getElementById("irr").innerHTML =
-        "Coming Soon";
-
-    document.getElementById("multiple").innerHTML =
-        "Coming Soon";
-
-
-
-    // -----------------------------
-    // Cash Flow Table
-    // -----------------------------
-
-    let html = "";
-
-    let currentNOI = noi;
-
-
-    for (let year = 1; year <= hold; year++) {
-
-
-        const yearlyCash =
-            currentNOI - annualDebt;
-
-
-        html += `
-
-        <tr>
-
-            <td>${year}</td>
-
-            <td>${formatMoney(currentNOI)}</td>
-
-            <td>${formatMoney(annualDebt)}</td>
-
-            <td>${formatMoney(yearlyCash)}</td>
-
-        </tr>
-
-        `;
-
-
-        currentNOI *= (1 + growth);
-
-    }
-
-
-    document.getElementById("cashflowTable").innerHTML = html;
 
 }
 
 
 
 // =========================================
-// PAGE LOAD
+// TABS
 // =========================================
 
-window.addEventListener("load", () => {
+function setupTabs(){
 
 
-    // Run calculations if fields exist
-    if(document.getElementById("purchasePrice")) {
-
-        runModel();
-
-    }
+    document
+    .querySelectorAll(".proforma-tabs button")
+    .forEach(button=>{
 
 
-
-    // =========================================
-    // PROFORMA BUTTON + MODAL
-    // =========================================
-
-    const fab =
-        document.getElementById("proformaFab");
+        button.addEventListener("click",()=>{
 
 
-    const modal =
-        document.getElementById("proformaModal");
+            document
+            .querySelectorAll(".proforma-tabs button")
+            .forEach(btn =>
+                btn.classList.remove("active")
+            );
 
 
-    const closeBtn =
-        document.querySelector(".close-btn");
+            button.classList.add("active");
 
 
 
-    if(!fab || !modal) {
-
-        console.log("Proforma elements not found");
-
-        return;
-
-    }
+            document
+            .querySelectorAll(".tab-content")
+            .forEach(tab =>
+                tab.classList.remove("active")
+            );
 
 
+            document
+            .getElementById(button.dataset.tab)
+            .classList.add("active");
 
-    // Floating button show/hide
-
-    window.addEventListener("scroll", () => {
-
-
-        if(window.scrollY > 400) {
-
-            fab.classList.add("visible");
-
-
-        } else {
-
-            fab.classList.remove("visible");
-
-        }
-
-
-    });
-
-
-
-    // Open modal
-
-    fab.addEventListener("click", () => {
-
-
-        modal.classList.add("open");
-
-
-    });
-
-
-
-    // Close button
-
-    if(closeBtn) {
-
-        closeBtn.addEventListener("click", () => {
-
-            modal.classList.remove("open");
 
         });
 
-    }
-
-
-
-    // Click outside modal closes
-
-    modal.addEventListener("click", (event) => {
-
-
-        if(event.target === modal) {
-
-            modal.classList.remove("open");
-
-        }
-
 
     });
+
+
+}
+
+
+
+// =========================================
+// INITIALIZE
+// =========================================
+
+window.addEventListener("load",()=>{
+
+
+    loadPropertyData();
+
+
+    setupTabs();
+
+
+
+    const runButton =
+        document.getElementById("runProforma");
+
+
+    if(runButton){
+
+
+        runButton.addEventListener(
+            "click",
+            runModel
+        );
+
+
+    }
 
 
 });
