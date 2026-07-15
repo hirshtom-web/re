@@ -266,7 +266,7 @@ function setupTabs(){
 // INITIALIZE
 // =========================================
 
-window.addEventListener("load",()=>{
+document.addEventListener("DOMContentLoaded",()=>{
 
 
     loadPropertyData();
