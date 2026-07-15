@@ -165,3 +165,54 @@ window.addEventListener(
 
     }
 );
+
+// =========================================
+// PROFORMA MODAL CONTROL
+// =========================================
+
+const fab = document.getElementById("proformaFab");
+const modal = document.getElementById("proformaModal");
+
+
+// Show / hide floating button
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 400) {
+
+        fab.classList.add("visible");
+
+    } else {
+
+        fab.classList.remove("visible");
+
+    }
+
+});
+
+
+// Open modal
+fab.addEventListener("click", () => {
+
+    modal.classList.add("open");
+
+});
+
+
+// Close modal
+function closeProforma() {
+
+    modal.classList.remove("open");
+
+}
+
+
+// Close if clicking outside the sheet
+modal.addEventListener("click", (event) => {
+
+    if(event.target === modal){
+
+        closeProforma();
+
+    }
+
+});
