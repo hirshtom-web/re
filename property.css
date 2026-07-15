@@ -1037,7 +1037,7 @@ PROFORMA WIDGET
 
 
 
-.proforma-tabs{
+.proforma-tabs {
 
     display:flex;
 
@@ -1045,33 +1045,25 @@ PROFORMA WIDGET
 
     margin-bottom:20px;
 
-}
+    overflow-x:auto;
 
-
-
-.proforma-tabs button{
-
-    margin:0;
-
-    background:white;
-
-    color:var(--text);
-
-    border:1px solid var(--line);
-
-    padding:10px 20px;
-
-    border-radius:20px;
+    scrollbar-width:none;
 
 }
 
 
+.proforma-tabs::-webkit-scrollbar {
 
-.proforma-tabs .active{
+    display:none;
 
-    background:#171717;
+}
 
-    color:white;
+
+.proforma-tabs button {
+
+    flex:0 0 auto;
+
+    white-space:nowrap;
 
 }
 
@@ -1208,5 +1200,59 @@ PROFORMA WIDGET
 
 }
 
+
+.proforma-tabs {
+
+    padding-bottom:8px;
+
+    margin-left:-14px;
+
+    margin-right:-14px;
+
+    padding-left:14px;
+
+}
+
+
+.proforma-tabs button {
+
+    padding:10px 18px;
+
+    font-size:12px;
+
+}
+
+
+.proforma-tabs {
+
+    position:relative;
+
+}
+
+
+.proforma-tabs:after {
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+
+    top:0;
+
+    width:40px;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        to right,
+        transparent,
+        var(--bg)
+    );
+
+    pointer-events:none;
+
+}
 
 }
