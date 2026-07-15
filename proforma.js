@@ -87,6 +87,9 @@ function runModel() {
         Number(
             document.getElementById("noi").value
         );
+    if (!price || !noi) {
+    return;
+}
 
 
     const growth =
