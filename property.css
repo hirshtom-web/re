@@ -1024,44 +1024,158 @@ EXECUTIVE SUMMARY
 }
 
 /* =========================
-PROFORMA ANALYSIS
+PROFORMA
 ========================= */
-.proforma-section {
-    margin-top:80px;
-    padding:40px;
-    background:white;
-    border:1px solid var(--line);
-    border-radius:10px;
-}
 
 
-.proforma-grid {
+.proforma-grid{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    margin-top:30px;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+    margin-bottom:80px;
+
 }
 
 
-.proforma-inputs {
-    background:var(--soft);
-    padding:25px;
-    border-radius:10px;
-}
 
+.proforma-card{
 
-.proforma-inputs input {
-    width:100%;
-    padding:12px;
-    margin-top:8px;
-    border:1px solid var(--line);
-    border-radius:6px;
-}
-
-
-.proforma-results {
     background:white;
+
     border:1px solid var(--line);
-    padding:25px;
+
+    padding:30px;
+
     border-radius:10px;
+
+}
+
+
+
+.proforma-card span{
+
+    color:var(--accent);
+
+    font-size:13px;
+
+}
+
+
+
+.proforma-card h3{
+
+    margin:20px 0 12px;
+
+    font-size:17px;
+
+}
+
+
+
+.proforma-card p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+
+}
+
+
+/* INPUTS */
+
+
+.proforma-card label{
+
+    margin-bottom:20px;
+
+}
+
+
+
+.proforma-card input{
+
+    display:block;
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:12px;
+
+    border:1px solid var(--line);
+
+    border-radius:6px;
+
+    background:#fff;
+
+}
+
+
+
+/* RESULTS TABLE */
+
+.proforma-table{
+
+    background:white;
+
+    border:1px solid var(--line);
+
+}
+
+
+
+.proforma-table div{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:20px;
+
+    border-bottom:1px solid var(--line);
+
+}
+
+
+
+.proforma-table div:last-child{
+
+    border-bottom:none;
+
+}
+
+
+
+.proforma-table span{
+
+    color:var(--muted);
+
+}
+
+
+
+.proforma-table strong{
+
+    color:var(--text);
+
+    font-size:15px;
+
+}
+
+@media(max-width:900px){
+
+    .proforma-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
 }
