@@ -187,7 +187,130 @@ High visibility retail corridor with surrounding commercial demand.
 </section>
 
   
-<!-- LOCATION -->
+  
+<!-- LOCATION --><section class="proforma-widget">
+
+<h2>Investment Proforma</h2>
+
+
+<div class="proforma-tabs">
+
+<button class="active">
+Acquisition
+</button>
+
+<button>
+Financing
+</button>
+
+<button>
+Operations
+</button>
+
+<button>
+Exit
+</button>
+
+</div>
+
+
+
+<div class="proforma-search">
+
+
+<div class="proforma-field">
+
+<label>
+Purchase Price
+</label>
+
+<input 
+id="purchasePrice"
+value="3500000">
+
+</div>
+
+
+<div class="proforma-field">
+
+<label>
+Annual NOI
+</label>
+
+<input 
+id="noi"
+value="288000">
+
+</div>
+
+
+<div class="proforma-field">
+
+<label>
+Hold Period
+</label>
+
+<input 
+id="holdPeriod"
+value="10">
+
+</div>
+
+
+<div class="proforma-field">
+
+<label>
+Interest Rate
+</label>
+
+<input 
+id="interestRate"
+value="6.5">
+
+</div>
+
+
+
+<button class="run-button">
+Run Proforma
+</button>
+
+
+</div>
+
+
+<div class="proforma-results">
+
+
+<div>
+Equity
+<strong id="equityRequired"></strong>
+</div>
+
+
+<div>
+Cash Flow
+<strong id="cashFlow"></strong>
+</div>
+
+
+<div>
+Cash-on-Cash
+<strong id="coc"></strong>
+</div>
+
+
+<div>
+Exit Value
+<strong id="salePrice"></strong>
+</div>
+
+
+</div>
+
+
+</section>
+  
 <section class="location-section">
     <div>
         <h2>Location Overview</h2>
@@ -244,87 +367,6 @@ Potential sale to private investors, 1031 buyers, or institutional purchasers.
 </div>
 </div>
 </section>
-
-<section class="proforma-container">
-
-    <div class="proforma-peek">
-
-        <div class="peek-slider">
-            Purchase Price
-            <input type="range">
-        </div>
-
-        <div class="peek-slider">
-            Annual NOI
-            <input type="range">
-        </div>
-
-    </div>
-
-
-    <button class="proforma-toggle">
-        📊 Run Proforma
-    </button>
-
-
-    <div class="proforma-content">
-
-        <div class="proforma-card">
-
-            <h3>
-                Investment Assumptions
-            </h3>
-
-            <label>
-                Purchase Price
-                <input type="range">
-            </label>
-
-            <label>
-                NOI Growth
-                <input type="range">
-            </label>
-
-            <label>
-                Interest Rate
-                <input type="range">
-            </label>
-
-        </div>
-
-
-
-        <div class="proforma-card">
-
-            <h3>
-                Projected Returns
-            </h3>
-
-
-            <div class="result-row">
-                Cash Flow
-                <strong>$108,000</strong>
-            </div>
-
-
-            <div class="result-row">
-                Cash-on-Cash
-                <strong>8.8%</strong>
-            </div>
-
-
-            <div class="result-row">
-                Sale Value
-                <strong>$4,500,000</strong>
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
   
 
 <footer>
