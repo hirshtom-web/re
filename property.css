@@ -1023,28 +1023,128 @@ EXECUTIVE SUMMARY
 
 }
 
+
 /* =========================
-PROFORMA DRAWER
+PROFORMA WIDGET
 ========================= */
 
 
-.proforma-container {
+.proforma-widget{
 
     margin-top:80px;
-
-    position:relative;
 
 }
 
 
 
-.proforma-peek {
+.proforma-tabs{
 
-    height:90px;
+    display:flex;
 
-    overflow:hidden;
+    gap:10px;
 
-    opacity:.25;
+    margin-bottom:20px;
+
+}
+
+
+
+.proforma-tabs button{
+
+    margin:0;
+
+    background:white;
+
+    color:var(--text);
+
+    border:1px solid var(--line);
+
+    padding:10px 20px;
+
+    border-radius:20px;
+
+}
+
+
+
+.proforma-tabs .active{
+
+    background:#171717;
+
+    color:white;
+
+}
+
+
+
+.proforma-search{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr) auto;
+
+    gap:15px;
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    padding:25px;
+
+    border-radius:10px;
+
+}
+
+
+
+.proforma-field label{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+}
+
+
+
+.proforma-field input{
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:14px;
+
+    border:1px solid var(--line);
+
+    border-radius:6px;
+
+}
+
+
+
+.run-button{
+
+    align-self:end;
+
+    margin:0;
+
+    background:#171717;
+
+    color:white;
+
+}
+
+
+
+.proforma-results{
+
+    margin-top:25px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
 
     background:white;
 
@@ -1052,115 +1152,61 @@ PROFORMA DRAWER
 
     border-radius:10px;
 
-    padding:25px;
+}
 
-    display:flex;
 
-    gap:40px;
+
+.proforma-results div{
+
+    padding:22px;
+
+    border-right:1px solid var(--line);
 
 }
 
 
 
-.peek-slider {
+.proforma-results strong{
 
-    flex:1;
+    display:block;
+
+    margin-top:10px;
+
+    font-size:20px;
+
+}
+
+@media(max-width:900px){
+
+
+.proforma-search{
+
+    grid-template-columns:1fr;
 
 }
 
 
-
-.peek-slider input {
+.run-button{
 
     width:100%;
 
 }
 
 
+.proforma-results{
 
-.proforma-toggle {
-
-    position:absolute;
-
-    top:45px;
-
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    background:#171717;
-
-    color:white;
-
-    padding:14px 35px;
-
-    border-radius:30px;
-
-    border:none;
-
-    cursor:pointer;
-
-    z-index:5;
+    grid-template-columns:1fr;
 
 }
 
 
+.proforma-results div{
 
-.proforma-content {
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:25px;
-
-    margin-top:30px;
-
-    max-height:0;
-
-    overflow:hidden;
-
-    opacity:0;
-
-    transition:.45s ease;
-
-}
-
-
-
-.proforma-container.open 
-.proforma-content {
-
-    max-height:800px;
-
-    opacity:1;
-
-}
-
-
-
-.proforma-card {
-
-    background:white;
-
-    border:1px solid var(--line);
-
-    border-radius:10px;
-
-    padding:30px;
-
-}
-
-
-
-.result-row {
-
-    display:flex;
-
-    justify-content:space-between;
-
-    padding:18px 0;
+    border-right:none;
 
     border-bottom:1px solid var(--line);
+
+}
+
 
 }
