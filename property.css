@@ -1026,111 +1026,42 @@ EXECUTIVE SUMMARY
 /* =========================
 PROFORMA ANALYSIS
 ========================= */
-
 .proforma-section {
-
     margin-top:80px;
-
     padding:40px;
-
     background:white;
-
     border:1px solid var(--line);
-
     border-radius:10px;
-
-}
-
-
-.proforma-section h2 {
-
-    margin-bottom:10px;
-
-}
-
-
-.proforma-section p {
-
-    color:var(--muted);
-
 }
 
 
 .proforma-grid {
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:40px;
-
-    margin-top:35px;
-
+    margin-top:30px;
 }
 
-
-/* INPUT PANEL */
 
 .proforma-inputs {
-
     background:var(--soft);
-
     padding:25px;
-
     border-radius:10px;
-
 }
 
 
-
-.proforma-inputs label {
-
-    margin-bottom:15px;
-
-}
-
-
-
-.proforma-inputs input[type="range"] {
-
+.proforma-inputs input {
     width:100%;
-
-    accent-color:var(--accent);
-
-}
-
-
-
-/* RESULTS PANEL */
-
-.results {
-
-    background:white;
-
+    padding:12px;
+    margin-top:8px;
     border:1px solid var(--line);
+    border-radius:6px;
+}
 
+
+.proforma-results {
+    background:white;
+    border:1px solid var(--line);
     padding:25px;
-
     border-radius:10px;
-
-}
-
-
-.results p {
-
-    display:flex;
-
-    justify-content:space-between;
-
-    padding:14px 0;
-
-    border-bottom:1px solid var(--line);
-
-}
-
-
-.results strong {
-
-    color:var(--text);
-
 }
