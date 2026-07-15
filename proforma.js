@@ -3,13 +3,20 @@
 // Version 1.0
 // =========================================
 
+
 function formatMoney(value) {
     return "$" + Math.round(value).toLocaleString();
 }
 
+
 function formatPercent(value) {
     return value.toFixed(2) + "%";
 }
+
+
+// =========================================
+// UNDERWRITING MODEL
+// =========================================
 
 function runModel() {
 
@@ -33,6 +40,7 @@ function runModel() {
 
     const exitCap = Number(document.getElementById("exitCap").value) / 100;
 
+
     // -----------------------------
     // Financing
     // -----------------------------
@@ -45,12 +53,15 @@ function runModel() {
 
     const payments = amortYears * 12;
 
+
     const monthlyPayment =
         loan *
         (monthlyRate * Math.pow(1 + monthlyRate, payments)) /
         (Math.pow(1 + monthlyRate, payments) - 1);
 
+
     const annualDebt = monthlyPayment * 12;
+
 
     // -----------------------------
     // Year One
@@ -60,17 +71,20 @@ function runModel() {
 
     const coc = (cashFlow / equity) * 100;
 
+
     // -----------------------------
     // Future NOI
     // -----------------------------
 
     let futureNOI = noi;
 
+
     for (let i = 1; i < hold; i++) {
 
         futureNOI *= (1 + growth);
 
     }
+
 
     // -----------------------------
     // Sale Price
@@ -80,27 +94,40 @@ function runModel() {
 
     const profit = salePrice - price;
 
+
+
     // -----------------------------
-    // Output
+    // Outputs
     // -----------------------------
 
-    document.getElementById("equityRequired").innerHTML = formatMoney(equity);
+    document.getElementById("equityRequired").innerHTML =
+        formatMoney(equity);
 
-    document.getElementById("loanAmount").innerHTML = formatMoney(loan);
+    document.getElementById("loanAmount").innerHTML =
+        formatMoney(loan);
 
-    document.getElementById("debtService").innerHTML = formatMoney(annualDebt);
+    document.getElementById("debtService").innerHTML =
+        formatMoney(annualDebt);
 
-    document.getElementById("cashFlow").innerHTML = formatMoney(cashFlow);
+    document.getElementById("cashFlow").innerHTML =
+        formatMoney(cashFlow);
 
-    document.getElementById("coc").innerHTML = formatPercent(coc);
+    document.getElementById("coc").innerHTML =
+        formatPercent(coc);
 
-    document.getElementById("salePrice").innerHTML = formatMoney(salePrice);
+    document.getElementById("salePrice").innerHTML =
+        formatMoney(salePrice);
 
-    document.getElementById("profit").innerHTML = formatMoney(profit);
+    document.getElementById("profit").innerHTML =
+        formatMoney(profit);
 
-    document.getElementById("irr").innerHTML = "Coming Soon";
+    document.getElementById("irr").innerHTML =
+        "Coming Soon";
 
-    document.getElementById("multiple").innerHTML = "Coming Soon";
+    document.getElementById("multiple").innerHTML =
+        "Coming Soon";
+
+
 
     // -----------------------------
     // Cash Flow Table
@@ -110,11 +137,16 @@ function runModel() {
 
     let currentNOI = noi;
 
+
     for (let year = 1; year <= hold; year++) {
 
-        const yearlyCash = currentNOI - annualDebt;
+
+        const yearlyCash =
+            currentNOI - annualDebt;
+
 
         html += `
+
         <tr>
 
             <td>${year}</td>
@@ -126,93 +158,124 @@ function runModel() {
             <td>${formatMoney(yearlyCash)}</td>
 
         </tr>
+
         `;
+
 
         currentNOI *= (1 + growth);
 
     }
 
+
     document.getElementById("cashflowTable").innerHTML = html;
 
 }
 
-// Automatically calculate when page loads
-window.onload = runModel;
 
 
-const fab = document.getElementById(
-    "proformaFab"
-);
+// =========================================
+// PAGE LOAD
+// =========================================
+
+window.addEventListener("load", () => {
 
 
-window.addEventListener(
-    "scroll",
-    () => {
+    // Run calculations if fields exist
+    if(document.getElementById("purchasePrice")) {
 
-        if(window.scrollY > 400){
+        runModel();
 
-            fab.classList.add(
-                "visible"
-            );
+    }
+
+
+
+    // =========================================
+    // PROFORMA BUTTON + MODAL
+    // =========================================
+
+    const fab =
+        document.getElementById("proformaFab");
+
+
+    const modal =
+        document.getElementById("proformaModal");
+
+
+    const closeBtn =
+        document.querySelector(".close-btn");
+
+
+
+    if(!fab || !modal) {
+
+        console.log("Proforma elements not found");
+
+        return;
+
+    }
+
+
+
+    // Floating button show/hide
+
+    window.addEventListener("scroll", () => {
+
+
+        if(window.scrollY > 400) {
+
+            fab.classList.add("visible");
+
 
         } else {
 
-            fab.classList.remove(
-                "visible"
-            );
+            fab.classList.remove("visible");
 
         }
 
-    }
-);
 
-// =========================================
-// PROFORMA MODAL CONTROL
-// =========================================
-
-const fab = document.getElementById("proformaFab");
-const modal = document.getElementById("proformaModal");
+    });
 
 
-// Show / hide floating button
-window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 400) {
+    // Open modal
 
-        fab.classList.add("visible");
-
-    } else {
-
-        fab.classList.remove("visible");
-
-    }
-
-});
+    fab.addEventListener("click", () => {
 
 
-// Open modal
-fab.addEventListener("click", () => {
-
-    modal.classList.add("open");
-
-});
+        modal.classList.add("open");
 
 
-// Close modal
-function closeProforma() {
-
-    modal.classList.remove("open");
-
-}
+    });
 
 
-// Close if clicking outside the sheet
-modal.addEventListener("click", (event) => {
 
-    if(event.target === modal){
+    // Close button
 
-        closeProforma();
+    if(closeBtn) {
+
+        closeBtn.addEventListener("click", () => {
+
+            modal.classList.remove("open");
+
+        });
 
     }
+
+
+
+    // Click outside modal closes
+
+    modal.addEventListener("click", (event) => {
+
+
+        if(event.target === modal) {
+
+            modal.classList.remove("open");
+
+        }
+
+
+    });
+
 
 });
