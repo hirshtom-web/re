@@ -3,8 +3,17 @@ fetch("proforma.html")
 .then(html => {
 
     document
-    .getElementById("proforma-container")
-    .innerHTML = html;
+        .getElementById("proforma-container")
+        .innerHTML = html;
 
+    // Initialize AFTER the HTML exists
+    loadPropertyData();
+    setupTabs();
+
+    const runButton = document.getElementById("runProforma");
+
+    if (runButton) {
+        runButton.addEventListener("click", runModel);
+    }
 
 });
