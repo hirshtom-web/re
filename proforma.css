@@ -21,19 +21,13 @@ PROFORMA COMPONENT
 .proforma-tabs{
 
     display:flex;
-    gap:10px;
-    margin-bottom:25px;
+
+    gap:8px;
 
     overflow-x:auto;
-    scroll-behavior:smooth;
 
     padding-bottom:5px;
 
-    scrollbar-width:none;
-}
-
-.proforma-tabs::-webkit-scrollbar{
-    display:none;
 }
 
 
@@ -41,14 +35,11 @@ PROFORMA COMPONENT
 
     flex:0 0 auto;
 
-    background:white;
-    border:1px solid var(--line);
+    width:auto;
 
-    padding:12px 20px;
+    padding:10px 18px;
 
-    border-radius:8px;
-
-    cursor:pointer;
+    border-radius:999px;
 
     white-space:nowrap;
 
@@ -62,6 +53,17 @@ PROFORMA COMPONENT
 
 }
 
+@media(max-width:600px){
+
+    .proforma-tabs button{
+
+        padding:10px 16px;
+
+        font-size:13px;
+
+    }
+
+}
 
 
 /* PANEL */
