@@ -455,28 +455,57 @@ Back
 
             </div>
 
-            <div class="modal-right">
+           <div class="modal-right">
 
-                <button class="icon-btn" title="Download PDF">
-    <span class="material-symbols-rounded">download</span>
+<button class="icon-btn" onclick="downloadPDF()">
+<span class="material-symbols-rounded">picture_as_pdf</span>
 </button>
 
-<button class="icon-btn" title="Print">
-    <span class="material-symbols-rounded">print</span>
+<div class="menu-wrapper">
+
+<button class="icon-btn" onclick="toggleMenu()">
+<span class="material-symbols-rounded">more_vert</span>
 </button>
 
-<button class="icon-btn" title="Share">
-    <span class="material-symbols-rounded">ios_share</span>
+<div id="moreMenu" class="more-menu">
+
+<button onclick="whatsappBroker()">
+<span class="material-symbols-rounded">chat</span>
+WhatsApp
 </button>
 
-<button class="icon-btn" id="moreButton">
-    <span class="material-symbols-rounded">more_vert</span>
+<button onclick="callBroker()">
+<span class="material-symbols-rounded">call</span>
+Call
 </button>
 
-            </div>
+<button onclick="emailBroker()">
+<span class="material-symbols-rounded">mail</span>
+Email
+</button>
 
-        </div>
+<hr>
 
+<button onclick="shareDeal()">
+<span class="material-symbols-rounded">share</span>
+Share
+</button>
+
+<button onclick="copyLink()">
+<span class="material-symbols-rounded">content_copy</span>
+Copy Link
+</button>
+
+<button onclick="visitWebsite()">
+<span class="material-symbols-rounded">language</span>
+Website
+</button>
+
+</div>
+
+</div>
+
+</div>
         <iframe id="dealFrame"></iframe>
 
     </div>
