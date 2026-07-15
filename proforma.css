@@ -2,23 +2,21 @@
 PROFORMA COMPONENT
 ========================= */
 
-
 .proforma-widget{
-
     margin-top:80px;
-
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
 }
-
 
 
 .proforma-widget h2{
-
     font-size:28px;
     margin-bottom:15px;
-
 }
 
 
+/* TAB SLIDER */
 
 .proforma-tabs{
 
@@ -26,37 +24,108 @@ PROFORMA COMPONENT
     gap:10px;
     margin-bottom:25px;
 
+    overflow-x:auto;
+    scroll-behavior:smooth;
+
+    padding-bottom:5px;
+
+    scrollbar-width:none;
 }
 
+.proforma-tabs::-webkit-scrollbar{
+    display:none;
+}
 
 
 .proforma-tabs button{
 
+    flex:0 0 auto;
+
     background:white;
     border:1px solid var(--line);
+
     padding:12px 20px;
+
     border-radius:8px;
+
+    cursor:pointer;
+
+    white-space:nowrap;
 
 }
 
 
+.proforma-tabs button.active{
+
+    background:#111;
+    color:white;
+
+}
+
+
+
+/* PANEL */
 
 .proforma-panel{
 
     background:white;
+
     border:1px solid var(--line);
+
     border-radius:10px;
+
     padding:30px;
+
+    width:100%;
+
+    box-sizing:border-box;
 
 }
 
 
 
+/* CONTENT */
+
+.tab-content{
+
+    display:none;
+
+}
+
+
+.tab-content.active{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+
+
+/* INPUTS */
+
+.proforma-field{
+
+    width:100%;
+
+}
+
+
 .proforma-field label{
 
+    display:block;
+
     font-size:11px;
+
     color:var(--muted);
+
     text-transform:uppercase;
+
+    margin-bottom:6px;
 
 }
 
@@ -65,23 +134,62 @@ PROFORMA COMPONENT
 .proforma-field input{
 
     width:100%;
+
+    box-sizing:border-box;
+
     padding:14px;
+
     border:1px solid var(--line);
+
     border-radius:8px;
 
 }
 
 
 
+/* BUTTON */
+
+.run-button{
+
+    margin-top:25px;
+
+    width:100%;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    border:none;
+
+    background:#111;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+
+/* RESULTS */
+
 .proforma-results{
 
     margin-top:30px;
+
     display:grid;
-    grid-template-columns:repeat(6,1fr);
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(150px,1fr));
+
 
     background:white;
+
     border:1px solid var(--line);
+
     border-radius:10px;
+
+    overflow:hidden;
 
 }
 
@@ -90,7 +198,63 @@ PROFORMA COMPONENT
 .proforma-results div{
 
     padding:25px;
+
     border-right:1px solid var(--line);
+
+    border-bottom:1px solid var(--line);
 
 }
 
+
+.proforma-results span{
+
+    display:block;
+
+    font-size:12px;
+
+    color:var(--muted);
+
+}
+
+
+.proforma-results strong{
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:22px;
+
+}
+
+
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+
+    .proforma-widget{
+
+        margin-top:40px;
+
+    }
+
+
+    .proforma-panel{
+
+        padding:20px;
+
+    }
+
+
+    .proforma-results{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+
+}
