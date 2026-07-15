@@ -259,34 +259,3 @@ function setupTabs(){
 }
 
 
-// =========================================
-// INITIALIZE
-// =========================================
-
-document.addEventListener("DOMContentLoaded",()=>{
-
-
-    loadPropertyData();
-
-
-    setupTabs();
-
-
-
-    const runButton =
-        document.getElementById("runProforma");
-
-
-    if(runButton){
-
-
-        runButton.addEventListener(
-            "click",
-            runModel
-        );
-
-
-    }
-
-
-});
