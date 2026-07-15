@@ -6,7 +6,6 @@ fetch("proforma.html")
         .getElementById("proforma-container")
         .innerHTML = html;
 
-    // Initialize AFTER the HTML exists
     loadPropertyData();
     setupTabs();
 
@@ -15,5 +14,8 @@ fetch("proforma.html")
     if (runButton) {
         runButton.addEventListener("click", runModel);
     }
+
+    // Populate results immediately using the default assumptions
+    runModel();
 
 });
