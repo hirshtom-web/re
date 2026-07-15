@@ -126,7 +126,7 @@ RESULTS
 .proforma-results{
     margin-top:25px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    grid-template-columns:repeat(2,1fr);
     background:white;
     border:1px solid var(--line);
     border-radius:10px;
@@ -137,6 +137,9 @@ RESULTS
     border-right:1px solid var(--line);
     border-bottom:1px solid var(--line);
 }
+.proforma-results div:nth-child(2n){
+    border-right:none;
+}
 .proforma-results span{
     display:block;
     font-size:12px;
@@ -146,6 +149,23 @@ RESULTS
     display:block;
     margin-top:8px;
     font-size:20px;
+}
+/* =========================
+MOBILE RESULTS
+========================= */
+@media(max-width:600px){
+    .proforma-results{
+        grid-template-columns:repeat(2,1fr);
+    }
+    .proforma-results div{
+        padding:14px 10px;
+    }
+    .proforma-results strong{
+        font-size:17px;
+    }
+    .proforma-results span{
+        font-size:10px;
+    }
 }
 /* =========================
 DISCLAIMER
@@ -206,19 +226,5 @@ MOBILE
         margin-top:18px;
         font-size:14px;
     }
-    .proforma-results{
-        grid-template-columns:1fr;
-        margin-top:20px;
-    }
-    .proforma-results div{
-        padding:14px;
-        border-right:none;
-        border-bottom:1px solid var(--line);
-    }
-    .proforma-results div:last-child{
-        border-bottom:none;
-    }
-    .proforma-results strong{
-        font-size:18px;
-    }
+ 
 }
