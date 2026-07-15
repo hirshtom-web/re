@@ -247,9 +247,12 @@ function setupTabs(){
             );
 
 
-            document
-            .getElementById(button.dataset.tab)
-            .classList.add("active");
+          const target =
+document.getElementById(button.dataset.tab);
+
+if(target){
+    target.classList.add("active");
+}
 
 
         });
