@@ -35,13 +35,17 @@ overflow:hidden;
 
 position:relative;
 
+display:flex;
+flex-direction:column;
+
 }
 
 
 #dealFrame{
 
 width:100%;
-height:100%;
+
+height:calc(100% - 72px);
 
 border:0;
 
