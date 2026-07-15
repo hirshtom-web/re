@@ -3,10 +3,15 @@ PROFORMA COMPONENT
 ========================= */
 
 .proforma-widget{
+
     margin-top:80px;
+
     width:100%;
+
     max-width:100%;
-    overflow:hidden;
+
+    overflow:visible;
+
 }
 
 
@@ -114,16 +119,18 @@ PROFORMA TABS - CLEAN UNDERLINE
 
     .proforma-tabs{
 
-        gap:24px;
+        gap:22px;
 
-        margin-left:0;
+        width:100%;
 
-        margin-right:0;
+        padding-bottom:0;
 
     }
 
 
     .proforma-tabs button{
+
+        flex:none;
 
         font-size:13px;
 
