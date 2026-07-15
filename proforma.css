@@ -94,6 +94,11 @@ PROFORMA COMPONENT
 
 
 .tab-content.active{
+    display:block;
+}
+
+
+.fields-grid{
 
     display:grid;
 
