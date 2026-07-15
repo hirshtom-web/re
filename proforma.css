@@ -149,9 +149,6 @@ RESULTS
     margin-top:8px;
     font-size:20px;
 }
-/* =========================
-MOBILE RESULTS
-========================= */
 @media(max-width:600px){
     .proforma-results{
         grid-template-columns:repeat(2,1fr);
@@ -164,14 +161,8 @@ MOBILE RESULTS
     .proforma-results div:nth-child(2n){
         border-right:none;
     }
-    .proforma-results div:last-child{
+    .proforma-results div:nth-last-child(-n+2){
         border-bottom:none;
-    }
-    .proforma-results span{
-        font-size:10px;
-    }
-    .proforma-results strong{
-        font-size:17px;
     }
 }
 /* =========================
