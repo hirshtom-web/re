@@ -1,4 +1,4 @@
-fetch("./components/proforma.html")
+fetch("proforma.html")
 .then(response => response.text())
 .then(html => {
 
