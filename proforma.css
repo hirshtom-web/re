@@ -1,361 +1,96 @@
-:root{
+/* =========================
+PROFORMA COMPONENT
+========================= */
 
---bg:#f5f4f0;
---white:#ffffff;
---text:#171717;
---muted:#6d6d6d;
---line:#dedbd3;
---accent:#9a8050;
 
-}
+.proforma-widget{
 
-*{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-
-}
-
-body{
-
-background:var(--bg);
-font-family:'Inter',sans-serif;
-color:var(--text);
-
-}
-
-.page{
-
-width:92%;
-max-width:1500px;
-margin:auto;
-padding:50px 0 80px;
+    margin-top:80px;
 
 }
 
 
-/* ===============================
-HEADER
-================================= */
 
-.hero{
+.proforma-widget h2{
 
-display:flex;
-justify-content:space-between;
-align-items:flex-end;
-margin-bottom:40px;
-padding-bottom:30px;
-border-bottom:1px solid var(--line);
-
-}
-
-.eyebrow{
-
-font-size:11px;
-letter-spacing:2px;
-font-weight:600;
-color:var(--accent);
-
-}
-
-.hero h1{
-
-font-size:46px;
-margin-top:18px;
-letter-spacing:-1px;
-
-}
-
-.subtitle{
-
-margin-top:12px;
-font-size:17px;
-color:var(--muted);
-
-}
-
-.run-btn{
-
-background:#171717;
-color:white;
-border:none;
-padding:15px 30px;
-font-size:13px;
-letter-spacing:1px;
-cursor:pointer;
-border-radius:8px;
-transition:.2s;
-
-}
-
-.run-btn:hover{
-
-background:#000;
+    font-size:28px;
+    margin-bottom:15px;
 
 }
 
 
-/* ===============================
-LAYOUT
-================================= */
 
-.layout{
+.proforma-tabs{
 
-display:grid;
-grid-template-columns:430px 1fr;
-gap:35px;
-align-items:start;
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
 
 }
 
 
-/* ===============================
-CARDS
-================================= */
 
-.card{
+.proforma-tabs button{
 
-background:white;
-border:1px solid var(--line);
-border-radius:10px;
-padding:28px;
-margin-bottom:25px;
-
-}
-
-.card h2{
-
-font-size:24px;
-margin-bottom:25px;
-font-weight:600;
+    background:white;
+    border:1px solid var(--line);
+    padding:12px 20px;
+    border-radius:8px;
 
 }
 
 
-/* ===============================
-FIELDS
-================================= */
 
-.field{
+.proforma-panel{
 
-margin-bottom:20px;
-
-}
-
-.field:last-child{
-
-margin-bottom:0;
-
-}
-
-.field label{
-
-display:block;
-font-size:11px;
-text-transform:uppercase;
-letter-spacing:1px;
-margin-bottom:8px;
-color:var(--muted);
-
-}
-
-.field input,
-.field select{
-
-width:100%;
-padding:13px 14px;
-border:1px solid var(--line);
-background:white;
-border-radius:8px;
-font-size:15px;
-font-family:inherit;
-
-}
-
-.field input:focus{
-
-outline:none;
-border-color:var(--accent);
+    background:white;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:30px;
 
 }
 
 
-/* ===============================
-METRICS
-================================= */
 
-.metric{
+.proforma-field label{
 
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 0;
-border-bottom:1px solid var(--line);
-
-}
-
-.metric:last-child{
-
-border-bottom:none;
-
-}
-
-.metric span{
-
-color:var(--muted);
-font-size:14px;
-
-}
-
-.metric strong{
-
-font-size:22px;
-font-weight:600;
+    font-size:11px;
+    color:var(--muted);
+    text-transform:uppercase;
 
 }
 
 
-/* ===============================
-TABLE
-================================= */
 
-table{
+.proforma-field input{
 
-width:100%;
-border-collapse:collapse;
-
-}
-
-thead{
-
-background:#f7f6f2;
-
-}
-
-th{
-
-text-align:left;
-padding:15px;
-font-size:12px;
-text-transform:uppercase;
-letter-spacing:1px;
-color:var(--muted);
-
-}
-
-td{
-
-padding:16px 15px;
-border-top:1px solid var(--line);
-font-size:14px;
-
-}
-
-tbody tr:hover{
-
-background:#faf9f6;
+    width:100%;
+    padding:14px;
+    border:1px solid var(--line);
+    border-radius:8px;
 
 }
 
 
-/* ===============================
-SCROLLABLE TABLE
-================================= */
 
-.card table{
+.proforma-results{
 
-display:block;
-max-height:550px;
-overflow-y:auto;
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
 
-}
-
-.card thead,
-.card tbody,
-.card tr{
-
-display:table;
-width:100%;
-table-layout:fixed;
+    background:white;
+    border:1px solid var(--line);
+    border-radius:10px;
 
 }
 
 
-/* ===============================
-CHECKBOX
-================================= */
 
-.field input[type=checkbox]{
+.proforma-results div{
 
-width:auto;
-margin-right:10px;
+    padding:25px;
+    border-right:1px solid var(--line);
 
 }
 
-
-/* ===============================
-MOBILE
-================================= */
-
-@media(max-width:900px){
-
-.page{
-
-width:100%;
-padding:20px 14px 40px;
-
-}
-
-.hero{
-
-display:block;
-
-}
-
-.hero h1{
-
-font-size:30px;
-
-}
-
-.run-btn{
-
-width:100%;
-margin-top:25px;
-
-}
-
-.layout{
-
-grid-template-columns:1fr;
-
-}
-
-.card{
-
-padding:20px;
-
-}
-
-.card h2{
-
-font-size:22px;
-
-}
-
-.metric strong{
-
-font-size:18px;
-
-}
-
-th,
-td{
-
-padding:12px 10px;
-font-size:12px;
-
-}
-
-}
