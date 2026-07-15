@@ -1,363 +1,176 @@
 /* =========================
 PROFORMA COMPONENT
 ========================= */
-
 .proforma-widget{
-
     margin-top:80px;
-
     width:100%;
-
     max-width:100%;
-
     overflow:visible;
-
+    min-width:0;
 }
-
-
 .proforma-widget h2{
     font-size:28px;
     margin-bottom:15px;
 }
-
-
 /* TAB SLIDER */
-/* =========================
-PROFORMA TABS - UNDERLINE STYLE
-========================= */
-
-
 .proforma-tabs{
-
     display:flex;
-
-    gap:28px;
-
+    align-items:center;
+    gap:24px;
     width:100%;
-
     overflow-x:auto;
-
+    overflow-y:hidden;
     border-bottom:1px solid #e5e5e5;
-
     margin-bottom:25px;
-
     scrollbar-width:none;
-
+    -webkit-overflow-scrolling:touch;
 }
-
-
 .proforma-tabs::-webkit-scrollbar{
     display:none;
 }
-
-
 .proforma-tabs button{
-
     position:relative;
-
     flex:0 0 auto;
-
     background:transparent;
-
     border:none;
-
     padding:14px 2px;
-
     color:#777;
-
     font-size:14px;
-
     font-weight:500;
-
     cursor:pointer;
-
     white-space:nowrap;
-
 }
-
-
 .proforma-tabs button:hover{
-
     color:#111;
-
 }
-
-
 .proforma-tabs button.active{
-
     color:#111;
-
     font-weight:700;
-
 }
-
-
 .proforma-tabs button.active::after{
-
     content:"";
-
     position:absolute;
-
     left:0;
-
     right:0;
-
     bottom:-1px;
-
     height:3px;
-
     background:#111;
-
     border-radius:2px;
-
 }
-
 @media(max-width:600px){
-
     .proforma-tabs{
-
-        gap:22px;
-
-        width:100%;
-
-        padding-bottom:0;
-
+        gap:18px;
+        margin-left:-18px;
+        width:calc(100% + 36px);
+        padding-left:18px;
+        padding-right:18px;
     }
-
-
     .proforma-tabs button{
-
-        flex:none;
-
+        flex:0 0 auto;
         font-size:13px;
-
-        padding:12px 0;
-
+        padding:10px 0 12px;
+        line-height:1;
     }
-
 }
-
-
 /* PANEL */
-
 .proforma-panel{
-
     background:white;
-
     border:1px solid var(--line);
-
     border-radius:10px;
-
     padding:30px;
-
     width:100%;
-
     box-sizing:border-box;
-
+    min-width:0;
 }
-
-
-
 /* CONTENT */
-
 .tab-content{
-
     display:none;
-
+    min-width:0;
 }
-
-
 .tab-content.active{
     display:block;
 }
-
-
 .fields-grid{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
-
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
-
 }
-
-
-
 /* INPUTS */
-
 .proforma-field{
-
     width:100%;
-
 }
-
-
 .proforma-field label{
-
     display:block;
-
     font-size:11px;
-
     color:var(--muted);
-
     text-transform:uppercase;
-
     margin-bottom:6px;
-
 }
-
-
-
 .proforma-field input{
-
     width:100%;
-
     box-sizing:border-box;
-
     padding:14px;
-
     border:1px solid var(--line);
-
     border-radius:8px;
-
-}
-.proforma-field input{
     font-size:16px;
 }
-
-
-
 /* BUTTON */
-
 .run-button{
-
     margin-top:25px;
-
     width:100%;
-
     padding:15px;
-
     border-radius:8px;
-
     border:none;
-
     background:#111;
-
     color:white;
-
     cursor:pointer;
-
 }
-
-
-
 /* RESULTS */
-
 .proforma-results{
-
     margin-top:30px;
-
     display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(150px,1fr));
-
-
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
     background:white;
-
     border:1px solid var(--line);
-
     border-radius:10px;
-
     overflow:hidden;
-
 }
-
-
-
 .proforma-results div{
-
     padding:25px;
-
     border-right:1px solid var(--line);
-
-    border-bottom:1px solid var(--line);
-
+    border-bottom:1px solid(var(--line));
 }
-
-
 .proforma-results span{
-
     display:block;
-
     font-size:12px;
-
     color:var(--muted);
-
 }
-
-
 .proforma-results strong{
-
     display:block;
-
     margin-top:8px;
-
     font-size:22px;
-
 }
-
-
-
-
 /* MOBILE */
-
 @media(max-width:600px){
-
-
     .proforma-widget{
-
         margin-top:40px;
-
     }
-
-
     .proforma-panel{
-
-        padding:20px;
-
+        border-radius:12px;
+        padding:18px;
+        margin-top:5px;
     }
-
-
     .proforma-results{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
     }
-
-
 }
-
-
 .proforma-disclaimer{
-
     margin-top:30px;
-
     padding:20px;
-
     background:#f8f8f8;
-
     border:1px solid var(--line);
-
     border-radius:10px;
-
     font-size:12px;
-
     line-height:1.6;
-
     color:var(--muted);
-
 }
