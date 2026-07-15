@@ -1024,102 +1024,143 @@ EXECUTIVE SUMMARY
 }
 
 /* =========================
-PROFORMA
+PROFORMA DRAWER
 ========================= */
-.proforma-wrapper {
-
-    position:fixed;
-
-    bottom:0;
-
-    left:0;
-
-    width:100%;
-
-    z-index:1000;
-
-    pointer-events:none;
-
-}
 
 
-.run-proforma {
+.proforma-container {
 
-    pointer-events:auto;
+    margin-top:80px;
 
-    display:block;
-
-    margin:auto;
-
-    background:#171717;
-
-    color:white;
-
-    padding:15px 35px;
-
-    border-radius:30px;
-
-    border:none;
+    position:relative;
 
 }
 
 
 
-.proforma-wrapper:before {
+.proforma-peek {
 
-    content:"";
+    height:90px;
 
-    position:absolute;
+    overflow:hidden;
 
-    bottom:0;
-
-    left:0;
-
-    width:100%;
-
-    height:150px;
-
-    background:
-    linear-gradient(
-        transparent,
-        rgba(245,244,240,.95)
-    );
-
-    z-index:-1;
-
-}
-
-
-
-.proforma-panel {
-
-    pointer-events:auto;
-
-    width:90%;
-
-    max-width:1200px;
-
-    margin:0 auto;
+    opacity:.25;
 
     background:white;
 
     border:1px solid var(--line);
 
-    border-radius:15px;
+    border-radius:10px;
 
-    padding:30px;
+    padding:25px;
 
+    display:flex;
 
-    transform:translateY(120%);
-
-    transition:.4s ease;
+    gap:40px;
 
 }
 
 
 
-.proforma-panel.open {
+.peek-slider {
 
-    transform:translateY(0);
+    flex:1;
+
+}
+
+
+
+.peek-slider input {
+
+    width:100%;
+
+}
+
+
+
+.proforma-toggle {
+
+    position:absolute;
+
+    top:45px;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:#171717;
+
+    color:white;
+
+    padding:14px 35px;
+
+    border-radius:30px;
+
+    border:none;
+
+    cursor:pointer;
+
+    z-index:5;
+
+}
+
+
+
+.proforma-content {
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+    margin-top:30px;
+
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transition:.45s ease;
+
+}
+
+
+
+.proforma-container.open 
+.proforma-content {
+
+    max-height:800px;
+
+    opacity:1;
+
+}
+
+
+
+.proforma-card {
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    border-radius:10px;
+
+    padding:30px;
+
+}
+
+
+
+.result-row {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:18px 0;
+
+    border-bottom:1px solid var(--line);
 
 }
