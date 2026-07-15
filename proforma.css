@@ -227,6 +227,9 @@ PROFORMA TABS - UNDERLINE STYLE
     border-radius:8px;
 
 }
+.proforma-field input{
+    font-size:16px;
+}
 
 
 
