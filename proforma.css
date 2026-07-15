@@ -21,6 +21,10 @@ PROFORMA COMPONENT
 PROFORMA TABS - UNDERLINE STYLE
 ========================= */
 
+/* =========================
+PROFORMA TABS - CLEAN UNDERLINE
+========================= */
+
 .proforma-tabs{
 
     display:flex;
@@ -31,15 +35,11 @@ PROFORMA TABS - UNDERLINE STYLE
 
     overflow-x:auto;
 
-    padding:0 18px;
-
     border-bottom:1px solid #e5e5e5;
 
     margin-bottom:25px;
 
     scrollbar-width:none;
-
-    box-sizing:border-box;
 
 }
 
@@ -49,18 +49,17 @@ PROFORMA TABS - UNDERLINE STYLE
 }
 
 
-
 .proforma-tabs button{
 
     position:relative;
 
     flex:0 0 auto;
 
-    background:none;
+    background:transparent;
 
     border:none;
 
-    padding:14px 0;
+    padding:14px 2px;
 
     color:#777;
 
@@ -75,7 +74,12 @@ PROFORMA TABS - UNDERLINE STYLE
 }
 
 
-/* active tab */
+.proforma-tabs button:hover{
+
+    color:#111;
+
+}
+
 
 .proforma-tabs button.active{
 
@@ -86,9 +90,6 @@ PROFORMA TABS - UNDERLINE STYLE
 }
 
 
-
-/* underline */
-
 .proforma-tabs button.active::after{
 
     content:"";
@@ -97,45 +98,36 @@ PROFORMA TABS - UNDERLINE STYLE
 
     left:0;
 
-    bottom:-1px;
+    right:0;
 
-    width:100%;
+    bottom:-1px;
 
     height:3px;
 
     background:#111;
 
-    border-radius:3px;
+    border-radius:2px;
 
 }
 
 @media(max-width:600px){
 
-
     .proforma-tabs{
 
-        margin-left:10px;
+        gap:24px;
 
-        margin-right:10px;
+        margin-left:0;
 
-        width:calc(100% - 20px);
-
-        padding:0 15px;
-
-        background:#fafafa;
-
-        border-radius:12px;
-
-        border:1px solid #eee;
+        margin-right:0;
 
     }
 
 
     .proforma-tabs button{
 
-        padding:14px 0;
-
         font-size:13px;
+
+        padding:12px 0;
 
     }
 
