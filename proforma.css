@@ -126,7 +126,7 @@ RESULTS
 .proforma-results{
     margin-top:25px;
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(6,1fr);
     background:white;
     border:1px solid var(--line);
     border-radius:10px;
@@ -135,9 +135,8 @@ RESULTS
 .proforma-results div{
     padding:20px;
     border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line);
 }
-.proforma-results div:nth-child(2n){
+.proforma-results div:last-child{
     border-right:none;
 }
 .proforma-results span{
@@ -159,12 +158,20 @@ MOBILE RESULTS
     }
     .proforma-results div{
         padding:14px 10px;
+        border-right:1px solid var(--line);
+        border-bottom:1px solid var(--line);
     }
-    .proforma-results strong{
-        font-size:17px;
+    .proforma-results div:nth-child(2n){
+        border-right:none;
+    }
+    .proforma-results div:last-child{
+        border-bottom:none;
     }
     .proforma-results span{
         font-size:10px;
+    }
+    .proforma-results strong{
+        font-size:17px;
     }
 }
 /* =========================
