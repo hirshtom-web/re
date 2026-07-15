@@ -1045,3 +1045,120 @@ EXECUTIVE SUMMARY
 
 }
 
+.proforma-fab {
+    position: fixed;
+
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120px);
+
+    opacity: 0;
+
+    background: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 999px;
+
+    padding: 14px 28px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+
+    cursor:pointer;
+
+    z-index:5000;
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease;
+}
+
+
+.proforma-fab.visible {
+
+    opacity:1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+
+}
+
+.proforma-overlay {
+
+    position:fixed;
+    inset:0;
+
+    background:
+        rgba(0,0,0,.45);
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:
+        opacity .3s ease;
+
+    z-index:9000;
+}
+
+
+
+.proforma-sheet {
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    max-height:85vh;
+
+    background:white;
+
+    border-radius:
+        28px 28px 0 0;
+
+    padding:30px;
+
+    overflow-y:auto;
+
+
+    transform:
+        translateY(100%);
+
+
+    transition:
+        transform .45s
+        cubic-bezier(.22,1,.36,1);
+
+}
+
+
+
+.proforma-overlay.open {
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+
+.proforma-overlay.open
+.proforma-sheet {
+
+    transform:
+        translateY(0);
+
+}
+
+.proforma-sheet {
+
+    padding-bottom:
+        env(safe-area-inset-bottom);
+
+}
