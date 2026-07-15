@@ -138,3 +138,30 @@ function runModel() {
 
 // Automatically calculate when page loads
 window.onload = runModel;
+
+
+const fab = document.getElementById(
+    "proformaFab"
+);
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(window.scrollY > 400){
+
+            fab.classList.add(
+                "visible"
+            );
+
+        } else {
+
+            fab.classList.remove(
+                "visible"
+            );
+
+        }
+
+    }
+);
