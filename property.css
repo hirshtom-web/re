@@ -297,7 +297,23 @@ footer{
 }
 @media(max-width:900px){
     .snapshot{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:repeat(2,1fr);
+    }
+    .snapshot div{
+        padding:20px;
+        border-right:1px solid var(--line);
+        border-bottom:1px solid var(--line);
+    }
+    .snapshot div:nth-child(2n){
+        border-right:none;
+    }
+    .snapshot div:last-child{
+        grid-column:1 / -1;
+        border-right:none;
+        border-bottom:none;
+    }
+    .snapshot div:nth-last-child(2){
+        border-bottom:none;
     }
     .two-column,
     .location-section{
