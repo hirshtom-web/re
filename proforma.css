@@ -25,17 +25,21 @@ PROFORMA TABS - UNDERLINE STYLE
 
     display:flex;
 
-    gap:30px;
+    gap:28px;
 
     width:100%;
 
     overflow-x:auto;
+
+    padding:0 18px;
 
     border-bottom:1px solid #e5e5e5;
 
     margin-bottom:25px;
 
     scrollbar-width:none;
+
+    box-sizing:border-box;
 
 }
 
@@ -107,22 +111,36 @@ PROFORMA TABS - UNDERLINE STYLE
 
 @media(max-width:600px){
 
+
     .proforma-tabs{
 
-        gap:24px;
+        margin-left:10px;
+
+        margin-right:10px;
+
+        width:calc(100% - 20px);
+
+        padding:0 15px;
+
+        background:#fafafa;
+
+        border-radius:12px;
+
+        border:1px solid #eee;
 
     }
 
 
     .proforma-tabs button{
 
-        font-size:13px;
+        padding:14px 0;
 
-        padding:12px 0;
+        font-size:13px;
 
     }
 
 }
+
 
 /* PANEL */
 
