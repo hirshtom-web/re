@@ -554,7 +554,12 @@ x.password === pass
 
 if(valid){
 
-window.location.href="dashboard.html";
+localStorage.setItem(
+"investorName",
+valid.name
+);
+
+window.location.href="investor.html";
 
 }
 
