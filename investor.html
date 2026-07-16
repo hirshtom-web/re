@@ -1,0 +1,57 @@
+<body>
+
+<div class="page">
+
+
+<header class="ai-nav">
+
+<div class="logo">
+NEXA<span>AI</span>
+</div>
+
+
+<div class="nav-right">
+
+<button class="menu-btn">
+⋯
+</button>
+
+</div>
+
+</header>
+
+
+
+<section class="hero">
+
+<div class="eyebrow">
+PRIVATE INVESTOR PORTAL
+</div>
+
+
+<h1>
+Hey <span id="name"></span>.
+</h1>
+
+
+<p>
+Welcome back to your investment intelligence dashboard.
+</p>
+
+
+</section>
+
+    <script>
+
+const investor =
+localStorage.getItem("investorName");
+
+
+if(investor){
+
+document.getElementById("name").innerHTML =
+investor;
+
+}
+
+</script>
