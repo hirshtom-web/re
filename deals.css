@@ -125,7 +125,7 @@ margin-top:50px;
 
 background:white;
 border:1px solid var(--line);
-border-radius:10px;
+border-radius:25px;
 overflow:hidden;
 text-decoration:none;
 color:inherit;
@@ -220,7 +220,7 @@ margin-top:25px;
 
 background:#f5f4f0;
 padding:12px;
-border-radius:8px;
+border-radius:25px;
 
 }
 
@@ -253,7 +253,7 @@ background:#171717;
 color:white;
 padding:12px;
 text-align:center;
-border-radius:8px;
+border-radius:25px;
 font-size:12px;
 letter-spacing:.5px;
 
