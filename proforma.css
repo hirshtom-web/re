@@ -120,51 +120,7 @@ BUTTON
     color:white;
     cursor:pointer;
 }
-/* =========================
-RESULTS
-========================= */
-.proforma-results{
-    margin-top:25px;
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    background:white;
-    border:1px solid var(--line);
-    border-radius:25px;
-    overflow:hidden;
-}
-.proforma-results div{
-    padding:20px;
-    border-right:1px solid var(--line);
-}
-.proforma-results div:last-child{
-    border-right:none;
-}
-.proforma-results span{
-    display:block;
-    font-size:12px;
-    color:var(--muted);
-}
-.proforma-results strong{
-    display:block;
-    margin-top:8px;
-    font-size:20px;
-}
-@media(max-width:600px){
-    .proforma-results{
-        grid-template-columns:repeat(2,1fr);
-    }
-    .proforma-results div{
-        padding:14px 10px;
-        border-right:1px solid var(--line);
-        border-bottom:1px solid var(--line);
-    }
-    .proforma-results div:nth-child(2n){
-        border-right:none;
-    }
-    .proforma-results div:nth-last-child(-n+2){
-        border-bottom:none;
-    }
-}
+
 /* =========================
 DISCLAIMER
 ========================= */
