@@ -3,41 +3,34 @@
 // =========================================
 
 
-function formatMoney(value) {
+function formatMoney(value){
 
     return "$" + Math.round(value).toLocaleString();
 
 }
 
 
-function formatPercent(value) {
+function formatPercent(value){
 
     return value.toFixed(2) + "%";
 
 }
 
 
-
 // =========================================
 // LOAD PROPERTY DATA
 // =========================================
 
-function loadPropertyData() {
-
+function loadPropertyData(){
 
     const property = document.body.dataset;
 
-
-    const purchasePrice =
-        document.getElementById("purchasePrice");
-
+    const purchasePrice = document.getElementById("purchasePrice");
 
     if(!purchasePrice) return;
 
 
-    purchasePrice.value =
-        property.price || 0;
-
+    purchasePrice.value = property.price || 0;
 
     document.getElementById("noi").value =
         property.noi || 0;
@@ -47,7 +40,7 @@ function loadPropertyData() {
         property.cap || 7;
 
 
-    document.getElementById("downPayment").value =
+    document.getElementById("equitySlider").value =
         35;
 
 
@@ -63,8 +56,50 @@ function loadPropertyData() {
         3;
 
 
+    document.getElementById("appreciation").value =
+        3;
+
+
     document.getElementById("holdPeriod").value =
         10;
+
+}
+
+
+
+// =========================================
+// EQUITY SLIDER
+// =========================================
+
+function updateCapital(){
+
+    const price =
+        Number(document.getElementById("purchasePrice").value);
+
+
+    const equityPercent =
+        Number(document.getElementById("equitySlider").value);
+
+
+    const equity =
+        price * (equityPercent / 100);
+
+
+    const debt =
+        price - equity;
+
+
+
+    document.getElementById("equityPercentDisplay").innerHTML =
+        equityPercent + "%";
+
+
+    document.getElementById("equityAmount").innerHTML =
+        formatMoney(equity);
+
+
+    document.getElementById("debtAmount").innerHTML =
+        formatMoney(debt);
 
 }
 
@@ -74,67 +109,42 @@ function loadPropertyData() {
 // UNDERWRITING MODEL
 // =========================================
 
-function runModel() {
+function runModel(){
 
 
     const price =
-        Number(
-            document.getElementById("purchasePrice").value
-        );
+        Number(document.getElementById("purchasePrice").value);
 
 
     const noi =
-        Number(
-            document.getElementById("noi").value
-        );
-    if (!price || !noi) {
-    return;
-}
+        Number(document.getElementById("noi").value);
 
 
-    const growth =
-        Number(
-            document.getElementById("noiGrowth").value
-        ) / 100;
+    if(!price || !noi) return;
 
 
-    const down =
-        Number(
-            document.getElementById("downPayment").value
-        ) / 100;
 
-
-    const rate =
-        Number(
-            document.getElementById("interestRate").value
-        ) / 100;
-
-
-    const amortYears =
-        Number(
-            document.getElementById("amortization").value
-        );
-
-
-    const hold =
-        Number(
-            document.getElementById("holdPeriod").value
-        );
-
-
-    const exitCap =
-        Number(
-            document.getElementById("exitCap").value
-        ) / 100;
+    const equityPercent =
+        Number(document.getElementById("equitySlider").value);
 
 
 
     const equity =
-        price * down;
+        price * (equityPercent / 100);
 
 
     const loan =
         price - equity;
+
+
+
+    const rate =
+        Number(document.getElementById("interestRate").value) / 100;
+
+
+    const amort =
+        Number(document.getElementById("amortization").value);
+
 
 
     const monthlyRate =
@@ -142,7 +152,7 @@ function runModel() {
 
 
     const payments =
-        amortYears * 12;
+        amort * 12;
 
 
 
@@ -153,13 +163,13 @@ function runModel() {
 
 
 
-    const annualDebt =
+    const debtService =
         monthlyPayment * 12;
 
 
 
     const cashFlow =
-        noi - annualDebt;
+        noi - debtService;
 
 
 
@@ -168,25 +178,66 @@ function runModel() {
 
 
 
-    let futureNOI =
-        noi;
+    const dscr =
+        noi / debtService;
 
 
 
-    for(let i = 1; i < hold; i++){
+    const growth =
+        Number(document.getElementById("noiGrowth").value) / 100;
+
+
+
+    const appreciation =
+        Number(document.getElementById("appreciation").value) / 100;
+
+
+
+    const hold =
+        Number(document.getElementById("holdPeriod").value);
+
+
+
+    const exitCap =
+        Number(document.getElementById("exitCap").value) / 100;
+
+
+
+    let futureNOI = noi;
+
+
+    let futureValue = price;
+
+
+
+    for(let i = 1; i <= hold; i++){
 
         futureNOI *= (1 + growth);
+
+        futureValue *= (1 + appreciation);
 
     }
 
 
 
-    const salePrice =
+    const saleValue =
         futureNOI / exitCap;
 
 
+
     const profit =
-        salePrice - price;
+        saleValue - equity;
+
+
+
+    const equityMultiple =
+        (profit + equity) / equity;
+
+
+
+    const irr =
+        (Math.pow(equityMultiple,1 / hold)-1) * 100;
+
 
 
 
@@ -206,12 +257,125 @@ function runModel() {
         formatPercent(coc);
 
 
+    document.getElementById("resultDebtService").innerHTML =
+        formatMoney(debtService);
+
+
+    document.getElementById("resultDSCR").innerHTML =
+        dscr.toFixed(2) + "x";
+
+
     document.getElementById("resultSale").innerHTML =
-        formatMoney(salePrice);
+        formatMoney(saleValue);
 
 
     document.getElementById("resultProfit").innerHTML =
         formatMoney(profit);
+
+
+    if(document.getElementById("resultIRR")){
+
+        document.getElementById("resultIRR").innerHTML =
+            formatPercent(irr);
+
+    }
+
+
+    if(document.getElementById("resultMultiple")){
+
+        document.getElementById("resultMultiple").innerHTML =
+            equityMultiple.toFixed(2) + "x";
+
+    }
+
+
+
+    createGrowthChart(price, appreciation, hold);
+
+}
+
+
+
+// =========================================
+// GROWTH CHART
+// =========================================
+
+function createGrowthChart(price, appreciation, hold){
+
+
+    const canvas =
+        document.getElementById("growthChart");
+
+
+    if(!canvas) return;
+
+
+    let values = [];
+
+    let value = price;
+
+
+    for(let i=0;i<=hold;i++){
+
+        values.push(Math.round(value));
+
+        value *= (1 + appreciation);
+
+    }
+
+
+
+    if(window.proformaChart){
+
+        window.proformaChart.destroy();
+
+    }
+
+
+
+    window.proformaChart =
+    new Chart(canvas,{
+
+        type:"line",
+
+        data:{
+
+            labels:
+            values.map((x,i)=>"Year "+i),
+
+            datasets:[{
+
+                label:"Projected Property Value",
+
+                data:values,
+
+                borderColor:"#9a8050",
+
+                backgroundColor:"rgba(154,128,80,.15)",
+
+                fill:true,
+
+                tension:.3
+
+            }]
+
+        },
+
+        options:{
+
+            responsive:true,
+
+            plugins:{
+
+                legend:{
+                    display:true
+                }
+
+            }
+
+        }
+
+    });
 
 }
 
@@ -223,108 +387,98 @@ function runModel() {
 
 function setupTabs(){
 
-    const buttons = document.querySelectorAll(".proforma-tabs button");
-    const tabs = document.querySelectorAll(".tab-content");
+    const buttons =
+        document.querySelectorAll(".proforma-tabs button");
 
 
-    buttons.forEach(button => {
-
-        button.addEventListener("click", function(e){
-
-            e.preventDefault();
+    const tabs =
+        document.querySelectorAll(".tab-content");
 
 
-            buttons.forEach(btn=>{
-                btn.classList.remove("active");
-            });
+
+    buttons.forEach(button=>{
 
 
-            tabs.forEach(tab=>{
-                tab.classList.remove("active");
-            });
+        button.addEventListener("click",()=>{
 
 
-            this.classList.add("active");
+            buttons.forEach(btn=>
+                btn.classList.remove("active")
+            );
+
+
+            tabs.forEach(tab=>
+                tab.classList.remove("active")
+            );
+
+
+
+            button.classList.add("active");
 
 
             const target =
-                document.getElementById(this.dataset.tab);
+                document.getElementById(button.dataset.tab);
+
 
 
             if(target){
+
                 target.classList.add("active");
+
             }
+
 
         });
 
+
     });
 
 }
 
 
-let appreciationRate = 3; // configurable assumption
 
-let yearlyValues = [];
+// =========================================
+// INITIALIZE
+// =========================================
 
-let currentValue = purchasePrice;
-
-for(let year = 1; year <= holdPeriod; year++){
-
-    currentValue = currentValue * (1 + appreciationRate / 100);
-
-    yearlyValues.push({
-        year: year,
-        value: currentValue
-    });
-
-}
+document.addEventListener("DOMContentLoaded",()=>{
 
 
-let totalGrowth = currentValue - purchasePrice;
-
-let cagr = (
-    Math.pow(currentValue / purchasePrice, 1 / holdPeriod) - 1
-) * 100;
+    loadPropertyData();
 
 
-document.getElementById("resultAppreciation").innerHTML =
-    cagr.toFixed(2) + "%";
+    setupTabs();
 
 
-document.getElementById("resultGrowth").innerHTML =
-    "$" + totalGrowth.toLocaleString();
+    const slider =
+        document.getElementById("equitySlider");
 
-new Chart(
-document.getElementById("growthChart"),
-{
-type:"line",
 
-data:{
-labels: yearlyValues.map(x=>"Year "+x.year),
+    if(slider){
 
-datasets:[
-{
-label:"Property Value",
-data: yearlyValues.map(x=>x.value),
+        slider.addEventListener(
+            "input",
+            updateCapital
+        );
 
-borderColor:"#1b5e20",
-backgroundColor:"rgba(27,94,32,.15)",
-fill:true,
-tension:.3
-}
-]
+    }
 
-},
 
-options:{
-responsive:true,
+    const run =
+        document.getElementById("runProforma");
 
-plugins:{
-legend:{
-display:true
-}
-}
 
-}
+    if(run){
+
+        run.addEventListener(
+            "click",
+            runModel
+        );
+
+    }
+
+
+    updateCapital();
+
 
 });
