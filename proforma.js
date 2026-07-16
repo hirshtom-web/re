@@ -40,8 +40,7 @@ function loadPropertyData(){
         property.cap || 7;
 
 
-    document.getElementById("equitySlider").value =
-        35;
+    document.getElementById("downPayment").value = 35;
 
 
     document.getElementById("interestRate").value =
@@ -68,44 +67,6 @@ function loadPropertyData(){
 
 
 // =========================================
-// EQUITY SLIDER
-// =========================================
-
-function updateCapital(){
-
-    const price =
-        Number(document.getElementById("purchasePrice").value);
-
-
-    const equityPercent =
-        Number(document.getElementById("equitySlider").value);
-
-
-    const equity =
-        price * (equityPercent / 100);
-
-
-    const debt =
-        price - equity;
-
-
-
-    document.getElementById("equityPercentDisplay").innerHTML =
-        equityPercent + "%";
-
-
-    document.getElementById("equityAmount").innerHTML =
-        formatMoney(equity);
-
-
-    document.getElementById("debtAmount").innerHTML =
-        formatMoney(debt);
-
-}
-
-
-
-// =========================================
 // UNDERWRITING MODEL
 // =========================================
 
@@ -125,7 +86,7 @@ function runModel(){
 
 
     const equityPercent =
-        Number(document.getElementById("equitySlider").value);
+       Number(document.getElementById("downPayment").value);
 
 
 
@@ -450,18 +411,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     setupTabs();
 
 
-    const slider =
-        document.getElementById("equitySlider");
-
-
-    if(slider){
-
-        slider.addEventListener(
-            "input",
-            updateCapital
-        );
-
-    }
 
 
     const run =
@@ -477,8 +426,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     }
 
-
-    updateCapital();
 
 
 });
