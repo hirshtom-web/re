@@ -225,10 +225,47 @@ Run Proforma
 
 </div>
 
+    <div class="growth-summary">
 
-    <div class="growth-chart">
+<div>
+<span>Total Growth</span>
+<strong id="totalGrowth">$0</strong>
+</div>
 
-<h3>10 Year Projection</h3>
+<div>
+<span>Annual Growth Rate</span>
+<strong id="growthRate">3%</strong>
+</div>
+
+<div>
+<span>Future Value</span>
+<strong id="futureValue">$0</strong>
+</div>
+
+</div>
+    
+
+<div class="growth-chart">
+
+<h3 id="projectionTitle">
+Projected Asset Growth — 10 Years
+</h3>
+
+<div class="projection-tabs">
+
+<button type="button" class="active" data-years="5">
+5 Years
+</button>
+
+<button type="button" data-years="10">
+10 Years
+</button>
+
+<button type="button" data-years="15">
+15 Years
+</button>
+
+</div>
 
 <canvas id="growthChart"></canvas>
 
