@@ -24,76 +24,37 @@ Exit Analysis
 
 <div class="tab-content active" id="deal">
 
-<div class="fields-grid">
+    <div class="fields-grid">
 
+        <div class="proforma-field">
+            <label>Purchase Price</label>
+            <input id="purchasePrice">
+        </div>
 
-<div class="proforma-field">
-<label>Purchase Price</label>
-<input id="purchasePrice">
-</div>
+        <div class="proforma-field">
+            <label>Annual NOI</label>
+            <input id="noi">
+        </div>
 
+        <div class="proforma-field">
+            <label>Equity Contribution %</label>
+            <input id="downPayment" type="number" value="35">
+        </div>
 
-<div class="proforma-field">
-<label>Annual NOI</label>
-<input id="noi">
-</div>
+        <div class="proforma-field">
+            <label>Interest Rate %</label>
+            <input id="interestRate" type="number" step="0.1" value="6.5">
+        </div>
 
+        <div class="proforma-field">
+            <label>Amortization Years</label>
+            <input id="amortization" type="number" value="25">
+        </div>
 
-
-<div class="proforma-field equity-control">
-
-<label>
-Equity Contribution
-<strong id="equityPercentDisplay">35%</strong>
-</label>
-
-<input 
-type="range"
-id="equitySlider"
-min="10"
-max="90"
-value="35">
-
-</div>
-
-
-
-<div class="capital-summary">
-
-<div>
-<span>Equity Investment</span>
-<strong id="equityAmount">$0</strong>
-</div>
-
-
-<div>
-<span>Debt Financing</span>
-<strong id="debtAmount">$0</strong>
-</div>
-
-</div>
-
-
-
-
-<div class="proforma-field">
-<label>Interest Rate %</label>
-<input id="interestRate" value="6.5">
-</div>
-
-
-
-<div class="proforma-field">
-<label>Amortization Years</label>
-<input id="amortization" value="25">
-</div>
-
-
-</div>
+    </div>
 
 </div>
     
-
 
 <div class="tab-content" id="operations">
 
