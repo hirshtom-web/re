@@ -65,7 +65,7 @@ PANEL
 .proforma-panel{
     background:white;
     border:1px solid var(--line);
-    border-radius:10px;
+    border-radius:25px;
     padding:30px;
     width:100%;
     box-sizing:border-box;
@@ -104,7 +104,7 @@ INPUTS
     box-sizing:border-box;
     padding:14px;
     border:1px solid var(--line);
-    border-radius:8px;
+    border-radius:25px;
     font-size:16px;
 }
 /* =========================
@@ -114,7 +114,7 @@ BUTTON
     margin-top:25px;
     width:100%;
     padding:15px;
-    border-radius:8px;
+    border-radius:25px;
     border:none;
     background:#111;
     color:white;
@@ -129,7 +129,7 @@ RESULTS
     grid-template-columns:repeat(6,1fr);
     background:white;
     border:1px solid var(--line);
-    border-radius:10px;
+    border-radius:25px;
     overflow:hidden;
 }
 .proforma-results div{
@@ -173,7 +173,7 @@ DISCLAIMER
     padding:20px;
     background:#f8f8f8;
     border:1px solid var(--line);
-    border-radius:10px;
+    border-radius:25px;
     font-size:12px;
     line-height:1.6;
     color:var(--muted);
@@ -206,7 +206,7 @@ MOBILE
     }
     .proforma-panel{
         padding:14px;
-        border-radius:10px;
+        border-radius:25px;
     }
     .fields-grid{
         grid-template-columns:1fr;
@@ -234,7 +234,7 @@ padding:30px;
 
 background:#fff;
 
-border-radius:18px;
+border-radius:25px;
 
 border:1px solid #e5e7eb;
 
@@ -273,7 +273,7 @@ background:#f8faf8;
 
 padding:18px;
 
-border-radius:14px;
+border-radius:25px;
 
 }
 
