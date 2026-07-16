@@ -133,8 +133,12 @@ RESULTS
     overflow:hidden;
 }
 .proforma-results div{
-    padding:20px;
+    padding: 20px;
     border-right:1px solid var(--line);
+    border-bottom:none;
+}
+.proforma-results div:nth-child(n+6){
+    border-top:1px solid var(--line);
 }
 .proforma-results div:last-child{
     border-right:none;
