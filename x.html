@@ -10,6 +10,11 @@
 <body>
 <style>
 
+    .secondary-btn{
+    background:none;
+    cursor:pointer;
+}
+    
 .ai-nav{
     display:flex;
     justify-content:space-between;
@@ -559,6 +564,14 @@ document.getElementById("error").innerHTML =
 "Access denied";
 
 }
+
+}
+
+        document.getElementById("loginModal").onclick = function(e){
+
+    if(e.target === this){
+        closeLogin();
+    }
 
 }
         
