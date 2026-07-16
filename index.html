@@ -9,40 +9,56 @@
 <link rel="stylesheet" href="property.css">
 
 <style>
+
+    
+    .secondary-btn{
+    background:none;
+    cursor:pointer;
+}
+    
+.ai-nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:35px 0;
+}
+
+
+.logo,
+.footer-logo{
+    height:28px;
+}
+
+
+
 .ai-hero{
     position:relative;
-    overflow:hidden;
     text-align:center;
-    padding:130px 20px 120px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    padding:130px 0 120px;
+    overflow:hidden;
 }
+
 
 .ai-glow{
     position:absolute;
-    width:600px;
-    height:600px;
-    background:radial-gradient(circle,rgba(154,128,80,.25),transparent 70%);
-    top:-120px;
+    width:500px;
+    height:500px;
+    background:radial-gradient(
+        circle,
+        rgba(154,128,80,.25),
+        transparent 70%
+    );
+    top:0;
     left:50%;
     transform:translateX(-50%);
-    filter:blur(50px);
+    filter:blur(40px);
 }
 
-.ai-hero > *{
-    position:relative;
-    z-index:1;
-}
-
-.logo{
-    height:45px;
-    margin-bottom:35px;
-}
 
 .ai-hero .eyebrow{
     position:relative;
 }
+
 
 .ai-hero h1{
     position:relative;
@@ -51,8 +67,8 @@
     line-height:1;
     letter-spacing:-4px;
     font-weight:600;
-    max-width:900px;
 }
+
 
 .ai-hero p{
     position:relative;
@@ -60,144 +76,207 @@
     margin:35px auto;
     color:var(--muted);
     font-size:19px;
-    line-height:1.7;
+    line-height:1.7
 }
+
+
 
 .hero-buttons{
     display:flex;
     justify-content:center;
-    align-items:center;
     gap:15px;
     margin-top:40px;
 }
 
+
+.primary-btn,
 .secondary-btn{
+
     padding:15px 30px;
     border-radius:50px;
     text-decoration:none;
     font-size:13px;
     letter-spacing:.5px;
+
+}
+
+
+.primary-btn{
     background:#161616;
     color:white;
-    border:1px solid #161616;
-    cursor:pointer;
-    transition:.3s ease;
 }
 
-.secondary-btn:hover{
-    background:#9a8050;
-    border-color:#9a8050;
+
+.secondary-btn{
+    border:1px solid var(--line);
+    color:var(--text);
 }
 
-.login-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(22,22,22,.45);
-    backdrop-filter:blur(12px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:1000;
+
+
+.ai-message{
+    padding:140px 0;
+    text-align:center;
 }
+
+
+.ai-message h2{
+    font-size:48px;
+    max-width:800px;
+    margin:auto;
+}
+
+
+    .login-overlay{
+
+position:fixed;
+inset:0;
+
+background:rgba(22,22,22,.45);
+
+backdrop-filter:blur(12px);
+
+display:none;
+
+align-items:center;
+justify-content:center;
+
+z-index:1000;
+
+}
+
 
 .login-overlay.active{
-    display:flex;
+display:flex;
 }
+
 
 .login-modal{
-    width:90%;
-    max-width:420px;
-    background:white;
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:40px;
-    position:relative;
-    box-shadow:0 30px 80px rgba(0,0,0,.15);
+
+width:90%;
+max-width:420px;
+
+background:white;
+
+border:1px solid var(--line);
+
+border-radius:20px;
+
+padding:40px;
+
+position:relative;
+
+box-shadow:0 30px 80px rgba(0,0,0,.15);
+
 }
+
 
 .login-modal h2{
-    margin:20px 0 10px;
+
+margin:20px 0 10px;
+
 }
+
 
 .login-modal p{
-    color:var(--muted);
-    font-size:14px;
-    margin-bottom:25px;
+
+color:var(--muted);
+
+font-size:14px;
+
+margin-bottom:25px;
+
 }
+
 
 .login-modal input{
-    width:100%;
-    padding:15px;
-    margin-bottom:12px;
-    border-radius:10px;
-    border:1px solid var(--line);
-    font-size:16px;
+
+width:100%;
+
+padding:15px;
+
+margin-bottom:12px;
+
+border-radius:10px;
+
+border:1px solid var(--line);
+
+font-size:16px;
+
 }
+
 
 .login-btn{
-    width:100%;
-    padding:15px;
-    border-radius:50px;
-    border:none;
-    background:#161616;
-    color:white;
-    cursor:pointer;
+
+width:100%;
+
+padding:15px;
+
+border-radius:50px;
+
+border:none;
+
+background:#161616;
+
+color:white;
+
+cursor:pointer;
+
 }
+
 
 .close-login{
-    position:absolute;
-    right:20px;
-    top:15px;
-    border:none;
-    background:none;
-    font-size:25px;
-    cursor:pointer;
+
+position:absolute;
+
+right:20px;
+top:15px;
+
+border:none;
+background:none;
+
+font-size:25px;
+
+cursor:pointer;
+
 }
+
 
 #error{
-    display:block;
-    margin-top:15px;
-    color:#9a8050;
-    font-size:13px;
+
+display:block;
+
+margin-top:15px;
+
+color:#9a8050;
+
+font-size:13px;
+
 }
+    
 
 @media(max-width:700px){
-
-.ai-hero{
-    padding:90px 5% 80px;
-}
-
-.logo{
-    height:35px;
-    margin-bottom:25px;
-}
 
 .ai-hero h1{
     font-size:42px;
     letter-spacing:-2px;
-    line-height:1.1;
-    max-width:90%;
-}
-
-.ai-hero p{
-    max-width:90%;
-    font-size:17px;
-    line-height:1.6;
 }
 
 .hero-buttons{
     flex-direction:column;
-    width:90%;
+    max-width:70%;
     margin-left:auto;
     margin-right:auto;
+    align-items:center;
 }
 
-.secondary-btn{
-    width:100%;
-    max-width:320px;
+.logo{
+    margin-bottom:15px;
+
 }
 
 }
+    
 </style>
 </head>
 
