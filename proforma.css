@@ -126,7 +126,7 @@ RESULTS
 .proforma-results{
     margin-top:25px;
     display:grid;
-    grid-template-columns:repeat(6,1fr);
+    grid-template-columns:repeat(5,1fr);
     background:white;
     border:1px solid var(--line);
     border-radius:25px;
