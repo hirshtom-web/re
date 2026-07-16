@@ -497,90 +497,115 @@ footer{
 
 </div>
 
-    <script>
-function openLogin(){
-
-document
-.getElementById("loginModal")
-.classList.add("active");
-
-}
-
-
-function closeLogin(){
-
-document
-.getElementById("loginModal")
-.classList.remove("active");
-
-}
-
-
+  <script>
 
 const investors = [
 
 {
-username:"investor",
-password:"welcome2026"
+    username:"investor",
+    password:"welcome2026",
+    name:"Investor"
 },
 
 {
-username:"partner",
-password:"access001"
+    username:"partner",
+    password:"access001",
+    name:"Sarah"
 },
-    {
-username:"tom",
-password:"12345"
+
+{
+    username:"tom",
+    password:"12345",
+    name:"Tom"
 }
 
 ];
 
 
 
+function openLogin(){
+
+    document
+    .getElementById("loginModal")
+    .classList.add("active");
+
+}
+
+
+
+function closeLogin(){
+
+    document
+    .getElementById("loginModal")
+    .classList.remove("active");
+
+}
+
+
+
 function login(){
 
+
 let user =
-document.getElementById("username").value;
+document.getElementById("username").value.trim();
+
 
 let pass =
-document.getElementById("password").value;
+document.getElementById("password").value.trim();
+
 
 
 let found =
-users.find(x =>
-    x.user.toLowerCase() === username.toLowerCase() &&
-    x.pass.toLowerCase() === password.toLowerCase()
+investors.find(x =>
+
+    x.username.toLowerCase() === user.toLowerCase()
+    &&
+    x.password === pass
+
 );
 
 
-if(valid){
+
+if(found){
+
 
 localStorage.setItem(
 "investorName",
-valid.name
+found.name
 );
 
+
 window.location.href="investor.html";
+
 
 }
 
 else{
 
+
 document.getElementById("error").innerHTML =
 "Access denied";
 
-}
 
 }
 
-        document.getElementById("loginModal").onclick = function(e){
+
+}
+
+
+
+
+document.getElementById("loginModal").onclick = function(e){
 
     if(e.target === this){
+
         closeLogin();
+
     }
 
 }
-        
-    </script>
+
+
+</script>
 </body>
 </html>
