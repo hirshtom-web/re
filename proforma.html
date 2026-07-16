@@ -89,6 +89,12 @@ Exit
         <input id="vacancy" value="5">
     </div>
 
+    <div class="proforma-field">
+    <label>Annual Appreciation %</label>
+    <input id="appreciation" value="3">
+</div>
+    
+
 </div>
 
 </div>
@@ -157,6 +163,36 @@ Run Proforma
 
 </div>
 
+
+    <div class="proforma-growth">
+
+    <h3>Growth Projection</h3>
+
+    <div class="growth-summary">
+
+        <div>
+            <span>Appreciation Rate</span>
+            <strong id="resultAppreciation">0%</strong>
+        </div>
+
+        <div>
+            <span>Total Value Growth</span>
+            <strong id="resultGrowth">$0</strong>
+        </div>
+
+        <div>
+            <span>Equity Multiple</span>
+            <strong id="resultMultiple">0x</strong>
+        </div>
+
+    </div>
+
+
+    <canvas id="growthChart"></canvas>
+
+</div>
+
+    
     <div class="proforma-disclaimer">
 
 <strong>Disclaimer:</strong>
