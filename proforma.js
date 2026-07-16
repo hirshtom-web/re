@@ -262,3 +262,69 @@ function setupTabs(){
 }
 
 
+let appreciationRate = 3; // configurable assumption
+
+let yearlyValues = [];
+
+let currentValue = purchasePrice;
+
+for(let year = 1; year <= holdPeriod; year++){
+
+    currentValue = currentValue * (1 + appreciationRate / 100);
+
+    yearlyValues.push({
+        year: year,
+        value: currentValue
+    });
+
+}
+
+
+let totalGrowth = currentValue - purchasePrice;
+
+let cagr = (
+    Math.pow(currentValue / purchasePrice, 1 / holdPeriod) - 1
+) * 100;
+
+
+document.getElementById("resultAppreciation").innerHTML =
+    cagr.toFixed(2) + "%";
+
+
+document.getElementById("resultGrowth").innerHTML =
+    "$" + totalGrowth.toLocaleString();
+
+new Chart(
+document.getElementById("growthChart"),
+{
+type:"line",
+
+data:{
+labels: yearlyValues.map(x=>"Year "+x.year),
+
+datasets:[
+{
+label:"Property Value",
+data: yearlyValues.map(x=>x.value),
+
+borderColor:"#1b5e20",
+backgroundColor:"rgba(27,94,32,.15)",
+fill:true,
+tension:.3
+}
+]
+
+},
+
+options:{
+responsive:true,
+
+plugins:{
+legend:{
+display:true
+}
+}
+
+}
+
+});
