@@ -3,92 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home</title>
+<title>Future Intelligence</title>
 <link rel="stylesheet" href="property.css">
 </head>
 
 <body>
+<style>
 
+.ai-nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:35px 0;
+}
+
+
+.logo,
+.footer-logo{
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:-1px;
+}
+
+.logo span,
+.footer-logo span{
+    color:var(--accent);
+}
+
+
+.nav-right{
+    display:flex;
+    gap:30px;
+}
+
+
+.nav-right a,
+.footer-links a{
+    text-decoration:none;
+    color:var(--muted);
+    font-size:13px;
+}
+
+
+
+.ai-hero{
+    position:relative;
+    text-align:center;
+    padding:130px 0 120px;
+    overflow:hidden;
+}
+
+
+.ai-glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(
+        circle,
+        rgba(154,128,80,.25),
+        transparent 70%
+    );
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    filter:blur(40px);
+}
+
+
+.ai-hero .eyebrow{
+    position:relative;
+}
+
+
+.ai-hero h1{
+    position:relative;
+    margin-top:25px;
+    font-size:76px;
+    line-height:1;
+    letter-spacing:-4px;
+    font-weight:600;
+}
+
+
+.ai-hero p{
+    position:relative;
+    max-width:620px;
+    margin:35px auto;
+    color:var(--muted);
+    font-size:19px;
+    line-height:1.7;
+}
+
+
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:40px;
+}
+
+
+.primary-btn,
+.secondary-btn{
+
+    padding:15px 30px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:13px;
+    letter-spacing:.5px;
+
+}
+
+
+.primary-btn{
+    background:#161616;
+    color:white;
+}
+
+
+.secondary-btn{
+    border:1px solid var(--line);
+    color:var(--text);
+}
+
+
+
+.trusted{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:50px 0;
+    text-align:center;
+}
+
+
+.trusted p{
+    font-size:11px;
+    letter-spacing:2px;
+    color:var(--muted);
+}
+
+
+
+.logo-slider{
+    display:flex;
+    justify-content:space-around;
+    margin-top:35px;
+    color:#999;
+    font-weight:600;
+    letter-spacing:2px;
+}
+
+
+
+.ai-message{
+    padding:140px 0;
+    text-align:center;
+}
+
+
+.ai-message h2{
+    font-size:48px;
+    max-width:800px;
+    margin:auto;
+}
+
+
+
+footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:40px 0;
+}
+
+
+.footer-links{
+    display:flex;
+    gap:25px;
+}
+
+
+footer p{
+    color:#888;
+    font-size:12px;
+}
+
+
+
+@media(max-width:700px){
+
+.ai-hero h1{
+    font-size:42px;
+    letter-spacing:-2px;
+}
+
+.hero-buttons{
+    flex-direction:column;
+}
+
+.logo-slider{
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+footer{
+    flex-direction:column;
+    gap:25px;
+}
+
+}
+    
+</style>
 <div class="page">
 
-<section class="hero">
+<header class="ai-nav">
+    <div class="logo">
+        NEXA<span>AI</span>
+    </div>
 
-    <div class="hero-top">
-        <div class="eyebrow">PROPERTY INTELLIGENCE</div>
-        <div class="confidential">PRIVATE ACCESS</div>
+    <div class="nav-right">
+        <a href="#">Platform</a>
+        <a href="#">Solutions</a>
+        <a href="#">Contact</a>
+    </div>
+</header>
+
+
+<section class="ai-hero">
+
+    <div class="ai-glow"></div>
+
+    <div class="eyebrow">
+        NEXT GENERATION INTELLIGENCE
     </div>
 
     <h1>
-        Strategic Real Estate<br>
-        Opportunities.
+        Intelligence<br>
+        built for what’s next.
     </h1>
 
-    <p class="subtitle">
-        Detailed property insights, market analysis, and investment opportunities
-        presented with clarity.
+    <p>
+        AI-powered systems designed to transform complex data into
+        faster decisions, smarter workflows, and limitless possibilities.
     </p>
 
-    <div class="snapshot">
 
-        <div>
-            <label>Focus</label>
-            <strong>Real Estate</strong>
-        </div>
+    <div class="hero-buttons">
 
-        <div>
-            <label>Markets</label>
-            <strong>Florida</strong>
-        </div>
+        <a href="#" class="primary-btn">
+            Explore Platform
+        </a>
 
-        <div>
-            <label>Approach</label>
-            <strong>Data Driven</strong>
-        </div>
-
-        <div>
-            <label>Experience</label>
-            <strong>Professional</strong>
-        </div>
-
-        <div>
-            <label>Access</label>
-            <strong>Private</strong>
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="two-column">
-
-    <div>
-        <h2>About Us</h2>
-
-        <p style="color:#6d6d6d; line-height:1.8;">
-            We provide carefully prepared property evaluations and market insights
-            designed to help clients understand opportunities and make informed decisions.
-        </p>
-
-    </div>
-
-
-    <div class="detail-list">
-
-        <div>
-            <span>Research</span>
-            <strong>Detailed Analysis</strong>
-        </div>
-
-        <div>
-            <span>Strategy</span>
-            <strong>Market Focused</strong>
-        </div>
-
-        <div>
-            <span>Presentation</span>
-            <strong>Clear Reports</strong>
-        </div>
+        <a href="#" class="secondary-btn">
+            Watch Demo
+        </a>
 
     </div>
 
@@ -96,66 +265,60 @@
 
 
 
-<section>
+<section class="trusted">
 
-<h2>What We Provide</h2>
+    <p>POWERING INNOVATION WITH</p>
 
-<div class="highlight-grid">
+    <div class="logo-slider">
 
-<div class="highlight">
-<span>01</span>
-<h3>Property Analysis</h3>
-<p>
-Comprehensive reviews covering location, condition, and potential.
-</p>
-</div>
+        <div>ORBIT</div>
+        <div>VERTEX</div>
+        <div>NOVA</div>
+        <div>QUANTUM</div>
+        <div>AXIOM</div>
+        <div>NEURAL</div>
 
-
-<div class="highlight">
-<span>02</span>
-<h3>Market Insights</h3>
-<p>
-Clear information to understand current opportunities.
-</p>
-</div>
-
-
-<div class="highlight">
-<span>03</span>
-<h3>Investment Support</h3>
-<p>
-Professional guidance through important decisions.
-</p>
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
 
-<section class="summary-box">
+<section class="ai-message">
 
-<h2>Explore Opportunities</h2>
-
-<p>
-View our available properties, detailed reports, and market information.
-</p>
-
-<button class="share-button">
-VIEW PROPERTIES
-</button>
+    <h2>
+        The future is not automated.
+        It is intelligent.
+    </h2>
 
 </section>
 
 
 
 <footer>
-REAL ESTATE OVERVIEW © 2026
+
+<div class="footer-logo">
+    NEXA<span>AI</span>
+</div>
+
+
+<div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+</div>
+
+
+<p>
+© 2026 NEXA AI. All rights reserved.
+</p>
+
+
 </footer>
 
 
 </div>
+
 
 </body>
 </html>
