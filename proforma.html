@@ -4,12 +4,8 @@
 
 <div class="proforma-tabs">
 
-<button type="button" class="active" data-tab="acquisition">
-Acquisition
-</button>
-
-<button type="button" data-tab="financing">
-Financing
+<button type="button" class="active" data-tab="deal">
+Deal Structure
 </button>
 
 <button type="button" data-tab="operations">
@@ -17,7 +13,7 @@ Operations
 </button>
 
 <button type="button" data-tab="exit">
-Exit
+Exit Analysis
 </button>
 
 </div>
@@ -26,98 +22,136 @@ Exit
 <div class="proforma-panel">
 
 
-<div class="tab-content active" id="acquisition">
+<div class="tab-content active" id="deal">
 
 <div class="fields-grid">
 
-    <div class="proforma-field">
-        <label>Purchase Price</label>
-        <input id="purchasePrice">
-    </div>
 
-
-    <div class="proforma-field">
-        <label>Annual NOI</label>
-        <input id="noi">
-    </div>
-
-</div>
-
+<div class="proforma-field">
+<label>Purchase Price</label>
+<input id="purchasePrice">
 </div>
 
 
-
-<div class="tab-content" id="financing">
-
-<div class="fields-grid">
-
-    <div class="proforma-field">
-        <label>Down Payment %</label>
-        <input id="downPayment" value="35">
-    </div>
+<div class="proforma-field">
+<label>Annual NOI</label>
+<input id="noi">
+</div>
 
 
-    <div class="proforma-field">
-        <label>Interest Rate %</label>
-        <input id="interestRate" value="6.5">
-    </div>
+<div class="proforma-field">
 
+<label>
+Equity Contribution
+<strong id="equityPercentDisplay">35%</strong>
+</label>
 
-    <div class="proforma-field">
-        <label>Amortization Years</label>
-        <input id="amortization" value="25">
-    </div>
+<input 
+type="range"
+id="equitySlider"
+min="10"
+max="80"
+value="35">
 
 </div>
 
+
+<div class="proforma-field">
+<label>Interest Rate %</label>
+<input id="interestRate" value="6.5">
 </div>
+
+
+<div class="proforma-field">
+<label>Amortization Years</label>
+<input id="amortization" value="25">
+</div>
+
+
+</div>
+
+
+<div class="capital-summary">
+
+
+<div>
+<span>Equity Investment</span>
+<strong id="equityAmount">$0</strong>
+</div>
+
+
+<div>
+<span>Debt Financing</span>
+<strong id="debtAmount">$0</strong>
+</div>
+
+
+</div>
+
+
+</div>
+
+
 
 
 
 <div class="tab-content" id="operations">
 
+
 <div class="fields-grid">
 
-    <div class="proforma-field">
-        <label>NOI Growth %</label>
-        <input id="noiGrowth" value="3">
-    </div>
 
-
-    <div class="proforma-field">
-        <label>Vacancy %</label>
-        <input id="vacancy" value="5">
-    </div>
-
-    <div class="proforma-field">
-    <label>Annual Appreciation %</label>
-    <input id="appreciation" value="3">
-</div>
-    
-
+<div class="proforma-field">
+<label>NOI Growth %</label>
+<input id="noiGrowth" value="3">
 </div>
 
+
+<div class="proforma-field">
+<label>Vacancy %</label>
+<input id="vacancy" value="5">
 </div>
+
+
+<div class="proforma-field">
+<label>Annual Appreciation %</label>
+<input id="appreciation" value="3">
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
 
 
 <div class="tab-content" id="exit">
 
+
 <div class="fields-grid">
 
-    <div class="proforma-field">
-        <label>Hold Period</label>
-        <input id="holdPeriod" value="10">
-    </div>
+
+<div class="proforma-field">
+<label>Hold Period</label>
+<input id="holdPeriod" value="10">
+</div>
 
 
-    <div class="proforma-field">
-        <label>Exit Cap Rate %</label>
-        <input id="exitCap" value="7">
-    </div>
+<div class="proforma-field">
+<label>Exit Cap Rate %</label>
+<input id="exitCap" value="7">
+</div>
+
 
 </div>
 
+
 </div>
+
+
 
 
 <button id="runProforma" class="run-button">
@@ -159,6 +193,16 @@ Run Proforma
 <div>
 <span>Profit</span>
 <strong id="resultProfit">$0</strong>
+</div>
+
+    <div>
+<span>Debt Service</span>
+<strong id="resultDebtService">$0</strong>
+</div>
+
+<div>
+<span>DSCR</span>
+<strong id="resultDSCR">0x</strong>
 </div>
 
 </div>
