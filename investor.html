@@ -12,7 +12,64 @@
 
 </head>
 
+<style>
+   .cards{
 
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+
+}
+
+
+.card{
+
+background:white;
+border:1px solid var(--line);
+border-radius:12px;
+padding:30px;
+
+}
+
+
+.card span{
+
+color:var(--accent);
+font-size:12px;
+
+}
+
+
+.card h3{
+
+margin-top:15px;
+
+}
+
+
+.card p{
+
+margin-top:15px;
+color:var(--muted);
+line-height:1.7;
+
+}
+
+
+
+.box{
+
+background:white;
+border:1px solid var(--line);
+border-radius:12px;
+padding:35px;
+color:var(--muted);
+
+}
+
+   
+</style>
+   
 <body>
 
 <div class="page">
@@ -56,7 +113,195 @@ Welcome back to your investment intelligence dashboard.
 
 </section>
 
-   <script>
+
+
+<section>
+
+<h2>
+Investment Opportunities
+</h2>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<span>01</span>
+
+<h3>
+Pre-Construction
+</h3>
+
+<p>
+Early access developments, acquisition opportunities,
+and selected growth investments.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<span>02</span>
+
+<h3>
+NNN Investments
+</h3>
+
+<p>
+Long-term income producing assets with structured returns.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<span>03</span>
+
+<h3>
+Commercial
+</h3>
+
+<p>
+Strategic commercial real estate opportunities.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2>
+Portfolio Performance
+</h2>
+
+
+<div class="box">
+
+<div class="snapshot">
+
+<div>
+<label>Total Investments</label>
+<strong>--</strong>
+</div>
+
+
+<div>
+<label>Portfolio Value</label>
+<strong>--</strong>
+</div>
+
+
+<div>
+<label>Current ROI</label>
+<strong>--</strong>
+</div>
+
+
+<div>
+<label>Assets</label>
+<strong>--</strong>
+</div>
+
+
+<div>
+<label>Status</label>
+<strong>Active</strong>
+</div>
+
+
+</div>
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2>
+Documents Center
+</h2>
+
+
+<div class="box">
+
+Investment Reports<br><br>
+
+Property Analysis<br><br>
+
+Offering Memorandums<br><br>
+
+Legal Documents
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2>
+Investor Support
+</h2>
+
+
+<div class="box">
+
+Private investor communication portal.
+
+<br><br>
+
+Schedule meetings, request information,
+or contact the investment team.
+
+</div>
+
+
+</section>
+
+
+
+
+
+<footer>
+
+NEXA AI PRIVATE INVESTOR NETWORK © 2026
+
+</footer>
+
+
+
+</div>
+
+
+
+
+<script>
 
 const investor =
 localStorage.getItem("investorName");
@@ -71,8 +316,6 @@ investor;
 
 </script>
 
-
-</div>
 
 </body>
 
