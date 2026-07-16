@@ -546,9 +546,10 @@ let pass =
 document.getElementById("password").value;
 
 
-let valid = investors.find(
-x => x.username === user &&
-x.password === pass
+let found =
+users.find(x =>
+    x.user.toLowerCase() === username.toLowerCase() &&
+    x.pass.toLowerCase() === password.toLowerCase()
 );
 
 
