@@ -1,130 +1,124 @@
 document.addEventListener("DOMContentLoaded", function(){
 
 
-    const body = document.body;
+    const dealId = document.body.dataset.deal;
 
 
-    const score = Number(body.dataset.score || 0);
+    const property =
+        window.properties[dealId];
 
 
-    const cashflow =
-        body.dataset.cashflow || "-";
-
-
-    const risk =
-        body.dataset.risk || "-";
-
-
-    const growth =
-        body.dataset.growth || "-";
-
-
-    const liquidity =
-        body.dataset.liquidity || "-";
-
-
-
-    // TEXT VALUES
-
-
-    document.getElementById("scoreValue").innerText = score;
-
-
-    document.getElementById("cashflow").innerText = cashflow;
-
-
-    document.getElementById("risk").innerText = risk;
-
-
-    document.getElementById("growth").innerText = growth;
-
-
-    document.getElementById("liquidity").innerText = liquidity;
-
-
-
-    // SCORE LABEL
-
-
-    let label;
-
-
-    if(score >= 90){
-
-        label="Excellent";
-
-    }
-
-    else if(score >= 80){
-
-        label="Strong";
-
-    }
-
-    else if(score >= 70){
-
-        label="Good";
-
-    }
-
-    else{
-
-        label="Moderate";
-
+    if(!property){
+        console.error("No score data found");
+        return;
     }
 
 
-    document.getElementById("scoreLabel").innerText = label;
+
+    const score = Number(property.score || 0);
 
 
 
-    // GAUGE ANIMATION
+    document.getElementById("scoreValue").innerText =
+        score;
 
+
+    document.getElementById("scoreLabel").innerText =
+        property.scoreLabel;
+
+
+
+    document.getElementById("score-summary").innerText =
+        property.scoreSummary;
+
+
+
+    // SCORE CARDS
+
+    const cards =
+        property.scoreCards;
+
+
+    const grid =
+        document.getElementById("score-grid");
+
+
+    if(grid && cards){
+
+
+        grid.innerHTML="";
+
+
+        cards.forEach(card=>{
+
+
+            grid.innerHTML += `
+
+            <div>
+
+                <span>${card.label}</span>
+
+                <strong>${card.value}</strong>
+
+                <p>${card.description}</p>
+
+            </div>
+
+            `;
+
+
+        });
+
+
+    }
+
+
+
+    // GAUGE
 
     const circle =
         document.querySelector(".gauge-progress");
 
 
-    const circumference = 314;
+    if(circle){
 
 
-    const offset =
-        circumference - 
-        (score / 100) * circumference;
+        const circumference = 314;
 
 
-
-    setTimeout(()=>{
-
-
-        circle.style.strokeDashoffset = offset;
-
-
-    },300);
+        const offset =
+            circumference -
+            (score / 100) * circumference;
 
 
 
-    // COLOR
+        setTimeout(()=>{
+
+            circle.style.strokeDashoffset =
+                offset;
+
+        },300);
 
 
-    if(score >= 90){
 
-        circle.style.stroke="#0b3d2e";
+        if(score >= 90){
+
+            circle.style.stroke="#0b3d2e";
+
+        }
+        else if(score >=75){
+
+            circle.style.stroke="#8a6d1d";
+
+        }
+        else{
+
+            circle.style.stroke="#b33a3a";
+
+        }
+
 
     }
-
-    else if(score >= 75){
-
-        circle.style.stroke="#8a6d1d";
-
-    }
-
-    else{
-
-        circle.style.stroke="#b33a3a";
-
-    }
-
 
 
 });
