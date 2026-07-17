@@ -24,22 +24,25 @@ function formatPercent(value){
 
 function loadPropertyData(){
 
-    const dealId = document.body.dataset.deal;
+    const propertyID =
+        window.location.hash.replace("#", "") ||
+        Object.keys(window.properties)[0];
 
-    const property = window.properties[dealId];
+    const property =
+        window.properties[propertyID];
 
 
     if(!property){
-        console.error("No property found:", dealId);
+        console.error("No property found:", propertyID);
         return;
     }
 
 
 const fields = {
 
-    purchasePrice: property.purchasePrice,
+    purchasePrice: property.financial.purchasePrice,
 
-    noi: property.noi,
+    noi: property.financial.noi,
 
     exitCap: property.underwriting.exitCap,
 
@@ -486,3 +489,14 @@ runModel
 
 
 
+window.addEventListener("DOMContentLoaded", ()=>{
+
+    loadPropertyData();
+
+    setupInputs();
+
+    setupTabs();
+
+    runModel();
+
+});
