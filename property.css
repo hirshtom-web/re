@@ -189,16 +189,25 @@ border-radius:25px;
     background:white;
     border:1px solid var(--line);
     margin-bottom:80px;
-border-radius:25px;
+    border-radius:25px;
+    overflow:hidden;
 }
+
 .financial-table div{
     display:flex;
     justify-content:space-between;
     padding:22px;
+    border-bottom:1px solid var(--line);
 }
+
+.financial-table div:nth-last-child(-n+2){
+    border-bottom:none;
+}
+
 .financial-table span{
     color:var(--muted);
 }
+
 .financial-table strong{
     font-weight:600;
 }
