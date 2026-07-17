@@ -2,52 +2,240 @@ window.properties = {
 
     "starbucks-altamonte": {
 
-        /* HERO */
-        title: "Starbucks",
+        /* =========================
+           SYSTEM INFORMATION
+        ========================== */
 
-        subtitle: "Brand-New Corporate Net Lease Investment Opportunity",
+        id: "starbucks-altamonte",
 
-        address: "803 N State Road 434, Altamonte Springs, FL 32714",
+        status: "Available",
 
+        assetClass: "Net Lease Retail",
 
-        /* IMAGE */
-        image:
-        "https://static.wixstatic.com/media/1799ca_5751d816c9174b74a1724ff2a399cd80~mv2.png",
+        createdDate: "2026-07-18",
 
-        imageCaption:
-        "Brand-New Starbucks Retail Building",
-
+        featured: true,
 
 
-        /* SNAPSHOT */
+        /* =========================
+           HERO
+        ========================== */
+
+        hero: {
+
+            title: "Starbucks",
+
+            subtitle:
+            "Brand-New Corporate Net Lease Investment Opportunity",
+
+            address:
+            "803 N State Road 434, Altamonte Springs, FL 32714",
+
+            image:
+            "https://static.wixstatic.com/media/1799ca_5751d816c9174b74a1724ff2a399cd80~mv2.png",
+
+            imageCaption:
+            "Brand-New Starbucks Retail Building"
+
+        },
+
+
+        /* =========================
+           TENANT INFORMATION
+        ========================== */
+
+        tenantInfo: {
+
+            name:
+            "Starbucks Corporation",
+
+            parentCompany:
+            "Starbucks Corporation",
+
+            creditRating:
+            "Investment Grade",
+
+            locationsWorldwide:
+            "38,000+",
+
+            founded:
+            "1971",
+
+            website:
+            "https://www.starbucks.com"
+
+        },
+
+
+        /*
+           Legacy field retained
+           for existing renderer compatibility
+        */
+
+        tenant:
+        "Starbucks Corporation",
+
+
+
+        /* =========================
+           FINANCIAL SNAPSHOT
+        ========================== */
+
+        financial: {
+
+            purchasePrice: 5314286,
+
+            noi: 279000,
+
+            capRate: 5.25,
+
+            pricePerSF: 1968.25,
+
+            rentPerSF: 103.33
+
+        },
+
+
+        /*
+           Legacy fields retained
+        */
+
         purchasePrice: 5314286,
 
         noi: 279000,
 
         capRate: 5.25,
 
-        leaseTerm: "15 Years",
-
-        leaseStructure: "NN",
 
 
+        /* =========================
+           LEASE INFORMATION
+        ========================== */
 
-        /* ASSET OVERVIEW */
-        tenant: "Starbucks Corporation",
+        leaseDetails: {
 
-        buildingSize: "2,700 SF",
+            structure:
+            "NN",
 
-        lotSize: "1.38 AC",
+            remainingTerm:
+            "15 Years",
 
-        yearBuilt: "2026",
+            options:
+            "Four (4) Five-Year Options",
 
-        propertyType: "Retail / Fast Food",
+            rentEscalations:
+            "10% Every 5 Years",
 
-        location: "Altamonte Springs, FL",
+            guarantor:
+            "Corporate Guarantee",
+
+            commencementDate:
+            "2026",
+
+            expirationDate:
+            "2041"
+
+        },
+
+
+        /*
+           Legacy compatibility
+        */
+
+        leaseTerm:
+        "15 Years",
+
+        leaseStructure:
+        "NN",
 
 
 
-        /* INVESTMENT HIGHLIGHTS */
+        /* =========================
+           ASSET OVERVIEW
+        ========================== */
+
+        property: {
+
+            buildingSize:
+            "2,700 SF",
+
+            lotSize:
+            "1.38 AC",
+
+            yearBuilt:
+            "2026",
+
+            propertyType:
+            "Retail / Fast Food",
+
+            location:
+            "Altamonte Springs, FL",
+
+            construction:
+            "Under Construction",
+
+            buildingClass:
+            "B",
+
+            tenancy:
+            "Single Tenant"
+
+        },
+
+
+        /*
+           Legacy compatibility
+        */
+
+        buildingSize:
+        "2,700 SF",
+
+        lotSize:
+        "1.38 AC",
+
+        yearBuilt:
+        "2026",
+
+        propertyType:
+        "Retail / Fast Food",
+
+        location:
+        "Altamonte Springs, FL",
+
+
+
+        /* =========================
+           DEMOGRAPHICS
+        ========================== */
+
+        demographics: {
+
+            trafficCount:
+            "40,000+ VPD",
+
+            population1Mile:
+            "18,500",
+
+            population3Miles:
+            "95,000",
+
+            population5Miles:
+            "240,000",
+
+            averageIncome:
+            "$95,000",
+
+            daytimePopulation:
+            "85,000"
+
+        },
+
+
+
+        /* =========================
+           INVESTMENT HIGHLIGHTS
+        ========================== */
+
         highlights: [
 
             {
@@ -80,165 +268,385 @@ window.properties = {
 
 
 
-        /* EXECUTIVE SUMMARY */
+        /* =========================
+           EXECUTIVE SUMMARY
+        ========================== */
 
         summary: [
 
             "Acquire a newly constructed Starbucks located at 803 N State Road 434 in Altamonte Springs, Florida, offering investors a premium corporate-backed retail investment opportunity in one of Central Florida's strongest growth markets.",
 
+
             "Delivered in 2026, the 2,700-square-foot property features a rare 15-year corporate-guaranteed lease with four five-year renewal options and 10% rent escalations every five years, providing long-term income growth and stability.",
+
 
             "The property generates $279,000 in annual rental income through a favorable self-maintained NN lease structure, offering limited landlord responsibilities and predictable monthly cash flow.",
 
+
             "Positioned along N State Road 434 with exposure to more than 40,000 vehicles per day, the asset benefits from strong visibility, surrounding residential growth, employment density, and proximity to Interstate 4 and State Road 436.",
+
 
             "Strong corporate credit, brand-new construction, built-in rent growth, and minimal management responsibilities make this Starbucks an attractive long-term hold for private investors and 1031 exchange buyers."
 
         ],
 
 
-
-        /* FINANCIAL OVERVIEW */
+        
+        /* =========================
+           FINANCIAL OVERVIEW CARDS
+        ========================== */
 
         financialOverview: [
 
             {
-                label:"Purchase Price",
-                value:"$5,314,286"
+                label:
+                "Purchase Price",
+
+                value:
+                "$5,314,286"
             },
 
-            {
-                label:"Price Per SF",
-                value:"$1,968.25"
-            },
 
             {
-                label:"Annual NOI",
-                value:"$279,000"
+                label:
+                "Price Per SF",
+
+                value:
+                "$1,968.25"
             },
 
-            {
-                label:"Cap Rate",
-                value:"5.25%"
-            },
 
             {
-                label:"Building Size",
-                value:"2,700 SF"
+                label:
+                "Annual NOI",
+
+                value:
+                "$279,000"
             },
 
+
             {
-                label:"Lease Term",
-                value:"15 Years"
+                label:
+                "Cap Rate",
+
+                value:
+                "5.25%"
+            },
+
+
+            {
+                label:
+                "Building Size",
+
+                value:
+                "2,700 SF"
+            },
+
+
+            {
+                label:
+                "Lease Term",
+
+                value:
+                "15 Years"
             }
 
         ],
 
 
-        /* UNDERWRITING */
+
+        /* =========================
+           UNDERWRITING
+        ========================== */
 
         underwriting: {
 
-    downPayment: 35,
+            downPayment:
+            35,
 
-    interestRate: 6.5,
+            interestRate:
+            6.5,
 
-    amortization: 25,
+            amortization:
+            25,
 
-    noiGrowth: 2,
+            noiGrowth:
+            2,
 
-    vacancy: 5,
+            vacancy:
+            5,
 
-    appreciation: 1.8,
+            appreciation:
+            1.8,
 
-    holdPeriod: 10,
+            holdPeriod:
+            10,
 
-    exitCap: 6.25
+            exitCap:
+            6.25
 
-},
-
-
-
-
-        /* INVESTMENT SCORE */
-
-        score:92,
-
-        scoreLabel:"Excellent",
-
-        scoreSummary:
-        "This asset represents a high-quality investment opportunity supported by strong tenant credit, stable cash flow, and long-term value creation potential.",
-
-
-        scoreCards:[
-
-            {
-                label:"Cash Flow",
-                value:"A+",
-                description:"Stable Income"
-            },
-
-            {
-                label:"Risk",
-                value:"Low",
-                description:"Corporate Tenant"
-            },
-
-            {
-                label:"Growth",
-                value:"Strong",
-                description:"Market Fundamentals"
-            },
-
-            {
-                label:"Liquidity",
-                value:"High",
-                description:"Investor Demand"
-            }
-
-        ],
+        },
 
 
 
-        /* PROPERTY FACTS */
+        /* =========================
+           INVESTMENT METRICS
+        ========================== */
+
+        investmentMetrics: {
+
+            pricePerSF:
+            1968.25,
+
+            rentPerSF:
+            103.33,
+
+            annualRentGrowth:
+            "2%",
+
+            leverageAssumption:
+            "65% LTV",
+
+            projectedIRR:
+            "8.5%",
+
+            projectedEquityMultiple:
+            "1.9x"
+
+        },
+
+
+
+        /* =========================
+           INVESTMENT SCORE
+        ========================== */
+
+        score: {
+
+            value:
+            92,
+
+            label:
+            "Excellent",
+
+            summary:
+            "This asset represents a high-quality investment opportunity supported by strong tenant credit, stable cash flow, and long-term value creation potential.",
+
+
+            cards:[
+
+                {
+                    label:
+                    "Cash Flow",
+
+                    value:
+                    "A+",
+
+                    description:
+                    "Stable Income"
+                },
+
+
+                {
+                    label:
+                    "Risk",
+
+                    value:
+                    "Low",
+
+                    description:
+                    "Corporate Tenant"
+                },
+
+
+                {
+                    label:
+                    "Growth",
+
+                    value:
+                    "Strong",
+
+                    description:
+                    "Market Fundamentals"
+                },
+
+
+                {
+                    label:
+                    "Liquidity",
+
+                    value:
+                    "High",
+
+                    description:
+                    "Investor Demand"
+                }
+
+            ]
+
+        },
+
+
+        /*
+           Legacy compatibility
+        */
+
+        scoreValue:
+        92,
+
+        scoreLabel:
+        "Excellent",
+
+
+
+        /* =========================
+           PROPERTY FACTS
+        ========================== */
 
         propertyFacts:[
 
             {
-                label:"Property Type",
-                value:"Retail"
+                label:
+                "Property Type",
+
+                value:
+                "Retail"
             },
 
-            {
-                label:"Subtype",
-                value:"Fast Food"
-            },
 
             {
-                label:"Construction",
-                value:"Under Construction"
+                label:
+                "Subtype",
+
+                value:
+                "Fast Food"
             },
 
-            {
-                label:"Building Class",
-                value:"B"
-            },
 
             {
-                label:"Lot Size",
-                value:"1.38 Acres"
+                label:
+                "Construction",
+
+                value:
+                "Under Construction"
             },
 
+
             {
-                label:"Tenancy",
-                value:"Single Tenant"
+                label:
+                "Building Class",
+
+                value:
+                "B"
+            },
+
+
+            {
+                label:
+                "Lot Size",
+
+                value:
+                "1.38 Acres"
+            },
+
+
+            {
+                label:
+                "Tenancy",
+
+                value:
+                "Single Tenant"
             }
 
         ],
 
 
 
-        /* LOCATION */
+        /* =========================
+           MEDIA
+        ========================== */
+
+        media: {
+
+            mainImage:
+
+            "https://static.wixstatic.com/media/1799ca_5751d816c9174b74a1724ff2a399cd80~mv2.png",
+
+
+            gallery:[
+
+                /*
+                Add URLs when available:
+
+                {
+                    type:"Exterior",
+                    url:""
+                },
+
+                {
+                    type:"Interior",
+                    url:""
+                },
+
+                {
+                    type:"Aerial",
+                    url:""
+                },
+
+                {
+                    type:"Site Plan",
+                    url:""
+                }
+
+                */
+
+            ]
+
+        },
+
+
+
+        /* =========================
+           DOCUMENTS
+        ========================== */
+
+        documents: {
+
+            offeringMemorandum:
+            "",
+
+            rentRoll:
+            "",
+
+            financials:
+            "",
+
+            flyer:
+            ""
+
+        },
+
+
+
+        /* =========================
+           MAP / COORDINATES
+        ========================== */
+
+        coordinates: {
+
+            latitude:
+            28.6989,
+
+            longitude:
+            -81.3912
+
+        },
+
+
+
+        /* =========================
+           LOCATION
+        ========================== */
 
         locationOverview:
         "Altamonte Springs, Florida",
@@ -257,13 +665,16 @@ window.properties = {
         ],
 
 
-
-        /* RISK */
+        
+        /* =========================
+           RISK STRATEGY
+        ========================== */
 
         riskStrategy:[
 
             {
-                title:"Tenant Risk",
+                title:
+                "Tenant Risk",
 
                 text:
                 "Starbucks Corporation provides institutional-quality credit backed by one of the world's most recognized retail brands."
@@ -271,7 +682,8 @@ window.properties = {
 
 
             {
-                title:"Lease Risk",
+                title:
+                "Lease Risk",
 
                 text:
                 "Long-term corporate lease with contractual rent increases provides income visibility and reduces operational risk."
@@ -279,7 +691,8 @@ window.properties = {
 
 
             {
-                title:"Exit Strategy",
+                title:
+                "Exit Strategy",
 
                 text:
                 "Attractive to 1031 exchange buyers, private investors, REITs, and institutional net lease purchasers seeking stable retail assets."
@@ -289,15 +702,18 @@ window.properties = {
 
 
 
-        /* MARKET */
+        /* =========================
+           MARKET INFORMATION
+        ========================== */
 
         market:{
 
             location:
-            "Tampa, FL • Updated July 2026",
+            "Altamonte Springs, FL • Updated July 2026",
 
 
-            score:54,
+            score:
+            54,
 
 
             rating:
@@ -311,39 +727,66 @@ window.properties = {
             stats:[
 
                 {
-                    label:"Market Cap Rate",
-                    value:"6.15%"
+                    label:
+                    "Market Cap Rate",
+
+                    value:
+                    "6.15%"
                 },
 
-                {
-                    label:"Median Price / SF",
-                    value:"$248"
-                },
 
                 {
-                    label:"Average Lease Rate",
-                    value:"$31.50 / SF"
+                    label:
+                    "Median Price / SF",
+
+                    value:
+                    "$248"
                 },
 
-                {
-                    label:"Vacancy Rate",
-                    value:"6.9%"
-                },
 
                 {
-                    label:"12-Month Rent Growth",
-                    value:"▲ +2.7%",
-                    color:"#2e7d32"
+                    label:
+                    "Average Lease Rate",
+
+                    value:
+                    "$31.50 / SF"
                 },
 
+
                 {
-                    label:"Net Absorption",
-                    value:"+185,000 SF"
+                    label:
+                    "Vacancy Rate",
+
+                    value:
+                    "6.9%"
+                },
+
+
+                {
+                    label:
+                    "12-Month Rent Growth",
+
+                    value:
+                    "▲ +2.7%",
+
+                    color:
+                    "#2e7d32"
+                },
+
+
+                {
+                    label:
+                    "Net Absorption",
+
+                    value:
+                    "+185,000 SF"
                 }
 
             ]
 
         }
+
+
 
     }
 
