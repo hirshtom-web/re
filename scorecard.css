@@ -254,50 +254,6 @@
 
 @media(max-width:600px){
 
-
-    .investment-score{
-
-        margin:50px 0;
-
-    }
-
-
-    .gauge-circle{
-
-        width:210px;
-        height:210px;
-
-    }
-
-
-    .gauge-center strong{
-
-        font-size:48px;
-
-    }
-
-
-    .score-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .score-card{
-
-        padding:22px;
-
-    }
-
-
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-
     .investment-score{
 
         margin:50px 0;
@@ -307,41 +263,41 @@
 
     .score-wrapper{
 
-        grid-template-columns:110px 1fr;
+        grid-template-columns:1fr 1fr;
 
-        gap:15px;
+        gap:12px;
 
-        align-items:start;
+        align-items:center;
 
     }
 
 
-
-    /* SMALL GAUGE */
-
+    /* GAUGE */
 
     .gauge-circle{
 
-        width:105px;
-        height:105px;
+        width:130px;
+        height:130px;
+
+        margin:auto;
 
     }
 
 
     .gauge-center strong{
 
-        font-size:28px;
+        font-size:34px;
 
     }
 
 
     .gauge-center span{
 
-        font-size:7px;
+        font-size:8px;
 
         letter-spacing:1px;
 
-        margin-top:4px;
+        margin-top:5px;
 
     }
 
@@ -355,55 +311,41 @@
 
 
 
-    /* STACKED SMALL CARDS */
+    /* STATS */
 
 
     .score-grid{
 
-        display:flex;
-
-        flex-direction:column;
+        grid-template-columns:1fr;
 
         gap:8px;
 
     }
 
 
-
     .score-card{
 
-        padding:10px 12px;
+        padding:10px;
 
         border-radius:10px;
 
-        display:flex;
-
-        align-items:center;
-
-        justify-content:space-between;
-
     }
-
 
 
     .score-card label{
 
         font-size:9px;
 
-        margin:0;
+        margin-bottom:4px;
 
     }
-
 
 
     .score-card strong{
 
-        font-size:16px;
-
-        margin-left:auto;
+        font-size:18px;
 
     }
-
 
 
     .score-card small{
@@ -414,7 +356,7 @@
 
 
 
-    /* SUMMARY BELOW */
+    /* SUMMARY */
 
 
     .score-summary{
@@ -437,9 +379,6 @@
 
         font-size:13px;
 
-        line-height:1.5;
-
     }
-
 
 }
