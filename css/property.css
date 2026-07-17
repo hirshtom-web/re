@@ -1,11 +1,19 @@
 :root{
-    --bg:#f5f4f0;
+
+    --bg:#f8f7f4;
+
     --white:#ffffff;
-    --text:#161616;
-    --muted:#6d6d6d;
-    --line:#dedbd3;
-    --soft:#efede7;
+
+    --text:#111111;
+
+    --muted:#6b6b6b;
+
+    --line:rgba(17,17,17,.08);
+
+    --soft:#f1eee7;
+
     --accent:#9a8050;
+
 }
 *{
     margin:0;
@@ -25,9 +33,31 @@ body.modal-open{
     touch-action:none;
 }
 body{
-    background:var(--bg);
+
+    background:
+
+    radial-gradient(
+        circle at 10% 0%,
+        rgba(154,128,80,.12),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at 90% 20%,
+        rgba(255,255,255,.9),
+        transparent 40%
+    ),
+
+    linear-gradient(
+        180deg,
+        #faf9f6 0%,
+        #f3f0e9 100%
+    );
+
     color:var(--text);
+
     font-family:'Inter',sans-serif;
+
 }
 .page{
     width:90%;
