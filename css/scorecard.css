@@ -1,4 +1,4 @@
-/* ===========================
+ress/* ===========================d
    INVESTMENT SCORE
 =========================== */
 
@@ -200,6 +200,8 @@
     border-left:4px solid #0b3d2e;
 
     border:1px solid var(--line);
+
+    border-radius:25px;
 
 
 }
