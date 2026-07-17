@@ -24,16 +24,24 @@ function formatPercent(value){
 
 function loadPropertyData(){
 
-    const property = document.body.dataset;
+    const dealId = document.body.dataset.deal;
+
+    const property = properties[dealId];
+
+
+    if(!property){
+        console.error("No property found:", dealId);
+        return;
+    }
 
 
     const fields = {
 
-        purchasePrice: property.price || 0,
+        purchasePrice: property.purchasePrice,
 
-        noi: property.noi || 0,
+        noi: property.noi,
 
-        exitCap: property.cap || 7,
+        exitCap: property.capRate,
 
         downPayment: 35,
 
@@ -52,7 +60,6 @@ function loadPropertyData(){
     };
 
 
-
     Object.keys(fields).forEach(id=>{
 
         const element = document.getElementById(id);
@@ -64,7 +71,6 @@ function loadPropertyData(){
         }
 
     });
-
 
 }
 
