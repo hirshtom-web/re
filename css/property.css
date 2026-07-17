@@ -269,6 +269,7 @@ border-radius:25px;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:25px;
+    margin-bottom:80px;
 }
 .risk-grid div{
     background:white;
