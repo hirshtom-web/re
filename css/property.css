@@ -1,18 +1,44 @@
 :root{
 
     --bg:#f8f7f4;
-
     --white:#ffffff;
-
     --text:#111111;
-
     --muted:#6b6b6b;
-
     --line:rgba(17,17,17,.08);
-
-    --soft:#f1eee7;
-
+    --soft:#f1f3f8;
     --accent:#9a8050;
+
+}
+
+
+body{
+
+    background:
+
+    radial-gradient(
+        circle at 10% 0%,
+        rgba(124,92,255,.12),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at 90% 10%,
+        rgba(79,209,197,.12),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at 50% 100%,
+        rgba(99,179,237,.10),
+        transparent 40%
+    ),
+
+    #f8f7f4;
+
+
+    color:var(--text);
+
+    font-family:'Inter',sans-serif;
 
 }
 *{
@@ -32,33 +58,7 @@ body.modal-open{
     height:100%;
     touch-action:none;
 }
-body{
 
-    background:
-
-    radial-gradient(
-        circle at 10% 0%,
-        rgba(154,128,80,.12),
-        transparent 35%
-    ),
-
-    radial-gradient(
-        circle at 90% 20%,
-        rgba(255,255,255,.9),
-        transparent 40%
-    ),
-
-    linear-gradient(
-        180deg,
-        #faf9f6 0%,
-        #f3f0e9 100%
-    );
-
-    color:var(--text);
-
-    font-family:'Inter',sans-serif;
-
-}
 .page{
     width:90%;
     max-width:1440px;
