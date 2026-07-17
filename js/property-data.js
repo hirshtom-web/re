@@ -1,4 +1,4 @@
-const properties = {
+window.properties = {
 
     "starbucks-altamonte": {
 
@@ -133,6 +133,30 @@ const properties = {
             }
 
         ],
+
+
+        /* UNDERWRITING */
+
+        underwriting: {
+
+    downPayment: 35,
+
+    interestRate: 6.5,
+
+    amortization: 25,
+
+    noiGrowth: 2,
+
+    vacancy: 5,
+
+    appreciation: 1.8,
+
+    holdPeriod: 10,
+
+    exitCap: 6.25
+
+},
+
 
 
 
