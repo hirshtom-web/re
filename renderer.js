@@ -20,3 +20,6 @@ document.getElementById("cap-rate").textContent =
 
 document.getElementById("lease-term").textContent =
     property.leaseTerm;
+
+document.getElementById("lease-structure").textContent =
+    property.leaseStructure;
