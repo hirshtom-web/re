@@ -347,3 +347,12 @@ grid-template-columns:1fr;
 .advanced-fields.active{
     display:block;
 }
+
+
+.tab-content{
+    display:none;
+}
+
+.tab-content.active{
+    display:block;
+}
