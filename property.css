@@ -187,6 +187,7 @@ border-radius:25px;
     display:grid;
     grid-template-columns:repeat(2,1fr);
     background:white;
+    border:1px solid var(--line);
     margin-bottom:80px;
 border-radius:25px;
 }
@@ -194,7 +195,6 @@ border-radius:25px;
     display:flex;
     justify-content:space-between;
     padding:22px;
-    border-bottom:1px solid var(--line);
 }
 .financial-table span{
     color:var(--muted);
