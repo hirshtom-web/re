@@ -4,16 +4,19 @@
 
 <div class="proforma-tabs">
 
-<button type="button" class="active" data-tab="deal">
+<button 
+type="button" 
+class="active" 
+data-tab="deal">
 Deal Structure
 </button>
 
-<button type="button" data-tab="operations">
-Operations
-</button>
 
-<button type="button" data-tab="exit">
-Exit Analysis
+<button 
+type="button" 
+class="advanced-toggle"
+onclick="toggleAdvanced()">
+Advanced Assumptions
 </button>
 
 </div>
@@ -56,63 +59,41 @@ Exit Analysis
 </div>
     
 
-<div class="tab-content" id="operations">
+<!-- ADVANCED ASSUMPTIONS -->
+<div class="advanced-fields" id="advancedFields">
+
+    <div class="fields-grid">
+
+        <div class="proforma-field">
+            <label>NOI Growth %</label>
+            <input id="noiGrowth" type="number" value="3">
+        </div>
 
 
-<div class="fields-grid">
+        <div class="proforma-field">
+            <label>Vacancy %</label>
+            <input id="vacancy" type="number" value="5">
+        </div>
 
 
-<div class="proforma-field">
-<label>NOI Growth %</label>
-<input id="noiGrowth" type="number" value="3">
-</div>
+        <div class="proforma-field">
+            <label>Market Appreciation %</label>
+            <input id="appreciation" type="number" value="3">
+        </div>
 
 
-<div class="proforma-field">
-<label>Vacancy %</label>
-<input id="vacancy" type="number" value="5">
-</div>
+        <div class="proforma-field">
+            <label>Hold Period</label>
+            <input id="holdPeriod" type="number" value="10">
+        </div>
 
 
-<div class="proforma-field">
-<label>Annual Appreciation %</label>
-<input id="appreciation" type="number" value="3">
-</div>
+        <div class="proforma-field">
+            <label>Exit Cap Rate %</label>
+            <input id="exitCap" type="number" value="7">
+        </div>
 
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="tab-content" id="exit">
-
-
-<div class="fields-grid">
-
-
-<div class="proforma-field">
-<label>Hold Period</label>
-<input id="holdPeriod" type="number" value="10">
-</div>
-
-
-<div class="proforma-field">
-<label>Exit Cap Rate %</label>
-<input id="exitCap" type="number" value="7">
-</div>
-
-
-</div>
-
-
-</div>
-
-
+    </div>
 
 </div>
 
