@@ -92,14 +92,13 @@ PRIVATE & CONFIDENTIAL
 <div class="image-card">
 
     <div class="image-placeholder">
-        <img id="image" alt="Property Image">
+
+        <img id="property-image" alt="Property Image">
+
     </div>
 
+
     <div class="image-caption" id="image-credit"></div>
-
-</div>
-
-
 
 
 </div>
@@ -109,41 +108,53 @@ PRIVATE & CONFIDENTIAL
 
 <div class="property-details">
 
-    <h2>Asset Overview</h2>
 
-    <div class="detail-list">
+<h2>
+Asset Overview
+</h2>
 
-        <div>
-            <span>Tenant</span>
-            <strong id="tenant"></strong>
-        </div>
 
-        <div>
-            <span>Building Size</span>
-            <strong id="building-size"></strong>
-        </div>
+<div class="detail-list">
 
-        <div>
-            <span>Lot Size</span>
-            <strong id="lot-size"></strong>
-        </div>
 
-        <div>
-            <span>Year Built</span>
-            <strong id="year-built"></strong>
-        </div>
+<div>
+<span>Tenant</span>
+<strong id="tenant"></strong>
+</div>
 
-        <div>
-            <span>Property Type</span>
-            <strong id="property-type"></strong>
-        </div>
 
-        <div>
-            <span>Location</span>
-            <strong id="location"></strong>
-        </div>
+<div>
+<span>Building Size</span>
+<strong id="building-size"></strong>
+</div>
 
-    </div>
+
+<div>
+<span>Lot Size</span>
+<strong id="lot-size"></strong>
+</div>
+
+
+<div>
+<span>Year Built</span>
+<strong id="year-built"></strong>
+</div>
+
+
+<div>
+<span>Property Type</span>
+<strong id="property-type"></strong>
+</div>
+
+
+<div>
+<span>Location</span>
+<strong id="location"></strong>
+</div>
+
+
+</div>
+
 
 </div>
 
@@ -154,7 +165,9 @@ PRIVATE & CONFIDENTIAL
 
 
 
+
 <section>
+
 
 <h2>
 Investment Highlights
@@ -163,6 +176,26 @@ Investment Highlights
 
 <div class="highlight-grid" id="highlights">
 
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Executive Summary
+</h2>
+
+
+<div class="summary-box" id="summary">
 
 </div>
 
@@ -173,75 +206,140 @@ Investment Highlights
 
 
 
-<section>
-
-    <h2>Executive Summary</h2>
-
-    <div class="summary-box" id="summary"></div>
-
-</section>
-
-
 
 
 <section>
 
-    <h2>Financial Overview</h2>
 
-  <div class="financial-table" id="property-facts">
+<h2>
+Financial Overview
+</h2>
+
+
+<div class="financial-table" id="financial-overview">
+
 </div>
 
-</section>
-
-  
-
-  <section class="investment-score">
-
-    <h2>Investment Snapshot</h2>
-
-    <div class="score-wrapper">
-
-        <div class="score-gauge">
-
-            <div class="gauge-circle">
-
-                <svg viewBox="0 0 120 120">
-                    <circle cx="60" cy="60" r="50" class="gauge-bg"/>
-                    <circle cx="60" cy="60" r="50" class="gauge-progress"/>
-                </svg>
-
-                <div class="gauge-center">
-                    <strong id="scoreValue"></strong>
-                    <span id="scoreLabel"></span>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="score-grid" id="score-grid"></div>
-
-    </div>
-
-    <div class="score-summary">
-
-        <h3>Overall Assessment</h3>
-
-        <p id="score-summary"></p>
-
-    </div>
 
 </section>
+
+
+
+
+
+
+
+
+<section class="investment-score">
+
+
+<h2>
+Investment Snapshot
+</h2>
+
+
+<div class="score-wrapper">
+
+
+<div class="score-gauge">
+
+
+<div class="gauge-circle">
+
+
+<svg viewBox="0 0 120 120">
+
+
+<circle
+cx="60"
+cy="60"
+r="50"
+class="gauge-bg"/>
+
+
+<circle
+cx="60"
+cy="60"
+r="50"
+class="gauge-progress"/>
+
+
+</svg>
+
+
+
+<div class="gauge-center">
+
+
+<strong id="scoreValue"></strong>
+
+
+<span id="scoreLabel"></span>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="score-grid" id="score-grid">
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="score-summary">
+
+
+<h3>
+Overall Assessment
+</h3>
+
+
+<p id="score-summary"></p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
 
 
 
 <section>
 
-    <h2>Property Facts</h2>
 
-    <div class="financial-table" id="property-facts"></div>
+<h2>
+Property Facts
+</h2>
+
+
+<div class="financial-table" id="property-facts">
+
+</div>
+
 
 </section>
+
+
+
 
 
 
@@ -250,31 +348,59 @@ Investment Highlights
 
 <section class="location-section">
 
-    <div>
 
-        <h2>Location Overview</h2>
+<div>
 
-        <p id="location-title"></p>
 
-        <ul id="location-highlights"></ul>
+<h2>
+Location Overview
+</h2>
 
-    </div>
 
-    <div class="map-container">
+<p id="location-title"></p>
 
-        <iframe
-            id="property-map"
-            width="100%"
-            height="350"
-            style="border:0;"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
 
-    </div>
+<ul id="location-highlights">
+
+</ul>
+
+
+</div>
+
+
+
+
+<div class="map-container">
+
+
+<iframe
+
+id="property-map"
+
+width="100%"
+
+height="350"
+
+style="border:0;"
+
+loading="lazy"
+
+allowfullscreen
+
+referrerpolicy="no-referrer-when-downgrade">
+
+</iframe>
+
+
+</div>
+
 
 </section>
+
+
+
+
+
 
 
 
@@ -282,68 +408,148 @@ Investment Highlights
 
 <section>
 
-    <h2>Risk & Exit Strategy</h2>
 
-    <div class="risk-grid" id="risk-grid"></div>
+<h2>
+Risk & Exit Strategy
+</h2>
+
+
+<div class="risk-grid" id="risk-grid">
+
+</div>
+
 
 </section>
 
 
- <div class="market-card">
-
-    <div class="header">
-        <div>
-            <h3>Commercial Market Insights</h3>
-            <span id="market-location"></span>
-        </div>
-    </div>
 
 
-    <div class="market-scale">
-
-        <div class="labels">
-            <span>Conservative</span>
-            <span>Balanced</span>
-            <span>Aggressive</span>
-        </div>
 
 
-        <div class="bar">
-
-            <div 
-                class="indicator" 
-                id="market-indicator">
-            </div>
-
-        </div>
 
 
-        <div class="score">
 
-            <strong id="market-score"></strong>
-
-            <p id="market-rating"></p>
-
-        </div>
-
-    </div>
+<section>
 
 
-    <div class="summary" id="market-summary"></div>
+<div class="market-card">
 
 
-    <div class="stats" id="market-stats"></div>
+<div class="header">
+
+
+<div>
+
+
+<h3>
+Commercial Market Insights
+</h3>
+
+
+<span id="market-location"></span>
 
 
 </div>
-  
+
+
+</div>
+
+
+
+
+
+<div class="market-scale">
+
+
+<div class="labels">
+
+<span>
+Conservative
+</span>
+
+<span>
+Balanced
+</span>
+
+<span>
+Aggressive
+</span>
+
+</div>
+
+
+
+
+
+<div class="bar">
+
+
+<div 
+class="indicator"
+id="market-indicator">
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="score">
+
+
+<strong id="market-score"></strong>
+
+
+<p id="market-rating"></p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="summary" id="market-summary">
+
+</div>
+
+
+
+
+
+
+
+<div class="stats" id="market-stats">
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
 
 <!-- PROFORMA -->
 
+
 <div id="proforma-container"></div>
-  
-  
-</section>
 
 
 
