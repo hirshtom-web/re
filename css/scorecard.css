@@ -123,15 +123,13 @@
 
 .score-card{
 
-    background:#fafafa;
+    background:white;
 
-    border:1px solid #e8e8e8;
+    border:1px solid var(--line);
 
     padding:28px;
 
-    border-radius:14px;
-
-    transition:.25s ease;
+    border-radius:25px;
 
 }
 
@@ -193,13 +191,13 @@
 
 .score-summary{
 
-    margin-top:40px;
+    background:white;
 
-    padding:30px;
+    border:1px solid var(--line);
 
-    background:#fafafa;
+    border-left:4px solid var(--accent);
 
-    border-left:4px solid #0b3d2e;
+    border-radius:20px;
 
 }
 
