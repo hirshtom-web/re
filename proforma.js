@@ -429,3 +429,23 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 });
+
+function toggleAdvanced(){
+
+    const advanced = document.getElementById("advancedFields");
+    const button = document.querySelector(".advanced-toggle");
+
+    advanced.classList.toggle("active");
+
+
+    if(advanced.classList.contains("active")){
+
+        button.innerHTML = "− Advanced Assumptions";
+
+    } else {
+
+        button.innerHTML = "+ Advanced Assumptions";
+
+    }
+
+}
