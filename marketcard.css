@@ -1,0 +1,107 @@
+.market-card,
+.investment-card{
+    background:#fff;
+    border:1px solid #e6e8ec;
+    border-radius:16px;
+    padding:24px;
+    margin-bottom:24px;
+    box-shadow:0 4px 18px rgba(0,0,0,.05);
+    font-family:Inter,sans-serif;
+}
+
+.header h3{
+    margin:0;
+    font-size:22px;
+    color:#1f2937;
+}
+
+.header span{
+    color:#6b7280;
+    font-size:14px;
+}
+
+.market-scale{
+    margin:28px 0;
+}
+
+.labels{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#6b7280;
+    margin-bottom:10px;
+}
+
+.bar{
+    position:relative;
+    height:5px;
+    border-radius:999px;
+    background:linear-gradient(
+        90deg,
+        #6ea8fe 0%,
+        #9fd3ff 30%,
+        #71c788 50%,
+        #f0c37b 75%,
+        #e9967a 100%
+    );
+}
+
+.indicator{
+    position:absolute;
+    top:-6px;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#1f2937;
+    border:3px solid #fff;
+    transform:translateX(-50%);
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+.score{
+    text-align:center;
+    margin-top:16px;
+}
+
+.score strong{
+    font-size:28px;
+    color:#1f2937;
+}
+
+.score p{
+    margin-top:6px;
+    color:#2e7d32;
+    font-weight:600;
+}
+
+.summary{
+    margin:24px 0;
+    color:#4b5563;
+    line-height:1.6;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+}
+
+.stats div{
+    background:#f8fafc;
+    border-radius:12px;
+    padding:16px;
+}
+
+.stats label{
+    display:block;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:6px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+}
+
+.stats strong{
+    font-size:18px;
+    color:#111827;
+}
