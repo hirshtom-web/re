@@ -337,3 +337,13 @@ grid-template-columns:1fr;
 }
 
 }
+
+
+.advanced-fields{
+    display:none;
+    margin-top:25px;
+}
+
+.advanced-fields.active{
+    display:block;
+}
