@@ -2,7 +2,7 @@
 // LOAD PROFORMA WIDGET
 // =========================================
 
-fetch("/re/tools/proforma.html")
+fetch("../tools/proforma.html")
 .then(response => response.text())
 .then(html => {
 
