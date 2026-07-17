@@ -146,6 +146,8 @@ border-radius:25px;
     display:flex;
     justify-content:space-between;
     padding:20px;
+    border-bottom:1px solid var(--line);
+
 }
 .detail-list div:last-child{
     border-bottom:none;
