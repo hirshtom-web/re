@@ -11,6 +11,11 @@ window.location.hash.replace("#","")
 "starbucks-altamonte";
 
 
+const propertyID =
+window.location.hash.replace("#","")
+||
+Object.keys(window.properties)[0];
+
 const property =
 window.properties[propertyID];
 
