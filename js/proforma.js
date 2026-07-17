@@ -26,7 +26,7 @@ function loadPropertyData(){
 
     const dealId = document.body.dataset.deal;
 
-    const property = properties[dealId];
+    const property = window.properties[dealId];
 
 
     if(!property){
@@ -35,29 +35,29 @@ function loadPropertyData(){
     }
 
 
-    const fields = {
+const fields = {
 
-        purchasePrice: property.purchasePrice,
+    purchasePrice: property.purchasePrice,
 
-        noi: property.noi,
+    noi: property.noi,
 
-        exitCap: property.capRate,
+    exitCap: property.underwriting.exitCap,
 
-        downPayment: 35,
+    downPayment: property.underwriting.downPayment,
 
-        interestRate: 6.5,
+    interestRate: property.underwriting.interestRate,
 
-        amortization: 25,
+    amortization: property.underwriting.amortization,
 
-        noiGrowth: 3,
+    noiGrowth: property.underwriting.noiGrowth,
 
-        vacancy: 5,
+    vacancy: property.underwriting.vacancy,
 
-        appreciation: 3,
+    appreciation: property.underwriting.appreciation,
 
-        holdPeriod: 10
+    holdPeriod: property.underwriting.holdPeriod
 
-    };
+};
 
 
     Object.keys(fields).forEach(id=>{
@@ -486,27 +486,3 @@ runModel
 
 
 
-
-// =========================================
-// INIT
-// =========================================
-
-
-document.addEventListener(
-"DOMContentLoaded",
-()=>{
-
-
-loadPropertyData();
-
-
-setupTabs();
-
-
-setupInputs();
-
-
-runModel();
-
-
-});
