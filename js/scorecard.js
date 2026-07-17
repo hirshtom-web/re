@@ -54,17 +54,17 @@ document.addEventListener("DOMContentLoaded", function(){
 
             grid.innerHTML += `
 
-            <div>
+<div class="score-card">
 
-                <span>${card.label}</span>
+    <label>${card.label}</label>
 
-                <strong>${card.value}</strong>
+    <strong>${card.value}</strong>
 
-                <p>${card.description}</p>
+    <small>${card.description}</small>
 
-            </div>
+</div>
 
-            `;
+`;
 
 
         });
