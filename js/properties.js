@@ -786,6 +786,379 @@ window.properties = {
 
 
 
+    },
+
+   window.properties = {
+
+    "walgreens-spring-hill": {
+
+        id: "walgreens-spring-hill",
+
+        status: "Available",
+
+        assetClass: "Net Lease Retail",
+
+        createdDate: "2026-07-18",
+
+        featured: false,
+
+
+        hero: {
+
+            title: "Walgreens",
+
+            subtitle:
+            "Absolute NNN Retail Investment | Drive-Thru Pharmacy",
+
+            address:
+            "7305 Spring Hill Dr<br>Spring Hill, Florida 34606",
+
+            image:
+            "https://static.wixstatic.com/media/1799ca_0409a1a27f0f4ac2b932bb128db2abe0~mv2.jpeg",
+
+            imageCaption:
+            "Walgreens | Spring Hill, Florida"
+
+        },
+
+
+        tenantInfo: {
+
+            name:
+            "Walgreens",
+
+            parentCompany:
+            "Walgreens Boots Alliance",
+
+            creditRating:
+            "National Retail Tenant",
+
+            website:
+            "https://www.walgreens.com"
+
+        },
+
+
+        tenant:
+        "Walgreens",
+
+
+        financial: {
+
+            purchasePrice: 4000000,
+
+            noi: 273861,
+
+            capRate: 6.85,
+
+            pricePerSF: 276.05,
+
+            rentPerSF: 18.90
+
+        },
+
+
+        purchasePrice: 4000000,
+
+        noi: 273861,
+
+        capRate: 6.85,
+
+
+
+        leaseDetails: {
+
+            structure:
+            "Absolute NNN",
+
+            remainingTerm:
+            "8+ Years",
+
+            options:
+            "Six (6) Five-Year Options",
+
+            rentEscalations:
+            "5% Every 5 Years",
+
+            guarantor:
+            "Corporate Tenant"
+
+        },
+
+
+        leaseTerm:
+        "8+ Years",
+
+        leaseStructure:
+        "Absolute NNN",
+
+
+
+        property: {
+
+            buildingSize:
+            "14,490 SF",
+
+            lotSize:
+            "1.14 AC",
+
+            yearBuilt:
+            "2007",
+
+            propertyType:
+            "Retail",
+
+            location:
+            "Spring Hill, FL"
+
+        },
+
+
+        buildingSize:
+        "14,490 SF",
+
+        lotSize:
+        "1.14 AC",
+
+        yearBuilt:
+        "2007",
+
+        propertyType:
+        "Retail",
+
+        location:
+        "Spring Hill, FL",
+
+
+
+        highlights: [
+
+            {
+                title:
+                "Absolute NNN Lease",
+
+                text:
+                "Zero landlord responsibilities provide passive ownership with predictable cash flow backed by a national pharmacy operator."
+            },
+
+
+            {
+                title:
+                "Contractual Rent Growth",
+
+                text:
+                "Lease includes 5% rental increases every five years throughout the initial term and renewal options."
+            },
+
+
+            {
+                title:
+                "High-Traffic Retail Corridor",
+
+                text:
+                "Located at the signalized intersection of Spring Hill Drive and Pinehurst Drive with more than 23,200 vehicles passing daily."
+            }
+
+        ],
+
+
+
+        summary: [
+
+            "Acquire a freestanding Walgreens pharmacy located within the Tampa MSA and leased on an absolute NNN basis, providing investors with a true passive income opportunity.",
+
+            "The property contains approximately 14,490 square feet on 1.14 acres and features a drive-thru pharmacy serving a well-established residential trade area.",
+
+            "Walgreens has more than eight years remaining on the current lease term together with six five-year renewal options and scheduled 5% rent increases every five years.",
+
+            "The property benefits from a highly visible hard-corner location surrounded by national retailers and strong residential density."
+
+        ],
+
+
+
+        financialOverview: [
+
+            {
+                label:
+                "Purchase Price",
+
+                value:
+                "$4,000,000"
+            },
+
+
+            {
+                label:
+                "Annual NOI",
+
+                value:
+                "$273,861"
+            },
+
+
+            {
+                label:
+                "Cap Rate",
+
+                value:
+                "6.85%"
+            },
+
+
+            {
+                label:
+                "Building Size",
+
+                value:
+                "14,490 SF"
+            },
+
+
+            {
+                label:
+                "Land Area",
+
+                value:
+                "1.14 AC"
+            },
+
+
+            {
+                label:
+                "Lease Type",
+
+                value:
+                "Absolute NNN"
+            }
+
+        ],
+
+
+
+        propertyFacts:[
+
+            {
+                label:
+                "Sale Type",
+
+                value:
+                "Investment"
+            },
+
+
+            {
+                label:
+                "Property Type",
+
+                value:
+                "Retail"
+            },
+
+
+            {
+                label:
+                "Tenant",
+
+                value:
+                "Walgreens"
+            },
+
+
+            {
+                label:
+                "Year Built",
+
+                value:
+                "2007"
+            },
+
+
+            {
+                label:
+                "Drive-Thru",
+
+                value:
+                "Yes"
+            }
+
+        ],
+
+
+
+        coordinates: {
+
+            latitude:
+            28.4767,
+
+            longitude:
+            -82.5476
+
+        },
+
+
+
+        locationOverview:
+        "Spring Hill, Florida",
+
+
+        locationHighlights:[
+
+            "Signalized hard-corner intersection.",
+
+            "More than 23,200 vehicles per day.",
+
+            "Adjacent to Save A Lot anchored neighborhood center.",
+
+            "Five-mile population exceeding 89,000 residents."
+
+        ],
+
+
+
+        riskStrategy:[
+
+            {
+                title:
+                "Tenant Credit",
+
+                text:
+                "Walgreens is one of the nation's largest pharmacy operators."
+            },
+
+
+            {
+                title:
+                "Lease Security",
+
+                text:
+                "Absolute NNN structure with scheduled rent increases minimizes ownership responsibilities."
+            },
+
+
+            {
+                title:
+                "Exit Strategy",
+
+                text:
+                "Suitable for private investors, 1031 exchange buyers, family offices, and institutional net lease purchasers."
+            }
+
+        ],
+
+
+
+        media: {
+
+            mainImage:
+            "https://static.wixstatic.com/media/1799ca_0409a1a27f0f4ac2b932bb128db2abe0~mv2.jpeg",
+
+            gallery:[]
+
+        }
+
+
     }
+
 
 };
