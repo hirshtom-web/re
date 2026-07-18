@@ -3,6 +3,17 @@
 ========================================== */
 
 
+if(!window.properties){
+
+    console.error("Properties database not loaded");
+
+    throw new Error(
+        "Missing properties.js"
+    );
+
+}
+
+
 const params = new URLSearchParams(
     window.location.search
 );
@@ -13,17 +24,15 @@ const propertyID =
     Object.keys(window.properties)[0];
 
 
-window.currentProperty =
+const property =
     window.properties[propertyID];
 
 
+window.currentProperty = property;
+
+
 console.log("PROPERTY ID:", propertyID);
-console.log("CURRENT PROPERTY:", window.currentProperty);
-
-
-
-const property =
-    window.currentProperty;
+console.log("CURRENT PROPERTY:", property);
 
 
 
@@ -39,7 +48,6 @@ if(!property){
     );
 
 }
-
 
 /* ==========================================
    HERO
