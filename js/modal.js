@@ -8,8 +8,16 @@ function openModal(page, id){
 
     savedScrollPosition = window.scrollY;
 
-    // Pass the property ID to the property page
-    frame.src = page + "#" + id;
+
+    const url =
+        page + "#" + id;
+
+
+    console.log("IFRAME LOADING:", url);
+
+
+    frame.src = url;
+
 
     document.documentElement.classList.add("modal-open");
     document.body.classList.add("modal-open");
