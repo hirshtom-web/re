@@ -12,6 +12,8 @@ const propertyID =
 const property =
     window.properties[propertyID];
 
+window.currentProperty = property;
+
 
 if(!property){
 
