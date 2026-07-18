@@ -1,3 +1,4 @@
+```javascript
 /* ==========================================
    PROPERTY IDENTIFIER
 ========================================== */
@@ -14,6 +15,7 @@ if(!window.properties){
 }
 
 
+
 const params = new URLSearchParams(
     window.location.search
 );
@@ -25,11 +27,13 @@ const propertyID =
     Object.keys(window.properties)[0];
 
 
+
 const property =
     window.properties[propertyID];
 
 
 window.currentProperty = property;
+
 
 
 console.log("PROPERTY ID:", propertyID);
@@ -39,19 +43,16 @@ console.log("CURRENT PROPERTY:", property);
 
 if(!property){
 
-    console.error(
-        "Property not found:",
-        propertyID
-    );
-
     document.body.innerHTML = `
-        <h2 style="padding:40px;font-family:Inter">
-            Property not found
-        </h2>
 
-        <p style="padding:0 40px;font-family:Inter">
-            ID: ${propertyID || "missing"}
-        </p>
+    <h2 style="padding:40px;font-family:Inter">
+        Property not found
+    </h2>
+
+    <p style="padding:0 40px;font-family:Inter">
+        ID: ${propertyID || "missing"}
+    </p>
+
     `;
 
     throw new Error(
@@ -60,32 +61,109 @@ if(!property){
 
 }
 
+
+
+/* ==========================================
+   HELPERS
+========================================== */
+
+
+function safe(value, fallback="N/A"){
+
+    if(
+        value === undefined ||
+        value === null ||
+        value === ""
+    ){
+
+        return fallback;
+
+    }
+
+    return value;
+
+}
+
+
+
+function safeArray(value){
+
+    return Array.isArray(value)
+        ? value
+        : [];
+
+}
+
+
+
+function money(value){
+
+    if(!value) return "N/A";
+
+
+    return "$" +
+    Number(value).toLocaleString();
+
+}
+
+
+
+function emptyState(message){
+
+    return `
+
+    <div class="empty-state">
+
+        ${message}
+
+    </div>
+
+    `;
+
+}
+
+
+
 /* ==========================================
    HERO
 ========================================== */
 
 
 document.getElementById("property-title").textContent =
-property.hero.title;
+safe(property.hero?.title,"Investment Opportunity");
+
 
 
 document.getElementById("property-subtitle").textContent =
-property.hero.subtitle;
+safe(property.hero?.subtitle,"Premium Real Estate Investment");
+
 
 
 document.getElementById("property-address").innerHTML =
-property.hero.address;
+safe(property.hero?.address,"Location Available Upon Request");
 
 
 
-/* IMAGE */
+
+
+const image =
+property.hero?.image ||
+property.media?.mainImage ||
+"../images/property-placeholder.jpg";
+
+
 
 document.getElementById("property-image").src =
-property.hero.image;
+image;
+
 
 
 document.getElementById("image-credit").textContent =
-property.hero.imageCaption;
+safe(
+property.hero?.imageCaption,
+"Property Image"
+);
+
 
 
 
@@ -95,25 +173,39 @@ property.hero.imageCaption;
 
 
 document.getElementById("purchase-price").textContent =
-"$" +
-property.financial.purchasePrice.toLocaleString();
+money(property.financial?.purchasePrice);
+
 
 
 document.getElementById("annual-noi").textContent =
-"$" +
-property.financial.noi.toLocaleString();
+money(property.financial?.noi);
+
 
 
 document.getElementById("cap-rate").textContent =
-property.financial.capRate + "%";
+property.financial?.capRate
+?
+property.financial.capRate + "%"
+:
+"N/A";
+
 
 
 document.getElementById("lease-term").textContent =
-property.leaseDetails.remainingTerm;
+safe(
+property.leaseDetails?.remainingTerm,
+property.leaseTerm
+);
+
 
 
 document.getElementById("lease-structure").textContent =
-property.leaseDetails.structure;
+safe(
+property.leaseDetails?.structure,
+property.leaseStructure
+);
+
+
 
 
 
@@ -123,27 +215,52 @@ property.leaseDetails.structure;
 
 
 document.getElementById("tenant").textContent =
-property.tenantInfo.name;
+safe(
+property.tenantInfo?.name,
+property.tenant
+);
+
 
 
 document.getElementById("building-size").textContent =
-property.property.buildingSize;
+safe(
+property.property?.buildingSize,
+property.buildingSize
+);
+
 
 
 document.getElementById("lot-size").textContent =
-property.property.lotSize;
+safe(
+property.property?.lotSize,
+property.lotSize
+);
+
 
 
 document.getElementById("year-built").textContent =
-property.property.yearBuilt;
+safe(
+property.property?.yearBuilt,
+property.yearBuilt
+);
+
 
 
 document.getElementById("property-type").textContent =
-property.property.propertyType;
+safe(
+property.property?.propertyType,
+property.propertyType
+);
+
 
 
 document.getElementById("location").textContent =
-property.property.location;
+safe(
+property.property?.location,
+property.location
+);
+
+
 
 
 
@@ -156,42 +273,46 @@ const highlights =
 document.getElementById("highlights");
 
 
-highlights.innerHTML = "";
+const highlightData =
+safeArray(property.highlights);
 
 
-property.highlights.forEach((item,index)=>{
+
+highlights.innerHTML = highlightData.length
+
+?
+
+highlightData.map((item,index)=>`
+
+<div class="highlight">
+
+<span>
+${String(index+1).padStart(2,"0")}
+</span>
+
+<div>
+
+<h3>
+${safe(item.title)}
+</h3>
+
+<p>
+${safe(item.text)}
+</p>
+
+</div>
+
+</div>
+
+`).join("")
+
+:
+
+emptyState(
+"Investment highlights will be available soon."
+);
 
 
-    highlights.innerHTML += `
-
-    <div class="highlight">
-
-
-        <span>
-        ${String(index+1).padStart(2,"0")}
-        </span>
-
-
-        <div>
-
-            <h3>
-            ${item.title}
-            </h3>
-
-
-            <p>
-            ${item.text}
-            </p>
-
-        </div>
-
-
-    </div>
-
-    `;
-
-
-});
 
 
 
@@ -204,22 +325,31 @@ const summary =
 document.getElementById("summary");
 
 
-summary.innerHTML = "";
+const summaryData =
+safeArray(property.summary);
 
 
-property.summary.forEach(text=>{
+
+summary.innerHTML = summaryData.length
+
+?
+
+summaryData.map(text=>`
+
+<p>
+${text}
+</p>
+
+`).join("")
+
+:
+
+emptyState(
+"Executive summary coming soon."
+);
 
 
-    summary.innerHTML += `
 
-    <p>
-    ${text}
-    </p>
-
-    `;
-
-
-});
 
 
 
@@ -232,52 +362,70 @@ const financial =
 document.getElementById("financial-overview");
 
 
-financial.innerHTML = "";
+const financialData =
+safeArray(property.financialOverview);
 
 
-property.financialOverview.forEach(item=>{
+
+financial.innerHTML = financialData.length
+
+?
+
+financialData.map(item=>`
+
+<div>
+
+<span>
+${safe(item.label)}
+</span>
 
 
-    financial.innerHTML += `
-
-    <div>
-
-        <span>
-        ${item.label}
-        </span>
+<strong>
+${safe(item.value)}
+</strong>
 
 
-        <strong>
-        ${item.value}
-        </strong>
+</div>
+
+`).join("")
+
+:
+
+emptyState(
+"Financial overview pending."
+);
 
 
-    </div>
-
-    `;
 
 
-});
 
-
-console.log("SCORE DEBUG:", property.score);
-console.log("SCORE ELEMENT:", document.getElementById("scoreValue"));
 
 /* ==========================================
    SCORECARD
 ========================================== */
 
 
+const score =
+property.score || {};
+
+
+
 document.getElementById("scoreValue").textContent =
-property.score.value;
+safe(score.value,"--");
+
 
 
 document.getElementById("scoreLabel").textContent =
-property.score.label;
+safe(score.label,"Pending");
+
 
 
 document.getElementById("score-summary").textContent =
-property.score.summary;
+safe(
+score.summary,
+"Investment assessment pending."
+);
+
 
 
 
@@ -285,38 +433,49 @@ const scoreGrid =
 document.getElementById("score-grid");
 
 
-scoreGrid.innerHTML = "";
+
+const scoreCards =
+safeArray(score.cards);
 
 
-property.score.cards.forEach(card=>{
+
+scoreGrid.innerHTML = scoreCards.length
+
+?
+
+scoreCards.map(card=>`
+
+<div class="score-card">
 
 
-    scoreGrid.innerHTML += `
-
-    <div class="score-card">
-
-
-        <label>
-        ${card.label}
-        </label>
+<label>
+${safe(card.label)}
+</label>
 
 
-        <strong>
-        ${card.value}
-        </strong>
+<strong>
+${safe(card.value)}
+</strong>
 
 
-        <small>
-        ${card.description}
-        </small>
+<small>
+${safe(card.description)}
+</small>
 
 
-    </div>
-
-    `;
+</div>
 
 
-});
+`).join("")
+
+:
+
+emptyState(
+"Investment scorecard pending."
+);
+
+
+
 
 
 
@@ -329,32 +488,43 @@ const facts =
 document.getElementById("property-facts");
 
 
-facts.innerHTML = "";
+
+const factData =
+safeArray(property.propertyFacts);
 
 
-property.propertyFacts.forEach(item=>{
+
+facts.innerHTML = factData.length
+
+?
+
+factData.map(item=>`
+
+<div>
+
+<span>
+${safe(item.label)}
+</span>
 
 
-    facts.innerHTML += `
-
-    <div>
-
-        <span>
-        ${item.label}
-        </span>
+<strong>
+${safe(item.value)}
+</strong>
 
 
-        <strong>
-        ${item.value}
-        </strong>
+</div>
 
 
-    </div>
+`).join("")
 
-    `;
+:
+
+emptyState(
+"Property facts pending."
+);
 
 
-});
+
 
 
 
@@ -364,7 +534,10 @@ property.propertyFacts.forEach(item=>{
 
 
 document.getElementById("location-title").textContent =
-property.locationOverview;
+safe(
+property.locationOverview,
+property.location
+);
 
 
 
@@ -372,23 +545,33 @@ const locationHighlights =
 document.getElementById("location-highlights");
 
 
-locationHighlights.innerHTML = "";
+
+locationHighlights.innerHTML =
+safeArray(property.locationHighlights)
+
+.map(item=>`
+
+<li>
+${item}
+</li>
+
+`).join("");
 
 
-property.locationHighlights.forEach(item=>{
-
-
-    locationHighlights.innerHTML +=
-    `<li>${item}</li>`;
-
-
-});
 
 
 
-/* GOOGLE MAP */
+const map =
+document.getElementById("property-map");
 
-document.getElementById("property-map").src =
+
+
+if(
+map &&
+property.coordinates
+){
+
+map.src =
 
 "https://www.google.com/maps?q=" +
 
@@ -399,6 +582,12 @@ property.coordinates.latitude +
 property.coordinates.longitude +
 
 "&output=embed";
+
+}
+
+
+
+
 
 
 
@@ -411,33 +600,44 @@ const risk =
 document.getElementById("risk-grid");
 
 
-risk.innerHTML = "";
+
+const risks =
+safeArray(property.riskStrategy);
 
 
-property.riskStrategy.forEach(item=>{
+
+risk.innerHTML = risks.length
+
+?
+
+risks.map(item=>`
+
+<div>
 
 
-    risk.innerHTML += `
-
-    <div>
-
-
-        <h3>
-        ${item.title}
-        </h3>
+<h3>
+${safe(item.title)}
+</h3>
 
 
-        <p>
-        ${item.text}
-        </p>
+<p>
+${safe(item.text)}
+</p>
 
 
-    </div>
-
-    `;
+</div>
 
 
-});
+`).join("")
+
+:
+
+emptyState(
+"Risk analysis pending."
+);
+
+
+
 
 
 
@@ -446,28 +646,55 @@ property.riskStrategy.forEach(item=>{
 ========================================== */
 
 
+const market =
+property.market || {};
+
+
+
 document.getElementById("market-location").textContent =
-property.market.location;
+safe(
+market.location,
+"Market Data Pending"
+);
+
 
 
 document.getElementById("market-score").textContent =
-property.market.score + " / 100";
+market.score
+?
+market.score + " / 100"
+:
+"--";
+
 
 
 document.getElementById("market-rating").textContent =
-property.market.rating;
+safe(
+market.rating,
+"Analysis Pending"
+);
+
 
 
 document.getElementById("market-summary").textContent =
-property.market.summary;
+safe(
+market.summary,
+"Market insights will be added."
+);
 
 
 
-document.getElementById("market-indicator").style.left =
+const indicator =
+document.getElementById("market-indicator");
 
-property.market.score +
 
-"%";
+if(indicator){
+
+indicator.style.left =
+(market.score || 0) + "%";
+
+}
+
 
 
 
@@ -475,44 +702,52 @@ const marketStats =
 document.getElementById("market-stats");
 
 
-marketStats.innerHTML = "";
+
+const stats =
+safeArray(market.stats);
 
 
 
-property.market.stats.forEach(stat=>{
+marketStats.innerHTML = stats.length
+
+?
+
+stats.map(stat=>`
+
+<div>
 
 
-    marketStats.innerHTML += `
+<label>
+${safe(stat.label)}
+</label>
 
 
-    <div>
+<strong ${
+stat.color
+?
+`style="color:${stat.color}"`
+:
+""
+}>
+
+${safe(stat.value)}
+
+</strong>
 
 
-        <label>
-        ${stat.label}
-        </label>
+</div>
 
 
-        <strong ${
-            stat.color
-            ?
-            `style="color:${stat.color}"`
-            :
-            ""
-        }>
+`).join("")
 
-            ${stat.value}
+:
 
-        </strong>
+emptyState(
+"Market statistics pending."
+);
 
 
-    </div>
 
-
-    `;
-
-
-});
 
 
 
@@ -521,32 +756,44 @@ property.market.stats.forEach(stat=>{
 ========================================== */
 
 
-if(property.media?.gallery){
+const gallery =
+document.getElementById("gallery");
 
 
-    const gallery =
-    document.getElementById("gallery");
+
+if(
+gallery
+){
+
+const images =
+safeArray(property.media?.gallery);
 
 
-    if(gallery){
 
-        gallery.innerHTML = "";
+gallery.innerHTML =
+images.length
 
+?
 
-        property.media.gallery.forEach(image=>{
+images.map(image=>`
 
+<img src="${image}">
 
-            gallery.innerHTML += `
+`).join("")
 
-            <img src="${image}">
+:
 
-            `;
-
-
-        });
-
-
-    }
+emptyState(
+"Additional property images coming soon."
+);
 
 
 }
+
+
+
+console.log(
+"Renderer loaded successfully:",
+propertyID
+);
+```
