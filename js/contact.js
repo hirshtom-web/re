@@ -2,7 +2,7 @@ const CONTACT={
     company:"Keller Williams",
     phone:"+16463936664",
     email:"tomh@kw.com",
-    website:"https://kw.com"
+    website:"https://rility.com"
 };
 
 function toggleMenu(){
@@ -28,21 +28,48 @@ function downloadPDF(){
 }
 
 function shareDeal(){
-    const url=window.location.href;
+
+    const url =
+        window.location.origin +
+        "/opportunities/?id=" +
+        window.currentPropertyID;
+
+
     if(navigator.share){
+
         navigator.share({
-            title:document.title,
-            url:url
+
+            title: "Real Estate Investment Opportunity",
+
+            text: "View this investment opportunity",
+
+            url: url
+
         });
-    }else{
-        copyLink();
+
+    } else {
+
+        navigator.clipboard.writeText(url);
+
+        alert("Deal link copied");
+
     }
+
 }
 
 function copyLink(){
-    navigator.clipboard.writeText(window.location.href).then(()=>{
-        alert("Link copied.");
-    });
+
+    const url =
+        window.location.origin +
+        "/opportunities/?id=" +
+        window.currentPropertyID;
+
+
+    navigator.clipboard.writeText(url);
+
+
+    alert("Deal link copied");
+
 }
 
 function callBroker(){
