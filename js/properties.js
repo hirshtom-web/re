@@ -29,7 +29,7 @@ window.properties = {
             "Brand-New Corporate Net Lease Investment Opportunity",
 
             address:
-            "803 N State Road 434, Altamonte Springs, FL 32714",
+            "803 N State Road 434<br>Altamonte Springs, FL 32714",
 
             image:
             "https://static.wixstatic.com/media/1799ca_5751d816c9174b74a1724ff2a399cd80~mv2.png",
