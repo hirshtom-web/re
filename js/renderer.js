@@ -231,6 +231,8 @@ property.financialOverview.forEach(item=>{
 });
 
 
+console.log("SCORE DEBUG:", property.score);
+console.log("SCORE ELEMENT:", document.getElementById("scoreValue"));
 
 /* ==========================================
    SCORECARD
