@@ -1,24 +1,30 @@
 /* ==========================================
-   PROPERTY RENDERER
+   PROPERTY IDENTIFIER
 ========================================== */
 
-const id = window.location.hash.substring(1);
 
-window.currentProperty = window.properties[id];
+const params = new URLSearchParams(
+    window.location.search
+);
 
+
+const propertyID =
+    params.get("id") ||
+    Object.keys(window.properties)[0];
+
+
+window.currentProperty =
+    window.properties[propertyID];
+
+
+console.log("PROPERTY ID:", propertyID);
 console.log("CURRENT PROPERTY:", window.currentProperty);
 
 
-/* LOAD PROPERTY */
-
-window.propertyID =
-    window.location.hash.replace("#", "") ||
-    Object.keys(window.properties)[0];
 
 const property =
-    window.properties[propertyID];
+    window.currentProperty;
 
-window.currentProperty = property;
 
 
 if(!property){
@@ -28,10 +34,11 @@ if(!property){
         propertyID
     );
 
-}
+    throw new Error(
+        "Invalid property ID"
+    );
 
-console.log("HASH:", window.location.hash);
-console.log("PROPERTY ID:", window.propertyID);
+}
 
 
 /* ==========================================
