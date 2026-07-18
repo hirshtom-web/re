@@ -142,10 +142,16 @@ Object.keys(window.properties).forEach(id => {
 
 function openDeal(id){
 
-    console.log("OPENING PROPERTY:", id);
+    let property = window.properties[id];
 
-    window.location.href =
-    "../property.html#" + id;
+    if(property && property.page){
+
+        openModal(property.page);
+
+    } else {
+
+        console.log("Missing property page:", id);
+
+    }
 
 }
-
