@@ -7,32 +7,21 @@ let savedScrollPosition = 0;
 
 function openModal(page, id){
 
-    const modal =
-        document.getElementById("dealModal");
-
-    const frame =
-        document.getElementById("dealFrame");
-
+    const modal = document.getElementById("dealModal");
+    const frame = document.getElementById("dealFrame");
 
     savedScrollPosition = window.scrollY;
 
-
-    const url = page + "?id=" + id;
-
+    const url = page + "#" + id;
 
     console.log("IFRAME LOADING:", url);
 
-
     frame.src = url;
 
-
     document.documentElement.classList.add("modal-open");
-
     document.body.classList.add("modal-open");
 
-
     modal.classList.add("active");
-
 }
 
 
