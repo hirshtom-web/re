@@ -1,160 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width,initial-scale=1.0">
 
-<title>SFR Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SFR Investment Calculator</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 
-</head>
+<style>
 
-  <style>
-    *{
+*{
+box-sizing:border-box;
 margin:0;
 padding:0;
-box-sizing:border-box;
--webkit-tap-highlight-color:transparent;
 }
 
-html,body{
 
-height:100%;
-font-family:Inter,sans-serif;
-background:#f7f7f7;
+body{
+
+font-family:Inter,Arial,sans-serif;
+
+background:#f5f5f5;
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
 color:#111;
 
 }
 
-body{
 
-display:flex;
-justify-content:center;
-
-}
 
 .app{
 
 width:100%;
+
 max-width:430px;
 
-min-height:100vh;
+height:100vh;
 
 background:#fff;
 
 display:flex;
+
 flex-direction:column;
 
-}
-
-header{
-
-padding:22px 20px 14px;
+overflow:hidden;
 
 }
 
-header h1{
 
-font-size:26px;
+
+.header{
+
+padding:20px;
+
+border-bottom:1px solid #eee;
+
+}
+
+
+
+.header h1{
+
+font-size:24px;
+
 font-weight:700;
 
 }
 
-.main-inputs{
 
-padding:0 20px;
 
-}
 
-.input{
+.top-inputs{
 
-margin-bottom:18px;
+padding:18px 20px 10px;
 
 }
 
-.input label{
 
-display:block;
 
-font-size:14px;
+label{
+
+font-size:13px;
 
 font-weight:600;
 
-color:#666;
+color:#777;
 
-margin-bottom:8px;
+display:block;
+
+margin-bottom:7px;
 
 }
 
-.input input,
-.input select{
+
+
+
+input,
+select{
 
 width:100%;
-
-height:52px;
-
-font-size:16px;        /* prevents iPhone zoom */
-
-border:none;
-
-outline:none;
-
-background:#f4f4f4;
-
-border-radius:14px;
-
-padding:0 16px;
-
-appearance:none;
-
-}
-
-.input input:focus,
-.input select:focus{
-
-background:#ececec;
-
-}
-
-.tabs{
-
-display:flex;
-
-padding:0 20px;
-
-margin-top:6px;
-
-border-bottom:1px solid #ececec;
-
-}
-
-.tab{
-
-flex:1;
 
 height:48px;
 
 border:none;
 
+background:#f3f3f3;
+
+border-radius:12px;
+
+font-size:16px;
+
+padding:0 14px;
+
+outline:none;
+
+}
+
+
+
+.input-group{
+
+margin-bottom:14px;
+
+}
+
+
+
+
+.tabs{
+
+display:flex;
+
+margin:0 20px;
+
+border-bottom:1px solid #ddd;
+
+}
+
+
+
+.tab{
+
+flex:1;
+
+height:45px;
+
 background:none;
+
+border:none;
 
 font-size:16px;
 
 font-weight:600;
 
-cursor:pointer;
-
 color:#999;
 
-border-bottom:3px solid transparent;
-
-transition:.25s;
-
 }
+
+
 
 .tab.active{
 
@@ -164,59 +177,54 @@ border-bottom:3px solid #111;
 
 }
 
-.tab-content{
 
-display:none;
 
-padding:18px 20px 10px;
 
-animation:fade .2s;
+.content{
+
+padding:15px 20px;
+
+flex:1;
+
+overflow:hidden;
 
 }
 
-.tab-content.active{
+
+
+.panel{
+
+display:none;
+
+}
+
+
+.panel.active{
 
 display:block;
 
 }
 
-@keyframes fade{
 
-from{
 
-opacity:.2;
-transform:translateY(6px);
-
-}
-
-to{
-
-opacity:1;
-transform:none;
-
-}
-
-}
 
 .cash-toggle{
 
-margin-bottom:20px;
+margin-bottom:15px;
 
 }
 
+
+
 .cash-toggle button{
 
-border:none;
-
 background:none;
+
+border:none;
 
 font-size:16px;
 
 font-weight:600;
-
-cursor:pointer;
-
-padding:0;
 
 color:#2563eb;
 
@@ -224,200 +232,294 @@ text-decoration:underline;
 
 }
 
-.results{
 
-margin-top:auto;
 
-padding:20px;
+.dual{
 
-background:#111;
+margin-bottom:15px;
+
+}
+
+
+.dual-row{
+
+height:48px;
+
+background:#f3f3f3;
+
+border-radius:12px;
+
+display:flex;
+
+overflow:hidden;
+
+}
+
+
+
+.money-side{
+
+flex:1;
+
+display:flex;
+
+align-items:center;
+
+padding-left:12px;
+
+}
+
+
+
+.money-side span{
+
+color:#777;
+
+}
+
+
+.money-side input{
+
+background:none;
+
+padding-left:6px;
+
+}
+
+
+
+.percent-side{
+
+width:85px;
+
+border-left:1px solid #ddd;
+
+display:flex;
+
+align-items:center;
+
+padding:0 8px;
+
+}
+
+
+
+.percent-side input{
+
+background:none;
+
+padding:0;
+
+font-size:14px;
+
+width:55px;
+
+}
+
+
+
+.percent-side span{
+
+font-size:14px;
+
+color:#777;
+
+}
+
+
+
+
+.small-grid{
 
 display:grid;
 
 grid-template-columns:1fr 1fr;
 
-gap:16px;
-
-border-top-left-radius:24px;
-
-border-top-right-radius:24px;
+gap:12px;
 
 }
 
-.results div{
 
-background:#1b1b1b;
 
-padding:16px;
-
-border-radius:16px;
-
-}
-
-.results small{
-
-display:block;
-
-font-size:13px;
-
-color:#aaa;
-
-margin-bottom:6px;
-
-}
-
-.results strong{
-
-font-size:24px;
-
-font-weight:700;
-
-color:white;
-
-display:block;
-
-}
-
-.green{
-
-color:#22c55e !important;
-
-}
-
-.red{
-
-color:#ef4444 !important;
-
-}
-
-@media(max-height:760px){
 
 .results{
 
-gap:10px;
-padding:16px;
+background:#111;
+
+color:white;
+
+border-radius:24px 24px 0 0;
+
+padding:18px 20px;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:12px;
 
 }
 
-.results strong{
 
-font-size:20px;
+
+.result{
+
+background:#1c1c1c;
+
+border-radius:14px;
+
+padding:12px;
+
+}
+
+
+
+.result small{
+
+display:block;
+
+font-size:12px;
+
+color:#aaa;
+
+margin-bottom:5px;
 
 }
 
-.input{
 
-margin-bottom:14px;
+
+.result strong{
+
+font-size:22px;
 
 }
 
+
+
+.green{
+
+color:#34d399;
+
 }
-  </style>
+
+
+.red{
+
+color:#f87171;
+
+}
+
+
+
+
+</style>
+
+</head>
+
+
 <body>
+
 
 <div class="app">
 
-<header>
+
+<div class="header">
 
 <h1>SFR Calculator</h1>
 
-</header>
+</div>
 
 
-<div class="main-inputs">
 
-<div class="input">
+<div class="top-inputs">
+
+
+<div class="input-group">
 
 <label>Purchase Price</label>
 
-<input
-id="purchase"
-type="number"
-value="350000">
+<input id="purchasePrice" value="350000" type="number">
 
 </div>
 
-<div class="input">
+
+
+<div class="input-group">
 
 <label>Monthly Rent</label>
 
-<input
-id="rent"
-type="number"
-value="2650">
+<input id="rent" value="2650" type="number">
 
 </div>
 
+
 </div>
+
+
 
 
 
 <div class="tabs">
 
-<button
-class="tab active"
-data-tab="finance">
 
+<button class="tab active" data-tab="finance">
 Financing
-
 </button>
 
-<button
-class="tab"
-data-tab="expenses">
 
+<button class="tab" data-tab="expenses">
 Expenses
-
 </button>
+
 
 </div>
 
 
 
 
-<div
-id="finance"
-class="tab-content active">
+
+<div class="content">
+
+
+<div id="finance" class="panel active">
+
+
 
 <div class="cash-toggle">
 
 <button id="cashDeal">
-
 Cash Deal
-
 </button>
 
 </div>
 
 
-<div class="input">
 
-<label>Down Payment %</label>
-
-<input
-id="down"
-type="number"
-value="30">
-
-</div>
+<div class="small-grid">
 
 
-<div class="input">
+<div class="input-group">
 
-<label>Interest Rate %</label>
+<label>Down %</label>
 
-<input
-id="rate"
-type="number"
-step=".01"
-value="6.50">
+<input id="down" value="30" type="number">
 
 </div>
 
 
-<div class="input">
 
-<label>Loan Term</label>
+<div class="input-group">
+
+<label>Interest %</label>
+
+<input id="rate" value="6.5" step=".01" type="number">
+
+</div>
+
+
+<div class="input-group">
+
+<label>Loan Years</label>
 
 <select id="years">
 
@@ -429,83 +531,140 @@ value="6.50">
 
 </div>
 
+
+</div>
+
+
 </div>
 
 
 
 
 
-<div
-id="expenses"
-class="tab-content">
+<div id="expenses" class="panel">
 
-<div class="input">
 
-<label>Taxes</label>
 
-<input
-id="taxes"
-type="number"
-value="350">
+<div class="dual">
+
+
+<label>Property Taxes</label>
+
+
+<div class="dual-row">
+
+
+<div class="money-side">
+
+<span>$</span>
+
+<input id="taxes" type="number">
 
 </div>
 
 
-<div class="input">
+<div class="percent-side">
+
+<input id="taxRate" value="1" type="number">
+
+<span>%</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="dual">
+
 
 <label>Insurance</label>
 
-<input
-id="insurance"
-type="number"
-value="120">
+
+<div class="dual-row">
+
+
+<div class="money-side">
+
+<span>$</span>
+
+<input id="insurance" type="number">
 
 </div>
 
 
-<div class="input">
+<div class="percent-side">
+
+<input id="insuranceRate" value="1.5" type="number">
+
+<span>%</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="small-grid">
+
+
+<div class="input-group">
 
 <label>Management %</label>
 
-<input
-id="management"
-type="number"
-value="8">
+<input id="management" value="8" type="number">
 
 </div>
 
 
-<div class="input">
+
+<div class="input-group">
 
 <label>Maintenance %</label>
 
-<input
-id="maintenance"
-type="number"
-value="5">
+<input id="maintenance" value="5" type="number">
 
 </div>
 
 
-<div class="input">
+
+<div class="input-group">
 
 <label>Vacancy %</label>
 
-<input
-id="vacancy"
-type="number"
-value="5">
+<input id="vacancy" value="5" type="number">
 
 </div>
 
+
 </div>
+
+
+
+</div>
+
+
+</div>
+
 
 
 
 
 <div class="results">
 
-<div>
+
+<div class="result">
 
 <small>Cash Flow</small>
 
@@ -513,7 +672,8 @@ value="5">
 
 </div>
 
-<div>
+
+<div class="result">
 
 <small>Cap Rate</small>
 
@@ -521,368 +681,648 @@ value="5">
 
 </div>
 
-<div>
+
+<div class="result">
 
 <small>Cash Required</small>
 
-<strong id="cashNeeded">$0</strong>
+<strong id="cashRequired">$0</strong>
 
 </div>
 
-<div>
 
-<small>Cash-on-Cash</small>
+<div class="result">
+
+<small>Cash On Cash</small>
 
 <strong id="coc">0%</strong>
 
 </div>
 
-<div>
+
+<div class="result">
 
 <small>DSCR</small>
 
-<strong id="dscr">0.00</strong>
+<strong id="dscr">0</strong>
 
 </div>
 
-</div>
+
+<div class="result">
+
+<small>NOI</small>
+
+<strong id="noi">$0</strong>
 
 </div>
+
+
+
+</div>
+
+
+
+</div>
+
+
 
 <script>
-  /* =========================
-   SFR CALCULATOR
+
+/* =========================
+   SFR CALCULATOR ENGINE
 ========================= */
 
-let cashDeal = false;
+
+let cashMode = false;
+
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const purchasePrice = document.getElementById("purchasePrice");
+const rent = document.getElementById("rent");
+
+const down = document.getElementById("down");
+const rate = document.getElementById("rate");
+const years = document.getElementById("years");
+
+const taxes = document.getElementById("taxes");
+const taxRate = document.getElementById("taxRate");
+
+const insurance = document.getElementById("insurance");
+const insuranceRate = document.getElementById("insuranceRate");
+
+const management = document.getElementById("management");
+const maintenance = document.getElementById("maintenance");
+const vacancy = document.getElementById("vacancy");
+
+
+const cashFlow = document.getElementById("cashFlow");
+const capRate = document.getElementById("capRate");
+const cashRequired = document.getElementById("cashRequired");
+const coc = document.getElementById("coc");
+const dscr = document.getElementById("dscr");
+const noiOutput = document.getElementById("noi");
+
+
 
 
 /* =========================
    TABS
 ========================= */
 
-document.querySelectorAll(".tab").forEach(tab=>{
+document.querySelectorAll(".tab").forEach(button=>{
 
-    tab.onclick=function(){
+    button.addEventListener("click",()=>{
+
 
         document
         .querySelectorAll(".tab")
         .forEach(t=>t.classList.remove("active"));
 
-        document
-        .querySelectorAll(".tab-content")
-        .forEach(c=>c.classList.remove("active"));
-
-        this.classList.add("active");
 
         document
-        .getElementById(this.dataset.tab)
+        .querySelectorAll(".panel")
+        .forEach(p=>p.classList.remove("active"));
+
+
+
+        button.classList.add("active");
+
+
+        document
+        .getElementById(button.dataset.tab)
         .classList.add("active");
 
-    };
+
+    });
 
 });
 
 
-/* =========================
-   CASH DEAL
-========================= */
 
-cashDeal.onclick=function(){
-
-    cashDeal = !cashDeal;
-
-    this.textContent =
-    cashDeal
-    ? "Financed Deal"
-    : "Cash Deal";
-
-    document
-    .getElementById("down")
-    .closest(".input")
-    .style.display = cashDeal ? "none" : "";
-
-    document
-    .getElementById("rate")
-    .closest(".input")
-    .style.display = cashDeal ? "none" : "";
-
-    document
-    .getElementById("years")
-    .closest(".input")
-    .style.display = cashDeal ? "none" : "";
-
-    calculate();
-
-};
 
 
 /* =========================
-   LIVE INPUTS
+   CASH DEAL SWITCH
 ========================= */
+
 
 document
-.querySelectorAll("input,select")
-.forEach(i=>{
+.getElementById("cashDeal")
+.addEventListener("click",function(){
 
-    i.addEventListener("input",calculate);
+
+cashMode = !cashMode;
+
+
+this.textContent = cashMode
+? "Financed Deal"
+: "Cash Deal";
+
+
+
+down.disabled = cashMode;
+rate.disabled = cashMode;
+years.disabled = cashMode;
+
+
+calculate();
+
 
 });
 
 
+
+
+
 /* =========================
-   HELPERS
+   AUTO TAX + INSURANCE
 ========================= */
 
-function payment(principal,rate,years){
 
-    const r = rate / 12;
+function updateTax(){
 
-    const n = years * 12;
+    const price =
+    Number(purchasePrice.value)||0;
 
-    if(rate===0){
 
-        return principal/n;
-
-    }
-
-    return principal *
-
-    (r*Math.pow(1+r,n)) /
-
-    (Math.pow(1+r,n)-1);
+    taxes.value =
+    ((price * taxRate.value/100)/12)
+    .toFixed(2);
 
 }
+
+
+
+function updateInsurance(){
+
+    const price =
+    Number(purchasePrice.value)||0;
+
+
+    insurance.value =
+    ((price * insuranceRate.value/100)/12)
+    .toFixed(2);
+
+}
+
+
+
+
+
+purchasePrice.addEventListener("input",()=>{
+
+updateTax();
+
+updateInsurance();
+
+calculate();
+
+});
+
+
+
+taxRate.addEventListener("input",()=>{
+
+updateTax();
+
+calculate();
+
+});
+
+
+
+insuranceRate.addEventListener("input",()=>{
+
+updateInsurance();
+
+calculate();
+
+});
+
+
+
+
+
+/* =========================
+   MANUAL $ INPUT
+========================= */
+
+
+taxes.addEventListener("input",()=>{
+
+const price =
+Number(purchasePrice.value)||0;
+
+
+taxRate.value =
+(
+(taxes.value*12)/price*100
+
+).toFixed(2);
+
+
+calculate();
+
+
+});
+
+
+
+
+insurance.addEventListener("input",()=>{
+
+
+const price =
+Number(purchasePrice.value)||0;
+
+
+insuranceRate.value =
+(
+(insurance.value*12)/price*100
+
+).toFixed(2);
+
+
+
+calculate();
+
+
+});
+
+
+
+
+
+
+
+/* =========================
+   MORTGAGE
+========================= */
+
+
+function mortgagePayment(
+principal,
+annualRate,
+years
+){
+
+const monthlyRate =
+annualRate/100/12;
+
+
+const payments =
+years*12;
+
+
+
+if(monthlyRate===0){
+
+return principal/payments;
+
+}
+
+
+return principal *
+
+(
+monthlyRate *
+Math.pow(
+1+monthlyRate,
+payments
+)
+
+)
+
+/
+
+(
+Math.pow(
+1+monthlyRate,
+payments
+)-1
+
+);
+
+
+}
+
+
+
+
+
+
+/* =========================
+   FORMAT
+========================= */
 
 
 function money(value){
 
-    return "$" +
+return "$" +
 
-    Math.round(value)
-
-    .toLocaleString();
+Math.round(value)
+.toLocaleString();
 
 }
 
 
 
+
+
+
+
 /* =========================
-   CALCULATE
+   MAIN CALCULATION
 ========================= */
+
 
 function calculate(){
 
-    const purchase =
-    Number(price.value)||0;
 
-    const rent =
-    Number(rent.value)||0;
+const price =
+Number(purchasePrice.value)||0;
 
-    const down =
-    Number(down.value)/100||0;
 
-    const rate =
-    Number(rate.value)/100/12||0;
+const monthlyRent =
+Number(rent.value)||0;
 
-    const years =
-    Number(years.value)||30;
 
-    const taxes =
-    Number(taxes.value)||0;
 
-    const insurance =
-    Number(insurance.value)||0;
+const tax =
+Number(taxes.value)||0;
 
-    const management =
-    rent *
 
-    (Number(management.value)/100||0);
+const ins =
+Number(insurance.value)||0;
 
-    const maintenance =
-    rent *
 
-    (Number(maintenance.value)/100||0);
 
-    const vacancy =
-    rent *
+const managementCost =
+monthlyRent *
+(Number(management.value)||0)
+/
+100;
 
-    (Number(vacancy.value)/100||0);
 
 
+const maintenanceCost =
+monthlyRent *
+(Number(maintenance.value)||0)
+/
+100;
 
-    let loan=0;
 
-    let mortgage=0;
 
-    let cashRequired=purchase;
+const vacancyCost =
+monthlyRent *
+(Number(vacancy.value)||0)
+/
+100;
 
 
 
-    if(!cashDeal){
 
-        loan = purchase*(1-down);
 
-        mortgage =
 
-        payment(
+let loanPayment = 0;
 
-            loan,
+let cash = price;
 
-            rate,
 
-            years
 
-        );
+if(!cashMode){
 
-        cashRequired =
-        purchase*down;
 
-    }
+const downPayment =
+Number(down.value)||0;
 
 
+const loan =
+price *
+(1-downPayment/100);
 
-    const operating =
 
-    taxes+
+cash =
+price *
+(downPayment/100);
 
-    insurance+
 
-    management+
 
-    maintenance+
+loanPayment =
+mortgagePayment(
 
-    vacancy;
+loan,
 
+Number(rate.value)||0,
 
+Number(years.value)||30
 
-    const noi =
+);
 
-    (rent*12)
-
-    -
-
-    (operating*12);
-
-
-
-    const monthlyCash =
-
-    rent
-
-    -
-
-    operating
-
-    -
-
-    mortgage;
-
-
-
-    const cap =
-
-    purchase
-
-    ?
-
-    (noi/purchase)*100
-
-    :
-
-    0;
-
-
-
-    const coc =
-
-    cashDeal
-
-    ?
-
-    cap
-
-    :
-
-    cashRequired
-
-    ?
-
-    ((monthlyCash*12)/cashRequired)*100
-
-    :
-
-    0;
-
-
-
-    const dscr =
-
-    mortgage
-
-    ?
-
-    noi/(mortgage*12)
-
-    :
-
-    0;
-
-
-
-    cashFlow.textContent =
-    money(monthlyCash);
-
-    cashFlow.className =
-
-    monthlyCash>=0
-
-    ?
-
-    "green"
-
-    :
-
-    "red";
-
-
-
-    cashNeeded.textContent =
-    money(cashRequired);
-
-
-
-    capRate.textContent =
-    cap.toFixed(2)+"%";
-
-
-
-    coc.textContent =
-    coc.toFixed(2)+"%";
-
-
-
-    dscr.textContent =
-
-    cashDeal
-
-    ?
-
-    "—"
-
-    :
-
-    dscr.toFixed(2);
 
 }
 
 
+
+
+
+
+
+const monthlyExpenses =
+
+tax +
+
+ins +
+
+managementCost +
+
+maintenanceCost +
+
+vacancyCost;
+
+
+
+
+
+
+const monthlyNOI =
+
+monthlyRent -
+
+monthlyExpenses;
+
+
+
+
+
+
+const annualNOI =
+
+monthlyNOI*12;
+
+
+
+
+
+
+const flow =
+
+monthlyNOI -
+
+loanPayment;
+
+
+
+
+
+
+const cap =
+
+price
+
+?
+
+annualNOI/price*100
+
+:
+
+0;
+
+
+
+
+
+
+const cashReturn =
+
+cash
+
+?
+
+(flow*12)/cash*100
+
+:
+
+0;
+
+
+
+
+
+
+const debtCoverage =
+
+loanPayment
+
+?
+
+annualNOI/(loanPayment*12)
+
+:
+
+0;
+
+
+
+
+
+
+cashFlow.textContent =
+money(flow);
+
+
+
+cashFlow.className =
+flow>=0
+?
+"green"
+:
+"red";
+
+
+
+capRate.textContent =
+cap.toFixed(2)+"%";
+
+
+
+cashRequired.textContent =
+money(cash);
+
+
+
+coc.textContent =
+cashReturn.toFixed(2)+"%";
+
+
+
+dscr.textContent =
+cashMode
+?
+"N/A"
+:
+debtCoverage.toFixed(2);
+
+
+
+noiOutput.textContent =
+money(annualNOI);
+
+
+
+}
+
+
+
+
+
 /* =========================
-   START
+   LIVE UPDATE
 ========================= */
 
+
+document
+.querySelectorAll("input,select")
+.forEach(input=>{
+
+
+input.addEventListener(
+"input",
+calculate
+);
+
+
+input.addEventListener(
+"change",
+calculate
+);
+
+
+});
+
+
+
+
+
+/* =========================
+   START VALUES
+========================= */
+
+
+updateTax();
+
+updateInsurance();
+
 calculate();
+
 </script>
 
+
 </body>
+
 </html>
