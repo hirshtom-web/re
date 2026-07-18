@@ -1158,7 +1158,684 @@ window.properties = {
         }
 
 
+    },
+
+   "ups-palm-bay": {
+
+    id: "ups-palm-bay",
+
+    page: "../properties/ups-palm-bay.html",
+
+    status: "Available",
+
+    assetClass: "Industrial Net Lease",
+
+    createdDate: "2026-07-18",
+
+    featured: true,
+
+
+    /* =========================
+       HERO
+    ========================== */
+
+    hero: {
+
+        title:
+        "United Parcel Service",
+
+        subtitle:
+        "Corporate Guaranteed Industrial Investment | NNN Lease",
+
+        address:
+        "2730 Kirby Cir NE<br>Palm Bay, Florida 32905",
+
+        image:
+        "https://static.wixstatic.com/media/1799ca_e2f5f44663194617bd944b4f5acfd2aa~mv2.webp",
+
+        imageCaption:
+        "United Parcel Service Industrial Facility"
+
+    },
+
+
+
+    /* =========================
+       TENANT
+    ========================== */
+
+    tenantInfo: {
+
+        name:
+        "United Parcel Service, Inc.",
+
+        parentCompany:
+        "United Parcel Service, Inc.",
+
+        creditRating:
+        "Investment Grade Corporate Tenant",
+
+        founded:
+        "1907",
+
+        website:
+        "https://www.ups.com"
+
+    },
+
+
+    tenant:
+    "United Parcel Service, Inc.",
+
+
+
+    /* =========================
+       FINANCIAL
+    ========================== */
+
+    financial: {
+
+        purchasePrice:
+        14000000,
+
+        noi:
+        787000,
+
+        capRate:
+        5.62,
+
+        pricePerSF:
+        141.41,
+
+        rentPerSF:
+        7.95
+
+    },
+
+
+    purchasePrice:
+    14000000,
+
+    noi:
+    787000,
+
+    capRate:
+    5.62,
+
+
+
+    /* =========================
+       LEASE
+    ========================== */
+
+    leaseDetails: {
+
+        structure:
+        "NNN",
+
+        remainingTerm:
+        "5 Years",
+
+        options:
+        "Fair Market Value Renewal Option",
+
+        rentEscalations:
+        "3% Annual Increases",
+
+        guarantor:
+        "Corporate Guarantee",
+
+        commencementDate:
+        "2026"
+
+    },
+
+
+    leaseTerm:
+    "5 Years",
+
+    leaseStructure:
+    "NNN",
+
+
+
+    /* =========================
+       PROPERTY
+    ========================== */
+
+    property: {
+
+        buildingSize:
+        "99,000 SF",
+
+        lotSize:
+        "6.01 AC",
+
+        yearBuilt:
+        "1978",
+
+        propertyType:
+        "Industrial Warehouse",
+
+        location:
+        "Palm Bay, FL",
+
+        construction:
+        "Existing",
+
+        buildingClass:
+        "Class B",
+
+        tenancy:
+        "Single Tenant"
+
+    },
+
+
+    buildingSize:
+    "99,000 SF",
+
+    lotSize:
+    "6.01 AC",
+
+    yearBuilt:
+    "1978",
+
+    propertyType:
+    "Industrial Warehouse",
+
+    location:
+    "Palm Bay, FL",
+
+
+
+    /* =========================
+       HIGHLIGHTS
+    ========================== */
+
+    highlights:[
+
+        {
+            title:
+            "Corporate UPS Lease",
+
+            text:
+            "United Parcel Service, Inc. provides investors exposure to one of the world's largest logistics companies through a corporate-backed industrial tenancy."
+        },
+
+
+        {
+            title:
+            "New NNN Lease Structure",
+
+            text:
+            "New five-year NNN lease structure with annual 3% rental increases and limited landlord responsibilities creates predictable income."
+        },
+
+
+        {
+            title:
+            "Strategic Space Coast Location",
+
+            text:
+            "Located in Palm Bay with access to Interstate 95, U.S. Highway 1, and Melbourne Orlando International Airport."
+        }
+
+    ],
+
+
+
+    /* =========================
+       SUMMARY
+    ========================== */
+
+    summary:[
+
+        "Acquire a 99,000-square-foot industrial warehouse leased to United Parcel Service, Inc. located at 2730 Kirby Cir NE in Palm Bay, Florida.",
+
+
+        "The property offers investors a corporate-backed industrial investment opportunity through a NNN lease structure providing predictable income and minimal ownership responsibilities.",
+
+
+        "UPS represents one of the world's largest publicly traded logistics companies with a global operating platform and significant long-term demand drivers.",
+
+
+        "The asset features functional industrial improvements including truck courts, loading infrastructure, drive-in access, and efficient regional transportation connectivity.",
+
+
+        "Located within Florida's Space Coast market, Palm Bay benefits from population growth, aerospace expansion, and increasing industrial demand."
+
+    ],
+
+
+
+    /* =========================
+       FINANCIAL OVERVIEW
+    ========================== */
+
+    financialOverview:[
+
+        {
+            label:
+            "Purchase Price",
+
+            value:
+            "$14,000,000"
+        },
+
+
+        {
+            label:
+            "Price Per SF",
+
+            value:
+            "$141.41"
+        },
+
+
+        {
+            label:
+            "Annual NOI",
+
+            value:
+            "$787,000"
+        },
+
+
+        {
+            label:
+            "Cap Rate",
+
+            value:
+            "5.62%"
+        },
+
+
+        {
+            label:
+            "Building Size",
+
+            value:
+            "99,000 SF"
+        },
+
+
+        {
+            label:
+            "Lease Structure",
+
+            value:
+            "NNN"
+        }
+
+    ],
+
+
+
+    /* =========================
+       UNDERWRITING
+    ========================== */
+
+    underwriting: {
+
+        downPayment:
+        35,
+
+        interestRate:
+        6.5,
+
+        amortization:
+        25,
+
+        noiGrowth:
+        3,
+
+        vacancy:
+        5,
+
+        appreciation:
+        2,
+
+        holdPeriod:
+        10,
+
+        exitCap:
+        6.25
+
+    },
+
+
+
+    investmentMetrics: {
+
+        pricePerSF:
+        141.41,
+
+        rentPerSF:
+        7.95,
+
+        annualRentGrowth:
+        "3%",
+
+        leverageAssumption:
+        "65% LTV",
+
+        projectedIRR:
+        "8.0%",
+
+        projectedEquityMultiple:
+        "1.85x"
+
+    },
+
+
+
+    /* =========================
+       SCORE
+    ========================== */
+
+    score: {
+
+        value:
+        88,
+
+        label:
+        "Strong",
+
+        summary:
+        "A high-quality industrial investment supported by institutional tenant credit, essential logistics operations, and a strategic Florida location.",
+
+
+        cards:[
+
+            {
+                label:
+                "Cash Flow",
+
+                value:
+                "A",
+
+                description:
+                "Stable NNN Income"
+            },
+
+
+            {
+                label:
+                "Tenant",
+
+                value:
+                "A+",
+
+                description:
+                "Global Corporate Credit"
+            },
+
+
+            {
+                label:
+                "Market",
+
+                value:
+                "Strong",
+
+                description:
+                "Florida Industrial Growth"
+            },
+
+
+            {
+                label:
+                "Liquidity",
+
+                value:
+                "High",
+
+                description:
+                "Institutional Appeal"
+            }
+
+        ]
+
+    },
+
+
+
+    /* =========================
+       FACTS
+    ========================== */
+
+    propertyFacts:[
+
+        {
+            label:
+            "Property Type",
+
+            value:
+            "Industrial Warehouse"
+        },
+
+
+        {
+            label:
+            "Sale Type",
+
+            value:
+            "Investment NNN"
+        },
+
+
+        {
+            label:
+            "Year Built",
+
+            value:
+            "1978"
+        },
+
+
+        {
+            label:
+            "Tenancy",
+
+            value:
+            "Single Tenant"
+        },
+
+
+        {
+            label:
+            "Parking Ratio",
+
+            value:
+            "2.14 / 1,000 SF"
+        },
+
+
+        {
+            label:
+            "Clear Height",
+
+            value:
+            "25'"
+        },
+
+
+        {
+            label:
+            "Dock Doors",
+
+            value:
+            "6"
+        },
+
+
+        {
+            label:
+            "Drive-In Doors",
+
+            value:
+            "10"
+        }
+
+    ],
+
+
+
+    /* =========================
+       MEDIA
+    ========================== */
+
+    media: {
+
+        mainImage:
+        "https://static.wixstatic.com/media/1799ca_e2f5f44663194617bd944b4f5acfd2aa~mv2.webp",
+
+        gallery:[]
+
+    },
+
+
+
+    /* =========================
+       MAP
+    ========================== */
+
+    coordinates: {
+
+        latitude:
+        28.0345,
+
+        longitude:
+        -80.5887
+
+    },
+
+
+
+    /* =========================
+       LOCATION
+    ========================== */
+
+    locationOverview:
+    "Palm Bay, Florida",
+
+
+    locationHighlights:[
+
+        "Florida Space Coast industrial market",
+
+        "Access to Interstate 95 and U.S. Highway 1",
+
+        "Approximately 6 miles from Melbourne Orlando International Airport",
+
+        "Strong regional logistics and employment growth"
+
+    ],
+
+
+
+    /* =========================
+       RISK
+    ========================== */
+
+    riskStrategy:[
+
+        {
+            title:
+            "Tenant Risk",
+
+            text:
+            "UPS is a publicly traded Fortune 500 logistics company with global operations and established credit history."
+        },
+
+
+        {
+            title:
+            "Lease Risk",
+
+            text:
+            "NNN structure, contractual rent increases, and renewal options provide income visibility."
+        },
+
+
+        {
+            title:
+            "Exit Strategy",
+
+            text:
+            "Attractive to private investors, 1031 exchange buyers, REITs, and institutional industrial purchasers."
+        }
+
+    ],
+
+
+
+    /* =========================
+       MARKET
+    ========================== */
+
+    market:{
+
+        location:
+        "Palm Bay, FL • Updated July 2026",
+
+        score:
+        72,
+
+        rating:
+        "Strong Industrial Market",
+
+        summary:
+        "Florida industrial markets continue to benefit from population growth, logistics expansion, and limited availability of quality warehouse assets.",
+
+
+        stats:[
+
+            {
+                label:
+                "Industrial Vacancy",
+
+                value:
+                "5.8%"
+            },
+
+
+            {
+                label:
+                "Average Asking Rent",
+
+                value:
+                "$10.50 / SF"
+            },
+
+
+            {
+                label:
+                "12-Month Rent Growth",
+
+                value:
+                "▲ +4.2%",
+
+                color:
+                "#2e7d32"
+            },
+
+
+            {
+                label:
+                "Market Trend",
+
+                value:
+                "Positive"
+            }
+
+        ]
+
     }
+
+
+}
 
 
 };
