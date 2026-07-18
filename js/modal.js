@@ -22,11 +22,34 @@ function closeDeal(){
         window.scrollTo(0,savedScrollPosition);
     },50);
 }
-window.addEventListener("load",function(){
-    let params=new URLSearchParams(window.location.search);
-    let deal=params.get("deal");
-    if(deal){
-        savedScrollPosition=window.scrollY;
-        openDeal(deal+".html");
+window.addEventListener("load", function(){
+
+    let id = window.location.hash.substring(1);
+
+    if(id){
+
+        let property = window.properties[id];
+
+        if(property){
+
+            savedScrollPosition = window.scrollY;
+
+            let frame = document.getElementById("dealFrame");
+
+            frame.src = property.page;
+
+            document.documentElement.classList.add("modal-open");
+            document.body.classList.add("modal-open");
+
+            document.getElementById("dealModal")
+            .classList.add("active");
+
+        } else {
+
+            console.log("Property not found:", id);
+
+        }
+
     }
+
 });
