@@ -1,12 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
 
 
-    const propertyID =
-    window.location.hash.replace("#", "") ||
-    Object.keys(window.properties)[0];
-
-const property =
-    window.properties[propertyID];
+    const property = window.currentProperty;
 
 
     if(!property){
