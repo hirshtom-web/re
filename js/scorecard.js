@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(){
 
 
-    const dealId = document.body.dataset.deal;
+    const propertyID =
+    window.location.hash.replace("#", "") ||
+    Object.keys(window.properties)[0];
 
-
-    const property =
-        window.properties[dealId];
+const property =
+    window.properties[propertyID];
 
 
     if(!property){
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-    const score = Number(property.score || 0);
+    const score = Number(property.score.value || 0);
 
 
 
@@ -24,19 +25,19 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     document.getElementById("scoreLabel").innerText =
-        property.scoreLabel;
+        property.score.label
 
 
 
     document.getElementById("score-summary").innerText =
-        property.scoreSummary;
+        property.score.summary
 
 
 
     // SCORE CARDS
 
     const cards =
-        property.scoreCards;
+    property.score.cards;
 
 
     const grid =
