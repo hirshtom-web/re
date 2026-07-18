@@ -11,7 +11,7 @@ console.log("CURRENT PROPERTY:", window.currentProperty);
 
 /* LOAD PROPERTY */
 
-const propertyID =
+window.propertyID =
     window.location.hash.replace("#", "") ||
     Object.keys(window.properties)[0];
 
