@@ -146,3 +146,4 @@ function openDeal(id){
     "../property.html#" + id;
 
 }
+
