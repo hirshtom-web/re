@@ -1835,6 +1835,728 @@ window.properties = {
     }
 
 
+},
+
+   "q-pac-systems-elkton": {
+
+    id: "q-pac-systems-elkton",
+
+    page:
+    "../properties/q-pac-systems-elkton.html",
+
+    status:
+    "Available",
+
+    assetClass:
+    "Industrial Net Lease",
+
+    createdDate:
+    "2026-07-18",
+
+    featured:
+    false,
+
+
+
+    /* =========================
+       HERO
+    ========================== */
+
+    hero: {
+
+        title:
+        "Q-PAC Systems",
+
+        subtitle:
+        "Single Tenant NNN Industrial Investment Opportunity",
+
+        address:
+        "4010 Deerpark Blvd<br>Elkton, Florida",
+
+        image:
+        "https://static.wixstatic.com/media/1799ca_091cdb63f9e0442fb709a5d39196c60a~mv2.avif",
+
+        imageCaption:
+        "Q-PAC Systems Building"
+
+    },
+
+
+
+    /* =========================
+       TENANT
+    ========================== */
+
+    tenantInfo: {
+
+        name:
+        "Q-PAC Systems",
+
+        parentCompany:
+        "Q-PAC Systems",
+
+        creditRating:
+        "Private Corporate Tenant",
+
+        website:
+        ""
+
+    },
+
+
+    tenant:
+    "Q-PAC Systems",
+
+
+
+    /* =========================
+       FINANCIAL
+    ========================== */
+
+    financial: {
+
+        purchasePrice:
+        10534624,
+
+        noi:
+        705821,
+
+        capRate:
+        6.70,
+
+        pricePerSF:
+        228.02,
+
+        rentPerSF:
+        15.28
+
+    },
+
+
+    purchasePrice:
+    10534624,
+
+    noi:
+    705821,
+
+    capRate:
+    6.70,
+
+
+
+    /* =========================
+       LEASE
+    ========================== */
+
+    leaseDetails: {
+
+        structure:
+        "NNN",
+
+        remainingTerm:
+        "Long-Term Lease",
+
+        options:
+        "Renewal Options Available",
+
+        rentEscalations:
+        "Contractual Increases",
+
+        guarantor:
+        "Corporate Tenant"
+
+    },
+
+
+    leaseTerm:
+    "Long-Term Lease",
+
+    leaseStructure:
+    "NNN",
+
+
+
+    /* =========================
+       PROPERTY
+    ========================== */
+
+    property: {
+
+        buildingSize:
+        "46,200 SF",
+
+        lotSize:
+        "5.49 AC",
+
+        yearBuilt:
+        "2018 / Renovated 2025",
+
+        propertyType:
+        "Manufacturing / Industrial",
+
+        location:
+        "Elkton, FL",
+
+        construction:
+        "Modern Industrial Facility",
+
+        buildingClass:
+        "Class A",
+
+        tenancy:
+        "Single Tenant"
+
+    },
+
+
+    buildingSize:
+    "46,200 SF",
+
+    lotSize:
+    "5.49 AC",
+
+    yearBuilt:
+    "2018 / 2025",
+
+    propertyType:
+    "Manufacturing / Industrial",
+
+    location:
+    "Elkton, FL",
+
+
+
+    /* =========================
+       HIGHLIGHTS
+    ========================== */
+
+    highlights:[
+
+        {
+
+            title:
+            "Corporate Headquarters Facility",
+
+            text:
+            "4010 Deerpark Boulevard serves as Q-PAC Systems' corporate headquarters and primary operating facility supporting manufacturing, warehousing, and administrative operations."
+
+        },
+
+
+        {
+
+            title:
+            "Strong Tenant Commitment",
+
+            text:
+            "A recent approximately 13,800 SF expansion demonstrates tenant investment and long-term commitment to the location."
+
+        },
+
+
+        {
+
+            title:
+            "Passive NNN Investment Profile",
+
+            text:
+            "Single-tenant NNN lease structure provides predictable income with minimal landlord responsibilities."
+
+        }
+
+    ],
+
+
+
+    /* =========================
+       SUMMARY
+    ========================== */
+
+    summary:[
+
+
+        "Acquire a 46,200-square-foot Class A industrial facility leased to Q-PAC Systems located at 4010 Deerpark Blvd in Elkton, Florida.",
+
+
+        "The property operates as the tenant's corporate headquarters and primary manufacturing facility, creating strong operational dependence and location commitment.",
+
+
+        "The asset features a passive NNN lease structure providing investors with stable income and limited ownership responsibilities.",
+
+
+        "A recent expansion completed for tenant operational needs demonstrates continued investment into the facility.",
+
+
+        "Located within Northeast Florida's growing industrial corridor with access to Interstate 95 and Jacksonville logistics infrastructure."
+
+    ],
+
+
+
+    /* =========================
+       FINANCIAL OVERVIEW
+    ========================== */
+
+    financialOverview:[
+
+
+        {
+            label:
+            "Purchase Price",
+
+            value:
+            "$10,534,624"
+        },
+
+
+        {
+            label:
+            "Price Per SF",
+
+            value:
+            "$228.02"
+        },
+
+
+        {
+            label:
+            "Annual NOI",
+
+            value:
+            "$705,821"
+        },
+
+
+        {
+            label:
+            "Cap Rate",
+
+            value:
+            "6.70%"
+        },
+
+
+        {
+            label:
+            "Building Size",
+
+            value:
+            "46,200 SF"
+        },
+
+
+        {
+            label:
+            "Lease Structure",
+
+            value:
+            "NNN"
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       UNDERWRITING
+    ========================== */
+
+    underwriting: {
+
+        downPayment:
+        35,
+
+        interestRate:
+        6.5,
+
+        amortization:
+        25,
+
+        noiGrowth:
+        3,
+
+        vacancy:
+        5,
+
+        appreciation:
+        2,
+
+        holdPeriod:
+        10,
+
+        exitCap:
+        7
+
+    },
+
+
+
+    investmentMetrics:{
+
+
+        pricePerSF:
+        228.02,
+
+
+        rentPerSF:
+        15.28,
+
+
+        annualRentGrowth:
+        "3%",
+
+
+        leverageAssumption:
+        "65% LTV",
+
+
+        projectedIRR:
+        "8.2%",
+
+
+        projectedEquityMultiple:
+        "1.9x"
+
+    },
+
+
+
+    /* =========================
+       SCORE
+    ========================== */
+
+    score:{
+
+
+        value:
+        86,
+
+
+        label:
+        "Strong",
+
+
+        summary:
+        "A strong industrial investment supported by single-tenant occupancy, NNN lease structure, and tenant commitment through facility expansion.",
+
+
+        cards:[
+
+
+            {
+
+                label:
+                "Cash Flow",
+
+                value:
+                "A",
+
+                description:
+                "Stable NNN Income"
+
+            },
+
+
+            {
+
+                label:
+                "Tenant",
+
+                value:
+                "B+",
+
+                description:
+                "Operating Company"
+
+            },
+
+
+            {
+
+                label:
+                "Market",
+
+                value:
+                "Strong",
+
+                description:
+                "Northeast Florida Growth"
+
+            },
+
+
+            {
+
+                label:
+                "Liquidity",
+
+                value:
+                "Good",
+
+                description:
+                "Industrial Demand"
+
+            }
+
+
+        ]
+
+    },
+
+
+
+    /* =========================
+       PROPERTY FACTS
+    ========================== */
+
+    propertyFacts:[
+
+
+        {
+
+            label:
+            "Property Type",
+
+            value:
+            "Manufacturing / Industrial"
+
+        },
+
+
+        {
+
+            label:
+            "Sale Type",
+
+            value:
+            "1031 Exchange"
+
+        },
+
+
+        {
+
+            label:
+            "Year Built",
+
+            value:
+            "2018"
+
+        },
+
+
+        {
+
+            label:
+            "Renovation",
+
+            value:
+            "2025"
+
+        },
+
+
+        {
+
+            label:
+            "Clear Height",
+
+            value:
+            "22'"
+
+        },
+
+
+        {
+
+            label:
+            "Tenancy",
+
+            value:
+            "Single Tenant"
+
+        }
+
+    ],
+
+
+
+    /* =========================
+       MEDIA
+    ========================== */
+
+    media:{
+
+        mainImage:
+        "https://static.wixstatic.com/media/1799ca_091cdb63f9e0442fb709a5d39196c60a~mv2.avif",
+
+        gallery:[]
+
+    },
+
+
+
+    /* =========================
+       MAP
+    ========================== */
+
+    coordinates:{
+
+        latitude:
+        29.7655,
+
+        longitude:
+        -81.4408
+
+    },
+
+
+
+    /* =========================
+       LOCATION
+    ========================== */
+
+    locationOverview:
+    "Elkton, Florida | St. Johns County",
+
+
+    locationHighlights:[
+
+        "Growing Northeast Florida industrial market",
+
+        "Convenient access to Interstate 95",
+
+        "Strong Jacksonville logistics corridor connection",
+
+        "Limited industrial supply and expanding employment base"
+
+    ],
+
+
+
+    /* =========================
+       RISK
+    ========================== */
+
+    riskStrategy:[
+
+
+        {
+
+            title:
+            "Tenant Risk",
+
+            text:
+            "Q-PAC Systems operates from a purpose-built headquarters facility with demonstrated investment and operational commitment."
+
+        },
+
+
+        {
+
+            title:
+            "Lease Risk",
+
+            text:
+            "NNN lease structure reduces expense exposure while providing predictable contractual income."
+
+        },
+
+
+        {
+
+            title:
+            "Exit Strategy",
+
+            text:
+            "Attractive to private investors, 1031 exchange buyers, family offices, and industrial-focused purchasers."
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       MARKET
+    ========================== */
+
+    market:{
+
+
+        location:
+        "Elkton / St. Johns County, FL • Updated July 2026",
+
+
+        score:
+        76,
+
+
+        rating:
+        "Strong Industrial Market",
+
+
+        summary:
+        "Northeast Florida continues to benefit from population growth, logistics expansion, and limited availability of quality industrial properties.",
+
+
+        stats:[
+
+
+            {
+
+                label:
+                "Industrial Vacancy",
+
+                value:
+                "5.5%"
+
+            },
+
+
+            {
+
+                label:
+                "Average Asking Rent",
+
+                value:
+                "$12.00 / SF"
+
+            },
+
+
+            {
+
+                label:
+                "12-Month Rent Growth",
+
+                value:
+                "▲ +4.5%",
+
+                color:
+                "#2e7d32"
+
+            },
+
+
+            {
+
+                label:
+                "Market Trend",
+
+                value:
+                "Positive"
+
+            }
+
+
+        ]
+
+    }
+
+
 }
 
 
