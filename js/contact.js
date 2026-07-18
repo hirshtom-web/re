@@ -31,7 +31,7 @@ function shareDeal(){
 
     const url =
         window.location.origin +
-        "/opportunities/?id=" +
+        "/property?id=" +
         window.currentPropertyID;
 
 
@@ -57,16 +57,16 @@ function shareDeal(){
 
 }
 
+
 function copyLink(){
 
     const url =
         window.location.origin +
-        "/opportunities/?id=" +
+        "/property?id=" +
         window.currentPropertyID;
 
 
     navigator.clipboard.writeText(url);
-
 
     alert("Deal link copied");
 
