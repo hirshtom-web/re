@@ -17,6 +17,10 @@ function openModal(page, id){
     savedScrollPosition = window.scrollY;
 
 
+    // Save current deal for share/copy functions
+    window.currentPropertyID = id;
+
+
     const url =
         page + "#" + encodeURIComponent(id);
 
@@ -35,8 +39,6 @@ function openModal(page, id){
     modal.classList.add("active");
 
 }
-
-
 
 /* ==========================================
    CLOSE PROPERTY MODAL
