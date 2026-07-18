@@ -2,6 +2,12 @@
    PROPERTY RENDERER
 ========================================== */
 
+const id = window.location.hash.substring(1);
+
+window.currentProperty = window.properties[id];
+
+console.log("CURRENT PROPERTY:", window.currentProperty);
+
 
 /* LOAD PROPERTY */
 
