@@ -38,6 +38,16 @@ if(!property){
         propertyID
     );
 
+    document.body.innerHTML = `
+        <h2 style="padding:40px;font-family:Inter">
+            Property not found
+        </h2>
+
+        <p style="padding:0 40px;font-family:Inter">
+            ID: ${propertyID || "missing"}
+        </p>
+    `;
+
     throw new Error(
         "Invalid property ID"
     );
