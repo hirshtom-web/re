@@ -474,6 +474,17 @@ select {
     border-bottom: 1px solid #f1f1f1;
 }
 
+   .calculator-selector {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+}
+
+.calculator-selector label {
+    display:block;
+    margin-bottom:8px;
+}
+   
+
 .suggestion-item:last-child { border-bottom: none; }
 .suggestion-item:hover { background: #f4f0ff; color: #6327e5; }
 
@@ -533,6 +544,12 @@ select {
 
   <!-- Page Title: Centered at the top of the page -->
   <h1 id="pageTitle" style="text-align:center;">Page Title</h1>
+
+    <div class="calculator-selector">
+    <label>Select Calculator</label>
+    <select id="calculatorDropdown"></select>
+</div>
+
 
   <!-- Main Container: inputs + results -->
   <div class="container">
@@ -891,6 +908,8 @@ function loadCalculator(key) {
 
   const calc = calculators[key];
 
+  document.getElementById("calculatorDropdown").value = key;
+
   // Show calculator screen, hide grid
   document.getElementById("screenGrid").style.display = "none";
   document.getElementById("screenCalculator").style.display = "block";
@@ -1042,6 +1061,20 @@ window.addEventListener("hashchange", () => {
   tryLoadFromHash();
 });
 
+  const dropdown = document.getElementById("calculatorDropdown");
+
+Object.entries(calculators).forEach(([key, calc]) => {
+    const option = document.createElement("option");
+    option.value = key;
+    option.textContent = calc.CalculatorName;
+    dropdown.appendChild(option);
+});
+
+
+dropdown.onchange = function() {
+    loadCalculator(this.value);
+    window.location.hash = this.value;
+};
   
   </script>
 
