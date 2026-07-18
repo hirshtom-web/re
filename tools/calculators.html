@@ -846,38 +846,6 @@ select {
   }
 };
 
-
-/* ------------------ CATEGORY CONTAINERS ------------------ */
-/* ------------------ CATEGORY CONTAINERS ------------------ */
-const categories = {
-  financing: document.getElementById("cat-financing"),
-  returns: document.getElementById("cat-returns"),
-  valuation: document.getElementById("cat-valuation"),
-  analysis: document.getElementById("cat-analysis")
-};
-
-/* ------------------ RENDER TILES ------------------ */
-Object.entries(calculators).forEach(([key, c]) => {
-  const tile = document.createElement("div");
-  tile.className = "tile";
-  tile.dataset.tooltip = c.tooltip;
-
-  tile.innerHTML = `
-    <span class="material-icons-outlined">${c.icon}</span>
-    <div>
-      <div class="grid-name">${c.gridName}</div>
-      <div>${c.calculatorTitle}</div>
-    </div>
-  `;
-
-  tile.onclick = () => {
-    loadCalculator(key);
-    window.location.hash = key;
-  };
-
-  categories[c.cat].appendChild(tile);
-});
-
 /* ------------------ GET COMMON ELEMENTS ------------------ */
 const allTiles = document.getElementsByClassName("tile");
 const titleEl = document.getElementById("calculatorTitle");
