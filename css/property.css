@@ -30,7 +30,7 @@ body{
     font-family:'Inter',sans-serif;
 }
 .page{
-    width:80%;
+    width:90%;
     max-width:1440px;
     margin:auto;
     padding:0 0 80px;
@@ -353,7 +353,7 @@ border-radius:25px;
 @media(max-width:600px){
     .page{
         width:100%;
-        padding:0 14px 40px;
+        padding:0 20px 40px;
     }
     .hero{
         padding:28px 0 24px;
