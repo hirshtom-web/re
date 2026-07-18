@@ -150,7 +150,7 @@ function openDeal(id){
 
     if(property && property.page){
 
-        openModal(property.page + "#" + id);
+        openModal(property.page, id);
 
     } else {
 
