@@ -4059,6 +4059,754 @@ window.properties = {
     }
 
 
+},
+
+   "arion-apartments": {
+
+    id: "arion-apartments",
+
+    page:
+    "../properties/arion-apartments.html",
+
+    status:
+    "Available",
+
+    assetClass:
+    "Multifamily",
+
+    createdDate:
+    "2026-07-18",
+
+    featured:
+    false,
+
+
+
+    /* =========================
+       HERO
+    ========================== */
+
+    hero: {
+
+        title:
+        "ARION Apartments",
+
+        subtitle:
+        "200-Unit Multifamily Investment Opportunity",
+
+        address:
+        "2731 S Blair Stone Rd<br>Tallahassee, Florida 32301",
+
+        image:
+        "https://static.wixstatic.com/media/1799ca_117df213e8b14cb6bbffdaf4143d3afa~mv2.avif",
+
+        imageCaption:
+        "ARION Apartments"
+
+    },
+
+
+
+    /* =========================
+       TENANT INFORMATION
+    ========================== */
+
+    tenantInfo: {
+
+        name:
+        "Residential Tenancy",
+
+        parentCompany:
+        "ARION Apartments",
+
+        creditRating:
+        "Stabilized Multifamily Asset"
+
+    },
+
+
+    tenant:
+    "Residential Tenancy",
+
+
+
+    /* =========================
+       FINANCIAL SNAPSHOT
+    ========================== */
+
+    financial: {
+
+        purchasePrice:
+        29900000,
+
+        noi:
+        2256800,
+
+        capRate:
+        7.55,
+
+        pricePerSF:
+        241.61,
+
+        rentPerSF:
+        "Not Provided"
+
+    },
+
+
+    purchasePrice:
+    29900000,
+
+    noi:
+    2256800,
+
+    capRate:
+    7.55,
+
+
+
+    /* =========================
+       LEASE INFORMATION
+    ========================== */
+
+    leaseDetails: {
+
+        structure:
+        "Market Rate Residential",
+
+        remainingTerm:
+        "Rolling Residential Leases",
+
+        options:
+        "Annual Renewals",
+
+        rentEscalations:
+        "Market Rent Growth",
+
+        guarantor:
+        "Individual Residents"
+
+    },
+
+
+    leaseTerm:
+    "Rolling Residential Leases",
+
+    leaseStructure:
+    "Market Rate Residential",
+
+
+
+    /* =========================
+       ASSET OVERVIEW
+    ========================== */
+
+    property: {
+
+        buildingSize:
+        "123,758 SF",
+
+        lotSize:
+        "12.88 AC",
+
+        yearBuilt:
+        "1972",
+
+        propertyType:
+        "Garden Style Multifamily",
+
+        location:
+        "Tallahassee, FL",
+
+        construction:
+        "Renovated Existing Community",
+
+        buildingClass:
+        "Class C",
+
+        tenancy:
+        "200 Residential Units"
+
+    },
+
+
+    buildingSize:
+    "123,758 SF",
+
+    lotSize:
+    "12.88 AC",
+
+    yearBuilt:
+    "1972",
+
+    propertyType:
+    "Multifamily",
+
+    location:
+    "Tallahassee, FL",
+
+
+
+    /* =========================
+       HIGHLIGHTS
+    ========================== */
+
+    highlights:[
+
+
+        {
+
+            title:
+            "200-Unit Stabilized Community",
+
+            text:
+            "Large garden-style apartment community featuring professional management, strong occupancy, and extensive resident amenities."
+
+        },
+
+
+        {
+
+            title:
+            "Extensive Capital Improvements",
+
+            text:
+            "Recent renovation program included roofs, parking improvements, code upgrades, plumbing, electrical systems, pool improvements, and renovated interiors."
+
+        },
+
+
+        {
+
+            title:
+            "Strong Tallahassee Fundamentals",
+
+            text:
+            "Located near Florida State University, Florida A&M University, and the State Capitol with a diversified employment base."
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       EXECUTIVE SUMMARY
+    ========================== */
+
+    summary:[
+
+
+        "ARION Apartments is a 200-unit garden-style multifamily community located in Tallahassee, Florida.",
+
+
+        "The property has completed a substantial renovation program following the acquisition and conversion of individual condominium units into a traditional multifamily investment asset.",
+
+
+        "Recent improvements include new roofs, parking rehabilitation, code upgrades, plumbing and electrical improvements, pool renovations, and extensive interior unit upgrades.",
+
+
+        "The community offers one- to four-bedroom floorplans with amenities including a clubhouse, fitness center, swimming pool, playground, basketball court, tennis court, and professional management.",
+
+
+        "The property's proximity to Florida State University, Florida A&M University, and the Florida State Capitol provides access to a stable employment base driven by education, healthcare, and government sectors."
+
+    ],
+
+
+
+    /* =========================
+       FINANCIAL OVERVIEW
+    ========================== */
+
+    financialOverview:[
+
+
+        {
+
+            label:
+            "Purchase Price",
+
+            value:
+            "$29,900,000"
+
+        },
+
+
+        {
+
+            label:
+            "Price Per Unit",
+
+            value:
+            "$149,500"
+
+        },
+
+
+        {
+
+            label:
+            "Annual NOI",
+
+            value:
+            "$2,256,800"
+
+        },
+
+
+        {
+
+            label:
+            "Cap Rate",
+
+            value:
+            "7.55%"
+
+        },
+
+
+        {
+
+            label:
+            "Building Size",
+
+            value:
+            "123,758 SF"
+
+        },
+
+
+        {
+
+            label:
+            "Occupancy",
+
+            value:
+            "93%"
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       UNDERWRITING
+    ========================== */
+
+    underwriting: {
+
+        downPayment:
+        35,
+
+        interestRate:
+        6.5,
+
+        amortization:
+        30,
+
+        noiGrowth:
+        3,
+
+        vacancy:
+        7,
+
+        appreciation:
+        2.5,
+
+        holdPeriod:
+        10,
+
+        exitCap:
+        6.5
+
+    },
+
+
+
+    investmentMetrics: {
+
+        pricePerUnit:
+        149500,
+
+        occupancy:
+        "93%",
+
+        annualRentGrowth:
+        "3%",
+
+        leverageAssumption:
+        "65% LTV",
+
+        projectedIRR:
+        "9.5%",
+
+        projectedEquityMultiple:
+        "2.1x"
+
+    },
+
+
+
+    /* =========================
+       INVESTMENT SCORE
+    ========================== */
+
+    score: {
+
+        value:
+        88,
+
+        label:
+        "Strong",
+
+        summary:
+        "A stabilized multifamily investment supported by strong occupancy, completed capital improvements, and a durable Tallahassee employment base.",
+
+
+        cards:[
+
+
+            {
+
+                label:
+                "Cash Flow",
+
+                value:
+                "A",
+
+                description:
+                "Stable NOI"
+
+            },
+
+
+            {
+
+                label:
+                "Risk",
+
+                value:
+                "Medium-Low",
+
+                description:
+                "Renovated Asset"
+
+            },
+
+
+            {
+
+                label:
+                "Growth",
+
+                value:
+                "Strong",
+
+                description:
+                "Market Demand"
+
+            },
+
+
+            {
+
+                label:
+                "Demand",
+
+                value:
+                "High",
+
+                description:
+                "Education Market"
+
+            }
+
+
+        ]
+
+    },
+
+
+    scoreValue:
+    88,
+
+    scoreLabel:
+    "Strong",
+
+
+
+    /* =========================
+       PROPERTY FACTS
+    ========================== */
+
+    propertyFacts:[
+
+
+        {
+
+            label:
+            "Property Type",
+
+            value:
+            "Multifamily"
+
+        },
+
+
+        {
+
+            label:
+            "Apartment Style",
+
+            value:
+            "Garden"
+
+        },
+
+
+        {
+
+            label:
+            "Units",
+
+            value:
+            "200"
+
+        },
+
+
+        {
+
+            label:
+            "Stories",
+
+            value:
+            "2"
+
+        },
+
+
+        {
+
+            label:
+            "Building Class",
+
+            value:
+            "Class C"
+
+        },
+
+
+        {
+
+            label:
+            "Year Built",
+
+            value:
+            "1972"
+
+        },
+
+
+        {
+
+            label:
+            "Lot Size",
+
+            value:
+            "12.88 Acres"
+
+        },
+
+
+        {
+
+            label:
+            "Occupancy",
+
+            value:
+            "93%"
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       MEDIA
+    ========================== */
+
+    media: {
+
+        mainImage:
+        "https://static.wixstatic.com/media/1799ca_117df213e8b14cb6bbffdaf4143d3afa~mv2.avif",
+
+        gallery:[]
+
+    },
+
+
+
+    /* =========================
+       LOCATION
+    ========================== */
+
+    coordinates: {
+
+        latitude:
+        30.4119,
+
+        longitude:
+        -84.2474
+
+    },
+
+
+    locationOverview:
+    "Tallahassee, Florida",
+
+
+    locationHighlights:[
+
+
+        "Less than four miles from Florida State University",
+
+        "Minutes from Florida A&M University and Florida State Capitol",
+
+        "Stable government, healthcare, and education employment base",
+
+        "Strong regional rental housing demand"
+
+
+    ],
+
+
+
+    /* =========================
+       RISK STRATEGY
+    ========================== */
+
+    riskStrategy:[
+
+
+        {
+
+            title:
+            "Operational Risk",
+
+            text:
+            "Recent capital improvements reduce near-term deferred maintenance and capital expenditure requirements."
+
+        },
+
+
+        {
+
+            title:
+            "Market Risk",
+
+            text:
+            "Tallahassee benefits from stable demand driven by government, higher education, healthcare, and regional population growth."
+
+        },
+
+
+        {
+
+            title:
+            "Exit Strategy",
+
+            text:
+            "Attractive to multifamily funds, private investors, family offices, and 1031 exchange buyers seeking stabilized cash flow."
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       MARKET
+    ========================== */
+
+    market:{
+
+
+        location:
+        "Tallahassee, FL • Updated July 2026",
+
+
+        score:
+        80,
+
+
+        rating:
+        "Stable Multifamily Market",
+
+
+        summary:
+        "Tallahassee benefits from resilient rental demand supported by higher education, government employment, healthcare, and limited volatility.",
+
+
+        stats:[
+
+
+            {
+
+                label:
+                "Market Demand",
+
+                value:
+                "Stable"
+
+            },
+
+
+            {
+
+                label:
+                "Employment Base",
+
+                value:
+                "Government / Education"
+
+            },
+
+
+            {
+
+                label:
+                "Rental Demand",
+
+                value:
+                "Strong"
+
+            },
+
+
+            {
+
+                label:
+                "Asset Type",
+
+                value:
+                "Multifamily"
+
+            }
+
+
+        ]
+
+    }
+
+
 }
 
 
