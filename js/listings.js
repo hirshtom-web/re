@@ -134,3 +134,15 @@ Object.keys(window.properties).forEach(id => {
 
 
 });
+
+/* ==========================================
+   OPEN PROPERTY
+========================================== */
+
+
+function openDeal(id){
+
+    window.location.href =
+    "../property.html#" + id;
+
+}
