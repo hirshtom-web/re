@@ -1,14 +1,15 @@
 let savedScrollPosition = 0;
 
 
-function openModal(page){
+function openModal(page, id){
 
     let modal = document.getElementById("dealModal");
     let frame = document.getElementById("dealFrame");
 
     savedScrollPosition = window.scrollY;
 
-    frame.src = page;
+    // Pass the property ID to the property page
+    frame.src = page + "#" + id;
 
     document.documentElement.classList.add("modal-open");
     document.body.classList.add("modal-open");
@@ -49,16 +50,13 @@ window.addEventListener("load", function(){
 
     console.log("PROPERTY ID:", id);
 
-
     if(!id){
         return;
     }
 
-
     let property = window.properties[id];
 
     console.log("PROPERTY DATA:", property);
-
 
     if(!property){
 
@@ -67,9 +65,7 @@ window.addEventListener("load", function(){
 
     }
 
-
     let frame = document.getElementById("dealFrame");
-
 
     if(!property.page){
 
@@ -78,22 +74,17 @@ window.addEventListener("load", function(){
 
     }
 
-
     console.log("LOADING PAGE:", property.page);
-
 
     savedScrollPosition = window.scrollY;
 
-
-    frame.src = property.page;
-
+    // Also preserve the hash when opening directly from a URL
+    frame.src = property.page + "#" + id;
 
     document.documentElement.classList.add("modal-open");
     document.body.classList.add("modal-open");
 
-
     document.getElementById("dealModal")
-    .classList.add("active");
-
+        .classList.add("active");
 
 });
