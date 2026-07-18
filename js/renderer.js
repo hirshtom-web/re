@@ -14,13 +14,8 @@ if(!window.properties){
 }
 
 
-const params = new URLSearchParams(
-    window.location.search
-);
-
-
 const propertyID =
-    params.get("id") ||
+    window.location.hash.substring(1) ||
     Object.keys(window.properties)[0];
 
 
