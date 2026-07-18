@@ -144,17 +144,13 @@ function openDeal(id){
 
     console.log("CLICKED:", id);
 
-const property = window.properties[id];
+    const property = window.properties[id];
 
-console.log("PROPERTY:", property);
-
-
-window.currentProperty = property;
-window.propertyID = id;
+    console.log("PROPERTY:", property);
 
     if(property && property.page){
 
-        openModal(property.page);
+        openModal(property.page + "#" + id);
 
     } else {
 
