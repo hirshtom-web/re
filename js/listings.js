@@ -142,6 +142,8 @@ Object.keys(window.properties).forEach(id => {
 
 function openDeal(id){
 
+    console.log("OPENING PROPERTY:", id);
+
     window.location.href =
     "../property.html#" + id;
 
