@@ -788,7 +788,7 @@ window.properties = {
 
     },
 
-   window.properties = {
+
 
     "walgreens-spring-hill": {
 
