@@ -1,7 +1,7 @@
 let savedScrollPosition = 0;
 
 
-function openDeal(page){
+function openModal(page){
 
     let modal = document.getElementById("dealModal");
     let frame = document.getElementById("dealFrame");
@@ -50,45 +50,50 @@ window.addEventListener("load", function(){
     console.log("PROPERTY ID:", id);
 
 
-    if(id){
-
-        let property = window.properties[id];
-
-        console.log("PROPERTY DATA:", property);
+    if(!id){
+        return;
+    }
 
 
-        if(property){
+    let property = window.properties[id];
+
+    console.log("PROPERTY DATA:", property);
 
 
-            savedScrollPosition = window.scrollY;
+    if(!property){
 
-
-            let frame = document.getElementById("dealFrame");
-
-
-            console.log("FRAME PAGE:", property.page);
-
-
-            frame.src = property.page;
-
-
-            document.documentElement.classList.add("modal-open");
-
-            document.body.classList.add("modal-open");
-
-
-            document.getElementById("dealModal")
-            .classList.add("active");
-
-
-        } else {
-
-
-            console.log("Property not found:", id);
-
-
-        }
+        console.log("Property not found:", id);
+        return;
 
     }
+
+
+    let frame = document.getElementById("dealFrame");
+
+
+    if(!property.page){
+
+        console.log("Missing property.page for:", id);
+        return;
+
+    }
+
+
+    console.log("LOADING PAGE:", property.page);
+
+
+    savedScrollPosition = window.scrollY;
+
+
+    frame.src = property.page;
+
+
+    document.documentElement.classList.add("modal-open");
+    document.body.classList.add("modal-open");
+
+
+    document.getElementById("dealModal")
+    .classList.add("active");
+
 
 });
