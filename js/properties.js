@@ -3318,6 +3318,747 @@ window.properties = {
     }
 
 
+},
+
+   "foundation-park-building-ii": {
+
+    id: "foundation-park-building-ii",
+
+    page:
+    "../properties/foundation-park-building-ii.html",
+
+    status:
+    "Available",
+
+    assetClass:
+    "Industrial / Life Sciences",
+
+    createdDate:
+    "2026-07-18",
+
+    featured:
+    false,
+
+
+
+    /* =========================
+       HERO
+    ========================== */
+
+    hero: {
+
+        title:
+        "Foundation Park Building II",
+
+        subtitle:
+        "Single Tenant Absolute NNN Industrial Investment",
+
+        address:
+        "14209 NW 119th Ter<br>Alachua, Florida 32615",
+
+        image:
+        "https://static.wixstatic.com/media/1799ca_4ba355fae5fc481b8883cdb636b93921~mv2.avif",
+
+        imageCaption:
+        "Foundation Park Building II"
+
+    },
+
+
+
+    /* =========================
+       TENANT INFORMATION
+    ========================== */
+
+    tenantInfo: {
+
+        name:
+        "Ascend Advanced Therapies",
+
+        parentCompany:
+        "Ascend Advanced Therapies",
+
+        creditRating:
+        "Corporate Tenant",
+
+        website:
+        ""
+
+    },
+
+
+    tenant:
+    "Ascend Advanced Therapies",
+
+
+
+    /* =========================
+       FINANCIAL SNAPSHOT
+    ========================== */
+
+    financial: {
+
+        purchasePrice:
+        20956757,
+
+        noi:
+        1466973,
+
+        capRate:
+        7.00,
+
+        pricePerSF:
+        976.79,
+
+        rentPerSF:
+        68.37
+
+    },
+
+
+    purchasePrice:
+    20956757,
+
+    noi:
+    1466973,
+
+    capRate:
+    7.00,
+
+
+
+    /* =========================
+       LEASE INFORMATION
+    ========================== */
+
+    leaseDetails: {
+
+        structure:
+        "Absolute NNN",
+
+        remainingTerm:
+        "13+ Years",
+
+        options:
+        "Not Provided",
+
+        rentEscalations:
+        "2.0% Annual Increases Through Year 9; 2.5% Thereafter",
+
+        guarantor:
+        "Corporate Guarantee",
+
+        expirationDate:
+        "March 2039"
+
+    },
+
+
+    leaseTerm:
+    "13+ Years",
+
+    leaseStructure:
+    "Absolute NNN",
+
+
+
+    /* =========================
+       ASSET OVERVIEW
+    ========================== */
+
+    property: {
+
+        buildingSize:
+        "21,455 SF",
+
+        lotSize:
+        "4.09 AC",
+
+        yearBuilt:
+        "2023",
+
+        propertyType:
+        "Life Sciences / Biotechnology Manufacturing",
+
+        location:
+        "Alachua, FL",
+
+        construction:
+        "Purpose-Built Facility",
+
+        buildingClass:
+        "Class A",
+
+        tenancy:
+        "Single Tenant"
+
+    },
+
+
+    buildingSize:
+    "21,455 SF",
+
+    lotSize:
+    "4.09 AC",
+
+    yearBuilt:
+    "2023",
+
+    propertyType:
+    "Life Sciences / Biotechnology",
+
+    location:
+    "Alachua, FL",
+
+
+
+    /* =========================
+       HIGHLIGHTS
+    ========================== */
+
+    highlights:[
+
+
+        {
+
+            title:
+            "Long-Term Absolute NNN Lease",
+
+            text:
+            "More than 13 years remaining with contractual annual rent increases of 2% through year nine and 2.5% thereafter, providing predictable income growth."
+
+        },
+
+
+        {
+
+            title:
+            "Mission-Critical Biotechnology Facility",
+
+            text:
+            "Purpose-built life sciences facility featuring clean rooms, BSL-2 laboratory space, process infrastructure, and significant tenant improvements."
+
+        },
+
+
+        {
+
+            title:
+            "Premier Life Sciences Location",
+
+            text:
+            "Located within Alachua's Progress District, a recognized biotechnology hub supported by research institutions and specialized workforce."
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       EXECUTIVE SUMMARY
+    ========================== */
+
+    summary:[
+
+
+        "Acquire Foundation Park Building II, a 21,455-square-foot Class A life sciences facility located within Alachua's Progress District.",
+
+
+        "The property is leased to Ascend Advanced Therapies under an absolute NNN structure, providing investors with a passive ownership profile and minimal landlord obligations.",
+
+
+        "The mission-critical facility includes biotechnology manufacturing infrastructure, clean room capabilities, laboratory space, and tenant-specific improvements.",
+
+
+        "The lease provides more than 13 years of remaining term with contractual annual rent growth ranging from 2.0% to 2.5%.",
+
+
+        "The asset benefits from its location within a growing Florida biotechnology and research corridor, creating long-term institutional investment appeal."
+
+    ],
+
+
+
+    /* =========================
+       FINANCIAL OVERVIEW
+    ========================== */
+
+    financialOverview:[
+
+
+        {
+
+            label:
+            "Purchase Price",
+
+            value:
+            "$20,956,757"
+
+        },
+
+
+        {
+
+            label:
+            "Annual NOI",
+
+            value:
+            "$1,466,973"
+
+        },
+
+
+        {
+
+            label:
+            "Cap Rate",
+
+            value:
+            "7.00%"
+
+        },
+
+
+        {
+
+            label:
+            "Building Size",
+
+            value:
+            "21,455 SF"
+
+        },
+
+
+        {
+
+            label:
+            "Lot Size",
+
+            value:
+            "4.09 Acres"
+
+        },
+
+
+        {
+
+            label:
+            "Lease Structure",
+
+            value:
+            "Absolute NNN"
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       UNDERWRITING
+    ========================== */
+
+    underwriting: {
+
+        downPayment:
+        35,
+
+        interestRate:
+        6.5,
+
+        amortization:
+        25,
+
+        noiGrowth:
+        2.5,
+
+        vacancy:
+        0,
+
+        appreciation:
+        2,
+
+        holdPeriod:
+        10,
+
+        exitCap:
+        7.0
+
+    },
+
+
+
+    investmentMetrics: {
+
+        pricePerSF:
+        976.79,
+
+        rentPerSF:
+        68.37,
+
+        annualRentGrowth:
+        "2.0% - 2.5%",
+
+        leverageAssumption:
+        "65% LTV",
+
+        projectedIRR:
+        "8.5%",
+
+        projectedEquityMultiple:
+        "1.9x"
+
+    },
+
+
+
+    /* =========================
+       INVESTMENT SCORE
+    ========================== */
+
+    score: {
+
+        value:
+        91,
+
+        label:
+        "Excellent",
+
+        summary:
+        "A high-quality industrial life sciences investment supported by a mission-critical facility, absolute NNN lease structure, and long-term tenant commitment.",
+
+
+        cards:[
+
+
+            {
+
+                label:
+                "Cash Flow",
+
+                value:
+                "A+",
+
+                description:
+                "Stable Income"
+
+            },
+
+
+            {
+
+                label:
+                "Risk",
+
+                value:
+                "Low",
+
+                description:
+                "NNN Structure"
+
+            },
+
+
+            {
+
+                label:
+                "Growth",
+
+                value:
+                "Strong",
+
+                description:
+                "Life Sciences Market"
+
+            },
+
+
+            {
+
+                label:
+                "Demand",
+
+                value:
+                "High",
+
+                description:
+                "Institutional Appeal"
+
+            }
+
+
+        ]
+
+    },
+
+
+
+    scoreValue:
+    91,
+
+    scoreLabel:
+    "Excellent",
+
+
+
+    /* =========================
+       PROPERTY FACTS
+    ========================== */
+
+    propertyFacts:[
+
+
+        {
+
+            label:
+            "Property Type",
+
+            value:
+            "Industrial / Life Sciences"
+
+        },
+
+
+        {
+
+            label:
+            "Building Class",
+
+            value:
+            "Class A"
+
+        },
+
+
+        {
+
+            label:
+            "Year Built",
+
+            value:
+            "2023"
+
+        },
+
+
+        {
+
+            label:
+            "Tenant",
+
+            value:
+            "Ascend Advanced Therapies"
+
+        },
+
+
+        {
+
+            label:
+            "Lease Type",
+
+            value:
+            "Absolute NNN"
+
+        },
+
+
+        {
+
+            label:
+            "Facility Type",
+
+            value:
+            "Biotechnology Manufacturing"
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       MEDIA
+    ========================== */
+
+    media: {
+
+        mainImage:
+        "https://static.wixstatic.com/media/1799ca_4ba355fae5fc481b8883cdb636b93921~mv2.avif",
+
+        gallery:[]
+
+    },
+
+
+
+    /* =========================
+       MAP
+    ========================== */
+
+    coordinates: {
+
+        latitude:
+        29.7938,
+
+        longitude:
+        -82.4940
+
+    },
+
+
+
+    /* =========================
+       LOCATION
+    ========================== */
+
+    locationOverview:
+    "Progress District, Alachua, Florida",
+
+
+    locationHighlights:[
+
+
+        "Leading biotechnology and life sciences hub",
+
+        "Research-driven corporate campus environment",
+
+        "Access to University of Florida and Gainesville life sciences ecosystem",
+
+        "Strong regional growth and specialized workforce"
+
+
+    ],
+
+
+
+    /* =========================
+       RISK STRATEGY
+    ========================== */
+
+    riskStrategy:[
+
+
+        {
+
+            title:
+            "Tenant Risk",
+
+            text:
+            "Corporate-backed lease with Ascend Advanced Therapies, a biotechnology and advanced therapies manufacturing company."
+
+        },
+
+
+        {
+
+            title:
+            "Lease Risk",
+
+            text:
+            "Absolute NNN structure minimizes landlord obligations while providing contractual rent increases."
+
+        },
+
+
+        {
+
+            title:
+            "Exit Strategy",
+
+            text:
+            "Institutional-quality life sciences asset positioned for REITs, family offices, 1031 exchange buyers, and private investors."
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       MARKET
+    ========================== */
+
+    market:{
+
+
+        location:
+        "Alachua, FL • Updated July 2026",
+
+
+        score:
+        82,
+
+
+        rating:
+        "Strong Life Sciences Market",
+
+
+        summary:
+        "Alachua benefits from a growing biotechnology ecosystem supported by research institutions, skilled employment, and demand for specialized industrial facilities.",
+
+
+        stats:[
+
+
+            {
+
+                label:
+                "Industrial Demand",
+
+                value:
+                "Strong"
+
+            },
+
+
+            {
+
+                label:
+                "Life Sciences Growth",
+
+                value:
+                "Positive",
+
+                color:
+                "#2e7d32"
+
+            },
+
+
+            {
+
+                label:
+                "Tenant Profile",
+
+                value:
+                "Corporate"
+
+            },
+
+
+            {
+
+                label:
+                "Investment Type",
+
+                value:
+                "Institutional"
+
+            }
+
+
+        ]
+
+    }
+
+
 }
 
 
