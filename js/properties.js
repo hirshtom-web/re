@@ -4807,6 +4807,545 @@ window.properties = {
     }
 
 
+},
+
+   "anam-cara-lofts": {
+
+id: "anam-cara-lofts",
+
+page: "../properties/anam-cara-lofts.html",
+
+status: "Available",
+
+assetClass: "Multifamily",
+
+createdDate: "2026-07-18",
+
+featured: false,
+
+
+/* =========================
+HERO
+========================= */
+
+hero: {
+
+title: "Anam Cara Lofts",
+
+subtitle:
+"Turnkey Coastal Multifamily Investment Opportunity",
+
+address:
+"8035–8045 Abbott Ave<br>Miami Beach, Florida",
+
+image:
+"https://static.wixstatic.com/media/1799ca_dd4991a6ae7b4a49bdc46d8bf1ee0479~mv2.avif",
+
+imageCaption:
+"Anam Cara Lofts"
+
+},
+
+
+
+/* =========================
+TENANT
+========================= */
+
+tenantInfo: {
+
+name:
+"Multiple Residential Tenants",
+
+parentCompany:
+"Private Ownership",
+
+creditRating:
+"Not Applicable",
+
+website:
+""
+
+},
+
+tenant:
+"Multiple Residential Tenants",
+
+
+
+/* =========================
+FINANCIAL
+========================= */
+
+financial: {
+
+purchasePrice: 6875000,
+
+noi: 466960,
+
+capRate: 6.22,
+
+pricePerSF: 608.41,
+
+rentPerSF: null
+
+},
+
+
+purchasePrice: 6875000,
+
+noi: 466960,
+
+capRate: 6.22,
+
+
+
+
+/* =========================
+LEASE
+========================= */
+
+leaseDetails: {
+
+structure:
+"Multifamily Residential",
+
+remainingTerm:
+"Tenant Leases",
+
+options:
+"Subject to Residential Leasing",
+
+rentEscalations:
+"Market Rent Growth",
+
+guarantor:
+"Multiple Residents"
+
+},
+
+
+leaseTerm:
+"Residential",
+
+leaseStructure:
+"Multifamily",
+
+
+
+
+/* =========================
+PROPERTY
+========================= */
+
+property: {
+
+buildingSize:
+"11,300 SF",
+
+lotSize:
+"0.26 AC",
+
+yearBuilt:
+"1945 / Renovated 2022",
+
+propertyType:
+"Multifamily",
+
+location:
+"Miami Beach, FL",
+
+construction:
+"Renovated",
+
+buildingClass:
+"Class C",
+
+tenancy:
+"Multi Tenant"
+
+},
+
+
+buildingSize:
+"11,300 SF",
+
+lotSize:
+"0.26 AC",
+
+yearBuilt:
+"1945 / 2022",
+
+propertyType:
+"Multifamily",
+
+location:
+"Miami Beach, FL",
+
+
+
+
+/* =========================
+HIGHLIGHTS
+========================= */
+
+highlights:[
+
+{
+title:
+"Fully Renovated Coastal Asset",
+
+text:
+"Approximately $4 million invested in a comprehensive renovation including electrical, plumbing, interiors, landscaping, and life-safety improvements."
+},
+
+
+{
+title:
+"Prime North Beach Location",
+
+text:
+"Located in Miami Beach with walkable access to beaches, parks, restaurants, and major South Florida employment centers."
+},
+
+
+{
+title:
+"Strong Rental Fundamentals",
+
+text:
+"Fully occupied multifamily community benefiting from strong rental demand, limited supply, and long-term Miami Beach market fundamentals."
+}
+
+],
+
+
+
+
+/* =========================
+SUMMARY
+========================= */
+
+summary:[
+
+"Anam Cara Lofts is a fully renovated 20-unit multifamily community located in the desirable North Beach neighborhood of Miami Beach, Florida.",
+
+
+"The property underwent an extensive renovation program completed in 2022, including upgraded building systems, interiors, landscaping, and life-safety improvements.",
+
+
+"The community consists of two three-story residential buildings offering studios, one-bedroom apartments, and larger three-bedroom residences.",
+
+
+"Current operations generate approximately $466,960 in annual NOI with additional upside through continued rental growth and operational improvements."
+
+],
+
+
+
+
+/* =========================
+FINANCIAL OVERVIEW
+========================= */
+
+financialOverview:[
+
+{
+label:
+"Purchase Price",
+
+value:
+"$6,875,000"
+},
+
+
+{
+label:
+"Price Per Unit",
+
+value:
+"$343,750"
+},
+
+
+{
+label:
+"Annual NOI",
+
+value:
+"$466,960"
+},
+
+
+{
+label:
+"Cap Rate",
+
+value:
+"6.22%"
+},
+
+
+{
+label:
+"Building Size",
+
+value:
+"11,300 SF"
+},
+
+
+{
+label:
+"Occupancy",
+
+value:
+"100%"
+}
+
+],
+
+
+
+
+/* =========================
+SCORE
+========================= */
+
+score: {
+
+value: 86,
+
+label:
+"Strong",
+
+summary:
+"Renovated coastal multifamily asset supported by strong location fundamentals, stabilized occupancy, and attractive South Florida rental demand.",
+
+
+cards:[
+
+{
+label:"Cash Flow",
+value:"A",
+description:"Stable Income"
+},
+
+{
+label:"Risk",
+value:"Moderate",
+description:"Multifamily Operations"
+},
+
+{
+label:"Growth",
+value:"Strong",
+description:"Miami Beach Market"
+},
+
+{
+label:"Liquidity",
+value:"High",
+description:"Investor Demand"
+}
+
+]
+
+},
+
+
+
+scoreValue:86,
+
+scoreLabel:"Strong",
+
+
+
+
+/* =========================
+FACTS
+========================= */
+
+propertyFacts:[
+
+{
+label:"Property Type",
+value:"Multifamily"
+},
+
+{
+label:"Units",
+value:"20"
+},
+
+{
+label:"Apartment Style",
+value:"Low Rise"
+},
+
+{
+label:"Stories",
+value:"3"
+},
+
+{
+label:"Year Built",
+value:"1945"
+},
+
+{
+label:"Renovated",
+value:"2022"
+},
+
+{
+label:"Occupancy",
+value:"100%"
+},
+
+{
+label:"Lot Size",
+value:"0.26 Acres"
+}
+
+],
+
+
+
+
+/* =========================
+MEDIA
+========================= */
+
+media: {
+
+mainImage:
+"https://static.wixstatic.com/media/1799ca_dd4991a6ae7b4a49bdc46d8bf1ee0479~mv2.avif",
+
+gallery:[]
+
+},
+
+
+
+
+/* =========================
+LOCATION
+========================= */
+
+coordinates: {
+
+latitude:
+25.8502,
+
+longitude:
+-80.1228
+
+},
+
+
+locationOverview:
+"Miami Beach, Florida",
+
+
+locationHighlights:[
+
+"Walkable North Beach neighborhood",
+
+"Minutes from Surfside, Bal Harbour and South Beach",
+
+"Strong coastal rental demand",
+
+"Limited multifamily supply environment"
+
+],
+
+
+
+
+/* =========================
+RISK
+========================= */
+
+riskStrategy:[
+
+{
+title:
+"Operational Risk",
+
+text:
+"Recent renovation program reduces deferred maintenance while supporting resident retention and rental performance."
+},
+
+
+{
+title:
+"Market Risk",
+
+text:
+"Miami Beach benefits from strong barriers to entry, limited housing supply, and sustained rental demand."
+},
+
+
+{
+title:
+"Exit Strategy",
+
+text:
+"Suitable for multifamily investors, private buyers, family offices, and 1031 exchange purchasers seeking a stabilized coastal asset."
+}
+
+],
+
+
+
+
+/* =========================
+MARKET
+========================= */
+
+market:{
+
+location:
+"Miami Beach, FL • Updated July 2026",
+
+score:
+82,
+
+rating:
+"Strong Coastal Market",
+
+summary:
+"Miami Beach continues to attract investors due to limited supply, strong rental demand, and long-term South Florida growth fundamentals.",
+
+
+stats:[
+
+{
+label:"Market Cap Rate",
+value:"5.75%"
+},
+
+{
+label:"Median Price / Unit",
+value:"$350,000+"
+},
+
+{
+label:"Average Rent Growth",
+value:"+3.5%"
+},
+
+{
+label:"Vacancy Rate",
+value:"Low"
+}
+
+]
+
+}
+
+
 }
 
 
