@@ -839,6 +839,7 @@ select {
 };
 
 /* ------------------ GET COMMON ELEMENTS ------------------ */
+
 const allTiles = document.getElementsByClassName("tile");
 const titleEl = document.getElementById("calculatorTitle");
 const form = document.getElementById("calculatorForm");
@@ -846,59 +847,99 @@ const resultEl = document.getElementById("mainResult");
 const dropdown = document.getElementById("calculatorDropdown");
 
 
+
 /* ------------------ BUILD DROPDOWN ------------------ */
-Object.entries(calculators).forEach(([key, calc]) => {
-    const option = document.createElement("option");
-    option.value = key;
-    option.textContent = calc.CalculatorName;
-    dropdown.appendChild(option);
-});
+
+if (dropdown) {
+
+    Object.entries(calculators).forEach(([key, calc]) => {
+
+        const option = document.createElement("option");
+
+        option.value = key;
+        option.textContent = calc.CalculatorName;
+
+        dropdown.appendChild(option);
+
+    });
+
+}
 
 
-/* ------------------ LOAD CALCULATOR FUNCTION ------------------ */
+
+/* ------------------ LOAD CALCULATOR ------------------ */
+
 function loadCalculator(key) {
 
     if (!calculators[key]) return;
 
     const calc = calculators[key];
 
-    // Update dropdown
+
+    // dropdown sync
     if (dropdown) {
         dropdown.value = key;
     }
 
-    // Show calculator
-    document.getElementById("screenCalculator").style.display = "block";
+
+    // screen
+    const calculatorScreen = document.getElementById("screenCalculator");
+
+    if (calculatorScreen) {
+        calculatorScreen.style.display = "block";
+    }
 
 
-    // Highlight tiles if they exist
-    [...allTiles].forEach((tile, i) => {
+
+    // tile highlight
+    [...allTiles].forEach((tile, i)=>{
+
         tile.classList.toggle(
             "active",
             Object.keys(calculators)[i] === key
         );
+
     });
 
 
-    // Titles
-    document.getElementById("pageTitle").textContent = calc.pageTitle;
-    titleEl.textContent = calc.calculatorTitle;
-    document.getElementById("subtitle").textContent = calc.subtitle;
+
+    // titles
+    const pageTitle = document.getElementById("pageTitle");
+    const subtitle = document.getElementById("subtitle");
 
 
-    // Reset
+    if(pageTitle)
+        pageTitle.textContent = calc.pageTitle;
+
+
+    if(titleEl)
+        titleEl.textContent = calc.calculatorTitle;
+
+
+    if(subtitle)
+        subtitle.textContent = calc.subtitle;
+
+
+
+    if(!form) return;
+
+
     form.innerHTML = "";
-    resultEl.textContent = "$0";
+
+    if(resultEl)
+        resultEl.textContent = "$0";
 
 
-    // Store inputs
+
     const inputValues = {};
 
 
-    /* ---------- TABS ---------- */
+
+    /* ---------------- TABS ---------------- */
 
     const tabContainer = document.createElement("div");
     tabContainer.className = "tab-container";
+
 
     const tabContents = document.createElement("div");
     tabContents.className = "tab-contents";
@@ -925,61 +966,74 @@ function loadCalculator(key) {
         );
 
 
+
     let activeTab = tabNames[0];
 
 
 
-    function renderTabInputs(tab) {
+    function renderTabInputs(tab){
+
 
         tabContents.innerHTML = "";
 
-        activeTab = tab;
 
-
-        calc.tabs[tab].inputs.forEach(name => {
+        calc.tabs[tab].inputs.forEach(name=>{
 
 
             const group = document.createElement("div");
-            group.className = "input-group";
+
+            group.className="input-group";
 
 
-            const label = document.createElement("label");
-            label.textContent = name;
+
+            const label=document.createElement("label");
+
+            label.textContent=name;
 
 
-            const input = document.createElement("input");
+
+            const input=document.createElement("input");
 
 
-            // Text fields
-            if (
+
+            if(
                 name.includes("Property Type") ||
                 name.includes("Market")
-            ) {
-                input.type = "text";
-            } 
-            else {
-                input.type = "number";
+            ){
+
+                input.type="text";
+
+            }
+            else{
+
+                input.type="number";
+
             }
 
 
-            input.placeholder = name;
-            input.id = name;
+
+            input.placeholder=name;
 
 
-            if (inputValues[name] !== undefined) {
-                input.value = inputValues[name];
-            }
+
+            input.value=inputValues[name] || "";
 
 
-            input.oninput = () => {
-                inputValues[name] = input.value;
+
+            input.oninput=()=>{
+
+                inputValues[name]=input.value;
+
             };
 
 
+
             group.appendChild(label);
+
             group.appendChild(input);
 
             tabContents.appendChild(group);
+
 
         });
 
@@ -987,33 +1041,41 @@ function loadCalculator(key) {
 
 
 
-    // Create tabs
-    tabNames.forEach(tab => {
-
-        const tabBtn = document.createElement("div");
-
-        tabBtn.className = "tab";
-        tabBtn.textContent = tab;
+    tabNames.forEach(tab=>{
 
 
-        if (tab === activeTab) {
-            tabBtn.classList.add("active");
-        }
+        const button=document.createElement("div");
+
+        button.className="tab";
+
+        button.textContent=tab;
 
 
-        tabBtn.onclick = () => {
+
+        if(tab===activeTab)
+            button.classList.add("active");
+
+
+
+        button.onclick=()=>{
+
 
             [...tabContainer.children]
-                .forEach(t => t.classList.remove("active"));
+            .forEach(t=>t.classList.remove("active"));
 
-            tabBtn.classList.add("active");
+            button.classList.add("active");
+
+
+            activeTab=tab;
 
             renderTabInputs(tab);
+
 
         };
 
 
-        tabContainer.appendChild(tabBtn);
+        tabContainer.appendChild(button);
+
 
     });
 
@@ -1023,63 +1085,100 @@ function loadCalculator(key) {
 
 
 
-    /* ---------- CALCULATE BUTTON ---------- */
-
-    const button = document.createElement("button");
-
-    button.type = "button";
-    button.textContent = "Calculate";
-    button.className = "calc-btn";
+    /* ---------------- CALCULATE ---------------- */
 
 
-    button.onclick = () => {
+    const calcButton=document.createElement("button");
+
+    calcButton.type="button";
+
+    calcButton.className="calc-btn";
+
+    calcButton.textContent="Calculate";
 
 
-        let result;
+
+    calcButton.onclick=()=>{
 
 
-        try {
+        try{
 
 
-            // Special case ROI calculator
-            if (key === "roi") {
-
-                const values = {};
-
-                Object.keys(inputValues)
-                    .forEach(k => {
-                        values[k] = inputValues[k];
-                    });
+            let result;
 
 
-                result = calc.calculate(values);
+
+            // ROI uses object input
+            if(key==="roi"){
+
+
+                const values={};
+
+
+                Object.values(calc.tabs)
+                .flatMap(tab=>tab.inputs)
+                .forEach(name=>{
+
+                    values[name]=inputValues[name] || 0;
+
+                });
+
+
+                result=calc.calculate(values);
+
 
             }
 
-            else {
+
+            else{
 
 
-                const values = calc.tabs[activeTab]
-                    .inputs
-                    .map(id => Number(inputValues[id] || 0));
+                const values =
+                calc.tabs[activeTab].inputs.map(name=>{
 
 
-                result = calc.calculate(...values);
+                    if(
+                        inputValues[name] === undefined ||
+                        inputValues[name] === ""
+                    ){
+
+                        throw new Error(
+                            "Please complete all fields"
+                        );
+
+                    }
+
+
+                    return Number(inputValues[name]);
+
+
+                });
+
+
+
+                result=calc.calculate(...values);
+
 
             }
 
 
-            resultEl.textContent = `Result: ${result}`;
+
+            resultEl.textContent =
+            `Result: ${result}`;
 
 
         }
 
-        catch(error) {
 
-            console.error(error);
+        catch(err){
+
+
+            console.error(err);
+
 
             resultEl.textContent =
-                "Error calculating result";
+            err.message || "Calculation error";
+
 
         }
 
@@ -1087,49 +1186,76 @@ function loadCalculator(key) {
     };
 
 
-    form.appendChild(button);
+
+    form.appendChild(calcButton);
 
 }
 
 
 
-/* ------------------ DROPDOWN CHANGE ------------------ */
-
-dropdown.onchange = function(){
-
-    loadCalculator(this.value);
-
-    window.location.hash = this.value;
-
-};
 
 
+/* ---------------- DROPDOWN ---------------- */
 
-/* ------------------ BACK BUTTON ------------------ */
 
-document.getElementById("backBtn").onclick = () => {
+if(dropdown){
 
-    document.getElementById("screenCalculator").style.display = "none";
+    dropdown.onchange=function(){
 
-    resultEl.textContent = "$0";
+        loadCalculator(this.value);
 
-    window.location.hash = "";
+        window.location.hash=this.value;
 
-};
+    };
+
+}
 
 
 
-/* ------------------ HASH SUPPORT ------------------ */
+/* ---------------- BACK BUTTON ---------------- */
+
+
+const backBtn=document.getElementById("backBtn");
+
+
+if(backBtn){
+
+    backBtn.onclick=()=>{
+
+
+        const calculatorScreen =
+        document.getElementById("screenCalculator");
+
+
+        if(calculatorScreen)
+            calculatorScreen.style.display="none";
+
+
+        if(resultEl)
+            resultEl.textContent="$0";
+
+
+        window.location.hash="";
+
+
+    };
+
+}
+
+
+
+/* ---------------- HASH LOAD ---------------- */
+
 
 function tryLoadFromHash(){
 
-    const hash =
-        window.location.hash.replace("#","");
+    const key =
+    window.location.hash.replace("#","");
 
 
-    if(hash && calculators[hash]){
+    if(key && calculators[key]){
 
-        loadCalculator(hash);
+        loadCalculator(key);
 
     }
 
@@ -1144,27 +1270,33 @@ window.addEventListener(
 
 
 
-/* ------------------ START DEFAULT ------------------ */
-
-window.addEventListener("load", () => {
-
-    const hash =
-        window.location.hash.replace("#","");
+/* ---------------- INITIAL LOAD ---------------- */
 
 
-    if(hash && calculators[hash]){
+window.addEventListener(
+"DOMContentLoaded",
+()=>{
 
-        loadCalculator(hash);
+
+    const key =
+    window.location.hash.replace("#","");
+
+
+
+    if(key && calculators[key]){
+
+        loadCalculator(key);
 
     }
-    else {
 
-        // open first calculator automatically
+    else{
+
         loadCalculator(
             Object.keys(calculators)[0]
         );
 
     }
+
 
 });
   
