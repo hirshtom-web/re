@@ -144,10 +144,13 @@ function openDeal(id){
 
     console.log("CLICKED:", id);
 
-    let property = window.properties[id];
+const property = window.properties[id];
 
-    console.log("PROPERTY:", property);
+console.log("PROPERTY:", property);
 
+
+window.currentProperty = property;
+window.propertyID = id;
 
     if(property && property.page){
 
