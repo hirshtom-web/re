@@ -1,13 +1,27 @@
 document.addEventListener("DOMContentLoaded", function(){
 
 
-    const property = window.currentProperty;
+    const property =
+    window.currentProperty ||
+    window.properties[window.propertyID];
 
 
-    if(!property){
-        console.error("No score data found");
-        return;
-    }
+if(!property){
+
+    console.error("No property loaded");
+
+    return;
+
+}
+
+
+if(!property.score){
+
+    console.error("No score data found:", property);
+
+    return;
+
+}
 
 
 
