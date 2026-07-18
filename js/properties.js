@@ -4811,540 +4811,676 @@ window.properties = {
 
    "anam-cara-lofts": {
 
-id: "anam-cara-lofts",
+    id: "anam-cara-lofts",
+    page: "../properties/anam-cara-lofts.html",
+    status: "Available",
+    assetClass: "Multifamily",
+    createdDate: "2026-07-18",
+    featured: false,
 
-page: "../properties/anam-cara-lofts.html",
 
-status: "Available",
+    /* =========================
+       HERO
+    ========================= */
 
-assetClass: "Multifamily",
+    hero: {
 
-createdDate: "2026-07-18",
+        title: "Anam Cara Lofts",
 
-featured: false,
+        subtitle:
+        "Turnkey Coastal Multifamily Investment Opportunity",
 
+        address:
+        "8035–8045 Abbott Ave, Miami Beach, Florida",
 
-/* =========================
-HERO
-========================= */
+        image:
+        "https://static.wixstatic.com/media/1799ca_dd4991a6ae7b4a49bdc46d8bf1ee0479~mv2.avif",
 
-hero: {
+        imageCaption:
+        "Anam Cara Lofts"
 
-title: "Anam Cara Lofts",
+    },
 
-subtitle:
-"Turnkey Coastal Multifamily Investment Opportunity",
 
-address:
-"8035–8045 Abbott Ave<br>Miami Beach, Florida",
+    /* =========================
+       TENANT
+    ========================= */
 
-image:
-"https://static.wixstatic.com/media/1799ca_dd4991a6ae7b4a49bdc46d8bf1ee0479~mv2.avif",
+    tenantInfo: {
 
-imageCaption:
-"Anam Cara Lofts"
+        name:
+        "Multiple Residential Tenants",
 
-},
+        parentCompany:
+        "Private Ownership",
 
+        creditRating:
+        "Not Applicable",
 
+        locationsWorldwide:
+        "N/A",
 
-/* =========================
-TENANT
-========================= */
+        founded:
+        "N/A",
 
-tenantInfo: {
+        website:
+        ""
 
-name:
-"Multiple Residential Tenants",
+    },
 
-parentCompany:
-"Private Ownership",
+    tenant:
+    "Multiple Residential Tenants",
 
-creditRating:
-"Not Applicable",
 
-website:
-""
+    /* =========================
+       FINANCIAL
+    ========================= */
 
-},
+    financial: {
 
-tenant:
-"Multiple Residential Tenants",
+        purchasePrice:
+        6875000,
 
+        noi:
+        466960,
 
+        capRate:
+        6.22,
 
-/* =========================
-FINANCIAL
-========================= */
+        pricePerSF:
+        608.41,
 
-financial: {
+        rentPerSF:
+        "Not Provided"
 
-purchasePrice: 6875000,
+    },
 
-noi: 466960,
 
-capRate: 6.22,
+    purchasePrice:
+    6875000,
 
-pricePerSF: 608.41,
+    noi:
+    466960,
 
-rentPerSF: null
+    capRate:
+    6.22,
 
-},
 
 
-purchasePrice: 6875000,
+    /* =========================
+       LEASE DETAILS
+    ========================= */
 
-noi: 466960,
+    leaseDetails: {
 
-capRate: 6.22,
+        structure:
+        "Market Rate Residential",
 
+        remainingTerm:
+        "Rolling Residential Leases",
 
+        options:
+        "N/A",
 
+        rentEscalations:
+        "Market Rent Growth",
 
-/* =========================
-LEASE
-========================= */
+        guarantor:
+        "Multiple Residential Tenants",
 
-leaseDetails: {
+        commencementDate:
+        "N/A",
 
-structure:
-"Multifamily Residential",
+        expirationDate:
+        "N/A"
 
-remainingTerm:
-"Tenant Leases",
+    },
 
-options:
-"Subject to Residential Leasing",
 
-rentEscalations:
-"Market Rent Growth",
+    leaseTerm:
+    "Rolling Residential Leases",
 
-guarantor:
-"Multiple Residents"
+    leaseStructure:
+    "Market Rate Residential",
 
-},
 
 
-leaseTerm:
-"Residential",
+    /* =========================
+       PROPERTY
+    ========================= */
 
-leaseStructure:
-"Multifamily",
+    property: {
 
+        buildingSize:
+        "11,300 SF",
 
+        lotSize:
+        "0.26 Acres",
 
+        yearBuilt:
+        "1945 / Renovated 2022",
 
-/* =========================
-PROPERTY
-========================= */
+        propertyType:
+        "Multifamily",
 
-property: {
+        location:
+        "Miami Beach, Florida",
 
-buildingSize:
-"11,300 SF",
+        construction:
+        "Renovated",
 
-lotSize:
-"0.26 AC",
+        buildingClass:
+        "Class C",
 
-yearBuilt:
-"1945 / Renovated 2022",
+        tenancy:
+        "Multi-Tenant Residential"
 
-propertyType:
-"Multifamily",
+    },
 
-location:
-"Miami Beach, FL",
 
-construction:
-"Renovated",
+    buildingSize:
+    "11,300 SF",
 
-buildingClass:
-"Class C",
+    lotSize:
+    "0.26 Acres",
 
-tenancy:
-"Multi Tenant"
+    yearBuilt:
+    "1945 / Renovated 2022",
 
-},
+    propertyType:
+    "Multifamily",
 
+    location:
+    "Miami Beach, Florida",
 
-buildingSize:
-"11,300 SF",
 
-lotSize:
-"0.26 AC",
 
-yearBuilt:
-"1945 / 2022",
+    /* =========================
+       HIGHLIGHTS
+    ========================= */
 
-propertyType:
-"Multifamily",
+    highlights:[
 
-location:
-"Miami Beach, FL",
+        {
+            title:
+            "Fully Renovated Coastal Asset",
 
+            text:
+            "Approximately $4 million invested into building improvements including electrical, plumbing, interiors, landscaping, and life-safety upgrades."
+        },
 
+        {
+            title:
+            "Prime Miami Beach Location",
 
+            text:
+            "Located in North Beach with strong rental demand, walkability, and access to major South Florida employment, entertainment, and lifestyle destinations."
+        },
 
-/* =========================
-HIGHLIGHTS
-========================= */
+        {
+            title:
+            "Stabilized Multifamily Income",
 
-highlights:[
+            text:
+            "20-unit residential community with stabilized occupancy and potential upside through continued rent growth and operational optimization."
+        }
 
-{
-title:
-"Fully Renovated Coastal Asset",
+    ],
 
-text:
-"Approximately $4 million invested in a comprehensive renovation including electrical, plumbing, interiors, landscaping, and life-safety improvements."
-},
 
 
-{
-title:
-"Prime North Beach Location",
+    /* =========================
+       SUMMARY
+    ========================= */
 
-text:
-"Located in Miami Beach with walkable access to beaches, parks, restaurants, and major South Florida employment centers."
-},
+    summary:[
 
+        "Anam Cara Lofts is a fully renovated 20-unit multifamily community located in the North Beach neighborhood of Miami Beach, Florida.",
 
-{
-title:
-"Strong Rental Fundamentals",
+        "The property completed a major renovation program in 2022, improving building systems, interiors, landscaping, and resident amenities.",
 
-text:
-"Fully occupied multifamily community benefiting from strong rental demand, limited supply, and long-term Miami Beach market fundamentals."
-}
+        "The community offers a diversified unit mix consisting of studios, one-bedroom apartments, and larger residential units serving Miami Beach rental demand.",
 
-],
+        "The asset generates approximately $466,960 in annual net operating income with attractive current yield and additional upside potential through rental growth.",
 
+        "The property represents an opportunity for private investors, family offices, and 1031 exchange buyers seeking stabilized coastal multifamily exposure."
 
+    ],
 
 
-/* =========================
-SUMMARY
-========================= */
 
-summary:[
+    /* =========================
+       FINANCIAL OVERVIEW
+    ========================= */
 
-"Anam Cara Lofts is a fully renovated 20-unit multifamily community located in the desirable North Beach neighborhood of Miami Beach, Florida.",
+    financialOverview:[
 
+        {
+            label:
+            "Purchase Price",
 
-"The property underwent an extensive renovation program completed in 2022, including upgraded building systems, interiors, landscaping, and life-safety improvements.",
+            value:
+            "$6,875,000"
+        },
 
+        {
+            label:
+            "Price Per Unit",
 
-"The community consists of two three-story residential buildings offering studios, one-bedroom apartments, and larger three-bedroom residences.",
+            value:
+            "$343,750"
+        },
 
+        {
+            label:
+            "Annual NOI",
 
-"Current operations generate approximately $466,960 in annual NOI with additional upside through continued rental growth and operational improvements."
+            value:
+            "$466,960"
+        },
 
-],
+        {
+            label:
+            "Cap Rate",
 
+            value:
+            "6.22%"
+        },
 
+        {
+            label:
+            "Building Size",
 
+            value:
+            "11,300 SF"
+        },
 
-/* =========================
-FINANCIAL OVERVIEW
-========================= */
+        {
+            label:
+            "Occupancy",
 
-financialOverview:[
+            value:
+            "100%"
+        }
 
-{
-label:
-"Purchase Price",
+    ],
 
-value:
-"$6,875,000"
-},
 
 
-{
-label:
-"Price Per Unit",
+    /* =========================
+       UNDERWRITING
+    ========================= */
 
-value:
-"$343,750"
-},
+    underwriting: {
 
+        downPayment:
+        35,
 
-{
-label:
-"Annual NOI",
+        interestRate:
+        6.75,
 
-value:
-"$466,960"
-},
+        amortization:
+        30,
 
+        noiGrowth:
+        3,
 
-{
-label:
-"Cap Rate",
+        vacancy:
+        5,
 
-value:
-"6.22%"
-},
+        appreciation:
+        3,
 
+        holdPeriod:
+        5,
 
-{
-label:
-"Building Size",
+        exitCap:
+        6.5
 
-value:
-"11,300 SF"
-},
+    },
 
 
-{
-label:
-"Occupancy",
 
-value:
-"100%"
-}
+    /* =========================
+       INVESTMENT METRICS
+    ========================= */
 
-],
+    investmentMetrics: {
 
+        pricePerSF:
+        608.41,
 
+        rentPerSF:
+        "Not Provided",
 
+        annualRentGrowth:
+        "3%",
 
-/* =========================
-SCORE
-========================= */
+        leverageAssumption:
+        "65% LTV",
 
-score: {
+        projectedIRR:
+        "Not Provided",
 
-value: 86,
+        projectedEquityMultiple:
+        "Not Provided"
 
-label:
-"Strong",
+    },
 
-summary:
-"Renovated coastal multifamily asset supported by strong location fundamentals, stabilized occupancy, and attractive South Florida rental demand.",
 
 
-cards:[
+    /* =========================
+       SCORE
+    ========================= */
 
-{
-label:"Cash Flow",
-value:"A",
-description:"Stable Income"
-},
+    score: {
 
-{
-label:"Risk",
-value:"Moderate",
-description:"Multifamily Operations"
-},
+        value:
+        86,
 
-{
-label:"Growth",
-value:"Strong",
-description:"Miami Beach Market"
-},
+        label:
+        "Strong",
 
-{
-label:"Liquidity",
-value:"High",
-description:"Investor Demand"
-}
+        summary:
+        "Renovated coastal multifamily asset supported by strong Miami Beach fundamentals, stabilized occupancy, and long-term rental demand.",
 
-]
+        cards:[
 
-},
+            {
+                label:
+                "Cash Flow",
 
+                value:
+                "A",
 
+                description:
+                "Stabilized income profile"
+            },
 
-scoreValue:86,
+            {
+                label:
+                "Risk",
 
-scoreLabel:"Strong",
+                value:
+                "Moderate",
 
+                description:
+                "Multifamily operational exposure"
+            },
 
+            {
+                label:
+                "Growth",
 
+                value:
+                "Strong",
 
-/* =========================
-FACTS
-========================= */
+                description:
+                "Miami Beach market fundamentals"
+            },
 
-propertyFacts:[
+            {
+                label:
+                "Liquidity",
 
-{
-label:"Property Type",
-value:"Multifamily"
-},
+                value:
+                "High",
 
-{
-label:"Units",
-value:"20"
-},
+                description:
+                "Strong investor demand"
+            }
 
-{
-label:"Apartment Style",
-value:"Low Rise"
-},
+        ]
 
-{
-label:"Stories",
-value:"3"
-},
+    },
 
-{
-label:"Year Built",
-value:"1945"
-},
 
-{
-label:"Renovated",
-value:"2022"
-},
+    scoreValue:
+    86,
 
-{
-label:"Occupancy",
-value:"100%"
-},
+    scoreLabel:
+    "Strong",
 
-{
-label:"Lot Size",
-value:"0.26 Acres"
-}
 
-],
 
+    /* =========================
+       PROPERTY FACTS
+    ========================= */
 
+    propertyFacts:[
 
+        {
+            label:
+            "Property Type",
 
-/* =========================
-MEDIA
-========================= */
+            value:
+            "Multifamily"
+        },
 
-media: {
+        {
+            label:
+            "Units",
 
-mainImage:
-"https://static.wixstatic.com/media/1799ca_dd4991a6ae7b4a49bdc46d8bf1ee0479~mv2.avif",
+            value:
+            "20"
+        },
 
-gallery:[]
+        {
+            label:
+            "Apartment Style",
 
-},
+            value:
+            "Low Rise"
+        },
 
+        {
+            label:
+            "Stories",
 
+            value:
+            "3"
+        },
 
+        {
+            label:
+            "Year Built",
 
-/* =========================
-LOCATION
-========================= */
+            value:
+            "1945"
+        },
 
-coordinates: {
+        {
+            label:
+            "Renovated",
 
-latitude:
-25.8502,
+            value:
+            "2022"
+        },
 
-longitude:
--80.1228
+        {
+            label:
+            "Occupancy",
 
-},
+            value:
+            "100%"
+        },
 
+        {
+            label:
+            "Lot Size",
 
-locationOverview:
-"Miami Beach, Florida",
+            value:
+            "0.26 Acres"
+        }
 
+    ],
 
-locationHighlights:[
 
-"Walkable North Beach neighborhood",
 
-"Minutes from Surfside, Bal Harbour and South Beach",
+    /* =========================
+       MEDIA
+    ========================= */
 
-"Strong coastal rental demand",
+    media: {
 
-"Limited multifamily supply environment"
+        mainImage:
+        "https://static.wixstatic.com/media/1799ca_dd4991a6ae7b4a49bdc46d8bf1ee0479~mv2.avif",
 
-],
+        gallery:[]
 
+    },
 
 
 
-/* =========================
-RISK
-========================= */
+    /* =========================
+       DOCUMENTS
+    ========================= */
 
-riskStrategy:[
+    documents: {
 
-{
-title:
-"Operational Risk",
+        offeringMemorandum:
+        "Not Provided",
 
-text:
-"Recent renovation program reduces deferred maintenance while supporting resident retention and rental performance."
-},
+        rentRoll:
+        "Not Provided",
 
+        financials:
+        "Not Provided",
 
-{
-title:
-"Market Risk",
+        flyer:
+        "Not Provided"
 
-text:
-"Miami Beach benefits from strong barriers to entry, limited housing supply, and sustained rental demand."
-},
+    },
 
 
-{
-title:
-"Exit Strategy",
 
-text:
-"Suitable for multifamily investors, private buyers, family offices, and 1031 exchange purchasers seeking a stabilized coastal asset."
-}
+    coordinates: {
 
-],
+        latitude:
+        25.8502,
 
+        longitude:
+        -80.1228
 
+    },
 
 
-/* =========================
-MARKET
-========================= */
 
-market:{
+    /* =========================
+       LOCATION
+    ========================= */
 
-location:
-"Miami Beach, FL • Updated July 2026",
+    locationOverview:
+    "Miami Beach, Florida offers strong multifamily fundamentals driven by limited supply, coastal lifestyle demand, and long-term South Florida growth.",
 
-score:
-82,
 
-rating:
-"Strong Coastal Market",
+    locationHighlights:[
 
-summary:
-"Miami Beach continues to attract investors due to limited supply, strong rental demand, and long-term South Florida growth fundamentals.",
+        "Prime North Beach Miami Beach location",
 
+        "Walkable coastal neighborhood",
 
-stats:[
+        "Strong rental demand",
 
-{
-label:"Market Cap Rate",
-value:"5.75%"
-},
+        "Limited multifamily supply",
 
-{
-label:"Median Price / Unit",
-value:"$350,000+"
-},
+        "Access to major South Florida employment centers"
 
-{
-label:"Average Rent Growth",
-value:"+3.5%"
-},
+    ],
 
-{
-label:"Vacancy Rate",
-value:"Low"
-}
 
-]
 
-}
+    /* =========================
+       RISK
+    ========================= */
 
+    riskStrategy:[
+
+        {
+            title:
+            "Operational Risk",
+
+            text:
+            "Recent renovation reduces deferred maintenance risk while supporting tenant retention and operating performance."
+        },
+
+        {
+            title:
+            "Market Risk",
+
+            text:
+            "Performance is influenced by Miami Beach rental trends, economic cycles, and broader South Florida market conditions."
+        },
+
+        {
+            title:
+            "Exit Strategy",
+
+            text:
+            "Potential exits include long-term hold, refinancing, institutional sale, or 1031 exchange disposition."
+
+        }
+
+    ],
+
+
+
+    /* =========================
+       MARKET
+    ========================= */
+
+    market:{
+
+        location:
+        "Miami Beach, Florida",
+
+        score:
+        82,
+
+        rating:
+        "Strong Coastal Market",
+
+        summary:
+        "Miami Beach continues to attract investors due to limited housing supply, strong rental demand, and international lifestyle appeal.",
+
+        stats:[
+
+            {
+                label:
+                "Market Position",
+
+                value:
+                "Strong",
+
+                color:
+                "green"
+            },
+
+            {
+                label:
+                "Rental Demand",
+
+                value:
+                "High",
+
+                color:
+                "green"
+            },
+
+            {
+                label:
+                "Asset Profile",
+
+                value:
+                "Income Producing",
+
+                color:
+                "blue"
+            }
+
+        ]
+
+    }
 
 },
 
@@ -5526,15 +5662,15 @@ value:"Low"
     ========================= */
 
     underwriting: {
-        downPayment: "Not Provided",
-        interestRate: "Not Provided",
-        amortization: "Not Provided",
-        noiGrowth: "Not Provided",
-        vacancy: "Not Provided",
-        appreciation: "Not Provided",
-        holdPeriod: "Not Provided",
-        exitCap: "Not Provided"
-    },
+    downPayment: 35,
+    interestRate: 6.75,
+    amortization: 30,
+    noiGrowth: 3,
+    vacancy: 5,
+    appreciation: 3,
+    holdPeriod: 5,
+    exitCap: 6.5
+},
 
 
     investmentMetrics: {
