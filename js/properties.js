@@ -5690,7 +5690,7 @@ window.properties = {
     score: {
 
         value: 85,
-        label: "Strong Investment Opportunity",
+        label: "Strong",
         summary: "Stabilized single-family rental portfolio offering immediate income, geographic diversification, and exposure to Florida residential growth markets.",
 
         cards: [
