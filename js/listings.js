@@ -135,6 +135,8 @@ Object.keys(window.properties).forEach(id => {
 
 });
 
+
+
 /* ==========================================
    OPEN PROPERTY
 ========================================== */
@@ -144,17 +146,34 @@ function openDeal(id){
 
     console.log("CLICKED:", id);
 
-    const property = window.properties[id];
+
+    const property =
+    window.properties[id];
+
 
     console.log("PROPERTY:", property);
 
-    if(property && property.page){
 
-        openModal(property.page, id);
+
+    if(property){
+
+
+        // All properties use the same template
+
+        openModal(
+            "property.html",
+            id
+        );
+
 
     } else {
 
-        console.log("Missing page for:", id);
+
+        console.log(
+            "Missing property:",
+            id
+        );
+
 
     }
 
