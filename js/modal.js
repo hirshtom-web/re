@@ -17,7 +17,7 @@ function openModal(page, id){
     savedScrollPosition = window.scrollY;
 
 
-    const url = page + "#" + id;
+    const url = page + "?id=" + id;
 
 
     console.log("IFRAME LOADING:", url);
