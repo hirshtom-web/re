@@ -4,7 +4,7 @@ window.properties = {
 
     id: "starbucks-altamonte",
 
-    page: "./properties/starbucks-altamonte.html",
+    page: "../properties/starbucks-altamonte.html",
 
     status: "Available",
 
