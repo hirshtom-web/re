@@ -2,68 +2,85 @@
 // LOAD PROFORMA WIDGET
 // =========================================
 
-fetch("../tools/proforma.html")
-.then(response => response.text())
-.then(html => {
 
-    const container =
-        document.getElementById("proforma-container");
+function initProforma(){
 
+    fetch("../tools/proforma.html")
 
-    container.innerHTML = html;
+    .then(response => response.text())
 
+    .then(html => {
 
 
-    // Load property assumptions
-    loadPropertyData();
+        const container =
+            document.getElementById("proforma-container");
 
 
-
-    // Enable tabs
-    setupTabs();
+        container.innerHTML = html;
 
 
-
-    // Run button
-    const runButton =
-        document.getElementById("runProforma");
+        loadPropertyData();
 
 
-    if (runButton) {
-
-        runButton.addEventListener(
-            "click",
-            runModel
-        );
-
-    }
+        setupTabs();
 
 
+        const runButton =
+            document.getElementById("runProforma");
 
-    // Live calculation when inputs change
-    document
-    .querySelectorAll(".proforma-field input")
-    .forEach(input => {
 
-        input.addEventListener(
-            "input",
-            runModel
+        if(runButton){
+
+            runButton.addEventListener(
+                "click",
+                runModel
+            );
+
+        }
+
+
+        document
+        .querySelectorAll(".proforma-field input")
+        .forEach(input=>{
+
+
+            input.addEventListener(
+                "input",
+                runModel
+            );
+
+
+        });
+
+
+        runModel();
+
+
+    })
+
+    .catch(error=>{
+
+        console.error(
+            "Proforma loading error:",
+            error
         );
 
     });
 
+}
 
 
-    // Show default results immediately
-    runModel();
+
+window.addEventListener(
+"DOMContentLoaded",
+()=>{
 
 
-})
-.catch(error => {
+    setTimeout(()=>{
 
-    console.error(
-        "Proforma loading error:",
-        error
-    );
+        initProforma();
+
+    },300);
+
 
 });
