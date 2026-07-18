@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SFR Deal Calculator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#f5f6f8;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#222;
+}
+
+.app{
+
+width:100%;
+max-width:420px;
+height:100vh;
+
+display:flex;
+flex-direction:column;
+
+background:#fff;
+
+}
+
+header{
+
+padding:18px 20px 12px;
+
+border-bottom:1px solid #eee;
+
+}
+
+header h1{
+
+font-size:22px;
+font-weight:700;
+
+}
+
+.mode{
+
+display:flex;
+gap:8px;
+padding:12px 20px;
+
+}
+
+.mode button{
+
+flex:1;
+height:42px;
+
+border:none;
+
+border-radius:10px;
+
+font-weight:600;
+
+cursor:pointer;
+
+background:#ececec;
+
+}
+
+.mode button.active{
+
+background:#111;
+
+color:#fff;
+
+}
+
+.grid{
+
+padding:0 20px;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:10px;
+
+}
+
+.field{
+
+display:flex;
+flex-direction:column;
+
+}
+
+.field label{
+
+font-size:11px;
+
+margin-bottom:4px;
+
+color:#777;
+
+text-transform:uppercase;
+
+letter-spacing:.5px;
+
+}
+
+.field input,
+.field select{
+
+height:42px;
+
+border:1px solid #ddd;
+
+border-radius:10px;
+
+padding:0 12px;
+
+font-size:15px;
+
+background:white;
+
+}
+
+.section{
+
+padding:12px 20px 8px;
+
+font-size:12px;
+
+font-weight:700;
+
+letter-spacing:.5px;
+
+color:#888;
+
+}
+
+.results{
+
+margin-top:auto;
+
+padding:18px 20px;
+
+background:#111;
+
+color:white;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:16px;
+
+}
+
+.metric{
+
+text-align:center;
+
+}
+
+.metric small{
+
+display:block;
+
+font-size:11px;
+
+opacity:.7;
+
+margin-bottom:4px;
+
+}
+
+.metric strong{
+
+font-size:22px;
+
+font-weight:700;
+
+}
+
+.green{
+
+color:#3ddc84;
+
+}
+
+.red{
+
+color:#ff6b6b;
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+
+<h1>SFR Calculator</h1>
+
+</header>
+
+<div class="mode">
+
+<button id="financeBtn" class="active">
+Finance
+</button>
+
+<button id="cashBtn">
+Cash
+</button>
+
+</div>
+
+<div class="grid">
+
+<div class="field">
+
+<label>Purchase</label>
+
+<input id="price" type="number" value="350000">
+
+</div>
+
+<div class="field">
+
+<label>Rent / Month</label>
+
+<input id="rent" type="number" value="2650">
+
+</div>
+
+<div id="financeFields" style="display:contents;">
+
+<div class="field">
+
+<label>Down %</label>
+
+<input id="down" type="number" value="30">
+
+</div>
+
+<div class="field">
+
+<label>Interest %</label>
+
+<input id="rate" step=".01" type="number" value="6.5">
+
+</div>
+
+<div class="field">
+
+<label>Amort.</label>
+
+<select id="years">
+
+<option>15</option>
+
+<option selected>30</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="field">
+
+<label>Taxes / Mo</label>
+
+<input id="taxes" type="number" value="350">
+
+</div>
+
+<div class="field">
+
+<label>Insurance</label>
+
+<input id="insurance" type="number" value="120">
+
+</div>
+
+<div class="field">
+
+<label>Management %</label>
+
+<input id="management" type="number" value="8">
+
+</div>
+
+<div class="field">
+
+<label>Maintenance %</label>
+
+<input id="maintenance" type="number" value="5">
+
+</div>
+
+<div class="field">
+
+<label>Vacancy %</label>
+
+<input id="vacancy" type="number" value="5">
+
+</div>
+
+</div>
+
+<div class="results">
+
+<div class="metric">
+
+<small>Cash Required</small>
+
+<strong id="cashReq">$0</strong>
+
+</div>
+
+<div class="metric">
+
+<small>Mortgage</small>
+
+<strong id="mortgage">$0</strong>
+
+</div>
+
+<div class="metric">
+
+<small>Cash Flow</small>
+
+<strong id="cashflow" class="green">$0</strong>
+
+</div>
+
+<div class="metric">
+
+<small>Cap Rate</small>
+
+<strong id="cap">0%</strong>
+
+</div>
+
+<div class="metric">
+
+<small>CoC Return</small>
+
+<strong id="coc">0%</strong>
+
+</div>
+
+<div class="metric">
+
+<small>DSCR</small>
+
+<strong id="dscr">0.00</strong>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let finance=true;
+
+financeBtn.onclick=function(){
+
+finance=true;
+
+financeBtn.classList.add("active");
+
+cashBtn.classList.remove("active");
+
+financeFields.classList.remove("hidden");
+
+calculate();
+
+}
+
+cashBtn.onclick=function(){
+
+finance=false;
+
+cashBtn.classList.add("active");
+
+financeBtn.classList.remove("active");
+
+financeFields.classList.add("hidden");
+
+calculate();
+
+}
+
+document.querySelectorAll("input,select").forEach(i=>{
+
+i.oninput=calculate;
+
+});
+
+function payment(P,r,n){
+
+r=r/12;
+
+n=n*12;
+
+return P*r/(1-Math.pow(1+r,-n));
+
+}
+
+function money(v){
+
+return "$"+Math.round(v).toLocaleString();
+
+}
+
+function calculate(){
+
+let price=+priceInput.value||0;
+
+}
+
+const priceInput=document.getElementById("price");
+
+calculate=function(){
+
+const price=+price.value||0;
+
+const rent=+document.getElementById("rent").value||0;
+
+const down=+document.getElementById("down").value/100;
+
+const rate=+document.getElementById("rate").value/100;
+
+const years=+document.getElementById("years").value;
+
+const taxes=+document.getElementById("taxes").value;
+
+const insurance=+document.getElementById("insurance").value;
+
+const mgmt=rent*(+management.value/100);
+
+const maint=rent*(+maintenance.value/100);
+
+const vac=rent*(+vacancy.value/100);
+
+let mortgage=0;
+
+let cashNeeded=price;
+
+if(finance){
+
+cashNeeded=price*down;
+
+mortgage=payment(price*(1-down),rate,years);
+
+}
+
+const expenses=taxes+insurance+mgmt+maint+vac+mortgage;
+
+const cashflow=rent-expenses;
+
+const noi=(rent-(taxes+insurance+mgmt+maint+vac))*12;
+
+const cap=(noi/price*100);
+
+const coc=finance?(cashflow*12/cashNeeded*100):(noi/price*100);
+
+const dscr=mortgage?noi/(mortgage*12):0;
+
+cashReq.textContent=money(cashNeeded);
+
+mortgage.textContent=money(mortgage);
+
+cashflowEl=document.getElementById("cashflow");
+
+cashflowEl.textContent=money(cashflow);
+
+cashflowEl.className=cashflow>=0?"green":"red";
+
+cap.textContent=cap.toFixed(2)+"%";
+
+coc.textContent=coc.toFixed(2)+"%";
+
+dscr.textContent=finance?dscr.toFixed(2):"—";
+
+}
+
+calculate();
+
+</script>
+
+</body>
+</html>
