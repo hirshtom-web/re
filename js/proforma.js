@@ -28,7 +28,7 @@ function loadPropertyData(){
 
 
     if(!property){
-        console.error("No property found:", propertyID);
+        console.error("No property found:", window.propertyID);
         return;
     }
 
