@@ -161,10 +161,9 @@ function openDeal(id){
         // All properties use the same template
 
         openModal(
-            "property.html",
-            id
-        );
-
+    "../property.html",
+    id
+);
 
     } else {
 
