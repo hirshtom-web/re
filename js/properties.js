@@ -1,14 +1,12 @@
 window.properties = {
 
-    "starbucks-altamonte": {
+   "starbucks-altamonte": {
 
-        /* =========================
-           SYSTEM INFORMATION
-        ========================== */
+    id: "starbucks-altamonte",
 
-        id: "starbucks-altamonte",
+    page: "../properties/starbucks-altamonte.html",
 
-        status: "Available",
+    status: "Available",
 
         assetClass: "Net Lease Retail",
 
