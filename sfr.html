@@ -1,152 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>SFR Deal Calculator</title>
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>SFR Calculator</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
+<link rel="stylesheet" href="style.css">
 
-*{
+</head>
+
+  <style>
+    *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+
+height:100%;
 font-family:Inter,sans-serif;
+background:#f7f7f7;
+color:#111;
+
 }
 
 body{
-background:#f5f6f8;
-height:100vh;
+
 display:flex;
 justify-content:center;
-align-items:center;
-color:#222;
+
 }
 
 .app{
 
 width:100%;
-max-width:320px;
-height:100vh;
+max-width:430px;
+
+min-height:100vh;
+
+background:#fff;
 
 display:flex;
 flex-direction:column;
-
-background:#fff;
 
 }
 
 header{
 
-padding:18px 20px 12px;
-
-border-bottom:1px solid #eee;
+padding:22px 20px 14px;
 
 }
 
 header h1{
 
-font-size:22px;
+font-size:26px;
 font-weight:700;
 
 }
 
-.mode{
+.main-inputs{
 
-display:flex;
-gap:8px;
-padding:12px 20px;
+padding:0 20px;
 
 }
 
-.mode button{
+.input{
 
-flex:1;
-height:42px;
+margin-bottom:18px;
 
-border:none;
+}
 
-border-radius:10px;
+.input label{
+
+display:block;
+
+font-size:14px;
 
 font-weight:600;
 
-cursor:pointer;
+color:#666;
+
+margin-bottom:8px;
+
+}
+
+.input input,
+.input select{
+
+width:100%;
+
+height:52px;
+
+font-size:16px;        /* prevents iPhone zoom */
+
+border:none;
+
+outline:none;
+
+background:#f4f4f4;
+
+border-radius:14px;
+
+padding:0 16px;
+
+appearance:none;
+
+}
+
+.input input:focus,
+.input select:focus{
 
 background:#ececec;
 
 }
 
-.mode button.active{
+.tabs{
 
-background:#111;
-
-color:#fff;
-
-}
-
-.grid{
+display:flex;
 
 padding:0 20px;
 
-display:grid;
+margin-top:6px;
 
-grid-template-columns:1fr 1fr;
-
-gap:10px;
+border-bottom:1px solid #ececec;
 
 }
 
-.field{
+.tab{
 
-display:flex;
-flex-direction:column;
+flex:1;
 
-}
+height:48px;
 
-.field label{
+border:none;
 
-font-size:11px;
+background:none;
 
-margin-bottom:4px;
+font-size:16px;
 
-color:#777;
+font-weight:600;
 
-text-transform:uppercase;
+cursor:pointer;
 
-letter-spacing:.5px;
+color:#999;
 
-}
+border-bottom:3px solid transparent;
 
-.field input,
-.field select{
-
-height:42px;
-
-border:1px solid #ddd;
-
-border-radius:10px;
-
-padding:0 12px;
-
-font-size:15px;
-
-background:white;
+transition:.25s;
 
 }
 
-.section{
+.tab.active{
 
-padding:12px 20px 8px;
+color:#111;
 
-font-size:12px;
+border-bottom:3px solid #111;
 
-font-weight:700;
+}
 
-letter-spacing:.5px;
+.tab-content{
 
-color:#888;
+display:none;
+
+padding:18px 20px 10px;
+
+animation:fade .2s;
+
+}
+
+.tab-content.active{
+
+display:block;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:.2;
+transform:translateY(6px);
+
+}
+
+to{
+
+opacity:1;
+transform:none;
+
+}
+
+}
+
+.cash-toggle{
+
+margin-bottom:20px;
+
+}
+
+.cash-toggle button{
+
+border:none;
+
+background:none;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+padding:0;
+
+color:#2563eb;
+
+text-decoration:underline;
 
 }
 
@@ -154,11 +229,9 @@ color:#888;
 
 margin-top:auto;
 
-padding:18px 20px;
+padding:20px;
 
 background:#111;
-
-color:white;
 
 display:grid;
 
@@ -166,56 +239,81 @@ grid-template-columns:1fr 1fr;
 
 gap:16px;
 
-}
+border-top-left-radius:24px;
 
-.metric{
-
-text-align:center;
+border-top-right-radius:24px;
 
 }
 
-.metric small{
+.results div{
+
+background:#1b1b1b;
+
+padding:16px;
+
+border-radius:16px;
+
+}
+
+.results small{
 
 display:block;
 
-font-size:11px;
+font-size:13px;
 
-opacity:.7;
+color:#aaa;
 
-margin-bottom:4px;
+margin-bottom:6px;
 
 }
 
-.metric strong{
+.results strong{
 
-font-size:22px;
+font-size:24px;
 
 font-weight:700;
+
+color:white;
+
+display:block;
 
 }
 
 .green{
 
-color:#3ddc84;
+color:#22c55e !important;
 
 }
 
 .red{
 
-color:#ff6b6b;
+color:#ef4444 !important;
 
 }
 
-.hidden{
+@media(max-height:760px){
 
-display:none;
+.results{
+
+gap:10px;
+padding:16px;
 
 }
 
-</style>
+.results strong{
 
-</head>
+font-size:20px;
 
+}
+
+.input{
+
+margin-bottom:14px;
+
+}
+
+}
+  </style>
 <body>
 
 <div class="app">
@@ -226,57 +324,101 @@ display:none;
 
 </header>
 
-<div class="mode">
 
-<button id="financeBtn" class="active">
-Finance
+<div class="main-inputs">
+
+<div class="input">
+
+<label>Purchase Price</label>
+
+<input
+id="purchase"
+type="number"
+value="350000">
+
+</div>
+
+<div class="input">
+
+<label>Monthly Rent</label>
+
+<input
+id="rent"
+type="number"
+value="2650">
+
+</div>
+
+</div>
+
+
+
+<div class="tabs">
+
+<button
+class="tab active"
+data-tab="finance">
+
+Financing
+
 </button>
 
-<button id="cashBtn">
-Cash
+<button
+class="tab"
+data-tab="expenses">
+
+Expenses
+
 </button>
 
 </div>
 
-<div class="grid">
 
-<div class="field">
 
-<label>Purchase</label>
 
-<input id="price" type="number" value="350000">
+<div
+id="finance"
+class="tab-content active">
 
-</div>
+<div class="cash-toggle">
 
-<div class="field">
+<button id="cashDeal">
 
-<label>Rent / Month</label>
+Cash Deal
 
-<input id="rent" type="number" value="2650">
-
-</div>
-
-<div id="financeFields" style="display:contents;">
-
-<div class="field">
-
-<label>Down %</label>
-
-<input id="down" type="number" value="30">
+</button>
 
 </div>
 
-<div class="field">
 
-<label>Interest %</label>
+<div class="input">
 
-<input id="rate" step=".01" type="number" value="6.5">
+<label>Down Payment %</label>
+
+<input
+id="down"
+type="number"
+value="30">
 
 </div>
 
-<div class="field">
 
-<label>Amort.</label>
+<div class="input">
+
+<label>Interest Rate %</label>
+
+<input
+id="rate"
+type="number"
+step=".01"
+value="6.50">
+
+</div>
+
+
+<div class="input">
+
+<label>Loan Term</label>
 
 <select id="years">
 
@@ -290,91 +432,113 @@ Cash
 
 </div>
 
-<div class="field">
 
-<label>Taxes / Mo</label>
 
-<input id="taxes" type="number" value="350">
+
+
+<div
+id="expenses"
+class="tab-content">
+
+<div class="input">
+
+<label>Taxes</label>
+
+<input
+id="taxes"
+type="number"
+value="350">
 
 </div>
 
-<div class="field">
+
+<div class="input">
 
 <label>Insurance</label>
 
-<input id="insurance" type="number" value="120">
+<input
+id="insurance"
+type="number"
+value="120">
 
 </div>
 
-<div class="field">
+
+<div class="input">
 
 <label>Management %</label>
 
-<input id="management" type="number" value="8">
+<input
+id="management"
+type="number"
+value="8">
 
 </div>
 
-<div class="field">
+
+<div class="input">
 
 <label>Maintenance %</label>
 
-<input id="maintenance" type="number" value="5">
+<input
+id="maintenance"
+type="number"
+value="5">
 
 </div>
 
-<div class="field">
+
+<div class="input">
 
 <label>Vacancy %</label>
 
-<input id="vacancy" type="number" value="5">
+<input
+id="vacancy"
+type="number"
+value="5">
 
 </div>
 
 </div>
+
+
+
 
 <div class="results">
 
-<div class="metric">
-
-<small>Cash Required</small>
-
-<strong id="cashReq">$0</strong>
-
-</div>
-
-<div class="metric">
-
-<small>Mortgage</small>
-
-<strong id="mortgage">$0</strong>
-
-</div>
-
-<div class="metric">
+<div>
 
 <small>Cash Flow</small>
 
-<strong id="cashflow" class="green">$0</strong>
+<strong id="cashFlow">$0</strong>
 
 </div>
 
-<div class="metric">
+<div>
 
 <small>Cap Rate</small>
 
-<strong id="cap">0%</strong>
+<strong id="capRate">0%</strong>
 
 </div>
 
-<div class="metric">
+<div>
 
-<small>CoC Return</small>
+<small>Cash Required</small>
+
+<strong id="cashNeeded">$0</strong>
+
+</div>
+
+<div>
+
+<small>Cash-on-Cash</small>
 
 <strong id="coc">0%</strong>
 
 </div>
 
-<div class="metric">
+<div>
 
 <small>DSCR</small>
 
@@ -387,133 +551,338 @@ Cash
 </div>
 
 <script>
+  /* =========================
+   SFR CALCULATOR
+========================= */
 
-let finance=true;
+let cashDeal = false;
 
-financeBtn.onclick=function(){
 
-finance=true;
+/* =========================
+   TABS
+========================= */
 
-financeBtn.classList.add("active");
+document.querySelectorAll(".tab").forEach(tab=>{
 
-cashBtn.classList.remove("active");
+    tab.onclick=function(){
 
-financeFields.classList.remove("hidden");
+        document
+        .querySelectorAll(".tab")
+        .forEach(t=>t.classList.remove("active"));
 
-calculate();
+        document
+        .querySelectorAll(".tab-content")
+        .forEach(c=>c.classList.remove("active"));
 
-}
+        this.classList.add("active");
 
-cashBtn.onclick=function(){
+        document
+        .getElementById(this.dataset.tab)
+        .classList.add("active");
 
-finance=false;
-
-cashBtn.classList.add("active");
-
-financeBtn.classList.remove("active");
-
-financeFields.classList.add("hidden");
-
-calculate();
-
-}
-
-document.querySelectorAll("input,select").forEach(i=>{
-
-i.oninput=calculate;
+    };
 
 });
 
-function payment(P,r,n){
 
-r=r/12;
+/* =========================
+   CASH DEAL
+========================= */
 
-n=n*12;
+cashDeal.onclick=function(){
 
-return P*r/(1-Math.pow(1+r,-n));
+    cashDeal = !cashDeal;
+
+    this.textContent =
+    cashDeal
+    ? "Financed Deal"
+    : "Cash Deal";
+
+    document
+    .getElementById("down")
+    .closest(".input")
+    .style.display = cashDeal ? "none" : "";
+
+    document
+    .getElementById("rate")
+    .closest(".input")
+    .style.display = cashDeal ? "none" : "";
+
+    document
+    .getElementById("years")
+    .closest(".input")
+    .style.display = cashDeal ? "none" : "";
+
+    calculate();
+
+};
+
+
+/* =========================
+   LIVE INPUTS
+========================= */
+
+document
+.querySelectorAll("input,select")
+.forEach(i=>{
+
+    i.addEventListener("input",calculate);
+
+});
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function payment(principal,rate,years){
+
+    const r = rate / 12;
+
+    const n = years * 12;
+
+    if(rate===0){
+
+        return principal/n;
+
+    }
+
+    return principal *
+
+    (r*Math.pow(1+r,n)) /
+
+    (Math.pow(1+r,n)-1);
 
 }
 
-function money(v){
 
-return "$"+Math.round(v).toLocaleString();
+function money(value){
+
+    return "$" +
+
+    Math.round(value)
+
+    .toLocaleString();
 
 }
+
+
+
+/* =========================
+   CALCULATE
+========================= */
 
 function calculate(){
 
-let price=+priceInput.value||0;
+    const purchase =
+    Number(price.value)||0;
+
+    const rent =
+    Number(rent.value)||0;
+
+    const down =
+    Number(down.value)/100||0;
+
+    const rate =
+    Number(rate.value)/100/12||0;
+
+    const years =
+    Number(years.value)||30;
+
+    const taxes =
+    Number(taxes.value)||0;
+
+    const insurance =
+    Number(insurance.value)||0;
+
+    const management =
+    rent *
+
+    (Number(management.value)/100||0);
+
+    const maintenance =
+    rent *
+
+    (Number(maintenance.value)/100||0);
+
+    const vacancy =
+    rent *
+
+    (Number(vacancy.value)/100||0);
+
+
+
+    let loan=0;
+
+    let mortgage=0;
+
+    let cashRequired=purchase;
+
+
+
+    if(!cashDeal){
+
+        loan = purchase*(1-down);
+
+        mortgage =
+
+        payment(
+
+            loan,
+
+            rate,
+
+            years
+
+        );
+
+        cashRequired =
+        purchase*down;
+
+    }
+
+
+
+    const operating =
+
+    taxes+
+
+    insurance+
+
+    management+
+
+    maintenance+
+
+    vacancy;
+
+
+
+    const noi =
+
+    (rent*12)
+
+    -
+
+    (operating*12);
+
+
+
+    const monthlyCash =
+
+    rent
+
+    -
+
+    operating
+
+    -
+
+    mortgage;
+
+
+
+    const cap =
+
+    purchase
+
+    ?
+
+    (noi/purchase)*100
+
+    :
+
+    0;
+
+
+
+    const coc =
+
+    cashDeal
+
+    ?
+
+    cap
+
+    :
+
+    cashRequired
+
+    ?
+
+    ((monthlyCash*12)/cashRequired)*100
+
+    :
+
+    0;
+
+
+
+    const dscr =
+
+    mortgage
+
+    ?
+
+    noi/(mortgage*12)
+
+    :
+
+    0;
+
+
+
+    cashFlow.textContent =
+    money(monthlyCash);
+
+    cashFlow.className =
+
+    monthlyCash>=0
+
+    ?
+
+    "green"
+
+    :
+
+    "red";
+
+
+
+    cashNeeded.textContent =
+    money(cashRequired);
+
+
+
+    capRate.textContent =
+    cap.toFixed(2)+"%";
+
+
+
+    coc.textContent =
+    coc.toFixed(2)+"%";
+
+
+
+    dscr.textContent =
+
+    cashDeal
+
+    ?
+
+    "—"
+
+    :
+
+    dscr.toFixed(2);
 
 }
 
-const priceInput=document.getElementById("price");
 
-calculate=function(){
-
-const price=+price.value||0;
-
-const rent=+document.getElementById("rent").value||0;
-
-const down=+document.getElementById("down").value/100;
-
-const rate=+document.getElementById("rate").value/100;
-
-const years=+document.getElementById("years").value;
-
-const taxes=+document.getElementById("taxes").value;
-
-const insurance=+document.getElementById("insurance").value;
-
-const mgmt=rent*(+management.value/100);
-
-const maint=rent*(+maintenance.value/100);
-
-const vac=rent*(+vacancy.value/100);
-
-let mortgage=0;
-
-let cashNeeded=price;
-
-if(finance){
-
-cashNeeded=price*down;
-
-mortgage=payment(price*(1-down),rate,years);
-
-}
-
-const expenses=taxes+insurance+mgmt+maint+vac+mortgage;
-
-const cashflow=rent-expenses;
-
-const noi=(rent-(taxes+insurance+mgmt+maint+vac))*12;
-
-const cap=(noi/price*100);
-
-const coc=finance?(cashflow*12/cashNeeded*100):(noi/price*100);
-
-const dscr=mortgage?noi/(mortgage*12):0;
-
-cashReq.textContent=money(cashNeeded);
-
-mortgage.textContent=money(mortgage);
-
-cashflowEl=document.getElementById("cashflow");
-
-cashflowEl.textContent=money(cashflow);
-
-cashflowEl.className=cashflow>=0?"green":"red";
-
-cap.textContent=cap.toFixed(2)+"%";
-
-coc.textContent=coc.toFixed(2)+"%";
-
-dscr.textContent=finance?dscr.toFixed(2):"—";
-
-}
+/* =========================
+   START
+========================= */
 
 calculate();
-
 </script>
 
 </body>
