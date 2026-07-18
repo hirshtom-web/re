@@ -30,6 +30,9 @@ if(!property){
 
 }
 
+console.log("HASH:", window.location.hash);
+console.log("PROPERTY ID:", window.propertyID);
+
 
 /* ==========================================
    HERO
