@@ -1,4 +1,3 @@
-```javascript
 /* ==========================================
    PROPERTY IDENTIFIER
 ========================================== */
@@ -796,4 +795,3 @@ console.log(
 "Renderer loaded successfully:",
 propertyID
 );
-```
