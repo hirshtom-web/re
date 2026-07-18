@@ -2557,6 +2557,767 @@ window.properties = {
     }
 
 
+},
+
+   "gentle-woods-jacksonville": {
+
+    id: "gentle-woods-jacksonville",
+
+    page:
+    "../properties/gentle-woods-jacksonville.html",
+
+    status:
+    "Available",
+
+    assetClass:
+    "Multifamily Build-to-Rent",
+
+    createdDate:
+    "2026-07-18",
+
+    featured:
+    true,
+
+
+
+    /* =========================
+       HERO
+    ========================== */
+
+    hero: {
+
+        title:
+        "Gentle Woods",
+
+        subtitle:
+        "108-Unit Build-to-Rent Multifamily Investment Opportunity",
+
+        address:
+        "6421 Breezy Oaks Way<br>Jacksonville, Florida",
+
+        image:
+        "https://static.wixstatic.com/media/1799ca_280f022c40f243328898fa4128b5bed8~mv2.avif",
+
+        imageCaption:
+        "Gentle Woods Build-to-Rent Community"
+
+    },
+
+
+
+    /* =========================
+       TENANT / OPERATIONS
+    ========================== */
+
+    tenantInfo: {
+
+        name:
+        "Residential Tenancy",
+
+        parentCompany:
+        "Gentle Woods",
+
+        creditRating:
+        "Stabilizing Multifamily Asset"
+
+    },
+
+
+    tenant:
+    "Residential Tenancy",
+
+
+
+    /* =========================
+       FINANCIAL
+    ========================== */
+
+    financial: {
+
+        purchasePrice:
+        18600000,
+
+        noi:
+        1116000,
+
+        capRate:
+        6.00,
+
+        pricePerSF:
+        180.15,
+
+        rentPerSF:
+        1.36
+
+    },
+
+
+    purchasePrice:
+    18600000,
+
+    noi:
+    1116000,
+
+    capRate:
+    6.00,
+
+
+
+    /* =========================
+       LEASE
+    ========================== */
+
+    leaseDetails: {
+
+        structure:
+        "Market Rate Residential",
+
+        remainingTerm:
+        "Rolling Residential Leases",
+
+        options:
+        "Annual Renewals",
+
+        rentEscalations:
+        "Market Rent Growth",
+
+        guarantor:
+        "Individual Residents"
+
+    },
+
+
+    leaseTerm:
+    "Rolling Leases",
+
+    leaseStructure:
+    "Residential",
+
+
+
+    /* =========================
+       PROPERTY
+    ========================== */
+
+    property: {
+
+        buildingSize:
+        "103,248 SF",
+
+        lotSize:
+        "2.38 AC",
+
+        yearBuilt:
+        "2025",
+
+        propertyType:
+        "Build-to-Rent Multifamily",
+
+        location:
+        "Jacksonville, FL",
+
+        construction:
+        "New Construction",
+
+        buildingClass:
+        "Class A",
+
+        tenancy:
+        "108 Units"
+
+    },
+
+
+    buildingSize:
+    "103,248 SF",
+
+    lotSize:
+    "2.38 AC",
+
+    yearBuilt:
+    "2025",
+
+    propertyType:
+    "Multifamily",
+
+    location:
+    "Jacksonville, FL",
+
+
+
+    /* =========================
+       HIGHLIGHTS
+    ========================== */
+
+    highlights:[
+
+
+        {
+
+            title:
+            "108-Unit Build-to-Rent Community",
+
+            text:
+            "Institutional-quality build-to-rent community consisting of twenty-seven four-unit residential buildings with flexible future disposition opportunities."
+
+        },
+
+
+        {
+
+            title:
+            "Live Local Tax Abatement",
+
+            text:
+            "State-approved Live Local certificates are in place with anticipated property tax savings beginning in 2026."
+
+        },
+
+
+        {
+
+            title:
+            "Strong Lease-Up Performance",
+
+            text:
+            "Completed units are approximately 95% occupied with rental performance tracking market expectations."
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       SUMMARY
+    ========================== */
+
+    summary:[
+
+
+        "Gentle Woods is a newly developed 108-unit build-to-rent community located in Jacksonville, Florida.",
+
+
+        "The community consists of twenty-seven four-unit buildings totaling more than 103,000 square feet of residential improvements.",
+
+
+        "The project benefits from strong lease-up performance with completed units approximately 95% occupied.",
+
+
+        "Live Local tax abatement certificates provide potential operating expense savings beginning in 2026.",
+
+
+        "Individual building platting creates flexible future disposition strategies including potential building-level sales."
+
+    ],
+
+
+
+    /* =========================
+       FINANCIAL OVERVIEW
+    ========================== */
+
+    financialOverview:[
+
+
+        {
+
+            label:
+            "Purchase Price",
+
+            value:
+            "$18,600,000"
+
+        },
+
+
+        {
+
+            label:
+            "Price Per Unit",
+
+            value:
+            "$172,222"
+
+        },
+
+
+        {
+
+            label:
+            "Annual NOI",
+
+            value:
+            "$1,116,000"
+
+        },
+
+
+        {
+
+            label:
+            "Cap Rate",
+
+            value:
+            "6.00%"
+
+        },
+
+
+        {
+
+            label:
+            "Average Rent",
+
+            value:
+            "$1,255 / Month"
+
+        },
+
+
+        {
+
+            label:
+            "Additional Income",
+
+            value:
+            "$48 / Month"
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       UNDERWRITING
+    ========================== */
+
+    underwriting:{
+
+
+        downPayment:
+        35,
+
+
+        interestRate:
+        6.5,
+
+
+        amortization:
+        30,
+
+
+        noiGrowth:
+        3,
+
+
+        vacancy:
+        5,
+
+
+        appreciation:
+        3,
+
+
+        holdPeriod:
+        10,
+
+
+        exitCap:
+        6.25
+
+
+    },
+
+
+
+    investmentMetrics:{
+
+
+        pricePerUnit:
+        172222,
+
+
+        averageRent:
+        1255,
+
+
+        occupancy:
+        "95%",
+
+
+        annualRentGrowth:
+        "3%",
+
+
+        leverageAssumption:
+        "65% LTV",
+
+
+        projectedIRR:
+        "9.0%",
+
+
+        projectedEquityMultiple:
+        "2.0x"
+
+
+    },
+
+
+
+    /* =========================
+       SCORE
+    ========================== */
+
+    score:{
+
+
+        value:
+        90,
+
+
+        label:
+        "Excellent",
+
+
+        summary:
+        "A high-quality build-to-rent opportunity supported by new construction, strong lease-up, tax benefits, and Jacksonville market growth.",
+
+
+        cards:[
+
+
+            {
+
+                label:
+                "Cash Flow",
+
+                value:
+                "A",
+
+                description:
+                "Stable NOI"
+
+            },
+
+
+            {
+
+                label:
+                "Growth",
+
+                value:
+                "A+",
+
+                description:
+                "BTR Demand"
+
+            },
+
+
+            {
+
+                label:
+                "Risk",
+
+                value:
+                "Low",
+
+                description:
+                "New Construction"
+
+            },
+
+
+            {
+
+                label:
+                "Market",
+
+                value:
+                "Strong",
+
+                description:
+                "Jacksonville Growth"
+
+            }
+
+
+        ]
+
+    },
+
+
+
+    /* =========================
+       PROPERTY FACTS
+    ========================== */
+
+    propertyFacts:[
+
+
+        {
+
+            label:
+            "Property Type",
+
+            value:
+            "Multifamily"
+
+        },
+
+
+        {
+
+            label:
+            "Units",
+
+            value:
+            "108"
+
+        },
+
+
+        {
+
+            label:
+            "Apartment Style",
+
+            value:
+            "Garden"
+
+        },
+
+
+        {
+
+            label:
+            "Stories",
+
+            value:
+            "2"
+
+        },
+
+
+        {
+
+            label:
+            "Average Unit Size",
+
+            value:
+            "952 SF"
+
+        },
+
+
+        {
+
+            label:
+            "Occupancy",
+
+            value:
+            "95%"
+
+        },
+
+
+        {
+
+            label:
+            "Average Rent",
+
+            value:
+            "$1,295"
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       MEDIA
+    ========================== */
+
+    media:{
+
+
+        mainImage:
+        "https://static.wixstatic.com/media/1799ca_280f022c40f243328898fa4128b5bed8~mv2.avif",
+
+
+        gallery:[]
+
+    },
+
+
+
+    /* =========================
+       LOCATION
+    ========================== */
+
+    coordinates:{
+
+
+        latitude:
+        30.1905,
+
+
+        longitude:
+        -81.7780
+
+
+    },
+
+
+    locationOverview:
+    "Jacksonville, Florida",
+
+
+    locationHighlights:[
+
+
+        "Rapidly growing Jacksonville residential market",
+
+        "Build-to-rent community in established neighborhood",
+
+        "Close proximity to retail, employment, and transportation corridors",
+
+        "Strong Northeast Florida population growth"
+
+
+    ],
+
+
+
+    /* =========================
+       RISK
+    ========================== */
+
+    riskStrategy:[
+
+
+        {
+
+            title:
+            "Lease-Up Risk",
+
+            text:
+            "Remaining units are expected to stabilize based on current occupancy trends and demonstrated rental demand."
+
+        },
+
+
+        {
+
+            title:
+            "Operational Risk",
+
+            text:
+            "New construction minimizes near-term capital requirements while tax benefits improve operating performance."
+
+        },
+
+
+        {
+
+            title:
+            "Exit Strategy",
+
+            text:
+            "Potential buyers include institutional multifamily investors, private investors, 1031 exchange purchasers, and individual building buyers."
+
+        }
+
+
+    ],
+
+
+
+    /* =========================
+       MARKET
+    ========================== */
+
+    market:{
+
+
+        location:
+        "Jacksonville, FL • Updated July 2026",
+
+
+        score:
+        84,
+
+
+        rating:
+        "Strong Multifamily Market",
+
+
+        summary:
+        "Jacksonville continues to benefit from population growth, employment expansion, and strong demand for rental housing alternatives.",
+
+
+        stats:[
+
+
+            {
+
+                label:
+                "Market Vacancy",
+
+                value:
+                "5.2%"
+
+            },
+
+
+            {
+
+                label:
+                "Rent Growth",
+
+                value:
+                "▲ +3.5%",
+
+                color:
+                "#2e7d32"
+
+            },
+
+
+            {
+
+                label:
+                "Population Growth",
+
+                value:
+                "Positive"
+
+            },
+
+
+            {
+
+                label:
+                "Demand Trend",
+
+                value:
+                "Strong"
+
+            }
+
+
+        ]
+
+    }
+
+
 }
 
 
