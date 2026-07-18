@@ -38,7 +38,7 @@ document.getElementById("property-subtitle").textContent =
 property.hero.subtitle;
 
 
-document.getElementById("property-address").textContent =
+document.getElementById("property-address").innerHTML =
 property.hero.address;
 
 
