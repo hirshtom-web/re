@@ -142,7 +142,12 @@ Object.keys(window.properties).forEach(id => {
 
 function openDeal(id){
 
+    console.log("CLICKED:", id);
+
     let property = window.properties[id];
+
+    console.log("PROPERTY:", property);
+
 
     if(property && property.page){
 
@@ -150,7 +155,7 @@ function openDeal(id){
 
     } else {
 
-        console.log("Missing property page:", id);
+        console.log("Missing page for:", id);
 
     }
 
