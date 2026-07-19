@@ -431,7 +431,7 @@
 
 .hero-bottom{
 
-    margin-top:20px;
+    margin-top:10px;
 
     display:flex;
 
@@ -447,16 +447,16 @@
 @media (max-width:900px){
 
     .hero-copy{
-        margin-top:170px;   /* was 60px or 90px */
+        margin-top:180px;   /* was 60px or 90px */
         text-align:center;
     }
 
     .rility-hero h1{
-        font-size:34px;
+        font-size:28px;
     }
 
     .rility-hero p{
-        font-size:18px;
+        font-size:14px;
         margin-top:14px;
     }
 
