@@ -106,124 +106,20 @@
 
         <!-- SEARCH BAR -->
 
-        <div class="property-search">
 
+          <div class="property-search">
 
-            <div class="search-item">
+    <div class="search-item">
+        <span>🔍</span>
 
-                <span class="material-symbols-rounded">
-                    home
-                </span>
+        <div>
+            <small>Search for anything</small>
 
-                <div>
-                    <small>
-                        Looking For
-                    </small>
-
-                    <strong>
-                        Condo
-                    </strong>
-                </div>
-
-            </div>
-
-
-
-            <div class="search-item">
-
-                <span class="material-symbols-rounded">
-                    location_on
-                </span>
-
-                <div>
-                    <small>
-                        Location
-                    </small>
-
-                    <strong>
-                        Miami
-                    </strong>
-                </div>
-
-            </div>
-
-
-
-
-            <div class="search-item">
-
-                <span class="material-symbols-rounded">
-                    explore
-                </span>
-
-                <div>
-                    <small>
-                        Neighborhood
-                    </small>
-
-                    <strong>
-                        Brickell
-                    </strong>
-                </div>
-
-            </div>
-
-
-
-
-            <div class="search-item">
-
-                <span class="material-symbols-rounded">
-                    bed
-                </span>
-
-                <div>
-                    <small>
-                        Beds
-                    </small>
-
-                    <strong>
-                        2+
-                    </strong>
-                </div>
-
-            </div>
-
-
-
-
-            <div class="search-item">
-
-                <span class="material-symbols-rounded">
-                    payments
-                </span>
-
-                <div>
-                    <small>
-                        Budget
-                    </small>
-
-                    <strong>
-                        Any Price
-                    </strong>
-                </div>
-
-            </div>
-
-
-
-            <button class="search-button">
-
-                Search
-
-                <span class="material-symbols-rounded">
-                    arrow_forward
-                </span>
-
-            </button>
-
-
+            <strong id="typing-search"></strong>
         </div>
+    </div>
+
+</div>
 
 
 
@@ -1947,6 +1843,57 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 });
+
+    const phrases = [
+    "Location",
+    "Property Type",
+    "3 BR Miami Condo",
+    "House with a Pool",
+    "Luxury Penthouse",
+    "Beachfront Villa",
+    "Pet Friendly Apartment",
+    "Downtown Loft"
+];
+
+const element = document.getElementById("typing-search");
+
+let phraseIndex = 0;
+let letterIndex = 0;
+let deleting = false;
+
+function type(){
+
+    const current = phrases[phraseIndex];
+
+    if(!deleting){
+
+        element.textContent = current.substring(0, letterIndex++);
+        
+        if(letterIndex > current.length){
+
+            deleting = true;
+
+            setTimeout(type,1400);
+
+            return;
+        }
+
+    }else{
+
+        element.textContent = current.substring(0, letterIndex--);
+
+        if(letterIndex < 0){
+
+            deleting = false;
+
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+    }
+
+    setTimeout(type, deleting ? 45 : 90);
+}
+
+type();
 
     
   </script>
