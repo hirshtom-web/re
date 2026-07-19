@@ -267,43 +267,45 @@
 @media(max-width:900px){
 
 
-.rility-hero {
+.property-search{
+    width:100%;
+    max-width:300px;
+    height:100px;
 
-    min-height:750px;
+    margin-top:35px;
 
-}
-
-
-.property-search {
-
-    flex-direction:column;
+    padding:18px;
 
     border-radius:24px;
 
-}
-
-
-.search-item {
-
-    width:100%;
-
-    border-right:none;
-
-    border-bottom:
-    1px solid rgba(255,255,255,.15);
-
-}
-
-
-.search-button {
-
-    width:100%;
-
+    display:flex;
     justify-content:center;
+    align-items:center;
+}
 
+.search-item{
+    border:none;
+    padding:0;
+    width:100%;
+    justify-content:center;
+    text-align:center;
+}
+
+.search-button{
+    display:none;
 }
 
 
+.rility-hero{
+    min-height:750px;
+    align-items:flex-end;
+    padding-bottom:80px;
+}
+
+.rility-hero__content{
+    margin-top:0;
+    width:90%;
+}
 
 .rility-trust {
 
@@ -313,9 +315,18 @@
 
 }
 
-.rility-hero__content {
-    margin-top:150px;
+#typing-search::after{
+    content:"|";
+    margin-left:3px;
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+
+    50%{
+        opacity:0;
+    }
 
 }
 
-}
+
