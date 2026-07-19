@@ -681,139 +681,104 @@ font-size:clamp(38px,5vw,58px);
 
 }
 
-.property-slider{
+.property-label{
 
-    position:relative;
+    display:block;
 
-    width:430px;
+    font-size:11px;
 
-    height:520px;
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.65);
+
+    margin-bottom:18px;
+
+}
+
+.property-name{
+
+    font-size:34px;
+
+    line-height:1.15;
+
+    font-weight:500;
+
+    margin-bottom:18px;
+
+}
+
+.property-name span{
+
+    display:block;
+
+}
+
+.property-location{
+
+    font-size:17px;
+
+    color:rgba(255,255,255,.78);
+
+    margin-bottom:40px;
+
+}
+
+.property-price small{
+
+    display:block;
+
+    font-size:11px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.6);
+
+}
+
+.property-price strong{
+
+    display:block;
+
+    margin-top:6px;
+
+    font-size:34px;
+
+    font-weight:500;
+
+}
+
+.property-pagination{
 
     display:flex;
 
-    justify-content:center;
+    gap:8px;
 
-    align-items:center;
-
-}
-
-
-.property-slide{
-
-    position:absolute;
-
-    width:300px;
-
-    height:420px;
-
-    overflow:hidden;
-
-    border-radius:32px;
-
-    transition:.5s ease;
-
-    border:1px solid rgba(255,255,255,.25);
-
-    box-shadow:
-    0 30px 80px rgba(0,0,0,.35);
+    margin-top:38px;
 
 }
 
+.property-pagination span{
 
-.property-slide img{
+    width:8px;
+    height:8px;
 
-    width:100%;
-    height:100%;
+    border-radius:50%;
 
-    object-fit:cover;
-
-}
-
-
-/* Main middle card */
-
-.property-slide.main{
-
-    z-index:3;
+    background:rgba(255,255,255,.28);
 
 }
 
+.property-pagination .active{
 
-/* Faded side cards */
+    width:24px;
 
-.property-slide.side{
+    border-radius:20px;
 
-    opacity:.35;
-
-    filter:blur(1px);
-
-    transform:scale(.88);
-
-}
-
-
-.property-slide.side:first-child{
-
-    transform:
-    translateX(-100px)
-    scale(.82);
-
-}
-
-
-.property-slide.side:last-child{
-
-    transform:
-    translateX(100px)
-    scale(.82);
-
-}
-
-
-/* Text overlay */
-
-.property-overlay{
-
-    position:absolute;
-
-    bottom:0;
-
-    left:0;
-
-    right:0;
-
-    padding:28px;
-
-    color:white;
-
-    background:
-    linear-gradient(
-        transparent,
-        rgba(0,0,0,.8)
-    );
-
-}
-
-
-.property-overlay small{
-
-    opacity:.75;
-
-}
-
-
-.property-overlay h3{
-
-    margin:10px 0;
-
-    font-size:22px;
-
-}
-
-
-.property-overlay span{
-
-    font-size:14px;
+    background:#ffffff;
 
 }
 
