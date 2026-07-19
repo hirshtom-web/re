@@ -1,1304 +1,3360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Real Estate Calculators</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- MATERIAL ICONS OUTLINED -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <title>Haiyam | Market Entry & Growth in Israel for International Brands</title>
+    <meta name="description" content="Haiyam helps international companies enter and grow in the Israeli market through strategy, localization, partnerships, and execution.">
 
- <style>
-/* ===================== */
-/* BASE STYLES           */
-/* ===================== */
-html, body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    <link rel="icon" type="image/png" sizes="32x32" href="https://static.wixstatic.com/media/1799ca_b329da5607304952a7983c27d832a3c8~mv2.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,0">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="workflow.css">
+    <link rel="stylesheet" href="founders.css">
+    <link rel="stylesheet" href="popup.css">
+
+
+</head>
+    
+  <style>
+:root {
+
+    --bg: #f8f7f4;
+    --surface: rgba(255,255,255,0.65);
+    --white: #ffffff;
+    --text: #111111;
+    --muted: #666666;
+    --primary: #111111;
+    --accent: #7c5cff;
+    --accent-two: #4fd1c5;
+    --border: rgba(17,17,17,0.08);
+    --shadow:
+        0 20px 60px rgba(0,0,0,0.08);
+    --radius-lg: 32px;
+    --radius-md: 22px;
+    --radius-sm: 14px;
+    --container: 1440px;
+}
+
+* {
     margin: 0;
     padding: 0;
-    color: #1e0949;
-    touch-action: manipulation; /* prevents unintended zooming/panning */
-    overscroll-behavior: none;  /* prevents jumping on mobile */
-    -webkit-text-size-adjust: 100%; /* disable font zoom on iOS */
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
-    padding: 40px;
-}
 
-h1 {
-    color: #1e0949;
-    margin-bottom: 10px;
-}
-
-h2.category-title {
-    color: #1e0949;
-    font-size: 20px;
-    border-left: 4px solid #3498db;
-    padding-left: 10px;
-}
-
-h2 { 
-    text-align: left; 
-    font-size: 30px; 
-    font-weight: 700; 
-    margin-bottom: 0px; 
-}
-
-h3 { 
-    text-align: left; 
-    font-size: 15px; 
-    font-weight: 500; 
-    margin-bottom: 45px; 
-}
-
-h4 { 
-    text-align: left; 
-    font-size: 15px; 
-    font-weight: 500; 
-    margin-bottom: 15px; 
-}
-
-.info {
-    font-size: 10px;
-    color: #555;
-    cursor: help;
-    margin-left: 4px;
-}
-
-label { 
-    font-weight: 500; 
-    margin-bottom: 6px; 
-    font-size: 12px; 
-}
-
-/* ===================== */
-/* BUTTON & INPUT STYLES */
-/* ===================== */
-
-input, select, textarea {
-    width: 100%;                /* consistent width */
-    padding: 12px 15px;         /* spacing inside input */
-    font-size: 15px;            /* readable text */
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #1e0949;             /* text color */
-    background-color: #fff;     /* white background */
-    border: 1px solid #ddd;     /* subtle border */
-    border-radius: 8px;         /* rounded corners */
-    box-sizing: border-box;     /* include padding in width */
-    line-height: 20px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: #005bff;      /* highlight on focus */
-    box-shadow: 0 0 5px rgba(0,91,255,0.2);
-    outline: none;
-}
-
-input[disabled], select[disabled], textarea[disabled] {
-    background-color: #f0f0f0;
-    color: #aaa;
-    cursor: not-allowed;
-}
-
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><polygon points='0,0 14,0 7,7' fill='%23999'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 12px;
-    cursor: pointer;
-}
-
-.calc-btn {
     width: 100%;
-    padding: 14px;
-    margin-top: 40px;
-    font-size: 15px;
-    background: #005bff;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: "Inter", sans-serif;
+    background:
+    radial-gradient(
+        circle at top left,
+        rgba(124,92,255,.12),
+        transparent 35%
+    ),
+    var(--bg);
+    color: var(--text);
 }
 
-.calc-btn:hover { 
-    background: #003f9a; 
+h1,h2,h3 {
+
+    font-family:"Inter", sans-serif;
+    letter-spacing:-1.5px;
+    font-weight:450;
 }
 
-/* ===================== */
-/* TILE / CARD LAYOUT    */
-/* ===================== */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 16px;
-    margin-top: 15px;
+a {
+
+    text-decoration:none;
+    color:inherit;
 }
 
-.tile {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
-    padding: 18px;
-    cursor: pointer;
-    transition: all 0.25s;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    position: relative;
-}
-
-.tile:hover {
-    transform: translateY(-4px);
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
-}
-
-.tile.active {
-    border: 2px solid #005bff;
-    box-shadow: 0px 6px 16px rgba(0, 125, 255, 0.25);
-}
-
-.tile:active {
-    transform: scale(0.97);
-}
-
-.tile .material-icons-outlined {
-    font-size: 32px;
-    color: #005bff;
-}
-   
-#pageSubtitle {
-  font-size: 1rem;
-  margin-top: 0.25rem;
-  margin-bottom: 2rem;
-  color: #666;
-}
-   
-/* ===================== */
-/* CONTAINERS & LAYOUT   */
-/* ===================== */
 .container {
-    display: flex;
-    flex-wrap: wrap;       
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: flex-start;
-    box-sizing: border-box;
+
+    width:min(
+        90%,
+        var(--container)
+    );
+    margin:auto;
 }
 
-.inputs-container,
-.results-container {
+.section {
+
+    padding:60px 0;
+    position:relative;
+}
+
+/* =====================
+LOADER
+===================== */
+
+.loader {
+
+    position: fixed;
+    inset: 0;
     background: #fff;
-    border-radius: 45px;
-    padding: 50px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    z-index: 9999;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    box-sizing: border-box;
+    transition: .8s;
 }
 
-.inputs-container { flex: 1 1 400px; min-width: 350px; }
-.results-container { flex: 1 1 350px; min-width: 300px; }
+.loader-logo {
 
-/* 50/50 Desktop layout */
-@media (min-width: 901px) {
-    .inputs-container,
-    .results-container {
-        flex: 1 1 calc(50% - 20px);
+    width: 160px;
+    height: auto;
+    display: block;
+    animation: logoIn 1s ease forwards;
+}
+
+.loader.hide {
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes logoIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
-   
-/* ===================== */
-/*     DISCLAIMER        */
-/* ===================== */
-   
-.disclaimer {
-    text-align: left; 
-    border-top: 0.5px solid #ccc;
-    font-size: 15px; 
-    font-weight: 500; 
-    margin-bottom: 15px; 
-    margin-top: 15px;
-    padding: 0px;
-}
-  
-.disclaimer h4 {
-  font-weight: bold;
+
+/* =====================
+BACKGROUND BLOBS
+===================== */
+
+.background {
+
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-1;
 }
 
-/* ===================== */
-/*     GRID LAYOUTS      */
-/* ===================== */
-.roi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 18px;
-    margin-bottom: 20px;
+.blob {
+
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:.45;
 }
 
-.input-group { display: flex; flex-direction: column; }
-   
+.blob-one {
 
-.roi-columns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: space-between;
-    width: 100%;
-    box-sizing: border-box;
+    width:500px;
+    height:500px;
+    background:#c7b9ff;
+    top:-200px;
+    left:-150px;
 }
 
-.roi-column {
-    flex: 1 1 0;
-    min-width: 0;
-    text-align: center;
+.blob-two {
+
+    width:400px;
+    height:400px;
+    background:#8ff5e8;
+    right:-150px;
+    top:300px;
 }
 
-   .grid-name {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
-  color: #000;
+.blob-three {
+
+    width:350px;
+    height:350px;
+    background:#ffd7a8;
+    bottom:-100px;
+    left:40%;
 }
 
+/* =====================
+HEADER
+===================== */
 
-/* ===================== */
-/* RESULTS DISPLAY       */
-/* ===================== */
-.total-roi-display {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 25px;
-    height: 120px;
+.header{
+
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+    padding:25px 0;
+
+    transition:transform .35s ease,padding .35s ease;
+    will-change:transform;
+
 }
 
-.total-roi-display span {
-    font-size: 80px;
-    font-weight: 800;
-    color: #005bff;
-}
+.header.header-hidden{
 
-.result-card .label { 
-    font-weight: 500; 
-    margin-bottom: 6px; 
-    font-size: 12px; 
-    color: #555; 
-}
+    transform:translateY(-100%);
 
-.result-card .value { 
-    font-weight: 500; 
-    font-size: 12px; 
-    color: #1e0949; 
-    margin-bottom: 16px; 
-}
-
-   #mainResult {
-    font-size: 100px;
-    font-weight: 800;
-    color: #005bff;
-    display: block;
-}
-
-@keyframes countUp {
-    from { opacity: 0.2; }
-    to { opacity: 1; }
 }
 
 
-/* ===================== */
-/* EXPENSES & DOWNLOAD   */
-/* ===================== */
-.added-expense { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
-.added-expense select, .added-expense input { flex: 1; }
-.remove-btn { background: #ff4d4f; color: white; border: none; border-radius: 6px; padding: 0 8px; cursor: pointer; }
+/* NAVBAR */
 
-.download-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-    padding: 15px;
-    border-top: 1px solid #ddd;
-    width: 100%;
-    box-sizing: border-box;
-}
+.navbar{
 
-.download-text {
-    flex: 1 1 0;
-    min-width: 0; 
-    font-size: 14px;
-    color: #555;
-}
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-.download-btn { white-space: nowrap; }
+    background:rgba(255,255,255,.55);
+    backdrop-filter:blur(20px);
 
-/* ===================== */
-/* TAB NAVIGATION        */
-/* ===================== */
-.tab-container {
-    width: 100%;
-    display: flex;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 25px;
-    overflow-x: auto;
-}
+    border:1px solid var(--border);
 
-.tab {
-    flex: 1;
-    text-align: center;
-    padding: 14px 22px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 500;
-    background: #f7f8fa;
-    border: 1px solid #ddd;
-    border-bottom: none;
-    border-radius: 10px 10px 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    white-space: nowrap;
-    transition: background 0.2s, color 0.2s;
-}
+    border-radius:50px;
 
-.tab-icon { width: 18px; height: 18px; opacity: 0.65; transition: opacity 0.2s; }
+    padding:14px 24px;
 
-.tab.active {
-    background: #fff;
-    color: #005bff;
-    border-bottom: 0;
-}
-
-.tab.active .tab-icon { opacity: 1; }
-
-.tab-content { display: none; animation: fadeIn 0.25s ease; }
-.tab-content.active { display: block; }
- 
-   .tab-contents {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
 }
 
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
-    to { opacity: 1; transform: translateY(0); }
+/* LOGO */
+
+.logo{
+
+    font-size:26px;
+    font-weight:700;
+    font-family:"Space Grotesk";
+
 }
 
-.disabled { background-color: #ccc !important; color: #888 !important; cursor: not-allowed !important; }
-.value.disabled { color: #aaa !important; }
+.logo-img{
 
-/* ===================== */
-/* DISCLAIMER BOX         */
-/* ===================== */
-.disclaimer-box {
-    margin-top: 25px;
-    padding: 15px;
-    background: #f7f8fa;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 13px;
-    color: #555;
-}
+    height:45px;
+    width:auto;
 
-.disclaimer-check {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.4;
-}
+    display:block;
 
-.disclaimer-check input {
-    margin-top: 2px;
-    transform: scale(1.2);
-    cursor: pointer;
-}
+    position:relative;
+    top:5px;
 
-/* ===================== */
-/* STATS BLOCK           */
-/* ===================== */
-.stats-fullwidth {
-    width: 100%;
-    max-width: 1200px;
-    margin: 10px auto 0;
-    padding: 30px;
-    background: #fff;
-    border-radius: 45px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    box-sizing: border-box;
-}
-
-.stats-title {
-    font-size: 18px;
-    margin-bottom: 25px;
-    font-weight: 600;
-    color: #1e0949;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-}
-
-.stat-box {
-    border: 0.5px solid #ddd;
-    border-radius: 14px;
-    padding: 18px;
-    text-align: center;
-    background: #fafbfc;
-}
-
-.stat-label {
-    font-size: 12px;
-    color: #666;
-    font-weight: 500;
-    margin-bottom: 6px;
-}
-
-.stat-value {
-    font-size: 16px;
-    font-weight: 700;
-    color: #1e0949;
-}
-
-/* ===================== */
-/* SUGGESTIONS DROPDOWN  */
-/* ===================== */
-.suggestions-box {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    z-index: 1000;
-    max-height: 220px;
-    overflow-y: auto;
-    display: none;
-}
-
-.suggestion-item {
-    padding: 10px 12px;
-    font-size: 14px;
-    cursor: pointer;
-    border-bottom: 1px solid #f1f1f1;
-}
-
-.suggestion-item:last-child { border-bottom: none; }
-.suggestion-item:hover { background: #f4f0ff; color: #6327e5; }
-
-/* ===================== */
-/* RESPONSIVE / MOBILE    */
-/* ===================== */
-@media (max-width: 900px) {
-    body { padding: 0; }
-    .container { flex-direction: column; gap: 20px; width: 100%; padding: 0 20px; }
-    .inputs-container, .results-container { width: 100%; padding: 20px; border-radius: 30px; }
-    .roi-grid { grid-template-columns: 1fr; gap: 12px; }
-    .total-roi-display span { font-size: 50px; }
-    .calc-btn { font-size: 15px; }
-}
-
-@media (max-width: 600px) {
-    .roi-columns { flex-direction: column !important; gap: 12px !important; }
-    .roi-column { flex: 1 1 100% !important; text-align: center; }
-    .tab { font-size: 0 !important; gap: 0 !important; justify-content: center !important; flex: 1 1 100%; }
-    .tab-icon { width: 18px; height: 18px; opacity: 0.9; }
-    .download-container { flex-direction: column !important; align-items: stretch !important; gap: 10px; }
-    .download-btn { width: 100% !important; }
-    .download-text { text-align: center; }
-    .tab-contents { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 500px) {
-    .stats-grid { grid-template-columns: 1fr; }
 }
 
 
-</style>
+/* NAV */
 
-  
-</head>
+.nav-links{
+
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+}
+
+
+/* MENU ITEMS */
+
+.nav-links a{
+
+    position:relative;
+
+    font-size:15px;
+    color:#333;
+
+    transition:color .3s ease;
+
+}
+
+
+/* underline */
+
+.nav-links a:not(.nav-button)::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-7px;
+
+    width:100%;
+    height:2px;
+
+    background:#333;
+
+    transform:scaleX(0);
+    transform-origin:left;
+
+    transition:transform .55s ease;
+
+}
+
+
+.nav-links a:not(.nav-button):hover{
+
+    color:#333;
+
+}
+
+
+.nav-links a:not(.nav-button):hover::after{
+
+    transform:scaleX(1);
+
+}
+
+
+/* CTA BUTTON */
+
+.nav-button{
+
+    position:relative;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 22px;
+
+    border-radius:50px;
+
+    color:#fff!important;
+
+    background:linear-gradient(
+        90deg,
+        #EC4899,
+        #8B5CF6,
+        #3B82F6,
+        #06B6D4,
+        #EC4899
+    );
+
+    background-size:300% 100%;
+
+    animation:buttonStroke 6s linear infinite;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+/* dark center */
+
+.nav-button::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:2px;
+
+    background:#111;
+
+    border-radius:48px;
+
+    z-index:0;
+
+}
+
+
+/* keep text above */
+
+.nav-button span{
+
+    position:relative;
+    z-index:1;
+
+}
+
+
+/* remove underline */
+
+.nav-button::after{
+
+    display:none!important;
+
+}
+
+
+/* hover */
+
+.nav-button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 24px rgba(139,92,246,.25);
+
+}
+
+
+/* MOBILE */
+
+.mobile-toggle{
+
+    display:none;
+    border:0;
+    background:none;
+
+}
+
+.mobile-toggle span{
+
+    display:block;
+
+    width:26px;
+    height:2px;
+
+    background:#111;
+
+    margin:6px;
+
+}
+
+
+/* ANIMATION */
+
+@keyframes buttonStroke{
+
+    from{
+
+        background-position:0%;
+
+    }
+
+    to{
+
+        background-position:300%;
+
+    }
+
+}
+
+
+/* =====================
+HERO
+===================== */
+
+.hero-grid{
+
+    position:relative;
+    z-index:2;
+
+}
+      
+
+.hero {
+
+    padding-top:190px;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+
+}
+
+.hero-grid {
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+
+}
+
+.pill {
+
+    display:inline-flex;
+    padding:10px 18px;
+    border-radius:50px;
+    background:white;
+    border:1px solid var(--border);
+    font-size:14px;
+    margin-bottom:30px;
+
+}
+
+.hero h1 {
+
+font-size:clamp(38px,5vw,58px);
+    margin-bottom:30px;
+
+}
+
+.hero h1 span {
+
+    background:
+    linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent-two)
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+}
+
+.hero p {
+
+    font-size:20px;
+    line-height:1.7;
+    color:var(--muted);
+    max-width:550px;
+    margin-bottom:40px;
+
+}
+
+.hero-buttons {
+
+    display:flex;
+    gap:18px;
+
+}
+
+/* BUTTONS */
+
+.button-group{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.button{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:16px 30px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s ease;
+}
+
+/* PRIMARY */
+
+.button.primary{
+    color:#fff;
+    background:#111;
+    border:2px solid transparent;
+    background-clip:padding-box;
+    position:relative;
+}
+
+.button.primary::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:50px;
+    background:linear-gradient(
+        90deg,
+        #EC4899,
+        #8B5CF6,
+        #3B82F6,
+        #06B6D4,
+        #EC4899
+    );
+    background-size:300% 100%;
+    animation:buttonStroke 6s linear infinite;
+    z-index:-1;
+}
+
+.button.primary::after{
+    content:"";
+    position:absolute;
+    inset:2px;
+    border-radius:50px;
+    background:#111;
+    z-index:-1;
+}
+
+/* SECONDARY */
+
+.button.secondary{
+    padding:16px 10px;
+    background:transparent;
+    border:none;
+    color:#111;
+    gap:8px;
+}
+
+.button.secondary::after{
+    content:"→";
+    font-size:18px;
+    transition:.3s ease;
+}
+
+.button.secondary:hover::after{
+    transform:translateX(5px);
+}
+
+/* HOVER */
+
+.button:hover{
+    transform:translateY(-4px);
+}
+
+.button.primary:hover{
+    box-shadow:
+        0 15px 40px rgba(139,92,246,.25);
+}
+
+/* COLOR MOTION */
+
+@keyframes buttonStroke{
+    from{
+        background-position:0% 50%;
+    }
+    to{
+        background-position:300% 50%;
+    }
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .button-group{
+        flex-direction:row;
+        align-items:center;
+        gap:14px;
+    }
+
+    .button{
+        padding:14px 22px;
+        white-space:nowrap;
+    }
+
+    .button.secondary{
+        padding:14px 8px;
+    }
+
+}
+
+/* HERO CARD */
+
+.hero-card {
+
+    position:relative;
+
+}
+
+.glass-card {
+
+    background:
+    rgba(255,255,255,.65);
+
+    backdrop-filter:blur(25px);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:45px;
+    box-shadow:var(--shadow);
+
+}
+
+.glass-card small {
+
+    color:var(--muted);
+
+}
+
+.glass-card h3 {
+
+    font-size:36px;
+    margin:25px 0 40px;
+
+}
+
+.mini-stats {
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+
+}
+
+.mini-stats strong {
+
+    display:block;
+    font-size:32px;
+
+}
+
+.mini-stats span {
+
+    color:var(--muted);
+    font-size:14px;
+
+}
+
+/* =====================
+SECTION TITLES
+===================== */
+
+.section-title {
+
+    max-width:720px;
+    margin-bottom:70px;
+    position:relative;
+
+}
+
+.section-title h2 {
+
+    font-size:clamp(38px,5vw,58px);
+    margin-bottom:20px;
+
+}
+
+.section-title p {
+
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.7;
+
+}
+
+.title-bubble {
+
+    position:absolute;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent-two)
+    );
+
+    filter:blur(18px);
+    opacity:.45;
+    top:-25px;
+    left:-25px;
+
+}
+      
+/* =====================
+SERVICE CARDS
+===================== */
+
+.cards-grid {
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+
+}
+
+.service-card,
+.feature-card {
+
+    background:
+    rgba(255,255,255,.6);
+
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    padding:35px;
+    transition:.45s ease;
+
+}
+
+.service-card:hover,
+.feature-card:hover {
+
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.12);
+
+    border-color:
+    rgba(124,92,255,.3);
+
+}
+
+.service-card h3,
+.feature-card h3 {
+
+    font-size:25px;
+    margin-bottom:18px;
+    letter-spacing:0px;
+
+}
+
+.service-card p,
+.feature-card p {
+
+    color:var(--muted);
+    line-height:1.7;
+
+}
+
+/* =====================
+WHY HAIYAM
+===================== */
+
+.tm-heal100{
+
+display:flex;
+min-height:700px;
+overflow:hidden;
+background:transparent;
+font-family:inherit;
+
+}
+
+.tm-heal100__visual,
+.tm-heal100__content{
+
+width:50%;
+position:relative;
+
+}
+
+/* ===============================
+   RIGHT SIDE
+================================ */
+
+.tm-heal100__content{
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+padding:80px;
+
+}
+
+/* Uses your site's existing H2 styling */
+
+.tm-heal100__headline{
+
+margin-bottom:20px;
+
+}
+
+.tm-heal100__content > p {
+
+margin-bottom:50px;
+
+}
+
+/* ===============================
+   STATS
+================================ */
+
+      .tm-heal100__stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    column-gap:40px;
+    row-gap:70px;
+    margin-top:40px;
+}
+
+.tm-heal100__number{
+
+    font-family: "Inter", sans-serif;
+    font-size:96px;
+    font-weight:300;
+    line-height:1;
+    letter-spacing:-1px;
+
+    background:linear-gradient(
+        90deg,
+        #EC4899 0%,
+        #C026D3 45%,
+        #8B5CF6 100%
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+}
+
+.tm-heal100__label{
+margin-top:20px;
+font-family:inherit;
+font-size:15px;
+letter-spacing:.5px;
+color:#666;
+
+}
+
+/* ===============================
+   DESKTOP VISUAL
+================================ */
+
+.tm-heal100__bg{
+
+position:absolute;
+inset:0;
+
+background:url("abstract-bg.png")
+center center /
+contain
+no-repeat;
+
+opacity:.25;
+pointer-events:none;
+
+}
+
+.tm-heal100__floating{
+
+position:absolute;
+inset:0;
+
+}
+
+.tm-heal100__logo{
+    position:absolute;
+    width:clamp(90px, 7vw, 150px);
+    height:auto;
+    animation:tm-heal100-float 8s ease-in-out infinite;
+}
+
+/* Logo Positions */
+
+.tm-heal100__logo--1{
+
+top:8%;
+left:10%;
+
+}
+
+.tm-heal100__logo--2{
+
+top:25%;
+right:12%;
+
+}
+
+.tm-heal100__logo--3{
+
+top:40%;
+left:35%;
+
+}
+
+.tm-heal100__logo--4{
+
+bottom:20%;
+left:12%;
+
+}
+
+.tm-heal100__logo--5{
+
+bottom:8%;
+right:15%;
+
+}
+
+.tm-heal100__logo--6{
+
+top:60%;
+right:35%;
+
+}
+
+.tm-heal100__logo--7{
+
+top:12%;
+left:55%;
+
+}
+
+/* Different floating speeds */
+
+.tm-heal100__logo:nth-child(2){
+
+animation-duration:11s;
+
+}
+
+.tm-heal100__logo:nth-child(3){
+
+animation-duration:9s;
+
+}
+
+.tm-heal100__logo:nth-child(4){
+
+animation-duration:13s;
+
+}
+
+.tm-heal100__logo:nth-child(5){
+
+animation-duration:10s;
+
+}
+
+.tm-heal100__logo:nth-child(6){
+
+animation-duration:8s;
+
+}
+
+.tm-heal100__logo:nth-child(7){
+
+animation-duration:12s;
+
+}
+
+@keyframes tm-heal100-float{
+
+0%{
+
+transform:translate3d(0,0,0);
+
+}
+
+50%{
+
+transform:translate3d(8px,-12px,0);
+
+}
+
+100%{
+
+transform:translate3d(0,0,0);
+
+}
+
+}
+
+/* ===============================
+   MOBILE LOGO SLIDER
+================================ */
+
+.tm-heal100__slider{
+    display:none;
+    overflow:hidden;
+    padding:40px 0;
+    width:100%;
+}
+
+.tm-heal100__track{
+    display:flex;
+    align-items:center;
+    gap:60px;
+    width:max-content;
+    animation:tm-heal100-slide 18s linear infinite;
+    will-change:transform;
+}
+
+.tm-heal100__track img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    flex:0 0 70px;
+    max-width:none;
+}
+
+@keyframes tm-heal100-slide{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media(max-width:768px){
+
+    .tm-heal100{
+        flex-direction:column;
+    }
+
+    .tm-heal100__visual,
+    .tm-heal100__content{
+        width:100%;
+    }
+
+    .tm-heal100__bg,
+    .tm-heal100__floating{
+        display:none;
+    }
+
+    .tm-heal100__slider{
+        display:block;
+    }
+
+    .tm-heal100__content{
+        order:1;
+        padding:40px 24px;
+    }
+
+    .tm-heal100__visual{
+        order:2;
+    }
+
+    .tm-heal100__text{
+        font-size:16px;
+        margin-bottom:40px;
+    }
+
+    .tm-heal100__stats{
+        grid-template-columns:repeat(2,1fr);
+        gap:30px;
+    }
+
+    .tm-heal100__number{
+        font-size:42px;
+    }
+}
+
+      
+/* =====================
+APPROACH TIMELINE
+===================== */
+
+.timeline {
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+
+}
+
+.step {
+
+    position:relative;
+    background:white;
+    border-radius:var(--radius-md);
+    padding:35px;
+    border:1px solid var(--border);
+
+}
+
+.step span {
+
+    display:inline-flex;
+    width:45px;
+    height:45px;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#111;
+    color:white;
+    margin-bottom:25px;
+    font-size:14px;
+
+}
+
+.step h3 {
+
+    font-size:26px;
+    margin-bottom:15px;
+    letter-spacing:0px;
+
+}
+
+.step p {
+
+    color:var(--muted);
+    line-height:1.6;
+
+}
+
+/* =====================
+INDUSTRIES
+===================== */
+
+.industry-tags {
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+
+}
+
+.industry-tags span {
+
+    padding:16px 25px;
+    background:white;
+    border-radius:50px;
+    border:1px solid var(--border);
+    font-weight:500;
+    transition:.3s;
+
+}
+
+.industry-tags span:hover {
+
+    background:#111;
+    color:white;
+    transform:translateY(-5px);
+
+}
+
+      #industries {
+    padding-bottom:0px;
+          padding-top:80px;
+}
+
+      
+/* =====================
+CTA
+===================== */
+
+.cta {
+
+    text-align:center;
+    padding:90px 40px;
+    border-radius:40px;
+    background:#111;
+    color:white;
+    position:relative;
+    overflow:hidden;
+
+}
+
+.cta:before {
+
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent-two)
+    );
+
+    filter:blur(100px);
+    opacity:.45;
+    top:-250px;
+    left:30%;
+
+}
+
+.cta h2 {
+
+    position:relative;
+    font-size:clamp(40px,5vw,65px);
+    margin-bottom:25px;
+
+}
+
+.cta p {
+
+    position:relative;
+    max-width:650px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.7;
+    opacity:.8;
+    margin-bottom:40px;
+
+}
+
+.cta .button {
+
+    position:relative;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:14px 28px;
+
+    border-radius:50px;
+
+    color:#fff!important;
+
+    background:transparent;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    z-index:1;
+
+}
+
+
+/* animated gradient stroke */
+
+.cta .button::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50px;
+
+    padding:2px;
+
+    background:linear-gradient(
+        90deg,
+        #EC4899,
+        #8B5CF6,
+        #3B82F6,
+        #06B6D4,
+        #EC4899
+    );
+
+    background-size:300% 100%;
+
+    animation:buttonStroke 6s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+}
+
+
+/* text above stroke */
+
+.cta .button span{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* remove underline */
+
+.cta .button::after{
+
+    display:none!important;
+
+}
+
+
+/* hover */
+
+.cta .button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 24px rgba(139,92,246,.25);
+
+}
+      
+
+/* =====================
+FOOTER
+===================== */
+
+footer {
+
+    padding:40px 0;
+
+}
+
+.footer-inner {
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:var(--muted);
+
+}
+
+/* =====================
+ANIMATIONS
+===================== */
+
+.reveal {
+
+    opacity:0;
+
+    transform:
+    translateY(40px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+}
+
+.reveal.active {
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+
+}
+
+.floating-bubble {
+
+    position:absolute;
+    border-radius:50%;
+
+    animation:
+    float 7s infinite ease-in-out;
+
+}
+
+.bubble-a {
+
+    width:130px;
+    height:130px;
+    background:#c9baff;
+    top:-50px;
+    right:-40px;
+    filter:blur(10px);
+
+}
+
+.bubble-b {
+
+    width:90px;
+    height:90px;
+    background:#80eee0;
+    bottom:30px;
+    left:-30px;
+
+}
+
+@keyframes float {
+
+    50% {
+
+        transform:
+        translateY(-25px);
+
+    }
+
+}
+
+/* =====================
+RESPONSIVE
+===================== */
+
+@media(max-width:1000px){
+
+.hero-grid {
+
+    grid-template-columns:1fr;
+    gap:50px;
+
+}
+
+.cards-grid {
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.feature-grid {
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.timeline {
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:760px){
+
+.section {
+
+    padding:80px 0;
+
+}
+
+.navbar {
+
+    padding:14px 20px;
+
+}
+
+.nav-links {
+
+    position:absolute;
+    top:80px;
+    left:0;
+    width:100%;
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    flex-direction:column;
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(-20px);
+    transition:.3s;
+
+}
+
+.nav-links.active {
+
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+
+}
+
+.mobile-toggle {
+
+    display:block;
+
+}
+
+.hero {
+
+    padding-top:150px;
+
+}
+
+.hero h1 {
+
+    font-size:40px;
+        line-height:1.25;
+
+}
+
+.hero p {
+
+    font-size:17px;
+
+}
+
+.hero-buttons {
+
+    flex-direction:column;
+
+}
+
+.glass-card {
+
+    padding:30px;
+
+}
+
+.glass-card h3 {
+
+    font-size:28px;
+
+}
+
+.cards-grid,
+.feature-grid,
+.timeline {
+
+    grid-template-columns:1fr;
+
+}
+
+.founder-box {
+
+    padding:35px;
+
+}
+
+.founder-box p {
+
+    font-size:21px;
+
+}
+
+.footer-inner {
+
+    flex-direction:column;
+    gap:20px;
+
+}
+
+}
+
+
+
+/* =====================
+ACCESSIBILITY
+===================== */
+
+
+@media(prefers-reduced-motion:reduce){
+
+* {
+
+    animation:none!important;
+
+    transition:none!important;
+
+}
+
+}
+
+
+     
+      
+  </style>
 <body>
-<!-- SCREEN 1: GRID -->
-<div id="screenGrid">
-  <h1>Select a Calculator</h1>
 
-  <h2 class="category-title">Financing</h2>
-  <div class="grid" id="cat-financing"></div>
-
-  <h2 class="category-title">Returns</h2>
-  <div class="grid" id="cat-returns"></div>
-
-  <h2 class="category-title">Valuation</h2>
-  <div class="grid" id="cat-valuation"></div>
-
-  <h2 class="category-title">Analysis & Metrics</h2>
-  <div class="grid" id="cat-analysis"></div>
+<!-- Loading Screen -->
+<div class="loader">
+    <img class="loader-logo" src="https://static.wixstatic.com/shapes/1799ca_c687fe60849245878852238f031f1f3d.svg" alt="Haiyam">
 </div>
 
 
-<!-- SCREEN 2: CALCULATOR VIEW -->
-<div id="screenCalculator" style="display:none;">
+<!-- Background Effects -->
+<div class="background">
+    <div class="blob blob-one"></div>
+    <div class="blob blob-two"></div>
+    <div class="blob blob-three"></div>
+</div>
 
-  <!-- Page Title: Centered at the top of the page -->
-  <h1 id="pageTitle" style="text-align:center;">Page Title</h1>
 
-  <!-- Main Container: inputs + results -->
-  <div class="container">
+<!-- Navigation -->
+<header class="header">
 
-    <!-- Inputs Section -->
-    <div class="inputs-container">
-      
-      <!-- Calculator Title: h2 top-left -->
-      <h2 id="calculatorTitle">Calculator Title</h2>
-      
-      <!-- Subtitle: h3 under calculatorTitle -->
-      <h3 id="subtitle">Subtitle goes here</h3>
-      
-      <!-- Form -->
-      <form id="calculatorForm">
-        <!-- Input fields will go here -->
-      </form>
+    <nav class="navbar container">
+
+<a href="#home" class="logo">
+    <img
+        src="https://static.wixstatic.com/shapes/1799ca_b7aa4f68c54e4a5faf0deede2e385ee2.svg"
+        alt="Haiyam Logo"
+        class="logo-img"
+    >
+</a>
+
+        <div class="nav-links">
+
+            <a href="#services">Services</a>
+            <a href="#why">Why Haiyam</a>
+            <a href="#approach">Approach</a>
+            <a href="#industries">Industries</a>
+            <a href="#founders">Founders</a>
+            <a href="#contact" class="nav-button">
+                <span>Let's Talk</span>
+            </a>
+
+        </div>
+
+
+        <button class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+<!-- HERO -->
+<section id="home" class="hero section">
+
+    <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+
+
+            <h1>
+                Bringing the world’s most loved brands to
+                <span>Israel</span>
+            </h1>
+
+
+            <p>
+                Haiyam identifies exceptional international brands and builds their path to success in Israel — from first market strategy to flagship experiences, retail, partnerships, and long-term growth.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#contact" class="button primary">
+                    Partner With Us
+                </a>
+
+                <a href="#services" class="button secondary">
+                    Explore More
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="hero-card reveal">
+
+            <div class="floating-bubble bubble-a"></div>
+            <div class="floating-bubble bubble-b"></div>
+
+
+            <div class="glass-card">
+
+                <small>
+                    Our Mission
+                </small>
+
+                <h3>
+                    We don’t just bring brands into Israel.
+                    We build their presence, community, and future.
+                </h3>
+
+
+                <div class="mini-stats">
+
+                    <div>
+                        <strong>01</strong>
+                        <span>Local Strategy</span>
+                    </div>
+
+
+                    <div>
+                        <strong>02</strong>
+                        <span>Execution</span>
+                    </div>
+
+
+                    <div>
+                        <strong>03</strong>
+                        <span>Growth</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
     </div>
 
-    <!-- Results Section -->
-<div class="results-container">
-  <!-- Results Header -->
-  <h3>Results</h3>
-
-  <!-- Main Result Display -->
-  <div class="total-roi-display">
-    <span id="mainResult">$0</span>
-  </div>
-
-  <!-- Stats Section -->
-  <div id="resultStats" class="stats-grid"></div>
-     
-    <!-- Disclaimer -->
-  <div class="disclaimer">
-    <h4>Disclaimer</h4>
-    <p>
-      These calculators are for informational purposes only. Results are estimates and may not reflect your exact situation. We do not provide financial, legal, or tax advice, and you should verify results independently before making decisions. By using these calculators, you agree that you use them at your own risk, and we are not liable for any losses or damages resulting from their use.
-    </p>
-  </div>
-</div>
+</section>
 
 
-  <!-- Back Button -->
-  <button id="backBtn" class="back-button">
-    <span class="material-icons-outlined">arrow_back</span> Back
-  </button>
+
+
+<!-- SERVICES -->
+
+<section id="services" class="section">
+
+<div class="container">
+
+
+<div class="section-title reveal">
+
+<div class="title-bubble"></div>
+
+<h2>
+Building the next generation of iconic brands in Israel
+</h2>
+
+<p>
+We partner with exceptional international brands and build the strategy, retail presence, and local foundation needed to create lasting success in Israel.
+</p>
 
 </div>
 
- 
 
-  </div>
+
+<div class="cards-grid">
+
+
+<div class="service-card reveal">
+
+<h3>Market Opportunity</h3>
+
+<p>
+Understand Israeli consumers, market potential, competition, and the opportunity for your brand to succeed locally.
+</p>
+
 </div>
+
+
+
+<div class="service-card reveal">
+
+<h3>Brand Strategy</h3>
+
+<p>
+Create the right positioning, pricing, partnerships, and launch strategy for the Israeli market.
+</p>
+
+</div>
+
+
+
+<div class="service-card reveal">
+
+<h3>Retail Development</h3>
+
+<p>
+Build flagship stores, retail partnerships, and memorable brand experiences that connect with Israeli consumers.
+</p>
+
+</div>
+
+
+
+<div class="service-card reveal">
+
+<h3>Distribution & Operations</h3>
+
+<p>
+Manage local infrastructure, supply chain, logistics, and customer experience to support sustainable growth.
+</p>
+
+</div>
+
+
+
+<div class="service-card reveal">
+
+<h3>Marketing & Community</h3>
+
+<p>
+Create awareness through partnerships, creators, campaigns, and community-building initiatives.
+</p>
+
+</div>
+
+
+
+<div class="service-card reveal">
+
+<h3>Long-Term Growth</h3>
+
+<p>
+Expand locations, products, and opportunities while building long-term brand value in Israel.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+<!-- WHY HAIYAM -->
+
+<section id="why" class="tm-heal100">
+
+    <!-- LEFT SIDE -->
+    <div class="tm-heal100__visual">
+
+        <!-- Abstract background image -->
+        <div class="tm-heal100__bg"></div>
+
+        <!-- Floating logos (Desktop) -->
+        <div class="tm-heal100__floating">
+
+            <img src="https://static.wixstatic.com/media/1799ca_95961dc0e01d4a33ae74f3a86fe2bc8f~mv2.webp" class="tm-heal100__logo tm-heal100__logo--1" alt="mastercard">
+            <img src="https://static.wixstatic.com/media/1799ca_0f7093c8355640c883fec5e557e73e4f~mv2.webp" class="tm-heal100__logo tm-heal100__logo--2" alt="visa">
+            <img src="https://static.wixstatic.com/media/1799ca_77f4d48c48d14ddaa96eac8be57b4003~mv2.png" class="tm-heal100__logo tm-heal100__logo--3" alt="wix">
+            <img src="https://static.wixstatic.com/media/1799ca_d2d7ead02c9a472f871f2f2ff2a7ce93~mv2.png" class="tm-heal100__logo tm-heal100__logo--4" alt="gemini">
+            <img src="https://static.wixstatic.com/media/1799ca_f4fc5d49f3494518b373845f35611b45~mv2.png" class="tm-heal100__logo tm-heal100__logo--5" alt="chatgpt">
+            <img src="https://static.wixstatic.com/media/1799ca_27c470f2f5304593aab981d11aabb3cd~mv2.png" class="tm-heal100__logo tm-heal100__logo--6" alt="amazon">
+            <img src="https://static.wixstatic.com/media/1799ca_7e7dce746b3346df89a0e4e6380ac9da~mv2.png" class="tm-heal100__logo tm-heal100__logo--7" alt="meta">
+
+        </div>
+
+        <!-- Mobile Logo Slider -->
+        <div class="tm-heal100__slider">
+
+            <div class="tm-heal100__track">
+
+            <img src="https://static.wixstatic.com/media/1799ca_95961dc0e01d4a33ae74f3a86fe2bc8f~mv2.webp" alt="mastercard">
+            <img src="https://static.wixstatic.com/media/1799ca_0f7093c8355640c883fec5e557e73e4f~mv2.webp" alt="visa">
+            <img src="https://static.wixstatic.com/media/1799ca_77f4d48c48d14ddaa96eac8be57b4003~mv2.png" alt="wix">
+            <img src="https://static.wixstatic.com/media/1799ca_d2d7ead02c9a472f871f2f2ff2a7ce93~mv2.png" alt="gemini">
+            <img src="https://static.wixstatic.com/media/1799ca_f4fc5d49f3494518b373845f35611b45~mv2.png" alt="chatgpt">
+            <img src="https://static.wixstatic.com/media/1799ca_27c470f2f5304593aab981d11aabb3cd~mv2.png" alt="amazon">
+            <img src="https://static.wixstatic.com/media/1799ca_7e7dce746b3346df89a0e4e6380ac9da~mv2.png" alt="meta">
+
+                <!-- Duplicate for seamless scrolling -->
+
+       <img src="https://static.wixstatic.com/media/1799ca_95961dc0e01d4a33ae74f3a86fe2bc8f~mv2.webp" alt="mastercard">
+            <img src="https://static.wixstatic.com/media/1799ca_0f7093c8355640c883fec5e557e73e4f~mv2.webp" alt="visa">
+            <img src="https://static.wixstatic.com/media/1799ca_77f4d48c48d14ddaa96eac8be57b4003~mv2.png" alt="wix">
+            <img src="https://static.wixstatic.com/media/1799ca_d2d7ead02c9a472f871f2f2ff2a7ce93~mv2.png" alt="gemini">
+            <img src="https://static.wixstatic.com/media/1799ca_f4fc5d49f3494518b373845f35611b45~mv2.png" alt="chatgpt">
+            <img src="https://static.wixstatic.com/media/1799ca_27c470f2f5304593aab981d11aabb3cd~mv2.png" alt="amazon">
+            <img src="https://static.wixstatic.com/media/1799ca_7e7dce746b3346df89a0e4e6380ac9da~mv2.png" alt="meta">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="tm-heal100__content">
+
+    <div class="section-title">
+
+        
+         <h2>
+    A strong foundation for expansion
+</h2>
+
+        <p>
+Economic resilience and innovation support sustainable market growth
+        </p>
+
+        <div class="tm-heal100__stats">
+
+            <div class="tm-heal100__card">
+    <h3 class="tm-heal100__number" data-count="10">0</h3>
+    <span class="tm-heal100__label">Million Population</span>
+</div>
+
+<div class="tm-heal100__card">
+    <h3 class="tm-heal100__number" data-count="2">0</h3>
+    <span class="tm-heal100__label">Annual Population Growth (%)</span>
+</div>
+
+<div class="tm-heal100__card">
+    <h3 class="tm-heal100__number" data-count="58">0</h3>
+    <span class="tm-heal100__label">GDP per Capita (USD, Thousands)</span>
+</div>
+
+<div class="tm-heal100__card">
+    <h3 class="tm-heal100__number" data-count="1">0</h3>
+    <span class="tm-heal100__label">Startup Ecosystem Ranking</span>
+</div>
+
+        </div>
+
+    </div>
+            </div>
+
+</section>
+
+
+
+
+<!-- APPROACH -->
+
+<section id="approach" class="section">
+
+<div class="container">
+
+
+<div class="section-title reveal">
+
+<div class="title-bubble"></div>
+
+<h2>
+Building one brand at a time
+</h2>
+
+</div>
+
+
+<div class="timeline">
+
+
+<div class="step reveal">
+<span>01</span>
+<h3>Discover</h3>
+<p>
+Understand your brand, objectives, and market opportunity.
+</p>
+</div>
+
+
+<div class="step reveal">
+<span>02</span>
+<h3>Build</h3>
+<p>
+Create strategy, partnerships, and local infrastructure.
+</p>
+</div>
+
+
+<div class="step reveal">
+<span>03</span>
+<h3>Launch</h3>
+<p>
+Execute coordinated market entry with precision.
+</p>
+</div>
+
+
+<div class="step reveal">
+<span>04</span>
+<h3>Grow</h3>
+<p>
+Scale through optimization and new opportunities.
+</p>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- INDUSTRIES -->
+
+<section id="industries" class="section">
+
+<div class="container industries">
+
+
+<div class="section-title reveal">
+
+<div class="title-bubble"></div>
+
+<h2>
+Who we work with
+</h2>
+
+<p>
+We work with international consumer brands in entertainment, kids, lifestyle, wellness, and retail — brands that have the potential to become part of Israeli culture.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+    
+<!-- WORKFLOW -->    
+
+    <section class="tm-workflow" id="workflow">
+
+    <div class="tm-workflow__container">
+
+        <div class="tm-workflow__flow">
+
+
+            <!-- =====================
+            LEFT STAGE
+            ===================== -->
+
+          <div class="tm-workflow__stage tm-workflow__stage--left">
+
+
+    <div class="tm-device tm-device--laptop">
+
+
+        <div class="tm-device__top">
+
+            <span></span>
+
+            <div class="tm-avatar"></div>
+
+        </div>
+
+
+        <div class="tm-placeholder tm-placeholder--large"></div>
+
+
+        <div class="tm-placeholder"></div>
+
+
+        <div class="tm-placeholder tm-placeholder--short"></div>
+
+
+        <div class="tm-device__grid">
+
+            <div></div>
+            <div></div>
+            <div></div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="tm-device tm-device--phone">
+
+
+        <div class="tm-phone__header">
+
+            Workflow
+
+        </div>
+
+
+
+  <div class="tm-check-row">
+    <span class="tm-check done">
+        <span class="material-symbols-rounded">check</span>
+    </span>
+    Brand review
+</div>
+
+<div class="tm-check-row">
+    <span class="tm-check done">
+        <span class="material-symbols-rounded">check</span>
+    </span>
+    Market analysis
+</div>
+
+<div class="tm-check-row">
+    <span class="tm-check done">
+        <span class="material-symbols-rounded">check</span>
+    </span>
+    Strategy approved
+</div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+            <!-- =====================
+            ARROW ONE
+            ===================== -->
+
+
+            <div class="tm-workflow__arrow">
+
+
+                <svg viewBox="0 0 220 120">
+
+                    <path
+                    d="M10 20 C80 20, 80 100, 210 100"
+                    />
+
+                </svg>
+
+
+            </div>
+
+
+
+
+
+            <!-- =====================
+            CENTER STAGE
+            ===================== -->
+
+            <div class="tm-workflow__stage tm-workflow__stage--center">
+
+
+                <div class="tm-workflow-main">
+
+
+                    <div class="tm-workflow-main__status">
+
+                        Go-to-market
+
+                    </div>
+
+
+                    <h3>
+                        Strategic execution
+                    </h3>
+
+
+                    <p>
+                        Connecting brands, teams and markets through a controlled workflow.
+                    </p>
+
+
+
+               <div class="tm-workflow-main__steps">
+    <div class="tm-workflow-main__slider">
+
+        <div>
+            <span class="material-symbols-rounded">explore</span>
+            Market Discovery
+        </div>
+
+        <div>
+            <span class="material-symbols-rounded">target</span>
+            Brand Strategy
+        </div>
+
+        <div>
+            <span class="material-symbols-rounded">palette</span>
+            Brand Identity
+        </div>
+
+        <div>
+            <span class="material-symbols-rounded">inventory_2</span>
+            Product Preparation
+        </div>
+
+        <div>
+            <span class="material-symbols-rounded">storefront</span>
+            Retail Launch
+        </div>
+
+        <div>
+            <span class="material-symbols-rounded">local_shipping</span>
+            Distribution Network
+        </div>
+
+        <div>
+            <span class="material-symbols-rounded">campaign</span>
+            Marketing Campaigns
+        </div>
+
+        <div>
+            <span class="material-symbols-rounded">groups</span>
+            Creator Collaborations
+        </div>
+
+        <div>
+            <span class="material-symbols-rounded">trending_up</span>
+            Growth Expansion
+        </div>
+
+        <div>
+            <span class="material-symbols-rounded">workspace_premium</span>
+            Long-Term Brand Value
+        </div>
+
+
+        <!-- LOOP -->
+
+        <div>
+            <span class="material-symbols-rounded">explore</span>
+            Market Discovery
+        </div>
+
+        <div>
+            <span class="material-symbols-rounded">target</span>
+            Brand Strategy
+        </div>
+
+    </div>
+</div>
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <!-- =====================
+            ARROW TWO
+            ===================== -->
+
+
+            <div class="tm-workflow__arrow">
+
+
+                <svg viewBox="0 0 220 120">
+
+                    <path
+                    d="M10 100 C130 100, 130 20, 210 20"
+                    />
+
+                </svg>
+
+
+            </div>
+
+
+
+
+
+            <!-- =====================
+RIGHT WORKFLOW
+===================== -->
+
+<div class="tm-workflow__stage tm-workflow__stage--right">
+
+    <!-- GROWTH CARD -->
+
+    <div class="tm-workflow-card tm-workflow-card--growth">
+
+        <div class="tm-scale-badge">
+            Scale
+        </div>
+
+        <h4>Growth Tracking</h4>
+
+        <div class="tm-workflow-placeholder">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="tm-mini-grid">
+
+            <div class="tm-mini-box">
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="tm-mini-box">
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+    </div>
+
+        <!-- LONG TERM VALUE CARD -->
+
+    <div class="tm-workflow-card tm-workflow-card--value">
+
+        <div class="tm-workflow-card__top">
+
+            <span>
+                5Y Growth
+            </span>
+
+            <div class="tm-workflow-check">
+                ✓
+            </div>
+
+        </div>
+
+
+        <div class="tm-value-stat">
+            +248%
+        </div>
+
+
+        <div class="tm-value-label">
+            Long term value increase
+        </div>
+
+
+        <div class="tm-growth-line">
+
+            <svg viewBox="0 0 300 110">
+
+                <defs>
+
+                    <linearGradient id="growthGradient" x1="0" y1="0" x2="0" y2="1">
+
+                        <stop offset="0%" stop-color="#22c55e" stop-opacity=".35"/>
+
+                        <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+
+                    </linearGradient>
+
+                </defs>
+
+
+                <path class="tm-fill"
+                    d="M10 90
+                    C55 82 70 75 110 68
+                    C150 60 160 42 200 45
+                    C240 48 255 20 290 12
+                    L290 110
+                    L10 110 Z">
+                </path>
+
+
+                <path class="tm-line"
+                    d="M10 90
+                    C55 82 70 75 110 68
+                    C150 60 160 42 200 45
+                    C240 48 255 20 290 12">
+                </path>
+
+
+                <circle class="tm-growth-point" cx="10" cy="90" r="5"></circle>
+
+                <circle class="tm-growth-point" cx="110" cy="68" r="5"></circle>
+
+                <circle class="tm-growth-point" cx="200" cy="45" r="5"></circle>
+
+                <circle class="tm-growth-point" cx="290" cy="12" r="5"></circle>
+
+
+            </svg>
+
+        </div>
+
+
+        <div class="tm-growth-years">
+
+            <span>2021</span>
+
+            <span>2022</span>
+
+            <span>2023</span>
+
+            <span>2024</span>
+
+            <span>2025</span>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- FOUNDERS -->
+    
+<section id="founders" class="tm-founders">
+
+    <div class="container tm-founders__container">
+
+        <div class="section-title tm-founders__title">
+
+            <h2>The people behind Haiyam</h2>
+
+            <p>
+                A family-owned company built on relationships, trust, and execution.
+            </p>
+
+        </div>
+
+        <div class="tm-founders__slider">
+
+            <div class="tm-founders__grid">
+
+                <!-- Founder Card 1 -->
+                <div class="tm-founder-card">
+                    
+                     <div class="tm-founder-card__inner">
+                         
+                    <div class="tm-founder-card__image">
+                        <img src="https://static.wixstatic.com/media/1799ca_9c829b7ef4134427b7d1720aba1dba02~mv2.jpg" alt="Tom Hirsh">
+                    </div>
+
+                    <div class="tm-founder-card__content">
+
+                        <p class="tm-founder-card__quote">
+                            "Building meaningful partnerships starts with trust,
+                            vision, and a commitment to creating lasting value."
+                        </p>
+
+                        <div class="tm-founder-card__signature">
+                            Tom Hirsh
+                        </div>
+
+                    </div>
+                         </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Navigation goes OUTSIDE the slider -->
+        <div class="tm-founders__nav">
+
+            <button class="tm-prev">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+
+            </button>
+
+            <div class="tm-slider-count">
+                1 / 2
+            </div>
+
+            <button class="tm-next">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- CTA -->
+
+<section id="contact" class="section">
+
+<div class="container">
+
+<div class="cta reveal">
+
+<h2>
+Let's Build Your Business in Israel
+</h2>
+
+<p>
+Whether you are exploring the market or preparing for launch,
+Haiyam provides the local expertise and execution to help your brand succeed.
+</p>
+
+<a href="#" class="button primary" id="openWizard">
+    Let's Talk →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- WIZARD POPUP -->
+
+<div class="wizard-overlay" id="wizard">
+
+    <div class="wizard">
+
+        <button class="wizard-close">×</button>
+        
+        <div class="wizard-logo">
+    <img src="https://static.wixstatic.com/shapes/1799ca_b7aa4f68c54e4a5faf0deede2e385ee2.svg" alt="Haiyam">
+</div>
+
+<div class="wizard-progress">
+
+    <div class="wizard-progress-bar">
+
+        <span id="wizardProgressFill"></span>
+
+    </div>
+
+    <div class="wizard-progress-text">
+        Step <span id="wizardCurrentStep">1</span> of 4
+    </div>
+
+</div>
+
+
+        <div class="wizard-step active">
+
+            <h3>What brings you to Israel?</h3>
+
+            <div class="answers">
+                <button>Market research</button>
+                <button>Launching a business</button>
+                <button>Finding partners</button>
+                <button>Expanding operations</button>
+            </div>
+
+        </div>
+
+
+        <div class="wizard-step">
+
+            <h3>What stage are you in?</h3>
+
+            <div class="answers">
+                <button>Early idea</button>
+                <button>Planning entry</button>
+                <button>Already operating</button>
+                <button>Scaling growth</button>
+            </div>
+
+        </div>
+
+
+        <div class="wizard-step">
+
+            <h3>What support do you need?</h3>
+
+            <div class="answers">
+                <button>Strategy</button>
+                <button>Local connections</button>
+                <button>Operations</button>
+                <button>Full market entry</button>
+            </div>
+
+        </div>
+
+
+        <div class="wizard-step">
+
+            <h3>Tell us about yourself</h3>
+
+            <input placeholder="Name">
+
+            <input placeholder="Company">
+
+            <input placeholder="Email">
+
+
+            <div class="phone">
+    <input class="area-code" placeholder="+44">
+    <input class="phone-number" placeholder="Phone number">
+</div>
+
+
+            <button class="button primary">
+                Submit
+            </button>
+        
+            <div class="wizard-disclaimer">
+
+    <span>✓</span>
+
+    Your information is secure and will only be used
+    to contact you about your request.
+
+</div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+<footer>
+
+<div class="container footer-inner">
+
+<a href="#home" class="logo">
+    <img
+        src="https://static.wixstatic.com/shapes/1799ca_b7aa4f68c54e4a5faf0deede2e385ee2.svg"
+        alt="Haiyam Logo"
+        class="logo-img"
+    >
+</a>
+
+<p>
+ © 2026 All rights reserved
+</p>
+
+
+</div>
+
+</footer>
+
 
 <script>
-
   
-  /* --------- CALCULATOR DEFINITIONS ----------- */
-
- const calculators = {
-  cashFlow: {
-    CalculatorName: "Cash Flow Calculator",
-    gridName: "Cash Flow",
-    pageTitle: "Cash Flow Calculator",
-    calculatorTitle: "Visualize your property’s cash flow instantly.",
-    subtitle: "See monthly income and expenses to understand your net cash position.",
-    tabs: { "Income": { inputs: ["Income"] }, "Expenses": { inputs: ["Expenses"] }, "Financing": { inputs: ["Mortgage Payment"] } },
-    cat: "analysis",
-    icon: "payments",
-    tooltip: "Calculates monthly or annual cash flow after all expenses.",
-    calculate: (Income, Expenses, MortgagePayment) => Income - Expenses - MortgagePayment
-  },
-  cashOnCash: {
-    CalculatorName: "Cash-on-Cash ROI Calculator",
-    gridName: "Cash-on-Cash",
-    pageTitle: "Cash-on-Cash ROI Calculator",
-    calculatorTitle: "Measure your cash-on-cash returns with ease.",
-    subtitle: "Compare your investment vs. actual cash profit to make informed decisions.",
-    tabs: { "Key Details": { inputs: ["Annual Cash Flow", "Total Cash Invested"] } },
-    cat: "returns",
-    icon: "percent",
-    tooltip: "Shows annual ROI on actual cash invested.",
-    calculate: (CF, Invested) => ((CF / Invested) * 100).toFixed(2) + "%"
-  },
-  capRate: {
-    CalculatorName: "Cap Rate Calculator",
-    gridName: "Cap Rate",
-    pageTitle: "Cap Rate Calculator",
-    calculatorTitle: "Assess the profitability of your property quickly.",
-    subtitle: "Evaluate annual returns relative to property value for smarter investing.",
-    tabs: { "Key Details": { inputs: ["Net Operating Income", "Property Value"] } },
-    cat: "valuation",
-    icon: "speed",
-    tooltip: "Valuation measure ignoring financing—NOI ÷ property value.",
-    calculate: (NOI, PV) => ((NOI / PV) * 100).toFixed(2) + "%"
-  },
-  grm: {
-    CalculatorName: "Gross Rent Multiplier Calculator",
-    gridName: "GRM",
-    pageTitle: "Gross Rent Multiplier Calculator",
-    calculatorTitle: "Understand your property’s rent potential at a glance.",
-    subtitle: "Estimate Gross Rent Multiplier to compare multiple investment opportunities.",
-    tabs: { "Key Details": { inputs: ["Property Price", "Annual Rent"] } },
-    cat: "valuation",
-    icon: "calculate",
-    tooltip: "Price divided by annual rent. Lower GRM is better.",
-    calculate: (Price, Rent) => (Price / Rent).toFixed(2)
-  },
-  mortgage: {
-    CalculatorName: "Mortgage Payment Calculator",
-    gridName: "Mortgage",
-    pageTitle: "Mortgage Payment Calculator",
-    calculatorTitle: "Calculate your mortgage payments effortlessly.",
-    subtitle: "Determine monthly principal and interest to plan your financing strategy.",
-    tabs: { "Financing": { inputs: ["Loan Amount", "Interest Rate (%)", "Loan Term (years)"] } },
-    cat: "financing",
-    icon: "account_balance",
-    tooltip: "Monthly loan payment based on rate & term.",
-    calculate: (Loan, Rate, Term) => {
-      const r = Rate / 100 / 12;
-      const n = Term * 12;
-      return (Loan * r / (1 - Math.pow(1 + r, -n))).toFixed(2);
-    }
-  },
-  breakEven: {
-    CalculatorName: "Break-even Analysis Calculator",
-    gridName: "Break-even",
-    pageTitle: "Break-even Analysis Calculator",
-    calculatorTitle: "Find your break-even point quickly.",
-    subtitle: "Discover how many units or revenue you need to cover all costs.",
-    tabs: { "Expenses": { inputs: ["Fixed Costs", "Variable Costs per Unit"] }, "Income": { inputs: ["Revenue per Unit"] } },
-    cat: "analysis",
-    icon: "bar_chart",
-    tooltip: "Units needed to cover all expenses.",
-    calculate: (Fixed, Variable, Revenue) => (Fixed / (Revenue - Variable)).toFixed(2)
-  },
-  roi: {
-    CalculatorName: "ROI Calculator",
-    gridName: "ROI",
-    pageTitle: "Return on Investment Calculator",
-    calculatorTitle: "Calculate your overall return on investment.",
-    subtitle: "Combine purchase, financing, income, and expenses for a complete ROI picture.",
-    tabs: {
-      "Key Details": {
-        inputs: [
-          "Purchase Price ($)",
-          "Appreciation Rate (%)",
-          "Years to Hold",
-          "Property Type",
-          "Market (City & State)"
-        ]
-      },
-      "Financing": {
-        inputs: [
-          "Down Payment (%)",
-          "Cash Investment ($)",
-          "Financed Amount ($)",
-          "Mortgage Rate (%)",
-          "Mortgage Term (Years)"
-        ]
-      },
-      "Income": {
-        inputs: ["Monthly Rent ($)"]
-      },
-      "Expenses": {
-        inputs: [
-          "Property Taxes ($/yr)",
-          "Homeowner’s Insurance ($/yr)",
-          "HOA ($/mo)",
-          "Management Fees (%)",
-          "Vacancy Rate (%)"
-        ]
-      }
-    },
-    cat: "returns",
-    icon: "trending_up",
-    tooltip: "ROI calculation including purchase, financing, income, and expenses.",
-    calculate: function(values) {
-      const investment = parseFloat(values["Cash Investment ($)"] || 0);
-      const netProfit = parseFloat(values["Monthly Rent ($)"] || 0) * 12 * parseFloat(values["Years to Hold"] || 1) 
-                        - parseFloat(values["Property Taxes ($/yr)"] || 0)
-                        - parseFloat(values["Homeowner’s Insurance ($/yr)"] || 0)
-                        - parseFloat(values["HOA ($/mo)"] || 0) * 12;
-      return investment ? ((netProfit / investment) * 100).toFixed(2) + "%" : "N/A";
-    }
-  },
-  noi: {
-    CalculatorName: "Net Operating Income Calculator",
-    gridName: "NOI",
-    pageTitle: "Net Operating Income Calculator",
-    calculatorTitle: "Determine Net Operating Income for your property.",
-    subtitle: "Subtract operating expenses from income to see what the property really earns.",
-    tabs: { "Income": { inputs: ["Gross Income"] }, "Expenses": { inputs: ["Operating Expenses"] } },
-    cat: "analysis",
-    icon: "account_balance_wallet",
-    tooltip: "Income minus operating expenses.",
-    calculate: (GI, OE) => GI - OE
-  },
-  dscr: {
-    CalculatorName: "Debt Service Coverage Ratio Calculator",
-    gridName: "DSCR",
-    pageTitle: "Debt Service Coverage Ratio Calculator",
-    calculatorTitle: "Check your debt service coverage ratio.",
-    subtitle: "Measure your property’s ability to cover debt with its net operating income.",
-    tabs: { "Income": { inputs: ["NOI"] }, "Financing": { inputs: ["Debt Service"] } },
-    cat: "financing",
-    icon: "shield",
-    tooltip: "NOI ÷ debt service — lenders want 1.2+.",
-    calculate: (NOI, Debt) => (NOI / Debt).toFixed(2)
-  },
-  priceToRent: {
-    CalculatorName: "Price-to-Rent Ratio Calculator",
-    gridName: "Price-to-Rent",
-    pageTitle: "Price-to-Rent Ratio Calculator",
-    calculatorTitle: "Analyze the price-to-rent ratio of your property.",
-    subtitle: "Compare property value to rental income to spot lucrative deals.",
-    tabs: { "Key Details": { inputs: ["Property Price", "Annual Rent"] } },
-    cat: "valuation",
-    icon: "home",
-    tooltip: "Home price compared to rental income.",
-    calculate: (Price, Rent) => (Price / Rent).toFixed(2)
-  },
-  vacancy: {
-    CalculatorName: "Vacancy Rate Calculator",
-    gridName: "Vacancy",
-    pageTitle: "Vacancy Rate Calculator",
-    calculatorTitle: "Estimate losses from vacancy periods.",
-    subtitle: "Understand potential revenue gaps to make more realistic forecasts.",
-    tabs: { "Income": { inputs: ["Vacant Units", "Total Units"] } },
-    cat: "analysis",
-    icon: "hotel",
-    tooltip: "Vacant units ÷ total units.",
-    calculate: (Vacant, Total) => ((Vacant / Total) * 100).toFixed(2) + "%"
-  },
-  expenseRatio: {
-    CalculatorName: "Operating Expense Ratio Calculator",
-    gridName: "Expense Ratio",
-    pageTitle: "Operating Expense Ratio Calculator",
-    calculatorTitle: "Track your operating expense ratio accurately.",
-    subtitle: "See how much of your income goes toward expenses for better planning.",
-    tabs: { "Income": { inputs: ["Gross Income"] }, "Expenses": { inputs: ["Operating Expenses"] } },
-    cat: "analysis",
-    icon: "receipt_long",
-    tooltip: "Expenses ÷ income — lower is better.",
-    calculate: (Income, Expenses) => ((Expenses / Income) * 100).toFixed(2) + "%"
-  },
-  longTermROI: {
-    CalculatorName: "Long-Term ROI Calculator",
-    gridName: "Long-Term ROI",
-    pageTitle: "Long-Term ROI Calculator",
-    calculatorTitle: "Forecast your long-term returns from rent and appreciation.",
-    subtitle: "Combine cash flow and property value growth for a complete investment outlook.",
-    tabs: { "Income": { inputs: ["Rental Income", "Property Appreciation"] }, "Key Details": { inputs: ["Investment Cost"] } },
-    cat: "returns",
-    icon: "timeline",
-    tooltip: "Total rent + appreciation returns.",
-    calculate: (Rent, App, Cost) => (((Rent + App) / Cost) * 100).toFixed(2) + "%"
-  },
-  flip: {
-    CalculatorName: "Fix & Flip Profit Calculator",
-    gridName: "Fix & Flip",
-    pageTitle: "Fix & Flip Profit Calculator",
-    calculatorTitle: "Project profits from your fix & flip projects.",
-    subtitle: "Calculate renovation costs, resale value, and potential ROI in one view.",
-    tabs: { "Key Details": { inputs: ["Sale Price", "Purchase Price", "Renovation Costs"] } },
-    cat: "returns",
-    icon: "construction",
-    tooltip: "Sale price minus purchase & renovation costs.",
-    calculate: (Sale, Purchase, Reno) => Sale - Purchase - Reno
-  },
-  renovationROI: {
-    CalculatorName: "Renovation ROI Calculator",
-    gridName: "Renovation ROI",
-    pageTitle: "Renovation ROI Calculator",
-    calculatorTitle: "Measure ROI from property improvements.",
-    subtitle: "See how each renovation affects your investment’s profitability.",
-    tabs: { "Key Details": { inputs: ["Profit from Renovation", "Renovation Cost"] } },
-    cat: "returns",
-    icon: "build",
-    tooltip: "Return generated from renovation expenditures.",
-    calculate: (Profit, Cost) => ((Profit / Cost) * 100).toFixed(2) + "%"
-  },
-  taxDepreciation: {
-    CalculatorName: "Tax / Depreciation Impact Calculator",
-    gridName: "Tax / Depreciation",
-    pageTitle: "Tax / Depreciation Impact Calculator",
-    calculatorTitle: "Estimate tax impacts and depreciation benefits.",
-    subtitle: "Plan for deductions and understand their effect on net returns.",
-    tabs: { "Income": { inputs: ["Taxable Income"] }, "Expenses": { inputs: ["Depreciation"] } },
-    cat: "analysis",
-    icon: "receipt",
-    tooltip: "Taxable income minus depreciation benefits.",
-    calculate: (Inc, Dep) => Inc - Dep
-  },
-  cma: {
-    CalculatorName: "Comparative Market Analysis Calculator",
-    gridName: "CMA",
-    pageTitle: "Comparative Market Analysis Calculator",
-    calculatorTitle: "Perform a comparative market analysis easily.",
-    subtitle: "Compare properties to determine fair market value and pricing strategy.",
-    tabs: { "Key Details": { inputs: ["Market Value", "Property Value"] } },
-    cat: "valuation",
-    icon: "analytics",
-    tooltip: "Property value vs market value.",
-    calculate: (M, P) => ((M / P) * 100).toFixed(2) + "%"
-  },
-  leverageROI: {
-    CalculatorName: "Leverage ROI Calculator",
-    gridName: "Leverage ROI",
-    pageTitle: "Leverage ROI Calculator",
-    calculatorTitle: "Evaluate leveraged returns with financing.",
-    subtitle: "See how loans amplify your ROI and understand associated risks.",
-    tabs: { "Income": { inputs: ["Cash Flow"] }, "Key Details": { inputs: ["Equity Invested"] } },
-    cat: "returns",
-    icon: "trending_up",
-    tooltip: "Return based on leveraged equity invested.",
-    calculate: (CF, EQ) => ((CF / EQ) * 100).toFixed(2) + "%"
-  }
-};
+  document.addEventListener("DOMContentLoaded", () => {
 
 
-/* ----------------------------------------------------
-   FORMAT INPUT WITH COMMAS + STORE CLEAN RAW NUMBERS
----------------------------------------------------- */
-function formatInputWithCommas(input, inputValues, key) {
-  input.addEventListener("input", () => {
-    let raw = input.value.replace(/,/g, "");
+    /* =====================
+    LOADING SCREEN
+    ===================== */
 
-    // Accept numbers only
-    if (!/^\d*\.?\d*$/.test(raw)) return;
+    const loader = document.querySelector(".loader");
 
-    inputValues[key] = raw; // save clean number (no commas)
+    setTimeout(() => {
 
-    if (raw === "") {
-      input.value = "";
-      return;
-    }
+        loader.classList.add("hide");
 
-    // Format for display
-    const parts = raw.split(".");
-    parts[0] = Number(parts[0]).toLocaleString();
-    input.value = parts.join(".");
-  });
-}
+    }, 900);
 
 
-/* ----------------------------------------------------
-   🔥 ADDED: SHORTEN BIG NUMBERS (B, M, K)
----------------------------------------------------- */
-function shortenBigNumber(num) {
-  num = Number(num);
-  if (num >= 1_000_000_000) return (num / 1_000_000_000).toFixed(2) + "B";
-  if (num >= 1_000_000)     return (num / 1_000_000).toFixed(2) + "M";
-  if (num >= 1000)          return num.toLocaleString();
-  return num.toString();
-}
 
 
-/* ------------------ CATEGORY CONTAINERS ------------------ */
-const categories = {
-  financing: document.getElementById("cat-financing"),
-  returns: document.getElementById("cat-returns"),
-  valuation: document.getElementById("cat-valuation"),
-  analysis: document.getElementById("cat-analysis")
-};
 
-/* ------------------ RENDER TILES ------------------ */
-Object.entries(calculators).forEach(([key, c]) => {
-  const tile = document.createElement("div");
-  tile.className = "tile";
-  tile.dataset.tooltip = c.tooltip;
+    /* =====================
+    MOBILE MENU
+    ===================== */
 
-  tile.innerHTML = `
-    <span class="material-icons-outlined">${c.icon}</span>
-    <div>
-      <div class="grid-name">${c.gridName}</div>
-      <div>${c.calculatorTitle}</div>
-    </div>
-  `;
+    const toggle = document.querySelector(".mobile-toggle");
+    const nav = document.querySelector(".nav-links");
 
-  tile.onclick = () => {
-    loadCalculator(key);
-    window.location.hash = key;
-  };
+    toggle.addEventListener("click", () => {
 
-  categories[c.cat].appendChild(tile);
-});
+        nav.classList.toggle("active");
 
-  /* --------- TOP US CITIES FOR AUTOCOMPLETE --------- */
-const topCities = [
-  "New York, NY","Los Angeles, CA","Chicago, IL","Houston, TX","Phoenix, AZ",
-  "Philadelphia, PA","San Antonio, TX","San Diego, CA","Dallas, TX","San Jose, CA",
-  "Austin, TX","Jacksonville, FL","Fort Worth, TX","Columbus, OH","Charlotte, NC",
-  "San Francisco, CA","Indianapolis, IN","Seattle, WA","Denver, CO","Washington, DC",
-  "Boston, MA","El Paso, TX","Nashville, TN","Detroit, MI","Oklahoma City, OK",
-  "Portland, OR","Las Vegas, NV","Memphis, TN","Louisville, KY","Baltimore, MD",
-  "Milwaukee, WI","Albuquerque, NM","Tucson, AZ","Fresno, CA","Sacramento, CA",
-  "Kansas City, MO","Long Beach, CA","Mesa, AZ","Atlanta, GA","Colorado Springs, CO",
-  "Virginia Beach, VA","Raleigh, NC","Omaha, NE","Miami, FL","Oakland, CA",
-  "Minneapolis, MN","Tulsa, OK","Wichita, KS","New Orleans, LA","Arlington, TX"
-  // ...add more cities if needed
-];
+        toggle.classList.toggle("open");
 
-  /* ------------------ AUTOCOMPLETE FUNCTION ------------------ */
-function autocomplete(inp, arr) {
-  let currentFocus;
-
-  inp.addEventListener("input", function() {
-    let val = this.value;
-    closeAllLists();
-    if (!val) return false;
-    currentFocus = -1;
-
-    const listDiv = document.createElement("DIV");
-    listDiv.setAttribute("id", this.id + "-autocomplete-list");
-    listDiv.setAttribute("class", "autocomplete-items");
-    listDiv.style.border = "1px solid #ccc";
-    listDiv.style.borderTop = "none";
-    listDiv.style.position = "absolute";
-    listDiv.style.backgroundColor = "#fff";
-    listDiv.style.zIndex = "99";
-    listDiv.style.maxHeight = "200px";
-    listDiv.style.overflowY = "auto";
-    this.parentNode.appendChild(listDiv);
-
-arr.forEach(city => {
-      if (city.toLowerCase().includes(val.toLowerCase())) {
-        const item = document.createElement("DIV");
-        item.innerHTML = city.replace(new RegExp(val, "i"), match => `<strong>${match}</strong>`);
-        item.style.padding = "5px";
-        item.style.cursor = "pointer";
-        item.addEventListener("click", function() {
-          inp.value = city;
-          closeAllLists();
-        });
-        listDiv.appendChild(item);
-      }
     });
-  });
 
 
 
-  inp.addEventListener("keydown", function(e) {
-    let x = document.getElementById(this.id + "-autocomplete-list");
-    if (x) x = x.getElementsByTagName("div");
-    if (e.keyCode == 40) { currentFocus++; addActive(x); } // down
-    else if (e.keyCode == 38) { currentFocus--; addActive(x); } // up
-    else if (e.keyCode == 13) { e.preventDefault(); if (currentFocus > -1 && x) x[currentFocus].click(); } // enter
-  });
+    // Close menu after clicking a link
 
-  function addActive(x) {
-    if (!x) return false;
-    removeActive(x);
-    if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = x.length - 1;
-    x[currentFocus].classList.add("autocomplete-active");
-    x[currentFocus].style.backgroundColor = "#e9e9e9";
-  }
+    document.querySelectorAll(".nav-links a")
+    .forEach(link => {
 
-  function removeActive(x) {
-    for (let i = 0; i < x.length; i++) {
-      x[i].classList.remove("autocomplete-active");
-      x[i].style.backgroundColor = "#fff";
-    }
-  }
+        link.addEventListener("click", () => {
 
-  function closeAllLists(elmnt) {
-    const x = document.getElementsByClassName("autocomplete-items");
-    for (let i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != inp) x[i].parentNode.removeChild(x[i]);
-    }
-  }
+            nav.classList.remove("active");
 
-  document.addEventListener("click", function (e) {
-    closeAllLists(e.target);
-  });
-}
+            toggle.classList.remove("open");
 
-  /* ------------------ AUTO-DETECT LOCATION ------------------ */
-function autoDetectLocation(inputEl) {
-  fetch("https://ipapi.co/json/")
-    .then(res => res.json())
-    .then(data => {
-      let city = data.city || "";
-      let state = data.region || "";
-      if (city || state) {
-        inputEl.value = `${city}${city && state ? ", " : ""}${state}`;
-        inputEl.dispatchEvent(new Event("input")); // triggers autocomplete
-      }
-    })
-    .catch(err => console.warn("Location lookup failed:", err));
-}
+        });
 
-/* ------------------ COMMON ELEMENTS ------------------ */
-const allTiles = document.getElementsByClassName("tile");
-const titleEl = document.getElementById("calculatorTitle");
-const form = document.getElementById("calculatorForm");
-const resultEl = document.getElementById("mainResult");
+    });
 
-  /* ---------- STEP 1: GLOBAL LOCATION STORE ---------- */
-const savedLocation = { value: "" };
 
-/* ------------------ LOAD CALCULATOR ------------------ */
-function loadCalculator(key) {
-  if (!calculators[key]) return;
 
-  const calc = calculators[key];
 
-  document.getElementById("screenGrid").style.display = "none";
-  document.getElementById("screenCalculator").style.display = "block";
 
-  [...allTiles].forEach((t, i) =>
-    t.classList.toggle("active", Object.keys(calculators)[i] === key)
-  );
 
-  document.getElementById("pageTitle").textContent = calc.pageTitle;
-  titleEl.textContent = calc.calculatorTitle;
-  document.getElementById("subtitle").textContent = calc.subtitle;
 
-  form.innerHTML = "";
-  resultEl.textContent = "";
+    /* =====================
+    SCROLL REVEAL
+    ===================== */
 
-const inputValues = {};
-form.inputValues = inputValues;
+    const reveals = document.querySelectorAll(".reveal");
 
-  
 
-/* ------------------ TABS ------------------ */
-const tabContainer = document.createElement("div");
-tabContainer.className = "tab-container";
-form.appendChild(tabContainer);
+    const revealObserver = new IntersectionObserver(
 
-const tabContents = document.createElement("div");
-tabContents.className = "tab-contents";
-form.appendChild(tabContents);
+        entries => {
 
-const preferredOrder = ["Key Details", "Financing", "Income", "Expenses"];
-const tabNames = preferredOrder.filter(t => calc.tabs[t])
-  .concat(Object.keys(calc.tabs).filter(t => !preferredOrder.includes(t)));
+            entries.forEach(entry => {
 
-let activeTab = tabNames[0];
 
-function renderTabInputs(tab) {
-  tabContents.innerHTML = "";
-  activeTab = tab;
+                if(entry.isIntersecting){
 
-  calc.tabs[tab].inputs.forEach(name => {
-    const group = document.createElement("div");
-    group.className = "input-group";
+                    entry.target.classList.add("active");
 
-    // Label with info icon
-    const label = document.createElement("label");
-    label.textContent = name;
-    const info = document.createElement("span");
-    info.textContent = " ⓘ";
-    info.title = `Instruction for ${name}`; // Customize per field
-    label.appendChild(info);
+                    revealObserver.unobserve(entry.target);
 
-    let input;
+                }
 
-    // Property Type dropdown
-    if (name === "Property Type") {
-      input = document.createElement("select");
-      const propertyTypes = ["Single Family", "Condo", "Townhouse", "Duplex", "Triplex", "Fourplex", "Other"];
-      propertyTypes.forEach(pt => {
-        const option = document.createElement("option");
-        option.value = pt;
-        option.textContent = pt;
-        input.appendChild(option);
-      });
 
-      if (inputValues[name]) input.value = inputValues[name];
+            });
 
-      input.addEventListener("input", () => {
-        inputValues[name] = input.value;
-      });
+
+        },
+
+        {
+            threshold:0.15
+        }
+
+    );
+
+
+    reveals.forEach(item => {
+
+        revealObserver.observe(item);
+
+    });
+
+
+
+
+
+
+
+    /* =====================
+    NAVBAR EFFECT
+    ===================== */
+
+const header = document.querySelector(".header");
+
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+
+    const currentScroll = window.scrollY;
+
+
+    // Shrink header
+    if(currentScroll > 40){
+
+        header.style.padding = "12px 0";
 
     } else {
-      // Regular text / numeric input
-      input = document.createElement("input");
-      input.type = "text";
-      input.placeholder = name;
 
-      // Restore saved value if exists
-      if (inputValues[name]) {
-        if (!isNaN(inputValues[name]) && inputValues[name] !== "" && name !== "Market (City & State)") {
-          const raw = inputValues[name];
-          const parts = raw.toString().split(".");
-          parts[0] = Number(parts[0]).toLocaleString();
-          input.value = parts.join(".");
-        } else {
-          input.value = inputValues[name];
-        }
-      }
+        header.style.padding = "25px 0";
 
-      // Format numbers with commas except Market
-      if (name !== "Market (City & State)") {
-        formatInputWithCommas(input, inputValues, name);
-      }
-
-      // Market (City, State) input
-      if (name.includes("Market")) {
-        input.id = "marketLocation";
-
-        if (savedLocation.value) {
-          input.value = savedLocation.value;
-          inputValues[name] = savedLocation.value;
-        }
-
-        input.addEventListener("input", () => {
-          inputValues[name] = input.value;
-        });
-
-        // Attach autocomplete only for Market
-        setTimeout(() => {
-          autocomplete(input, topCities, selectedCity => {
-            input.value = selectedCity;
-            savedLocation.value = selectedCity;
-            inputValues[name] = selectedCity;
-          });
-
-          if (!savedLocation.value) {
-            autoDetectLocation(input);
-          }
-        }, 50);
-      } else {
-        // Save all other inputs automatically
-        input.addEventListener("input", () => {
-          inputValues[name] = input.value;
-        });
-      }
     }
 
-    group.appendChild(label);
-    group.appendChild(input);
-    tabContents.appendChild(group);
-  });
-}
 
-// Tabs
-tabNames.forEach(tab => {
-  const btn = document.createElement("div");
-  btn.className = "tab";
-  btn.textContent = tab;
-  if (tab === activeTab) btn.classList.add("active");
+    // Hide when scrolling down
+    if(currentScroll > lastScroll && currentScroll > 100){
 
-  btn.onclick = () => {
-    [...tabContainer.children].forEach(t => t.classList.remove("active"));
-    btn.classList.add("active");
-    renderTabInputs(tab);
-  };
+        header.classList.add("header-hidden");
 
-  tabContainer.appendChild(btn);
+    }
+
+    // Show when scrolling up
+    else {
+
+        header.classList.remove("header-hidden");
+
+    }
+
+
+    lastScroll = currentScroll;
+
 });
 
-renderTabInputs(activeTab);
 
 
 
-/* ------------------ ROI MARKET INPUT AUTOCOMPLETE ------------------ */
-if (calc.gridName === "ROI") {
-  const marketInput = [...form.querySelectorAll("input")].find(i => i.placeholder.includes("Market"));
-  if (marketInput) {
-    marketInput.id = "marketLocation"; // give it an ID for reference
-    autocomplete(marketInput, topCities); // attach autocomplete
-    autoDetectLocation(marketInput);      // auto-fill based on IP
-  }
+
+
+
+    /* =====================
+    MOUSE PARALLAX BLOBS
+    ===================== */
+
+
+    const blobs = document.querySelectorAll(".blob");
+
+
+  document.addEventListener("mousemove", (e)=>{
+
+    // Show header when mouse reaches the top (desktop only)
+    if (window.innerWidth >= 1024 && e.clientY < 80) {
+        header.classList.remove("header-hidden");
+    }
+
+    const x =
+    (e.clientX / window.innerWidth - .5) * 30;
+
+    const y =
+    (e.clientY / window.innerHeight - .5) * 30;
+
+    blobs.forEach((blob,index)=>{
+
+        const speed =
+        (index + 1) * .5;
+
+        blob.style.transform =
+        `translate(${x * speed}px, ${y * speed}px)`;
+
+    });
+
+});
+
+
+
+
+
+
+    /* =====================
+    BUTTON MAGNET EFFECT
+    ===================== */
+
+
+    const buttons =
+    document.querySelectorAll(".button");
+
+
+    buttons.forEach(button=>{
+
+
+        button.addEventListener("mousemove",(e)=>{
+
+
+            const rect =
+            button.getBoundingClientRect();
+
+
+            const x =
+            e.clientX - rect.left - rect.width/2;
+
+
+            const y =
+            e.clientY - rect.top - rect.height/2;
+
+
+
+            button.style.transform =
+            `translate(${x*.08}px, ${y*.08}px)`;
+
+
+        });
+
+
+
+        button.addEventListener("mouseleave",()=>{
+
+
+            button.style.transform="";
+
+
+        });
+
+
+    });
+
+
+
+
+
+
+
+    /* =====================
+    ACTIVE NAV LINK
+    ===================== */
+
+
+    const sections =
+    document.querySelectorAll("section");
+
+
+    const navLinks =
+    document.querySelectorAll(".nav-links a");
+
+
+    window.addEventListener("scroll",()=>{
+
+
+        let current="";
+
+
+        sections.forEach(section=>{
+
+
+            const sectionTop =
+            section.offsetTop - 150;
+
+
+            if(window.scrollY >= sectionTop){
+
+                current = section.getAttribute("id");
+
+            }
+
+
+        });
+
+
+
+        navLinks.forEach(link=>{
+
+
+            link.classList.remove("active");
+
+
+            if(link.getAttribute("href") === "#" + current){
+
+                link.classList.add("active");
+
+            }
+
+
+        });
+
+
+    });
+
+
+
+
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const stats = document.querySelector(".tm-heal100__stats");
+
+    if (!stats) return;
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) return;
+
+            document.querySelectorAll(".tm-heal100__number").forEach(counter => {
+
+                const target = Number(counter.dataset.count);
+                const duration = 1800;
+                const start = performance.now();
+
+                function animate(now){
+
+                    const progress = Math.min((now - start) / duration, 1);
+
+                    const value = Math.floor(progress * target);
+
+                    counter.textContent = value.toLocaleString();
+
+                    if(progress < 1){
+
+                        requestAnimationFrame(animate);
+
+                    }else{
+
+                        counter.textContent = target.toLocaleString() + "+";
+
+                    }
+
+                }
+
+                requestAnimationFrame(animate);
+
+            });
+
+            observer.disconnect();
+
+        });
+
+    }, {
+        threshold: 0.4
+    });
+
+    observer.observe(stats);
+
+});
+
+// =====================
+// WIZARD
+// =====================
+
+
+const wizard = document.getElementById("wizard");
+
+const openBtn = document.getElementById("openWizard");
+
+const closeBtn = document.querySelector(".wizard-close");
+
+
+const steps = document.querySelectorAll(".wizard-step");
+
+const answerButtons = document.querySelectorAll(".answers button");
+
+
+const progressFill = document.getElementById("wizardProgressFill");
+
+const currentStepText = document.getElementById("wizardCurrentStep");
+
+
+let currentStep = 0;
+
+
+
+
+
+function showStep(index){
+
+
+    steps.forEach(step=>{
+
+        step.classList.remove("active");
+
+    });
+
+
+
+    steps[index].classList.add("active");
+
+
+
+    let progress = ((index + 1) / steps.length) * 100;
+
+
+
+    if(progressFill){
+
+        progressFill.style.width = progress + "%";
+
+    }
+
+
+
+    if(currentStepText){
+
+        currentStepText.textContent = index + 1;
+
+    }
+
+
+
+    currentStep = index;
+
+
 }
 
 
-  /* ------------------ CALCULATE BUTTON ------------------ */
-  const button = document.createElement("button");
-  button.className = "calc-btn";
-  button.textContent = "Calculate";
 
-  button.onclick = (e) => {
+
+
+
+
+// OPEN
+
+
+openBtn.addEventListener("click", function(e){
+
+
     e.preventDefault();
 
-    const values = calc.tabs[activeTab].inputs.map(id => {
-      const val = inputValues[id];
-      return val !== undefined ? Number(val.replace(/,/g, "")) : NaN;
+
+    wizard.classList.add("active");
+
+
+    showStep(0);
+
+
+});
+
+
+
+
+
+
+
+// CLOSE
+
+
+closeBtn.addEventListener("click", function(){
+
+
+    wizard.classList.remove("active");
+
+
+});
+
+
+
+
+
+
+// CLICK OUTSIDE TO CLOSE
+
+
+wizard.addEventListener("click",function(e){
+
+
+    if(e.target === wizard){
+
+        wizard.classList.remove("active");
+
+    }
+
+
+});
+
+
+
+
+
+
+
+// ANSWERS AUTO NEXT
+
+
+answerButtons.forEach(button=>{
+
+
+    button.addEventListener("click",function(){
+
+
+        const question =
+        steps[currentStep]
+        .querySelector("h3")
+        .textContent;
+
+
+
+        const answer = this.textContent;
+
+
+
+        console.log({
+
+            question:question,
+
+            answer:answer
+
+        });
+
+
+
+
+        // small selected effect
+
+
+        this.classList.add("selected");
+
+
+
+
+        setTimeout(()=>{
+
+
+            if(currentStep < steps.length - 1){
+
+
+                showStep(currentStep + 1);
+
+
+            }
+
+
+        },250);
+
+
+
     });
 
-    const locationValue = calc.location ? inputValues["location"] : null;
 
-    if (values.some(v => isNaN(v))) {
-      // 🔥 ADDED — error uses H3
-      resultEl.innerHTML = "<h3>Please fill all inputs!</h3>";
-      return;
-    }
+});
 
-    let raw = calc.calculate(...values, locationValue);
 
-    /* ----------------------------------------------------
-       🔥 REPLACED RESULT HANDLING COMPLETELY
-    ---------------------------------------------------- */
+const track = document.querySelector(".tm-founders__grid");
+const cards = document.querySelectorAll(".tm-founder-card");
 
-    // Percent (string like "8.3%")
-    if (typeof raw === "string" && raw.includes("%")) {
-      resultEl.textContent = parseFloat(raw).toFixed(2) + "%";
-      return;
-    }
+const next = document.querySelector(".tm-next");
+const prev = document.querySelector(".tm-prev");
 
-    let num = Number(raw);
+const counter = document.querySelector(".tm-slider-count");
 
-    // shorten if more than 9 digits
-    const digitCount = Math.floor(Math.log10(Math.abs(num))) + 1;
+let current = 0;
 
-    if (digitCount > 9) {
-      resultEl.textContent = shortenBigNumber(num);
-    } else {
-      resultEl.textContent = num.toLocaleString();
-    }
-  };
+function updateSlider(){
 
-  form.appendChild(button);
+    const gap = 30;
+
+    const cardWidth = cards[0].offsetWidth + gap;
+
+    track.style.transform =
+        `translateX(-${current * cardWidth}px)`;
+
+    counter.textContent =
+        `${current + 1} / ${cards.length}`;
+
 }
 
-/* ------------------ BACK BUTTON ------------------ */
-document.getElementById("backBtn").onclick = () => {
-  document.getElementById("screenCalculator").style.display = "none";
-  document.getElementById("screenGrid").style.display = "block";
-  resultEl.textContent = "";
-  window.location.hash = "";
-};
+next.addEventListener("click",()=>{
 
-/* ------------------ HASH LOADING ------------------ */
-function tryLoadFromHash() {
-  const h = window.location.hash.replace("#", "");
-  if (h && calculators[h]) loadCalculator(h);
-}
+    current++;
 
-window.addEventListener("load", tryLoadFromHash);
-window.addEventListener("hashchange", tryLoadFromHash);
+    if(current >= cards.length){
+        current = 0;
+    }
+
+    updateSlider();
+
+});
+
+prev.addEventListener("click",()=>{
+
+    current--;
+
+    if(current < 0){
+        current = cards.length - 1;
+    }
+
+    updateSlider();
+
+});
+
+window.addEventListener("resize",updateSlider);
+
+updateSlider();
 
 
-</script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+
+    const workflow = document.querySelector(".tm-workflow");
+
+
+    if(!workflow) return;
 
 
 
+    const observer = new IntersectionObserver(
 
+        function(entries){
+
+            entries.forEach(entry=>{
+
+
+                if(entry.isIntersecting){
+
+
+                    workflow.classList.add("is-visible");
+
+
+                    observer.unobserve(workflow);
+
+
+                }
+
+
+            });
+
+
+        },
+
+        {
+            threshold:0.25
+        }
+
+
+    );
+
+
+
+    observer.observe(workflow);
+
+
+
+});
+
+    
+  </script>
 
 </body>
 </html>
