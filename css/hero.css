@@ -283,7 +283,6 @@
    MOBILE
 ================================ */
 
-
 @media (max-width:900px){
 
 .rility-hero{
@@ -293,51 +292,128 @@
 
 }
 
+
+/* Main content */
+
 .rility-hero__content{
 
-    height:calc(100svh - 60px);
+    width:90%;
 
     display:flex;
     flex-direction:column;
 
 }
 
+
+
+/* Move text lower and closer to search */
+
 .hero-copy{
 
-    margin-top:60px;
+    margin-top:90px;
 
     text-align:center;
 
 }
 
+
+/* Eyebrow */
+
+.rility-hero__eyebrow{
+
+    font-size:11px;
+
+    letter-spacing:1.8px;
+
+    margin-bottom:14px;
+
+}
+
+
+
+/* Main title */
+
+.rility-hero h1{
+
+    font-size:28px;
+
+    line-height:1.2;
+
+    letter-spacing:-.5px;
+
+    margin:0 auto;
+
+    max-width:330px;
+
+}
+
+
+
+/* Subtitle */
+
+.rility-hero p{
+
+    font-size:17px;
+
+    line-height:1.55;
+
+    max-width:330px;
+
+    margin:16px auto 0;
+
+    color:rgba(255,255,255,.82);
+
+}
+
+
+
+/* Search area */
+
 .hero-bottom{
 
-    margin-top:auto;
+    margin-top:35px;
 
     display:flex;
+
     flex-direction:column;
 
     align-items:center;
 
-    padding-bottom:40px;
-
-}
-
-    .property-search{
-        max-width:300px;
-    }
-
-
-    .rility-trust{
-
-        max-width:300px;
-
-        justify-content:center;
-
-        text-align:center;
-
-    }
-
 }
 
 
+
+/* Wider mobile search */
+
+.property-search{
+
+    width:90%;
+
+    max-width:360px;
+
+    height:78px;
+
+    margin:0 auto;
+
+    border-radius:26px;
+
+}
+
+
+
+/* Trust text */
+
+.rility-trust{
+
+    max-width:360px;
+
+    margin-top:16px;
+
+    text-align:center;
+
+    justify-content:center;
+
+}
+
+
+}
