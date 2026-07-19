@@ -443,3 +443,22 @@
 
 
 }
+
+@media (max-width:900px){
+
+    .hero-copy{
+        margin-top:110px;   /* was 60px or 90px */
+        margin-bottom:20px; /* reduce gap before search */
+        text-align:center;
+    }
+
+    .rility-hero h1{
+        font-size:34px;
+    }
+
+    .rility-hero p{
+        font-size:18px;
+        margin-top:14px;
+    }
+
+}
