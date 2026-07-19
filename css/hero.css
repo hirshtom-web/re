@@ -70,7 +70,7 @@
 
 .rility-hero h1 {
     font-size:clamp(38px,5vw,58px);
-    line-height:1.05;
+    line-height:1.2;
     max-width:750px;
     font-family:"Inter", sans-serif;
     letter-spacing:-1.5px;
