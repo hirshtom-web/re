@@ -447,7 +447,7 @@
 @media (max-width:900px){
 
     .hero-copy{
-        margin-top:110px;   /* was 60px or 90px */
+        margin-top:200px;   /* was 60px or 90px */
         margin-bottom:20px; /* reduce gap before search */
         text-align:center;
     }
