@@ -258,19 +258,13 @@
 ================================ */
 
 
-.rility-trust {
-
+.rility-trust{
     display:flex;
-
-    gap:30px;
-
-    margin-top:28px;
-
+    justify-content:center;
+    margin-top:20px;
+    text-align:center;
     font-size:13px;
-
-    color:
-    rgba(255,255,255,.75);
-
+    color:rgba(255,255,255,.75);
 }
 
 
