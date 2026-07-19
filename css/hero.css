@@ -460,4 +460,9 @@
         margin-top:14px;
     }
 
+   .property-search{
+    width:92%;
+    max-width:360px;
+}
+
 }
