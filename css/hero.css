@@ -346,8 +346,7 @@
 @media (max-width:900px){
 
 .rility-hero{
-
-    min-height:100svh;
+    min-height:calc(100svh + 50px);
     padding:30px 0;
 
 }
@@ -452,12 +451,13 @@
     }
 
     .rility-hero h1{
-        font-size:28px;
+        font-size:30px;
     }
 
     .rility-hero p{
         font-size:14px;
         margin-top:14px;
+       font-weight: 450;
     }
 
    .property-search{
