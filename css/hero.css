@@ -10,82 +10,51 @@
     overflow: hidden;
     color: #ffffff;
     padding:60px 0;
-    container: 1440px;
-    width:min(
-        90%,
-        var(--container)
-    );
-    margin:auto;
+    width:100%;
 }
 
 
-/* Background image */
+/* Background image FULL WIDTH */
 .rility-hero__background {
-    position: absolute;
-    inset: 0;
-    background-image: url("YOUR-HERO-IMAGE-URL");
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
+    position:absolute;
+    inset:0;
+    background-image:url("YOUR-HERO-IMAGE-URL");
+    background-size:cover;
+    background-position:center;
+    z-index:0;
 }
 
 
-/* Dark cinematic overlay */
+/* Overlay FULL WIDTH */
 .rility-hero__overlay {
-    position: absolute;
-    inset: 0;
+    position:absolute;
+    inset:0;
     background:
         linear-gradient(
             90deg,
             rgba(0,0,0,.65),
             rgba(0,0,0,.25)
         );
-    z-index: 1;
+    z-index:1;
 }
 
 
 
+/* CONTENT CONTAINER */
 .rility-hero__content {
-    position: relative;
-    z-index: 2;
-    max-width: 1440px;
-}
 
+    position:relative;
+    z-index:2;
 
+    width:min(
+        90%,
+        var(--container)
+    );
 
-.rility-hero__eyebrow {
-    font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: 450;
-    opacity: .85;
-    margin-bottom: 24px;
-}
+    max-width:1440px;
 
+    margin:auto;
 
-
-.rility-hero h1 {
-    font-size: clamp(42px,5vw,72px);
-    line-height: 1.05;
-    max-width: 750px;
-    font-family:"Inter", sans-serif;
-    letter-spacing:-1.5px;
-    font-weight:450;
-}
-
-
-.rility-hero h1 span {
-    display:block;
-    color:#ffffff;
-}
-
-
-
-.rility-hero p {
-    margin-top:24px;
-    max-width:560px;
-    font-size:18px;
-    line-height:1.6;
-    color:rgba(255,255,255,.85);
 }
 
 
