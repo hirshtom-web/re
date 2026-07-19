@@ -109,132 +109,145 @@
    SEARCH BAR
 ================================ */
 
-.property-search {
+
+.property-search{
 
     margin-top:50px;
 
     display:flex;
     align-items:center;
 
-    background:
-    rgba(255,255,255,.14);
+    width:100%;
+    max-width:560px;
+    height:72px;
+
+    background:rgba(255,255,255,.14);
 
     backdrop-filter:blur(25px);
-
     -webkit-backdrop-filter:blur(25px);
 
-    border:
-    1px solid rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.22);
 
-    border-radius:28px;
+    border-radius:999px;
 
-    padding:10px;
-
-    max-width:1100px;
+    padding:0 24px;
 
     box-shadow:
-    0 30px 80px rgba(0,0,0,.25);
+        0 30px 80px rgba(0,0,0,.25);
 
 }
 
 
-
-.search-item {
+.search-item{
 
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:16px;
 
-    padding:
-    18px 24px;
+    width:100%;
+}
 
-    border-right:
-    1px solid rgba(255,255,255,.2);
 
-    flex:1;
+/* Google-style search icon */
+
+.search-icon{
+
+    width:22px;
+    height:22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:rgba(255,255,255,.75);
+
+    flex-shrink:0;
+
+}
+
+.search-icon svg{
+
+    width:20px;
+    height:20px;
 
 }
 
 
+/* Text wrapper */
 
-.search-item span {
+.search-item div{
 
-    font-size:22px;
-    opacity:.9;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 
 }
 
 
+/* Small title */
 
-.search-item small {
-
-    display:block;
+.search-item small{
 
     font-size:11px;
 
-    color:
-    rgba(255,255,255,.65);
+    color:rgba(255,255,255,.65);
+
+    letter-spacing:.5px;
 
     margin-bottom:4px;
 
 }
 
 
+/* Typing text */
 
-.search-item strong {
+#typing-search{
 
-    font-size:15px;
+    display:block;
 
+    height:22px;
+    line-height:22px;
+
+    font-size:16px;
     font-weight:500;
 
-}
+    color:#fff;
 
-
-
-
-.search-button {
-
-    height:60px;
-
-    padding:
-    0 32px;
-
-    border-radius:22px;
-
-    border:none;
-
-    background:#ffffff;
-
-    color:#111111;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    cursor:pointer;
-
-    transition:.3s;
+    white-space:nowrap;
+    overflow:hidden;
 
 }
 
 
+/* Cursor */
 
-.search-button:hover {
+#typing-search::after{
 
-    transform:translateY(-2px);
+    content:"|";
 
-    box-shadow:
-    0 15px 30px rgba(0,0,0,.2);
+    margin-left:3px;
+
+    animation:blink .8s infinite;
 
 }
 
 
+@keyframes blink{
+
+    50%{
+        opacity:0;
+    }
+
+}
+
+
+/* Optional button (if you keep one) */
+
+.search-button{
+
+    display:none;
+
+}
 
 /* ==============================
    TRUST ROW
