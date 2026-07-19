@@ -259,14 +259,19 @@
 
 
 .rility-trust{
+
+    width:100%;
+    max-width:560px;   /* Same width as the search bar */
+
+    margin-top:18px;
+
     display:flex;
-    justify-content:center;
-    margin-top:20px;
-    text-align:center;
+    justify-content:flex-start;
+
     font-size:13px;
     color:rgba(255,255,255,.75);
-}
 
+}
 
 
 
@@ -313,5 +318,18 @@
     padding-bottom:40px;
 
 }
+
+
+.rility-trust{
+
+    max-width:300px;   /* Same as your mobile search bar */
+
+    justify-content:flex-start;
+    text-align:left;
+
+    margin:18px auto 0;
+
+}
+
 
 }
