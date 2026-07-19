@@ -283,6 +283,7 @@
    MOBILE
 ================================ */
 
+
 @media (max-width:900px){
 
 .rility-hero{
@@ -292,128 +293,49 @@
 
 }
 
-
-/* Main content */
-
 .rility-hero__content{
 
-    width:90%;
+    height:calc(100svh - 60px);
 
     display:flex;
     flex-direction:column;
 
 }
 
-
-
-/* Move text lower and closer to search */
-
 .hero-copy{
 
-    margin-top:90px;
+    margin-top:60px;
 
     text-align:center;
 
 }
 
-
-/* Eyebrow */
-
-.rility-hero__eyebrow{
-
-    font-size:11px;
-
-    letter-spacing:1.8px;
-
-    margin-bottom:14px;
-
-}
-
-
-
-/* Main title */
-
-.rility-hero h1{
-
-    font-size:28px;
-
-    line-height:1.2;
-
-    letter-spacing:-.5px;
-
-    margin:0 auto;
-
-    max-width:330px;
-
-}
-
-
-
-/* Subtitle */
-
-.rility-hero p{
-
-    font-size:17px;
-
-    line-height:1.55;
-
-    max-width:330px;
-
-    margin:16px auto 0;
-
-    color:rgba(255,255,255,.82);
-
-}
-
-
-
-/* Search area */
-
 .hero-bottom{
 
-    margin-top:35px;
+    margin-top:auto;
 
     display:flex;
-
     flex-direction:column;
 
     align-items:center;
 
-}
-
-
-
-/* Wider mobile search */
-
-.property-search{
-
-    width:90%;
-
-    max-width:360px;
-
-    height:78px;
-
-    margin:0 auto;
-
-    border-radius:26px;
+    padding-bottom:40px;
 
 }
 
+    .property-search{
+        max-width:300px;
+    }
 
 
-/* Trust text */
+    .rility-trust{
 
-.rility-trust{
+        max-width:300px;
 
-    max-width:360px;
+        justify-content:center;
 
-    margin-top:16px;
+        text-align:center;
 
-    text-align:center;
-
-    justify-content:center;
-
-}
-
+    }
 
 }
