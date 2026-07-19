@@ -282,37 +282,25 @@
 .rility-hero{
 
     min-height:100svh;
-    padding:40px 0;
+    padding:30px 0;
 
-    align-items:stretch;
 }
 
 .rility-hero__content{
 
-    width:90%;
-    height:100%;
+    height:calc(100svh - 60px);
 
     display:flex;
     flex-direction:column;
+
 }
 
 .hero-copy{
 
-    margin-top:80px;
+    margin-top:60px;
 
     text-align:center;
-}
 
-.rility-hero h1{
-
-    margin:0 auto;
-    max-width:100%;
-}
-
-.rility-hero p{
-
-    margin:20px auto 0;
-    max-width:340px;
 }
 
 .hero-bottom{
@@ -324,32 +312,8 @@
 
     align-items:center;
 
-    padding-bottom:30px;
-}
+    padding-bottom:40px;
 
-.property-search{
-
-    width:100%;
-    max-width:300px;
-
-    height:72px;
-
-    margin:0 auto 24px;
-
-    border-radius:24px;
-}
-
-.rility-trust{
-
-    flex-direction:column;
-
-    align-items:center;
-
-    text-align:center;
-
-    gap:10px;
-
-    margin-top:0;
 }
 
 }
