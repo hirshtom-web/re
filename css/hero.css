@@ -431,7 +431,7 @@
 
 .hero-bottom{
 
-    margin-top:35px;
+    margin-top:20px;
 
     display:flex;
 
@@ -447,8 +447,7 @@
 @media (max-width:900px){
 
     .hero-copy{
-        margin-top:200px;   /* was 60px or 90px */
-        margin-bottom:20px; /* reduce gap before search */
+        margin-top:170px;   /* was 60px or 90px */
         text-align:center;
     }
 
