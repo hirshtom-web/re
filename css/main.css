@@ -633,57 +633,91 @@ font-size:clamp(38px,5vw,58px);
 
 }
 
-.glass-card {
+/* ==============================
+   PROPERTY GLASS CARD
+================================ */
 
-    background:
-    rgba(255,255,255,.65);
+.glass-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
 
     backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
     border:1px solid var(--border);
     border-radius:var(--radius-lg);
+
     padding:45px;
+
     box-shadow:var(--shadow);
 
-}
-
-.glass-card small {
-
-    color:var(--muted);
+    min-height:560px; /* keeps roughly the same size */
 
 }
 
-.glass-card h3 {
 
-    font-size:36px;
-    margin:25px 0 40px;
+/* Full background image */
 
-}
+.property-bg{
 
-.mini-stats {
+    position:absolute;
 
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    inset:0;
 
-}
+    width:100%;
+    height:100%;
 
-.mini-stats strong {
-
-    display:block;
-    font-size:32px;
+    object-fit:cover;
 
 }
 
-.mini-stats span {
 
-    color:var(--muted);
-    font-size:14px;
+/* Dark overlay */
+
+.property-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.90) 10%,
+            rgba(0,0,0,.55) 42%,
+            rgba(0,0,0,.12) 72%,
+            transparent 100%
+        );
 
 }
+
+
+/* Content */
+
+.property-content{
+
+    position:absolute;
+
+    left:38px;
+    right:38px;
+    bottom:38px;
+
+    z-index:2;
+
+}
+
+
+/* Featured */
 
 .property-label{
 
     display:block;
+
+    margin-bottom:10px;
 
     font-size:11px;
 
@@ -691,73 +725,71 @@ font-size:clamp(38px,5vw,58px);
 
     text-transform:uppercase;
 
-    color:rgba(255,255,255,.65);
-
-    margin-bottom:18px;
+    color:rgba(255,255,255,.70);
 
 }
+
+
+/* Property Name */
 
 .property-name{
 
     font-size:34px;
 
-    line-height:1.15;
+    line-height:1.1;
 
     font-weight:500;
 
-    margin-bottom:18px;
+    color:#fff;
+
+    margin-bottom:10px;
 
 }
 
-.property-name span{
 
-    display:block;
-
-}
+/* Location */
 
 .property-location{
 
-    font-size:17px;
+    font-size:16px;
 
     color:rgba(255,255,255,.78);
 
-    margin-bottom:40px;
+    margin-bottom:22px;
 
 }
 
-.property-price small{
 
-    display:block;
+/* Bottom Row */
 
-    font-size:11px;
+.property-meta{
 
-    letter-spacing:1.5px;
+    display:flex;
 
-    text-transform:uppercase;
+    justify-content:space-between;
 
-    color:rgba(255,255,255,.6);
+    align-items:center;
 
-}
-
-.property-price strong{
-
-    display:block;
-
-    margin-top:6px;
-
-    font-size:34px;
+    font-size:15px;
 
     font-weight:500;
 
+    color:#fff;
+
 }
+
+
+/* Pagination */
 
 .property-pagination{
 
     display:flex;
 
+    justify-content:center;
+
     gap:8px;
 
-    margin-top:38px;
+    margin-top:22px;
 
 }
 
@@ -768,7 +800,9 @@ font-size:clamp(38px,5vw,58px);
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.28);
+    background:rgba(255,255,255,.35);
+
+    transition:.3s;
 
 }
 
@@ -776,130 +810,7 @@ font-size:clamp(38px,5vw,58px);
 
     width:24px;
 
-    border-radius:20px;
-
-    background:#ffffff;
-
-}
-
-.property-image{
-
-    height:190px;
-
-    overflow:hidden;
-
-    border-radius:22px 22px 0 0;
-
-}
-
-.property-image img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-}
-
-.property-content{
-
-    padding:26px 28px 30px;
-
-}
-
-.property-label{
-
-    display:block;
-
-    font-size:11px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    color:rgba(255,255,255,.65);
-
-    margin-bottom:14px;
-
-}
-
-.property-name{
-
-    font-size:30px;
-
-    line-height:1.1;
-
-    font-weight:500;
-
-    margin-bottom:14px;
-
-}
-
-.property-name span{
-
-    display:block;
-
-}
-
-.property-location{
-
-    color:rgba(255,255,255,.75);
-
-    margin-bottom:28px;
-
-}
-
-.property-price small{
-
-    display:block;
-
-    font-size:11px;
-
-    text-transform:uppercase;
-
-    letter-spacing:1.5px;
-
-    color:rgba(255,255,255,.6);
-
-}
-
-.property-price strong{
-
-    font-size:32px;
-
-    font-weight:500;
-
-}
-
-.property-pagination{
-
-    display:flex;
-
-    gap:8px;
-
-    margin-top:28px;
-
-}
-
-.property-pagination span{
-
-    width:8px;
-
-    height:8px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.3);
-
-}
-
-.property-pagination .active{
-
-    width:22px;
-
-    border-radius:20px;
+    border-radius:999px;
 
     background:#fff;
 
