@@ -21,11 +21,12 @@
 
 
 
-.contact-sidebar {
-    position: sticky;
-    top: 30px;
-    align-self: start;
-    height: fit-content;
+.contact-sidebar{
+
+    position:sticky;
+
+    top:30px;
+
 }
 
 
