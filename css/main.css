@@ -768,6 +768,119 @@ font-size:clamp(38px,5vw,58px);
 
 }
 
+@media(max-width:900px){
+
+.hero-gallery{
+
+    height:520px;
+
+    width:120%;
+
+    left:-10%;
+
+}
+
+
+/* slightly larger cards */
+
+.property-thumb{
+
+    width:clamp(150px,42vw,190px);
+
+    border-radius:24px;
+
+}
+
+
+/* create more organic layout */
+
+.thumb-1{
+
+    top:20px;
+    left:8%;
+
+}
+
+
+.thumb-2{
+
+    top:90px;
+    right:-8%;
+
+}
+
+
+.thumb-3{
+
+    bottom:80px;
+    left:-6%;
+
+}
+
+
+.thumb-4{
+
+    bottom:10px;
+    right:12%;
+
+}
+
+
+/* softer floating */
+
+.property-thumb{
+
+    animation-duration:14s;
+
+}
+
+
+/* pill adjustments */
+
+.location-pill{
+
+    padding:8px 14px;
+
+    font-size:12px;
+
+}
+
+
+/* individual pill positions */
+
+.thumb-1 .location-pill{
+
+    top:-10px;
+    left:20px;
+
+}
+
+
+.thumb-2 .location-pill{
+
+    bottom:-12px;
+    right:15px;
+
+}
+
+
+.thumb-3 .location-pill{
+
+    top:45%;
+    left:-20px;
+
+}
+
+
+.thumb-4 .location-pill{
+
+    bottom:15px;
+    left:-15px;
+
+}
+
+}
+
 /* =====================
 SECTION TITLES
 ===================== */
