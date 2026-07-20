@@ -210,6 +210,10 @@ LOWER FOOTER
 
 }
 
+.lower-footer .logo-img {
+    filter: brightness(0) invert(1);
+}
+
 
 
 @media(max-width:900px){
