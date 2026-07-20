@@ -311,13 +311,17 @@ Why Investors Are Watching This Opportunity
 <div class="card-grid">
 
 <article class="info-card">
-    <h3>Early Pricing Advantage</h3>
 
-    <p class="card-text">
-        Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases.
-    </p>
+<h3>Early Pricing Advantage</h3>
 
-    <button class="read-more">Read more</button>
+<p class="card-preview">
+Pre-construction buyers gain access before completion, allowing potential appreciation during development.
+</p>
+
+<button class="read-more" onclick="openPopup()">
+Read more
+</button>
+
 </article>
 
 
@@ -328,7 +332,9 @@ Why Investors Are Watching This Opportunity
         Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases.
     </p>
 
-    <button class="read-more">Read more</button>
+    <button class="read-more" onclick="openPopup()">
+Read more
+</button>
 </article>
 
 
@@ -339,7 +345,9 @@ Why Investors Are Watching This Opportunity
         Florida's population growth and tourism economy continue supporting long-term and seasonal rental demand.
     </p>
 
-    <button class="read-more">Read more</button>
+    <button class="read-more" onclick="openPopup()">
+Read more
+</button>
 </article>
 
 </div>
@@ -672,6 +680,20 @@ Request Information →
 
 </div>
 
+  <div class="info-popup" id="infoPopup">
+
+<div class="popup-content">
+
+<button class="close-popup" onclick="closePopup()">×</button>
+
+<h3 id="popupTitle"></h3>
+
+<p id="popupText"></p>
+
+</div>
+
+</div>
+  
 
 
 <script src="../js/residence-data.js"></script>
