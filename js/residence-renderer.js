@@ -1,63 +1,244 @@
-const residenceData = {
-
-title:
-"Azure Residences",
-
-subtitle:
-"Luxury waterfront residences designed for investors and lifestyle buyers.",
-
-location:
-"Miami Beach, Florida",
-
-image:
-"https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
+/*
+    Residence Renderer
+    Populates luxury residence page from residence-data.js
+*/
 
 
-price:
-"From $1.25M",
-
-beds:
-"1 - 4 Bedrooms",
-
-delivery:
-"2028",
-
-status:
-"Pre-Construction",
+document.addEventListener("DOMContentLoaded", () => {
 
 
-investmentHighlights:[
-
-"Early access pricing before completion",
-
-"Strong Florida population growth",
-
-"High demand luxury rental market",
-
-"Prime waterfront location"
-
-],
+    if(typeof residenceData === "undefined"){
+        console.warn("No residence data found.");
+        return;
+    }
 
 
-amenities:[
 
-"Infinity Pool",
-
-"Private Beach Club",
-
-"Fitness & Wellness Center",
-
-"Concierge Services",
-
-"Residents Lounge",
-
-"Smart Home Technology"
-
-],
+    renderResidence(residenceData);
 
 
-overview:
-"Azure Residences offers a rare opportunity to own in one of Florida’s most desirable markets. Combining luxury living with long-term investment potential, the development provides exceptional lifestyle appeal and future value."
+
+});
 
 
-};
+
+
+
+function renderResidence(data){
+
+
+
+    /*
+        HERO
+    */
+
+
+    const title = document.querySelector("h1");
+
+    if(title){
+
+        title.innerHTML = `
+            ${data.title}
+
+            <span>
+                ${data.subtitle}
+            </span>
+        `;
+
+    }
+
+
+
+    const description = document.querySelector(".hero-content p");
+
+    if(description){
+
+        description.textContent = data.description;
+
+    }
+
+
+
+
+
+    /*
+        HERO BUTTON
+    */
+
+
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach(button=>{
+
+        if(data.cta){
+
+            button.textContent = data.cta;
+
+        }
+
+    });
+
+
+
+
+
+
+
+    /*
+        GALLERY
+    */
+
+
+    const galleryMain =
+    document.querySelector(".gallery-main img");
+
+
+    const thumbnails =
+    document.querySelector(".gallery-thumbs");
+
+
+
+    if(data.images && data.images.length){
+
+
+
+        if(galleryMain){
+
+            galleryMain.src = data.images[0];
+
+        }
+
+
+
+        if(thumbnails){
+
+
+            thumbnails.innerHTML = "";
+
+
+
+            data.images.forEach((image,index)=>{
+
+
+                const img =
+                document.createElement("img");
+
+
+                img.src = image;
+
+                img.alt = data.title;
+
+
+
+                img.addEventListener("click",()=>{
+
+
+                    galleryMain.src = image;
+
+
+                });
+
+
+
+                thumbnails.appendChild(img);
+
+
+            });
+
+
+
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+    /*
+        FACTS
+    */
+
+
+    const facts =
+    document.querySelectorAll(".fact-card");
+
+
+
+    if(data.facts){
+
+
+        facts.forEach((card,index)=>{
+
+
+            if(data.facts[index]){
+
+
+                card.querySelector("span").textContent =
+                data.facts[index].label;
+
+
+                card.querySelector("strong").textContent =
+                data.facts[index].value;
+
+
+            }
+
+
+        });
+
+
+    }
+
+
+
+
+
+
+
+    /*
+        AMENITIES
+    */
+
+
+    const amenities =
+    document.querySelector(".amenity-grid");
+
+
+
+    if(amenities && data.amenities){
+
+
+        amenities.innerHTML="";
+
+
+        data.amenities.forEach(item=>{
+
+
+            const box =
+            document.createElement("div");
+
+
+            box.textContent=item;
+
+
+            amenities.appendChild(box);
+
+
+        });
+
+
+    }
+
+
+
+
+
+
+
+
+}
