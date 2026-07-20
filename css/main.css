@@ -646,7 +646,7 @@ font-size:clamp(38px,5vw,58px);
 
     position:absolute;
 
-    width:clamp(170px,22vw,260px);
+    width: clamp(140px, 18vw, 220px);
 
     aspect-ratio:1;
 
