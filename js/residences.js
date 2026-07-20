@@ -1,87 +1,512 @@
-const residences = {
+*{
+    box-sizing:border-box;
+}
 
-    "azure-residences": {
+body{
 
-        title:
-        "Azure Residences",
+    margin:0;
 
-        subtitle:
-        "Luxury waterfront living in Miami Beach",
+    font-family:"Inter",sans-serif;
 
-        location:
-        "Miami Beach, Florida",
+    background:#0b0b12;
 
-        heroImage:
-        "https://static.wixstatic.com/media/1799ca_82f8553239c6465c9143f4d15d26f40d~mv2.jpg",
+    color:white;
 
-
-        price:
-        "From $2.45M",
+}
 
 
-        bedrooms:
-        "2 - 5 Bedrooms",
+.residence-page{
+
+    overflow:hidden;
+
+}
 
 
-        type:
-        "Luxury Condominium",
+
+/* HERO */
+
+.residence-hero{
+
+    height:90vh;
+
+    min-height:700px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:flex-end;
+
+}
 
 
-        developer:
-        "Premium Developer",
+.hero-image{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
 
 
-        completion:
-        "2028",
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.8)
+    );
+
+}
 
 
-        highlights:[
 
-            "Oceanfront residences",
+.hero-content{
 
-            "Private amenities",
+    position:relative;
 
-            "Flexible ownership options",
+    z-index:2;
 
-            "High-demand location"
+    max-width:1200px;
 
-        ],
+    width:90%;
 
+    margin:auto;
 
-        overview:
+    padding-bottom:100px;
 
-        `
-        Azure Residences offers a rare opportunity
-        to own a luxury residence in one of Florida's
-        most desirable coastal destinations.
-        `,
+}
 
 
-        amenities:[
 
-            "Infinity pool",
+.eyebrow{
 
-            "Fitness center",
+    font-size:12px;
 
-            "Spa",
+    letter-spacing:3px;
 
-            "Private lounge",
+    color:#ddd;
 
-            "Valet service"
-
-        ],
+}
 
 
-        gallery:[
 
-            "image1.jpg",
+.hero-content h1{
 
-            "image2.jpg",
+    font-size:clamp(42px,6vw,75px);
 
-            "image3.jpg"
+    line-height:1.05;
 
-        ]
+    max-width:800px;
 
-    }
+    margin:25px 0;
 
-};
+
+}
+
+
+
+.hero-content h1 span{
+
+    display:block;
+
+    color:#f59e0b;
+
+}
+
+
+
+.hero-content p{
+
+    max-width:600px;
+
+    font-size:20px;
+
+    line-height:1.6;
+
+    color:#ddd;
+
+}
+
+
+
+button{
+
+    margin-top:30px;
+
+    padding:18px 35px;
+
+    border-radius:999px;
+
+    border:0;
+
+    background:white;
+
+    color:#111;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+
+/* STATS */
+
+
+.residence-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    max-width:1200px;
+
+    margin:-50px auto 80px;
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+.residence-stats div{
+
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    padding:35px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+}
+
+
+.residence-stats span{
+
+    display:block;
+
+    color:#aaa;
+
+    font-size:13px;
+
+    margin-bottom:10px;
+
+}
+
+
+.residence-stats strong{
+
+    font-size:20px;
+
+}
+
+
+
+
+
+/* SECTIONS */
+
+
+.section{
+
+    width:min(1200px,90%);
+
+    margin:100px auto;
+
+}
+
+
+
+h2{
+
+    font-size:42px;
+
+    margin-bottom:50px;
+
+}
+
+
+
+
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.feature-card{
+
+    background:#15151d;
+
+    padding:35px;
+
+    border-radius:28px;
+
+}
+
+
+
+.feature-card p{
+
+    color:#bbb;
+
+    line-height:1.6;
+
+}
+
+
+
+
+
+
+
+/* SPLIT */
+
+
+.split-section{
+
+    width:min(1200px,90%);
+
+    margin:120px auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+
+
+.split-section img{
+
+    width:100%;
+
+    border-radius:35px;
+
+}
+
+
+
+.split-section li{
+
+    margin:18px 0;
+
+    color:#ccc;
+
+}
+
+
+
+
+
+
+
+
+.amenity-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+
+.amenity-grid div{
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:#15151d;
+
+}
+
+
+
+
+
+
+
+
+.investment-box{
+
+    width:min(1200px,90%);
+
+    margin:100px auto;
+
+    padding:50px;
+
+    border-radius:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #111827,
+        #1e293b
+    );
+
+}
+
+
+
+.investment-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+.investment-grid div{
+
+    padding:25px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+}
+
+
+.investment-grid span{
+
+    display:block;
+
+    color:#aaa;
+
+    font-size:13px;
+
+}
+
+
+
+
+
+
+.location{
+
+    width:min(900px,90%);
+
+    margin:100px auto;
+
+    text-align:center;
+
+}
+
+
+
+.location p{
+
+    color:#bbb;
+
+    font-size:20px;
+
+}
+
+
+
+
+
+
+
+.residence-cta{
+
+    text-align:center;
+
+    padding:100px 20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #22c55e
+    );
+
+}
+
+
+
+
+footer{
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#999;
+
+}
+
+
+
+
+
+
+@media(max-width:900px){
+
+
+.residence-stats{
+
+    grid-template-columns:1fr;
+
+    margin:0 20px 60px;
+
+}
+
+
+
+.feature-grid,
+.amenity-grid,
+.investment-grid,
+.split-section{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.hero-content{
+
+    padding-bottom:60px;
+
+}
+
+
+}
