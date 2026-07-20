@@ -1547,24 +1547,6 @@ CTA
 }
       
 
-/* =====================
-FOOTER
-===================== */
-
-footer {
-
-    padding:40px 0;
-
-}
-
-.footer-inner {
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    color:var(--muted);
-
-}
 
 /* =====================
 ANIMATIONS
@@ -1768,17 +1750,6 @@ RESPONSIVE
     font-size:21px;
 
 }
-
-.footer-inner {
-
-    flex-direction:column;
-    gap:20px;
-
-}
-
-}
-
-
 
 /* =====================
 ACCESSIBILITY
