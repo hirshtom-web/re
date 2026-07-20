@@ -1,12 +1,9 @@
 /* =====================================
  residence  -  Luxury Pre-Construction Template
 ===================================== */
-
-
 *{
     box-sizing:border-box;
 }
-
 
 body{
 
@@ -14,9 +11,9 @@ body{
 
     font-family:"Inter",sans-serif;
 
-    color:#111;
+    background:#0b0b12;
 
-    background:#fafafa;
+    color:white;
 
 }
 
@@ -28,84 +25,20 @@ body{
 }
 
 
-img{
 
-    max-width:100%;
-
-    display:block;
-
-}
-
-
-
-h1,h2,h3{
-
-    margin:0;
-
-    font-weight:500;
-
-}
-
-
-
-section{
-
-    padding:100px 6%;
-
-}
-
-
-
-.button{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:18px 38px;
-
-    border-radius:999px;
-
-    background:#111;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:15px;
-
-    transition:.3s;
-
-}
-
-
-.button:hover{
-
-    transform:translateY(-3px);
-
-}
-
-
-
-
-
-
-/* =====================================
-   HERO
-===================================== */
-
+/* HERO */
 
 .residence-hero{
 
-    height:100vh;
+    height:90vh;
 
-    min-height:800px;
+    min-height:700px;
 
     position:relative;
 
-    color:white;
+    display:flex;
+
+    align-items:flex-end;
 
 }
 
@@ -116,11 +49,6 @@ section{
 
     inset:0;
 
-}
-
-
-.hero-image img{
-
     width:100%;
 
     height:100%;
@@ -128,7 +56,6 @@ section{
     object-fit:cover;
 
 }
-
 
 
 .hero-overlay{
@@ -141,7 +68,7 @@ section{
     linear-gradient(
         180deg,
         rgba(0,0,0,.15),
-        rgba(0,0,0,.65)
+        rgba(0,0,0,.8)
     );
 
 }
@@ -154,15 +81,13 @@ section{
 
     z-index:2;
 
-    height:100%;
+    max-width:1200px;
 
-    display:flex;
+    width:90%;
 
-    flex-direction:column;
+    margin:auto;
 
-    justify-content:flex-end;
-
-    padding:0 6% 100px;
+    padding-bottom:100px;
 
 }
 
@@ -174,9 +99,7 @@ section{
 
     letter-spacing:3px;
 
-    opacity:.85;
-
-    margin-bottom:25px;
+    color:#ddd;
 
 }
 
@@ -184,140 +107,60 @@ section{
 
 .hero-content h1{
 
-    font-size:clamp(45px,6vw,80px);
-
-    max-width:900px;
+    font-size:clamp(42px,6vw,75px);
 
     line-height:1.05;
 
-}
+    max-width:800px;
 
+    margin:25px 0;
 
-
-#residence-location{
-
-    margin-top:20px;
-
-    font-size:22px;
-
-    opacity:.9;
 
 }
 
 
 
-
-.hero-stats{
-
-    display:flex;
-
-    gap:25px;
-
-    margin:45px 0;
-
-}
-
-
-
-.hero-stats div{
-
-    padding:18px 28px;
-
-    border-radius:22px;
-
-    background:rgba(255,255,255,.15);
-
-    backdrop-filter:blur(15px);
-
-}
-
-
-
-.hero-stats span{
+.hero-content h1 span{
 
     display:block;
 
-    font-size:12px;
-
-    opacity:.7;
-
-    margin-bottom:8px;
+    color:#f59e0b;
 
 }
 
 
 
-.hero-stats strong{
+.hero-content p{
 
-    font-size:22px;
+    max-width:600px;
 
-}
+    font-size:20px;
 
+    line-height:1.6;
 
-
-
-
-
-/* =====================================
-   GALLERY
-===================================== */
-
-
-.gallery{
-
-    display:grid;
-
-    grid-template-columns:1.5fr 1fr;
-
-    gap:25px;
+    color:#ddd;
 
 }
 
 
 
-.gallery-main{
+button{
 
-    height:650px;
+    margin-top:30px;
 
-}
+    padding:18px 35px;
 
+    border-radius:999px;
 
+    border:0;
 
-.gallery-main img{
+    background:white;
 
-    width:100%;
+    color:#111;
 
-    height:100%;
+    font-size:16px;
 
-    object-fit:cover;
-
-    border-radius:35px;
-
-}
-
-
-
-.gallery-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:20px;
-
-}
-
-
-
-.gallery-grid img{
-
-    height:315px;
-
-    width:100%;
-
-    object-fit:cover;
-
-    border-radius:28px;
+    cursor:pointer;
 
 }
 
@@ -326,96 +169,81 @@ section{
 
 
 
-
-/* =====================================
-   SNAPSHOT
-===================================== */
+/* STATS */
 
 
-.snapshot{
+.residence-stats{
 
     display:grid;
 
     grid-template-columns:repeat(4,1fr);
 
-    gap:20px;
+    max-width:1200px;
+
+    margin:-50px auto 80px;
+
+    position:relative;
+
+    z-index:5;
 
 }
 
 
-.snapshot div{
+.residence-stats div{
 
-    background:white;
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
 
     padding:35px;
 
-    border-radius:28px;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.06);
+    border:1px solid rgba(255,255,255,.15);
 
 }
 
 
-
-.snapshot span{
+.residence-stats span{
 
     display:block;
 
+    color:#aaa;
+
     font-size:13px;
 
-    color:#777;
-
-    margin-bottom:12px;
+    margin-bottom:10px;
 
 }
 
 
-
-.snapshot strong{
-
-    font-size:22px;
-
-}
-
-
-
-
-
-
-
-
-/* =====================================
-   TEXT SECTIONS
-===================================== */
-
-
-.content-section{
-
-    max-width:1100px;
-
-}
-
-
-
-.section-title h2,
-section h2{
-
-    font-size:48px;
-
-    margin-bottom:35px;
-
-}
-
-
-
-.section-title p{
+.residence-stats strong{
 
     font-size:20px;
 
-    line-height:1.8;
+}
 
-    color:#555;
+
+
+
+
+/* SECTIONS */
+
+
+.section{
+
+    width:min(1200px,90%);
+
+    margin:100px auto;
+
+}
+
+
+
+h2{
+
+    font-size:42px;
+
+    margin-bottom:50px;
 
 }
 
@@ -423,14 +251,6 @@ section h2{
 
 
 
-
-
-/* =====================================
-   AMENITIES / FEATURES
-===================================== */
-
-
-.amenity-grid,
 .feature-grid{
 
     display:grid;
@@ -443,10 +263,9 @@ section h2{
 
 
 
-.amenity-grid div,
-.feature-grid div{
+.feature-card{
 
-    background:white;
+    background:#15151d;
 
     padding:35px;
 
@@ -456,23 +275,11 @@ section h2{
 
 
 
+.feature-card p{
 
+    color:#bbb;
 
-
-
-
-/* =====================================
-   UNITS
-===================================== */
-
-
-.unit-table{
-
-    background:white;
-
-    border-radius:30px;
-
-    padding:30px;
+    line-height:1.6;
 
 }
 
@@ -482,12 +289,14 @@ section h2{
 
 
 
-/* =====================================
-   LOCATION
-===================================== */
+/* SPLIT */
 
 
-.location{
+.split-section{
+
+    width:min(1200px,90%);
+
+    margin:120px auto;
 
     display:grid;
 
@@ -501,33 +310,9 @@ section h2{
 
 
 
-.location-copy p{
-
-    font-size:18px;
-
-    line-height:1.7;
-
-    color:#555;
-
-}
-
-
-
-.location ul{
-
-    padding-left:20px;
-
-}
-
-
-
-.map iframe{
+.split-section img{
 
     width:100%;
-
-    height:450px;
-
-    border:0;
 
     border-radius:35px;
 
@@ -535,21 +320,66 @@ section h2{
 
 
 
+.split-section li{
+
+    margin:18px 0;
+
+    color:#ccc;
+
+}
 
 
 
 
 
-/* =====================================
-   INVESTMENT
-===================================== */
 
 
-.investment{
 
-    background:#111;
+.amenity-grid{
 
-    color:white;
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+
+.amenity-grid div{
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:#15151d;
+
+}
+
+
+
+
+
+
+
+
+.investment-box{
+
+    width:min(1200px,90%);
+
+    margin:100px auto;
+
+    padding:50px;
+
+    border-radius:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #111827,
+        #1e293b
+    );
 
 }
 
@@ -559,39 +389,31 @@ section h2{
 
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:25px;
 
 }
 
 
-
 .investment-grid div{
 
-    background:rgba(255,255,255,.1);
+    padding:25px;
 
-    padding:40px;
+    background:rgba(255,255,255,.08);
 
-    border-radius:30px;
+    border-radius:20px;
 
 }
-
 
 
 .investment-grid span{
 
     display:block;
 
-    opacity:.7;
+    color:#aaa;
 
-}
-
-
-
-.investment-grid strong{
-
-    font-size:35px;
+    font-size:13px;
 
 }
 
@@ -600,70 +422,24 @@ section h2{
 
 
 
+.location{
 
+    width:min(900px,90%);
 
-/* =====================================
-   DEVELOPER
-===================================== */
-
-
-.developer-card{
-
-    background:white;
-
-    padding:50px;
-
-    border-radius:35px;
-
-    display:flex;
-
-    gap:40px;
-
-    align-items:center;
-
-}
-
-
-
-
-
-
-
-/* =====================================
-   CTA
-===================================== */
-
-
-.cta{
+    margin:100px auto;
 
     text-align:center;
 
-    background:#f1f1f1;
-
-    border-radius:50px;
-
-    margin:60px 6%;
-
 }
 
 
-.cta h2{
 
-    font-size:55px;
+.location p{
 
-}
-
-
-.cta p{
+    color:#bbb;
 
     font-size:20px;
 
-    color:#555;
-
-    margin:25px auto 40px;
-
-    max-width:600px;
-
 }
 
 
@@ -672,25 +448,58 @@ section h2{
 
 
 
-/* =====================================
-   MOBILE
-===================================== */
+.residence-cta{
+
+    text-align:center;
+
+    padding:100px 20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #22c55e
+    );
+
+}
+
+
+
+
+footer{
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#999;
+
+}
+
+
+
+
 
 
 @media(max-width:900px){
 
 
-section{
+.residence-stats{
 
-    padding:70px 20px;
+    grid-template-columns:1fr;
+
+    margin:0 20px 60px;
 
 }
 
 
 
-.residence-hero{
+.feature-grid,
+.amenity-grid,
+.investment-grid,
+.split-section{
 
-    min-height:850px;
+    grid-template-columns:1fr;
 
 }
 
@@ -698,96 +507,7 @@ section{
 
 .hero-content{
 
-    padding:0 25px 60px;
-
-}
-
-
-
-.hero-content h1{
-
-    font-size:42px;
-
-}
-
-
-
-.hero-stats{
-
-    flex-direction:column;
-
-}
-
-
-
-.gallery{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.gallery-main{
-
-    height:450px;
-
-}
-
-
-
-.gallery-grid{
-
-    grid-template-columns:1fr 1fr;
-
-}
-
-
-
-.snapshot{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.amenity-grid,
-.feature-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.location{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.investment-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.cta{
-
-    margin:20px;
-
-}
-
-
-
-.cta h2{
-
-    font-size:38px;
+    padding-bottom:60px;
 
 }
 
