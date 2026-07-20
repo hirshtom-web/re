@@ -1070,3 +1070,29 @@ h2{
 
 
 }
+
+
+.snapshot-grid {
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    width:100%;
+}
+
+
+.snapshot-grid > * {
+    min-width:0;
+}
+
+
+.investment-box {
+    width:100%;
+    overflow:hidden;
+}
+
+
+.timeline {
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+}
