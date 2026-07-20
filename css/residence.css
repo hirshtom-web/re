@@ -1237,7 +1237,11 @@ to {
 
 }
 
-.info-card {
+/* =========================
+   INFO CARDS
+========================= */
+
+.info-card{
 
     position:relative;
 
@@ -1247,76 +1251,82 @@ to {
 
     padding:32px;
 
-    height:320px; /* taller cards */
+    height:340px;
 
     overflow:hidden;
 
     transition:
-    transform .35s ease,
-    box-shadow .35s ease;
+        transform .35s ease,
+        box-shadow .35s ease;
 
 }
 
 
-.info-card:hover {
+.info-card:hover{
 
     transform:translateY(-6px);
 
     box-shadow:
-    0 18px 45px rgba(0,0,0,.12);
+        0 18px 45px rgba(0,0,0,.12);
 
 }
 
 
 
-/* TEXT AREA */
+/* TEXT */
 
-.card-description {
+.card-text{
 
-    height:150px;
+    max-height:155px;
 
     overflow:hidden;
 
     position:relative;
 
+    line-height:1.7;
+
 }
 
 
-.card-description:after {
+/* Fade only when JS adds this class */
+
+.card-text.has-overflow::after{
 
     content:"";
 
     position:absolute;
 
-    bottom:0;
-
     left:0;
 
-    width:100%;
+    right:0;
 
-    height:45px;
+    bottom:0;
 
-    background:
-    linear-gradient(
-        transparent,
-        white
+    height:48px;
+
+    pointer-events:none;
+
+    background:linear-gradient(
+        rgba(255,255,255,0),
+        rgba(255,255,255,.95) 65%,
+        #fff
     );
 
 }
 
 
 
-/* SIMPLE READ MORE */
+/* READ MORE */
 
-.read-more {
+.read-more{
 
     position:absolute;
 
-    bottom:25px;
-
     left:32px;
 
-    background:none;
+    bottom:20px;
+
+    background:none !important;
 
     border:none;
 
@@ -1330,15 +1340,19 @@ to {
 
     cursor:pointer;
 
-    transition:.25s ease;
+    transition:
+        color .25s ease,
+        opacity .25s ease;
 
 }
 
 
-.read-more:hover {
+.read-more:hover{
 
-    text-decoration:underline;
+    background:none !important;
 
     color:#005fa3;
+
+    text-decoration:underline;
 
 }
