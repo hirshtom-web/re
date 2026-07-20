@@ -95,9 +95,9 @@ body{
 
 .property-gallery{
 
-    width:min(90%,1440px);
+    width:100%;
 
-    margin:40px auto;
+    margin:40px 0;
 
     display:grid;
 
