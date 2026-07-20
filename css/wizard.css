@@ -1,0 +1,498 @@
+/* =====================
+HAIYAM WIZARD / POPUP
+===================== */
+
+.wizard-overlay{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:rgba(10,10,20,.45);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    z-index:9999;
+    padding:20px;
+
+    overflow-y:auto;
+}
+
+.wizard-overlay.active{
+    display:flex;
+}
+
+
+/* =====================
+MAIN WIZARD CARD
+===================== */
+
+.wizard{
+
+    width:100%;
+    max-width:500px;
+
+    background:#fff;
+
+    border-radius:32px;
+
+    padding:40px 35px 30px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.18);
+
+    font-family:"Inter",sans-serif;
+
+    box-sizing:border-box;
+
+}
+
+
+/* TOP GLOW */
+
+.wizard::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    top:-180px;
+    right:-80px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #EC4899,
+            #8B5CF6,
+            #3B82F6
+        );
+
+    filter:blur(90px);
+
+    opacity:.18;
+
+    pointer-events:none;
+
+}
+
+
+/* LOGO */
+
+.wizard-logo{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.wizard-logo img{
+
+    height:42px;
+
+    width:auto;
+
+}
+
+
+
+/* CLOSE BUTTON */
+
+.wizard-close{
+
+    position:absolute;
+
+    top:18px;
+    right:22px;
+
+    border:0;
+
+    background:none;
+
+    padding:5px;
+
+    font-size:26px;
+
+    line-height:1;
+
+    color:#555;
+
+    cursor:pointer;
+
+    z-index:3;
+
+}
+
+
+.wizard-close:hover{
+
+    color:#111;
+
+}
+
+
+
+/* =====================
+PROGRESS
+===================== */
+
+
+.wizard-progress{
+
+    margin-bottom:40px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.wizard-progress-bar{
+
+    width:100%;
+
+    height:5px;
+
+    background:#eee;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+#wizardProgressFill{
+
+    display:block;
+
+    height:100%;
+
+    width:25%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8B5CF6 0%,
+            #C026D3 50%,
+            #1b1158 100%
+        );
+
+    border-radius:20px;
+
+    transition:
+        width .5s ease;
+
+}
+
+
+.wizard-progress-text{
+
+    margin-top:12px;
+
+    font-size:13px;
+
+    color:#777;
+
+    text-align:right;
+
+}
+
+
+
+/* =====================
+STEPS
+===================== */
+
+
+.wizard-step{
+
+    display:none;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.wizard-step.active{
+
+    display:block;
+
+}
+
+
+
+.wizard-step h3{
+
+    font-size:28px;
+
+    line-height:1.15;
+
+    text-align:center;
+
+    margin:0 0 35px;
+
+    color:#111;
+
+}
+
+
+
+/* =====================
+ANSWERS
+===================== */
+
+
+.answers{
+
+    display:grid;
+
+    gap:15px;
+
+}
+
+
+
+.answers button{
+
+    width:100%;
+
+    position:relative;
+
+    text-align:left;
+
+    padding:18px 20px;
+
+    border-radius:18px;
+
+    background:#fff;
+
+    border:1px solid #e5e5e5;
+
+    font-size:16px;
+
+    color:#222;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+}
+
+
+
+.answers button:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:
+        0 12px 30px rgba(139,92,246,.12);
+
+}
+
+
+
+/* =====================
+INPUTS
+===================== */
+
+
+.wizard input,
+.wizard select{
+
+    width:100%;
+
+    padding:16px;
+
+    margin-bottom:14px;
+
+    border-radius:16px;
+
+    border:1px solid #ddd;
+
+    font-size:15px;
+
+    box-sizing:border-box;
+
+}
+
+
+
+.wizard input:focus,
+.wizard select:focus{
+
+    outline:none;
+
+    border-color:#8B5CF6;
+
+}
+
+
+
+.phone{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+
+.phone .area-code{
+
+    width:90px;
+
+    flex-shrink:0;
+
+}
+
+
+
+.phone .phone-number{
+
+    flex:1;
+
+}
+
+
+
+/* =====================
+SUBMIT
+===================== */
+
+
+.wizard .button{
+
+    width:100%;
+
+    margin-top:10px;
+
+}
+
+
+
+/* =====================
+DISCLAIMER
+===================== */
+
+
+.wizard-disclaimer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:30px;
+
+    font-size:12px;
+
+    color:#777;
+
+    text-align:center;
+
+}
+
+
+
+.wizard-disclaimer span{
+
+    width:18px;
+
+    height:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    background:#e8f7ee;
+
+    color:#16a34a;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+}
+
+
+
+/* =====================
+MOBILE
+===================== */
+
+
+@media(max-width:600px){
+
+
+    .wizard-overlay{
+
+        padding:15px;
+
+        align-items:flex-start;
+
+    }
+
+
+
+    .wizard{
+
+        margin:20px 0;
+
+        padding:30px 22px 25px;
+
+        border-radius:26px;
+
+    }
+
+
+
+    .wizard-step h3{
+
+        font-size:26px;
+
+        margin-bottom:28px;
+
+    }
+
+
+
+    .answers button{
+
+        padding:16px;
+
+    }
+
+
+}
