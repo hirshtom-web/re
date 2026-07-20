@@ -269,34 +269,54 @@ slider.addEventListener("scroll",()=>{
 
 }
 
-document.querySelectorAll(".read-more").forEach(button => {
-    button.addEventListener("click", () => {
-        const text = button.previousElementSibling;
+const popup = document.getElementById("popup");
 
-        text.classList.toggle("expanded");
+const popupTitle = document.getElementById("popup-title");
 
-        button.textContent = text.classList.contains("expanded")
-            ? "Read less"
-            : "Read more";
-    });
+const popupContent = document.getElementById("popup-content");
+
+
+document.querySelectorAll(".read-more").forEach(button=>{
+
+
+button.onclick=function(){
+
+
+const card=this.closest(".info-card");
+
+
+popupTitle.innerHTML =
+card.querySelector("h3").innerHTML;
+
+
+popupContent.innerHTML =
+card.querySelector(".card-description p").innerHTML;
+
+
+popup.style.display="flex";
+
+
+}
+
+
 });
 
 
-function openPopup(){
 
-    document.getElementById("popupTitle").innerHTML =
-    "Early Pricing Advantage";
+document.querySelector(".popup-close").onclick=function(){
 
-    document.getElementById("popupText").innerHTML =
-    "Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases. Early investors may benefit from developer incentives, preferred pricing, and increased value as construction progresses.";
+popup.style.display="none";
 
-    document.getElementById("infoPopup").style.display="flex";
-
-}
+};
 
 
-function closePopup(){
 
-    document.getElementById("infoPopup").style.display="none";
+popup.onclick=function(e){
+
+if(e.target===popup){
+
+popup.style.display="none";
 
 }
+
+};
