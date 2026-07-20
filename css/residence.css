@@ -93,14 +93,11 @@ body{
 ========================= */
 
 
-
 .property-gallery{
 
-    width:100%;
+    width:min(90%,1440px);
 
-    max-width:1440px;
-
-    margin:auto;
+    margin:40px auto;
 
     display:grid;
 
@@ -110,6 +107,8 @@ body{
 
     overflow:hidden;
 
+    border-radius:40px;
+
 }
 
 
@@ -117,6 +116,8 @@ body{
 .gallery-feature{
 
     height:700px;
+
+    overflow:hidden;
 
 }
 
@@ -130,8 +131,9 @@ body{
 
     object-fit:cover;
 
-}
+    display:block;
 
+}
 
 
 
@@ -142,8 +144,6 @@ body{
     grid-template-columns:1fr 1fr;
 
     gap:5px;
-   
-    border-radius:var(--radius-lg);
 
 }
 
@@ -156,6 +156,8 @@ body{
     height:347px;
 
     object-fit:cover;
+
+    display:block;
 
 }
 
