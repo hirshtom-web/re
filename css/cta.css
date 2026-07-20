@@ -1,5 +1,156 @@
 /* =====================
-HAIYAM WIZARD / POPUP
+CTA
+===================== */
+
+.cta {
+
+    text-align:center;
+    padding:90px 40px;
+    border-radius:40px;
+    background:#111;
+    color:white;
+    position:relative;
+    overflow:hidden;
+
+}
+
+.cta:before {
+
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent-two)
+    );
+
+    filter:blur(100px);
+    opacity:.45;
+    top:-250px;
+    left:30%;
+
+}
+
+.cta h2 {
+
+    position:relative;
+    font-size:clamp(40px,5vw,65px);
+    margin-bottom:25px;
+
+}
+
+.cta p {
+
+    position:relative;
+    max-width:650px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.7;
+    opacity:.8;
+    margin-bottom:40px;
+
+}
+
+.cta .button {
+
+    position:relative;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:14px 28px;
+
+    border-radius:50px;
+
+    color:#fff!important;
+
+    background:transparent;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    z-index:1;
+
+}
+
+
+/* animated gradient stroke */
+
+.cta .button::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50px;
+
+    padding:2px;
+
+    background:linear-gradient(
+        90deg,
+        #EC4899,
+        #8B5CF6,
+        #3B82F6,
+        #06B6D4,
+        #EC4899
+    );
+
+    background-size:300% 100%;
+
+    animation:buttonStroke 6s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+}
+
+
+/* text above stroke */
+
+.cta .button span{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* remove underline */
+
+.cta .button::after{
+
+    display:none!important;
+
+}
+
+
+/* hover */
+
+.cta .button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 24px rgba(139,92,246,.25);
+
+}
+      
+/* =====================
+WIZARD / POPUP
 ===================== */
 
 .wizard-overlay{
