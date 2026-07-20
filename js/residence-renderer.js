@@ -269,54 +269,41 @@ slider.addEventListener("scroll",()=>{
 
 }
 
-const popup = document.getElementById("popup");
+document.addEventListener("DOMContentLoaded", () => {
 
-const popupTitle = document.getElementById("popup-title");
+    const popup = document.getElementById("popup");
+    if (!popup) return;
 
-const popupContent = document.getElementById("popup-content");
+    const popupTitle = document.getElementById("popup-title");
+    const popupContent = document.getElementById("popup-content");
+    const closeButton = document.querySelector(".popup-close");
 
+    document.querySelectorAll(".read-more").forEach(button => {
 
-document.querySelectorAll(".read-more").forEach(button=>{
+        button.addEventListener("click", () => {
 
+            const card = button.closest(".info-card");
 
-button.onclick=function(){
+            popupTitle.textContent =
+                card.querySelector("h3").textContent;
 
+            popupContent.textContent =
+                card.querySelector(".card-text").textContent;
 
-const card=this.closest(".info-card");
+            popup.style.display = "flex";
 
+        });
 
-popupTitle.innerHTML =
-card.querySelector("h3").innerHTML;
+    });
 
+    closeButton.addEventListener("click", () => {
+        popup.style.display = "none";
+    });
 
-popupContent.innerHTML =
-card.querySelector(".card-description p").innerHTML;
-
-
-popup.style.display="flex";
-
-
-}
-
+    popup.addEventListener("click", (e) => {
+        if (e.target === popup) {
+            popup.style.display = "none";
+        }
+    });
 
 });
-
-
-
-document.querySelector(".popup-close").onclick=function(){
-
-popup.style.display="none";
-
-};
-
-
-
-popup.onclick=function(e){
-
-if(e.target===popup){
-
-popup.style.display="none";
-
-}
-
-};
