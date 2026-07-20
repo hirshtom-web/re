@@ -161,6 +161,92 @@ body{
 
 }
 
+/* =========================
+   MOBILE GALLERY SLIDER
+========================= */
+
+
+.mobile-gallery{
+
+    display:none;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:40px;
+
+}
+
+
+
+.mobile-slider{
+
+    display:flex;
+
+    overflow-x:auto;
+
+    scroll-snap-type:x mandatory;
+
+    scrollbar-width:none;
+
+}
+
+
+
+.mobile-slider::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+
+.mobile-slider img{
+
+    min-width:100%;
+
+    height:420px;
+
+    object-fit:cover;
+
+    scroll-snap-align:start;
+
+}
+
+
+
+
+
+.gallery-counter{
+
+    position:absolute;
+
+    right:20px;
+
+    bottom:20px;
+
+
+    background:
+
+    rgba(0,0,0,.55);
+
+
+    color:white;
+
+
+    padding:8px 16px;
+
+
+    border-radius:50px;
+
+
+    font-size:14px;
+
+
+    backdrop-filter:blur(10px);
+
+}
 
 
 /* =========================
@@ -287,27 +373,43 @@ body{
 @media(max-width:900px){
 
 
+
+/* hide desktop gallery */
+
+.gallery-feature,
+
+.gallery-grid{
+
+    display:none;
+
+}
+
+
+
+/* show mobile slider */
+
+.mobile-gallery{
+
+    display:block;
+
+}
+
+
+
 .property-gallery{
 
-    grid-template-columns:1fr;
+    display:block;
 
 }
 
 
 
-.gallery-feature{
+.gallery-counter{
 
-    height:450px;
-
-}
-
-
-
-.gallery-grid img{
-
-    height:200px;
+    display:block;
 
 }
+
 
 
 
