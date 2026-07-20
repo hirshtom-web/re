@@ -20,13 +20,16 @@
 }
 
 
+.residence-content {
+    min-width: 0;
+}
 
-.contact-sidebar{
 
-    position:sticky;
-
-    top:30px;
-
+.contact-sidebar {
+    position: sticky;
+    top: 30px;
+    align-self: start;
+    height: fit-content;
 }
 
 
