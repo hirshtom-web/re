@@ -816,6 +816,23 @@ font-size:clamp(38px,5vw,58px);
 
 }
 
+.property-slide{
+
+    position:absolute;
+    inset:0;
+
+    opacity:0;
+
+    transition:opacity .7s ease;
+
+}
+
+.property-slide.active{
+
+    opacity:1;
+
+}
+
 /* =====================
 SECTION TITLES
 ===================== */
