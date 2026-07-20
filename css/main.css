@@ -654,7 +654,7 @@ font-size:clamp(38px,5vw,58px);
 
     overflow:visible;
 
-    animation:float 8s ease-in-out infinite;
+    animation:float 5s ease-in-out infinite;
 
 }
 
