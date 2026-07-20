@@ -93,11 +93,6 @@ body{
 ========================= */
 
 
-/* =========================
-   GALLERY
-========================= */
-
-
 .property-gallery{
 
     width:100%;
@@ -448,7 +443,7 @@ body{
 
 .residence-hero{
 
-    padding:80px 0 40px;
+    padding: 0 0 40px;
 
 }
 
