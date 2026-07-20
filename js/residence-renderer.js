@@ -242,3 +242,29 @@ function renderResidence(data){
 
 
 }
+
+
+const slider = document.querySelector(".mobile-slider");
+
+const counter = document.querySelector(".gallery-counter");
+
+
+if(slider && counter){
+
+
+slider.addEventListener("scroll",()=>{
+
+
+    const index = Math.round(
+        slider.scrollLeft / slider.clientWidth
+    );
+
+
+    counter.textContent =
+    `${index + 1} / ${slider.children.length}`;
+
+
+});
+
+
+}
