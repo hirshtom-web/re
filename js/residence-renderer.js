@@ -280,3 +280,23 @@ document.querySelectorAll(".read-more").forEach(button => {
             : "Read more";
     });
 });
+
+
+function openPopup(){
+
+    document.getElementById("popupTitle").innerHTML =
+    "Early Pricing Advantage";
+
+    document.getElementById("popupText").innerHTML =
+    "Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases. Early investors may benefit from developer incentives, preferred pricing, and increased value as construction progresses.";
+
+    document.getElementById("infoPopup").style.display="flex";
+
+}
+
+
+function closePopup(){
+
+    document.getElementById("infoPopup").style.display="none";
+
+}
