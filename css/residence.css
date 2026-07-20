@@ -1243,7 +1243,8 @@ to {
 
 .info-card{
 
-    position:relative;
+    display:flex;
+    flex-direction:column;
 
     background:#fff;
 
@@ -1251,9 +1252,7 @@ to {
 
     padding:32px;
 
-    height:340px;
-
-    overflow:hidden;
+    min-height:340px;
 
     transition:
         transform .35s ease,
@@ -1261,34 +1260,27 @@ to {
 
 }
 
-
 .info-card:hover{
 
     transform:translateY(-6px);
 
-    box-shadow:
-        0 18px 45px rgba(0,0,0,.12);
+    box-shadow:0 18px 45px rgba(0,0,0,.12);
 
 }
-
-
-
-/* TEXT */
 
 .card-text{
 
-    max-height:155px;
+    position:relative;
 
     overflow:hidden;
 
-    position:relative;
-
     line-height:1.7;
 
+    display:-webkit-box;
+    -webkit-line-clamp:6;
+    -webkit-box-orient:vertical;
+
 }
-
-
-/* Fade only when JS adds this class */
 
 .card-text.has-overflow::after{
 
@@ -1297,59 +1289,42 @@ to {
     position:absolute;
 
     left:0;
-
     right:0;
-
     bottom:0;
 
-    height:48px;
-
-    pointer-events:none;
+    height:45px;
 
     background:linear-gradient(
         rgba(255,255,255,0),
-        rgba(255,255,255,.95) 65%,
         #fff
     );
 
+    pointer-events:none;
+
 }
-
-
-
-/* READ MORE */
 
 .read-more{
 
-    position:absolute;
+    margin-top:auto;
+    padding-top:18px;
 
-    left:32px;
+    align-self:flex-start;
 
-    bottom:20px;
-
-    background:none !important;
-
+    background:none;
     border:none;
-
-    padding:0;
 
     color:#0077cc;
 
     font-size:15px;
-
     font-weight:600;
 
     cursor:pointer;
 
-    transition:
-        color .25s ease,
-        opacity .25s ease;
-
 }
-
 
 .read-more:hover{
 
-    background:none !important;
+    background:none;
 
     color:#005fa3;
 
