@@ -13,24 +13,41 @@ const residences = [
     "A limited collection of luxury residences in one of Florida's most desirable markets. Secure early access before public release.",
 
 
-    price:
-    "$1.2M",
+    price:"$1.2M",
+
+    bedrooms:"1 - 4 Bedrooms",
+
+    delivery:"2028",
+
+    status:"Pre-Construction",
 
 
-    bedrooms:
-    "1 - 4 Bedrooms",
+    timeline:[
 
+        {
+            year:"2026",
+            label:"Reservations Open"
+        },
 
-    delivery:
-    "2028",
+        {
+            year:"2027",
+            label:"Construction Progress"
+        },
 
+        {
+            year:"2028",
+            label:"Residence Delivery"
+        }
 
-    status:
-    "Pre-Construction",
+    ],
 
 
 
     images:[
+
+        "https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
+
+        "https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
 
         "https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
 
@@ -106,20 +123,34 @@ const residences = [
     "A collection of residences designed around skyline views, technology, and modern city living.",
 
 
-    price:
-    "$950K",
+    price:"$950K",
+
+    bedrooms:"Studio - 3 Bedrooms",
+
+    delivery:"2027",
+
+    status:"Pre-Construction",
 
 
-    bedrooms:
-    "Studio - 3 Bedrooms",
 
+    timeline:[
 
-    delivery:
-    "2027",
+        {
+            year:"2026",
+            label:"Reservations Open"
+        },
 
+        {
+            year:"2027",
+            label:"Construction Progress"
+        },
 
-    status:
-    "Pre-Construction",
+        {
+            year:"2028",
+            label:"Residence Delivery"
+        }
+
+    ],
 
 
 
@@ -129,7 +160,11 @@ const residences = [
 
         "IMAGE_URL_2",
 
-        "IMAGE_URL_3"
+        "IMAGE_URL_3",
+
+        "IMAGE_URL_4",
+
+        "IMAGE_URL_5"
 
     ],
 
@@ -158,6 +193,7 @@ const residences = [
             "Located in one of Miami's strongest residential growth corridors."
         },
 
+
         {
             title:"Luxury Amenities",
 
@@ -168,6 +204,5 @@ const residences = [
     ]
 
 }
-
 
 ];
