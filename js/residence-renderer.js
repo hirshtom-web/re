@@ -278,17 +278,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const popupContent = document.getElementById("popup-content");
     const closeButton = document.querySelector(".popup-close");
 
-    document.querySelectorAll(".read-more").forEach(button => {
+    document.querySelectorAll(".info-card").forEach(card => {
+
+        const text = card.querySelector(".card-text");
+        const button = card.querySelector(".read-more");
+
+        if (!text || !button) return;
+
+        // Only show fade and Read more if text is actually clipped
+        if (text.scrollHeight > text.clientHeight + 2) {
+
+            text.classList.add("has-overflow");
+
+        } else {
+
+            button.style.display = "none";
+
+        }
 
         button.addEventListener("click", () => {
-
-            const card = button.closest(".info-card");
 
             popupTitle.textContent =
                 card.querySelector("h3").textContent;
 
             popupContent.textContent =
-                card.querySelector(".card-text").textContent;
+                text.textContent;
 
             popup.style.display = "flex";
 
@@ -297,13 +311,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     closeButton.addEventListener("click", () => {
+
         popup.style.display = "none";
+
     });
 
     popup.addEventListener("click", (e) => {
+
         if (e.target === popup) {
+
             popup.style.display = "none";
+
         }
+
     });
 
 });
