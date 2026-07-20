@@ -5,6 +5,7 @@
 .rility-hero {
     position:relative;
     overflow:hidden;
+    min-height:900px;
 }
 
 
