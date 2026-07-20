@@ -1,85 +1,63 @@
-const params = new URLSearchParams(
-    window.location.search
-);
+const residenceData = {
+
+title:
+"Azure Residences",
+
+subtitle:
+"Luxury waterfront residences designed for investors and lifestyle buyers.",
+
+location:
+"Miami Beach, Florida",
+
+image:
+"https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
 
 
-const id = params.get("id");
+price:
+"From $1.25M",
+
+beds:
+"1 - 4 Bedrooms",
+
+delivery:
+"2028",
+
+status:
+"Pre-Construction",
 
 
-const residence = residences[id];
+investmentHighlights:[
+
+"Early access pricing before completion",
+
+"Strong Florida population growth",
+
+"High demand luxury rental market",
+
+"Prime waterfront location"
+
+],
 
 
-if(residence){
+amenities:[
+
+"Infinity Pool",
+
+"Private Beach Club",
+
+"Fitness & Wellness Center",
+
+"Concierge Services",
+
+"Residents Lounge",
+
+"Smart Home Technology"
+
+],
 
 
-document.querySelector("#residence-title").innerHTML =
-residence.title;
+overview:
+"Azure Residences offers a rare opportunity to own in one of Florida’s most desirable markets. Combining luxury living with long-term investment potential, the development provides exceptional lifestyle appeal and future value."
 
 
-document.querySelector("#residence-subtitle").innerHTML =
-residence.subtitle;
-
-
-document.querySelector("#residence-location").innerHTML =
-residence.location;
-
-
-
-document.querySelector("#hero-image").src =
-residence.heroImage;
-
-
-
-document.querySelector("#price").innerHTML =
-residence.price;
-
-
-
-document.querySelector("#bedrooms").innerHTML =
-residence.bedrooms;
-
-
-
-document.querySelector("#type").innerHTML =
-residence.type;
-
-
-
-document.querySelector("#developer").innerHTML =
-residence.developer;
-
-
-
-document.querySelector("#completion").innerHTML =
-residence.completion;
-
-
-
-document.querySelector("#overview").innerHTML =
-residence.overview;
-
-
-
-const highlights =
-document.querySelector("#highlights");
-
-
-residence.highlights.forEach(item=>{
-
-
-highlights.innerHTML += `
-
-<div class="highlight-card">
-
-${item}
-
-</div>
-
-`;
-
-
-});
-
-
-
-}
+};
