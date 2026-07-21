@@ -586,23 +586,31 @@ body{
 ========================= */
 
 
+/* =========================
+   PROJECT STATUS
+========================= */
+
 .status-section{
 
     display:grid;
 
-    grid-template-columns:1fr 2fr;
+    grid-template-columns:360px 1fr;
 
     gap:30px;
 
     margin:70px 0;
 
+    align-items:start;
+
 }
 
 
 
+/* LEFT CARD */
+
 .status-card{
 
-    background:white;
+    background:#fff;
 
     padding:40px;
 
@@ -610,17 +618,25 @@ body{
 
     border:1px solid rgba(0,0,0,.06);
 
+    height:100%;
+
 }
 
 
 
 .status-card span{
 
-    font-size:13px;
+    display:block;
 
-    letter-spacing:1.5px;
+    margin-bottom:12px;
 
-    color:#777;
+    font-size:12px;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+    color:#888;
 
 }
 
@@ -628,7 +644,9 @@ body{
 
 .status-card h3{
 
-    font-size:28px;
+    margin-bottom:18px;
+
+    font-size:30px;
 
     font-weight:500;
 
@@ -640,7 +658,7 @@ body{
 
     color:#666;
 
-    line-height:1.6;
+    line-height:1.7;
 
 }
 
@@ -648,13 +666,29 @@ body{
 
 
 
+/* =========================
+   TIMELINE
+========================= */
+
 .timeline{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 
-    gap:15px;
+    overflow-x:auto;
+
+    scrollbar-width:none;
+
+    padding-bottom:8px;
+
+}
+
+
+
+.timeline::-webkit-scrollbar{
+
+    display:none;
 
 }
 
@@ -662,69 +696,188 @@ body{
 
 .timeline div{
 
-    background:white;
+    flex:0 0 230px;
 
-    padding:40px;
-
-    border-radius:30px;
+    background:#fff;
 
     border:1px solid rgba(0,0,0,.06);
+
+    border-radius:28px;
+
+    padding:30px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
 
 }
 
 
+
+.timeline div:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+/* YEAR */
 
 .timeline span{
 
     display:block;
 
-    color:#8b5cf6;
+    margin-bottom:18px;
 
-    font-size:28px;
+    font-size:26px;
 
-    font-weight:500;
+    font-weight:600;
 
-    margin-bottom:15px;
+    color:#9ca3af;
 
 }
 
 
+
+/* TITLE */
 
 .timeline strong{
 
+    display:block;
+
+    margin-bottom:10px;
+
     font-size:18px;
 
-    font-weight:500;
+    font-weight:600;
+
+    color:#111;
+
+}
+
+
+
+/* DESCRIPTION */
+
+.timeline p{
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+
+
+/* =========================
+   STATUS COLORS
+========================= */
+
+
+/* Completed */
+
+.timeline .completed{
+
+    background:#f0fdf4;
+
+    border-color:#bbf7d0;
+
+}
+
+
+
+.timeline .completed span{
+
+    color:#16a34a;
+
+}
+
+
+
+/* Current */
+
+.timeline .current{
+
+    background:#eff6ff;
+
+    border:2px solid #3b82f6;
+
+}
+
+
+
+.timeline .current span{
+
+    color:#2563eb;
+
+}
+
+
+
+/* Future */
+
+.timeline .future{
+
+    opacity:.82;
+
+}
+
+
+
+/* Badge */
+
+.status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:6px 12px;
+
+    margin-bottom:18px;
+
+    border-radius:999px;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:.08em;
 
 }
 
 
 
 
+
+/* MOBILE */
 
 @media(max-width:900px){
 
+    .status-section{
 
+        grid-template-columns:1fr;
 
-
-.status-section{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.timeline{
-
-    grid-template-columns:1fr;
+    }
 
 }
-
-
-}
-
-
 
 
 /* =========================
