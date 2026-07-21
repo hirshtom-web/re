@@ -365,3 +365,44 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 });
+
+
+const aiButton = document.querySelector(".ai-rating");
+
+const aiModal = document.getElementById("aiModal");
+
+const closeAiModal = document.getElementById("closeAiModal");
+
+
+if(aiButton){
+
+    aiButton.addEventListener("click",()=>{
+
+        aiModal.classList.add("active");
+
+    });
+
+}
+
+
+if(closeAiModal){
+
+    closeAiModal.addEventListener("click",()=>{
+
+        aiModal.classList.remove("active");
+
+    });
+
+}
+
+
+
+aiModal.addEventListener("click",(e)=>{
+
+    if(e.target === aiModal){
+
+        aiModal.classList.remove("active");
+
+    }
+
+});
