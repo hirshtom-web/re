@@ -1077,120 +1077,32 @@ h2{
    SNAPSHOT
 ========================= */
 
-.investment-header{
-
-    margin-bottom:40px;
-
-}
-
-
-.status-pill{
-
-    display:inline-flex;
-
-    padding:8px 16px;
-
-    border-radius:50px;
-
-    background:#c9a96e;
-
-    color:#111;
-
-    font-size:13px;
-
-    font-weight:600;
-
-    margin-bottom:20px;
-
-}
-
-
-
-.investment-header p{
-
-    color:#aaa;
-
-}
-
-
-
-.snapshot-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:20px;
-
-}
-
-
-
-.snapshot-grid div{
-
-    background:
-    rgba(255,255,255,.08);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    padding:28px;
-
-    border-radius:22px;
-
-}
-
-
-
-.snapshot-grid span{
-
-    color:#999;
-
-    font-size:13px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.08em;
-
-}
-
-
-
-.snapshot-grid strong{
-
-    display:block;
-
-    margin-top:12px;
-
-    font-size:20px;
-
-}
-
-
 /* =========================
-   TIMELINE
+   PROJECT TIMELINE
 ========================= */
 
 
-.timeline{
+.project-timeline{
 
     display:flex;
 
     justify-content:space-between;
 
-    margin-top:50px;
-
     position:relative;
+
+    margin-top:50px;
 
 }
 
 
-.timeline:before{
+
+.project-timeline:before{
 
     content:"";
 
     position:absolute;
 
-    top:15px;
+    top:18px;
 
     left:0;
 
@@ -1198,68 +1110,94 @@ h2{
 
     height:2px;
 
-    background:rgba(255,255,255,.2);
+    background:#e5e5e5;
 
 }
 
 
 
-.timeline-item{
+.timeline-step{
 
     position:relative;
 
+    width:16%;
+
     z-index:1;
 
-    text-align:center;
-
 }
 
 
 
-.timeline-item span{
-
-    width:32px;
-
-    height:32px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:#333;
-
-    color:white;
-
-}
-
-
-
-.timeline-item.active span{
-
-    background:#c9a96e;
-
-    color:#111;
-
-}
-
-
-
-.timeline-item strong{
+.timeline-dot{
 
     display:block;
 
-    margin-top:15px;
+    width:36px;
 
-    font-size:15px;
+    height:36px;
+
+    background:white;
+
+    border:2px solid #ccc;
+
+    border-radius:50%;
+
+    margin-bottom:20px;
 
 }
 
+
+
+.timeline-step.active .timeline-dot{
+
+    background:#c9a96e;
+
+    border-color:#c9a96e;
+
+    box-shadow:
+    0 0 0 8px rgba(201,169,110,.15);
+
+}
+
+
+
+.timeline-step small{
+
+    display:block;
+
+    color:#999;
+
+    font-size:13px;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.timeline-step strong{
+
+    display:block;
+
+    font-size:15px;
+
+    line-height:1.4;
+
+}
+
+
+
+.timeline-step p{
+
+    margin-top:8px;
+
+    color:#c9a96e;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
 
 /* =========================
    CTA
