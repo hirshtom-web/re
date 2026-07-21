@@ -1067,7 +1067,7 @@ h1 span{
 
     display:flex;
 
-    align-items:center;
+    align-items:baseline;
 
     gap:20px;
 
@@ -1093,13 +1093,29 @@ h1 span{
 
 
 
+
+
 /* AI RATING */
 
 .ai-rating{
 
+    appearance:none;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    height:auto;
+
+    margin:0;
+
+    padding:0;
+
     border:none;
 
-    background:none;
+    background:transparent;
+
+    border-radius:0;
 
     cursor:pointer;
 
@@ -1107,8 +1123,9 @@ h1 span{
 
     font-weight:700;
 
-    background:
+    line-height:1;
 
+    background:
     linear-gradient(
         90deg,
         #2563eb,
@@ -1122,17 +1139,25 @@ h1 span{
 
     color:transparent;
 
-    padding:0;
+    transition:.25s ease;
 
 }
+
 
 
 .ai-rating:hover{
 
+    background:transparent;
+
+    color:transparent;
+
+    transform:none;
+
+    box-shadow:none;
+
     opacity:.75;
 
 }
-
 
 
 /* =========================
