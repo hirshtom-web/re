@@ -1,0 +1,37 @@
+/// Neighborhood Lifestyle ///
+
+@media(max-width:768px){
+
+    .nearby-grid{
+
+        display:flex;
+
+        overflow-x:auto;
+
+        gap:16px;
+
+        scroll-snap-type:x mandatory;
+
+        scrollbar-width:none;
+
+        padding-bottom:10px;
+
+    }
+
+
+    .nearby-grid::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+
+    .nearby-card{
+
+        flex:0 0 85%;
+
+        scroll-snap-align:start;
+
+    }
+
+}
