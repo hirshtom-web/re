@@ -1331,3 +1331,35 @@ to {
     text-decoration:underline;
 
 }
+
+
+/* =========================
+   AMENITIES
+========================= */
+
+.amenity-grid div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.material-symbols-outlined{
+
+    font-size:20px;
+
+    font-weight:300;
+
+    color:#8c6b3f;
+
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 24;
+
+}
