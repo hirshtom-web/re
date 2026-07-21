@@ -473,7 +473,7 @@ HERO
 
 .hero h1 {
 
-font-size:clamp(44px,5vw,68px);
+font-size:clamp(38px,5vw,58px);
     margin-bottom:30px;
 
 }
