@@ -1060,36 +1060,16 @@ h1 span{
 
 
 
-/* META ROW */
-
-.property-meta{
-
-    display:flex;
-    align-items:baseline;
-    gap:12px;
-
-}
-
-
-.last-update{
-
-    font-size:14px;
-    color:#777;
-    line-height:1;
-
-}
-
-
-/* AI RATING */
-
 /* =========================
    PROPERTY META
 ========================= */
 
 .property-meta{
+
     display:flex;
     align-items:center;
     gap:12px;
+
 }
 
 
@@ -1099,21 +1079,15 @@ h1 span{
 
     font-size:14px;
     color:#777;
-    line-height:1;
 
 }
 
 
-/* =========================
-   AI RATING
-========================= */
+/* AI RATING */
 
-.ai-rating,
-.ai-rating:hover,
-.ai-rating:focus,
-.ai-rating:active{
+.ai-rating{
 
-    all:unset;
+    appearance:none;
 
     display:inline-flex;
 
@@ -1121,13 +1095,25 @@ h1 span{
 
     gap:3px;
 
+    margin:0;
+    padding:0;
+
+    border:none;
+
+    background:none;
+
     cursor:pointer;
+
+    font-family:inherit;
 
     font-size:15px;
 
     font-weight:400;
 
-    line-height:1;
+    line-height:1.4;
+
+    text-decoration:underline;
+    text-underline-offset:3px;
 
     background:
     linear-gradient(
@@ -1140,10 +1126,9 @@ h1 span{
 
     background-size:300% 100%;
 
-    animation:aiMove 14s linear infinite;
+    animation:aiGradient 14s linear infinite;
 
     -webkit-background-clip:text;
-
     background-clip:text;
 
     color:transparent;
@@ -1157,29 +1142,23 @@ h1 span{
 
     font-size:13px;
 
-    font-weight:400;
+    text-decoration:none;
 
 }
 
 
-/* remove any hover movement */
+/* hover only changes opacity */
 
 .ai-rating:hover{
 
     opacity:.75;
 
-    transform:none;
-
-    box-shadow:none;
-
-    background-color:transparent;
-
 }
 
 
-/* slow premium gradient */
+/* slow movement */
 
-@keyframes aiMove{
+@keyframes aiGradient{
 
     from{
         background-position:0% 50%;
@@ -1190,12 +1169,6 @@ h1 span{
     }
 
 }
-
-.ai-rating{
-    line-height:1.4;
-    padding-bottom:2px;
-}
-
 
 /* =========================
    AI MODAL
