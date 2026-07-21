@@ -54,27 +54,26 @@ body{
     linear-gradient(
         to bottom,
         #fff 0%,
-        #fff 12%,
-        rgba(255,255,255,.85) 22%,
-        rgba(255,255,255,0) 38%
+        #fff 600px,
+        rgba(255,255,255,.85) 750px,
+        rgba(255,255,255,0) 950px
     ),
 
     radial-gradient(
-        circle at 10% 10%,
-        rgba(139,92,246,.12),
-        transparent 35%
+        circle at 10% 35%,
+        rgba(139,92,246,.14),
+        transparent 45%
     ),
 
     radial-gradient(
-        circle at 90% 20%,
-        rgba(59,130,246,.12),
-        transparent 35%
+        circle at 90% 40%,
+        rgba(59,130,246,.14),
+        transparent 45%
     );
 
     padding:40px 0;
 
 }
-
 
 @media (max-width:768px){
 
