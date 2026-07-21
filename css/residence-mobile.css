@@ -79,3 +79,55 @@
     }
 
 }
+
+
+/* =========================
+      MOBILE GALLERY
+========================= */
+
+
+@media(max-width:900px){
+
+    .mobile-gallery{
+
+        display:block;
+
+        width:100vw;
+
+        margin-left:calc(50% - 50vw);
+
+        border-radius:0;
+
+        position:relative;
+
+    }
+
+
+    .mobile-slider{
+
+        width:100vw;
+
+        display:flex;
+
+        overflow-x:auto;
+
+        scroll-snap-type:x mandatory;
+
+    }
+
+
+    .mobile-slider img{
+
+        flex:0 0 100vw;
+
+        width:100vw;
+
+        height:320px;
+
+        object-fit:cover;
+
+        scroll-snap-align:start;
+
+    }
+
+}
