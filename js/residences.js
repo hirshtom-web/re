@@ -1,207 +1,401 @@
 const residences = [
 
 {
-    id:"oceanfront-miami-01",
 
-    title:"Oceanfront Residences",
-
-    subtitle:"Designed For Living & Investing",
-
-    location:"Miami Beach, Florida",
-
-    description:
-    "A limited collection of luxury residences in one of Florida's most desirable markets. Secure early access before public release.",
+id:"oceanfront-miami-01",
 
 
-    price:"$1.2M",
+/* =========================
+   BASIC INFO
+========================= */
 
-    bedrooms:"1 - 4 Bedrooms",
+title:"Oceanfront Residences",
 
-    delivery:"2028",
+subtitle:"Designed For Living & Investing",
 
-    status:"Pre-Construction",
+type:"Luxury Condominium",
 
+status:"Pre-Construction",
 
-    timeline:[
+location:"Miami Beach, Florida",
 
-        {
-            year:"2026",
-            label:"Reservations Open"
-        },
+address:"Coming Soon",
 
-        {
-            year:"2027",
-            label:"Construction Progress"
-        },
-
-        {
-            year:"2028",
-            label:"Residence Delivery"
-        }
-
-    ],
+description:
+"A limited collection of luxury residences in one of Florida's most desirable markets. Secure early access before public release.",
 
 
 
-    images:[
+/* =========================
+   PRICING
+========================= */
 
-        "https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
+price:"$1.2M+",
 
-        "https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
+priceRange:"$1.2M - $8M",
 
-        "https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
+pricePerSqft:"TBD",
 
-        "https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
+hoa:"TBD",
 
-        "https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg"
-
-    ],
-
-
-
-    amenities:[
-
-        "Private Beach Access",
-
-        "Infinity Pool",
-
-        "Fitness & Wellness Center",
-
-        "Residents Lounge",
-
-        "Valet & Concierge",
-
-        "Smart Home Technology"
-
-    ],
+estimatedTaxes:"TBD",
 
 
 
-    highlights:[
+/* =========================
+   PROPERTY FACTS
+========================= */
 
-        {
-            title:"Early Pricing Advantage",
+bedrooms:"1 - 4 Bedrooms",
 
-            text:
-            "Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases."
-        },
+bathrooms:"1.5 - 5 Bathrooms",
+
+interiorSize:"900 - 3,500 SF",
+
+terraceSize:"Private Terraces",
+
+floors:"40 Floors",
+
+units:"250 Residences",
+
+delivery:"2028",
+
+yearBuilt:"2028",
 
 
-        {
-            title:"Strong Rental Demand",
 
-            text:
-            "Florida's population growth and tourism economy continue supporting long-term and seasonal rental demand."
-        },
+/* =========================
+   LOCATION
+========================= */
+
+neighborhood:"Miami Beach",
+
+city:"Miami",
+
+state:"Florida",
+
+country:"USA",
+
+coordinates:{
+    lat:25.7907,
+    lng:-80.1300
+},
 
 
-        {
-            title:"Prime Location",
+nearby:[
 
-            text:
-            "Positioned near beaches, dining, entertainment, and major employment centers."
-        }
+{
+title:"Beach Access",
+distance:"2 minutes",
+icon:"beach_access"
+},
 
-    ]
+{
+title:"Fine Dining",
+distance:"5 minutes",
+icon:"restaurant"
+},
+
+{
+title:"Airport",
+distance:"20 minutes",
+icon:"flight"
+}
+
+],
+
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+timeline:[
+
+{
+year:"2026",
+label:"Reservations Open"
+},
+
+{
+year:"2027",
+label:"Construction Progress"
+},
+
+{
+year:"2028",
+label:"Residence Delivery"
+}
+
+],
+
+
+
+/* =========================
+   GALLERY
+========================= */
+
+images:[
+
+"https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
+
+"https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
+
+"https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg"
+
+],
+
+
+
+/* =========================
+   AMENITIES
+========================= */
+
+amenities:[
+
+"Private Beach Access",
+
+"Infinity Pool",
+
+"Fitness & Wellness Center",
+
+"Residents Lounge",
+
+"Valet & Concierge",
+
+"Smart Home Technology"
+
+],
+
+
+
+/* =========================
+   HIGHLIGHTS
+========================= */
+
+highlights:[
+
+{
+title:"Early Pricing Advantage",
+
+text:
+"Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases."
+},
+
+
+{
+title:"Strong Rental Demand",
+
+text:
+"Florida's population growth and tourism economy continue supporting long-term and seasonal rental demand."
+},
+
+
+{
+title:"Prime Location",
+
+text:
+"Positioned near beaches, dining, entertainment, and major employment centers."
+}
+
+],
+
+
+
+/* =========================
+   AI RATING
+========================= */
+
+aiRating:{
+
+overall:9.7,
+
+confidence:96,
+
+
+summary:
+"Strong luxury positioning with excellent location fundamentals, lifestyle appeal, and long-term market potential.",
+
+
+scores:[
+
+{
+label:"Investment Potential",
+value:9.8
+},
+
+{
+label:"Location Quality",
+value:9.9
+},
+
+{
+label:"Rental Demand",
+value:9.4
+},
+
+{
+label:"Lifestyle",
+value:9.8
+},
+
+{
+label:"Build Quality",
+value:9.6
+},
+
+{
+label:"Market Value",
+value:9.2
+}
+
+],
+
+
+strengths:[
+
+"Prime waterfront location",
+
+"Luxury amenities",
+
+"Limited inventory",
+
+"Strong rental appeal"
+
+],
+
+
+risks:[
+
+"Premium pricing",
+
+"Market conditions may change"
+
+]
 
 },
 
 
 
+/* =========================
+   FLOOR PLANS
+========================= */
+
+floorPlans:[
+
 {
 
-    id:"brickell-tower-02",
+name:"Residence A",
 
-    title:"Brickell Sky Residences",
+beds:2,
 
-    subtitle:"Modern Urban Luxury",
+baths:2.5,
 
-    location:"Brickell, Miami",
+sqft:"1,850",
 
+price:"$2.4M",
 
-    description:
-    "A collection of residences designed around skyline views, technology, and modern city living.",
+floor:"18",
 
+view:"Ocean View",
 
-    price:"$950K",
+image:"FLOORPLAN_IMAGE"
 
-    bedrooms:"Studio - 3 Bedrooms",
-
-    delivery:"2027",
-
-    status:"Pre-Construction",
+},
 
 
+{
 
-    timeline:[
+name:"Residence B",
 
-        {
-            year:"2026",
-            label:"Reservations Open"
-        },
+beds:3,
 
-        {
-            year:"2027",
-            label:"Construction Progress"
-        },
+baths:3.5,
 
-        {
-            year:"2028",
-            label:"Residence Delivery"
-        }
+sqft:"2,600",
 
-    ],
+price:"$3.8M",
 
+floor:"32",
 
+view:"Skyline View",
 
-    images:[
+image:"FLOORPLAN_IMAGE"
 
-        "IMAGE_URL_1",
+}
 
-        "IMAGE_URL_2",
-
-        "IMAGE_URL_3",
-
-        "IMAGE_URL_4",
-
-        "IMAGE_URL_5"
-
-    ],
+],
 
 
 
-    amenities:[
+/* =========================
+   DEVELOPER / TEAM
+========================= */
 
-        "Rooftop Pool",
+team:[
 
-        "Private Lounge",
+{
 
-        "Fitness Center",
+role:"Developer",
 
-        "24 Hour Concierge"
+name:"Developer Name",
 
-    ],
+logo:"LOGO_URL",
 
+description:
+"Recognized for luxury developments and architectural excellence."
 
-
-    highlights:[
-
-        {
-            title:"Prime Investment Area",
-
-            text:
-            "Located in one of Miami's strongest residential growth corridors."
-        },
+},
 
 
-        {
-            title:"Luxury Amenities",
+{
 
-            text:
-            "Designed with resort-inspired services and private resident spaces."
-        }
+role:"Architect",
 
-    ]
+name:"Architecture Studio",
+
+logo:"LOGO_URL",
+
+description:
+"International design studio creating iconic residential destinations."
+
+}
+
+],
+
+
+
+/* =========================
+   DOCUMENTS
+========================= */
+
+documents:[
+
+{
+title:"Brochure",
+file:"#"
+},
+
+{
+title:"Floor Plans",
+file:"#"
+},
+
+{
+title:"Price Sheet",
+file:"#"
+}
+
+],
+
+
+
+/* =========================
+   LEGAL
+========================= */
+
+disclaimer:
+"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
 
 }
 
