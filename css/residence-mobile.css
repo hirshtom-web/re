@@ -36,3 +36,46 @@
     }
 
 }
+
+
+/* =========================
+   MOBILE TEAM SLIDER
+========================= */
+
+@media(max-width:768px){
+
+    .team-grid{
+
+        display:flex;
+
+        overflow-x:auto;
+
+        overflow-y:hidden;
+
+        gap:18px;
+
+        scroll-snap-type:x mandatory;
+
+        scrollbar-width:none;
+
+        -webkit-overflow-scrolling:touch;
+
+        padding-bottom:10px;
+
+    }
+
+    .team-grid::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+    .team-card{
+
+        flex:0 0 85%;
+
+        scroll-snap-align:start;
+
+    }
+
+}
