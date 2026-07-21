@@ -350,7 +350,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
 
-        const response = await fetch("../components/financial-overview.html");
+        const response = await fetch("../tools/financial-overview.html");
 
         if (!response.ok) {
             throw new Error("Couldn't load Financial Overview.");
