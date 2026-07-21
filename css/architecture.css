@@ -203,12 +203,15 @@
 }
 
 
+
+
+
 /* =========================
-   FINANCIALS
+   FINANCIAL OVERVIEW
 ========================= */
 
 
-.financial-grid{
+.financial-cards{
 
     display:grid;
 
@@ -224,7 +227,7 @@
 
 .financial-card{
 
-    background:white;
+    background:#fff;
 
     border:1px solid #eee;
 
@@ -260,9 +263,12 @@
 
 
 
-.payment-container{
 
-    margin-top:35px;
+/* PAYMENT */
+
+.payment-structure{
+
+    margin-top:40px;
 
     background:#111;
 
@@ -276,22 +282,186 @@
 
 
 
-.payment-row{
+.payment-timeline{
 
-    display:flex;
+    display:grid;
 
-    justify-content:space-between;
+    grid-template-columns:repeat(4,1fr);
 
-    padding:20px 0;
+    gap:20px;
 
-    border-bottom:1px solid rgba(255,255,255,.15);
+    margin-top:30px;
 
 }
 
 
 
-.payment-row:last-child{
+.payment-step{
 
-    border-bottom:none;
+    text-align:center;
+
+    position:relative;
+
+}
+
+
+
+.payment-step span{
+
+    width:60px;
+
+    height:60px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#333;
+
+    font-weight:600;
+
+}
+
+
+
+.payment-step.active span{
+
+    background:#c9a96e;
+
+    color:#111;
+
+}
+
+
+
+.payment-step strong{
+
+    display:block;
+
+    margin-top:15px;
+
+}
+
+
+
+
+
+/* BOTTOM */
+
+.financial-columns{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+    margin-top:30px;
+
+}
+
+
+
+.ownership-card{
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:35px;
+
+    border:1px solid #eee;
+
+}
+
+
+
+.cost-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:18px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+.cost-row.total{
+
+    border:none;
+
+    font-size:18px;
+
+}
+
+
+
+.rental-card{
+
+    background:#111;
+
+    color:white;
+
+    border-radius:30px;
+
+    padding:35px;
+
+}
+
+
+
+.small-label{
+
+    color:#c9a96e;
+
+    text-transform:uppercase;
+
+    font-size:12px;
+
+}
+
+
+
+.rent-value{
+
+    display:block;
+
+    font-size:36px;
+
+    margin:25px 0;
+
+}
+
+
+
+.rental-info{
+
+    display:flex;
+
+    gap:30px;
+
+    margin-top:30px;
+
+}
+
+
+
+.rental-info span{
+
+    display:block;
+
+    color:#aaa;
+
+    font-size:13px;
 
 }
