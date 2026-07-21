@@ -233,7 +233,10 @@
 
 
 
-/* SLIDER */
+/* =========================
+   SLIDER
+========================= */
+
 
 .financial-slider{
 
@@ -269,7 +272,10 @@
 
 
 
-/* EACH SLIDE */
+/* =========================
+   FINANCIAL CARD
+========================= */
+
 
 .financial-panel{
 
@@ -299,7 +305,10 @@
 
 
 
-/* LEFT SIDE */
+/* =========================
+   LEFT DATA
+========================= */
+
 
 .financial-label{
 
@@ -371,7 +380,10 @@
 
 
 
-/* RIGHT SIDE CHART */
+/* =========================
+   RIGHT VISUAL AREA
+========================= */
+
 
 .financial-chart{
 
@@ -395,143 +407,10 @@
 
 
 
-/* PAYMENT BARS */
+/* =========================
+   MOBILE
+========================= */
 
-.progress-item{
-
-    margin-bottom:22px;
-
-    display:grid;
-
-    grid-template-columns:100px 1fr 45px;
-
-    align-items:center;
-
-    gap:15px;
-
-}
-
-
-
-.bar{
-
-    height:8px;
-
-    background:#e5e5e5;
-
-    border-radius:10px;
-
-    overflow:hidden;
-
-}
-
-
-
-.bar div{
-
-    height:100%;
-
-    background:#c9a96e;
-
-    border-radius:10px;
-
-}
-
-
-
-
-
-/* COST BARS */
-
-.cost-bars > div{
-
-    margin-bottom:20px;
-
-}
-
-
-
-.cost-bars span{
-
-    display:block;
-
-    font-size:13px;
-
-    margin-bottom:8px;
-
-}
-
-
-
-.cost-bars > div > div{
-
-    height:10px;
-
-    background:#111;
-
-    border-radius:10px;
-
-}
-
-
-
-
-
-/* RENTAL RANGE */
-
-.rental-range{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-}
-
-
-
-.range-line{
-
-    flex:1;
-
-    height:6px;
-
-    background:#ddd;
-
-    border-radius:10px;
-
-}
-
-
-
-.range-line div{
-
-    height:100%;
-
-    width:70%;
-
-    background:#c9a96e;
-
-    border-radius:10px;
-
-}
-
-
-
-.chart-note{
-
-    color:#888;
-
-    margin-top:25px;
-
-}
-
-
-
-
-
-/* MOBILE */
 
 @media(max-width:900px){
 
@@ -556,5 +435,306 @@
 
     }
 
+
+}
+
+
+
+/* =========================
+   PREMIUM FINANCIAL CHARTS
+========================= */
+
+
+/* PAYMENT BARS */
+
+.progress-item{
+
+    margin-bottom:28px;
+
+}
+
+
+.progress-item > span{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:14px;
+
+    color:#555;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.progress-item strong{
+
+    float:right;
+
+    font-size:14px;
+
+    color:#111;
+
+}
+
+
+
+
+.bar{
+
+    height:12px;
+
+    background:#edf1f5;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+.bar div{
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #60a5fa
+    );
+
+}
+
+
+
+/* different colors */
+
+.progress-item:nth-child(1) .bar div{
+
+    background:
+    linear-gradient(
+        90deg,
+        #22c55e,
+        #86efac
+    );
+
+}
+
+
+.progress-item:nth-child(2) .bar div{
+
+    background:
+    linear-gradient(
+        90deg,
+        #3b82f6,
+        #93c5fd
+    );
+
+}
+
+
+.progress-item:nth-child(3) .bar div{
+
+    background:
+    linear-gradient(
+        90deg,
+        #8b5cf6,
+        #c4b5fd
+    );
+
+}
+
+
+.progress-item:nth-child(4) .bar div{
+
+    background:
+    linear-gradient(
+        90deg,
+        #f59e0b,
+        #fcd34d
+    );
+
+}
+
+
+
+
+
+
+
+/* =========================
+   OWNERSHIP COST CHART
+========================= */
+
+
+.cost-bars > div{
+
+    margin-bottom:25px;
+
+}
+
+
+
+.cost-bars span{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    color:#555;
+
+}
+
+
+
+.cost-bars span:after{
+
+    content:"";
+
+}
+
+
+
+.cost-bars > div > div{
+
+    height:12px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #111827,
+        #64748b
+    );
+
+}
+
+
+
+/* individual colors */
+
+.cost-bars > div:nth-child(1) > div{
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #60a5fa
+    );
+
+}
+
+
+.cost-bars > div:nth-child(2) > div{
+
+    background:
+    linear-gradient(
+        90deg,
+        #14b8a6,
+        #5eead4
+    );
+
+}
+
+
+.cost-bars > div:nth-child(3) > div{
+
+    background:
+    linear-gradient(
+        90deg,
+        #f59e0b,
+        #fde68a
+    );
+
+}
+
+
+.cost-bars > div:nth-child(4) > div{
+
+    background:
+    linear-gradient(
+        90deg,
+        #ec4899,
+        #f9a8d4
+    );
+
+}
+
+
+
+
+
+
+
+/* =========================
+   RENTAL RANGE
+========================= */
+
+
+.rental-range{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    font-weight:600;
+
+}
+
+
+
+.rental-range span{
+
+    white-space:nowrap;
+
+}
+
+
+
+.range-line{
+
+    flex:1;
+
+    height:14px;
+
+    background:#e5e7eb;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+.range-line div{
+
+    height:100%;
+
+    width:70%;
+
+    border-radius:20px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #16a34a,
+        #86efac
+    );
 
 }
