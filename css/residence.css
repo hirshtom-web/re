@@ -1136,28 +1136,65 @@ h1 span{
    AI RATING
 ========================= */
 
+/* =========================
+   PROPERTY META
+========================= */
+
+.property-meta{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    margin-top:12px;
+
+}
+
+
+.last-update{
+
+    font-size:14px;
+
+    color:#777;
+
+    line-height:1;
+
+}
+
+
+/* AI RATING */
+
 .ai-rating{
 
-    all:unset;
+    appearance:none;
 
     display:inline-flex;
 
     align-items:center;
 
-    cursor:pointer;
+    gap:3px;
 
-    font-family:inherit;
+    height:auto;
+
+    padding:0;
+
+    margin:0;
+
+    border:none;
+
+    background:none;
+
+    border-radius:0;
+
+    cursor:pointer;
 
     font-size:15px;
 
-    font-weight:500; /* softer than bold */
+    font-weight:500;
 
-    line-height:1.5; /* gives descenders room */
-
-    padding-bottom:2px;
+    line-height:1;
 
     background:
-
     linear-gradient(
         90deg,
         #2563eb,
@@ -1166,9 +1203,9 @@ h1 span{
         #2563eb
     );
 
-    background-size:400% auto;
+    background-size:300% 100%;
 
-    animation:aiRatingGradient 25s linear infinite;
+    animation:aiGradient 12s linear infinite;
 
     -webkit-background-clip:text;
 
@@ -1176,70 +1213,54 @@ h1 span{
 
     color:transparent;
 
+    transition:.3s ease;
+
 }
 
-
-
-/* hover */
 
 .ai-rating:hover{
 
-    opacity:.8;
+    animation-duration:6s;
 
     transform:none;
 
-    background:
-
-    linear-gradient(
-        90deg,
-        #ec4899,
-        #8b5cf6,
-        #2563eb,
-        #ec4899
-    );
-
-    background-size:300% auto;
-
-    -webkit-background-clip:text;
-
-    background-clip:text;
-
-    color:transparent;
+    opacity:.8;
 
 }
 
 
+/* AI ICON */
 
-/* AI icon if added later */
+.ai-rating::before{
 
-.ai-rating .material-symbols-outlined{
+    content:"✦";
 
-    font-size:18px;
+    font-size:13px;
+
+    font-weight:400;
 
     line-height:1;
 
 }
 
 
+/* SLOW COLOR MOVEMENT */
 
-/* slow premium animation */
-@keyframes aiRatingGradient{
+@keyframes aiGradient{
 
     0%{
-
-        background-position:0% center;
-
+        background-position:0% 50%;
     }
 
+    50%{
+        background-position:100% 50%;
+    }
 
     100%{
-
-        background-position:400% center;
-
+        background-position:0% 50%;
     }
 
 }
-
 
 
 /* =========================
