@@ -1758,36 +1758,7 @@ footer{
     height:450px;
 
 }
-
-
-.facts-grid,
-.snapshot-grid{
-
-    grid-template-columns:repeat(2,1fr);
-
 }
-
-
-
-.card-grid,
-.amenity-grid,
-.overview-card{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.overview-card{
-
-    padding:35px;
-
-}
-
-
-}
-
 
 
 
