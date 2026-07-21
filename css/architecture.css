@@ -211,18 +211,6 @@
 ========================= */
 
 
-.financial-subtitle{
-
-    margin-top:45px;
-
-    margin-bottom:20px;
-
-    font-size:22px;
-
-}
-
-
-
 .financial-slider{
 
     display:flex;
@@ -231,12 +219,13 @@
 
     overflow-x:auto;
 
-    scrollbar-width:none;
+    scroll-behavior:smooth;
 
     padding-bottom:10px;
 
-}
+    scrollbar-width:none;
 
+}
 
 
 .financial-slider::-webkit-scrollbar{
@@ -249,7 +238,7 @@
 
 .financial-box{
 
-    min-width:240px;
+    flex:0 0 280px;
 
     background:#fff;
 
@@ -257,7 +246,9 @@
 
     border-radius:28px;
 
-    padding:35px;
+    padding:30px;
+
+    min-height:120px;
 
     transition:.3s ease;
 
@@ -276,11 +267,11 @@
 
 
 
-.financial-box span{
+.financial-row span{
 
     display:block;
 
-    color:#999;
+    color:#888;
 
     font-size:13px;
 
@@ -294,7 +285,7 @@
 
 
 
-.financial-box strong{
+.financial-row strong{
 
     font-size:28px;
 
