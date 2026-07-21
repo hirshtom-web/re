@@ -553,6 +553,34 @@ body{
 
 }
 
+.read-more,
+.table-toggle{
+
+    background:none !important;
+    border:none;
+    outline:none;
+    box-shadow:none;
+
+}
+
+
+.read-more:hover,
+.read-more:focus,
+.read-more:active,
+.table-toggle:hover,
+.table-toggle:focus,
+.table-toggle:active{
+
+    background:none !important;
+    box-shadow:none;
+    outline:none;
+
+    color:#005fa3;
+
+    text-decoration:underline;
+
+}
+
 /* =========================
    STATUS + TIMELINE
 ========================= */
