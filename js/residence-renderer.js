@@ -340,3 +340,10 @@ toggle.addEventListener("click",()=>{
         : "View All Floor Plans";
 
 });
+
+
+fetch("../sections/financial-overview.html")
+.then(response => response.text())
+.then(html => {
+    document.getElementById("financial-overview").innerHTML = html;
+});
