@@ -2000,3 +2000,21 @@ to {
         'opsz' 24;
 
 }
+
+.lifestyle-slider{
+
+    overflow-x:auto;
+
+    scrollbar-width:none; /* Firefox */
+
+    -ms-overflow-style:none; /* IE/Edge */
+
+}
+
+
+.lifestyle-slider::-webkit-scrollbar{
+
+    display:none; /* Chrome/Safari */
+
+}
+
