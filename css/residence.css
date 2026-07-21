@@ -1065,36 +1065,19 @@ h1 span{
 .property-meta{
 
     display:flex;
-
     align-items:baseline;
-
-    gap:20px;
-
-    margin-top:18px;
+    gap:12px;
 
 }
-
 
 
 .last-update{
 
-    color:#777;
-
     font-size:14px;
-
-    text-decoration:underline;
-
-    text-underline-offset:4px;
+    color:#777;
+    line-height:1;
 
 }
-
-
-
-
-
-
-
-
 
 
 /* AI RATING */
@@ -1209,7 +1192,7 @@ h1 span{
 }
 
 .ai-rating{
-    line-height:1.5;
+    line-height:1.4;
     padding-bottom:2px;
 }
 
