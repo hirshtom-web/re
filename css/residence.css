@@ -1099,22 +1099,14 @@ h1 span{
 
 /* AI RATING */
 
-/* AI MODAL */
-
 /* =========================
    PROPERTY META
 ========================= */
 
 .property-meta{
-
     display:flex;
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:8px;
-
+    align-items:center;
+    gap:12px;
 }
 
 
@@ -1123,50 +1115,22 @@ h1 span{
 .last-update{
 
     font-size:14px;
-
     color:#777;
-
-    line-height:1.4;
+    line-height:1;
 
 }
-
 
 
 /* =========================
    AI RATING
 ========================= */
 
-/* =========================
-   PROPERTY META
-========================= */
+.ai-rating,
+.ai-rating:hover,
+.ai-rating:focus,
+.ai-rating:active{
 
-.property-meta{
-
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    margin-top:12px;
-
-}
-
-
-.last-update{
-
-    font-size:14px;
-
-    color:#777;
-
-    line-height:1;
-
-}
-
-
-/* AI RATING */
-
-.ai-rating{
-
-    appearance:none;
+    all:unset;
 
     display:inline-flex;
 
@@ -1174,23 +1138,11 @@ h1 span{
 
     gap:3px;
 
-    height:auto;
-
-    padding:0;
-
-    margin:0;
-
-    border:none;
-
-    background:none;
-
-    border-radius:0;
-
     cursor:pointer;
 
     font-size:15px;
 
-    font-weight:500;
+    font-weight:400;
 
     line-height:1;
 
@@ -1205,7 +1157,7 @@ h1 span{
 
     background-size:300% 100%;
 
-    animation:aiGradient 12s linear infinite;
+    animation:aiMove 14s linear infinite;
 
     -webkit-background-clip:text;
 
@@ -1213,23 +1165,8 @@ h1 span{
 
     color:transparent;
 
-    transition:.3s ease;
-
 }
 
-
-.ai-rating:hover{
-
-    animation-duration:6s;
-
-    transform:none;
-
-    opacity:.8;
-
-}
-
-
-/* AI ICON */
 
 .ai-rating::before{
 
@@ -1239,25 +1176,34 @@ h1 span{
 
     font-weight:400;
 
-    line-height:1;
+}
+
+
+/* remove any hover movement */
+
+.ai-rating:hover{
+
+    opacity:.75;
+
+    transform:none;
+
+    box-shadow:none;
+
+    background-color:transparent;
 
 }
 
 
-/* SLOW COLOR MOVEMENT */
+/* slow premium gradient */
 
-@keyframes aiGradient{
+@keyframes aiMove{
 
-    0%{
+    from{
         background-position:0% 50%;
     }
 
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0% 50%;
+    to{
+        background-position:300% 50%;
     }
 
 }
