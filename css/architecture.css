@@ -210,11 +210,17 @@
    FINANCIAL OVERVIEW
 ========================= */
 
+/* =========================
+   FINANCIAL OVERVIEW SLIDER
+========================= */
+
+
 .financial-overview{
 
     margin-top:60px;
 
 }
+
 
 
 .section-intro{
@@ -227,7 +233,49 @@
 
 
 
+/* SLIDER */
+
+.financial-slider{
+
+    display:flex;
+
+    gap:30px;
+
+    width:100%;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    scroll-snap-type:x mandatory;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+    padding-bottom:15px;
+
+}
+
+
+
+.financial-slider::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+
+
+
+/* EACH SLIDE */
+
 .financial-panel{
+
+    flex:0 0 92%;
+
+    scroll-snap-align:start;
 
     display:grid;
 
@@ -239,15 +287,19 @@
 
     border:1px solid #eee;
 
-    border-radius:35px;
+    border-radius:36px;
 
     padding:45px;
 
-    margin-bottom:30px;
+    box-sizing:border-box;
 
 }
 
 
+
+
+
+/* LEFT SIDE */
 
 .financial-label{
 
@@ -268,6 +320,8 @@
     margin:15px 0 25px;
 
     font-size:28px;
+
+    font-weight:500;
 
 }
 
@@ -317,8 +371,7 @@
 
 
 
-/* CHART AREA */
-
+/* RIGHT SIDE CHART */
 
 .financial-chart{
 
@@ -339,6 +392,10 @@
 }
 
 
+
+
+
+/* PAYMENT BARS */
 
 .progress-item{
 
@@ -382,7 +439,11 @@
 
 
 
-.cost-bars div{
+
+
+/* COST BARS */
+
+.cost-bars > div{
 
     margin-bottom:20px;
 
@@ -402,7 +463,7 @@
 
 
 
-.cost-bars div div{
+.cost-bars > div > div{
 
     height:10px;
 
@@ -414,6 +475,9 @@
 
 
 
+
+
+/* RENTAL RANGE */
 
 .rental-range{
 
@@ -465,60 +529,32 @@
 
 
 
+
+
+/* MOBILE */
+
 @media(max-width:900px){
+
 
     .financial-panel{
 
+        flex:0 0 95%;
+
         grid-template-columns:1fr;
+
+        gap:30px;
 
         padding:30px;
 
     }
 
-}
 
-.financial-slider{
 
-    display:flex;
+    .financial-panel h3{
 
-    gap:30px;
+        font-size:24px;
 
-    overflow-x:auto;
+    }
 
-    scroll-snap-type:x mandatory;
-
-    scroll-behavior:smooth;
-
-    scrollbar-width:none;
-
-    padding-bottom:10px;
-
-}
-
-.financial-slider::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-.financial-panel{
-
-    flex:0 0 92%;
-
-    scroll-snap-align:start;
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:50px;
-
-    background:#fff;
-
-    border:1px solid #eee;
-
-    border-radius:36px;
-
-    padding:50px;
 
 }
