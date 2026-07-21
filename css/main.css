@@ -438,18 +438,24 @@ HERO
 .hero {
 
     padding-top:190px;
+
     min-height:100vh;
+
     display:flex;
-    align-items:center;
+
+    align-items:flex-start;
 
 }
 
 .hero-grid {
 
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:80px;
-    align-items:center;
+
+    align-items:start;
 
 }
 
