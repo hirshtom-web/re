@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".info-card").forEach(card => {
 
-        const text = card.querySelector(".card-text");
+        const text = card.querySelector(".card-text, .card-description");
         const button = card.querySelector(".read-more");
 
         if (!text || !button) return;
