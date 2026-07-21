@@ -342,8 +342,26 @@ toggle.addEventListener("click",()=>{
 });
 
 
-fetch("../sections/financial-overview.html")
-.then(response => response.text())
-.then(html => {
-    document.getElementById("financial-overview").innerHTML = html;
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const container = document.getElementById("financial-overview");
+
+    if (!container) return;
+
+    try {
+
+        const response = await fetch("../components/financial-overview.html");
+
+        if (!response.ok) {
+            throw new Error("Couldn't load Financial Overview.");
+        }
+
+        container.innerHTML = await response.text();
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
 });
