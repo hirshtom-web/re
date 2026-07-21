@@ -319,6 +319,81 @@ body{
 
 }
 
+
+/* =========================
+   PROPERTY TAGS
+========================= */
+
+.property-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin:18px 0 20px;
+
+}
+
+
+.tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:.02em;
+
+}
+
+
+/* Colors */
+
+.tag-green{
+
+    background:#e8f7ee;
+
+    color:#18794e;
+
+}
+
+
+.tag-blue{
+
+    background:#eaf4ff;
+
+    color:#0b63c9;
+
+}
+
+
+.tag-gold{
+
+    background:#faf2df;
+
+    color:#9b6a06;
+
+}
+
+
+.tag-gray{
+
+    background:#f3f4f6;
+
+    color:#4b5563;
+
+}
+
+
 /* =========================
    STATUS + TIMELINE
 ========================= */
