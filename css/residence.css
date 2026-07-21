@@ -1208,6 +1208,11 @@ h1 span{
 
 }
 
+.ai-rating{
+    line-height:1.5;
+    padding-bottom:2px;
+}
+
 
 /* =========================
    AI MODAL
