@@ -2251,7 +2251,7 @@ to {
 
     padding:32px;
 
-    min-height:340px;
+    height:320px;
 
     transition:
         transform .35s ease,
@@ -2267,7 +2267,8 @@ to {
 
 }
 
-.card-text{
+.card-text,
+.card-description{
 
     position:relative;
 
@@ -2278,10 +2279,12 @@ to {
     display:-webkit-box;
     -webkit-line-clamp:6;
     -webkit-box-orient:vertical;
+    margin-bottom:20px;
 
 }
 
-.card-text.has-overflow::after{
+.card-text.has-overflow::after,
+.card-description.has-overflow::after{
 
     content:"";
 
