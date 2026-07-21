@@ -1096,6 +1096,8 @@ h1 span{
 
 /* AI RATING */
 
+/* AI RATING */
+
 .ai-rating{
 
     appearance:none;
@@ -1124,13 +1126,19 @@ h1 span{
 
     line-height:1;
 
+
     background:
     linear-gradient(
         90deg,
         #2563eb,
         #8b5cf6,
-        #ec4899
+        #ec4899,
+        #06b6d4,
+        #2563eb
     );
+
+
+    background-size:300% 100%;
 
     -webkit-background-clip:text;
 
@@ -1138,23 +1146,62 @@ h1 span{
 
     color:transparent;
 
-    transition:.25s ease;
+
+    animation:
+    aiGradient 6s linear infinite;
+
+
+    transition:
+    transform .3s ease,
+    opacity .3s ease;
 
 }
 
 
 
+/* MOVING COLORS */
+
+@keyframes aiGradient{
+
+    0%{
+
+        background-position:0% 50%;
+
+    }
+
+
+    100%{
+
+        background-position:300% 50%;
+
+    }
+
+}
+
+
+
+/* HOVER */
+
 .ai-rating:hover{
 
-    background:transparent;
+    animation-duration:1.5s;
 
-    color:transparent;
+    transform:translateY(-2px);
 
-    transform:none;
+    opacity:.9;
 
-    box-shadow:none;
+}
 
-    opacity:.75;
+.ai-rating:hover{
+
+    filter:
+    drop-shadow(
+        0 4px 12px rgba(139,92,246,.35)
+    );
+
+    transform:translateY(-2px);
+
+    animation-duration:1.5s;
 
 }
 
