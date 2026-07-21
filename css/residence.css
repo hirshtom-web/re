@@ -476,6 +476,82 @@ body{
 
 }
 
+.units-wrapper{
+
+    position:relative;
+
+}
+
+.units-table{
+
+    max-height:360px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    transition:max-height .5s ease;
+
+}
+
+.units-table.expanded{
+
+    max-height:3000px;
+
+}
+
+.units-table::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:80px;
+
+    background:linear-gradient(
+        rgba(255,255,255,0),
+        #fff
+    );
+
+    pointer-events:none;
+
+    transition:opacity .3s;
+
+}
+
+.units-table.expanded::after{
+
+    opacity:0;
+
+}
+
+.table-toggle{
+
+    display:block;
+
+    margin:24px auto 0;
+
+    background:none;
+
+    border:none;
+
+    color:#0077cc;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.table-toggle:hover{
+
+    text-decoration:underline;
+
+}
 
 /* =========================
    STATUS + TIMELINE
