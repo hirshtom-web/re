@@ -1098,38 +1098,65 @@ h1 span{
 
 /* AI RATING */
 
+/* AI RATING */
+
+.ai-rating-row{
+
+    display:flex;
+
+    align-items:center;
+
+    margin-top:8px;
+
+}
+
+
 .ai-rating{
+
+    appearance:none;
 
     display:inline-flex;
 
     align-items:center;
 
-    gap:6px;
+    gap:3px;
 
-    appearance:none;
+    padding:0;
 
     border:none;
 
-    background:transparent;
+    background:none;
 
     cursor:pointer;
+
+    font-family:inherit;
 
     font-size:15px;
 
     font-weight:700;
 
+    line-height:1;
+
+}
+
+
+/* TEXT */
+
+.ai-rating span:last-child{
 
     background:
+
     linear-gradient(
         90deg,
         #2563eb,
         #8b5cf6,
         #ec4899,
-        #06b6d4,
         #2563eb
     );
 
-    background-size:300% 100%;
+    background-size:300% auto;
+
+    animation:aiGradient 12s linear infinite;
 
     -webkit-background-clip:text;
 
@@ -1137,32 +1164,91 @@ h1 span{
 
     color:transparent;
 
-    animation:
-    aiGradient 6s linear infinite;
+}
+
+
+
+/* ICON */
+
+.ai-icon{
+
+    font-size:18px;
+
+    line-height:1;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #8b5cf6,
+        #ec4899,
+        #2563eb
+    );
+
+    background-size:300% auto;
+
+    animation:aiGradient 12s linear infinite;
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
 
 }
 
 
 
-.ai-rating-icon{
 
-    font-size:19px;
 
-    color:#8b5cf6;
+/* SLOW PREMIUM MOTION */
 
-    transition:.3s ease;
+@keyframes aiGradient{
+
+    0%{
+
+        background-position:0% center;
+
+    }
+
+    100%{
+
+        background-position:300% center;
+
+    }
 
 }
 
 
 
-.ai-rating:hover .ai-rating-icon{
 
-    transform:
-    rotate(20deg)
-    scale(1.15);
+/* HOVER */
 
-    color:#ec4899;
+.ai-rating:hover{
+
+    transform:translateY(-1px);
+
+}
+
+
+
+.ai-rating:hover span:last-child,
+.ai-rating:hover .ai-icon{
+
+    filter:brightness(1.25);
+
+}
+
+.property-meta{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:8px;
 
 }
 
