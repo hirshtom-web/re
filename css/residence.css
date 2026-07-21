@@ -1073,9 +1073,7 @@ h2{
 
 
 
-/* =========================
-   SNAPSHOT
-========================= */
+
 
 /* =========================
    PROJECT TIMELINE
@@ -1110,7 +1108,7 @@ h2{
 
     height:2px;
 
-    background:#e5e5e5;
+    background:#e5e7eb;
 
 }
 
@@ -1136,28 +1134,69 @@ h2{
 
     height:36px;
 
-    background:white;
+    background:#fff;
 
-    border:2px solid #ccc;
+    border:2px solid #d1d5db;
 
     border-radius:50%;
 
     margin-bottom:20px;
 
+    transition:.3s ease;
+
 }
 
 
+
+
+
+/* CURRENT STATUS */
 
 .timeline-step.active .timeline-dot{
 
-    background:#c9a96e;
+    background:#2563eb;
 
-    border-color:#c9a96e;
+    border-color:#2563eb;
 
     box-shadow:
-    0 0 0 8px rgba(201,169,110,.15);
+
+    0 0 0 8px rgba(37,99,235,.15),
+
+    0 0 25px rgba(37,99,235,.35);
 
 }
+
+
+
+.timeline-step.active p{
+
+    color:#2563eb;
+
+}
+
+
+
+
+
+/* COMPLETED */
+
+.timeline-step.completed .timeline-dot{
+
+    background:#10b981;
+
+    border-color:#10b981;
+
+}
+
+
+
+.timeline-step.completed p{
+
+    color:#10b981;
+
+}
+
+
 
 
 
@@ -1191,7 +1230,7 @@ h2{
 
     margin-top:8px;
 
-    color:#c9a96e;
+    color:#999;
 
     font-size:13px;
 
