@@ -445,138 +445,87 @@
 ========================= */
 
 
-/* PAYMENT BARS */
-
-.progress-item{
-
-    margin-bottom:28px;
-
-}
+/* =========================
+   FINANCIAL VISUAL SYSTEM
+========================= */
 
 
-.progress-item > span{
+/* =========================
+   PAYMENT - DONUT STYLE
+========================= */
 
-    display:flex;
 
-    justify-content:space-between;
+.payment-chart{
 
-    font-size:14px;
-
-    color:#555;
-
-    margin-bottom:10px;
+    background:
+    linear-gradient(
+        145deg,
+        #eff6ff,
+        #f5f3ff
+    );
 
 }
 
 
 
-.progress-item strong{
+.payment-chart .bar{
 
-    float:right;
+    height:14px;
 
-    font-size:14px;
-
-    color:#111;
+    background:#dbeafe;
 
 }
 
 
 
-
-.bar{
-
-    height:12px;
-
-    background:#edf1f5;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-}
-
-
-
-.bar div{
-
-    height:100%;
-
-    border-radius:20px;
+.payment-chart .bar div{
 
     background:
     linear-gradient(
         90deg,
         #2563eb,
-        #60a5fa
+        #8b5cf6
     );
 
 }
-
-
-
-/* different colors */
-
-.progress-item:nth-child(1) .bar div{
-
-    background:
-    linear-gradient(
-        90deg,
-        #22c55e,
-        #86efac
-    );
-
-}
-
-
-.progress-item:nth-child(2) .bar div{
-
-    background:
-    linear-gradient(
-        90deg,
-        #3b82f6,
-        #93c5fd
-    );
-
-}
-
-
-.progress-item:nth-child(3) .bar div{
-
-    background:
-    linear-gradient(
-        90deg,
-        #8b5cf6,
-        #c4b5fd
-    );
-
-}
-
-
-.progress-item:nth-child(4) .bar div{
-
-    background:
-    linear-gradient(
-        90deg,
-        #f59e0b,
-        #fcd34d
-    );
-
-}
-
-
 
 
 
 
 
 /* =========================
-   OWNERSHIP COST CHART
+   OWNERSHIP - TUBE STYLE
 ========================= */
+
+
+.ownership-chart{
+
+    background:
+    linear-gradient(
+        145deg,
+        #f0fdfa,
+        #ecfeff
+    );
+
+}
+
+
+
+.cost-bars{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
 
 
 .cost-bars > div{
 
-    margin-bottom:25px;
+    position:relative;
 
 }
 
@@ -588,19 +537,11 @@
 
     justify-content:space-between;
 
-    margin-bottom:8px;
+    margin-bottom:10px;
+
+    color:#334155;
 
     font-size:14px;
-
-    color:#555;
-
-}
-
-
-
-.cost-bars span:after{
-
-    content:"";
 
 }
 
@@ -608,112 +549,11 @@
 
 .cost-bars > div > div{
 
-    height:12px;
+    height:18px;
 
-    border-radius:20px;
+    border-radius:30px;
 
-    background:
-    linear-gradient(
-        90deg,
-        #111827,
-        #64748b
-    );
-
-}
-
-
-
-/* individual colors */
-
-.cost-bars > div:nth-child(1) > div{
-
-    background:
-    linear-gradient(
-        90deg,
-        #2563eb,
-        #60a5fa
-    );
-
-}
-
-
-.cost-bars > div:nth-child(2) > div{
-
-    background:
-    linear-gradient(
-        90deg,
-        #14b8a6,
-        #5eead4
-    );
-
-}
-
-
-.cost-bars > div:nth-child(3) > div{
-
-    background:
-    linear-gradient(
-        90deg,
-        #f59e0b,
-        #fde68a
-    );
-
-}
-
-
-.cost-bars > div:nth-child(4) > div{
-
-    background:
-    linear-gradient(
-        90deg,
-        #ec4899,
-        #f9a8d4
-    );
-
-}
-
-
-
-
-
-
-
-/* =========================
-   RENTAL RANGE
-========================= */
-
-
-.rental-range{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    font-weight:600;
-
-}
-
-
-
-.rental-range span{
-
-    white-space:nowrap;
-
-}
-
-
-
-.range-line{
-
-    flex:1;
-
-    height:14px;
-
-    background:#e5e7eb;
-
-    border-radius:20px;
+    background:#d1fae5;
 
     overflow:hidden;
 
@@ -721,20 +561,115 @@
 
 
 
-.range-line div{
+.cost-bars > div > div::after{
+
+    content:"";
+
+    display:block;
 
     height:100%;
 
-    width:70%;
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #0f766e,
+        #2dd4bf
+    );
+
+}
+
+
+
+/* different tube lengths */
+
+.cost-bars > div:nth-child(1) > div::after{
+
+    width:85%;
+
+}
+
+
+.cost-bars > div:nth-child(2) > div::after{
+
+    width:30%;
+
+}
+
+
+.cost-bars > div:nth-child(3) > div::after{
+
+    width:20%;
+
+}
+
+
+.cost-bars > div:nth-child(4) > div::after{
+
+    width:10%;
+
+}
+
+
+
+
+
+/* =========================
+   RENTAL - GROWTH STYLE
+========================= */
+
+
+.rental-chart{
+
+    background:
+    linear-gradient(
+        145deg,
+        #fefce8,
+        #fff7ed
+    );
+
+}
+
+
+
+.rental-range{
+
+    margin-top:40px;
+
+}
+
+
+
+.range-line{
+
+    height:16px;
+
+    background:#fde68a;
 
     border-radius:20px;
 
-    background:
+}
 
+
+
+.range-line div{
+
+    background:
     linear-gradient(
         90deg,
         #16a34a,
-        #86efac
+        #84cc16
     );
+
+}
+
+
+
+.chart-note{
+
+    color:#78716c;
+
+    margin-top:30px;
 
 }
