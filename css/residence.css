@@ -1439,6 +1439,145 @@ h2{
 
 
 /* =========================
+   NEIGHBORHOOD LIFESTYLE
+========================= */
+
+.section-intro{
+
+    max-width:700px;
+
+    margin:15px 0 35px;
+
+    color:#666;
+
+    line-height:1.7;
+
+}
+
+
+
+.lifestyle-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+
+}
+
+
+
+.lifestyle-card{
+
+    background:#fff;
+
+    border:1px solid #ececec;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+
+
+.lifestyle-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.10);
+
+}
+
+
+
+.lifestyle-card .material-symbols-outlined{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:50%;
+
+    background:#faf4e8;
+
+    color:#8c6b3f;
+
+    font-size:24px;
+
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 24;
+
+}
+
+
+
+.lifestyle-card h3{
+
+    margin:22px 0 10px;
+
+    font-size:20px;
+
+}
+
+
+
+.lifestyle-card p{
+
+    margin:0;
+
+    color:#666;
+
+    line-height:1.7;
+
+    font-size:15px;
+
+}
+
+
+
+/* TABLET */
+
+@media(max-width:1000px){
+
+    .lifestyle-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .lifestyle-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* =========================
    POPUP
 ========================= */
 
