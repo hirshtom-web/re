@@ -476,3 +476,49 @@
     }
 
 }
+
+.financial-slider{
+
+    display:flex;
+
+    gap:30px;
+
+    overflow-x:auto;
+
+    scroll-snap-type:x mandatory;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+    padding-bottom:10px;
+
+}
+
+.financial-slider::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.financial-panel{
+
+    flex:0 0 92%;
+
+    scroll-snap-align:start;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+
+    background:#fff;
+
+    border:1px solid #eee;
+
+    border-radius:36px;
+
+    padding:50px;
+
+}
