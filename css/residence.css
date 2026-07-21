@@ -2257,31 +2257,49 @@ h2{
    POPUP
 ========================= */
 
-.popup-overlay {
+/* =========================
+   AI POPUP
+========================= */
 
-    display:none;
+.popup-overlay{
 
     position:fixed;
 
     inset:0;
 
-    background:
-    rgba(0,0,0,.65);
+    display:none;
 
-    backdrop-filter:blur(8px);
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(0,0,0,.45);
 
     z-index:9999;
 
-    align-items:center;
-    justify-content:center;
+    padding:20px;
 
 }
-
 
 
 .popup-box{
 
     position:relative;
+
+    width:100%;
+
+    max-width:520px;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    padding:45px;
+
+    box-sizing:border-box;
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,.18);
 
 }
 
@@ -2291,35 +2309,55 @@ h2{
     position:absolute;
 
     top:18px;
+
     right:22px;
 
-    padding:0;
-    margin:0;
-
     border:none;
-    background:transparent;
+
+    background:none;
+
+    padding:0;
 
     font-size:30px;
+
     font-weight:300;
 
     line-height:1;
 
+    color:#777;
+
     cursor:pointer;
-
-    color:#888;
-
-    transition:.25s ease;
 
 }
 
 
 .popup-close:hover{
 
+    background:none;
+
     color:#111;
 
     transform:none;
 
-    background:transparent;
+}
+
+
+.popup-box h2{
+
+    margin:0 0 20px;
+
+    font-size:28px;
+
+}
+
+
+.popup-box p{
+
+    margin:0;
+
+    color:#666;
+
+    line-height:1.7;
 
 }
 
