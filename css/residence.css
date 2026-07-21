@@ -1136,7 +1136,6 @@ h1 span{
    AI RATING
 ========================= */
 
-
 .ai-rating{
 
     all:unset;
@@ -1145,25 +1144,17 @@ h1 span{
 
     align-items:center;
 
-    gap:6px;
-
     cursor:pointer;
 
     font-family:inherit;
 
     font-size:15px;
 
-    font-weight:700;
+    font-weight:500; /* softer than bold */
 
-    line-height:1;
+    line-height:1.5; /* gives descenders room */
 
-}
-
-
-
-/* gradient animated text */
-
-.ai-rating{
+    padding-bottom:2px;
 
     background:
 
@@ -1175,9 +1166,9 @@ h1 span{
         #2563eb
     );
 
-    background-size:300% auto;
+    background-size:400% auto;
 
-    animation:aiRatingGradient 12s linear infinite;
+    animation:aiRatingGradient 25s linear infinite;
 
     -webkit-background-clip:text;
 
@@ -1232,9 +1223,7 @@ h1 span{
 
 
 /* slow premium animation */
-
 @keyframes aiRatingGradient{
-
 
     0%{
 
@@ -1245,7 +1234,7 @@ h1 span{
 
     100%{
 
-        background-position:300% center;
+        background-position:400% center;
 
     }
 
