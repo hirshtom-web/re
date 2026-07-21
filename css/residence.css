@@ -1100,16 +1100,7 @@ h1 span{
 
 /* AI RATING */
 
-.ai-rating-row{
-
-    display:flex;
-
-    align-items:center;
-
-    margin-top:8px;
-
-}
-
+/* AI RATING */
 
 .ai-rating{
 
@@ -1119,17 +1110,19 @@ h1 span{
 
     align-items:center;
 
-    gap:3px;
+    height:auto;
+
+    margin:0;
 
     padding:0;
 
     border:none;
 
-    background:none;
+    background:transparent;
+
+    border-radius:0;
 
     cursor:pointer;
-
-    font-family:inherit;
 
     font-size:15px;
 
@@ -1137,26 +1130,19 @@ h1 span{
 
     line-height:1;
 
-}
-
-
-/* TEXT */
-
-.ai-rating span:last-child{
 
     background:
-
     linear-gradient(
         90deg,
         #2563eb,
         #8b5cf6,
         #ec4899,
+        #06b6d4,
         #2563eb
     );
 
-    background-size:300% auto;
 
-    animation:aiGradient 12s linear infinite;
+    background-size:300% 100%;
 
     -webkit-background-clip:text;
 
@@ -1164,62 +1150,37 @@ h1 span{
 
     color:transparent;
 
-}
+
+    animation:
+    aiGradient 6s linear infinite;
 
 
-
-/* ICON */
-
-.ai-icon{
-
-    font-size:18px;
-
-    line-height:1;
-
-    background:
-
-    linear-gradient(
-        90deg,
-        #2563eb,
-        #8b5cf6,
-        #ec4899,
-        #2563eb
-    );
-
-    background-size:300% auto;
-
-    animation:aiGradient 12s linear infinite;
-
-    -webkit-background-clip:text;
-
-    background-clip:text;
-
-    color:transparent;
+    transition:
+    transform .3s ease,
+    opacity .3s ease;
 
 }
 
 
 
-
-
-/* SLOW PREMIUM MOTION */
+/* MOVING COLORS */
 
 @keyframes aiGradient{
 
     0%{
 
-        background-position:0% center;
+        background-position:0% 50%;
 
     }
 
+
     100%{
 
-        background-position:300% center;
+        background-position:300% 50%;
 
     }
 
 }
-
 
 
 
@@ -1227,30 +1188,14 @@ h1 span{
 
 .ai-rating:hover{
 
-    transform:translateY(-1px);
+    animation-duration:1.5s;
+
+    transform:translateY(-2px);
+
+    opacity:.9;
 
 }
 
-
-
-.ai-rating:hover span:last-child,
-.ai-rating:hover .ai-icon{
-
-    filter:brightness(1.25);
-
-}
-
-.property-meta{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:8px;
-
-}
 
 /* =========================
    FACTS
