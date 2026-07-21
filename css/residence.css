@@ -1099,100 +1099,95 @@ h1 span{
 
 /* AI RATING */
 
-.ai-rating{
+/* AI MODAL */
 
-    appearance:none;
+.ai-modal-overlay{
 
-    display:inline-flex;
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:none;
 
     align-items:center;
 
-    height:auto;
+    justify-content:center;
 
-    margin:0;
+    z-index:9999;
 
-    padding:0;
+}
+
+
+.ai-modal-overlay.active{
+
+    display:flex;
+
+}
+
+
+
+.ai-modal{
+
+    position:relative;
+
+    width:min(520px,90%);
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:40px;
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.2);
+
+}
+
+
+
+/* CLOSE BUTTON */
+
+.ai-modal-close{
+
+    position:absolute;
+
+    top:18px;
+
+    right:20px;
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:50%;
 
     border:none;
 
-    background:transparent;
+    background:#f3f3f3;
 
-    border-radius:0;
+    color:#111;
 
-    cursor:pointer;
-
-    font-size:15px;
-
-    font-weight:700;
+    font-size:24px;
 
     line-height:1;
 
-
-    background:
-    linear-gradient(
-        90deg,
-        #2563eb,
-        #8b5cf6,
-        #ec4899,
-        #06b6d4,
-        #2563eb
-    );
-
-
-    background-size:300% 100%;
-
-    -webkit-background-clip:text;
-
-    background-clip:text;
-
-    color:transparent;
-
-
-    animation:
-    aiGradient 6s linear infinite;
-
-
-    transition:
-    transform .3s ease,
-    opacity .3s ease;
+    cursor:pointer;
 
 }
 
 
 
-/* MOVING COLORS */
+.ai-modal-close:hover{
 
-@keyframes aiGradient{
+    background:#f3f3f3;
 
-    0%{
+    color:#111;
 
-        background-position:0% 50%;
-
-    }
-
-
-    100%{
-
-        background-position:300% 50%;
-
-    }
+    transform:none;
 
 }
-
-
-
-/* HOVER */
-
-.ai-rating:hover{
-
-    animation-duration:1.5s;
-
-    transform:translateY(-2px);
-
-    opacity:.9;
-
-}
-
 
 /* =========================
    FACTS
