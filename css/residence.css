@@ -2271,36 +2271,19 @@ h2{
 
 
 
-.popup-box {
+.popup-box{
 
-    width:min(600px,90%);
-
-    background:white;
-
-    padding:45px;
-
-    border-radius:30px;
-
-    animation:
-    popupShow .35s ease;
+    position:relative;
 
 }
 
-
-
-/* =========================
-   POPUP CLOSE BUTTON
-========================= */
 
 .popup-close{
 
     position:absolute;
 
-    top:20px;
-    right:24px;
-
-    width:auto;
-    height:auto;
+    top:18px;
+    right:22px;
 
     padding:0;
     margin:0;
@@ -2308,49 +2291,27 @@ h2{
     border:none;
     background:transparent;
 
-    font-family:inherit;
-
-    font-size:32px;
+    font-size:30px;
     font-weight:300;
 
     line-height:1;
 
     cursor:pointer;
 
-    color:transparent;
-
-    background-image:
-    linear-gradient(
-        90deg,
-        #2563eb,
-        #8b5cf6,
-        #ec4899,
-        #2563eb
-    );
-
-    background-size:300% 100%;
-
-    animation:aiMove 12s linear infinite;
-
-    -webkit-background-clip:text;
-    background-clip:text;
+    color:#888;
 
     transition:.25s ease;
 
 }
 
 
-.popup-close:hover,
-.popup-close:focus,
-.popup-close:active{
+.popup-close:hover{
 
-    background-color:transparent !important;
+    color:#111;
 
-    transform:none !important;
+    transform:none;
 
-    box-shadow:none !important;
-
-    opacity:.7;
+    background:transparent;
 
 }
 
