@@ -1,3 +1,75 @@
+/* MOBILE GALLERY HIDDEN DESKTOP */
+
+.mobile-gallery{
+    display:none;
+}
+
+
+
+@media(max-width:768px){
+
+
+    .property-gallery{
+
+        display:none;
+
+    }
+
+
+    .mobile-gallery{
+
+        display:block;
+
+        width:100vw;
+
+        margin-left:calc(50% - 50vw);
+
+        margin-top:0;
+
+    }
+
+
+
+    .mobile-slider{
+
+        display:flex;
+
+        overflow-x:auto;
+
+        scroll-snap-type:x mandatory;
+
+        scrollbar-width:none;
+
+    }
+
+
+    .mobile-slider::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+
+
+    .mobile-slider img{
+
+        flex:0 0 100%;
+
+        width:100%;
+
+        height:430px;
+
+        object-fit:cover;
+
+        scroll-snap-align:start;
+
+        display:block;
+
+    }
+
+
+}
+
 /* ===== NEARBY DESTINATIONS ===== */
 
 
