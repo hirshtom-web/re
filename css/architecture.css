@@ -962,9 +962,29 @@
 
 }
 
+.faq-question,
+.faq-question:hover,
+.faq-question:focus,
+.faq-question:active{
 
+    background:transparent !important;
+    background-color:transparent !important;
 
+    color:#111 !important;
 
+    border:none !important;
+    outline:none !important;
+    box-shadow:none !important;
+
+}
+
+.faq-question span,
+.faq-question:hover span{
+
+    background:transparent !important;
+    color:#6D5DFB !important;
+
+}
 
 /* =========================
    MOBILE
