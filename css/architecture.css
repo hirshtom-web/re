@@ -674,6 +674,9 @@
 
         scrollbar-width:none;
 
+        scroll-behavior:smooth;
+
+
     }
 
 
@@ -693,6 +696,9 @@
         padding:26px;
 
         min-height:240px;
+
+        border-radius:28px;
+
 
     }
 
