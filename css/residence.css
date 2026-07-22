@@ -1275,7 +1275,31 @@ h2{
 }
 
 
+@media(max-width:768px){
 
+    .facts-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:12px;
+
+    }
+
+
+    .fact-card{
+
+        padding:20px;
+
+    }
+
+
+    .fact-card strong{
+
+        font-size:16px;
+
+    }
+
+}
 
 
 
