@@ -797,19 +797,3 @@ propertyID
 );
 
 
-function openAIRating(){
-
-    document
-    .getElementById("aiModal")
-    .classList.add("active");
-
-}
-
-
-function closeAIRating(){
-
-    document
-    .getElementById("aiModal")
-    .classList.remove("active");
-
-}
