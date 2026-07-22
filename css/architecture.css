@@ -426,13 +426,13 @@
 
     position:absolute;
 
-    right:24px;
+    top:34px;
 
-    bottom:20px;
+    right:32px;
 
     border:none;
 
-    background:transparent;
+    background:none;
 
     padding:0;
 
@@ -442,9 +442,11 @@
 
     cursor:pointer;
 
-    transition:.2s ease;
+    line-height:1;
 
 }
+
+
 .financial-more:hover{
 
     transform:translateX(4px);
@@ -465,6 +467,19 @@
     border:none !important;
 
     box-shadow:none !important;
+
+}
+
+
+@media(max-width:900px){
+
+    .financial-more{
+
+        top:26px;
+
+        right:26px;
+
+    }
 
 }
 
