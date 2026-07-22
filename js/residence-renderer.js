@@ -64,19 +64,15 @@ function renderResidence(data){
     /*
         HERO BUTTON
     */
+    
 
+const heroButton = document.querySelector(".hero-cta");
 
-    const buttons = document.querySelectorAll("button");
+if(heroButton && data.cta){
 
-    buttons.forEach(button=>{
+    heroButton.textContent = data.cta;
 
-        if(data.cta){
-
-            button.textContent = data.cta;
-
-        }
-
-    });
+}
 
 
 
@@ -331,15 +327,19 @@ document.addEventListener("DOMContentLoaded", () => {
 const table = document.querySelector(".units-table");
 const toggle = document.querySelector(".table-toggle");
 
-toggle.addEventListener("click",()=>{
+if(toggle && table){
 
-    table.classList.toggle("expanded");
+    toggle.addEventListener("click",()=>{
 
-    toggle.textContent = table.classList.contains("expanded")
-        ? "Show Less"
-        : "View All Floor Plans";
+        table.classList.toggle("expanded");
 
-});
+        toggle.textContent = table.classList.contains("expanded")
+            ? "Show Less"
+            : "View All Floor Plans";
+
+    });
+
+}
 
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -377,6 +377,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const response = await fetch("../tools/ai-modal.html");
 
+        if (!response.ok) {
+            throw new Error("AI Modal not found");
+        }
+
         container.innerHTML = await response.text();
 
         initAIModal();
@@ -389,14 +393,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 });
 
+
 function initAIModal(){
+
+    const aiButton = document.querySelector(".ai-rating");
 
     const aiModal = document.getElementById("aiModal");
 
     const closeAiModal = document.getElementById("closeAiModal");
 
 
-    if(!aiButton || !aiModal) return;
+    if(!aiButton || !aiModal) {
+        console.warn("AI modal elements missing");
+        return;
+    }
 
 
     aiButton.addEventListener("click",()=>{
