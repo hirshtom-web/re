@@ -520,3 +520,23 @@ document.querySelectorAll(".faq-question").forEach(button => {
     });
 
 });
+
+
+const faqToggle = document.querySelector(".faq-toggle");
+const faqWrapper = document.querySelector(".faq-wrapper");
+
+
+if(faqToggle && faqWrapper){
+
+    faqToggle.addEventListener("click",()=>{
+
+        faqWrapper.classList.toggle("expanded");
+
+        faqToggle.textContent =
+        faqWrapper.classList.contains("expanded")
+        ? "Show Less"
+        : "Show More";
+
+    });
+
+}
