@@ -662,15 +662,33 @@
 
 @media(max-width:900px){
 
-
     .financial-grid{
 
-        grid-template-columns:1fr;
+        display:flex;
+
+        overflow-x:auto;
+
+        scroll-snap-type:x mandatory;
+
+        gap:16px;
+
+        scrollbar-width:none;
+
+    }
+
+
+    .financial-grid::-webkit-scrollbar{
+
+        display:none;
 
     }
 
 
     .financial-card{
+
+        flex:0 0 88%;
+
+        scroll-snap-align:start;
 
         padding:26px;
 
@@ -684,6 +702,5 @@
         font-size:32px;
 
     }
-
 
 }
