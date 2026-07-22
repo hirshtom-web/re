@@ -1,184 +1,86 @@
-/* =========================
-   PRIVATE VIRTUAL SHOWING
-========================= */
-
-
 .virtual-showing-section{
 
-    width:100%;
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
 
     background:#fff;
 
     border:1px solid #ededed;
 
-    border-radius:35px;
+    border-radius:30px;
 
-    padding:35px;
-
-}
-
-
-
-/* HEADER */
-
-.virtual-showing-header{
-
-    margin-bottom:25px;
-
-}
-
-
-.virtual-showing-header h2{
-
-    margin:0 0 8px;
-
-    font-size:32px;
-
-    letter-spacing:-.5px;
-
-}
-
-
-.virtual-showing-header p{
-
-    margin:0;
-
-    max-width:650px;
-
-    color:#666;
-
-    line-height:1.6;
+    padding:25px;
 
 }
 
 
 
-/* DATE CAROUSEL */
+/* LEFT - DATES */
 
-.date-carousel{
+.showing-dates{
 
-    display:flex;
+    display:grid;
 
-    align-items:center;
+    grid-template-columns:repeat(3,1fr);
 
     gap:10px;
 
-    margin-bottom:30px;
-
 }
-
-
-
-.date-arrow{
-
-    width:38px;
-
-    height:38px;
-
-    border-radius:50%;
-
-    border:1px solid #ddd;
-
-    background:white;
-
-    cursor:pointer;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    transition:.2s;
-
-}
-
-
-.date-arrow:hover{
-
-    background:#111;
-
-    color:white;
-
-}
-
 
 
 
 .date-card{
 
-    min-width:105px;
-
-    height:95px;
+    height:75px;
 
     border:1px solid #e5e5e5;
 
-    border-radius:20px;
+    border-radius:18px;
 
     display:flex;
 
     flex-direction:column;
 
-    align-items:center;
-
     justify-content:center;
 
-    cursor:pointer;
-
-    transition:.25s;
+    align-items:center;
 
 }
-
 
 
 .date-card span{
 
-    font-size:12px;
+    font-size:10px;
 
     color:#777;
 
-    text-transform:uppercase;
-
 }
-
 
 
 .date-card strong{
 
-    font-size:30px;
+    font-size:25px;
 
     line-height:1;
 
-    margin:5px 0;
-
 }
-
 
 
 .date-card small{
 
-    font-size:12px;
+    font-size:10px;
 
     color:#777;
 
 }
-
 
 
 .date-card.active{
 
     background:#111;
-
-    border-color:#111;
-
-    color:white;
-
-}
-
-
-
-.date-card.active span,
-.date-card.active small{
 
     color:#fff;
 
@@ -186,23 +88,23 @@
 
 
 
-/* TIME AREA */
+/* RIGHT - TIMES */
 
-.time-section{
+.showing-times{
 
-    border-top:1px solid #eee;
+    border-left:1px solid #eee;
 
-    padding-top:25px;
+    padding-left:30px;
 
 }
 
 
 
-.time-section h3{
-
-    font-size:18px;
+.showing-times h3{
 
     margin:0 0 15px;
+
+    font-size:16px;
 
 }
 
@@ -210,11 +112,11 @@
 
 .time-slots{
 
-    display:flex;
+    display:grid;
 
-    flex-wrap:wrap;
+    grid-template-columns:repeat(3,1fr);
 
-    gap:8px;
+    gap:10px;
 
 }
 
@@ -222,37 +124,31 @@
 
 .time-slots button{
 
-    padding:10px 18px;
+    height:38px;
 
-    border-radius:50px;
+    border-radius:12px;
 
     border:1px solid #ddd;
 
     background:white;
 
-    cursor:pointer;
-
-    font-size:14px;
-
-    transition:.2s;
+    font-size:13px;
 
 }
 
 
 
-.time-slots button.available:hover{
+.time-slots button:hover{
 
     background:#111;
 
     color:white;
 
-    border-color:#111;
-
 }
 
 
 
-.time-slots button.unavailable{
+.time-slots .unavailable{
 
     background:#f5f5f5;
 
@@ -260,165 +156,24 @@
 
     text-decoration:line-through;
 
-    cursor:not-allowed;
-
 }
 
 
 
-
-/* MEETING INFO */
+/* BOTTOM INFO */
 
 .meeting-info{
 
-    margin-top:25px;
-
-    padding-top:18px;
+    grid-column:1 / -1;
 
     border-top:1px solid #eee;
+
+    padding-top:15px;
 
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
-
-    color:#666;
-
-    font-size:14px;
-
-}
-
-
-
-.meeting-platform{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    font-weight:600;
-
-    color:#444;
-
-}
-
-
-
-.meeting-platform img{
-
-    width:20px;
-
-    height:20px;
-
-}
-
-
-
-/* BUTTON */
-
-.schedule-button{
-
-    margin-top:22px;
-
-    padding:14px 28px;
-
-    border-radius:50px;
-
-    border:none;
-
-    background:#111;
-
-    color:white;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-
-
-.schedule-button:hover{
-
-    background:#6D5DFB;
-
-}
-
-
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-
-    .virtual-showing-section{
-
-        padding:25px;
-
-        border-radius:25px;
-
-    }
-
-
-
-    .virtual-showing-header h2{
-
-        font-size:26px;
-
-    }
-
-
-
-    .date-carousel{
-
-        overflow-x:auto;
-
-        scrollbar-width:none;
-
-    }
-
-
-
-    .date-carousel::-webkit-scrollbar{
-
-        display:none;
-
-    }
-
-
-
-    .date-arrow{
-
-        display:none;
-
-    }
-
-
-
-    .date-card{
-
-        flex:0 0 105px;
-
-    }
-
-
-
-    .meeting-info{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:12px;
-
-    }
-
 
 }
