@@ -1499,6 +1499,10 @@ h2{
 
     z-index:2;
 
+    opacity:1;
+
+    transition:opacity .4s ease;
+
     background:
     linear-gradient(
         110deg,
