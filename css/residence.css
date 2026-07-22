@@ -162,7 +162,14 @@ body{
     gap:5px;
     height:700px;
     overflow-y:auto;
-    scrollbar-width:thin;
+
+    /* Hide scrollbar */
+    scrollbar-width:none;      /* Firefox */
+    -ms-overflow-style:none;   /* IE/Edge */
+}
+
+.gallery-grid::-webkit-scrollbar{
+    display:none;              /* Chrome, Safari, Edge */
 }
 
 .gallery-grid img{
