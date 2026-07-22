@@ -80,18 +80,16 @@
 
 .date-card.active{
 
-    background:#f5efe4;
+    background:#ecfdf3;
 
-    border-color:#c8a96a;
+    border-color:#22c55e;
 
-    color:#6b5130;
-
-    position:relative;
+    color:#166534;
 
 }
 
 
-.date-card.active:after{
+.date-card.active::after{
 
     content:"✓";
 
@@ -99,7 +97,7 @@
 
     top:8px;
 
-    right:10px;
+    right:8px;
 
     width:18px;
 
@@ -107,11 +105,9 @@
 
     border-radius:50%;
 
-    background:#8c6b3f;
+    background:#22c55e;
 
     color:white;
-
-    font-size:12px;
 
     display:flex;
 
@@ -119,8 +115,11 @@
 
     justify-content:center;
 
-}
+    font-size:12px;
 
+    font-weight:700;
+
+}
 
 
 /* RIGHT - TIMES */
@@ -159,15 +158,31 @@
 
 .time-slots button{
 
-    height:38px;
+    height:42px;
 
-    border-radius:12px;
+    min-width:75px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
 
     border:1px solid #ddd;
 
-    background:white;
+    background:#fff;
+
+    color:#333;
 
     font-size:13px;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:.25s ease;
 
 }
 
@@ -175,9 +190,9 @@
 
 .time-slots button:hover{
 
-    background:#111;
+    border-color:#6D5DFB;
 
-    color:white;
+    color:#6D5DFB;
 
 }
 
@@ -195,20 +210,24 @@
 
 .time-slots button.selected{
 
-    background:#f5efe4;
+    background:#f0edff;
 
-    border-color:#c8a96a;
+    border-color:#6D5DFB;
 
-    color:#6b5130;
+    color:#6D5DFB;
 
     font-weight:600;
 
 }
 
 
-.time-slots button.selected:before{
+.time-slots button.selected::before{
 
-    content:"✓ ";
+    content:"✓";
+
+    margin-right:6px;
+
+    font-weight:700;
 
 }
 
