@@ -1,68 +1,190 @@
-function calculateMortgage(){
-
-    const price = Number(
-        document.getElementById("home-price").value.replace(/,/g,"")
-    );
-
-    const down = Number(
-        document.getElementById("down-payment").value.replace(/,/g,"")
-    );
-
-    const rate = Number(
-        document.getElementById("interest-rate").value
-    ) / 100 / 12;
-
-    const years = Number(
-        document.getElementById("loan-years").value
-    );
+document.addEventListener("DOMContentLoaded", function(){
 
 
-    const loan = price - down;
-
-    const payments = years * 12;
+const property = document.querySelector(".property-data");
 
 
-    const mortgage =
-    loan *
-    (rate * Math.pow(1 + rate, payments)) /
-    (Math.pow(1 + rate, payments)-1);
+const price = Number(property.dataset.price);
+
+const downPaymentPercent = Number(property.dataset.downPayment);
+
+const taxRate = Number(property.dataset.taxRate);
+
+const insuranceRate = Number(property.dataset.insuranceRate);
+
+const hoaSqft = Number(property.dataset.hoaSqft);
+
+const unitSize = Number(property.dataset.unitSize);
 
 
 
-    const hoa =
-    Number(
-        document.getElementById("hoa").value.replace(/,/g,"")
-    );
+const rateInput = document.getElementById("interest-rate");
 
-
-    const total = mortgage + hoa;
+const loanYears = document.getElementById("loan-years");
 
 
 
-    document.getElementById("monthly-payment").innerHTML =
-    "$" + Math.round(total).toLocaleString();
+const monthlyPayment = document.getElementById("monthly-payment");
+
+const principalResult = document.getElementById("principal-interest");
+
+const taxResult = document.getElementById("property-tax-result");
+
+const insuranceResult = document.getElementById("insurance-result");
+
+const hoaResult = document.getElementById("hoa-result");
+
+const pmiResult = document.getElementById("pmi-result");
 
 
-    document.getElementById("principal-interest").innerHTML =
-    "$" + Math.round(mortgage).toLocaleString();
 
 
-    document.getElementById("hoa-result").innerHTML =
-    "$" + hoa.toLocaleString();
+
+function calculate(){
+
+
+let rate = 
+parseFloat(rateInput.value)
+/
+100
+/
+12;
+
+
+
+let years =
+Number(loanYears.value);
+
+
+
+let loanAmount =
+price -
+(price * downPaymentPercent / 100);
+
+
+
+let months =
+years * 12;
+
+
+
+
+let mortgage =
+loanAmount *
+(rate * Math.pow(1 + rate, months))
+/
+(Math.pow(1 + rate, months)-1);
+
+
+
+
+let taxes =
+(price * taxRate / 100) / 12;
+
+
+
+let insurance =
+(price * insuranceRate / 100) / 12;
+
+
+
+let hoa =
+hoaSqft * unitSize;
+
+
+
+let total =
+mortgage +
+taxes +
+insurance +
+hoa;
+
+
+
+
+monthlyPayment.innerHTML =
+"$" + Math.round(total).toLocaleString();
+
+
+
+principalResult.innerHTML =
+"$" + Math.round(mortgage).toLocaleString();
+
+
+
+taxResult.innerHTML =
+"$" + Math.round(taxes).toLocaleString();
+
+
+
+insuranceResult.innerHTML =
+"$" + Math.round(insurance).toLocaleString();
+
+
+
+hoaResult.innerHTML =
+"$" + Math.round(hoa).toLocaleString();
+
+
+
+pmiResult.innerHTML =
+"$0";
+
 
 }
 
 
 
-document.querySelectorAll(".mortgage-field input")
-.forEach(input=>{
 
-    input.addEventListener(
-        "input",
-        calculateMortgage
-    );
+// interest +/- buttons
+
+
+document.getElementById("rate-up")
+.addEventListener("click",function(){
+
+let rate =
+parseFloat(rateInput.value);
+
+rate += .05;
+
+rateInput.value =
+rate.toFixed(2)+"%";
+
+calculate();
 
 });
 
 
-calculateMortgage();
+
+document.getElementById("rate-down")
+.addEventListener("click",function(){
+
+let rate =
+parseFloat(rateInput.value);
+
+rate -= .05;
+
+rateInput.value =
+rate.toFixed(2)+"%";
+
+calculate();
+
+});
+
+
+
+
+// mortgage period change
+
+loanYears.addEventListener(
+"change",
+calculate
+);
+
+
+
+calculate();
+
+
+
+});
