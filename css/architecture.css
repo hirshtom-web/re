@@ -457,6 +457,20 @@
 
 }
 
+.financial-more,
+.financial-more:hover,
+.financial-more:focus,
+.financial-more:active{
+
+    background:none !important;
+
+    background-color:transparent !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+}
 
 /* =========================
    PURPLE CHART AREA
