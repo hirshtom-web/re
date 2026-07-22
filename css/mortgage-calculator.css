@@ -423,22 +423,53 @@
 
     border:none;
 
-    outline:none;
+    background:transparent;
 
-    background:#f8f8f8;
-
-    border-radius:12px;
-
-    padding:14px;
+    padding:0;
 
     font-family:inherit;
 
-    font-size:16px;
+    font-size:18px;
+
+    color:#111;
+
+    outline:none;
+
+    cursor:pointer;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
 
 }
 
 
+.mortgage-field{
 
+    position:relative;
+
+}
+
+
+.mortgage-field:has(select)::after{
+
+    content:"⌄";
+
+    position:absolute;
+
+    right:22px;
+
+    bottom:22px;
+
+    color:#999;
+
+    font-size:18px;
+
+    pointer-events:none;
+
+}
 
 
 /* RATE CONTROL */
