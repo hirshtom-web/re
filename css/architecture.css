@@ -301,52 +301,36 @@
    FINANCIAL OVERVIEW
 ========================= */
 
-/* =========================
-   FINANCIAL OVERVIEW SLIDER
-========================= */
-
 
 .financial-overview{
 
-    margin-top:60px;
+    margin:60px 0 0;
 
 }
+
+
+.financial-overview h2{
+
+    margin-bottom:40px;
+
+}
+
 
 
 
 
 /* =========================
-   SLIDER
+   FINANCIAL GRID
 ========================= */
 
 
-.financial-slider{
+.financial-grid{
 
-    display:flex;
+    display:grid;
 
-    gap:30px;
+    grid-template-columns:repeat(3,1fr);
 
-    width:100%;
-
-    overflow-x:auto;
-
-    overflow-y:hidden;
-
-    scroll-snap-type:x mandatory;
-
-    scroll-behavior:smooth;
-
-    scrollbar-width:none;
-
-    padding-bottom:0px;
-
-}
-
-
-
-.financial-slider::-webkit-scrollbar{
-
-    display:none;
+    gap:24px;
 
 }
 
@@ -359,27 +343,23 @@
 ========================= */
 
 
-.financial-panel{
-
-    flex:0 0 92%;
-
-    scroll-snap-align:start;
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:50px;
+.financial-card{
 
     background:#fff;
 
-    border:1px solid #eee;
+    border:1px solid #ededed;
 
-    border-radius:36px;
+    border-radius:30px;
 
-    padding:45px;
+    padding:32px;
 
-    box-sizing:border-box;
+    min-height:260px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
 
 }
 
@@ -387,14 +367,9 @@
 
 
 
-/* =========================
-   LEFT DATA
-========================= */
+.financial-card-label{
 
-
-.financial-label{
-
-    color:#c9a96e;
+    color:#999;
 
     font-size:12px;
 
@@ -406,55 +381,143 @@
 
 
 
-.financial-panel h3{
 
-    margin:15px 0 25px;
 
-    font-size:28px;
+.financial-card strong{
+
+    display:block;
+
+    margin-top:15px;
+
+    font-size:38px;
 
     font-weight:500;
 
+    letter-spacing:-.04em;
+
+    color:#111;
+
 }
 
 
 
-.financial-data table{
+
+
+.financial-card p{
+
+    color:#777;
+
+    font-size:14px;
+
+    margin-top:8px;
+
+}
+
+
+
+
+
+
+/* =========================
+   PURPLE CHART AREA
+========================= */
+
+
+.financial-visual{
+
+    height:80px;
+
+    margin-top:30px;
+
+}
+
+
+
+
+
+/* LINE CHART */
+
+.line-chart{
+
+    position:relative;
+
+    height:100%;
+
+}
+
+
+
+.line-chart svg{
 
     width:100%;
 
-    border-collapse:collapse;
+    height:100%;
 
 }
 
 
 
-.financial-data td{
 
-    padding:16px 0;
+.line-chart path{
 
-    border-bottom:1px solid #eee;
+    fill:none;
 
-}
+    stroke:#6D5DFB;
 
+    stroke-width:3;
 
-
-.financial-data td:last-child{
-
-    text-align:right;
-
-    font-weight:600;
+    stroke-linecap:round;
 
 }
 
 
 
-.total-row td{
 
-    border-bottom:none;
 
-    padding-top:25px;
 
-    font-size:18px;
+
+/* AREA CHART */
+
+
+.area-chart{
+
+    height:60px;
+
+    border-radius:16px;
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #EDEBFF,
+        transparent
+    );
+
+    position:relative;
+
+}
+
+
+
+.area-chart:after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:15px;
+
+    height:3px;
+
+    background:#6D5DFB;
+
+    border-radius:10px;
+
+    transform:skewY(-8deg);
 
 }
 
@@ -463,18 +526,130 @@
 
 
 /* =========================
-   RIGHT VISUAL AREA
+   RING CHART
 ========================= */
 
 
+.ring-chart{
 
+    width:80px;
 
+    height:80px;
 
-.financial-chart h4{
+    border-radius:50%;
 
-    margin-bottom:30px;
+    background:
+
+    conic-gradient(
+        #6D5DFB 0 65%,
+        #EDEBFF 65% 100%
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
 }
+
+
+
+.ring-chart::after{
+
+    content:"";
+
+    width:58px;
+
+    height:58px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+}
+
+
+
+
+
+/* =========================
+   BAR CHART
+========================= */
+
+
+.bar-chart{
+
+    display:flex;
+
+    gap:8px;
+
+    align-items:flex-end;
+
+    height:70px;
+
+}
+
+
+
+.bar-chart span{
+
+    flex:1;
+
+    background:#EDEBFF;
+
+    border-radius:8px 8px 0 0;
+
+}
+
+
+
+.bar-chart span:nth-child(1){
+
+    height:35%;
+
+}
+
+
+.bar-chart span:nth-child(2){
+
+    height:55%;
+
+}
+
+
+.bar-chart span:nth-child(3){
+
+    height:75%;
+
+    background:#6D5DFB;
+
+}
+
+
+.bar-chart span:nth-child(4){
+
+    height:90%;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   AI SCORE
+========================= */
+
+
+.ai-score{
+
+    color:#6D5DFB;
+
+}
+
 
 
 
@@ -488,359 +663,27 @@
 @media(max-width:900px){
 
 
-    .financial-panel{
-
-        flex:0 0 95%;
+    .financial-grid{
 
         grid-template-columns:1fr;
 
-        gap:30px;
+    }
 
-        padding:30px;
+
+    .financial-card{
+
+        padding:26px;
+
+        min-height:240px;
 
     }
 
 
+    .financial-card strong{
 
-    .financial-panel h3{
-
-        font-size:24px;
+        font-size:32px;
 
     }
 
-
-}
-
-
-
-
-
-/* =========================
-   FINANCIAL PREMIUM MODULES
-========================= */
-
-
-/* COMMON */
-
-.financial-chart{
-
-    background:#fff;
-
-    border:1px solid #ededed;
-
-    border-radius:28px;
-
-    padding:35px;
-
-}
-
-
-
-
-
-/* =========================
-   PAYMENT TIMELINE
-========================= */
-
-
-.payment-chart .progress-item{
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-    margin-bottom:35px;
-
-}
-
-
-
-.payment-chart .progress-item:last-child{
-
-    margin-bottom:0;
-
-}
-
-
-
-.payment-chart .progress-item span{
-
-    width:110px;
-
-    font-size:14px;
-
-    color:#555;
-
-}
-
-
-
-.payment-chart .bar{
-
-    flex:1;
-
-    height:2px;
-
-    background:#e5e5e5;
-
-    border-radius:0;
-
-    position:relative;
-
-}
-
-
-
-.payment-chart .bar div{
-
-    display:none;
-
-}
-
-
-
-.payment-chart .progress-item strong{
-
-    width:45px;
-
-    text-align:right;
-
-    font-size:15px;
-
-}
-
-
-
-.payment-chart .progress-item:before{
-
-    content:"";
-
-    width:12px;
-
-    height:12px;
-
-    border-radius:50%;
-
-    background:#2563eb;
-
-    position:absolute;
-
-    left:105px;
-
-    z-index:2;
-
-}
-
-
-
-.payment-chart .progress-item:last-child:before{
-
-    background:#c9a96e;
-
-}
-
-
-
-
-
-/* =========================
-   OWNERSHIP COSTS
-========================= */
-
-
-.ownership-chart .cost-bars{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:15px;
-
-}
-
-
-
-.ownership-chart .cost-bars > div{
-
-    border:1px solid #eee;
-
-    border-radius:20px;
-
-    padding:20px;
-
-}
-
-
-
-.ownership-chart .cost-bars span{
-
-    display:block;
-
-    font-size:13px;
-
-    color:#777;
-
-    margin-bottom:10px;
-
-}
-
-
-
-.ownership-chart .cost-bars span::after{
-
-    content:none;
-
-}
-
-
-
-.ownership-chart .cost-bars div div{
-
-    display:none;
-
-}
-
-
-
-.ownership-chart .cost-bars > div:nth-child(1){
-
-    border-color:#dbeafe;
-
-}
-
-
-
-.ownership-chart .cost-bars > div:nth-child(2){
-
-    border-color:#ccfbf1;
-
-}
-
-
-
-.ownership-chart .cost-bars > div:nth-child(3){
-
-    border-color:#fef3c7;
-
-}
-
-
-
-.ownership-chart .cost-bars > div:nth-child(4){
-
-    border-color:#ede9fe;
-
-}
-
-
-
-
-
-/* =========================
-   RENTAL RANGE
-========================= */
-
-
-.rental-chart .rental-range{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-    margin:40px 0;
-
-}
-
-
-
-.rental-chart .range-line{
-
-    flex:1;
-
-    height:3px;
-
-    background:#ddd;
-
-    position:relative;
-
-}
-
-
-
-.rental-chart .range-line div{
-
-    width:70%;
-
-    height:100%;
-
-    background:#16a34a;
-
-}
-
-
-
-.rental-chart .range-line:before,
-.rental-chart .range-line:after{
-
-    content:"";
-
-    position:absolute;
-
-    top:-5px;
-
-    width:12px;
-
-    height:12px;
-
-    border-radius:50%;
-
-    background:#16a34a;
-
-}
-
-
-
-.rental-chart .range-line:before{
-
-    left:0;
-
-}
-
-
-
-.rental-chart .range-line:after{
-
-    right:0;
-
-}
-
-
-
-.chart-note{
-
-    color:#777;
-
-    font-size:14px;
-
-}
-
-.financial-overview{
-
-    margin:60px 0 0;
-
-    padding:0;
-
-}
-
-
-.financial-overview h2{
-
-    margin-bottom:40px;
 
 }
