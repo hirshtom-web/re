@@ -44,7 +44,6 @@
 }
 
 
-
 .legal-logo{
 
     width:90px;
@@ -55,10 +54,9 @@
 
     align-items:center;
 
-    justify-content:center;
+    justify-content:flex-start;
 
 }
-
 
 
 .legal-logo img{
@@ -68,6 +66,8 @@
     max-height:45px;
 
     object-fit:contain;
+
+    object-position:left center;
 
     opacity:.75;
 
