@@ -98,66 +98,61 @@ rel="stylesheet">
 
 <section class="property-gallery">
 
-
     <div class="gallery-feature">
-
 
         <img 
         src="https://static.wixstatic.com/media/1799ca_565ade04eeb443378f687a05c2bad984~mv2.jpg"
-        alt="Residence main image"
-        >
-
+        alt="Residence main image">
 
     </div>
 
 
-
-
     <div class="gallery-grid">
 
+        <img src="https://static.wixstatic.com/media/1799ca_8d7421e55c8446348f4c70b106489eb7~mv2.jpg" alt="Residence image 2">
 
-        <img 
-        src="https://static.wixstatic.com/media/1799ca_8d7421e55c8446348f4c70b106489eb7~mv2.jpg"
-        alt="Residence image 2"
-        >
+        <img src="https://static.wixstatic.com/media/1799ca_4647cef7f6834df48e2634ed057ca4c9~mv2.jpg" alt="Residence image 3">
 
+        <img src="https://static.wixstatic.com/media/1799ca_5ac56a911a20424b95a2d27bba363ac6~mv2.jpg" alt="Residence image 4">
 
-        <img 
-        src="https://static.wixstatic.com/media/1799ca_4647cef7f6834df48e2634ed057ca4c9~mv2.jpg"
-        alt="Residence image 3"
-        >
+        <img src="https://static.wixstatic.com/media/1799ca_0a2ad4c9d87d4baba63520a480639d49~mv2.jpg" alt="Residence image 5">
 
+        <img src="https://static.wixstatic.com/media/1799ca_29acc5be8a0141f6a2ad862358275c07~mv2.jpg" alt="Residence image 6">
 
-        <img 
-        src="https://static.wixstatic.com/media/1799ca_5ac56a911a20424b95a2d27bba363ac6~mv2.jpg"
-        alt="Residence image 4"
-        >
+    </div>
 
 
-        <img 
-        src="https://static.wixstatic.com/media/1799ca_0a2ad4c9d87d4baba63520a480639d49~mv2.jpg"
-        alt="Residence image 5"
-        >
-
-
-        <img 
-        src="https://static.wixstatic.com/media/1799ca_29acc5be8a0141f6a2ad862358275c07~mv2.jpg"
-        alt="Residence image 6"
-        >
-
-
-      </div>
-  
-      <button class="gallery-counter">
-    <span class="material-symbols-rounded">
-        photo_library
-    </span>
-    View all 12 photos
-</button>
-      
+    <button class="gallery-counter" onclick="openMediaLibrary()">
+        <span class="material-symbols-rounded">
+            photo_library
+        </span>
+        View all 12 photos
+    </button>
 
 
 </section>
+
+
+<!-- MEDIA LIBRARY POPUP -->
+<div class="media-library" id="mediaLibrary">
+
+    <div class="media-header">
+
+        <div class="media-tabs">
+            <button class="active">Photos</button>
+            <button>Videos</button>
+            <button>360 Tour</button>
+            <button>Floor Plans</button>
+        </div>
+
+        <button onclick="closeMediaLibrary()">✕</button>
+
+    </div>
+
+
+    <div class="media-content" id="mediaContent"></div>
+
+</div>
   
 <!-- GALLERY ABOVE THIS -->
 
