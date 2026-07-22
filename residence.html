@@ -392,7 +392,9 @@ Read more →
 Location Overview
 </h2>
 
-<section class="miami-map">
+<section class="location-map">
+
+    <div class="map-loading"></div>
 
     <iframe
         src="https://www.google.com/maps?q=Miami%20Beach%20Florida&output=embed"
@@ -400,12 +402,11 @@ Location Overview
         height="100%"
         style="border:0;"
         allowfullscreen=""
-        loading="lazy">
+        loading="lazy"
+        onload="this.previousElementSibling.style.display='none';">
     </iframe>
 
-
 </section>
-
 
 
 <section class="content-section">
