@@ -758,3 +758,62 @@
 
 
 }
+
+
+/* keep same input style */
+
+.mortgage-field input,
+.mortgage-field select{
+
+    width:100%;
+
+    border:1px solid #eee;
+
+    background:#fff;
+
+    border-radius:16px;
+
+    padding:15px 18px;
+
+    font-family:inherit;
+
+    font-size:17px;
+
+    color:#111;
+
+    outline:none;
+
+}
+
+
+.mortgage-field input:focus,
+.mortgage-field select:focus{
+
+    border-color:#6D5DFB;
+
+}
+
+
+
+
+
+/* nicer number arrows */
+
+.mortgage-field input[type="number"]{
+
+    appearance:auto;
+
+}
+
+
+
+/* chrome / safari arrows */
+
+.mortgage-field input[type="number"]::-webkit-inner-spin-button,
+.mortgage-field input[type="number"]::-webkit-outer-spin-button{
+
+    opacity:.6;
+
+    height:35px;
+
+}
