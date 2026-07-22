@@ -454,7 +454,7 @@ function hideMapLoading(){
 
                 loader.style.display = "none";
 
-            },400);
+            },800);
 
         }
 
