@@ -1956,9 +1956,22 @@ h2{
 }
 
 
-/* =========================
-   POPUP
-========================= */
+@media(max-width:900px){
+
+    .lifestyle-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .lifestyle-grid{
+        grid-template-columns:1fr;
+    }
+
+}
 
 /* =========================
    AI POPUP
