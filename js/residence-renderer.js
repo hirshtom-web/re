@@ -540,3 +540,61 @@ if(faqToggle && faqWrapper){
     });
 
 }
+
+
+let selectedDate = false;
+let selectedTime = false;
+
+const button = document.querySelector(".schedule-button");
+
+
+document.querySelectorAll(".date-card").forEach(card=>{
+
+    card.addEventListener("click",()=>{
+
+        document.querySelectorAll(".date-card")
+        .forEach(c=>c.classList.remove("active"));
+
+        card.classList.add("active");
+
+        selectedDate = true;
+
+        checkReady();
+
+    });
+
+});
+
+
+
+document.querySelectorAll(".time-slots button")
+.forEach(time=>{
+
+    time.addEventListener("click",()=>{
+
+        document.querySelectorAll(".time-slots button")
+        .forEach(t=>t.classList.remove("selected"));
+
+        time.classList.add("selected");
+
+        selectedTime = true;
+
+        checkReady();
+
+    });
+
+});
+
+
+
+function checkReady(){
+
+    if(selectedDate && selectedTime){
+
+        button.classList.add("ready");
+
+        button.innerHTML="Request Virtual Showing →";
+
+    }
+
+}
