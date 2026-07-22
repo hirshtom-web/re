@@ -1179,38 +1179,61 @@ Estimate your monthly residence payment
 <div class="mortgage-inputs">
 
 
-
-<div class="mortgage-field">
+<div class="mortgage-field slider-field">
 
 <label>
 Home Price
 </label>
 
-<div class="calculated-value" id="home-price">
+<strong id="price-display">
 $1,850,000
-</div>
+</strong>
+
+
+<input
+id="home-price"
+type="range"
+min="500000"
+max="5000000"
+step="25000"
+value="1850000"
+>
 
 </div>
 
 
 
 
-<div class="mortgage-field">
+
+<div class="mortgage-field slider-field">
 
 <label>
 Down Payment
 </label>
 
-<div class="calculated-value">
 
+<strong id="down-display">
 30%
+</strong>
+
+
+<input
+id="down-payment"
+type="range"
+min="10"
+max="80"
+step="5"
+value="30"
+>
+
 
 </div>
 
-</div>
 
 
 
+
+<div class="mortgage-input-row">
 
 
 <div class="mortgage-field">
@@ -1218,6 +1241,7 @@ Down Payment
 <label>
 Mortgage Period
 </label>
+
 
 <select id="loan-years">
 
@@ -1239,6 +1263,7 @@ Mortgage Period
 
 </select>
 
+
 </div>
 
 
@@ -1248,22 +1273,25 @@ Mortgage Period
 <div class="mortgage-field">
 
 <label>
-Interest Rate (%)
+Interest Rate
 </label>
 
-<input 
+
+<input
 id="interest-rate"
 type="number"
 value="6.50"
 step="0.05"
 >
 
-</div>
-
-
 
 </div>
 
+
+</div>
+
+
+</div>
 
 
 
