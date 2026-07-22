@@ -499,11 +499,28 @@ body{
 
     transition:max-height .5s ease;
 
+    -webkit-mask-image:linear-gradient(
+        to bottom,
+        black 80%,
+        transparent 100%
+    );
+
+    mask-image:linear-gradient(
+        to bottom,
+        black 80%,
+        transparent 100%
+    );
+
 }
+
 
 .units-table.expanded{
 
     max-height:3000px;
+
+    -webkit-mask-image:none;
+
+    mask-image:none;
 
 }
 
