@@ -367,14 +367,39 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 
-const aiButton = document.querySelector(".ai-rating");
+document.addEventListener("DOMContentLoaded", async () => {
 
-const aiModal = document.getElementById("aiModal");
+    const container = document.getElementById("ai-modal-container");
 
-const closeAiModal = document.getElementById("closeAiModal");
+    if (!container) return;
+
+    try {
+
+        const response = await fetch("ai-modal.html");
+
+        container.innerHTML = await response.text();
+
+        initAIModal();
+
+    } catch(error){
+
+        console.error("AI Modal failed loading:", error);
+
+    }
+
+});
+
+function initAIModal(){
+
+    const aiButton = document.querySelector(".ai-rating");
+
+    const aiModal = document.getElementById("aiModal");
+
+    const closeAiModal = document.getElementById("closeAiModal");
 
 
-if(aiButton){
+    if(!aiButton || !aiModal) return;
+
 
     aiButton.addEventListener("click",()=>{
 
@@ -382,27 +407,26 @@ if(aiButton){
 
     });
 
-}
+
+    if(closeAiModal){
+
+        closeAiModal.addEventListener("click",()=>{
+
+            aiModal.classList.remove("active");
+
+        });
+
+    }
 
 
-if(closeAiModal){
+    aiModal.addEventListener("click",(e)=>{
 
-    closeAiModal.addEventListener("click",()=>{
+        if(e.target === aiModal){
 
-        aiModal.classList.remove("active");
+            aiModal.classList.remove("active");
+
+        }
 
     });
 
 }
-
-
-
-aiModal.addEventListener("click",(e)=>{
-
-    if(e.target === aiModal){
-
-        aiModal.classList.remove("active");
-
-    }
-
-});
