@@ -594,6 +594,11 @@ body{
 ========================= */
 
 
+/* =========================
+   CONSTRUCTION TIMELINE
+========================= */
+
+
 .project-timeline{
 
     display:flex;
@@ -614,7 +619,7 @@ body{
 
     position:absolute;
 
-    top:18px;
+    top:9px;
 
     left:0;
 
@@ -644,19 +649,21 @@ body{
 
     display:block;
 
-    width:24px;
+    width:18px;
 
-    height:24px;
+    height:18px;
 
     background:#fff;
 
-    border:2px solid #d1d5db;
+    border:2px solid #c7d2fe;
 
     border-radius:50%;
 
-    margin-bottom:20px;
+    margin-bottom:22px;
 
     transition:.3s ease;
+
+    position:relative;
 
 }
 
@@ -668,15 +675,15 @@ body{
 
 .timeline-step.active .timeline-dot{
 
-    background:#2563eb;
+    background:#6D5DFB;
 
-    border-color:#2563eb;
+    border-color:#6D5DFB;
 
     box-shadow:
 
-    0 0 0 8px rgba(37,99,235,.15),
+    0 0 0 6px rgba(109,93,251,.15),
 
-    0 0 25px rgba(37,99,235,.35);
+    0 0 18px rgba(109,93,251,.3);
 
 }
 
@@ -684,7 +691,7 @@ body{
 
 .timeline-step.active p{
 
-    color:#2563eb;
+    color:#6D5DFB;
 
 }
 
@@ -696,9 +703,9 @@ body{
 
 .timeline-step.completed .timeline-dot{
 
-    background:#10b981;
+    background:#4F46E5;
 
-    border-color:#10b981;
+    border-color:#4F46E5;
 
 }
 
@@ -706,7 +713,7 @@ body{
 
 .timeline-step.completed p{
 
-    color:#10b981;
+    color:#4F46E5;
 
 }
 
@@ -752,6 +759,72 @@ body{
 
 }
 
+
+
+
+
+/* =========================
+   MOBILE VERTICAL
+========================= */
+
+
+@media(max-width:768px){
+
+
+    .project-timeline{
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:35px;
+
+        padding-left:35px;
+
+    }
+
+
+
+    .project-timeline:before{
+
+        top:0;
+
+        bottom:0;
+
+        left:9px;
+
+        right:auto;
+
+        width:2px;
+
+        height:auto;
+
+    }
+
+
+
+    .timeline-step{
+
+        width:100%;
+
+    }
+
+
+
+    .timeline-dot{
+
+        position:absolute;
+
+        left:-35px;
+
+        top:3px;
+
+        margin:0;
+
+    }
+
+
+}
 
 /* =========================
    HERO
