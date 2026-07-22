@@ -673,21 +673,27 @@ body{
    CONSTRUCTION TIMELINE
 ========================= */
 
-.project-timeline{
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline{
 
     display:flex;
 
-    gap:22px;
+    gap:18px;
 
     overflow-x:auto;
 
-    padding-bottom:10px;
-
     scrollbar-width:none;
+
+    padding-bottom:8px;
 
 }
 
-.project-timeline::-webkit-scrollbar{
+
+
+.timeline::-webkit-scrollbar{
 
     display:none;
 
@@ -695,189 +701,128 @@ body{
 
 
 
-/* CARD */
+.timeline div{
 
-.timeline-step{
-
-    flex:0 0 240px;
-
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:16px;
-
-    padding:28px;
+    flex:0 0 230px;
 
     background:#fff;
 
-    border:1px solid #ececec;
+    border:1px solid rgba(0,0,0,.06);
 
-    border-radius:24px;
+    border-radius:28px;
 
-    transition:.3s ease;
+    padding:30px;
 
-}
-
-.timeline-step:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:0 18px 40px rgba(0,0,0,.08);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
 
 }
 
 
 
-/* ICON */
+.timeline div:hover{
 
-.timeline-dot{
+    transform:translateY(-4px);
 
-    width:20px;
-
-    height:20px;
-
-    min-width:20px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
-    border:2px solid #d4d4d8;
-
-    background:#fff;
-
-    font-size:14px !important;
-
-    transition:.3s ease;
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
 
 }
 
 
 
-/* COMPLETED */
-
-.timeline-step.completed{
-
-    border-color:#bbf7d0;
-
-    background:#f0fdf4;
-
-}
-
-.timeline-step.completed .timeline-dot{
-
-    background:#22c55e;
-
-    border-color:#22c55e;
-
-    color:#fff;
-
-}
 
 
+/* YEAR */
 
-/* ACTIVE */
-
-.timeline-step.active{
-
-    border-color:#93c5fd;
-
-    background:#eff6ff;
-
-}
-
-.timeline-step.active .timeline-dot{
-
-    background:#2563eb;
-
-    border-color:#2563eb;
-
-    color:#fff;
-
-    box-shadow:0 0 0 6px rgba(37,99,235,.12);
-
-}
-
-
-
-/* FUTURE */
-
-.timeline-step:not(.completed):not(.active){
-
-    opacity:.88;
-
-}
-
-
-
-/* TEXT */
-
-.timeline-step small{
+.timeline span{
 
     display:block;
 
-    margin-bottom:8px;
+    margin-bottom:18px;
 
-    font-size:13px;
-
-    color:#888;
-
-    letter-spacing:.08em;
-
-    text-transform:uppercase;
-
-}
-
-.timeline-step strong{
-
-    display:block;
-
-    font-size:18px;
-
-    line-height:1.35;
-
-}
-
-
-
-/* STATUS BADGES */
-
-.timeline-status{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    margin-top:12px;
-
-    padding:6px 12px;
-
-    border-radius:999px;
-
-    font-size:11px;
+    font-size:26px;
 
     font-weight:600;
 
-    letter-spacing:.05em;
+    color:#9ca3af;
 
 }
 
-.timeline-status.completed{
 
-    background:#dcfce7;
 
-    color:#15803d;
+/* TITLE */
+
+.timeline strong{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#111;
 
 }
 
-.timeline-status.active{
 
-    background:#dbeafe;
+
+/* DESCRIPTION */
+
+.timeline p{
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+
+
+/* =========================
+   STATUS COLORS
+========================= */
+
+
+/* Completed */
+
+.timeline .completed{
+
+    background:#f0fdf4;
+
+    border-color:#bbf7d0;
+
+}
+
+
+
+.timeline .completed span{
+
+    color:#16a34a;
+
+}
+
+
+
+/* Current */
+
+.timeline .current{
+
+    background:#eff6ff;
+
+    border:2px solid #3b82f6;
+
+}
+
+
+
+.timeline .current span{
 
     color:#2563eb;
 
@@ -885,17 +830,62 @@ body{
 
 
 
+/* Future */
+
+.timeline .future{
+
+    opacity:.82;
+
+}
+
+
+
+/* Badge */
+
+.status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:6px 12px;
+
+    margin-bottom:18px;
+
+    border-radius:999px;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:.08em;
+
+}
+
+
+
+
+
 /* MOBILE */
 
 @media(max-width:900px){
 
-    .timeline-step{
+    .status-section{
 
-        flex:0 0 88%;
+        grid-template-columns:1fr;
 
     }
 
 }
+
 /* =========================
    HERO
 ========================= */
