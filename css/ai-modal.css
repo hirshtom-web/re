@@ -1,0 +1,252 @@
+/* =========================
+   AI MODAL
+========================= */
+
+
+/* =========================
+   AI MODAL
+========================= */
+
+.ai-modal-overlay{
+
+    position:fixed;
+    inset:0;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(0,0,0,.35);
+
+    z-index:9999;
+}
+
+
+.ai-modal-overlay.active{
+
+    display:flex;
+
+}
+
+
+.ai-modal{
+
+    position:relative;
+
+    width:min(420px,90%);
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:32px;
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,.14);
+
+}
+
+
+/* close X */
+
+.ai-modal-close{
+
+    all:unset;
+
+    position:absolute;
+
+    top:16px;
+    right:16px;
+
+    width:32px;
+    height:32px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#f7f7f7;
+
+    color:#111;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+.ai-title{
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#555;
+
+}
+
+
+.ai-score{
+
+    text-align:center;
+
+    margin-top:10px;
+
+    font-size:72px;
+
+    line-height:1;
+
+    font-weight:700;
+
+    letter-spacing:-5px;
+
+}
+
+
+.ai-stars{
+
+    text-align:center;
+
+    margin-top:8px;
+
+    color:#111;
+
+    letter-spacing:4px;
+
+    font-size:18px;
+
+}
+
+
+.ai-status{
+
+    text-align:center;
+
+    margin-top:16px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+
+.ai-description{
+
+    text-align:center;
+
+    margin:12px auto 0;
+
+    max-width:280px;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    color:#777;
+
+}
+
+
+.ai-divider{
+
+    height:1px;
+
+    background:#eeeeee;
+
+    margin:28px 0;
+
+}
+
+
+.ai-metrics{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+
+.ai-metrics div{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:14px;
+
+}
+
+
+.ai-metrics span{
+
+    color:#333;
+
+}
+
+
+.ai-metrics b{
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+}
+
+
+.ai-overall{
+
+    text-align:center;
+
+}
+
+
+.ai-overall small{
+
+    color:#777;
+
+    font-size:13px;
+
+}
+
+
+.ai-overall strong{
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:36px;
+
+    letter-spacing:-2px;
+
+}
+
+
+.ai-overall strong span{
+
+    color:#777;
+
+    font-size:16px;
+
+}
+
+
+.ai-overall p{
+
+    margin-top:8px;
+
+    color:#777;
+
+    font-size:13px;
+
+}
