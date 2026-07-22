@@ -1,0 +1,173 @@
+/* =========================
+   VIRTUAL SHOWING
+========================= */
+
+.virtual-showing{
+
+    max-width:600px;
+
+    padding:35px;
+
+    background:#fff;
+
+    border-radius:35px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.08);
+
+}
+
+
+.virtual-showing h2{
+
+    margin:0 0 12px;
+
+    font-size:32px;
+
+    letter-spacing:-.5px;
+
+}
+
+
+.virtual-showing p{
+
+    color:#666;
+
+    line-height:1.6;
+
+    margin-bottom:30px;
+
+}
+
+
+/* PLATFORM BUTTONS */
+
+.showing-options{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+}
+
+
+.showing-options button{
+
+    flex:1;
+
+    padding:14px 20px;
+
+    border-radius:50px;
+
+    border:1px solid #ddd;
+
+    background:white;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.showing-options button:hover{
+
+    border-color:#6D5DFB;
+
+    color:#6D5DFB;
+
+}
+
+
+
+/* DATE + TIME */
+
+.virtual-showing input,
+.virtual-showing select{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    margin-bottom:15px;
+
+    border-radius:18px;
+
+    border:1px solid #ddd;
+
+    font-size:16px;
+
+    background:white;
+
+}
+
+
+
+/* MAIN BUTTON */
+
+.schedule-button{
+
+    width:100%;
+
+    padding:16px 25px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#111;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.schedule-button:hover{
+
+    transform:translateY(-2px);
+
+    background:#6D5DFB;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .virtual-showing{
+
+        padding:25px;
+
+        border-radius:25px;
+
+    }
+
+
+    .virtual-showing h2{
+
+        font-size:26px;
+
+    }
+
+
+    .showing-options{
+
+        flex-direction:column;
+
+    }
+
+}
