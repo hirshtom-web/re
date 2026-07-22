@@ -177,3 +177,34 @@
     }
 
 }
+
+/* =========================
+      ARCHITECTURE & TEAM 
+========================= */
+
+
+@media(max-width:900px){
+
+    .architecture-feature{
+
+        grid-template-columns:1fr;
+
+        gap:24px;
+
+    }
+
+    .architecture-image{
+
+        height:300px;
+
+        border-radius:28px;
+
+    }
+
+    .architecture-content{
+
+        padding:0;
+
+    }
+
+}
