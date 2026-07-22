@@ -673,156 +673,96 @@ body{
    CONSTRUCTION TIMELINE
 ========================= */
 
-/* =========================
-   TIMELINE
-========================= */
 
-.timeline{
+.project-timeline{
 
     display:flex;
 
-    gap:18px;
+    justify-content:space-between;
 
-    overflow-x:auto;
+    position:relative;
 
-    scrollbar-width:none;
-
-    padding-bottom:8px;
+    margin-top:50px;
 
 }
 
 
 
-.timeline::-webkit-scrollbar{
+.project-timeline:before{
 
-    display:none;
+    content:"";
+
+    position:absolute;
+
+    top:18px;
+
+    left:0;
+
+    right:0;
+
+    height:2px;
+
+    background:#e5e7eb;
 
 }
 
 
 
-.timeline div{
+.timeline-step{
 
-    flex:0 0 230px;
+    position:relative;
+
+    width:16%;
+
+    z-index:1;
+
+}
+
+
+
+.timeline-dot{
+
+    display:block;
+
+    width:36px;
+
+    height:36px;
 
     background:#fff;
 
-    border:1px solid rgba(0,0,0,.06);
+    border:2px solid #d1d5db;
 
-    border-radius:28px;
+    border-radius:50%;
 
-    padding:30px;
+    margin-bottom:20px;
 
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        border-color .25s ease;
+    transition:.3s ease;
 
 }
 
 
 
-.timeline div:hover{
 
-    transform:translateY(-4px);
+
+/* CURRENT STATUS */
+
+.timeline-step.active .timeline-dot{
+
+    background:#2563eb;
+
+    border-color:#2563eb;
 
     box-shadow:
-    0 15px 35px rgba(0,0,0,.08);
+
+    0 0 0 8px rgba(37,99,235,.15),
+
+    0 0 25px rgba(37,99,235,.35);
 
 }
 
 
 
-
-
-/* YEAR */
-
-.timeline span{
-
-    display:block;
-
-    margin-bottom:18px;
-
-    font-size:26px;
-
-    font-weight:600;
-
-    color:#9ca3af;
-
-}
-
-
-
-/* TITLE */
-
-.timeline strong{
-
-    display:block;
-
-    margin-bottom:10px;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    color:#111;
-
-}
-
-
-
-/* DESCRIPTION */
-
-.timeline p{
-
-    color:#666;
-
-    font-size:14px;
-
-    line-height:1.6;
-
-}
-
-
-
-/* =========================
-   STATUS COLORS
-========================= */
-
-
-/* Completed */
-
-.timeline .completed{
-
-    background:#f0fdf4;
-
-    border-color:#bbf7d0;
-
-}
-
-
-
-.timeline .completed span{
-
-    color:#16a34a;
-
-}
-
-
-
-/* Current */
-
-.timeline .current{
-
-    background:#eff6ff;
-
-    border:2px solid #3b82f6;
-
-}
-
-
-
-.timeline .current span{
+.timeline-step.active p{
 
     color:#2563eb;
 
@@ -830,61 +770,68 @@ body{
 
 
 
-/* Future */
 
-.timeline .future{
 
-    opacity:.82;
+/* COMPLETED */
+
+.timeline-step.completed .timeline-dot{
+
+    background:#10b981;
+
+    border-color:#10b981;
 
 }
 
 
 
-/* Badge */
+.timeline-step.completed p{
 
-.status-badge{
+    color:#10b981;
 
-    display:inline-flex;
+}
 
-    align-items:center;
 
-    gap:6px;
 
-    padding:6px 12px;
 
-    margin-bottom:18px;
 
-    border-radius:999px;
+.timeline-step small{
 
-    background:#dbeafe;
+    display:block;
 
-    color:#2563eb;
+    color:#999;
 
-    font-size:11px;
+    font-size:13px;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.timeline-step strong{
+
+    display:block;
+
+    font-size:15px;
+
+    line-height:1.4;
+
+}
+
+
+
+.timeline-step p{
+
+    margin-top:8px;
+
+    color:#999;
+
+    font-size:13px;
 
     font-weight:600;
 
-    text-transform:uppercase;
-
-    letter-spacing:.08em;
-
 }
 
-
-
-
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-    .status-section{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
 
 /* =========================
    HERO
