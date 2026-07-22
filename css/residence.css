@@ -1193,7 +1193,32 @@ linear-gradient(
 }
 
 
+@media(max-width:768px){
 
+    .facts-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .fact-card{
+        padding:22px;
+    }
+
+    .fact-card strong{
+        font-size:16px;
+    }
+
+}
+
+@media(max-width:360px){
+
+    .facts-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
 
 
 /* =========================
@@ -1271,33 +1296,6 @@ h2{
     color:var(--muted);
 
     line-height:1.7;
-
-}
-
-
-@media(max-width:768px){
-
-    .facts-grid{
-
-        grid-template-columns:repeat(2,1fr);
-
-        gap:12px;
-
-    }
-
-
-    .fact-card{
-
-        padding:20px;
-
-    }
-
-
-    .fact-card strong{
-
-        font-size:16px;
-
-    }
 
 }
 
@@ -1521,15 +1519,6 @@ h1{
 .hero-content p{
 
     font-size:18px;
-
-}
-
-
-
-.facts-grid,
-.snapshot-grid{
-
-    grid-template-columns:1fr;
 
 }
 
