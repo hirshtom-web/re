@@ -193,10 +193,10 @@ ring.style.background =
 `
 conic-gradient(
 #6D5DFB 0% ${mortgagePercent}%,
-#3B82F6 ${mortgagePercent}% ${mortgagePercent + taxPercent}%,
-#10B981 ${mortgagePercent + taxPercent}% ${mortgagePercent + taxPercent + insurancePercent}%,
-#CBD5E1 ${mortgagePercent + taxPercent + insurancePercent}% ${mortgagePercent + taxPercent + insurancePercent + hoaPercent}%,
-transparent ${mortgagePercent + taxPercent + insurancePercent + hoaPercent}% 100%
+#C9A86A ${mortgagePercent}% ${mortgagePercent + taxPercent}%,
+#7FA98B ${mortgagePercent + taxPercent}% ${mortgagePercent + taxPercent + insurancePercent}%,
+#B8BCC6 ${mortgagePercent + taxPercent + insurancePercent}% ${mortgagePercent + taxPercent + insurancePercent + hoaPercent}%,
+#E5E0D8 ${mortgagePercent + taxPercent + insurancePercent + hoaPercent}% 100%
 )
 `;
 
