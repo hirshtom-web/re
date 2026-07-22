@@ -862,7 +862,7 @@
 
     gap:20px;
 
-    padding:26px 32px;
+    padding:20px 32px 18px;
 
     border:none;
 
@@ -881,7 +881,6 @@
     cursor:pointer;
 
 }
-
 
 
 .faq-question span{
