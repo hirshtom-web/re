@@ -862,7 +862,11 @@
 
     gap:20px;
 
-    padding:18px 32px 22px;
+    padding:18px 32px;
+
+    min-height:0;
+
+    line-height:1.2;
 
     border:none;
 
@@ -874,15 +878,11 @@
 
     font-weight:500;
 
-    line-height:1.2;
-
     color:#111;
 
     text-align:left;
 
     cursor:pointer;
-
-    appearance:none;
 
 }
 
@@ -903,7 +903,13 @@
 
 }
 
+.faq-question{
+    margin:0;
+}
 
+.faq-question span{
+    margin:0;
+}
 
 
 /* =========================
