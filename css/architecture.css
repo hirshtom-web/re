@@ -415,7 +415,24 @@
 
 
 
+.financial-card{
 
+    position:relative;
+
+    padding-bottom:70px;
+
+}
+
+
+.financial-more{
+
+    position:absolute;
+
+    right:24px;
+
+    bottom:24px;
+
+}
 
 
 /* =========================
