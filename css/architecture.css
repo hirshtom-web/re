@@ -138,19 +138,16 @@
 
     grid-template-columns:1.2fr 1fr;
 
+    align-items:stretch;
+    
     gap:40px;
-
-    align-items:center;
-
-    margin-top:35px;
-
 }
 
 
 
 .architecture-image{
 
-    height:520px;
+    height:100%;
 
     overflow:hidden;
 
@@ -218,14 +215,19 @@
 
     padding:20px;
 
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
 }
 
 
 
 .architecture-content h3{
 
-    font-size:34px;
-
+    font-size:clamp(28px,3vw,42px);
     line-height:1.2;
 
     margin:20px 0;
@@ -235,6 +237,14 @@
 
 
 .architecture-content p{
+
+    overflow:hidden;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:4;
+
+    -webkit-box-orient:vertical;
 
     color:#666;
 
