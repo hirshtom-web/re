@@ -952,7 +952,6 @@ h1 span{
 }
 
 
-/* AI BUTTON */
 
 /* AI RATING */
 
@@ -963,6 +962,8 @@ h1 span{
     display:inline-flex;
     align-items:center;
     gap:3px;
+
+    border-radius:1px;
 
     padding:0;
     margin:0;
