@@ -793,29 +793,27 @@
 
 /* keep same input style */
 
-.mortgage-field input,
 .mortgage-field select{
 
     width:100%;
 
-    border:1px solid #eee;
+    border:none;
 
-    background:#fff;
-
-    border-radius:16px;
-
-    padding:15px 18px;
+    background:transparent;
 
     font-family:inherit;
 
-    font-size:17px;
+    font-size:18px;
 
     color:#111;
 
     outline:none;
 
-}
+    cursor:pointer;
 
+    appearance:auto;
+
+}
 
 .mortgage-field input:focus,
 .mortgage-field select:focus{
@@ -898,5 +896,38 @@
 
     }
 
+
+}
+
+
+.payment-ring{
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:
+    conic-gradient(
+        #6D5DFB 0%,
+        #EDEBFF 0%
+    );
+
+    position:relative;
+
+}
+
+
+.payment-ring:after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    background:white;
+
+    border-radius:50%;
 
 }
