@@ -856,13 +856,13 @@
 
     display:flex;
 
-    align-items:flex-start;
+    align-items:center;
 
     justify-content:space-between;
 
     gap:20px;
 
-    padding:22px 32px;
+    padding:18px 32px 22px;
 
     border:none;
 
@@ -874,7 +874,7 @@
 
     font-weight:500;
 
-    line-height:1.4;
+    line-height:1.2;
 
     color:#111;
 
@@ -882,7 +882,10 @@
 
     cursor:pointer;
 
+    appearance:none;
+
 }
+
 
 .faq-question span{
 
@@ -1005,11 +1008,11 @@
 
     .faq-question{
 
-        padding:22px 24px;
+        padding:18px 24px 20px;
 
         font-size:16px;
 
-    }
+}
 
 
     .faq-answer p{
