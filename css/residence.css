@@ -220,8 +220,8 @@ body{
 }
 
 .material-symbols-outlined{
-    font-size:22px;
-    color:#fff;
+    font-size:22px !important;
+    color:#fff !important;
 }
 
 
