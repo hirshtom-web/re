@@ -1018,3 +1018,64 @@
 
 
 }
+
+.faq-wrapper{
+
+    position:relative;
+
+    max-height:520px;
+
+    overflow:hidden;
+
+    transition:max-height .5s ease;
+
+    -webkit-mask-image:linear-gradient(
+        to bottom,
+        black 75%,
+        transparent 100%
+    );
+
+    mask-image:linear-gradient(
+        to bottom,
+        black 75%,
+        transparent 100%
+    );
+
+}
+
+
+.faq-wrapper.expanded{
+
+    max-height:2000px;
+
+    -webkit-mask-image:none;
+
+    mask-image:none;
+
+}
+
+
+.faq-toggle{
+
+    display:block;
+
+    margin:25px auto 0;
+
+    background:none;
+
+    border:none;
+
+    color:#4f46e5;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.faq-toggle:hover{
+
+    color:#6d5dfb;
+
+}
