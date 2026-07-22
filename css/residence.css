@@ -196,7 +196,9 @@ body{
     box-shadow:0 12px 30px rgba(0,0,0,.25);
 }
 
-
+.gallery-grid img:last-child:nth-child(odd){
+    grid-column:1 / -1;
+}
 
 /* =========================
    MOBILE SLIDER
