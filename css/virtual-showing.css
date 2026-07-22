@@ -1,158 +1,107 @@
-/* =========================
-   VIRTUAL SHOWING
-========================= */
-
 .virtual-showing-section{
-    width:100%;
-}
-
-
-.virtual-showing-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:30px;
-
-}
-
-
-.virtual-calendar,
-.virtual-platform{
 
     background:#fff;
 
     border:1px solid #eee;
 
-    border-radius:35px;
+    border-radius:40px;
 
-    padding:35px;
-
-}
-
-
-
-.virtual-calendar h3,
-.virtual-platform h3{
-
-    margin-top:0;
-
-    font-size:24px;
+    padding:45px;
 
 }
 
 
+.date-carousel{
 
-.virtual-calendar input,
-.virtual-platform input{
+    display:flex;
 
-    width:100%;
+    gap:15px;
 
-    padding:16px;
+    align-items:center;
 
-    border-radius:18px;
+    overflow:hidden;
+
+}
+
+
+.date-card{
+
+    min-width:130px;
+
+    height:120px;
 
     border:1px solid #ddd;
 
-    font-size:16px;
+    border-radius:25px;
 
-    margin-bottom:20px;
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
 
 }
 
+
+.date-card.active{
+
+    background:#111;
+
+    color:white;
+
+}
+
+
+.date-card strong{
+
+    font-size:38px;
+
+}
 
 
 .time-slots{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:1fr 1fr;
+    flex-wrap:wrap;
 
     gap:12px;
 
 }
 
 
+.time-slots button{
 
-.time-slots button,
-.platform-options button{
-
-    padding:14px;
+    padding:12px 22px;
 
     border-radius:50px;
 
     border:1px solid #ddd;
 
-    background:white;
+}
 
-    cursor:pointer;
+
+.time-slots .unavailable{
+
+    background:#f3f3f3;
+
+    color:#999;
+
+    text-decoration:line-through;
 
 }
 
 
-
-.time-slots button:hover,
-.platform-options button.active{
-
-    background:#6D5DFB;
-
-    color:white;
-
-    border-color:#6D5DFB;
-
-}
-
-
-
-.platform-options{
+.meeting-info{
 
     display:flex;
 
-    gap:15px;
+    justify-content:space-between;
 
-    margin-bottom:25px;
+    margin-top:30px;
 
-}
-
-
-
-.schedule-button{
-
-    width:100%;
-
-    padding:17px;
-
-    border-radius:50px;
-
-    border:none;
-
-    background:#111;
-
-    color:white;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-}
-
-
-
-.schedule-button:hover{
-
-    background:#6D5DFB;
-
-}
-
-
-
-@media(max-width:900px){
-
-    .virtual-showing-grid{
-
-        grid-template-columns:1fr;
-
-    }
+    color:#666;
 
 }
