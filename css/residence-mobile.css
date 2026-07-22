@@ -131,3 +131,49 @@
     }
 
 }
+
+
+/* =========================
+      INFO CARDS
+========================= */
+
+
+@media(max-width:900px){
+
+    .card-grid{
+
+        display:flex;
+
+        gap:16px;
+
+        overflow-x:auto;
+
+        padding-bottom:10px;
+
+        scroll-snap-type:x mandatory;
+
+        -webkit-overflow-scrolling:touch;
+
+        scrollbar-width:none;
+
+    }
+
+    .card-grid::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+    .info-card{
+
+        flex:0 0 85%;
+
+        height:auto;
+
+        min-height:300px;
+
+        scroll-snap-align:start;
+
+    }
+
+}
