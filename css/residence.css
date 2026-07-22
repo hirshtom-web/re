@@ -240,7 +240,9 @@ body{
 
     flex:0 0 100%;
 
-    height:240px;
+    aspect-ratio:3 / 2;
+
+    height:auto;
 
     object-fit:cover;
 
@@ -272,56 +274,41 @@ body{
 
 }
 
+
+
 @media(max-width:900px){
 
 
-/* Desktop gallery OFF */
+    /* Desktop gallery OFF */
 
-.gallery-feature,
-.gallery-grid{
+    .gallery-feature,
+    .gallery-grid{
 
-    display:none;
+        display:none;
 
-}
-
-
-/* Mobile gallery ON */
-
-.mobile-gallery{
-
-    display:block;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:40px;
-
-}
+    }
 
 
+    /* Mobile gallery ON */
 
-.property-gallery{
+    .mobile-gallery{
 
-    display:block;
+        display:block;
 
-}
+        position:relative;
 
+        overflow:hidden;
 
+        border-radius:0;
 
-.status-section{
-
-    grid-template-columns:1fr;
-
-}
-
+    }
 
 
-.timeline{
+    .property-gallery{
 
-    grid-template-columns:1fr;
+        display:block;
 
-}
+    }
 
 
 }
