@@ -317,3 +317,444 @@
 
 
 }
+
+/* =========================
+   MORTGAGE CALCULATOR
+========================= */
+
+
+.mortgage-section{
+
+    margin-top:80px;
+
+}
+
+
+
+.mortgage-intro{
+
+    color:#777;
+
+    margin-top:10px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.mortgage-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:40px;
+
+}
+
+
+
+
+
+/* INPUT AREA */
+
+.mortgage-inputs{
+
+    display:grid;
+
+    gap:18px;
+
+}
+
+
+
+.mortgage-field{
+
+    background:#fff;
+
+    border:1px solid #ededed;
+
+    border-radius:22px;
+
+    padding:22px;
+
+}
+
+
+
+.mortgage-field label{
+
+    display:block;
+
+    color:#999;
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.1em;
+
+    margin-bottom:12px;
+
+}
+
+
+
+
+
+.calculated-value{
+
+    font-size:22px;
+
+    font-weight:500;
+
+    color:#111;
+
+}
+
+
+
+
+
+.mortgage-field select{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:#f8f8f8;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    font-family:inherit;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+/* RATE CONTROL */
+
+
+.rate-control{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+
+.rate-control button{
+
+    width:32px;
+
+    height:32px;
+
+    border-radius:50%;
+
+    border:1px solid #e5e5e5;
+
+    background:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+
+
+.rate-control button:hover{
+
+    background:#f5f3ff;
+
+}
+
+
+
+.rate-control input{
+
+    flex:1;
+
+    text-align:center;
+
+    border:none;
+
+    background:#f8f8f8;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    font-size:18px;
+
+    font-weight:500;
+
+}
+
+
+
+
+
+
+
+/* RESULT */
+
+.mortgage-result{
+
+    background:white;
+
+    border:1px solid #ededed;
+
+    border-radius:30px;
+
+    padding:32px;
+
+}
+
+
+
+
+
+.payment-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+.payment-header span{
+
+    display:block;
+
+    color:#999;
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.1em;
+
+}
+
+
+
+.payment-header strong{
+
+    display:block;
+
+    font-size:42px;
+
+    font-weight:500;
+
+    letter-spacing:-.04em;
+
+    margin-top:12px;
+
+}
+
+
+
+.payment-header small{
+
+    color:#777;
+
+}
+
+
+
+
+
+
+
+/* RING */
+
+.payment-ring{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:
+
+    conic-gradient(
+        #6D5DFB 0 65%,
+        #EDEBFF 65% 100%
+    );
+
+    position:relative;
+
+}
+
+
+
+.payment-ring:after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+}
+
+
+
+
+
+
+
+/* BREAKDOWN */
+
+.mortgage-breakdown{
+
+    margin-top:35px;
+
+    display:grid;
+
+    gap:16px;
+
+}
+
+
+
+.mortgage-breakdown div{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding-bottom:14px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+.mortgage-breakdown span{
+
+    color:#777;
+
+}
+
+
+
+.mortgage-breakdown strong{
+
+    font-weight:500;
+
+}
+
+
+
+
+
+
+
+/* BUTTON */
+
+.mortgage-print{
+
+    margin-top:30px;
+
+    background:none;
+
+    border:none;
+
+    color:#6D5DFB;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+
+.mortgage-print:hover{
+
+    color:#4f46e5;
+
+}
+
+
+
+
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+
+    .mortgage-grid{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+
+
+    .mortgage-result{
+
+        padding:26px;
+
+        border-radius:26px;
+
+    }
+
+
+
+    .payment-header strong{
+
+        font-size:34px;
+
+    }
+
+
+
+    .payment-ring{
+
+        width:70px;
+
+        height:70px;
+
+    }
+
+
+
+    .payment-ring:after{
+
+        inset:12px;
+
+    }
+
+
+}
