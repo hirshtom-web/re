@@ -848,3 +848,55 @@
     height:35px;
 
 }
+
+
+.mortgage-input-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+
+
+.slider-field strong{
+
+    display:block;
+
+    font-size:24px;
+
+    font-weight:500;
+
+    margin:12px 0 20px;
+
+}
+
+
+
+.slider-field input[type="range"]{
+
+    width:100%;
+
+    accent-color:#6D5DFB;
+
+}
+
+
+
+
+
+@media(max-width:900px){
+
+    .mortgage-input-row{
+
+        grid-template-columns:1fr 1fr;
+
+        gap:12px;
+
+    }
+
+
+}
