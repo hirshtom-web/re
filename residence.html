@@ -1164,7 +1164,11 @@ Estimate your monthly residence payment
             Home Price
             </label>
 
-            <input value="$1,850,000">
+            <input 
+            id="home-price"
+            type="text"
+            value="1850000"
+            >
 
         </div>
 
@@ -1176,7 +1180,11 @@ Estimate your monthly residence payment
             Down Payment
             </label>
 
-            <input value="$370,000">
+            <input 
+            id="down-payment"
+            type="text"
+            value="370000"
+            >
 
         </div>
 
@@ -1185,10 +1193,14 @@ Estimate your monthly residence payment
         <div class="mortgage-field">
 
             <label>
-            Interest Rate
+            Property Tax (Annual)
             </label>
 
-            <input value="6.5%">
+            <input 
+            id="property-tax"
+            type="text"
+            value="1.5"
+            >
 
         </div>
 
@@ -1197,10 +1209,14 @@ Estimate your monthly residence payment
         <div class="mortgage-field">
 
             <label>
-            Mortgage Period
+            Home Insurance (Annual)
             </label>
 
-            <input value="30 Years">
+            <input 
+            id="insurance"
+            type="text"
+            value="1500"
+            >
 
         </div>
 
@@ -1209,10 +1225,62 @@ Estimate your monthly residence payment
         <div class="mortgage-field">
 
             <label>
-            HOA Fees
+            HOA Fees (Monthly)
             </label>
 
-            <input value="$1,234 / month">
+            <input 
+            id="hoa"
+            type="text"
+            value="1234"
+            >
+
+        </div>
+
+
+
+        <div class="mortgage-field">
+
+            <label>
+            Mortgage Insurance PMI (Monthly)
+            </label>
+
+            <input 
+            id="pmi"
+            type="text"
+            value="0"
+            >
+
+        </div>
+
+
+
+        <div class="mortgage-field">
+
+            <label>
+            Mortgage Period (Years)
+            </label>
+
+            <input 
+            id="loan-years"
+            type="text"
+            value="30"
+            >
+
+        </div>
+
+
+
+        <div class="mortgage-field">
+
+            <label>
+            Interest Rate (%)
+            </label>
+
+            <input 
+            id="interest-rate"
+            type="text"
+            value="6.5"
+            >
 
         </div>
 
@@ -1225,117 +1293,131 @@ Estimate your monthly residence payment
 
     <!-- RESULT -->
 
-<div class="mortgage-result">
+
+    <div class="mortgage-result">
 
 
-    <div class="payment-header">
+        <div class="payment-header">
 
 
-        <div>
+            <div>
 
-            <span>
-            Estimated Monthly Payment
-            </span>
-
-
-            <strong>
-            $9,340
-            </strong>
+                <span>
+                Estimated Monthly Payment
+                </span>
 
 
-            <small>
-            PER MONTH
-            </small>
+                <strong id="monthly-payment">
+                $9,340
+                </strong>
+
+
+                <small>
+                PER MONTH
+                </small>
+
+            </div>
+
+
+
+            <div class="payment-ring"></div>
+
 
         </div>
 
 
 
-        <div class="payment-ring"></div>
+
+        <div class="mortgage-breakdown">
+
+
+            <div>
+
+                <span>
+                Principal & Interest
+                </span>
+
+                <strong id="principal-interest">
+                $8,900
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                Property Tax
+                </span>
+
+                <strong id="property-tax-result">
+                $250
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                Home Insurance
+                </span>
+
+                <strong id="insurance-result">
+                $125
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                HOA
+                </span>
+
+                <strong id="hoa-result">
+                $1,234
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                PMI
+                </span>
+
+                <strong id="pmi-result">
+                $0
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <button class="mortgage-print">
+
+            Print / Save PDF →
+
+        </button>
 
 
     </div>
-
-
-
-
-    <div class="mortgage-breakdown">
-
-
-        <div>
-            <span>
-            Principal & Interest
-            </span>
-
-            <strong>
-            $8,900
-            </strong>
-        </div>
-
-
-
-        <div>
-            <span>
-            Property Tax
-            </span>
-
-            <strong>
-            $250
-            </strong>
-        </div>
-
-
-
-        <div>
-            <span>
-            Insurance
-            </span>
-
-            <strong>
-            $190
-            </strong>
-        </div>
-
-
-
-        <div>
-            <span>
-            HOA
-            </span>
-
-            <strong>
-            $0
-            </strong>
-        </div>
-
-
-
-        <div>
-            <span>
-            PMI
-            </span>
-
-            <strong>
-            $0
-            </strong>
-        </div>
-
-
-    </div>
-
-
-
-    <button class="mortgage-print">
-
-        Print / Save PDF →
-
-    </button>
 
 
 </div>
 
-</section>
 
+</section>
   
 
   <!-- FINANCIAL OVERVIEW -->
