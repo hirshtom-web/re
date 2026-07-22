@@ -461,3 +461,37 @@ function hideMapLoading(){
     },1500);
 
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const architectureButton = document.querySelector(".architecture-content .read-more");
+
+    const popup = document.getElementById("popup");
+
+    const popupTitle = document.getElementById("popup-title");
+
+    const popupContent = document.getElementById("popup-content");
+
+
+    if(!architectureButton || !popup) return;
+
+
+    architectureButton.addEventListener("click",()=>{
+
+
+        popupTitle.textContent = "Architecture & Design";
+
+
+        popupContent.textContent =
+        `Designed with timeless architecture, refined materials, and carefully curated interiors, every residence reflects a balance of elegance, comfort, and the lifestyle of its surrounding destination.
+
+Every detail has been thoughtfully considered to create lasting value for homeowners and investors alike.`;
+
+
+        popup.style.display = "flex";
+
+
+    });
+
+
+});
