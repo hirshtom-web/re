@@ -219,9 +219,9 @@ body{
     gap:8px;
 }
 
-.material-symbols-outlined{
-    font-size:22px !important;
-    color:#fff !important;
+.gallery-counter .material-symbols-outlined{
+    color:#fff;
+    font-size:22px;
 }
 
 
