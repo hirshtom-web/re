@@ -1054,11 +1054,12 @@ h1 span{
     background-image:
 linear-gradient(
     90deg,
-    #4F46E5,
+    #4F7BFF,
     #6D5DFB,
-    #8B7CFF,
+    #8B5CF6,
+    #A78BFA,
     #6D5DFB,
-    #4F46E5
+    #4F7BFF
 );
 
     background-size:300% 100%;
