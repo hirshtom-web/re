@@ -135,7 +135,9 @@ body{
     grid-template-columns:1fr 1fr;
     gap:5px;
     border-radius:40px;
+    overflow:hidden;      /* clips everything to the rounded corners */
     align-items:start;
+    height:700px;
 }
 
 .gallery-feature{
@@ -157,7 +159,7 @@ body{
     gap:5px;
     height:700px;
     overflow-y:auto;
-    scrollbar-width:thin; /* Firefox */
+    scrollbar-width:thin;
 }
 
 .gallery-grid img{
