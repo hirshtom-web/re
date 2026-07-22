@@ -931,3 +931,107 @@
     border-radius:50%;
 
 }
+
+
+/* =========================
+   MORTGAGE COLORS
+========================= */
+
+
+.payment-ring{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:#6D5DFB;
+
+    position:relative;
+
+}
+
+
+
+.payment-ring::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    background:white;
+
+    border-radius:50%;
+
+}
+
+
+
+
+
+.mortgage-breakdown span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+
+.dot{
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    display:inline-block;
+
+}
+
+
+
+.dot.purple{
+
+    background:#6D5DFB;
+
+}
+
+
+
+.dot.gold{
+
+    background:#C9A86A;
+
+}
+
+
+
+.dot.green{
+
+    background:#7FA98B;
+
+}
+
+
+
+.dot.gray{
+
+    background:#B8BCC6;
+
+}
+
+
+
+.dot.stone{
+
+    background:#E5E0D8;
+
+}
