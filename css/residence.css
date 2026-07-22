@@ -128,16 +128,18 @@ body{
    GALLERY
 ========================= */
 
-
 .property-gallery{
     width:100%;
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:5px;
-    border-radius:40px;
-    overflow:hidden;      /* clips everything to the rounded corners */
-    align-items:start;
     height:700px;
+
+    position:relative;   /* <-- ADD THIS */
+
+    border-radius:40px;
+    overflow:hidden;
+    align-items:start;
 }
 
 .gallery-feature{
@@ -151,6 +153,7 @@ body{
     width:100%;
     height:100%;
     object-fit:cover;
+    display:block;
 }
 
 .gallery-grid{
@@ -169,24 +172,31 @@ body{
     display:block;
 }
 
+/* Last image spans two columns when there's an odd number */
+.gallery-grid img:last-child:nth-child(odd){
+    grid-column:1 / -1;
+}
 
-
+/* Counter */
 .gallery-counter{
     position:absolute;
     right:20px;
     bottom:20px;
-    z-index:20;
+    z-index:100;
 
-    background:#fff;
-    color:#222;
+    background:rgba(0,0,0,.65);
+    color:#fff;
 
-    border:1px solid rgba(0,0,0,.12);
-    border-radius:14px;
+    border:none;
+    border-radius:50px;
 
-    padding:12px 18px;
+    padding:10px 18px;
+    font-size:14px;
     font-weight:600;
+
     cursor:pointer;
 
+    backdrop-filter:blur(10px);
     box-shadow:0 8px 25px rgba(0,0,0,.18);
     transition:.2s;
 }
@@ -196,120 +206,51 @@ body{
     box-shadow:0 12px 30px rgba(0,0,0,.25);
 }
 
-.gallery-grid img:last-child:nth-child(odd){
-    grid-column:1 / -1;
-}
-
 /* =========================
    MOBILE SLIDER
 ========================= */
 
-
 .mobile-gallery{
-
     display:none;
-
 }
-
-
 
 .mobile-slider{
-
     display:flex;
-
     overflow-x:auto;
-
     scroll-snap-type:x mandatory;
-
     scrollbar-width:none;
-
 }
-
-
 
 .mobile-slider::-webkit-scrollbar{
-
     display:none;
-
 }
-
-
 
 .mobile-slider img{
-
     flex:0 0 100%;
-
     aspect-ratio:3 / 2;
-
     height:auto;
-
     object-fit:cover;
-
     scroll-snap-align:start;
-
 }
-
-
-
-.gallery-counter{
-
-    position:absolute;
-
-    right:20px;
-
-    bottom:20px;
-
-    background:rgba(0,0,0,.55);
-
-    color:white;
-
-    padding:8px 16px;
-
-    border-radius:50px;
-
-    font-size:14px;
-
-    backdrop-filter:blur(10px);
-
-}
-
-
 
 @media(max-width:900px){
 
-
-    /* Desktop gallery OFF */
-
     .gallery-feature,
     .gallery-grid{
-
         display:none;
-
     }
-
-
-    /* Mobile gallery ON */
 
     .mobile-gallery{
-
         display:block;
-
         position:relative;
-
         overflow:hidden;
-
         border-radius:0;
-
     }
-
 
     .property-gallery{
-
         display:block;
-
+        height:auto;
     }
-
-
 }
 
 
