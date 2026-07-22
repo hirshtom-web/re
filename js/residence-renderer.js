@@ -375,7 +375,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
 
-        const response = await fetch("ai-modal.html");
+        const response = await fetch("../tools/ai-modal.html");
 
         container.innerHTML = await response.text();
 
@@ -390,8 +390,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 function initAIModal(){
-
-    const aiButton = document.querySelector(".ai-rating");
 
     const aiModal = document.getElementById("aiModal");
 
