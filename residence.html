@@ -1141,280 +1141,306 @@ Construction Timeline
 
 <section id="mortgage-calculator" class="mortgage-section">
 
+
+<!-- PROPERTY DATA SOURCE -->
+
+<div 
+class="property-data"
+
+data-price="1850000"
+data-down-payment="30"
+data-tax-rate="1.5"
+data-insurance-rate="0.5"
+data-hoa-sqft="1.85"
+data-unit-size="2131"
+
+></div>
+
+
+
 <h2>
 Mortgage Calculator
 </h2>
+
 
 <p class="mortgage-intro">
 Estimate your monthly residence payment
 </p>
 
 
+
+
 <div class="mortgage-grid">
 
 
-    <!-- INPUTS -->
 
-    <div class="mortgage-inputs">
+<!-- SETTINGS -->
 
+<div class="mortgage-inputs">
 
-        <div class="mortgage-field">
 
-            <label>
-            Home Price
-            </label>
 
-            <input 
-            id="home-price"
-            type="text"
-            value="1850000"
-            >
+<div class="mortgage-field">
 
-        </div>
+<label>
+Home Price
+</label>
 
+<div class="calculated-value" id="home-price">
+$1,850,000
+</div>
 
+</div>
 
-        <div class="mortgage-field">
 
-            <label>
-            Down Payment
-            </label>
 
-            <input 
-            id="down-payment"
-            type="text"
-            value="370000"
-            >
 
-        </div>
+<div class="mortgage-field">
 
+<label>
+Down Payment
+</label>
 
+<div class="calculated-value">
 
-        <div class="mortgage-field">
+30%
 
-            <label>
-            Property Tax (Annual)
-            </label>
+</div>
 
-            <input 
-            id="property-tax"
-            type="text"
-            value="1.5"
-            >
+</div>
 
-        </div>
 
 
 
-        <div class="mortgage-field">
 
-            <label>
-            Home Insurance (Annual)
-            </label>
+<div class="mortgage-field">
 
-            <input 
-            id="insurance"
-            type="text"
-            value="1500"
-            >
+<label>
+Mortgage Period
+</label>
 
-        </div>
 
+<select id="loan-years">
 
+<option value="15">
+15 Year Fixed
+</option>
 
-        <div class="mortgage-field">
+<option value="20">
+20 Year Fixed
+</option>
 
-            <label>
-            HOA Fees (Monthly)
-            </label>
+<option value="25">
+25 Year Fixed
+</option>
 
-            <input 
-            id="hoa"
-            type="text"
-            value="1234"
-            >
+<option value="30" selected>
+30 Year Fixed
+</option>
 
-        </div>
 
-
-
-        <div class="mortgage-field">
-
-            <label>
-            Mortgage Insurance PMI (Monthly)
-            </label>
-
-            <input 
-            id="pmi"
-            type="text"
-            value="0"
-            >
-
-        </div>
-
-
-
-        <div class="mortgage-field">
-
-            <label>
-            Mortgage Period (Years)
-            </label>
-
-            <input 
-            id="loan-years"
-            type="text"
-            value="30"
-            >
-
-        </div>
-
-
-
-        <div class="mortgage-field">
-
-            <label>
-            Interest Rate (%)
-            </label>
-
-            <input 
-            id="interest-rate"
-            type="text"
-            value="6.5"
-            >
-
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <!-- RESULT -->
-
-
-    <div class="mortgage-result">
-
-
-        <div class="payment-header">
-
-
-            <div>
-
-                <span>
-                Estimated Monthly Payment
-                </span>
-
-
-                <strong id="monthly-payment">
-                $9,340
-                </strong>
-
-
-                <small>
-                PER MONTH
-                </small>
-
-            </div>
-
-
-
-            <div class="payment-ring"></div>
-
-
-        </div>
-
-
-
-
-        <div class="mortgage-breakdown">
-
-
-            <div>
-
-                <span>
-                Principal & Interest
-                </span>
-
-                <strong id="principal-interest">
-                $8,900
-                </strong>
-
-            </div>
-
-
-
-            <div>
-
-                <span>
-                Property Tax
-                </span>
-
-                <strong id="property-tax-result">
-                $250
-                </strong>
-
-            </div>
-
-
-
-            <div>
-
-                <span>
-                Home Insurance
-                </span>
-
-                <strong id="insurance-result">
-                $125
-                </strong>
-
-            </div>
-
-
-
-            <div>
-
-                <span>
-                HOA
-                </span>
-
-                <strong id="hoa-result">
-                $1,234
-                </strong>
-
-            </div>
-
-
-
-            <div>
-
-                <span>
-                PMI
-                </span>
-
-                <strong id="pmi-result">
-                $0
-                </strong>
-
-            </div>
-
-
-        </div>
-
-
-
-        <button class="mortgage-print">
-
-            Print / Save PDF →
-
-        </button>
-
-
-    </div>
+</select>
 
 
 </div>
+
+
+
+
+
+<div class="mortgage-field">
+
+<label>
+Interest Rate
+</label>
+
+
+<div class="rate-control">
+
+
+<button 
+type="button"
+id="rate-down">
+−
+</button>
+
+
+<input 
+id="interest-rate"
+value="6.50%"
+readonly
+>
+
+
+<button 
+type="button"
+id="rate-up">
++
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- RESULT -->
+
+<div class="mortgage-result">
+
+
+
+<div class="payment-header">
+
+
+
+<div>
+
+
+<span>
+Estimated Monthly Payment
+</span>
+
+
+
+<strong id="monthly-payment">
+$0
+</strong>
+
+
+
+<small>
+PER MONTH
+</small>
+
+
+
+</div>
+
+
+
+
+<div class="payment-ring"></div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="mortgage-breakdown">
+
+
+
+<div>
+
+<span>
+Principal & Interest
+</span>
+
+<strong id="principal-interest">
+$0
+</strong>
+
+</div>
+
+
+
+
+<div>
+
+<span>
+Property Tax
+</span>
+
+<strong id="property-tax-result">
+$0
+</strong>
+
+</div>
+
+
+
+
+<div>
+
+<span>
+Home Insurance
+</span>
+
+<strong id="insurance-result">
+$0
+</strong>
+
+</div>
+
+
+
+
+<div>
+
+<span>
+HOA
+</span>
+
+<strong id="hoa-result">
+$0
+</strong>
+
+</div>
+
+
+
+
+<div>
+
+<span>
+PMI
+</span>
+
+<strong id="pmi-result">
+$0
+</strong>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<button class="mortgage-print">
+
+Print / Save PDF →
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
 
 
 </section>
