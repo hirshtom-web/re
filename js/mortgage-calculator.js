@@ -136,42 +136,13 @@ pmiResult.innerHTML =
 
 
 
-// interest +/- buttons
 
+// interest rate change
 
-document.getElementById("rate-up")
-.addEventListener("click",function(){
-
-let rate =
-parseFloat(rateInput.value);
-
-rate += .05;
-
-rateInput.value =
-rate.toFixed(2)+"%";
-
-calculate();
-
-});
-
-
-
-document.getElementById("rate-down")
-.addEventListener("click",function(){
-
-let rate =
-parseFloat(rateInput.value);
-
-rate -= .05;
-
-rateInput.value =
-rate.toFixed(2)+"%";
-
-calculate();
-
-});
-
-
+rateInput.addEventListener(
+"input",
+calculate
+);
 
 
 // mortgage period change
