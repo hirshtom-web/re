@@ -1501,7 +1501,7 @@ h2{
 
     opacity:1;
 
-    transition:opacity .4s ease;
+    transition:opacity .8s ease;
 
     background:
     linear-gradient(
@@ -1513,7 +1513,7 @@ h2{
 
     background-size:200% 100%;
 
-    animation:mapLoading 1.5s infinite;
+    animation:mapLoading 3s infinite ease-in-out;
 
 }
 
