@@ -80,9 +80,44 @@
 
 .date-card.active{
 
-    background:#111;
+    background:#f5efe4;
 
-    color:#fff;
+    border-color:#c8a96a;
+
+    color:#6b5130;
+
+    position:relative;
+
+}
+
+
+.date-card.active:after{
+
+    content:"✓";
+
+    position:absolute;
+
+    top:8px;
+
+    right:10px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#8c6b3f;
+
+    color:white;
+
+    font-size:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
 }
 
@@ -158,6 +193,25 @@
 
 }
 
+.time-slots button.selected{
+
+    background:#f5efe4;
+
+    border-color:#c8a96a;
+
+    color:#6b5130;
+
+    font-weight:600;
+
+}
+
+
+.time-slots button.selected:before{
+
+    content:"✓ ";
+
+}
+
 
 
 /* BOTTOM INFO */
@@ -175,5 +229,29 @@
     justify-content:space-between;
 
     align-items:center;
+
+}
+
+.schedule-button{
+
+    background:#ddd;
+
+    color:#999;
+
+    cursor:not-allowed;
+
+    opacity:.7;
+
+}
+
+.schedule-button.ready{
+
+    background:#8c6b3f;
+
+    color:white;
+
+    opacity:1;
+
+    cursor:pointer;
 
 }
