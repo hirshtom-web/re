@@ -1423,112 +1423,92 @@ document.addEventListener("DOMContentLoaded",()=>{
 ========================= */
 
 
-function openMediaLibrary(){
-
+function openMediaLibrary(
+    planUrl = null,
+    title = null,
+    type = "photos"
+){
 
 
     const mediaLibrary =
-    document.getElementById(
-        "mediaLibrary"
-    );
+    document.getElementById("mediaLibrary");
 
 
     const mediaContent =
-    document.getElementById(
-        "mediaContent"
-    );
-
+    document.getElementById("mediaContent");
 
 
     if(!mediaLibrary || !mediaContent){
-
         return;
-
     }
-
-
-
-
-    const galleryImages =
-    document.querySelectorAll(
-        ".gallery-feature img, .gallery-grid img"
-    );
-
 
 
     mediaContent.innerHTML = "";
 
 
 
+    // FLOOR PLANS
 
-    galleryImages.forEach(img=>{
-
-
-        const newImg =
-        document.createElement("img");
+    if(type === "floorplans"){
 
 
-
-        newImg.src =
-        img.src;
+        const viewer = document.createElement("iframe");
 
 
-
-        newImg.alt =
-        img.alt;
+        viewer.src = planUrl;
 
 
-
-        mediaContent.appendChild(
-            newImg
-        );
+        viewer.className = "plan-viewer";
 
 
-    });
+        viewer.title =
+        title || "Floor Plan";
 
 
-
-
-
-    mediaLibrary.classList.add(
-        "active"
-    );
-
-
-
-}
-
-
-
-
-
-
-
-function closeMediaLibrary(){
-
-
-    const mediaLibrary =
-    document.getElementById(
-        "mediaLibrary"
-    );
-
-
-
-    if(mediaLibrary){
-
-
-        mediaLibrary.classList.remove(
-            "active"
-        );
+        mediaContent.appendChild(viewer);
 
 
     }
 
 
+
+    // PHOTOS
+
+    else {
+
+
+        const galleryImages =
+        document.querySelectorAll(
+            ".gallery-feature img, .gallery-grid img"
+        );
+
+
+        galleryImages.forEach(img=>{
+
+
+            const newImg =
+            document.createElement("img");
+
+
+            newImg.src = img.src;
+
+
+            newImg.alt = img.alt;
+
+
+            mediaContent.appendChild(newImg);
+
+
+        });
+
+    }
+
+
+
+    mediaLibrary.classList.add("active");
+
+
 }
-
-
-
 
 
 
