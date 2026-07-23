@@ -1567,7 +1567,16 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 
 
+
+
+
+/* =========================
+   FLOOR PLAN MEDIA PORTAL
+========================= */
+
+
 document.addEventListener("click",(e)=>{
+
 
     const plan =
     e.target.closest(".plan-link");
@@ -1581,5 +1590,6 @@ document.addEventListener("click",(e)=>{
         plan.dataset.title,
         "floorplans"
     );
+
 
 });
