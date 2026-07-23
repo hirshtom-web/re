@@ -1,11 +1,25 @@
-/* =========================
-   PROPERTIES GRID
-========================= */
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:#f8f7f4;
+
+    color:#171717;
+
+}
+
+
 
 .properties-grid-section{
-    width:100%;
-    padding:60px 0;
+
+    max-width:1440px;
+
+    margin:auto;
+
+    padding:60px 40px;
+
 }
+
 
 
 .properties-grid{
@@ -13,50 +27,51 @@
     display:grid;
 
     grid-template-columns:
-    repeat(3, 1fr);
+    repeat(3,1fr);
 
     gap:30px;
 
 }
 
 
-/* =========================
-   PROPERTY CARD
-========================= */
 
 .property-card{
 
-    background:#fff;
+    background:white;
 
     border-radius:30px;
 
     overflow:hidden;
 
-    transition:.3s ease;
+    border:1px solid #e6e2da;
+
+    cursor:pointer;
+
+    transition:.25s ease;
 
 }
 
 
-.property-card a{
 
-    text-decoration:none;
+.property-card:hover{
 
-    color:inherit;
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.08);
 
 }
 
 
-/* IMAGE */
 
 .property-card-image{
 
+    height:320px;
+
     position:relative;
 
-    aspect-ratio:4 / 3;
-
-    overflow:hidden;
-
 }
+
 
 
 .property-card-image img{
@@ -67,126 +82,46 @@
 
     object-fit:cover;
 
-    display:block;
-
-    transition:.4s ease;
-
 }
 
 
-.property-card:hover img{
-
-    transform:scale(1.05);
-
-}
-
-
-/* BADGE */
-
-.property-badge{
-
-    position:absolute;
-
-    top:18px;
-
-    left:18px;
-
-    background:#fff;
-
-    padding:8px 14px;
-
-    border-radius:50px;
-
-    font-size:13px;
-
-    font-weight:600;
-
-}
-
-
-/* FAVORITE */
-
-.property-favorite{
-
-    position:absolute;
-
-    top:18px;
-
-    right:18px;
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:50%;
-
-    border:none;
-
-    background:#fff;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-}
-
-
-/* INFO */
 
 .property-card-info{
 
-    padding:22px;
+    padding:28px;
 
 }
+
 
 
 .property-card-info h3{
 
-    margin:0 0 8px;
+    font-size:24px;
 
-    font-size:22px;
+    font-weight:600;
+
+    margin:0 0 10px;
 
 }
+
 
 
 .property-card-info p{
 
-    margin:0 0 15px;
+    font-size:14px;
 
-    color:#666;
+    color:#777;
+
+    margin-bottom:18px;
 
 }
+
 
 
 .property-card-info strong{
 
-    font-size:20px;
+    font-size:22px;
 
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:1000px){
-
-    .properties-grid{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
-    }
-
-}
-
-
-@media(max-width:600px){
-
-    .properties-grid{
-
-        grid-template-columns:1fr;
-
-    }
+    font-weight:600;
 
 }
