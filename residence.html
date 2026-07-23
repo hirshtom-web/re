@@ -36,62 +36,24 @@ rel="stylesheet">
 
 <!-- PROPERTY CARD -->
 
-<main class="property-container">
-
-
 <!-- IMAGE GALLERY -->
 
 <!-- MOBILE FULL WIDTH GALLERY -->
 
 <div class="mobile-gallery">
 
-
-    <div class="mobile-slider">
-
-
-        <img 
-        src="https://static.wixstatic.com/media/1799ca_565ade04eeb443378f687a05c2bad984~mv2.jpg"
-        alt="Residence image 1"
-        >
-
-
-        <img 
-        src="https://static.wixstatic.com/media/1799ca_8d7421e55c8446348f4c70b106489eb7~mv2.jpg"
-        alt="Residence image 2"
-        >
-
-
-        <img 
-        src="https://static.wixstatic.com/media/1799ca_4647cef7f6834df48e2634ed057ca4c9~mv2.jpg"
-        alt="Residence image 3"
-        >
-
-
-        <img 
-        src="https://static.wixstatic.com/media/1799ca_5ac56a911a20424b95a2d27bba363ac6~mv2.jpg"
-        alt="Residence image 4"
-        >
-
-
-        <img 
-        src="https://static.wixstatic.com/media/1799ca_0a2ad4c9d87d4baba63520a480639d49~mv2.jpg"
-        alt="Residence image 5"
-        >
-
-
+    <div 
+    class="mobile-slider"
+    id="mobile-slider">
     </div>
 
 
-
-    <div class="gallery-counter">
-
-        1 / 5
-
+    <div 
+    class="gallery-counter"
+    id="mobile-counter">
     </div>
-
 
 </div>
-
 
 
 
@@ -100,61 +62,88 @@ rel="stylesheet">
 
 <section class="property-gallery">
 
-   <div class="gallery-feature">
+
+<div class="gallery-feature">
 
     <img 
-    src="https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AJEStqGHdyyMCsW2SSVKjbE/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2001_PENTHOUSE%20LIVING%20ROOM_ER_PEOPLE.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1"
+    id="gallery-main"
+    src=""
     alt="Residence main image">
 
 </div>
 
 
-    <div class="gallery-grid">
 
-        <img src="https://static.wixstatic.com/media/1799ca_8d7421e55c8446348f4c70b106489eb7~mv2.jpg" alt="Residence image 2">
-
-        <img src="https://static.wixstatic.com/media/1799ca_4647cef7f6834df48e2634ed057ca4c9~mv2.jpg" alt="Residence image 3">
-
-        <img src="https://static.wixstatic.com/media/1799ca_5ac56a911a20424b95a2d27bba363ac6~mv2.jpg" alt="Residence image 4">
-
-        <img src="https://static.wixstatic.com/media/1799ca_0a2ad4c9d87d4baba63520a480639d49~mv2.jpg" alt="Residence image 5">
-
-        <img src="https://static.wixstatic.com/media/1799ca_29acc5be8a0141f6a2ad862358275c07~mv2.jpg" alt="Residence image 6">
-
-    </div>
+<div 
+class="gallery-grid"
+id="gallery-grid">
+</div>
 
 
-    <button class="gallery-counter" onclick="openMediaLibrary()">
-    <span class="material-symbols-outlined">
-        photo_library
-    </span>
-    View all 12 photos
+
+<button 
+class="gallery-counter" 
+onclick="openMediaLibrary()">
+
+<span class="material-symbols-outlined">
+photo_library
+</span>
+
+<span id="photo-count">
+View all photos
+</span>
+
 </button>
 
 
 </section>
 
 
+
+
 <!-- MEDIA LIBRARY POPUP -->
+
 <div class="media-library" id="mediaLibrary">
 
-    <div class="media-header">
+<div class="media-header">
 
-        <div class="media-tabs">
-            <button class="active">Photos</button>
-            <button>Videos</button>
-            <button>360 Tour</button>
-            <button>Floor Plans</button>
-        </div>
+<div class="media-tabs">
 
-        <button onclick="closeMediaLibrary()">✕</button>
+<button class="active">
+Photos
+</button>
 
-    </div>
+<button>
+Videos
+</button>
 
+<button>
+360 Tour
+</button>
 
-    <div class="media-content" id="mediaContent"></div>
+<button>
+Floor Plans
+</button>
 
 </div>
+
+
+<button onclick="closeMediaLibrary()">
+✕
+</button>
+
+
+</div>
+
+
+<div 
+class="media-content" 
+id="mediaContent">
+</div>
+
+
+</div>
+  
   
 <!-- GALLERY ABOVE THIS -->
 
@@ -176,44 +165,40 @@ rel="stylesheet">
 
 <div class="title-row">
 
-<h1>
-One Park Tower
-</h1>
+    <h1 id="property-title"></h1>
 
+    <div class="property-tags">
 
-<div class="property-tags">
+        <span 
+        class="tag tag-green" 
+        id="property-status">
+        </span>
 
-<span class="tag tag-green">
-New Construction
-</span>
-
-</div>
-
+    </div>
 
 </div>
 
 
 
-<p class="property-address">
-
-12345 Main St. Miami, FL 34567
-
+<p 
+class="property-address" 
+id="property-address">
 </p>
 
 
 
 <div class="property-meta">
 
-
-<span class="last-update">
-Last updated today
-</span>
-
-    <button class="ai-rating">
-    9.7 AI Rating
-</button>
+    <span 
+    class="last-update" 
+    id="last-update">
+    </span>
 
 
+    <button 
+    class="ai-rating" 
+    id="ai-rating">
+    </button>
 
 </div>
 
