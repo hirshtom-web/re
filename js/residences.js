@@ -89,68 +89,84 @@ country:"USA",
 
 coordinates:{
 
-lat:25.7907,
+    lat:25.7907,
 
-lng:-80.1300
+    lng:-80.1300
 
 },
-
 
 
 nearby:[
 
 {
+    title:"Beach Access",
+    distance:"2 minutes",
+    icon:"beach_access",
 
-title:"Beach Access",
-
-distance:"2 minutes",
-
-icon:"beach_access"
-
+    coordinates:{
+        lat:25.7902,
+        lng:-80.1285
+    }
 },
 
+
 {
+    title:"Fine Dining",
+    distance:"5 minutes",
+    icon:"restaurant",
 
-title:"Fine Dining",
-
-distance:"5 minutes",
-
-icon:"restaurant"
-
+    coordinates:{
+        lat:25.7875,
+        lng:-80.1412
+    }
 },
 
+
 {
+    title:"Miami International Airport",
+    distance:"20 minutes",
+    icon:"flight",
 
-title:"Airport",
-
-distance:"20 minutes",
-
-icon:"flight"
-
+    coordinates:{
+        lat:25.7959,
+        lng:-80.2870
+    }
 },
 
+
 {
-title:"Luxury Shopping",
+    title:"Luxury Shopping",
+    distance:"8 minutes",
+    icon:"shopping_bag",
 
-distance:"8 minutes",
-
-icon:"shopping_bag"
+    coordinates:{
+        lat:25.7900,
+        lng:-80.1400
+    }
 },
 
+
 {
-title:"Marina",
+    title:"Marina",
+    distance:"10 minutes",
+    icon:"directions_boat",
 
-distance:"10 minutes",
-
-icon:"directions_boat"
+    coordinates:{
+        lat:25.7745,
+        lng:-80.1410
+    }
 },
 
+
 {
-title:"Arts District",
+    title:"Arts District",
+    distance:"15 minutes",
+    icon:"palette",
 
-distance:"15 minutes",
-
-icon:"palette"
+    coordinates:{
+        lat:25.7840,
+        lng:-80.1930
+    }
 }
 
 ],
