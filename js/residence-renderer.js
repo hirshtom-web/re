@@ -615,6 +615,99 @@ if(nearbyGrid && data.nearby){
 
 }
 
+    
+/* =========================
+   FLOOR PLAN
+========================= */
+
+    
+document.addEventListener("DOMContentLoaded",()=>{
+
+const tbody =
+document.getElementById("residence-table-body");
+
+
+if(!tbody) return;
+
+
+residences.forEach(item=>{
+
+
+const row =
+document.createElement("tr");
+
+
+row.innerHTML = `
+
+<td>${item.name}</td>
+
+<td>${item.bedrooms}</td>
+
+<td>${item.bathrooms}</td>
+
+<td>${item.interior}</td>
+
+<td>
+<button class="layout-btn"
+data-image="${item.layout}">
+View Plan
+</button>
+</td>
+
+`;
+
+
+tbody.appendChild(row);
+
+
+});
+
+
+});
+
+
+    
+/* =========================
+   FLOOR PLAN TOGGLE
+========================= */
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+    const table =
+    document.querySelector(".units-table");
+
+
+    const toggle =
+    document.querySelector(".table-toggle");
+
+
+
+    if(!toggle || !table) return;
+
+
+
+    toggle.addEventListener("click",()=>{
+
+
+        table.classList.toggle("expanded");
+
+
+
+        toggle.textContent =
+        table.classList.contains("expanded")
+        ?
+        "Show Less"
+        :
+        "View All Floor Plans";
+
+
+    });
+
+
+});
+
 
 /* =========================
    LOCATION MAP
@@ -803,55 +896,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 });
-
-
-
-
-
-
-
-/* =========================
-   FLOOR PLAN TOGGLE
-========================= */
-
-
-document.addEventListener("DOMContentLoaded",()=>{
-
-
-    const table =
-    document.querySelector(".units-table");
-
-
-    const toggle =
-    document.querySelector(".table-toggle");
-
-
-
-    if(!toggle || !table) return;
-
-
-
-    toggle.addEventListener("click",()=>{
-
-
-        table.classList.toggle("expanded");
-
-
-
-        toggle.textContent =
-        table.classList.contains("expanded")
-        ?
-        "Show Less"
-        :
-        "View All Floor Plans";
-
-
-    });
-
-
-});
-
-
 
 
 
