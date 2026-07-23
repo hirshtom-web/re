@@ -746,9 +746,6 @@ if(map && data.coordinates){
 }
 
 
-} // <-- THIS closes renderResidence(data)
-
-
 
 /* =========================
    MAP LOADING
