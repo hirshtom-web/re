@@ -170,28 +170,25 @@ document.getElementById("image-placeholder");
 
 if(main){
 
-    if(images.length){
+    main.loading = "eager";
 
-        main.src = images[0];
+    main.src = images[0];
 
-        main.style.display = "block";
-
-        if(placeholder){
-            placeholder.style.display = "none";
-        }
-
-    } else {
+    main.onerror = () => {
 
         main.style.display = "none";
 
-        if(placeholder){
-            placeholder.style.display = "flex";
-        }
+        const placeholder = document.createElement("div");
 
-    }
+        placeholder.className = "image-placeholder";
+
+        placeholder.textContent = "Images Coming Soon";
+
+        main.parentElement.appendChild(placeholder);
+
+    };
 
 }
-
 
 
     /*
@@ -207,6 +204,8 @@ if(desktopGrid){
 
         const img = document.createElement("img");
 
+        img.loading = "lazy";
+
         img.src = image;
 
         img.alt = `${data.title} image`;
@@ -219,7 +218,9 @@ if(desktopGrid){
         img.onclick = ()=>{
 
             if(main){
+
                 main.src = image;
+
             }
 
         };
@@ -230,7 +231,6 @@ if(desktopGrid){
     });
 
 }
-
 
 
 
