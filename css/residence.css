@@ -1460,10 +1460,14 @@ h2{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: default;
+}
+
+.amenity-name.show-tooltip {
   cursor: help;
 }
 
-.amenity-name:hover::after {
+.amenity-name.show-tooltip:hover::after {
   content: attr(data-full);
   position: absolute;
   left: 0;
@@ -1474,9 +1478,8 @@ h2{
   border-radius: 8px;
   font-size: 13px;
   white-space: nowrap;
-  z-index: 20;
+  z-index: 999;
 }
-
 
 /* =========================
    CTA
