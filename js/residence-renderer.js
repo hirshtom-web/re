@@ -349,59 +349,93 @@ if(slider && galleryCounter){
 ========================= */
 
 
-const facts =
-document.querySelectorAll(".fact-card");
+const factsGrid =
+document.getElementById("facts-grid");
 
 
-
-if(data.facts){
-
-
-    facts.forEach((card,index)=>{
+if(factsGrid){
 
 
-        const fact =
-        data.facts[index];
+    const facts = [
 
+        {
+            label:"Building Type",
+            value:data.type || "Coming Soon"
+        },
 
-        if(!fact) return;
+        {
+            label:"Starting From",
+            value:data.price || "Coming Soon"
+        },
 
+        {
+            label:"Residence Types",
+            value:data.bedrooms || "Coming Soon"
+        },
 
+        {
+            label:"Delivery",
+            value:data.delivery || "Coming Soon"
+        },
 
-        const label =
-        card.querySelector("span");
+        {
+            label:"Developer",
+            value:data.team?.[0]?.name || "Coming Soon"
+        },
 
+        {
+            label:"Architect",
+            value:data.team?.[1]?.name || "Coming Soon"
+        },
 
-        const value =
-        card.querySelector("strong");
+        {
+            label:"Stories",
+            value:data.floors || "Coming Soon"
+        },
 
-
-
-        if(label){
-
-            label.textContent =
-            fact.label;
-
+        {
+            label:"HOA",
+            value:data.hoa || "Coming Soon"
         }
 
+    ];
 
 
-        if(value){
 
-            value.textContent =
-            fact.value;
+    factsGrid.innerHTML = "";
 
-        }
 
+    facts.forEach(fact=>{
+
+
+        const card =
+        document.createElement("div");
+
+
+        card.className =
+        "fact-card";
+
+
+        card.innerHTML = `
+
+            <span>
+                ${fact.label}
+            </span>
+
+            <strong>
+                ${fact.value}
+            </strong>
+
+        `;
+
+
+        factsGrid.appendChild(card);
 
 
     });
 
 
 }
-
-
-
 
 
 
