@@ -27,6 +27,16 @@ description:
 
 
 /* =========================
+   GRID IMAGE
+========================= */
+
+thumbnail:
+
+"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AJEStqGHdyyMCsW2SSVKjbE/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2001_PENTHOUSE%20LIVING%20ROOM_ER_PEOPLE.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1",
+
+
+
+/* =========================
    PRICING
 ========================= */
 
@@ -76,30 +86,47 @@ state:"Florida",
 
 country:"USA",
 
+
 coordinates:{
-    lat:25.7907,
-    lng:-80.1300
+
+lat:25.7907,
+
+lng:-80.1300
+
 },
+
 
 
 nearby:[
 
 {
+
 title:"Beach Access",
+
 distance:"2 minutes",
+
 icon:"beach_access"
+
 },
 
 {
+
 title:"Fine Dining",
+
 distance:"5 minutes",
+
 icon:"restaurant"
+
 },
 
 {
+
 title:"Airport",
+
 distance:"20 minutes",
+
 icon:"flight"
+
 }
 
 ],
@@ -113,22 +140,30 @@ icon:"flight"
 timeline:[
 
 {
+
 year:"2026",
+
 label:"Reservations Open"
+
 },
 
 {
+
 year:"2027",
+
 label:"Construction Progress"
+
 },
 
 {
+
 year:"2028",
+
 label:"Residence Delivery"
+
 }
 
 ],
-
 
 
 
@@ -138,17 +173,19 @@ label:"Residence Delivery"
 
 images:[
 
+
 "https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AJEStqGHdyyMCsW2SSVKjbE/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2001_PENTHOUSE%20LIVING%20ROOM_ER_PEOPLE.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1",
+
 
 "https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/ACEwPFibufClOO7VlCncRAU/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2002_PENTHOUSE%20LIVING%20ROOM_ER1.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1",
 
+
 "https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/ACA27a9mMXSw5MsLBdL3vHA/Rendering/Interiors/TU1323_VPInterior03_Living_Rev04.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1"
+
 
 ],
 
-
-
-/* =========================
+   /* =========================
    AMENITIES
 ========================= */
 
@@ -177,26 +214,32 @@ amenities:[
 highlights:[
 
 {
+
 title:"Early Pricing Advantage",
 
 text:
 "Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases."
+
 },
 
 
 {
+
 title:"Strong Rental Demand",
 
 text:
 "Florida's population growth and tourism economy continue supporting long-term and seasonal rental demand."
+
 },
 
 
 {
+
 title:"Prime Location",
 
 text:
 "Positioned near beaches, dining, entertainment, and major employment centers."
+
 }
 
 ],
@@ -221,33 +264,51 @@ summary:
 scores:[
 
 {
+
 label:"Investment Potential",
+
 value:9.8
+
 },
 
 {
+
 label:"Location Quality",
+
 value:9.9
+
 },
 
 {
+
 label:"Rental Demand",
+
 value:9.4
+
 },
 
 {
+
 label:"Lifestyle",
+
 value:9.8
+
 },
 
 {
+
 label:"Build Quality",
+
 value:9.6
+
 },
 
 {
+
 label:"Market Value",
+
 value:9.2
+
 }
 
 ],
@@ -373,18 +434,27 @@ description:
 documents:[
 
 {
+
 title:"Brochure",
+
 file:"#"
+
 },
 
 {
+
 title:"Floor Plans",
+
 file:"#"
+
 },
 
 {
+
 title:"Price Sheet",
+
 file:"#"
+
 }
 
 ],
@@ -396,9 +466,10 @@ file:"#"
 ========================= */
 
 disclaimer:
+
 "Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
+
 
 }
 
 ];
-
