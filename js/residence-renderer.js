@@ -35,6 +35,9 @@ function renderResidence(data){
 
 console.log("RENDERING:", data);
 
+window.currentResidence = data;
+    
+
 
 
 
