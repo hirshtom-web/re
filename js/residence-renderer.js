@@ -6,17 +6,23 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const propertyID =
+        new URLSearchParams(window.location.search).get("id");
 
-    if(typeof residenceData === "undefined"){
+    const residence =
+        window.residences.find(
+            item => item.id === propertyID
+        );
+
+    if(!residence){
+
         console.warn("No residence data found.");
+
         return;
+
     }
 
-
-
-    renderResidence(residenceData);
-
-
+    renderResidence(residence);
 
 });
 
