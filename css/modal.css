@@ -202,6 +202,33 @@ body.modal-open{
 
 }
 
+.modal-content{
+
+    animation:modalOpen .25s ease;
+
+}
+
+
+@keyframes modalOpen{
+
+    from{
+
+        transform:translateY(20px);
+
+        opacity:.7;
+
+    }
+
+
+    to{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+}
 
 
 @media(max-width:600px){
