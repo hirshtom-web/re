@@ -131,17 +131,18 @@ label:"Residence Delivery"
 
 
 
+
 /* =========================
    GALLERY
 ========================= */
 
 images:[
 
-"https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
+"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AJEStqGHdyyMCsW2SSVKjbE/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2001_PENTHOUSE%20LIVING%20ROOM_ER_PEOPLE.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1",
 
-"https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg",
+"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/ACEwPFibufClOO7VlCncRAU/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2002_PENTHOUSE%20LIVING%20ROOM_ER1.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1",
 
-"https://static.wixstatic.com/media/1799ca_f7222329a28c41179031624a42415fbc~mv2.jpg"
+"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/ACA27a9mMXSw5MsLBdL3vHA/Rendering/Interiors/TU1323_VPInterior03_Living_Rev04.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1"
 
 ],
 
