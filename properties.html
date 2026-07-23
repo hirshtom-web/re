@@ -290,20 +290,40 @@ onclick="openModal('residence.html', this.dataset.property-id)">
 
 </section>
 
-    <div id="dealModal" class="modal">
+    <div class="modal" id="dealModal">
 
     <div class="modal-content">
 
-        <button class="close" onclick="closeDeal()">
-            ×
-        </button>
+        <div class="modal-header">
+
+            <div class="modal-left">
+
+                <button class="modal-btn" onclick="closeDeal()">
+                    ← Back
+                </button>
+
+            </div>
+
+
+            <div class="modal-center">
+
+                <img
+                class="modal-logo"
+                src="YOUR_LOGO">
+
+            </div>
+
+
+        </div>
+
 
         <iframe id="dealFrame"></iframe>
+
 
     </div>
 
 </div>
-
+    
     <script src="../js/modal.js"></script>
 
     
