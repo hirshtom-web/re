@@ -231,7 +231,7 @@ lifestyleExperiences:[
 title:"Beachfront Living",
 category:"Coastal",
 icon:"waves",
-image:"images/lifestyle-beach.jpg",
+image:"https://static.wixstatic.com/media/1799ca_7c73370383d1420e89ac768e6457531c~mv2.jpg",
 text:"Direct access to Miami's iconic shoreline with sunrise walks, ocean views, and a relaxed coastal rhythm.",
 tag:"Beach Life"
 },
@@ -240,7 +240,7 @@ tag:"Beach Life"
 title:"World-Class Dining",
 category:"Dining",
 icon:"restaurant",
-image:"images/lifestyle-dining.jpg",
+image:"https://static.wixstatic.com/media/1799ca_0a2ad4c9d87d4baba63520a480639d49~mv2.jpg",
 text:"Minutes from acclaimed restaurants, waterfront dining rooms, and Miami's most sought-after culinary destinations.",
 tag:"Fine Dining"
 },
@@ -249,7 +249,7 @@ tag:"Fine Dining"
 title:"Yachting & Marina Life",
 category:"Waterfront",
 icon:"directions_boat",
-image:"images/lifestyle-yacht.jpg",
+image:"https://static.wixstatic.com/media/1799ca_091a2b1a612d4571ba2560cc9c9cd1d7~mv2.jpg",
 text:"A lifestyle centered around private charters, marina access, and effortless days on the water.",
 tag:"Yachting"
 },
@@ -258,7 +258,7 @@ tag:"Yachting"
 title:"Arts & Culture",
 category:"Culture",
 icon:"palette",
-image:"images/lifestyle-art.jpg",
+image:"https://static.wixstatic.com/media/1799ca_91e4f057685e4a12bbe3b66f2c8b50d1~mv2.jpg",
 text:"Explore galleries, architecture, design districts, and Miami's internationally recognized creative scene.",
 tag:"Arts"
 },
@@ -267,7 +267,7 @@ tag:"Arts"
 title:"Luxury Shopping",
 category:"Shopping",
 icon:"shopping_bag",
-image:"images/lifestyle-shopping.jpg",
+image:"https://static.wixstatic.com/media/1799ca_d1dd8f61a7b040f3824cf21f8c18cd98~mv2.jpg",
 text:"Designer boutiques, luxury brands, and exclusive shopping destinations nearby.",
 tag:"Shopping"
 },
@@ -276,7 +276,7 @@ tag:"Shopping"
 title:"Wellness & Fitness",
 category:"Wellness",
 icon:"fitness_center",
-image:"images/lifestyle-wellness.jpg",
+image:"https://static.wixstatic.com/media/1799ca_106f8471b3af4122b297e28733a6a09d~mv2.jpg",
 text:"Premium fitness studios, outdoor spaces, and wellness experiences within minutes.",
 tag:"Wellness"
 }
