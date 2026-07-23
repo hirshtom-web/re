@@ -746,51 +746,42 @@ if(lifestyleGrid && data.lifestyleHighlights){
 
 }
 
-    /* =========================
+   /* =========================
    LIFESTYLE EXPERIENCES
 ========================= */
 
-
-const experienceGrid =
-document.getElementById("lifestyle-experience-grid");
-
-
-if(experienceGrid && data.lifestyleExperiences){
+const lifestyleSlider =
+document.getElementById("lifestyle-slider");
 
 
-    experienceGrid.innerHTML = "";
+if(lifestyleSlider && data.lifestyleExperiences){
+
+    lifestyleSlider.innerHTML = "";
 
 
     data.lifestyleExperiences.forEach(item=>{
 
 
-        const card =
+        const slide =
         document.createElement("div");
 
 
-        card.className =
-        "experience-card";
+        slide.className =
+        "lifestyle-slide";
 
 
-        card.innerHTML = `
+        slide.innerHTML = `
 
             <img 
                 src="${item.image}"
                 alt="${item.title}"
             >
 
-
-            <div class="experience-content">
-
-                <span>
-                    ${item.tag}
-                </span>
-
+            <div class="slide-overlay">
 
                 <h3>
                     ${item.title}
                 </h3>
-
 
                 <p>
                     ${item.text}
@@ -801,7 +792,7 @@ if(experienceGrid && data.lifestyleExperiences){
         `;
 
 
-        experienceGrid.appendChild(card);
+        lifestyleSlider.appendChild(slide);
 
 
     });
