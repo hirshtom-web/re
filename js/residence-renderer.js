@@ -680,7 +680,73 @@ if(nearbyGrid && data.nearby){
 
 }
 
+    
+/* =========================
+   NEIGHBORHOOD LIFESTYLE
+========================= */
 
+
+const lifestyleGrid =
+document.getElementById("lifestyle-grid");
+
+
+const lifestyleIntro =
+document.getElementById("lifestyle-intro");
+
+
+if(lifestyleIntro && data.lifestyleIntro){
+
+    lifestyleIntro.textContent =
+    data.lifestyleIntro;
+
+}
+
+
+
+if(lifestyleGrid && data.lifestyle){
+
+
+    lifestyleGrid.innerHTML = "";
+
+
+    data.lifestyle.forEach(item=>{
+
+
+        const card =
+        document.createElement("div");
+
+
+        card.className =
+        "lifestyle-card";
+
+
+        card.innerHTML = `
+
+            <span class="material-symbols-outlined">
+                ${item.icon || "location_on"}
+            </span>
+
+
+            <h3>
+                ${item.title}
+            </h3>
+
+
+            <p>
+                ${item.text}
+            </p>
+
+        `;
+
+
+        lifestyleGrid.appendChild(card);
+
+
+    });
+
+
+}
+    
 
     /* =========================
        FLOOR PLAN TOGGLE
