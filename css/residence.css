@@ -1446,6 +1446,19 @@ h2{
 
 }
 
+.amenity {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.amenity-name {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 /* =========================
    CTA
