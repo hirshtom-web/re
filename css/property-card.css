@@ -68,7 +68,10 @@
     margin:0 0 10px;
 
     font-size:22px;
+
     font-weight:600;
+
+    letter-spacing:.02em;
 
 }
 
@@ -79,12 +82,18 @@
 
     color:#666;
 
+    letter-spacing:.04em;
+
 }
 
 
 .property-card-info strong{
 
     font-size:20px;
+
+    font-weight:600;
+
+    letter-spacing:.03em;
 
 }
 
@@ -106,5 +115,9 @@
     font-size:12px;
 
     font-weight:600;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
 
 }
