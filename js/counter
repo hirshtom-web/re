@@ -1,3 +1,5 @@
+console.log("RESIDENCE RENDERER STARTED");
+
 /*
     Residence Renderer
     Populates luxury residence page from residence-data.js
@@ -34,51 +36,77 @@ function renderResidence(data){
 
 
 
-    /*
-        HERO
-    */
+   function renderResidence(data){
 
 
-    const title = document.querySelector("h1");
-
-    if(title){
-
-        title.innerHTML = `
-            ${data.title}
-
-            <span>
-                ${data.subtitle}
-            </span>
-        `;
-
-    }
+/* =========================
+   HERO
+========================= */
 
 
-
-    const description = document.querySelector(".hero-content p");
-
-    if(description){
-
-        description.textContent = data.description;
-
-    }
+const title =
+document.getElementById("property-title");
 
 
+if(title){
 
-
-
-    /*
-        HERO BUTTON
-    */
-    
-
-const heroButton = document.querySelector(".hero-cta");
-
-if(heroButton && data.cta){
-
-    heroButton.textContent = data.cta;
+    title.textContent =
+    data.title;
 
 }
+
+
+
+const address =
+document.getElementById("property-address");
+
+
+if(address){
+
+    address.textContent =
+    `${data.address} · ${data.location}`;
+
+}
+
+
+
+const status =
+document.getElementById("property-status");
+
+
+if(status){
+
+    status.textContent =
+    data.status;
+
+}
+
+
+
+const update =
+document.getElementById("last-update");
+
+
+if(update){
+
+    update.textContent =
+    "Last updated today";
+
+}
+
+
+
+const rating =
+document.getElementById("ai-rating");
+
+
+if(rating){
+
+    rating.textContent =
+    `${data.aiRating.overall} AI Rating`;
+
+}
+
 
 
 
@@ -305,7 +333,8 @@ photoCount.textContent =
 
 const slider = document.querySelector(".mobile-slider");
 
-const counter = document.querySelector(".gallery-counter");
+const galleryCounter =
+document.querySelector(".gallery-counter");
 
 
 if(slider && counter){
@@ -319,7 +348,7 @@ slider.addEventListener("scroll",()=>{
     );
 
 
-    counter.textContent =
+    galleryCounter.textContent =
     `${index + 1} / ${slider.children.length}`;
 
 
