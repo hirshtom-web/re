@@ -58,9 +58,15 @@
 
 #dealFrame{
 
+    width:100%;
+
+    height:calc(100% - 72px);
+
+    border:0;
+
     opacity:0;
 
-    transition:.25s;
+    transition:opacity .25s ease;
 
 }
 
