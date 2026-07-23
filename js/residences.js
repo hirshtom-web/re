@@ -644,12 +644,12 @@ text:"Designed with timeless architecture, refined materials, and carefully cura
 architectureGallery:[
 
 {
-image:"images/architecture-01.jpg",
+image:"https://ucbe27c91cedf6ca71240a9f6904.dl.dropboxusercontent.com/cd/0/inline/DE3hS-Jcb1plN4NIdUaV6QlisbA6_OlMKJ_uJFMnMN7QrArmQwG3pCdAGlqq6DwX27mUoeVO-mwMVqkAfAltrHoh6SlynsUPg4PmnUgF7xi6PQUkjAqTNJpQFzLxfPU5eF9lgBowzb8MxyBAysMvKGs0/file#",
 caption:"Signature coastal architecture"
 },
 
 {
-image:"images/architecture-02.jpg",
+image:"https://uc4ecde6b0d9ae67af78fa68cb3a.dl.dropboxusercontent.com/cd/0/inline/DE30GYNpEFz6PXWN4XNMx2jcCeB5maMjoqqFboKos4fixT8crX7Zlic-nveIx5Wpv8yWf32YZcOEdxCTEKg0Dos4Lvo-REm_3Hw23jMJSR_2XoOox_8S2aYDngS7Q52575AJSYrPHtCV3EnylmoJrsim/file#",
 caption:"Refined exterior details"
 },
 
