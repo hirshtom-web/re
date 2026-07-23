@@ -1,56 +1,106 @@
-const grid =
+/* ==========================================
+   PROPERTY GRID RENDERER
+========================================== */
+
+
+const propertiesGrid =
 document.getElementById("properties-grid");
 
 
-residences.forEach(property => {
+if(propertiesGrid && typeof residences !== "undefined"){
 
 
-grid.innerHTML += `
-
-<article 
-class="property-card"
-data-property-id="${property.id}"
-onclick="openModal('residence.html','${property.id}')">
+    residences.forEach(property => {
 
 
-<div class="property-card-image">
-
-<img 
-src="${property.image}"
-alt="${property.title}">
+        propertiesGrid.innerHTML += `
 
 
-<span class="property-badge">
-Exclusive
-</span>
+        <article
+
+        class="property-card"
+
+        data-property-id="${property.id}"
+
+        onclick="openModal('residence.html','${property.id}')">
 
 
-</div>
+            <div class="property-card-image">
 
 
-<div class="property-card-info">
+                <img
+
+                src="${property.thumbnail}"
+
+                alt="${property.title}">
 
 
-<h3>
-${property.title}
-</h3>
+                <span class="property-badge">
+
+                ${property.status}
+
+                </span>
 
 
-<p>
-${property.location}
-</p>
+                <button
+
+                class="property-favorite"
+
+                onclick="event.stopPropagation();">
+
+                ♡
+
+                </button>
 
 
-<strong>
-${property.price}
-</strong>
+            </div>
 
 
-</div>
+
+            <div class="property-card-info">
 
 
-</article>
+                <h3>
 
-`;
+                ${property.title}
 
-});
+                </h3>
+
+
+
+                <p>
+
+                ${property.location}
+
+                </p>
+
+
+
+                <strong>
+
+                ${property.price}
+
+                </strong>
+
+
+            </div>
+
+
+        </article>
+
+
+        `;
+
+
+    });
+
+
+}else{
+
+
+    console.error(
+        "Property grid failed: residences data missing"
+    );
+
+
+}
