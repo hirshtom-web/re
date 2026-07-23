@@ -610,6 +610,8 @@ body{
     border:none;
     outline:none;
     box-shadow:none;
+    font-size:15px;
+    font-weight:600;
 
 }
 
