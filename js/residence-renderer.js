@@ -521,27 +521,20 @@ if(intelligence && data.highlights){
 ========================= */
 
 
-/* =========================
-   AMENITIES
-========================= */
-
-
 const amenityGrid =
 document.getElementById("amenity-grid");
 
 
 if(amenityGrid && data.amenities){
 
-
     amenityGrid.innerHTML = "";
 
-
     data.amenities.forEach(item=>{
-
 
         const box =
         document.createElement("div");
 
+        box.className = "amenity";
 
         box.innerHTML = `
 
@@ -549,19 +542,18 @@ if(amenityGrid && data.amenities){
                 ${item.icon || "star"}
             </span>
 
-            ${item.name}
+            <span class="amenity-name" data-full="${item.name}">
+                ${item.name}
+            </span>
 
         `;
 
-
         amenityGrid.appendChild(box);
-
 
     });
 
-
 }
-
+    
     
 /* =========================
    NEARBY DESTINATIONS
