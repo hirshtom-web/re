@@ -281,7 +281,7 @@ text:"Premium fitness studios, outdoor spaces, and wellness experiences within m
 tag:"Wellness"
 }
 
-]
+],
    
 /* =========================
    TIMELINE
