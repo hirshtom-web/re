@@ -48,8 +48,9 @@
 
     align-items:center;
 
-}
+    position:relative;
 
+}
 
 .date-card span{
 
@@ -105,7 +106,7 @@
 
     border-radius:50%;
 
-    background:#22c55e;
+    background:#6D5DFB;
 
     color:white;
 
