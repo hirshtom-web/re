@@ -1,5 +1,5 @@
-const residences = [
-
+window.residences = [
+   
 {
 
 id:"oceanfront-miami-01",
