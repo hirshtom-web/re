@@ -17,20 +17,17 @@ function openModal(page, id){
     savedScrollPosition = window.scrollY;
 
 
-    // Save current property
     window.currentPropertyID = id;
 
 
     const url =
-        page + "#" + encodeURIComponent(id);
+        page + "?id=" + encodeURIComponent(id);
 
 
     console.log("IFRAME LOADING:", url);
 
 
-    // Fade iframe while loading
     frame.style.opacity = "0";
-
 
     frame.src = url;
 
@@ -50,7 +47,6 @@ function openModal(page, id){
     modal.classList.add("active");
 
 }
-
 
 /* ==========================================
    CLOSE PROPERTY MODAL
