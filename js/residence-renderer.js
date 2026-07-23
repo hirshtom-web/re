@@ -1159,9 +1159,6 @@ document.addEventListener("DOMContentLoaded",async()=>{
 
 
 
-
-
-
 function initAIModal(){
 
 
@@ -1238,194 +1235,6 @@ function initAIModal(){
 
 
 
-/* =========================
-   ARCHITECTURE & DESIGN
-========================= */
-
-
-/*
-    CONTENT
-*/
-
-
-const architectureTitle =
-document.getElementById("architecture-title");
-
-
-const architectureText =
-document.getElementById("architecture-text");
-
-
-if(data.architecture){
-
-
-    if(architectureTitle){
-
-        architectureTitle.textContent =
-        data.architecture.title || "Architecture & Design";
-
-    }
-
-
-    if(architectureText){
-
-        architectureText.textContent =
-        data.architecture.text || "";
-
-    }
-
-
-}
-
-
-
-
-
-/*
-    GALLERY
-*/
-
-
-const architectureGallery =
-document.getElementById("architecture-gallery");
-
-
-
-if(architectureGallery && data.architectureGallery){
-
-
-    architectureGallery.innerHTML="";
-
-
-    data.architectureGallery.forEach(item=>{
-
-
-        const image =
-        document.createElement("img");
-
-
-        image.src =
-        item.image;
-
-
-        image.alt =
-        item.caption || "Architecture image";
-
-
-        image.loading =
-        "lazy";
-
-
-        architectureGallery.appendChild(image);
-
-
-    });
-
-
-}
-
-
-
-
-
-
-/*
-    DESIGN TEAM
-*/
-
-
-if(data.designTeam){
-
-
-    const architect =
-    document.getElementById("team-architect");
-
-
-    const interiors =
-    document.getElementById("team-interiors");
-
-
-    const landscape =
-    document.getElementById("team-landscape");
-
-
-
-    if(architect){
-
-        architect.textContent =
-        data.designTeam.architect || "Coming Soon";
-
-    }
-
-
-    if(interiors){
-
-        interiors.textContent =
-        data.designTeam.interiors || "Coming Soon";
-
-    }
-
-
-    if(landscape){
-
-        landscape.textContent =
-        data.designTeam.landscape || "Coming Soon";
-
-    }
-
-
-
-
-/* =========================
-   ARCHITECTURE POPUP
-========================= */
-
-
-document.addEventListener("DOMContentLoaded",()=>{
-
-
-    const button =
-    document.querySelector(
-        ".architecture-content .read-more"
-    );
-
-
-    const popup =
-    document.getElementById("popup");
-
-
-    if(!button || !popup) return;
-
-
-
-    button.addEventListener("click",()=>{
-
-
-        document.getElementById(
-            "popup-title"
-        ).textContent =
-        "Architecture & Design";
-
-
-
-        document.getElementById(
-            "popup-content"
-        ).textContent =
-        `
-Designed with timeless architecture, refined materials, and carefully curated interiors.
-
-Every detail has been thoughtfully considered to create lasting value for homeowners and investors alike.
-        `;
-
-
-
-        popup.style.display="flex";
-
-
-    });
-
-
-});
 
 
 /* =========================
@@ -1704,18 +1513,18 @@ function openMediaLibrary(
 
 
 
-    // FLOOR PLANS
-
     if(type === "floorplans"){
 
 
-        const viewer = document.createElement("iframe");
+        const viewer =
+        document.createElement("iframe");
 
 
         viewer.src = planUrl;
 
 
-        viewer.className = "plan-viewer";
+        viewer.className =
+        "plan-viewer";
 
 
         viewer.title =
@@ -1725,13 +1534,7 @@ function openMediaLibrary(
         mediaContent.appendChild(viewer);
 
 
-    }
-
-
-
-    // PHOTOS
-
-    else {
+    } else {
 
 
         const galleryImages =
@@ -1747,10 +1550,12 @@ function openMediaLibrary(
             document.createElement("img");
 
 
-            newImg.src = img.src;
+            newImg.src =
+            img.src;
 
 
-            newImg.alt = img.alt;
+            newImg.alt =
+            img.alt;
 
 
             mediaContent.appendChild(newImg);
