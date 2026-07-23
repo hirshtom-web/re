@@ -454,7 +454,7 @@ residences:[
     bathrooms:"4 Bath",
     interior:"2,131 SF",
 
-    preview:"images/residence-01-plan.webp",
+    preview:"https://static.wixstatic.com/media/1799ca_092aba17c08a4bd48d7630dad70bc7fd~mv2.jpg",
 
     layout:"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AHqHFocqZGk7nsVFxIe1l2c/Floor%20Plans/Floor%20Plan%20-%20Single%20Sheets/Penthouse_01_ONEParkTower_Floorplans.pdf?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1"
 },
@@ -467,7 +467,7 @@ residences:[
     bathrooms:"3 Bath",
     interior:"1,545 SF",
 
-    preview:"images/residence-02-plan.webp",
+    preview:"https://static.wixstatic.com/media/1799ca_092aba17c08a4bd48d7630dad70bc7fd~mv2.jpg",
 
     layout:"YOUR_PDF_LINK_02"
 },
@@ -480,7 +480,7 @@ residences:[
     bathrooms:"3 Bath",
     interior:"1,334 SF",
 
-    preview:"images/residence-03-plan.webp",
+    preview:"https://static.wixstatic.com/media/1799ca_092aba17c08a4bd48d7630dad70bc7fd~mv2.jpg",
 
     layout:"YOUR_PDF_LINK_03"
 },
@@ -493,12 +493,14 @@ residences:[
     bathrooms:"2 Bath",
     interior:"1,081 SF",
 
-    preview:"images/residence-04-plan.webp",
+    preview:"https://static.wixstatic.com/media/1799ca_092aba17c08a4bd48d7630dad70bc7fd~mv2.jpg",
 
     layout:"YOUR_PDF_LINK_04"
 }
 
 ],
+
+   
    
 /* =========================
    DEVELOPER / TEAM
