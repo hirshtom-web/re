@@ -356,53 +356,78 @@ document.getElementById("facts-grid");
 if(factsGrid){
 
 
+    const shorten = (value) => {
+
+        if(!value) return "Coming Soon";
+
+        return value
+            .replace("Bedrooms", "Beds")
+            .replace("Bathrooms", " Baths")
+            .replace("Condominium", "Condo")
+            .replace("Private Terraces", "Terraces")
+            .replace("Residences", "Units");
+
+    };
+
+
+
     const facts = [
 
-        {
-            label:"Building Type",
-            value:data.type || "Coming Soon"
-        },
 
         {
-            label:"Starting From",
+            label:"Type",
+            value:shorten(data.type)
+        },
+
+
+        {
+            label:"Starting",
             value:data.price || "Coming Soon"
         },
 
+
         {
-            label:"Residence Types",
-            value:data.bedrooms || "Coming Soon"
+            label:"Beds",
+            value:shorten(data.bedrooms)
         },
+
 
         {
             label:"Delivery",
             value:data.delivery || "Coming Soon"
         },
 
+
         {
             label:"Developer",
             value:data.team?.[0]?.name || "Coming Soon"
         },
+
 
         {
             label:"Architect",
             value:data.team?.[1]?.name || "Coming Soon"
         },
 
+
         {
-            label:"Stories",
+            label:"Floors",
             value:data.floors || "Coming Soon"
         },
+
 
         {
             label:"HOA",
             value:data.hoa || "Coming Soon"
         }
 
+
     ];
 
 
 
     factsGrid.innerHTML = "";
+
 
 
     facts.forEach(fact=>{
@@ -422,7 +447,7 @@ if(factsGrid){
                 ${fact.label}
             </span>
 
-            <strong>
+            <strong title="${fact.value}">
                 ${fact.value}
             </strong>
 
@@ -436,7 +461,6 @@ if(factsGrid){
 
 
 }
-
 
 
 
