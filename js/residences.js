@@ -215,20 +215,97 @@ images:[
 
 amenities:[
 
-"Private Beach Access",
+{
+name:"Private Beach Access",
+icon:"beach_access"
+},
 
-"Infinity Pool",
+{
+name:"Infinity Pool",
+icon:"pool"
+},
 
-"Fitness & Wellness Center",
+{
+name:"Fitness & Wellness Center",
+icon:"fitness_center"
+},
 
-"Residents Lounge",
+{
+name:"Luxury Spa",
+icon:"spa"
+},
 
-"Valet & Concierge",
+{
+name:"Private Dining",
+icon:"restaurant"
+},
 
-"Smart Home Technology"
+{
+name:"Wine Lounge",
+icon:"local_bar"
+},
+
+{
+name:"Residents Lounge",
+icon:"groups"
+},
+
+{
+name:"Business Lounge",
+icon:"meeting_room"
+},
+
+{
+name:"Private Event Space",
+icon:"celebration"
+},
+
+{
+name:"Valet Parking",
+icon:"directions_car"
+},
+
+{
+name:"24/7 Concierge",
+icon:"support_agent"
+},
+
+{
+name:"24/7 Security",
+icon:"security"
+},
+
+{
+name:"Pet Spa",
+icon:"pets"
+},
+
+{
+name:"Sky Garden",
+icon:"park"
+},
+
+{
+name:"Sun Terrace",
+icon:"deck"
+},
+
+{
+name:"Smart Home Technology",
+icon:"home"
+},
+
+{
+name:"EV Charging Stations",
+icon:"electric_bolt"
+},
+
+{
+name:"Marina Access",
+icon:"sailing"
+}
 
 ],
-
 
 
 /* =========================
