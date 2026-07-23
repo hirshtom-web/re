@@ -7,11 +7,18 @@ let savedScrollPosition = 0;
 
 function openModal(page, id){
 
+    console.log("OPENING PROPERTY:", id);
+
     const modal =
         document.getElementById("dealModal");
 
     const frame =
         document.getElementById("dealFrame");
+
+    if(!modal || !frame){
+        console.error("Modal elements missing");
+        return;
+    }
 
 
     savedScrollPosition = window.scrollY;
@@ -29,12 +36,16 @@ function openModal(page, id){
 
     frame.style.opacity = "0";
 
+    modal.classList.add("loading");
+
     frame.src = url;
 
 
     frame.onload = function(){
 
         frame.style.opacity = "1";
+
+        modal.classList.remove("loading");
 
     };
 
