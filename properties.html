@@ -290,6 +290,8 @@ onclick="openModal('residence.html', this.dataset.property-id)">
 
 </section>
 
+ 
+    
     <div class="modal" id="dealModal">
 
     <div class="modal-content">
@@ -299,11 +301,16 @@ onclick="openModal('residence.html', this.dataset.property-id)">
             <div class="modal-left">
 
                 <button class="modal-btn" onclick="closeDeal()">
-                    ← Back
-                </button>
+
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M15 18L9 12L15 6"/>
+</svg>
+
+Back
+
+</button>
 
             </div>
-
 
             <div class="modal-center">
 
@@ -314,16 +321,65 @@ onclick="openModal('residence.html', this.dataset.property-id)">
 
             </div>
 
+           <div class="modal-right">
 
-        </div>
+<button class="icon-btn" onclick="downloadPDF()">
+<span class="material-symbols-rounded">picture_as_pdf</span>
+</button>
 
+<div class="menu-wrapper">
 
-        <iframe id="dealFrame"></iframe>
+<button class="icon-btn" onclick="toggleMenu()">
+<span class="material-symbols-rounded">more_vert</span>
+</button>
 
+<div id="moreMenu" class="more-menu">
 
-    </div>
+<button onclick="whatsappBroker()">
+<span class="material-symbols-rounded">chat</span>
+WhatsApp
+</button>
+
+<button onclick="callBroker()">
+<span class="material-symbols-rounded">call</span>
+Call
+</button>
+
+<button onclick="emailBroker()">
+<span class="material-symbols-rounded">mail</span>
+Email
+</button>
+
+<hr>
+
+<button onclick="shareDeal()">
+<span class="material-symbols-rounded">share</span>
+Share
+</button>
+
+<button onclick="copyLink()">
+<span class="material-symbols-rounded">content_copy</span>
+Copy Link
+</button>
+
+<button onclick="visitWebsite()">
+<span class="material-symbols-rounded">language</span>
+Website
+</button>
 
 </div>
+
+</div>
+
+</div>
+
+</div>
+
+<iframe id="dealFrame"></iframe>
+
+</div>
+
+</div> 
     
     <script src="../js/modal.js"></script>
 
