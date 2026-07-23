@@ -55,7 +55,7 @@
 
     border:0;
 
-    opacity:1;
+    opacity:0;
 
     transition:opacity .25s ease;
 
@@ -190,21 +190,31 @@ html.modal-open{
 
 body.modal-open{
 
-    position:fixed;
-
-    width:100%;
-
     overflow:hidden;
-
-    height:100%;
 
     touch-action:none;
 
 }
 
-.modal-content{
+.modal.active .modal-content{
 
     animation:modalOpen .25s ease;
+
+}
+
+.modal{
+
+    -webkit-backdrop-filter:blur(4px);
+    backdrop-filter:blur(4px);
+
+    will-change:opacity;
+
+}
+
+.modal-content{
+
+    -webkit-transform:translateZ(0);
+    transform:translateZ(0);
 
 }
 
