@@ -1,0 +1,1298 @@
+console.log("RESIDENCE RENDERER STARTED");
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const propertyID =
+        new URLSearchParams(window.location.search).get("id");
+
+
+    const residence =
+        window.residences?.find(
+            item => item.id === propertyID
+        );
+
+
+    if(!residence){
+
+        console.warn("No residence data found.");
+
+        return;
+
+    }
+
+
+    renderResidence(residence);
+
+});
+
+
+
+
+
+function renderResidence(data){
+
+
+console.log("RENDERING:", data);
+
+
+
+
+/* =========================
+   HERO
+========================= */
+
+
+const title =
+document.getElementById("property-title");
+
+
+if(title){
+
+    title.textContent =
+    data.title || "";
+
+}
+
+
+
+const address =
+document.getElementById("property-address");
+
+
+if(address){
+
+    address.textContent =
+    `${data.address || ""} · ${data.location || ""}`;
+
+}
+
+
+
+const status =
+document.getElementById("property-status");
+
+
+if(status){
+
+    status.textContent =
+    data.status || "";
+
+}
+
+
+
+const update =
+document.getElementById("last-update");
+
+
+if(update){
+
+    update.textContent =
+    "Last updated today";
+
+}
+
+
+
+const rating =
+document.getElementById("ai-rating");
+
+
+if(rating && data.aiRating){
+
+    rating.textContent =
+    `${data.aiRating.overall} AI Rating`;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   GALLERY
+========================= */
+
+
+const images =
+data.images || [];
+
+
+
+const main =
+document.getElementById("gallery-main");
+
+
+const desktopGrid =
+document.getElementById("gallery-grid");
+
+
+const mobileSlider =
+document.getElementById("mobile-slider");
+
+
+const mobileCounter =
+document.getElementById("mobile-counter");
+
+
+const photoCount =
+document.getElementById("photo-count");
+
+
+
+
+if(images.length){
+
+
+
+    /*
+        MAIN IMAGE
+    */
+
+    if(main){
+
+        main.src = images[0];
+
+    }
+
+
+
+
+    /*
+        DESKTOP GRID
+    */
+
+    if(desktopGrid){
+
+        desktopGrid.innerHTML = "";
+
+
+        images.slice(1,6).forEach(image=>{
+
+
+            const img =
+            document.createElement("img");
+
+
+            img.src = image;
+
+
+            img.alt =
+            `${data.title} image`;
+
+
+            img.onclick = ()=>{
+
+                main.src = image;
+
+            };
+
+
+            desktopGrid.appendChild(img);
+
+
+        });
+
+
+    }
+
+
+
+
+
+    /*
+        MOBILE SLIDER
+    */
+
+    if(mobileSlider){
+
+        mobileSlider.innerHTML = "";
+
+
+        images.forEach((image,index)=>{
+
+
+            const img =
+            document.createElement("img");
+
+
+            img.src = image;
+
+
+            img.alt =
+            `${data.title} image ${index + 1}`;
+
+
+            mobileSlider.appendChild(img);
+
+
+        });
+
+
+    }
+
+
+
+
+
+    /*
+        COUNTERS
+    */
+
+    if(mobileCounter){
+
+        mobileCounter.textContent =
+        `1 / ${images.length}`;
+
+    }
+
+
+
+    if(photoCount){
+
+        photoCount.textContent =
+        `View all ${images.length} photos`;
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   MOBILE GALLERY SCROLL
+========================= */
+
+
+const slider =
+document.querySelector(".mobile-slider");
+
+
+const galleryCounter =
+document.querySelector(".gallery-counter");
+
+
+
+if(slider && galleryCounter){
+
+
+    slider.addEventListener("scroll",()=>{
+
+
+        const index =
+        Math.round(
+            slider.scrollLeft /
+            slider.clientWidth
+        );
+
+
+        galleryCounter.textContent =
+        `${index + 1} / ${slider.children.length}`;
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   FACTS
+========================= */
+
+
+const facts =
+document.querySelectorAll(".fact-card");
+
+
+
+if(data.facts){
+
+
+    facts.forEach((card,index)=>{
+
+
+        const fact =
+        data.facts[index];
+
+
+        if(!fact) return;
+
+
+
+        const label =
+        card.querySelector("span");
+
+
+        const value =
+        card.querySelector("strong");
+
+
+
+        if(label){
+
+            label.textContent =
+            fact.label;
+
+        }
+
+
+
+        if(value){
+
+            value.textContent =
+            fact.value;
+
+        }
+
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   AMENITIES
+========================= */
+
+
+const amenities =
+document.querySelector(".amenity-grid");
+
+
+
+if(amenities && data.amenities){
+
+
+    amenities.innerHTML = "";
+
+
+
+    data.amenities.forEach(item=>{
+
+
+        const box =
+        document.createElement("div");
+
+
+        box.textContent =
+        item;
+
+
+        amenities.appendChild(box);
+
+
+    });
+
+
+}
+
+
+
+}
+
+
+/* =========================
+   INFO CARD POPUPS
+========================= */
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+    const popup =
+    document.getElementById("popup");
+
+
+    if(!popup) return;
+
+
+
+    const popupTitle =
+    document.getElementById("popup-title");
+
+
+    const popupContent =
+    document.getElementById("popup-content");
+
+
+    const closeButton =
+    document.querySelector(".popup-close");
+
+
+
+    document.querySelectorAll(".info-card")
+    .forEach(card=>{
+
+
+        const text =
+        card.querySelector(
+            ".card-text, .card-description"
+        );
+
+
+        const button =
+        card.querySelector(".read-more");
+
+
+
+        if(!text || !button) return;
+
+
+
+        if(text.scrollHeight > text.clientHeight + 2){
+
+
+            text.classList.add("has-overflow");
+
+
+        }else{
+
+
+            button.style.display="none";
+
+
+        }
+
+
+
+
+        button.addEventListener("click",()=>{
+
+
+            popupTitle.textContent =
+            card.querySelector("h3")?.textContent || "";
+
+
+
+            popupContent.textContent =
+            text.textContent;
+
+
+
+            popup.style.display="flex";
+
+
+        });
+
+
+    });
+
+
+
+
+
+    if(closeButton){
+
+        closeButton.addEventListener("click",()=>{
+
+            popup.style.display="none";
+
+        });
+
+    }
+
+
+
+    popup.addEventListener("click",(e)=>{
+
+
+        if(e.target === popup){
+
+            popup.style.display="none";
+
+        }
+
+
+    });
+
+
+
+});
+
+
+
+
+
+
+
+/* =========================
+   FLOOR PLAN TOGGLE
+========================= */
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+    const table =
+    document.querySelector(".units-table");
+
+
+    const toggle =
+    document.querySelector(".table-toggle");
+
+
+
+    if(!toggle || !table) return;
+
+
+
+    toggle.addEventListener("click",()=>{
+
+
+        table.classList.toggle("expanded");
+
+
+
+        toggle.textContent =
+        table.classList.contains("expanded")
+        ?
+        "Show Less"
+        :
+        "View All Floor Plans";
+
+
+    });
+
+
+});
+
+
+
+
+
+
+
+
+/* =========================
+   FINANCIAL OVERVIEW LOAD
+========================= */
+
+
+document.addEventListener("DOMContentLoaded",async()=>{
+
+
+    const container =
+    document.getElementById(
+        "financial-overview"
+    );
+
+
+    if(!container) return;
+
+
+
+    try{
+
+
+        const response =
+        await fetch(
+            "../tools/financial-overview.html"
+        );
+
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "Financial overview failed"
+            );
+
+        }
+
+
+
+        container.innerHTML =
+        await response.text();
+
+
+
+    }catch(error){
+
+
+        console.error(
+            "Financial overview:",
+            error
+        );
+
+
+    }
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+   AI MODAL LOAD
+========================= */
+
+
+document.addEventListener("DOMContentLoaded",async()=>{
+
+
+    const container =
+    document.getElementById(
+        "ai-modal-container"
+    );
+
+
+    if(!container) return;
+
+
+
+    try{
+
+
+        const response =
+        await fetch(
+            "../tools/ai-modal.html"
+        );
+
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "AI modal missing"
+            );
+
+        }
+
+
+
+        container.innerHTML =
+        await response.text();
+
+
+
+        initAIModal();
+
+
+
+    }catch(error){
+
+
+        console.error(
+            "AI Modal:",
+            error
+        );
+
+
+    }
+
+
+});
+
+
+
+
+
+
+
+
+
+function initAIModal(){
+
+
+    const aiButton =
+    document.querySelector(".ai-rating");
+
+
+    const aiModal =
+    document.getElementById("aiModal");
+
+
+    const close =
+    document.getElementById("closeAiModal");
+
+
+
+    if(!aiButton || !aiModal){
+
+        return;
+
+    }
+
+
+
+
+    aiButton.addEventListener("click",()=>{
+
+
+        aiModal.classList.add("active");
+
+
+    });
+
+
+
+
+    if(close){
+
+
+        close.addEventListener("click",()=>{
+
+
+            aiModal.classList.remove("active");
+
+
+        });
+
+
+    }
+
+
+
+
+
+    aiModal.addEventListener("click",(e)=>{
+
+
+        if(e.target === aiModal){
+
+
+            aiModal.classList.remove("active");
+
+
+        }
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   MAP LOADING
+========================= */
+
+
+function hideMapLoading(){
+
+
+    setTimeout(()=>{
+
+
+        const loader =
+        document.querySelector(
+            ".map-loading"
+        );
+
+
+        if(loader){
+
+
+            loader.style.opacity="0";
+
+
+            setTimeout(()=>{
+
+
+                loader.style.display="none";
+
+
+            },800);
+
+
+        }
+
+
+    },1500);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   ARCHITECTURE POPUP
+========================= */
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+    const button =
+    document.querySelector(
+        ".architecture-content .read-more"
+    );
+
+
+    const popup =
+    document.getElementById("popup");
+
+
+    if(!button || !popup) return;
+
+
+
+    button.addEventListener("click",()=>{
+
+
+        document.getElementById(
+            "popup-title"
+        ).textContent =
+        "Architecture & Design";
+
+
+
+        document.getElementById(
+            "popup-content"
+        ).textContent =
+        `
+Designed with timeless architecture, refined materials, and carefully curated interiors.
+
+Every detail has been thoughtfully considered to create lasting value for homeowners and investors alike.
+        `;
+
+
+
+        popup.style.display="flex";
+
+
+    });
+
+
+});
+
+
+/* =========================
+   FAQ ACCORDION
+========================= */
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+    document.querySelectorAll(".faq-question")
+    .forEach(button=>{
+
+
+        button.addEventListener("click",()=>{
+
+
+            const item =
+            button.parentElement;
+
+
+
+            document.querySelectorAll(".faq-item")
+            .forEach(other=>{
+
+
+                if(other !== item){
+
+                    other.classList.remove("active");
+
+                }
+
+
+            });
+
+
+
+            item.classList.toggle("active");
+
+
+        });
+
+
+    });
+
+
+});
+
+
+
+
+
+
+
+
+/* =========================
+   FAQ SHOW MORE
+========================= */
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+    const faqToggle =
+    document.querySelector(".faq-toggle");
+
+
+    const faqWrapper =
+    document.querySelector(".faq-wrapper");
+
+
+
+    if(!faqToggle || !faqWrapper) return;
+
+
+
+    faqToggle.addEventListener("click",()=>{
+
+
+        faqWrapper.classList.toggle(
+            "expanded"
+        );
+
+
+
+        faqToggle.textContent =
+        faqWrapper.classList.contains("expanded")
+        ?
+        "Show Less"
+        :
+        "Show More";
+
+
+    });
+
+
+});
+
+
+
+
+
+
+
+
+/* =========================
+   VIRTUAL SHOWING
+========================= */
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+    let selectedDate = false;
+
+    let selectedTime = false;
+
+
+
+    const button =
+    document.querySelector(
+        ".schedule-button"
+    );
+
+
+
+    if(!button) return;
+
+
+
+    document.querySelectorAll(".date-card")
+    .forEach(card=>{
+
+
+        card.addEventListener("click",()=>{
+
+
+            document.querySelectorAll(".date-card")
+            .forEach(c=>{
+
+
+                c.classList.remove("active");
+
+
+            });
+
+
+
+            card.classList.add("active");
+
+
+
+            selectedDate = true;
+
+
+
+            checkReady();
+
+
+        });
+
+
+    });
+
+
+
+
+
+    document.querySelectorAll(
+        ".time-slots button"
+    )
+    .forEach(time=>{
+
+
+        time.addEventListener("click",()=>{
+
+
+            document.querySelectorAll(
+                ".time-slots button"
+            )
+            .forEach(t=>{
+
+
+                t.classList.remove(
+                    "selected"
+                );
+
+
+            });
+
+
+
+            time.classList.add(
+                "selected"
+            );
+
+
+
+            selectedTime = true;
+
+
+
+            checkReady();
+
+
+        });
+
+
+    });
+
+
+
+
+
+
+    function checkReady(){
+
+
+        if(selectedDate && selectedTime){
+
+
+            button.classList.add(
+                "ready"
+            );
+
+
+            button.disabled = false;
+
+
+            button.innerHTML =
+            "Request Virtual Showing →";
+
+
+        }
+
+
+    }
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+   MEDIA LIBRARY
+========================= */
+
+
+function openMediaLibrary(){
+
+
+
+    const mediaLibrary =
+    document.getElementById(
+        "mediaLibrary"
+    );
+
+
+    const mediaContent =
+    document.getElementById(
+        "mediaContent"
+    );
+
+
+
+    if(!mediaLibrary || !mediaContent){
+
+        return;
+
+    }
+
+
+
+
+    const galleryImages =
+    document.querySelectorAll(
+        ".gallery-feature img, .gallery-grid img"
+    );
+
+
+
+    mediaContent.innerHTML = "";
+
+
+
+
+    galleryImages.forEach(img=>{
+
+
+        const newImg =
+        document.createElement("img");
+
+
+
+        newImg.src =
+        img.src;
+
+
+
+        newImg.alt =
+        img.alt;
+
+
+
+        mediaContent.appendChild(
+            newImg
+        );
+
+
+    });
+
+
+
+
+
+    mediaLibrary.classList.add(
+        "active"
+    );
+
+
+
+}
+
+
+
+
+
+
+
+function closeMediaLibrary(){
+
+
+    const mediaLibrary =
+    document.getElementById(
+        "mediaLibrary"
+    );
+
+
+
+    if(mediaLibrary){
+
+
+        mediaLibrary.classList.remove(
+            "active"
+        );
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   FAVORITE BUTTONS
+========================= */
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+    document.querySelectorAll(
+        ".property-favorite"
+    )
+    .forEach(button=>{
+
+
+        button.addEventListener(
+            "click",
+            event=>{
+
+
+                event.stopPropagation();
+
+
+            }
+        );
+
+
+    });
+
+
+});
