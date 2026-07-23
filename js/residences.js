@@ -229,7 +229,8 @@ lifestyleExperiences:[
 
 {
 title:"Beachfront Living",
-category:"Coastal Lifestyle",
+category:"Coastal",
+icon:"waves",
 image:"images/lifestyle-beach.jpg",
 text:"Direct access to Miami's iconic shoreline with sunrise walks, ocean views, and a relaxed coastal rhythm.",
 tag:"Beach Life"
@@ -237,7 +238,8 @@ tag:"Beach Life"
 
 {
 title:"World-Class Dining",
-category:"Culinary",
+category:"Dining",
+icon:"restaurant",
 image:"images/lifestyle-dining.jpg",
 text:"Minutes from acclaimed restaurants, waterfront dining rooms, and Miami's most sought-after culinary destinations.",
 tag:"Fine Dining"
@@ -246,6 +248,7 @@ tag:"Fine Dining"
 {
 title:"Yachting & Marina Life",
 category:"Waterfront",
+icon:"directions_boat",
 image:"images/lifestyle-yacht.jpg",
 text:"A lifestyle centered around private charters, marina access, and effortless days on the water.",
 tag:"Yachting"
@@ -254,6 +257,7 @@ tag:"Yachting"
 {
 title:"Arts & Culture",
 category:"Culture",
+icon:"palette",
 image:"images/lifestyle-art.jpg",
 text:"Explore galleries, architecture, design districts, and Miami's internationally recognized creative scene.",
 tag:"Arts"
@@ -261,7 +265,8 @@ tag:"Arts"
 
 {
 title:"Luxury Shopping",
-category:"Retail",
+category:"Shopping",
+icon:"shopping_bag",
 image:"images/lifestyle-shopping.jpg",
 text:"Designer boutiques, luxury brands, and exclusive shopping destinations nearby.",
 tag:"Shopping"
@@ -269,7 +274,8 @@ tag:"Shopping"
 
 {
 title:"Wellness & Fitness",
-category:"Lifestyle",
+category:"Wellness",
+icon:"fitness_center",
 image:"images/lifestyle-wellness.jpg",
 text:"Premium fitness studios, outdoor spaces, and wellness experiences within minutes.",
 tag:"Wellness"
