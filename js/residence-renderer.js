@@ -709,8 +709,6 @@ if(nearbyGrid && data.nearby){
     }
 
 
-});
-
 
 /* =========================
    LOCATION MAP
