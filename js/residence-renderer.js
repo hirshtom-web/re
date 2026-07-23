@@ -894,17 +894,17 @@ if(map && data.coordinates){
    ARCHITECTURE & DESIGN
 ========================= */
 
-
 const architectureTitle =
 document.getElementById("architecture-title");
-
 
 const architectureText =
 document.getElementById("architecture-text");
 
+const architectureGallery =
+document.getElementById("architecture-gallery");
+
 
 if(data.architecture){
-
 
     if(architectureTitle){
 
@@ -913,13 +913,67 @@ if(data.architecture){
 
     }
 
-
     if(architectureText){
 
         architectureText.textContent =
         data.architecture.text || "";
 
     }
+
+}
+
+
+
+if(architectureGallery && data.architectureGallery){
+
+    architectureGallery.innerHTML = "";
+
+    data.architectureGallery.forEach(item=>{
+
+        const card =
+        document.createElement("div");
+
+        card.className =
+        "architecture-card";
+
+
+        if(item.image.toLowerCase().endsWith(".mp4")){
+
+            card.innerHTML = `
+
+                <video
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    controls
+                >
+                    <source
+                        src="${item.image}"
+                        type="video/mp4">
+                </video>
+
+                <p>${item.caption || ""}</p>
+
+            `;
+
+        }else{
+
+            card.innerHTML = `
+
+                <img
+                    src="${item.image}"
+                    alt="${item.caption || ""}">
+
+                <p>${item.caption || ""}</p>
+
+            `;
+
+        }
+
+        architectureGallery.appendChild(card);
+
+    });
 
 }
 
@@ -961,10 +1015,6 @@ if(data.designTeam){
     }
 
 }
-
-    
-}
-
 
 /* =========================
    INFO CARD POPUPS
