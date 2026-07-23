@@ -1934,16 +1934,17 @@ Equal Housing Opportunity | Privacy Policy | Terms of Use
   <script>
 
 const propertyID =
-window.location.hash.replace("#","");
+new URLSearchParams(window.location.search).get("id");
 
 
 const residence =
-residences.find(
+window.residences.find(
     item => item.id === propertyID
 );
 
 
-console.log("CURRENT RESIDENCE:", residence);
+console.log("PROPERTY ID:", propertyID);
+console.log("FOUND PROPERTY:", residence);
 
 </script>
 
