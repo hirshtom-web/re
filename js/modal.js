@@ -17,7 +17,7 @@ function openModal(page, id){
     savedScrollPosition = window.scrollY;
 
 
-    // Save current deal for share/copy functions
+    // Save current property
     window.currentPropertyID = id;
 
 
@@ -28,7 +28,18 @@ function openModal(page, id){
     console.log("IFRAME LOADING:", url);
 
 
+    // Fade iframe while loading
+    frame.style.opacity = "0";
+
+
     frame.src = url;
+
+
+    frame.onload = function(){
+
+        frame.style.opacity = "1";
+
+    };
 
 
     document.documentElement.classList.add("modal-open");
@@ -39,6 +50,7 @@ function openModal(page, id){
     modal.classList.add("active");
 
 }
+
 
 /* ==========================================
    CLOSE PROPERTY MODAL
@@ -61,6 +73,8 @@ function closeDeal(){
     document.body.classList.remove("modal-open");
 
 
+    frame.style.opacity = "0";
+
     frame.src = "";
 
 
@@ -74,3 +88,41 @@ function closeDeal(){
     },50);
 
 }
+
+
+/* ==========================================
+   ESC TO CLOSE
+========================================== */
+
+document.addEventListener("keydown",(e)=>{
+
+    const modal =
+        document.getElementById("dealModal");
+
+    if(
+        e.key === "Escape" &&
+        modal.classList.contains("active")
+    ){
+
+        closeDeal();
+
+    }
+
+});
+
+
+/* ==========================================
+   CLICK OUTSIDE TO CLOSE
+========================================== */
+
+document
+.getElementById("dealModal")
+.addEventListener("click",(e)=>{
+
+    if(e.target.id === "dealModal"){
+
+        closeDeal();
+
+    }
+
+});
