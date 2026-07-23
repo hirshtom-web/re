@@ -4,6 +4,13 @@
     border-radius:30px;
     overflow:hidden;
 
+    border:1px solid rgba(0,0,0,.06);
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.06);
+
+    cursor:pointer;
+
     transition:.3s ease;
 
 }
@@ -12,7 +19,9 @@
 .property-card:hover{
 
     transform:translateY(-5px);
-    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.12);
 
 }
 
@@ -49,14 +58,17 @@
 
 .property-card-info{
 
-    padding:22px;
+    padding:25px;
 
 }
 
 
 .property-card-info h3{
 
-    margin:0 0 8px;
+    margin:0 0 10px;
+
+    font-size:22px;
+    font-weight:600;
 
 }
 
@@ -73,5 +85,26 @@
 .property-card-info strong{
 
     font-size:20px;
+
+}
+
+
+.property-badge{
+
+    position:absolute;
+
+    top:20px;
+
+    left:20px;
+
+    background:white;
+
+    padding:8px 14px;
+
+    border-radius:50px;
+
+    font-size:12px;
+
+    font-weight:600;
 
 }
