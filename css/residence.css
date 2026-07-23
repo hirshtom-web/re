@@ -1449,7 +1449,9 @@ h2{
 .amenity {
   display: flex;
   align-items: center;
+  position: relative;
   min-width: 0;
+  gap: 8px;
 }
 
 .amenity-name {
@@ -1458,7 +1460,23 @@ h2{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: help;
 }
+
+.amenity-name:hover::after {
+  content: attr(data-full);
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 8px);
+  background: rgba(20,20,20,.95);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  white-space: nowrap;
+  z-index: 20;
+}
+
 
 /* =========================
    CTA
