@@ -438,3 +438,14 @@ function closeMediaLibrary(){
     .classList.remove("active");
 
 }
+
+document.querySelectorAll(".property-favorite")
+.forEach(btn => {
+
+    btn.addEventListener("click", function(e){
+
+        e.stopPropagation();
+
+    });
+
+});
