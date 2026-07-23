@@ -622,6 +622,62 @@ function hideMapLoading(){
 }
 
 /* =========================
+   NEARBY DESTINATIONS
+========================= */
+
+
+const nearby =
+document.getElementById("nearby-grid");
+
+
+if(nearby && data.nearby){
+
+
+    nearby.innerHTML = "";
+
+
+    data.nearby.forEach(item=>{
+
+
+        const card =
+        document.createElement("div");
+
+
+        card.className =
+        "nearby-card";
+
+
+        card.innerHTML = `
+
+            <span class="material-symbols-outlined">
+                ${item.icon || "location_on"}
+            </span>
+
+
+            <div>
+
+                <strong>
+                    ${item.title}
+                </strong>
+
+
+                <p>
+                    ${item.distance} away
+                </p>
+
+            </div>
+
+        `;
+
+
+        nearby.appendChild(card);
+
+
+    });
+
+
+}
+/* =========================
    INFO CARD POPUPS
 ========================= */
 
