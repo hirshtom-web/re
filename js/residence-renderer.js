@@ -86,74 +86,131 @@ if(heroButton && data.cta){
 
 
 
-    /*
-        GALLERY
-    */
+   /* =========================
+   GALLERY
+========================= */
 
 
-    const galleryMain =
-    document.querySelector(".gallery-main img");
+const images = data.images || [];
 
 
-    const thumbnails =
-    document.querySelector(".gallery-thumbs");
+const main =
+document.getElementById("gallery-main");
 
 
-
-    if(data.images && data.images.length){
-
-
-
-        if(galleryMain){
-
-            galleryMain.src = data.images[0];
-
-        }
+const desktopGrid =
+document.getElementById("gallery-grid");
 
 
+const mobileSlider =
+document.getElementById("mobile-slider");
 
-        if(thumbnails){
+
+const counter =
+document.getElementById("mobile-counter");
 
 
-            thumbnails.innerHTML = "";
+const photoCount =
+document.getElementById("photo-count");
 
 
 
-            data.images.forEach((image,index)=>{
-
-
-                const img =
-                document.createElement("img");
-
-
-                img.src = image;
-
-                img.alt = data.title;
+if(images.length){
 
 
 
-                img.addEventListener("click",()=>{
+// MAIN IMAGE
 
+if(main){
 
-                    galleryMain.src = image;
+    main.src = images[0];
 
-
-                });
-
-
-
-                thumbnails.appendChild(img);
-
-
-            });
+}
 
 
 
-        }
+// DESKTOP THUMBNAILS
+
+if(desktopGrid){
+
+    desktopGrid.innerHTML="";
 
 
-    }
+    images.slice(1,6).forEach(image=>{
 
+
+        const img =
+        document.createElement("img");
+
+
+        img.src=image;
+
+
+        img.onclick=()=>{
+
+            main.src=image;
+
+        };
+
+
+        desktopGrid.appendChild(img);
+
+
+    });
+
+}
+
+
+
+// MOBILE SLIDER
+
+if(mobileSlider){
+
+    mobileSlider.innerHTML="";
+
+
+    images.forEach((image,index)=>{
+
+
+        const img =
+        document.createElement("img");
+
+
+        img.src=image;
+
+        img.alt =
+        `${data.title} image ${index+1}`;
+
+
+        mobileSlider.appendChild(img);
+
+
+    });
+
+}
+
+
+
+// COUNTERS
+
+if(counter){
+
+counter.textContent =
+`1 / ${images.length}`;
+
+}
+
+
+if(photoCount){
+
+photoCount.textContent =
+`View all ${images.length} photos`;
+
+}
+
+
+
+}
 
 
 
