@@ -7,10 +7,10 @@ const propertiesGrid =
 document.getElementById("properties-grid");
 
 
-if(propertiesGrid && typeof residences !== "undefined"){
+if(propertiesGrid && window.residences){
 
 
-    residences.forEach(property => {
+    window.residences.forEach(property => {
 
 
         propertiesGrid.innerHTML += `
