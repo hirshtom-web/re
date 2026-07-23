@@ -1,20 +1,17 @@
 console.log("RESIDENCE RENDERER STARTED");
 
-/*
-    Residence Renderer
-    Populates luxury residence page from residence-data.js
-*/
-
 
 document.addEventListener("DOMContentLoaded", () => {
 
     const propertyID =
         new URLSearchParams(window.location.search).get("id");
 
+
     const residence =
         window.residences.find(
             item => item.id === propertyID
         );
+
 
     if(!residence){
 
@@ -24,19 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
     renderResidence(residence);
 
 });
 
 
 
-
-
 function renderResidence(data){
 
 
-
-   function renderResidence(data){
+console.log("RENDERING:", data);
 
 
 /* =========================
@@ -49,12 +44,8 @@ document.getElementById("property-title");
 
 
 if(title){
-
-    title.textContent =
-    data.title;
-
+    title.textContent = data.title;
 }
-
 
 
 const address =
@@ -62,12 +53,9 @@ document.getElementById("property-address");
 
 
 if(address){
-
     address.textContent =
     `${data.address} · ${data.location}`;
-
 }
-
 
 
 const status =
@@ -75,12 +63,9 @@ document.getElementById("property-status");
 
 
 if(status){
-
     status.textContent =
     data.status;
-
 }
-
 
 
 const update =
@@ -88,12 +73,9 @@ document.getElementById("last-update");
 
 
 if(update){
-
     update.textContent =
     "Last updated today";
-
 }
-
 
 
 const rating =
@@ -101,14 +83,9 @@ document.getElementById("ai-rating");
 
 
 if(rating){
-
     rating.textContent =
     `${data.aiRating.overall} AI Rating`;
-
 }
-
-
-
 
 
 
