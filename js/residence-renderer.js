@@ -486,7 +486,7 @@ if(factsGrid){
 
 
         {
-            label:"Architect",
+            label:"itect",
             value:data.team?.[1]?.name || "Coming Soon"
         },
 
@@ -888,9 +888,82 @@ if(map && data.coordinates){
 
 
 }
-    
+
+
+/* =========================
+   ARCHITECTURE & DESIGN
+========================= */
+
+
+const architectureTitle =
+document.getElementById("architecture-title");
+
+
+const architectureText =
+document.getElementById("architecture-text");
+
+
+if(data.architecture){
+
+
+    if(architectureTitle){
+
+        architectureTitle.textContent =
+        data.architecture.title || "Architecture & Design";
+
+    }
+
+
+    if(architectureText){
+
+        architectureText.textContent =
+        data.architecture.text || "";
+
+    }
+
 }
 
+
+
+if(data.designTeam){
+
+    const architect =
+    document.getElementById("team-architect");
+
+    const interiors =
+    document.getElementById("team-interiors");
+
+    const landscape =
+    document.getElementById("team-landscape");
+
+
+    if(architect){
+
+        architect.textContent =
+        data.designTeam.architect || "Coming Soon";
+
+    }
+
+
+    if(interiors){
+
+        interiors.textContent =
+        data.designTeam.interiors || "Coming Soon";
+
+    }
+
+
+    if(landscape){
+
+        landscape.textContent =
+        data.designTeam.landscape || "Coming Soon";
+
+    }
+
+}
+
+    
+}
 
 
 /* =========================
