@@ -127,6 +127,30 @@ distance:"20 minutes",
 
 icon:"flight"
 
+},
+
+{
+title:"Luxury Shopping",
+
+distance:"8 minutes",
+
+icon:"shopping_bag"
+},
+
+{
+title:"Marina",
+
+distance:"10 minutes",
+
+icon:"directions_boat"
+},
+
+{
+title:"Arts District",
+
+distance:"15 minutes",
+
+icon:"palette"
 }
 
 ],
