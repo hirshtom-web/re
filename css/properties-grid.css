@@ -96,13 +96,9 @@ body{
 /* IMAGE */
 
 .property-card-image{
-
     position:relative;
-
-    height:320px;
-
+    aspect-ratio:4/3;
     overflow:hidden;
-
 }
 
 
