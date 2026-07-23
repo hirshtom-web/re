@@ -1935,7 +1935,14 @@ Equal Housing Opportunity | Privacy Policy | Terms of Use
 const propertyID =
 window.location.hash.replace("#","");
 
-console.log("PROPERTY:", propertyID);
+
+const residence =
+residences.find(
+    item => item.id === propertyID
+);
+
+
+console.log("CURRENT RESIDENCE:", residence);
 
 </script>
 
