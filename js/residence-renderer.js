@@ -626,14 +626,17 @@ function hideMapLoading(){
 ========================= */
 
 
-const nearby =
+const nearbyGrid =
 document.getElementById("nearby-grid");
 
 
-if(nearby && data.nearby){
+console.log("NEARBY DATA:", data.nearby);
 
 
-    nearby.innerHTML = "";
+if(nearbyGrid && data.nearby){
+
+
+    nearbyGrid.innerHTML = "";
 
 
     data.nearby.forEach(item=>{
@@ -670,13 +673,15 @@ if(nearby && data.nearby){
         `;
 
 
-        nearby.appendChild(card);
+        nearbyGrid.appendChild(card);
 
 
     });
 
 
 }
+
+
 /* =========================
    INFO CARD POPUPS
 ========================= */
