@@ -171,7 +171,60 @@ nearby:[
 
 ],
 
+   
+/* =========================
+   NEIGHBORHOOD LIFESTYLE
+========================= */
 
+lifestyleIntro:
+"An exceptional coastal address surrounded by dining, culture, wellness, and effortless access to Miami's most desirable destinations.",
+
+
+lifestyle:[
+
+{
+    icon:"restaurant",
+    title:"World-Class Dining",
+    text:"Discover acclaimed restaurants, waterfront venues, and private culinary experiences nearby."
+},
+
+
+{
+    icon:"waves",
+    title:"Coastal Living",
+    text:"Enjoy beaches, boating, and outdoor experiences just moments from home."
+},
+
+
+{
+    icon:"palette",
+    title:"Arts & Culture",
+    text:"Experience galleries, exhibitions, and Miami's vibrant creative community."
+},
+
+
+{
+    icon:"shopping_bag",
+    title:"Luxury Shopping",
+    text:"Minutes from premier boutiques, designer brands, and exclusive retail destinations."
+},
+
+
+{
+    icon:"directions_boat",
+    title:"Yachting Lifestyle",
+    text:"Easy access to marinas, waterfront escapes, and private charters."
+},
+
+
+{
+    icon:"fitness_center",
+    title:"Wellness & Fitness",
+    text:"Stay active with premium fitness studios, parks, and wellness destinations."
+}
+
+],
+   
 
 /* =========================
    TIMELINE
