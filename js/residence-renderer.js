@@ -552,6 +552,16 @@ if(amenityGrid && data.amenities){
 
     });
 
+
+    // Only enable tooltip when text is actually cut off
+    document.querySelectorAll(".amenity-name").forEach(name=>{
+
+        if(name.scrollWidth > name.clientWidth){
+            name.classList.add("show-tooltip");
+        }
+
+    });
+
 }
     
     
