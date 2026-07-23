@@ -80,11 +80,11 @@
 
 .date-card.active{
 
-    background:#ecfdf3;
+    background:#f0edff;
 
-    border-color:#22c55e;
+    border-color:#6D5DFB;
 
-    color:#166534;
+    color:#6D5DFB;
 
 }
 
@@ -265,12 +265,79 @@
 
 .schedule-button.ready{
 
-    background:#8c6b3f;
+    background:#6D5DFB;
 
-    color:white;
+    color:#fff;
 
-    opacity:1;
+    border:none;
 
-    cursor:pointer;
+}
+
+.schedule-button.ready:hover{
+
+    background:#5b4be8;
+
+}
+
+
+
+@media(max-width:900px){
+
+    .virtual-showing-section{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+        padding:18px;
+
+    }
+
+
+    .showing-times{
+
+        border-left:none;
+
+        border-top:1px solid #eee;
+
+        padding-left:0;
+
+        padding-top:20px;
+
+    }
+
+
+    .showing-dates{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+
+    .time-slots{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .time-slots button{
+
+        min-width:0;
+
+        width:100%;
+
+    }
+
+
+    .meeting-info{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
 
 }
