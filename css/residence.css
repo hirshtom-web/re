@@ -1228,6 +1228,40 @@ linear-gradient(
 }
 
 
+.fact-card{
+    overflow:hidden;
+}
+
+
+.fact-card span,
+.fact-card strong{
+
+    display:block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+
+}
+
+
+.fact-card span{
+
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+
+}
+
+
+.fact-card strong{
+
+    margin-top:6px;
+    font-size:17px;
+    font-weight:600;
+
+}
+
+
 /* =========================
    SECTIONS
 ========================= */
