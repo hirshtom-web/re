@@ -65,12 +65,19 @@ function renderResidence(data){
                 <td>${item.interior}</td>
 
                 <td class="plan-cell">
-    <a href="${item.layout}" target="_blank" class="plan-link">
+
+    <button 
+        class="plan-link"
+        data-plan="${item.layout}"
+        data-title="${item.name} Floor Plan">
+
         <img
-            src="${item.preview}"
+            src="${item.preview || item.layout}"
             class="plan-thumb"
             alt="${item.name} Floor Plan">
-    </a>
+
+    </button>
+
 </td>
 
             `;
