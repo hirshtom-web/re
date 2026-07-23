@@ -444,50 +444,49 @@ risks:[
    FLOOR PLANS
 ========================= */
 
-floorPlans:[
+const residences = [
 
 {
-
-name:"Residence A",
-
-beds:2,
-
-baths:2.5,
-
-sqft:"1,850",
-
-price:"$2.4M",
-
-floor:"18",
-
-view:"Ocean View",
-
-image:"FLOORPLAN_IMAGE"
-
+name:"Residence 01",
+floor:"11",
+view:"Ocean",
+bedrooms:"3 Bed + Den",
+bathrooms:"4 Bath",
+interior:"2,131 SF",
+layout:"images/residence-01-plan.webp"
 },
 
+{
+name:"Residence 02",
+floor:"11",
+view:"Ocean",
+bedrooms:"2 Bed + Den",
+bathrooms:"3 Bath",
+interior:"1,545 SF",
+layout:"images/residence-02-plan.webp"
+},
 
 {
+name:"Residence 03",
+floor:"12",
+view:"Ocean",
+bedrooms:"2 Bed + Den",
+bathrooms:"3 Bath",
+interior:"1,334 SF",
+layout:"images/residence-03-plan.webp"
+},
 
-name:"Residence B",
-
-beds:3,
-
-baths:3.5,
-
-sqft:"2,600",
-
-price:"$3.8M",
-
-floor:"32",
-
-view:"Skyline View",
-
-image:"FLOORPLAN_IMAGE"
-
+{
+name:"Residence 04",
+floor:"12",
+view:"Garden",
+bedrooms:"1 Bed + Den",
+bathrooms:"2 Bath",
+interior:"1,081 SF",
+layout:"images/residence-04-plan.webp"
 }
 
-],
+];
 
 
 
