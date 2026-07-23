@@ -118,8 +118,12 @@ if(rating && data.aiRating){
 ========================= */
 
 
-const images =
-data.images || [];
+const images = (data.images || []).filter(img => 
+    img &&
+    !img.includes("FLOORPLAN_IMAGE") &&
+    !img.includes("LOGO_URL") &&
+    !img.includes("placeholder")
+);
 
 
 
@@ -155,9 +159,15 @@ if(images.length){
 
     if(main){
 
-        main.src = images[0];
+    main.src = images[0];
 
-    }
+    main.onerror = () => {
+
+        main.style.display = "none";
+
+    };
+
+}
 
 
 
@@ -166,39 +176,38 @@ if(images.length){
         DESKTOP GRID
     */
 
-    if(desktopGrid){
+if(desktopGrid){
 
-        desktopGrid.innerHTML = "";
-
-
-        images.slice(1,6).forEach(image=>{
+    desktopGrid.innerHTML = "";
 
 
-            const img =
-            document.createElement("img");
+    images.slice(1,6).forEach(image=>{
+
+        const img = document.createElement("img");
+
+        img.src = image;
+
+        img.alt = `${data.title} image`;
+
+        img.onerror = () => {
+            img.remove();
+        };
 
 
-            img.src = image;
+        img.onclick = ()=>{
 
-
-            img.alt =
-            `${data.title} image`;
-
-
-            img.onclick = ()=>{
-
+            if(main){
                 main.src = image;
+            }
 
-            };
-
-
-            desktopGrid.appendChild(img);
+        };
 
 
-        });
+        desktopGrid.appendChild(img);
 
+    });
 
-    }
+}
 
 
 
