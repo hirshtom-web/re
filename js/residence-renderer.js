@@ -33,11 +33,55 @@ document.addEventListener("DOMContentLoaded", () => {
 function renderResidence(data){
 
 
-console.log("RENDERING:", data);
+    console.log("RENDERING:", data);
 
-window.currentResidence = data;
-    
+    window.currentResidence = data;
 
+
+    const tbody =
+    document.getElementById("residence-table-body");
+
+
+    if(tbody && data.residences){
+
+        tbody.innerHTML = "";
+
+
+        data.residences.forEach(item=>{
+
+
+            const row =
+            document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td>${item.name}</td>
+
+                <td>${item.bedrooms}</td>
+
+                <td>${item.bathrooms}</td>
+
+                <td>${item.interior}</td>
+
+                <td>
+                    <button class="layout-btn" 
+                    data-image="${item.layout}">
+                        View Plan
+                    </button>
+                </td>
+
+            `;
+
+
+            tbody.appendChild(row);
+
+
+        });
+
+    }
+
+}
 
 
 
@@ -627,72 +671,6 @@ if(nearbyGrid && data.nearby){
 
 
 }
-
-    
- /* =========================
-    FLOOR PLAN
- ========================= */
-
-document.addEventListener("DOMContentLoaded",()=>{
-
-
-    const tbody =
-    document.getElementById("residence-table-body");
-
-
-    if(!tbody || !data.residences) return;
-
-
-    tbody.innerHTML = "";
-
-
-    data.residences.forEach(item=>{
-
-
-        const row =
-        document.createElement("tr");
-
-
-        row.innerHTML = `
-
-        <td>
-            ${item.name}
-        </td>
-
-        <td>
-            ${item.floor}
-        </td>
-
-        <td>
-            ${item.view}
-        </td>
-
-        <td>
-            ${item.bedrooms}
-        </td>
-
-        <td>
-            ${item.bathrooms}
-        </td>
-
-        <td>
-            ${item.interior}
-        </td>
-
-        <td>
-            <button class="layout-btn"
-            data-image="${item.layout}">
-                View Plan
-            </button>
-        </td>
-
-        `;
-
-
-        tbody.appendChild(row);
-
-
-    });
 
 
 
