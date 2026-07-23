@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/property-card.css">
     <link rel="stylesheet" href="../css/properties-grid.css">
+    <link rel="stylesheet" href="../css/modal.css">
 
 </head>
 
@@ -289,7 +290,23 @@ onclick="openModal('residence.html', this.dataset.property-id)">
 
 </section>
 
+    <div id="dealModal" class="modal">
 
+    <div class="modal-content">
+
+        <button class="close" onclick="closeDeal()">
+            ×
+        </button>
+
+        <iframe id="dealFrame"></iframe>
+
+    </div>
+
+</div>
+
+    <script src="../js/modal.js"></script>
+
+    
 </body>
 
 </html>
