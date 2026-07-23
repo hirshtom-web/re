@@ -629,40 +629,52 @@ residences:[
    
    
 /* =========================
-   DEVELOPER / TEAM
+   ARCHITECTURE & DESIGN
 ========================= */
 
-team:[
+architecture:{
 
-{
+title:"A New Standard of Modern Coastal Living",
 
-role:"Developer",
-
-name:"Developer Name",
-
-logo:"LOGO_URL",
-
-description:
-"Recognized for luxury developments and architectural excellence."
+text:"Designed with timeless architecture, refined materials, and carefully curated interiors, every residence reflects a balance of elegance, comfort, and the lifestyle of its surrounding destination. Every detail has been thoughtfully considered to create lasting value for homeowners and investors alike."
 
 },
 
 
+architectureGallery:[
+
 {
+image:"images/architecture-01.jpg",
+caption:"Signature coastal architecture"
+},
 
-role:"Architect",
+{
+image:"images/architecture-02.jpg",
+caption:"Refined exterior details"
+},
 
-name:"Architecture Studio",
+{
+image:"images/architecture-03.jpg",
+caption:"Elevated interior spaces"
+},
 
-logo:"LOGO_URL",
-
-description:
-"International design studio creating iconic residential destinations."
-
+{
+image:"images/architecture-04.jpg",
+caption:"Landscape integration"
 }
 
 ],
 
+
+designTeam:{
+
+architect:"Arquitectonica",
+
+interiors:"Bespoke Interiors Atelier",
+
+landscape:"EDSA"
+
+},
 
 
 /* =========================
