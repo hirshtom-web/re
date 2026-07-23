@@ -173,14 +173,14 @@ nearby:[
 
    
 /* =========================
-   NEIGHBORHOOD LIFESTYLE
+   NEIGHBORHOOD LIFESTYLE HIGHLIGHTS
 ========================= */
 
 lifestyleIntro:
 "An exceptional coastal address surrounded by dining, culture, wellness, and effortless access to Miami's most desirable destinations.",
 
 
-lifestyle:[
+lifestyleHighlights:[
 
 {
     icon:"restaurant",
@@ -188,13 +188,11 @@ lifestyle:[
     text:"Discover acclaimed restaurants, waterfront venues, and private culinary experiences nearby."
 },
 
-
 {
     icon:"waves",
     title:"Coastal Living",
     text:"Enjoy beaches, boating, and outdoor experiences just moments from home."
 },
-
 
 {
     icon:"palette",
@@ -202,20 +200,17 @@ lifestyle:[
     text:"Experience galleries, exhibitions, and Miami's vibrant creative community."
 },
 
-
 {
     icon:"shopping_bag",
     title:"Luxury Shopping",
     text:"Minutes from premier boutiques, designer brands, and exclusive retail destinations."
 },
 
-
 {
     icon:"directions_boat",
     title:"Yachting Lifestyle",
     text:"Easy access to marinas, waterfront escapes, and private charters."
 },
-
 
 {
     icon:"fitness_center",
@@ -224,8 +219,64 @@ lifestyle:[
 }
 
 ],
-   
 
+
+/* =========================
+   LIFESTYLE EXPERIENCES
+========================= */
+
+lifestyleExperiences:[
+
+{
+title:"Beachfront Living",
+category:"Coastal Lifestyle",
+image:"images/lifestyle-beach.jpg",
+text:"Direct access to Miami's iconic shoreline with sunrise walks, ocean views, and a relaxed coastal rhythm.",
+tag:"Beach Life"
+},
+
+{
+title:"World-Class Dining",
+category:"Culinary",
+image:"images/lifestyle-dining.jpg",
+text:"Minutes from acclaimed restaurants, waterfront dining rooms, and Miami's most sought-after culinary destinations.",
+tag:"Fine Dining"
+},
+
+{
+title:"Yachting & Marina Life",
+category:"Waterfront",
+image:"images/lifestyle-yacht.jpg",
+text:"A lifestyle centered around private charters, marina access, and effortless days on the water.",
+tag:"Yachting"
+},
+
+{
+title:"Arts & Culture",
+category:"Culture",
+image:"images/lifestyle-art.jpg",
+text:"Explore galleries, architecture, design districts, and Miami's internationally recognized creative scene.",
+tag:"Arts"
+},
+
+{
+title:"Luxury Shopping",
+category:"Retail",
+image:"images/lifestyle-shopping.jpg",
+text:"Designer boutiques, luxury brands, and exclusive shopping destinations nearby.",
+tag:"Shopping"
+},
+
+{
+title:"Wellness & Fitness",
+category:"Lifestyle",
+image:"images/lifestyle-wellness.jpg",
+text:"Premium fitness studios, outdoor spaces, and wellness experiences within minutes.",
+tag:"Wellness"
+}
+
+]
+   
 /* =========================
    TIMELINE
 ========================= */
