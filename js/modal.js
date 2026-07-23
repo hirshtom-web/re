@@ -27,6 +27,17 @@ function openModal(page, id){
     window.currentPropertyID = id;
 
 
+    /*
+        SAVE OPEN PROPERTY IN URL
+    */
+
+    history.pushState(
+        null,
+        "",
+        "?property=" + encodeURIComponent(id)
+    );
+
+
     const url =
         page + "?id=" + encodeURIComponent(id);
 
@@ -59,6 +70,7 @@ function openModal(page, id){
 
 }
 
+
 /* ==========================================
    CLOSE PROPERTY MODAL
 ========================================== */
@@ -72,7 +84,23 @@ function closeDeal(){
         document.getElementById("dealFrame");
 
 
+    if(!modal || !frame){
+        return;
+    }
+
+
     modal.classList.remove("active");
+
+
+    /*
+        REMOVE PROPERTY FROM URL
+    */
+
+    history.pushState(
+        null,
+        "",
+        window.location.pathname
+    );
 
 
     document.documentElement.classList.remove("modal-open");
@@ -106,8 +134,10 @@ document.addEventListener("keydown",(e)=>{
     const modal =
         document.getElementById("dealModal");
 
+
     if(
         e.key === "Escape" &&
+        modal &&
         modal.classList.contains("active")
     ){
 
@@ -118,11 +148,14 @@ document.addEventListener("keydown",(e)=>{
 });
 
 
+
 /* ==========================================
    CLICK OUTSIDE TO CLOSE
 ========================================== */
 
-const dealModal = document.getElementById("dealModal");
+const dealModal =
+document.getElementById("dealModal");
+
 
 if(dealModal){
 
@@ -137,3 +170,31 @@ if(dealModal){
     });
 
 }
+
+
+
+/* ==========================================
+   RESTORE MODAL AFTER PAGE REFRESH
+========================================== */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+    const params =
+    new URLSearchParams(window.location.search);
+
+
+    const propertyID =
+    params.get("property");
+
+
+    if(propertyID){
+
+        openModal(
+            "residence.html",
+            propertyID
+        );
+
+    }
+
+});
