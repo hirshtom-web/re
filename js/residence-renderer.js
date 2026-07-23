@@ -1238,7 +1238,143 @@ function initAIModal(){
 
 
 
+/* =========================
+   ARCHITECTURE & DESIGN
+========================= */
 
+
+/*
+    CONTENT
+*/
+
+
+const architectureTitle =
+document.getElementById("architecture-title");
+
+
+const architectureText =
+document.getElementById("architecture-text");
+
+
+if(data.architecture){
+
+
+    if(architectureTitle){
+
+        architectureTitle.textContent =
+        data.architecture.title || "Architecture & Design";
+
+    }
+
+
+    if(architectureText){
+
+        architectureText.textContent =
+        data.architecture.text || "";
+
+    }
+
+
+}
+
+
+
+
+
+/*
+    GALLERY
+*/
+
+
+const architectureGallery =
+document.getElementById("architecture-gallery");
+
+
+
+if(architectureGallery && data.architectureGallery){
+
+
+    architectureGallery.innerHTML="";
+
+
+    data.architectureGallery.forEach(item=>{
+
+
+        const image =
+        document.createElement("img");
+
+
+        image.src =
+        item.image;
+
+
+        image.alt =
+        item.caption || "Architecture image";
+
+
+        image.loading =
+        "lazy";
+
+
+        architectureGallery.appendChild(image);
+
+
+    });
+
+
+}
+
+
+
+
+
+
+/*
+    DESIGN TEAM
+*/
+
+
+if(data.designTeam){
+
+
+    const architect =
+    document.getElementById("team-architect");
+
+
+    const interiors =
+    document.getElementById("team-interiors");
+
+
+    const landscape =
+    document.getElementById("team-landscape");
+
+
+
+    if(architect){
+
+        architect.textContent =
+        data.designTeam.architect || "Coming Soon";
+
+    }
+
+
+    if(interiors){
+
+        interiors.textContent =
+        data.designTeam.interiors || "Coming Soon";
+
+    }
+
+
+    if(landscape){
+
+        landscape.textContent =
+        data.designTeam.landscape || "Coming Soon";
+
+    }
+
+
+}
 
 
 
