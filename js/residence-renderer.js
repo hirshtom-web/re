@@ -521,14 +521,19 @@ if(intelligence && data.highlights){
 ========================= */
 
 
-const amenities =
-document.querySelector(".amenity-grid");
+/* =========================
+   AMENITIES
+========================= */
 
 
-if(amenities && data.amenities){
+const amenityGrid =
+document.getElementById("amenity-grid");
 
 
-    amenities.innerHTML = "";
+if(amenityGrid && data.amenities){
+
+
+    amenityGrid.innerHTML = "";
 
 
     data.amenities.forEach(item=>{
@@ -538,11 +543,18 @@ if(amenities && data.amenities){
         document.createElement("div");
 
 
-        box.textContent =
-        item;
+        box.innerHTML = `
+
+            <span class="material-symbols-outlined">
+                ${item.icon || "star"}
+            </span>
+
+            ${item.name}
+
+        `;
 
 
-        amenities.appendChild(box);
+        amenityGrid.appendChild(box);
 
 
     });
@@ -550,6 +562,7 @@ if(amenities && data.amenities){
 
 }
 
+    
 /* =========================
    NEARBY DESTINATIONS
 ========================= */
