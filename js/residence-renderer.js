@@ -550,6 +550,65 @@ if(amenities && data.amenities){
 
 }
 
+/* =========================
+   NEARBY DESTINATIONS
+========================= */
+
+
+const nearbyGrid =
+document.getElementById("nearby-grid");
+
+
+console.log("NEARBY DATA:", data.nearby);
+
+
+if(nearbyGrid && data.nearby){
+
+
+    nearbyGrid.innerHTML = "";
+
+
+    data.nearby.forEach(item=>{
+
+
+        const card =
+        document.createElement("div");
+
+
+        card.className =
+        "nearby-card";
+
+
+        card.innerHTML = `
+
+            <span class="material-symbols-outlined">
+                ${item.icon || "location_on"}
+            </span>
+
+
+            <div>
+
+                <strong>
+                    ${item.title}
+                </strong>
+
+
+                <p>
+                    ${item.distance} away
+                </p>
+
+            </div>
+
+        `;
+
+
+        nearbyGrid.appendChild(card);
+
+
+    });
+
+
+}
 
 
 /* =========================
@@ -617,66 +676,6 @@ function hideMapLoading(){
 
 
     },1500);
-
-
-}
-
-/* =========================
-   NEARBY DESTINATIONS
-========================= */
-
-
-const nearbyGrid =
-document.getElementById("nearby-grid");
-
-
-console.log("NEARBY DATA:", data.nearby);
-
-
-if(nearbyGrid && data.nearby){
-
-
-    nearbyGrid.innerHTML = "";
-
-
-    data.nearby.forEach(item=>{
-
-
-        const card =
-        document.createElement("div");
-
-
-        card.className =
-        "nearby-card";
-
-
-        card.innerHTML = `
-
-            <span class="material-symbols-outlined">
-                ${item.icon || "location_on"}
-            </span>
-
-
-            <div>
-
-                <strong>
-                    ${item.title}
-                </strong>
-
-
-                <p>
-                    ${item.distance} away
-                </p>
-
-            </div>
-
-        `;
-
-
-        nearbyGrid.appendChild(card);
-
-
-    });
 
 
 }
