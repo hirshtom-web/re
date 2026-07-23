@@ -162,22 +162,35 @@ if(images.length){
 
 
 
-    /*
-        MAIN IMAGE
-    */
+    // MAIN IMAGE
 
-    if(main){
+const placeholder =
+document.getElementById("image-placeholder");
 
-    main.src = images[0];
 
-    main.onerror = () => {
+if(main){
+
+    if(images.length){
+
+        main.src = images[0];
+
+        main.style.display = "block";
+
+        if(placeholder){
+            placeholder.style.display = "none";
+        }
+
+    } else {
 
         main.style.display = "none";
 
-    };
+        if(placeholder){
+            placeholder.style.display = "flex";
+        }
+
+    }
 
 }
-
 
 
 
