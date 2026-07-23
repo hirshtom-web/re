@@ -1923,15 +1923,16 @@ Equal Housing Opportunity | Privacy Policy | Terms of Use
   
 <div id="ai-modal-container"></div>
 
-
-<script src="../js/residence-data.js"></script>
-<script src="../js/residence-renderer.js"></script>
+  
 <script src="../js/residences.js"></script>
-<script src="../js/renderer.js"></script>
+
+<script src="../js/residence-renderer.js"></script>
+
 <script src="../js/mortgage-calculator.js"></script>
 <script src="../js/virtual-showing.js"></script>
 
-  <script>
+
+<script>
 
 const propertyID =
 new URLSearchParams(window.location.search).get("id");
@@ -1945,6 +1946,7 @@ window.residences.find(
 
 console.log("PROPERTY ID:", propertyID);
 console.log("FOUND PROPERTY:", residence);
+
 
 </script>
 
