@@ -892,44 +892,6 @@ if(map && data.coordinates){
 }
 
 
-/* =========================
-   MAP LOADING
-========================= */
-
-
-function hideMapLoading(){
-
-
-    setTimeout(()=>{
-
-
-        const loader =
-        document.querySelector(".map-loading");
-
-
-        if(loader){
-
-
-            loader.style.opacity="0";
-
-
-            setTimeout(()=>{
-
-
-                loader.style.display="none";
-
-
-            },800);
-
-
-        }
-
-
-    },1500);
-
-
-}
-
 
 /* =========================
    INFO CARD POPUPS
@@ -1254,7 +1216,7 @@ function initAIModal(){
     });
 
 
-
+}
 
 
 
