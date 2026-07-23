@@ -444,7 +444,7 @@ risks:[
    FLOOR PLANS
 ========================= */
 
-const residences = [
+residences:[
 
 {
 name:"Residence 01",
@@ -486,9 +486,7 @@ interior:"1,081 SF",
 layout:"images/residence-04-plan.webp"
 }
 
-];
-
-
+],
 
 /* =========================
    DEVELOPER / TEAM
