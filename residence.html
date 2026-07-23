@@ -109,44 +109,45 @@ View all photos
 
 <div class="media-library" id="mediaLibrary">
 
-<div class="media-header">
+    <div class="media-header">
 
-<div class="media-tabs">
+        <div class="media-tabs">
 
-<button class="active">
-Photos
-</button>
+            <button class="media-tab active" data-type="photos">
+                Photos
+            </button>
 
-<button>
-Videos
-</button>
+            <button class="media-tab" data-type="videos">
+                Videos
+            </button>
 
-<button>
-360 Tour
-</button>
+            <button class="media-tab" data-type="tour">
+                360 Tour
+            </button>
 
-<button>
-Floor Plans
-</button>
+            <button class="media-tab" data-type="floorplans">
+                Floor Plans
+            </button>
+
+        </div>
+
+
+        <button onclick="closeMediaLibrary()">
+            ✕
+        </button>
+
+
+    </div>
+
+
+    <div 
+    class="media-content" 
+    id="mediaContent">
+    </div>
+
 
 </div>
-
-
-<button onclick="closeMediaLibrary()">
-✕
-</button>
-
-
-</div>
-
-
-<div 
-class="media-content" 
-id="mediaContent">
-</div>
-
-
-</div>
+  
   
   
 <!-- GALLERY ABOVE THIS -->
