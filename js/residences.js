@@ -447,47 +447,59 @@ risks:[
 residences:[
 
 {
-name:"Residence 01",
-floor:"11",
-view:"Ocean",
-bedrooms:"3 Bed + Den",
-bathrooms:"4 Bath",
-interior:"2,131 SF",
-layout:"images/residence-01-plan.webp"
+    name:"Residence 01",
+    floor:"11",
+    view:"Ocean",
+    bedrooms:"3 Bed + Den",
+    bathrooms:"4 Bath",
+    interior:"2,131 SF",
+
+    preview:"images/residence-01-plan.webp",
+
+    layout:"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AHqHFocqZGk7nsVFxIe1l2c/Floor%20Plans/Floor%20Plan%20-%20Single%20Sheets/Penthouse_01_ONEParkTower_Floorplans.pdf?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1"
 },
 
 {
-name:"Residence 02",
-floor:"11",
-view:"Ocean",
-bedrooms:"2 Bed + Den",
-bathrooms:"3 Bath",
-interior:"1,545 SF",
-layout:"images/residence-02-plan.webp"
+    name:"Residence 02",
+    floor:"11",
+    view:"Ocean",
+    bedrooms:"2 Bed + Den",
+    bathrooms:"3 Bath",
+    interior:"1,545 SF",
+
+    preview:"images/residence-02-plan.webp",
+
+    layout:"YOUR_PDF_LINK_02"
 },
 
 {
-name:"Residence 03",
-floor:"12",
-view:"Ocean",
-bedrooms:"2 Bed + Den",
-bathrooms:"3 Bath",
-interior:"1,334 SF",
-layout:"images/residence-03-plan.webp"
+    name:"Residence 03",
+    floor:"12",
+    view:"Ocean",
+    bedrooms:"2 Bed + Den",
+    bathrooms:"3 Bath",
+    interior:"1,334 SF",
+
+    preview:"images/residence-03-plan.webp",
+
+    layout:"YOUR_PDF_LINK_03"
 },
 
 {
-name:"Residence 04",
-floor:"12",
-view:"Garden",
-bedrooms:"1 Bed + Den",
-bathrooms:"2 Bath",
-interior:"1,081 SF",
-layout:"images/residence-04-plan.webp"
+    name:"Residence 04",
+    floor:"12",
+    view:"Garden",
+    bedrooms:"1 Bed + Den",
+    bathrooms:"2 Bath",
+    interior:"1,081 SF",
+
+    preview:"images/residence-04-plan.webp",
+
+    layout:"YOUR_PDF_LINK_04"
 }
 
 ],
-
+   
 /* =========================
    DEVELOPER / TEAM
 ========================= */
