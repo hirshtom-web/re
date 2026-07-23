@@ -1,86 +1,30 @@
 .modal{
-
     position:fixed;
-
     inset:0;
-
-    background:rgba(0,0,0,.0);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:5000;
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transition:.25s ease;
-
-}
-
-
-.modal.active{
-
-    opacity:1;
-
-    visibility:visible;
-
-    background:rgba(0,0,0,.55);
-
-}
-
-.modal{
+    background:rgba(0,0,0,.6);
     display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
 }
-
 .modal.active{
     display:flex;
 }
-
-
 .modal-content{
-
     width:95vw;
     height:95vh;
-
-    background:#fff;
-
-    border-radius:24px;
-
+    background:white;
+    border-radius:16px;
     overflow:hidden;
-
-    transform:translateY(25px) scale(.98);
-
-    transition:
-        transform .3s ease;
-
+    position:relative;
+    display:flex;
+    flex-direction:column;
 }
-.modal.active .modal-content{
-
-    transform:
-        translateY(0)
-        scale(1);
-
-}
-
 #dealFrame{
-
     width:100%;
-
     height:calc(100% - 72px);
-
     border:0;
-
-    opacity:0;
-
-    transition:opacity .25s ease;
-
 }
-
 .close{
     position:absolute;
     right:25px;
@@ -167,10 +111,6 @@ body.modal-open{
         height:38px;
         font-size:24px;
     }
-}
-display:flex;
-flex-direction:column;
-
 }
 
 
