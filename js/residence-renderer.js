@@ -516,8 +516,6 @@ if(intelligence && data.highlights){
 
 }
 
-    
-
 /* =========================
    AMENITIES
 ========================= */
@@ -527,12 +525,10 @@ const amenities =
 document.querySelector(".amenity-grid");
 
 
-
 if(amenities && data.amenities){
 
 
     amenities.innerHTML = "";
-
 
 
     data.amenities.forEach(item=>{
@@ -556,8 +552,74 @@ if(amenities && data.amenities){
 
 
 
+/* =========================
+   LOCATION MAP
+========================= */
+
+
+const map =
+document.getElementById("property-map");
+
+
+if(map && data.coordinates){
+
+
+    const lat =
+    data.coordinates.lat;
+
+
+    const lng =
+    data.coordinates.lng;
+
+
+    map.src =
+    `https://www.google.com/maps?q=${lat},${lng}&output=embed`;
+
+
 }
 
+
+} // <-- THIS closes renderResidence(data)
+
+
+
+/* =========================
+   MAP LOADING
+========================= */
+
+
+function hideMapLoading(){
+
+
+    setTimeout(()=>{
+
+
+        const loader =
+        document.querySelector(".map-loading");
+
+
+        if(loader){
+
+
+            loader.style.opacity="0";
+
+
+            setTimeout(()=>{
+
+
+                loader.style.display="none";
+
+
+            },800);
+
+
+        }
+
+
+    },1500);
+
+
+}
 
 /* =========================
    INFO CARD POPUPS
@@ -936,53 +998,6 @@ function initAIModal(){
 
 }
 
-
-
-
-
-
-
-
-
-/* =========================
-   MAP LOADING
-========================= */
-
-
-function hideMapLoading(){
-
-
-    setTimeout(()=>{
-
-
-        const loader =
-        document.querySelector(
-            ".map-loading"
-        );
-
-
-        if(loader){
-
-
-            loader.style.opacity="0";
-
-
-            setTimeout(()=>{
-
-
-                loader.style.display="none";
-
-
-            },800);
-
-
-        }
-
-
-    },1500);
-
-
-}
 
 
 
