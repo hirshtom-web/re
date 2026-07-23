@@ -50,7 +50,7 @@ document.getElementById("property-title");
 if(title){
 
     title.textContent =
-    data.title || "";
+    data.title || "Private Residence Opportunity";
 
 }
 
@@ -62,8 +62,14 @@ document.getElementById("property-address");
 
 if(address){
 
+    const locationText =
+    [data.address, data.location]
+    .filter(Boolean)
+    .join(" · ");
+
+
     address.textContent =
-    `${data.address || ""} · ${data.location || ""}`;
+    locationText || "Location Details Coming Soon";
 
 }
 
@@ -76,7 +82,7 @@ document.getElementById("property-status");
 if(status){
 
     status.textContent =
-    data.status || "";
+    data.status || "Coming Soon";
 
 }
 
@@ -89,7 +95,7 @@ document.getElementById("last-update");
 if(update){
 
     update.textContent =
-    "Last updated today";
+    data.lastUpdated || "Last updated today";
 
 }
 
@@ -99,18 +105,21 @@ const rating =
 document.getElementById("ai-rating");
 
 
-if(rating && data.aiRating){
+if(rating){
 
-    rating.textContent =
-    `${data.aiRating.overall} AI Rating`;
+    if(data.aiRating && data.aiRating.overall){
+
+        rating.textContent =
+        `${data.aiRating.overall} AI Rating`;
+
+    } else {
+
+        rating.textContent =
+        "AI Rating Coming Soon";
+
+    }
 
 }
-
-
-
-
-
-
 
 
 /* =========================
