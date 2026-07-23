@@ -242,7 +242,7 @@ highlights:[
 title:"Early Pricing Advantage",
 
 text:
-"Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases."
+"Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases. Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases."
 
 },
 
