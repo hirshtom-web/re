@@ -626,63 +626,76 @@ if(nearbyGrid && data.nearby){
 }
 
     
-/* =========================
-   FLOOR PLAN
-========================= */
-
-    
-document.addEventListener("DOMContentLoaded",()=>{
-
-const tbody =
-document.getElementById("residence-table-body");
-
-
-if(!tbody) return;
-
-
-residences.forEach(item=>{
-
-
-const row =
-document.createElement("tr");
-
-
-row.innerHTML = `
-
-<td>${item.name}</td>
-
-<td>${item.bedrooms}</td>
-
-<td>${item.bathrooms}</td>
-
-<td>${item.interior}</td>
-
-<td>
-<button class="layout-btn"
-data-image="${item.layout}">
-View Plan
-</button>
-</td>
-
-`;
-
-
-tbody.appendChild(row);
-
-
-});
-
-
-});
-
-
-    
-/* =========================
-   FLOOR PLAN TOGGLE
-========================= */
-
+ /* =========================
+    FLOOR PLAN
+ ========================= */
 
 document.addEventListener("DOMContentLoaded",()=>{
+
+
+    const tbody =
+    document.getElementById("residence-table-body");
+
+
+    if(!tbody || !data.residences) return;
+
+
+    tbody.innerHTML = "";
+
+
+    data.residences.forEach(item=>{
+
+
+        const row =
+        document.createElement("tr");
+
+
+        row.innerHTML = `
+
+        <td>
+            ${item.name}
+        </td>
+
+        <td>
+            ${item.floor}
+        </td>
+
+        <td>
+            ${item.view}
+        </td>
+
+        <td>
+            ${item.bedrooms}
+        </td>
+
+        <td>
+            ${item.bathrooms}
+        </td>
+
+        <td>
+            ${item.interior}
+        </td>
+
+        <td>
+            <button class="layout-btn"
+            data-image="${item.layout}">
+                View Plan
+            </button>
+        </td>
+
+        `;
+
+
+        tbody.appendChild(row);
+
+
+    });
+
+
+
+    /* =========================
+       FLOOR PLAN TOGGLE
+    ========================= */
 
 
     const table =
@@ -693,27 +706,27 @@ document.addEventListener("DOMContentLoaded",()=>{
     document.querySelector(".table-toggle");
 
 
-
-    if(!toggle || !table) return;
-
+    if(toggle && table){
 
 
-    toggle.addEventListener("click",()=>{
+        toggle.addEventListener("click",()=>{
 
 
-        table.classList.toggle("expanded");
+            table.classList.toggle("expanded");
 
 
+            toggle.textContent =
+            table.classList.contains("expanded")
+            ?
+            "Show Less"
+            :
+            "View All Floor Plans";
 
-        toggle.textContent =
-        table.classList.contains("expanded")
-        ?
-        "Show Less"
-        :
-        "View All Floor Plans";
+
+        });
 
 
-    });
+    }
 
 
 });
