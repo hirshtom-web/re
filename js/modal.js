@@ -115,14 +115,18 @@ document.addEventListener("keydown",(e)=>{
    CLICK OUTSIDE TO CLOSE
 ========================================== */
 
-document
-.getElementById("dealModal")
-.addEventListener("click",(e)=>{
+const dealModal = document.getElementById("dealModal");
 
-    if(e.target.id === "dealModal"){
+if(dealModal){
 
-        closeDeal();
+    dealModal.addEventListener("click",(e)=>{
 
-    }
+        if(e.target === dealModal){
 
-});
+            closeDeal();
+
+        }
+
+    });
+
+}
