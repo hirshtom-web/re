@@ -1,26 +1,27 @@
 .modal{
 
     position:fixed;
+
     inset:0;
+
+    background:rgba(0,0,0,.0);
 
     display:flex;
 
     justify-content:center;
+
     align-items:center;
 
-    background:rgba(0,0,0,.0);
+    z-index:5000;
 
     opacity:0;
 
     visibility:hidden;
 
-    transition:
-        opacity .25s ease,
-        background .25s ease;
-
-    z-index:5000;
+    transition:.25s ease;
 
 }
+
 
 .modal.active{
 
@@ -28,9 +29,19 @@
 
     visibility:visible;
 
-    background:rgba(0,0,0,.45);
+    background:rgba(0,0,0,.55);
 
 }
+
+.modal{
+    display:none;
+}
+
+.modal.active{
+    display:flex;
+}
+
+
 .modal-content{
 
     width:95vw;
