@@ -97,10 +97,11 @@ function closeDeal(){
     */
 
     history.pushState(
-        null,
-        "",
-        window.location.pathname
-    );
+    null,
+    "",
+    "?property=" + encodeURIComponent(id) +
+    "&page=" + encodeURIComponent(page)
+);
 
 
     document.documentElement.classList.remove("modal-open");
@@ -188,13 +189,17 @@ document.addEventListener("DOMContentLoaded",()=>{
     params.get("property");
 
 
-    if(propertyID){
+    const savedPage =
+params.get("page");
 
-        openModal(
-            "property.html",
-            propertyID
-        );
 
-    }
+if(propertyID && savedPage){
+
+    openModal(
+        savedPage,
+        propertyID
+    );
+
+}
 
 });
