@@ -1033,9 +1033,6 @@ if(architectureGallery && data.architectureGallery){
                 alt="${item.caption || ""}">
 
 
-                <p>
-                ${item.caption || ""}
-                </p>
 
             `;
 
@@ -1130,6 +1127,34 @@ if(data.designTeam){
         data.designTeam.landscape || "Coming Soon";
 
     }
+    
+}
+    
+    
+    const architectureReadMore =
+document.querySelector(".architecture-content .read-more");
+
+
+const architectureParagraph =
+document.getElementById("architecture-text");
+
+
+if(architectureReadMore && architectureParagraph){
+
+    architectureReadMore.addEventListener("click",()=>{
+
+        architectureParagraph.classList.toggle("expanded");
+
+
+        architectureReadMore.textContent =
+        architectureParagraph.classList.contains("expanded")
+        ?
+        "Read less ←"
+        :
+        "Read more →";
+
+    });
+
 
 }
     
