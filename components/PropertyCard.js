@@ -7,12 +7,12 @@ return `
     <div class="property-image">
 
         <img 
-        src="${property.thumbnail}" 
+        src="${property.thumbnail || 'images/property-placeholder.jpg'}" 
         alt="${property.title}"
         >
 
         <span class="property-status">
-        ${property.status}
+        ${property.status || "Coming Soon"}
         </span>
 
     </div>
@@ -21,7 +21,7 @@ return `
     <div class="property-content">
 
         <div class="property-location">
-        ${property.location}
+        ${property.location || ""}
         </div>
 
 
@@ -33,11 +33,11 @@ return `
         <div class="property-details">
 
             <span>
-            ${property.type}
+            ${property.type || "Luxury Residence"}
             </span>
 
             <span>
-            ${property.price}
+            ${property.price || "Price Upon Request"}
             </span>
 
         </div>
@@ -46,11 +46,11 @@ return `
         <div class="property-meta">
 
             <span>
-            ${property.beds}
+            ${property.beds || "Bedrooms TBD"}
             </span>
 
             <span>
-            Delivery ${property.delivery}
+            Delivery ${property.delivery || "TBD"}
             </span>
 
         </div>
