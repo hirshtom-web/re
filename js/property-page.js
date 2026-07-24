@@ -25,6 +25,12 @@ if(!property){
 
 
 console.log("LOADED PROPERTY:", property);
+    
+    window.currentProperty = property;
+
+window.dispatchEvent(
+    new Event("propertyLoaded")
+);
 
 
 
