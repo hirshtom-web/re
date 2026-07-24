@@ -11,7 +11,7 @@ document.getElementById("location-filter").value;
 
 
 const filtered =
-window.residences.filter(property=>{
+window.properties.filter(property=>{
 
 
 const matchesSearch =
