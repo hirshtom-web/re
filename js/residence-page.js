@@ -1,58 +1,92 @@
 function loadResidencePage(){
 
+const params = new URLSearchParams(window.location.search);
 
-const params =
-new URLSearchParams(window.location.search);
-
-
-const id =
-params.get("id");
+const id = params.get("id");
 
 
+if(!id){
+console.error("No property ID found");
+return;
+}
 
-const property =
-window.properties.find(
-p=>p.id===id
+
+const property = window.properties.find(
+p => p.id === id
 );
-
 
 
 if(!property){
 
-console.error("Property not found");
+console.error("Property not found:", id);
 return;
 
 }
 
 
-
-// HERO IMAGE
-
-document.getElementById("gallery-main").src =
-property.images?.[0] || property.thumbnail;
+console.log("LOADED PROPERTY:", property);
 
 
 
-document.getElementById("residence-title")
-.innerHTML =
-property.title;
+/* MAIN IMAGE */
+
+const mainImage = document.getElementById("gallery-main");
+
+if(mainImage){
+
+mainImage.src =
+property.images?.[0] ||
+property.thumbnail ||
+"";
+
+}
 
 
+/* TITLE */
 
-document.getElementById("residence-location")
-.innerHTML =
-property.location;
+const title =
+document.getElementById("property-title");
+
+if(title){
+
+title.innerHTML =
+property.title || "";
+
+}
 
 
+/* STATUS */
 
-document.getElementById("residence-price")
-.innerHTML =
-property.price || "Request Pricing";
+const status =
+document.getElementById("property-status");
 
+if(status){
+
+status.innerHTML =
+property.status || "";
+
+}
+
+
+/* ADDRESS */
+
+const address =
+document.getElementById("property-address");
+
+if(address){
+
+address.innerHTML =
+property.location || "";
+
+}
 
 
 }
 
 
+/* RUN */
 
-loadResidencePage();
+document.addEventListener(
+"DOMContentLoaded",
+loadResidencePage
+);
