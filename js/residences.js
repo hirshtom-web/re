@@ -51,6 +51,30 @@ hoa:"TBD",
 estimatedTaxes:"TBD",
 
 
+/* =========================
+   MORTGAGE CALCULATOR
+========================= */
+
+mortgage:{
+
+    price:1850000,
+
+    downPayment:30,
+
+    taxRate:1.5,
+
+    insuranceRate:0.5,
+
+    hoaSqft:1.85,
+
+    size:2131,
+
+    interestRate:6.5,
+
+    loanYears:30
+
+}
+
 
 /* =========================
    PROPERTY FACTS
