@@ -1,4 +1,4 @@
-window.propertyGrid = [
+window.residences = [
 
 {
 id:"casa-bella-bb-italia",
