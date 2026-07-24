@@ -1596,9 +1596,7 @@ function initAIModal(){
    FAQ RENDER
 ========================= */
 
-
 function renderFAQ(){
-
 
     const faqList =
     document.getElementById(
@@ -1613,23 +1611,26 @@ function renderFAQ(){
 
 
     console.log(
-    "RESIDENCE DATA:",
-    residence
-);
-
-
-if(!faqList || !residence?.faq){
-
-    console.log(
-        "FAQ DATA NOT FOUND"
+        "RESIDENCE DATA:",
+        residence
     );
 
-    return;
 
-}
+    if(!faqList || !residence?.faq){
+
+        console.log(
+            "FAQ DATA NOT FOUND"
+        );
+
+        return;
+
+    }
 
 
-residence.faq.forEach(item=>{
+    faqList.innerHTML = "";
+
+
+    residence.faq.forEach(item=>{
 
 
         const faq =
@@ -1640,7 +1641,6 @@ residence.faq.forEach(item=>{
 
         faq.className =
         "faq-item";
-
 
 
         faq.innerHTML = `
@@ -1663,7 +1663,6 @@ residence.faq.forEach(item=>{
         `;
 
 
-
         faqList.appendChild(faq);
 
 
@@ -1671,8 +1670,6 @@ residence.faq.forEach(item=>{
 
 
 }
-
-
 
 
 
