@@ -1,20 +1,22 @@
-function renderPropertiesGrid(){
-  
+function renderPropertiesGrid(propertiesList = window.residences){
+
 
 const propertiesGrid =
 document.getElementById("properties-grid");
 
 
 if(!propertiesGrid || !window.residences){
+
 console.error("Grid missing or residences data missing");
 return;
+
 }
 
 
 propertiesGrid.innerHTML="";
 
 
-window.residences.forEach(property=>{
+propertiesList.forEach(property=>{
 
 
 propertiesGrid.innerHTML += `
@@ -73,12 +75,12 @@ ${property.price || "Request Pricing"}
 
 `;
 
-
 });
 
 
 }
 
 
-// START GRID
+// initial load
+
 renderPropertiesGrid();
