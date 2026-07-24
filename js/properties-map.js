@@ -1,18 +1,30 @@
+if(typeof google === "undefined"){
+    console.warn("Google Maps not loaded");
+    return;
+}
+
+
 window.properties.forEach(property=>{
 
 
-new google.maps.Marker({
+    if(!property.coordinates){
+        console.warn("Missing coordinates:", property.id);
+        return;
+    }
 
-position:{
-lat:property.coordinates.lat,
-lng:property.coordinates.lng
-},
 
-map:map,
+    new google.maps.Marker({
 
-title:property.title
+        position:{
+            lat: property.coordinates.lat,
+            lng: property.coordinates.lng
+        },
 
-});
+        map: map,
+
+        title: property.title
+
+    });
 
 
 });
