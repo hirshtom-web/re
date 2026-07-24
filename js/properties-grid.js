@@ -1,22 +1,22 @@
-function renderPropertiesGrid(propertiesList = window.residences){
+function renderPropertiesGrid(propertiesList = window.properties){
 
 
 const propertiesGrid =
 document.getElementById("properties-grid");
 
 
-if(!propertiesGrid || !window.residences){
+if(!propertiesGrid || !propertiesList){
 
-console.error("Grid missing or residences data missing");
+console.error("Grid missing or properties data missing");
 return;
 
 }
 
 
-propertiesGrid.innerHTML="";
+propertiesGrid.innerHTML = "";
 
 
-window.properties.forEach(property=>{
+propertiesList.forEach(property=>{
 
 
 propertiesGrid.innerHTML += `
