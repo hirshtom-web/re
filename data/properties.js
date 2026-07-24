@@ -1,4 +1,4 @@
-window.residences = [
+window.properties = [
    
 {
 
