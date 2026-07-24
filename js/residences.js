@@ -71,7 +71,7 @@ mortgage:{
 
     interestRate:6.5,
 
-    loanYears:30
+    loanYears:30,
 
 }
 
