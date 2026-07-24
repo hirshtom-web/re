@@ -1,4 +1,4 @@
-window.residences.forEach(property=>{
+window.properties.forEach(property=>{
 
 
 new google.maps.Marker({
