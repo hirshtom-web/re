@@ -1,71 +1,59 @@
-function renderResidencePage(){
+function loadResidencePage(){
 
 
-const container =
-document.getElementById("residence-container");
+const params =
+new URLSearchParams(window.location.search);
 
 
 const id =
-new URLSearchParams(window.location.search).get("id");
+params.get("id");
 
 
 
 const property =
-window.residences.find(
-item => item.id === id
+window.properties.find(
+p=>p.id===id
 );
 
 
 
 if(!property){
 
-container.innerHTML =
-"Property not found";
-
+console.error("Property not found");
 return;
 
 }
 
 
 
-container.innerHTML = `
+// HERO IMAGE
+
+document.getElementById("residence-main-image")
+.src =
+property.images?.[0] || property.thumbnail;
 
 
-<section class="hero">
 
-<img src="${property.thumbnail}">
-
-<h1>
-${property.title}
-</h1>
-
-<p>
-${property.location}
-</p>
-
-<strong>
-${property.price}
-</strong>
-
-</section>
+document.getElementById("residence-title")
+.innerHTML =
+property.title;
 
 
-<section>
 
-<h2>
-About
-</h2>
-
-<p>
-${property.description}
-</p>
-
-</section>
+document.getElementById("residence-location")
+.innerHTML =
+property.location;
 
 
-`;
+
+document.getElementById("residence-price")
+.innerHTML =
+property.price || "Request Pricing";
+
+
 
 }
 
 
-renderResidencePage();
+
+loadResidencePage();
