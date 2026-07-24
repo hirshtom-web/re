@@ -5,8 +5,8 @@ const propertiesGrid =
 document.getElementById("properties-grid");
 
 
-if(!propertiesGrid){
-console.error("Grid missing");
+if(!propertiesGrid || !window.residences){
+console.error("Grid missing or residences data missing");
 return;
 }
 
@@ -14,7 +14,7 @@ return;
 propertiesGrid.innerHTML="";
 
 
-properties.forEach(property=>{
+window.residences.forEach(property=>{
 
 
 propertiesGrid.innerHTML += `
@@ -22,6 +22,7 @@ propertiesGrid.innerHTML += `
 
 <article
 class="property-card"
+data-property-id="${property.id}"
 onclick="openModal('residence.html','${property.id}')">
 
 
@@ -77,3 +78,7 @@ ${property.price || "Request Pricing"}
 
 
 }
+
+
+// START GRID
+renderPropertiesGrid();
