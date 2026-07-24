@@ -57,7 +57,7 @@ estimatedTaxes:"TBD",
 
 mortgage:{
 
-    price:1850000,
+    price:1200000,
 
     downPayment:30,
 
