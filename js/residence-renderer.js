@@ -1613,29 +1613,23 @@ function renderFAQ(){
 
 
     console.log(
-        "DATA:",
-        data
+    "RESIDENCE DATA:",
+    residence
+);
+
+
+if(!faqList || !residence?.faq){
+
+    console.log(
+        "FAQ DATA NOT FOUND"
     );
 
+    return;
+
+}
 
 
-    if(!faqList || !data?.faq){
-
-        console.log(
-            "FAQ DATA NOT FOUND"
-        );
-
-        return;
-
-    }
-
-
-
-    faqList.innerHTML = "";
-
-
-
-    data.faq.forEach(item=>{
+residence.faq.forEach(item=>{
 
 
         const faq =
