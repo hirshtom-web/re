@@ -651,16 +651,6 @@ caption:"Signature coastal architecture"
 {
 image:"https://uc4ecde6b0d9ae67af78fa68cb3a.dl.dropboxusercontent.com/cd/0/inline/DE30GYNpEFz6PXWN4XNMx2jcCeB5maMjoqqFboKos4fixT8crX7Zlic-nveIx5Wpv8yWf32YZcOEdxCTEKg0Dos4Lvo-REm_3Hw23jMJSR_2XoOox_8S2aYDngS7Q52575AJSYrPHtCV3EnylmoJrsim/file#",
 caption:"Refined exterior details"
-},
-
-{
-image:"images/architecture-03.jpg",
-caption:"Elevated interior spaces"
-},
-
-{
-image:"images/architecture-04.jpg",
-caption:"Landscape integration"
 }
 
 ],
