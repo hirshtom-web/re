@@ -1,3 +1,5 @@
+let currentProperty = null;
+
 window.addEventListener("propertyLoaded", () => {
 
     currentProperty = window.currentProperty;
