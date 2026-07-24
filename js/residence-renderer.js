@@ -1159,7 +1159,7 @@ if(architectureReadMore && architectureParagraph){
 }
 
 
- /* =========================
+/* =========================
    MORTGAGE CALCULATOR
 ========================= */
 
@@ -1236,7 +1236,41 @@ if(data.mortgage){
 
 
 
-    // trigger calculator update
+    /*
+    Trigger existing calculator
+    after property data loads
+    */
+
+
+    [
+        homePrice,
+        downPayment,
+        interestRate,
+        loanYears
+
+    ].forEach(input=>{
+
+
+        if(input){
+
+            input.dispatchEvent(
+                new Event("input",
+                {
+                    bubbles:true
+                })
+            );
+
+        }
+
+
+    });
+
+
+
+    /*
+    Backup refresh
+    */
+
 
     if(typeof updateMortgage === "function"){
 
