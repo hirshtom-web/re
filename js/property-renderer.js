@@ -1,21 +1,17 @@
 window.addEventListener("propertyLoaded", () => {
 
-    const property = window.currentProperty;
+    currentProperty = window.currentProperty;
 
-    if (!property) {
+    if(!currentProperty){
         console.warn("No property data found.");
         return;
     }
 
-    console.log("PROPERTY RENDERER STARTED:", property);
+    console.log("PROPERTY RENDERER STARTED:", currentProperty);
 
-    renderProperty(property);
+    renderProperty(currentProperty);
 
 });
-
-
-let currentProperty = null;
-
 
 /* ==========================================
    MAP LOADER
@@ -41,31 +37,6 @@ window.hideMapLoading = function(){
 
 };
 
-
-/* ==========================================
-   LOAD PROPERTY
-========================================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const propertyID =
-        new URLSearchParams(window.location.search).get("id");
-
-    currentProperty =
-        window.properties?.find(
-            item => item.id === propertyID
-        );
-
-    if(!currentProperty){
-
-        console.warn("No property data found.");
-        return;
-
-    }
-
-    renderProperty(currentProperty);
-
-});
 
 
 /* ==========================================
