@@ -1590,25 +1590,26 @@ function initAIModal(){
    FAQ
 ========================= */
 
-const faqList =
-document.getElementById("faq-list");
+document.addEventListener("DOMContentLoaded", () => {
+
+    const faqList =
+    document.getElementById("faq-list");
 
 
-console.log("faqList:", faqList);
-console.log("data.faq:", data.faq);
+    console.log("faqList:", faqList);
+    console.log("data.faq:", data.faq);
 
 
-
-if(faqList && data.faq){
-
-
-    console.log("FAQ RENDERING STARTED");
+    if(!faqList || !data.faq){
+        console.log("FAQ NOT READY");
+        return;
+    }
 
 
     faqList.innerHTML = "";
 
 
-    data.faq.forEach(item=>{
+    data.faq.forEach(item => {
 
 
         const faq =
@@ -1645,30 +1646,12 @@ if(faqList && data.faq){
     });
 
 
+});
 
-    faqList
-    .querySelectorAll(".faq-question")
-    .forEach(button=>{
-
-
-        button.addEventListener("click",()=>{
-
-
-            const item =
-            button.parentElement;
-
-
-            item.classList.toggle("open");
-
-
-        });
-
-
-    });
-
+    
 }
 
-}
+
 
 /* =========================
    FAQ ACCORDION
