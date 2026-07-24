@@ -1453,8 +1453,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
    AI MODAL LOAD
 ========================= */
 
-
-document.addEventListener("DOMContentLoaded",async()=>{
+document.addEventListener("DOMContentLoaded", async () => {
 
 
     const container =
@@ -1463,49 +1462,52 @@ document.addEventListener("DOMContentLoaded",async()=>{
     );
 
 
-    if(!container) return;
+    if(container){
 
 
-
-    try{
-
-
-        const response =
-        await fetch(
-            "../tools/ai-modal.html"
-        );
+        try{
 
 
-
-        if(!response.ok){
-
-            throw new Error(
-                "AI modal missing"
+            const response =
+            await fetch(
+                "../tools/ai-modal.html"
             );
+
+
+            if(!response.ok){
+
+                throw new Error(
+                    "AI modal missing"
+                );
+
+            }
+
+
+            container.innerHTML =
+            await response.text();
+
+
+            initAIModal();
+
+
+        }catch(error){
+
+
+            console.error(
+                "AI Modal:",
+                error
+            );
+
 
         }
 
 
-
-        container.innerHTML =
-        await response.text();
-
-
-
-        initAIModal();
-
-
-
-    }catch(error){
-
-
-        console.error(
-            "AI Modal:",
-            error
-        );
-
-
     }
+
+
+    renderFAQ();
+    initFAQAccordion();
+    initFAQToggle();
 
 
 });
@@ -1513,6 +1515,10 @@ document.addEventListener("DOMContentLoaded",async()=>{
 
 
 
+
+/* =========================
+   AI MODAL
+========================= */
 
 
 function initAIModal(){
@@ -1539,7 +1545,6 @@ function initAIModal(){
 
 
 
-
     aiButton.addEventListener("click",()=>{
 
 
@@ -1547,7 +1552,6 @@ function initAIModal(){
 
 
     });
-
 
 
 
@@ -1567,8 +1571,6 @@ function initAIModal(){
 
 
 
-
-
     aiModal.addEventListener("click",(e)=>{
 
 
@@ -1584,40 +1586,67 @@ function initAIModal(){
     });
 
 
+}
+
+
+
 
 
 /* =========================
-   FAQ
+   FAQ RENDER
 ========================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+
+function renderFAQ(){
+
 
     const faqList =
-    document.getElementById("faq-list");
+    document.getElementById(
+        "faq-list"
+    );
 
 
-    console.log("faqList:", faqList);
-    console.log("data.faq:", data.faq);
+    console.log(
+        "FAQ LIST:",
+        faqList
+    );
 
 
-    if(!faqList || !data.faq){
-        console.log("FAQ NOT READY");
+    console.log(
+        "DATA:",
+        data
+    );
+
+
+
+    if(!faqList || !data?.faq){
+
+        console.log(
+            "FAQ DATA NOT FOUND"
+        );
+
         return;
+
     }
+
 
 
     faqList.innerHTML = "";
 
 
-    data.faq.forEach(item => {
+
+    data.faq.forEach(item=>{
 
 
         const faq =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
         faq.className =
         "faq-item";
+
 
 
         faq.innerHTML = `
@@ -1640,16 +1669,16 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
 
+
         faqList.appendChild(faq);
 
 
     });
 
 
-});
-
-    
 }
+
+
 
 
 
@@ -1658,46 +1687,55 @@ document.addEventListener("DOMContentLoaded", () => {
 ========================= */
 
 
-document.addEventListener("DOMContentLoaded",()=>{
+function initFAQAccordion(){
 
 
-    document.querySelectorAll(".faq-question")
+    document
+    .querySelectorAll(".faq-question")
     .forEach(button=>{
 
 
-        button.addEventListener("click",()=>{
+        button.addEventListener(
+            "click",
+            ()=>{
 
 
-            const item =
-            button.parentElement;
-
-
-
-            document.querySelectorAll(".faq-item")
-            .forEach(other=>{
-
-
-                if(other !== item){
-
-                    other.classList.remove("active");
-
-                }
-
-
-            });
+                const item =
+                button.parentElement;
 
 
 
-            item.classList.toggle("active");
+                document
+                .querySelectorAll(".faq-item")
+                .forEach(other=>{
 
 
-        });
+                    if(other !== item){
+
+                        other.classList.remove(
+                            "active"
+                        );
+
+                    }
+
+
+                });
+
+
+
+                item.classList.toggle(
+                    "active"
+                );
+
+
+            }
+        );
 
 
     });
 
 
-});
+}
 
 
 
@@ -1708,46 +1746,56 @@ document.addEventListener("DOMContentLoaded",()=>{
 ========================= */
 
 
-document.addEventListener("DOMContentLoaded",()=>{
+function initFAQToggle(){
 
 
     const faqToggle =
-    document.querySelector(".faq-toggle");
+    document.querySelector(
+        ".faq-toggle"
+    );
 
 
     const faqWrapper =
-    document.querySelector(".faq-wrapper");
+    document.querySelector(
+        ".faq-wrapper"
+    );
 
 
 
-    if(!faqToggle || !faqWrapper) return;
+    if(!faqToggle || !faqWrapper){
+
+        return;
+
+    }
 
 
 
-    faqToggle.addEventListener("click",()=>{
+    faqToggle.addEventListener(
+        "click",
+        ()=>{
 
 
-        faqWrapper.classList.toggle(
-            "expanded"
-        );
-
-
-
-        faqToggle.textContent =
-        faqWrapper.classList.contains("expanded")
-        ?
-        "Show Less"
-        :
-        "Show More";
-
-
-    });
-
-
-});
+            faqWrapper.classList.toggle(
+                "expanded"
+            );
 
 
 
+            faqToggle.textContent =
+            faqWrapper.classList.contains(
+                "expanded"
+            )
+            ?
+            "Show Less"
+            :
+            "Show More";
+
+
+        }
+    );
+
+
+}
 
 
 
