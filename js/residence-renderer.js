@@ -1587,7 +1587,6 @@ function initAIModal(){
 }
 
 
-
 /* =========================
    FAQ
 ========================= */
@@ -1595,17 +1594,31 @@ function initAIModal(){
 const faqList =
 document.getElementById("faq-list");
 
+
+console.log("faqList:", faqList);
+console.log("data.faq:", data.faq);
+
+
+
 if(faqList && data.faq){
+
+
+    console.log("FAQ RENDERING STARTED");
+
 
     faqList.innerHTML = "";
 
+
     data.faq.forEach(item=>{
+
 
         const faq =
         document.createElement("div");
 
+
         faq.className =
         "faq-item";
+
 
         faq.innerHTML = `
 
@@ -1617,6 +1630,7 @@ if(faqList && data.faq){
 
             </button>
 
+
             <div class="faq-answer">
 
                 <p>${item.answer}</p>
@@ -1625,7 +1639,9 @@ if(faqList && data.faq){
 
         `;
 
+
         faqList.appendChild(faq);
+
 
     });
 
@@ -1635,19 +1651,24 @@ if(faqList && data.faq){
     .querySelectorAll(".faq-question")
     .forEach(button=>{
 
+
         button.addEventListener("click",()=>{
+
 
             const item =
             button.parentElement;
 
+
             item.classList.toggle("open");
+
 
         });
 
+
     });
 
-}
 
+}
 
 /* =========================
    FAQ ACCORDION
