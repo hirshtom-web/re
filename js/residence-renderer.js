@@ -1588,7 +1588,65 @@ function initAIModal(){
 
 
 
+/* =========================
+   FAQ
+========================= */
 
+const faqList =
+document.getElementById("faq-list");
+
+if(faqList && data.faq){
+
+    faqList.innerHTML = "";
+
+    data.faq.forEach(item=>{
+
+        const faq =
+        document.createElement("div");
+
+        faq.className =
+        "faq-item";
+
+        faq.innerHTML = `
+
+            <button class="faq-question">
+
+                ${item.question}
+
+                <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>${item.answer}</p>
+
+            </div>
+
+        `;
+
+        faqList.appendChild(faq);
+
+    });
+
+
+
+    faqList
+    .querySelectorAll(".faq-question")
+    .forEach(button=>{
+
+        button.addEventListener("click",()=>{
+
+            const item =
+            button.parentElement;
+
+            item.classList.toggle("open");
+
+        });
+
+    });
+
+}
 
 
 /* =========================
