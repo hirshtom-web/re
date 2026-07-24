@@ -1,70 +1,79 @@
-function renderProperties(){
-
-    const propertiesGrid = document.getElementById("properties-grid");
-
-    if(!propertiesGrid || !window.residences){
-        console.error("Property grid failed");
-        return;
-    }
+function renderProperties(properties = window.residences){
 
 
-    propertiesGrid.innerHTML = "";
+const propertiesGrid =
+document.getElementById("properties-grid");
 
 
-    window.residences.forEach(property => {
-
-
-        propertiesGrid.innerHTML += `
-
-        <article
-        class="property-card"
-        data-property-id="${property.id}"
-        onclick="openModal('residence.html','${property.id}')">
-
-
-            <div class="property-card-image">
-
-                <img 
-                src="${property.images?.[0] || property.thumbnail}"
-                alt="${property.title}">
-
-
-                <span class="property-badge">
-                    ${property.status || "Available"}
-                </span>
-
-
-            </div>
-
-
-            <div class="property-card-info">
-
-                <h3>
-                    ${property.title}
-                </h3>
-
-
-                <p>
-                    ${property.location}
-                </p>
-
-
-                <strong>
-                    ${property.price || "Price Upon Request"}
-                </strong>
-
-
-            </div>
-
-
-        </article>
-
-        `;
-
-    });
-
+if(!propertiesGrid){
+console.error("Grid missing");
+return;
 }
 
 
-// START GRID
-renderProperties();
+propertiesGrid.innerHTML="";
+
+
+properties.forEach(property=>{
+
+
+propertiesGrid.innerHTML += `
+
+
+<article
+class="property-card"
+onclick="openModal('residence.html','${property.id}')">
+
+
+<div class="property-card-image">
+
+
+<img
+
+src="${property.images?.[0] || property.thumbnail}"
+
+alt="${property.title}">
+
+
+<span class="property-badge">
+
+${property.status || "Available"}
+
+</span>
+
+
+</div>
+
+
+
+<div class="property-card-info">
+
+
+<h3>
+${property.title}
+</h3>
+
+
+<p>
+${property.location}
+</p>
+
+
+<strong>
+${property.price || "Request Pricing"}
+</strong>
+
+
+</div>
+
+
+</article>
+
+
+`;
+
+
+});
+
+
+}
