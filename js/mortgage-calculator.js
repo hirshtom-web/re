@@ -1,3 +1,8 @@
+/* =========================
+   MORTGAGE CALCULATOR
+========================= */
+
+
 document.addEventListener("DOMContentLoaded", function(){
 
 
@@ -6,54 +11,81 @@ const property = document.querySelector(".property-data");
 
 // PROPERTY DATA
 
-const taxRate = Number(property.dataset.taxRate);
+const taxRate =
+Number(property?.dataset.taxRate || 0);
 
-const insuranceRate = Number(property.dataset.insuranceRate);
+const insuranceRate =
+Number(property?.dataset.insuranceRate || 0);
 
-const hoaSqft = Number(property.dataset.hoaSqft);
+const hoaSqft =
+Number(property?.dataset.hoaSqft || 0);
 
-const unitSize = Number(property.dataset.unitSize);
+const unitSize =
+Number(property?.dataset.unitSize || 0);
 
 
 
 
 // USER CONTROLS
 
-const priceInput = document.getElementById("home-price");
+const priceInput =
+document.getElementById("home-price");
 
-const downInput = document.getElementById("down-payment");
+const downInput =
+document.getElementById("down-payment");
 
-const rateInput = document.getElementById("interest-rate");
+const rateInput =
+document.getElementById("interest-rate");
 
-const loanYears = document.getElementById("loan-years");
-
+const loanYears =
+document.getElementById("loan-years");
 
 
 
 
 // DISPLAY VALUES
 
-const priceDisplay = document.getElementById("price-display");
+const priceDisplay =
+document.getElementById("price-display");
 
-const downDisplay = document.getElementById("down-display");
-
+const downDisplay =
+document.getElementById("down-display");
 
 
 
 
 // RESULTS
 
-const monthlyPayment = document.getElementById("monthly-payment");
+const monthlyPayment =
+document.getElementById("monthly-payment");
 
-const principalResult = document.getElementById("principal-interest");
+const principalResult =
+document.getElementById("principal-interest");
 
-const taxResult = document.getElementById("property-tax-result");
+const taxResult =
+document.getElementById("property-tax-result");
 
-const insuranceResult = document.getElementById("insurance-result");
+const insuranceResult =
+document.getElementById("insurance-result");
 
-const hoaResult = document.getElementById("hoa-result");
+const hoaResult =
+document.getElementById("hoa-result");
 
-const pmiResult = document.getElementById("pmi-result");
+const pmiResult =
+document.getElementById("pmi-result");
+
+
+
+
+
+if(
+!priceInput ||
+!downInput ||
+!rateInput ||
+!loanYears
+){
+    return;
+}
 
 
 
@@ -62,23 +94,16 @@ const pmiResult = document.getElementById("pmi-result");
 function calculate(){
 
 
-let price = 
+let price =
 Number(priceInput.value);
-
 
 
 let downPaymentPercent =
 Number(downInput.value);
 
 
-
 let rate =
-parseFloat(rateInput.value)
-/
-100
-/
-12;
-
+parseFloat(rateInput.value) / 100 / 12;
 
 
 let years =
@@ -100,13 +125,12 @@ years * 12;
 let mortgage;
 
 
-
 if(rate === 0){
 
-    mortgage = loanAmount / months;
+    mortgage =
+    loanAmount / months;
 
 }
-
 else{
 
     mortgage =
@@ -114,19 +138,18 @@ else{
     loanAmount *
 
     (
-    rate *
-    Math.pow(1 + rate, months)
+        rate *
+        Math.pow(1 + rate, months)
     )
 
     /
 
     (
-    Math.pow(1 + rate, months)
-    -
-    1
+        Math.pow(1 + rate, months) - 1
     );
 
 }
+
 
 
 
@@ -136,16 +159,13 @@ let taxes =
 
 
 
-
 let insurance =
 (price * insuranceRate / 100) / 12;
 
 
 
-
 let hoa =
 hoaSqft * unitSize;
-
 
 
 
@@ -158,8 +178,6 @@ hoa;
 
 
 
-
-// DONUT %
 
 let mortgagePercent =
 (mortgage / total) * 100;
@@ -180,9 +198,8 @@ let hoaPercent =
 
 
 
-// UPDATE DONUT
 
-let ring =
+const ring =
 document.getElementById("payment-ring");
 
 
@@ -206,35 +223,27 @@ conic-gradient(
 
 
 
-
-// UPDATE NUMBERS
-
-monthlyPayment.innerHTML =
+monthlyPayment.textContent =
 "$" + Math.round(total).toLocaleString();
 
 
-
-principalResult.innerHTML =
+principalResult.textContent =
 "$" + Math.round(mortgage).toLocaleString();
 
 
-
-taxResult.innerHTML =
+taxResult.textContent =
 "$" + Math.round(taxes).toLocaleString();
 
 
-
-insuranceResult.innerHTML =
+insuranceResult.textContent =
 "$" + Math.round(insurance).toLocaleString();
 
 
-
-hoaResult.innerHTML =
+hoaResult.textContent =
 "$" + Math.round(hoa).toLocaleString();
 
 
-
-pmiResult.innerHTML =
+pmiResult.textContent =
 "$0";
 
 
@@ -244,72 +253,69 @@ pmiResult.innerHTML =
 
 
 
+// EXPOSE TO PROPERTY LOADER
+
+window.updateMortgage = function(){
 
 
-// HOME PRICE SLIDER
+priceDisplay.textContent =
+"$" + Number(priceInput.value).toLocaleString();
+
+
+downDisplay.textContent =
+downInput.value + "%";
+
+
+calculate();
+
+
+};
+
+
+
+
+
+
+// LISTENERS
+
 
 priceInput.addEventListener(
 "input",
 function(){
 
-
-priceDisplay.innerHTML =
-
-"$" + Number(this.value).toLocaleString();
-
-
-calculate();
-
+    window.updateMortgage();
 
 });
 
 
-
-
-
-
-// DOWN PAYMENT SLIDER
 
 downInput.addEventListener(
 "input",
 function(){
 
-
-downDisplay.innerHTML =
-
-this.value + "%";
-
-
-calculate();
-
+    window.updateMortgage();
 
 });
 
 
 
-
-
-
-
-// INTEREST RATE
-
 rateInput.addEventListener(
 "input",
-calculate
-);
+function(){
+
+    window.updateMortgage();
+
+});
 
 
-
-
-
-
-
-// LOAN TERM
 
 loanYears.addEventListener(
 "change",
-calculate
-);
+function(){
+
+    window.updateMortgage();
+
+});
 
 
 
@@ -318,19 +324,7 @@ calculate
 
 // INITIAL LOAD
 
-priceDisplay.innerHTML =
-
-"$" + Number(priceInput.value).toLocaleString();
-
-
-
-downDisplay.innerHTML =
-
-downInput.value + "%";
-
-
-
-calculate();
+window.updateMortgage();
 
 
 
