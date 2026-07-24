@@ -180,7 +180,6 @@ if(dealModal){
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-
     const params =
     new URLSearchParams(window.location.search);
 
@@ -190,16 +189,20 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
     const savedPage =
-params.get("page");
+    params.get("page") || "residence.html";
 
 
-if(propertyID && savedPage){
+    if(propertyID){
 
-    openModal(
-        savedPage,
-        propertyID
-    );
+        setTimeout(()=>{
 
-}
+            openModal(
+                savedPage,
+                propertyID
+            );
+
+        },100);
+
+    }
 
 });
