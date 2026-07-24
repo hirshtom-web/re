@@ -791,9 +791,6 @@ constructionTimeline:[
 /* =========================
    FAQ
 ========================= */
-   
-   
-const data = {
 
     faq:[
 
@@ -827,9 +824,8 @@ const data = {
             answer:"The AI Investment Score analyzes pricing trends, rental demand, comparable sales, neighborhood growth, supply, and historical performance."
         }
 
-    ]
+    ],
 
-};
    
 /* =========================
    LEGAL
