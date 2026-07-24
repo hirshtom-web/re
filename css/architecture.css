@@ -163,7 +163,9 @@
 
     -webkit-overflow-scrolling:touch;
 
-    height:520px;
+    height:100%;
+
+    max-height:520px;
 
     border-radius:35px;
 
@@ -263,8 +265,6 @@
     border-radius:50%;
 
     border:none;
-
-    background:rgba(0,0,0,.55);
 
     color:white;
 
@@ -415,11 +415,15 @@
 
     .architecture-gallery{
 
-        height:320px;
 
         border-radius:24px;
 
+        max-height:320px;
+
+        height:320px;
+
     }
+
 
 
     .architecture-card{
