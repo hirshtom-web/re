@@ -977,17 +977,20 @@ if(architectureGallery && data.architectureGallery){
         const card =
         document.createElement("div");
 
-        card.className = "architecture-card";
+        card.className =
+        "architecture-card";
 
 
-        if(item.image.toLowerCase().endsWith(".mp4")){
+        if(item.image.toLowerCase().includes(".mp4")){
 
             card.classList.add("video-card");
 
             card.innerHTML = `
 
                 <video
-                    preload="metadata"
+                    autoplay
+                    muted
+                    loop
                     playsinline
                 >
 
@@ -997,8 +1000,8 @@ if(architectureGallery && data.architectureGallery){
 
                 </video>
 
-                <button class="video-play">
-                    ▶
+                <button class="video-toggle">
+                    ❚❚
                 </button>
 
                 <p>${item.caption || ""}</p>
@@ -1025,21 +1028,27 @@ if(architectureGallery && data.architectureGallery){
 
 
     architectureGallery
-    .querySelectorAll(".video-play")
+    .querySelectorAll(".video-toggle")
     .forEach(button=>{
+
+        const video =
+        button.previousElementSibling;
 
         button.addEventListener("click",()=>{
 
-            const card =
-            button.closest(".video-card");
+            if(video.paused){
 
-            const video =
-            card.querySelector("video");
+                video.play();
 
-            video.controls = true;
-            video.play();
+                button.innerHTML = "❚❚";
 
-            button.style.display = "none";
+            }else{
+
+                video.pause();
+
+                button.innerHTML = "▶";
+
+            }
 
         });
 
