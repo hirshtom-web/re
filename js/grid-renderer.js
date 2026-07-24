@@ -3,104 +3,55 @@
 ========================================== */
 
 
-const propertiesGrid =
-document.getElementById("properties-grid");
+const propertiesGrid = document.getElementById("properties-grid");
 
+if (propertiesGrid && window.residences) {
 
-if(propertiesGrid && window.residences){
-
+    propertiesGrid.innerHTML = "";
 
     window.residences.forEach(property => {
 
-
         propertiesGrid.innerHTML += `
+            <article
+                class="property-card"
+                data-property-id="${property.id}"
+                onclick="openModal('residence.html','${property.id}')">
 
+                <div class="property-card-image">
 
-        <article
+                    <img
+                        src="${property.images?.[0] || 'images/placeholder.jpg'}"
+                        alt="${property.title}">
 
-        class="property-card"
+                    <span class="property-badge">
+                        ${property.status}
+                    </span>
 
-        data-property-id="${property.id}"
+                    <button
+                        class="property-favorite"
+                        onclick="event.stopPropagation();">
+                        ♡
+                    </button>
 
-        onclick="openModal('residence.html','${property.id}')">
+                </div>
 
+                <div class="property-card-info">
 
-            <div class="property-card-image">
+                    <h3>${property.title}</h3>
 
+                    <p>${property.location}</p>
 
-                <img
+                    <strong>${property.price}</strong>
 
-                src="${property.thumbnail}"
+                </div>
 
-                alt="${property.title}">
-
-
-                <span class="property-badge">
-
-                ${property.status}
-
-                </span>
-
-
-                <button
-
-                class="property-favorite"
-
-                onclick="event.stopPropagation();">
-
-                ♡
-
-                </button>
-
-
-            </div>
-
-
-
-            <div class="property-card-info">
-
-
-                <h3>
-
-                ${property.title}
-
-                </h3>
-
-
-
-                <p>
-
-                ${property.location}
-
-                </p>
-
-
-
-                <strong>
-
-                ${property.price}
-
-                </strong>
-
-
-            </div>
-
-
-        </article>
-
-
+            </article>
         `;
-
 
     });
 
+} else {
 
-}else{
-
-
-    console.error(
-        "Property grid failed: residences data missing"
-    );
-
+    console.error("Property grid failed: residences data missing");
 
 }
