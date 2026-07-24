@@ -1,47 +1,38 @@
-if(typeof google === "undefined"){
-    console.warn("Google Maps not loaded");
-    return;
-}
+function loadPropertiesMap(){
 
-
-const mapElement = document.getElementById("properties-map");
-
-if(!mapElement){
-    console.warn("Map container missing");
-    return;
-}
-
-
-const map = new google.maps.Map(mapElement,{
-    zoom:12,
-    center:{
-        lat:25.7907,
-        lng:-80.1300
-    }
-});
-
-
-window.properties.forEach(property=>{
-
-
-    if(!property.coordinates){
-        console.warn("Missing coordinates:", property.id);
+    if(typeof google === "undefined"){
+        console.warn("Google Maps not loaded");
         return;
     }
 
 
-    new google.maps.Marker({
+    if(!window.properties){
+        console.warn("No properties found");
+        return;
+    }
 
-        position:{
-            lat:property.coordinates.lat,
-            lng:property.coordinates.lng
-        },
 
-        map:map,
+    window.properties.forEach(property => {
 
-        title:property.title
+        new google.maps.Marker({
+
+            position:{
+                lat: property.coordinates.lat,
+                lng: property.coordinates.lng
+            },
+
+            map: map,
+
+            title: property.title
+
+        });
 
     });
 
+}
 
-});
+
+document.addEventListener(
+"DOMContentLoaded",
+loadPropertiesMap
+);
