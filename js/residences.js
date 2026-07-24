@@ -787,6 +787,47 @@ constructionTimeline:[
 
 ],
 
+
+/* =========================
+   FAQ
+========================= */
+   
+   
+faq:[
+
+{
+question:"Can foreign buyers purchase a residence?",
+answer:"International buyers can purchase property in Florida, subject to applicable U.S. laws and closing requirements. Your advisor can guide you through the process."
+},
+
+{
+question:"What is the reservation and payment schedule?",
+answer:"Pre-construction residences typically follow a staged payment schedule with deposits made throughout construction and the remaining balance due at closing."
+},
+
+{
+question:"Are rental opportunities available?",
+answer:"Rental policies vary by development and condominium association. Your advisor can provide details regarding rental terms and restrictions."
+},
+
+{
+question:"What is included in the purchase price?",
+answer:"Pricing generally includes the residence, standard finishes, kitchen appliances, and applicable building features. Premium upgrades may be available."
+},
+
+{
+question:"How are HOA fees calculated?",
+answer:"HOA fees typically cover building maintenance, shared amenities, common areas, insurance for shared spaces, and property management services."
+},
+
+{
+question:"How is the AI Investment Score calculated?",
+answer:"The AI Investment Score analyzes pricing trends, rental demand, comparable sales, neighborhood growth, supply, and historical performance."
+
+}
+
+],
+   
 /* =========================
    LEGAL
 ========================= */
