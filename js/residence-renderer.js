@@ -957,6 +957,7 @@ if(data.architecture){
 
     }
 
+
     if(architectureText){
 
         architectureText.textContent =
@@ -968,40 +969,64 @@ if(data.architecture){
 
 
 
+
 if(architectureGallery && data.architectureGallery){
 
     architectureGallery.innerHTML = "";
 
+
     data.architectureGallery.forEach(item=>{
+
 
         const card =
         document.createElement("div");
+
 
         card.className =
         "architecture-card";
 
 
-        if(item.image.toLowerCase().endsWith(".mp4")){
+
+        if(item.image.toLowerCase().includes(".mp4")){
+
+
+            card.classList.add("video-card");
+
 
             card.innerHTML = `
 
                 <video
-                    autoplay
-                    muted
-                    loop
+                    preload="metadata"
                     playsinline
-                    controls
+                    muted
                 >
+
                     <source
                         src="${item.image}"
                         type="video/mp4">
+
                 </video>
 
-                <p>${item.caption || ""}</p>
+
+                <button class="video-play">
+                    ▶
+                </button>
+
+
+                <button class="video-toggle">
+                    ▶
+                </button>
+
+
+                <p>
+                    ${item.caption || ""}
+                </p>
 
             `;
 
+
         }else{
+
 
             card.innerHTML = `
 
@@ -1009,30 +1034,143 @@ if(architectureGallery && data.architectureGallery){
                     src="${item.image}"
                     alt="${item.caption || ""}">
 
-                <p>${item.caption || ""}</p>
+
+                <p>
+                    ${item.caption || ""}
+                </p>
 
             `;
 
         }
 
+
+
         architectureGallery.appendChild(card);
 
+
     });
+
+
+
+
+    /*
+        BIG CENTER PLAY BUTTON
+    */
+
+    architectureGallery
+    .querySelectorAll(".video-play")
+    .forEach(button=>{
+
+
+        button.addEventListener("click",()=>{
+
+
+            const card =
+            button.closest(".video-card");
+
+
+            const video =
+            card.querySelector("video");
+
+
+
+            video.play();
+
+
+            button.style.display =
+            "none";
+
+
+
+            const toggle =
+            card.querySelector(".video-toggle");
+
+
+            toggle.textContent =
+            "Ⅱ";
+
+
+        });
+
+
+    });
+
+
+
+
+
+
+    /*
+        SMALL BOTTOM PLAY / PAUSE BUTTON
+    */
+
+    architectureGallery
+    .querySelectorAll(".video-toggle")
+    .forEach(button=>{
+
+
+        button.addEventListener("click",()=>{
+
+
+            const card =
+            button.closest(".video-card");
+
+
+            const video =
+            card.querySelector("video");
+
+
+
+            if(video.paused){
+
+
+                video.play();
+
+
+                button.textContent =
+                "Ⅱ";
+
+
+            }else{
+
+
+                video.pause();
+
+
+                button.textContent =
+                "▶";
+
+
+            }
+
+
+        });
+
+
+    });
+
+
 
 }
 
 
 
+
+
 if(data.designTeam){
+
 
     const architect =
     document.getElementById("team-architect");
 
+
     const interiors =
     document.getElementById("team-interiors");
 
+
     const landscape =
     document.getElementById("team-landscape");
+
 
 
     if(architect){
@@ -1043,12 +1181,14 @@ if(data.designTeam){
     }
 
 
+
     if(interiors){
 
         interiors.textContent =
         data.designTeam.interiors || "Coming Soon";
 
     }
+
 
 
     if(landscape){
@@ -1058,9 +1198,9 @@ if(data.designTeam){
 
     }
 
+
 }
-    
-}
+
 
 
 /* =========================
