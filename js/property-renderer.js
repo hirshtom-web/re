@@ -1,4 +1,17 @@
-console.log("RESIDENCE RENDERER STARTED");
+window.addEventListener("propertyLoaded", () => {
+
+    const property = window.currentProperty;
+
+    if(!property){
+        console.warn("No property data found.");
+        return;
+    }
+
+    console.log("PROPERTY RENDERER STARTED:", property);
+
+    // existing 2000 lines continue here
+
+});
 
 let currentResidence = null;
 
