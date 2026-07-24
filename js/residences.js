@@ -644,12 +644,12 @@ text:"Designed with timeless architecture, refined materials, and carefully cura
 architectureGallery:[
 
 {
-image:"https://ucbe27c91cedf6ca71240a9f6904.dl.dropboxusercontent.com/cd/0/inline/DE3hS-Jcb1plN4NIdUaV6QlisbA6_OlMKJ_uJFMnMN7QrArmQwG3pCdAGlqq6DwX27mUoeVO-mwMVqkAfAltrHoh6SlynsUPg4PmnUgF7xi6PQUkjAqTNJpQFzLxfPU5eF9lgBowzb8MxyBAysMvKGs0/file#",
+image:"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AMS6u6CWIZJ1kzyBVjRDJoI/Video/Reels/TURNBERRY_9x16_H264%20(3).mp4?rlkey=36scfwgty79z7yg8wngs9dk3p&st=v4qhf7x2&raw=1",
 caption:"Signature coastal architecture"
 },
 
 {
-image:"https://uc4ecde6b0d9ae67af78fa68cb3a.dl.dropboxusercontent.com/cd/0/inline/DE30GYNpEFz6PXWN4XNMx2jcCeB5maMjoqqFboKos4fixT8crX7Zlic-nveIx5Wpv8yWf32YZcOEdxCTEKg0Dos4Lvo-REm_3Hw23jMJSR_2XoOox_8S2aYDngS7Q52575AJSYrPHtCV3EnylmoJrsim/file#",
+image:"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AGYq9dvgL2QnQU7-Lk0BgVg/Video/Reels/TURNBERRY_ONE_PARK_TOWER_IG_VIEWS%20(1).mp4?rlkey=36scfwgty79z7yg8wngs9dk3p&st=7265izsh&raw=1#",
 caption:"Refined exterior details"
 }
 
