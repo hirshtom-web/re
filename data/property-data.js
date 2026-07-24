@@ -1,5 +1,27 @@
 window.residences = [
 
+  {
+    id:"oceanfront-miami-01",
+
+    title:"Oceanfront Residences",
+
+    location:"Miami Beach",
+
+    price:"$1.2M+",
+
+    status:"Pre-Construction",
+
+    images:[
+
+        "https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AJEStqGHdyyMCsW2SSVKjbE/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2001_PENTHOUSE%20LIVING%20ROOM_ER_PEOPLE.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1",
+
+        "https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AJW3EQ1_OgkawzlccSaaxLA/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2002_PENTHOUSE%20LIVING%20ROOM_ER1.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1",
+
+        "https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AL1vf3KiWaeDv5wFZAPZTxM/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2003_PENTHOUSE%20BEDROOM_SD.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1"
+
+    ]
+},
+
 {
 id:"casa-bella-bb-italia",
 title:"Casa Bella by B&B Italia",
