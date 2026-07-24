@@ -243,16 +243,17 @@
    CONTENT (KEEP ORIGINAL STYLE)
 ========================= */
 
+/* =========================
+   ARCHITECTURE CONTENT WIDTH
+========================= */
 
 .architecture-content{
 
-    padding:20px;
+    max-width:560px;
 
-    display:flex;
+    justify-self:end;
 
-    flex-direction:column;
-
-    height:100%;
+    padding-right:30px;
 
 }
 
