@@ -1159,39 +1159,95 @@ if(architectureReadMore && architectureParagraph){
 }
 
 
-    /* =========================
+ /* =========================
    MORTGAGE CALCULATOR
 ========================= */
 
 
-const mortgageData =
-document.querySelector(".property-data");
+if(data.mortgage){
 
 
-if(mortgageData && data.mortgage){
+    const homePrice =
+    document.getElementById("home-price");
 
-    mortgageData.dataset.price =
-    data.mortgage.price;
 
-    mortgageData.dataset.downPayment =
-    data.mortgage.downPayment;
+    const priceDisplay =
+    document.getElementById("price-display");
 
-    mortgageData.dataset.taxRate =
-    data.mortgage.taxRate;
 
-    mortgageData.dataset.insuranceRate =
-    data.mortgage.insuranceRate;
+    const downPayment =
+    document.getElementById("down-payment");
 
-    mortgageData.dataset.hoaSqft =
-    data.mortgage.hoaSqft;
 
-    mortgageData.dataset.unitSize =
-    data.mortgage.size;
+    const downDisplay =
+    document.getElementById("down-display");
+
+
+    const interestRate =
+    document.getElementById("interest-rate");
+
+
+    const loanYears =
+    document.getElementById("loan-years");
+
+
+
+    if(homePrice){
+
+        homePrice.value =
+        data.mortgage.price;
+
+
+        priceDisplay.textContent =
+        "$" + data.mortgage.price.toLocaleString();
+
+    }
+
+
+
+    if(downPayment){
+
+        downPayment.value =
+        data.mortgage.downPayment;
+
+
+        downDisplay.textContent =
+        data.mortgage.downPayment + "%";
+
+    }
+
+
+
+    if(interestRate){
+
+        interestRate.value =
+        data.mortgage.interestRate;
+
+    }
+
+
+
+    if(loanYears){
+
+        loanYears.value =
+        data.mortgage.loanYears;
+
+    }
+
+
+
+    // trigger calculator update
+
+    if(typeof updateMortgage === "function"){
+
+        updateMortgage();
+
+    }
+
 
 }
     
 }
-
 
 /* =========================
    INFO CARD POPUPS
