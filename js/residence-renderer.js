@@ -1666,7 +1666,9 @@ if(faqList && data.faq){
 
     });
 
+}
 
+}
 
 /* =========================
    FAQ ACCORDION
@@ -1714,9 +1716,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 });
 
-
-
-}
 
 
 
