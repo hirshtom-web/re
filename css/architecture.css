@@ -492,6 +492,96 @@
 }
 
 
+/* =========================
+  NEW -------- >
+========================= */
+
+/* Architecture media sizing */
+
+.architecture-feature{
+
+    display:grid;
+    grid-template-columns:40% 60%;
+    gap:40px;
+    align-items:stretch;
+
+}
+
+
+.architecture-gallery{
+
+    height:100%;
+    min-height:520px;
+
+}
+
+
+.architecture-card{
+
+    height:100%;
+
+}
+
+
+.architecture-card video,
+.architecture-card img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+
+/* small play/pause bottom right */
+
+.video-toggle{
+
+    position:absolute;
+
+    right:20px;
+    bottom:20px;
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:rgba(0,0,0,.55);
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+
+
+/* mobile */
+
+@media(max-width:768px){
+
+    .architecture-feature{
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+
+    }
+
+
+    .architecture-gallery{
+
+        min-height:320px;
+        height:320px;
+
+    }
+
+}
 
 
 /* =========================
