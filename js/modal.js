@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     if(propertyID){
 
         openModal(
-            "residence.html",
+            "property.html",
             propertyID
         );
 
