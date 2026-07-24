@@ -17,7 +17,8 @@ document
 
 
 let filtered =
-window.residences.filter(property=>{
+
+window.properties.filter(property=>{
 
 
 const searchMatch =
