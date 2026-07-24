@@ -1157,6 +1157,37 @@ if(architectureReadMore && architectureParagraph){
 
 
 }
+
+    /* =========================
+   MORTGAGE CALCULATOR
+========================= */
+
+
+const mortgageData =
+document.querySelector(".property-data");
+
+
+if(mortgageData && data.mortgage){
+
+    mortgageData.dataset.price =
+    data.mortgage.price;
+
+    mortgageData.dataset.downPayment =
+    data.mortgage.downPayment;
+
+    mortgageData.dataset.taxRate =
+    data.mortgage.taxRate;
+
+    mortgageData.dataset.insuranceRate =
+    data.mortgage.insuranceRate;
+
+    mortgageData.dataset.hoaSqft =
+    data.mortgage.hoaSqft;
+
+    mortgageData.dataset.unitSize =
+    data.mortgage.size;
+
+}
     
 }
 
