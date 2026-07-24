@@ -2,37 +2,37 @@ window.addEventListener("propertyLoaded", () => {
 
     const property = window.currentProperty;
 
-    if(!property){
+    if (!property) {
         console.warn("No property data found.");
         return;
     }
 
     console.log("PROPERTY RENDERER STARTED:", property);
 
-    // existing 2000 lines continue here
+    renderProperty(property);
 
 });
 
-let currentResidence = null;
 
+let currentProperty = null;
+
+
+/* ==========================================
+   MAP LOADER
+========================================== */
 
 window.hideMapLoading = function(){
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
-        const loader =
-        document.querySelector(".map-loading");
-
+        const loader = document.querySelector(".map-loading");
 
         if(loader){
 
             loader.style.opacity = "0";
 
-
-            setTimeout(()=>{
-
+            setTimeout(() => {
                 loader.style.display = "none";
-
             },800);
 
         }
@@ -42,58 +42,58 @@ window.hideMapLoading = function(){
 };
 
 
+/* ==========================================
+   LOAD PROPERTY
+========================================== */
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const propertyID =
         new URLSearchParams(window.location.search).get("id");
 
+    currentProperty =
+        window.properties?.find(
+            item => item.id === propertyID
+        );
 
-    currentResidence =
-window.residences?.find(
-    item => item.id === propertyID
-);
+    if(!currentProperty){
 
+        console.warn("No property data found.");
+        return;
 
-    if(!currentResidence){
+    }
 
-    console.warn("No residence data found.");
-
-    return;
-
-}
-
-
-renderResidence(currentResidence);
+    renderProperty(currentProperty);
 
 });
 
 
+/* ==========================================
+   RENDER PROPERTY
+========================================== */
+
+function renderProperty(data){
+
+    console.log("RENDERING PROPERTY:", data);
+
+    window.currentProperty = data;
 
 
-
-function renderResidence(data){
-
-
-    console.log("RENDERING:", data);
-
-    window.currentResidence = data;
-
+    /* =========================
+       RESIDENCE TABLE
+    ========================= */
 
     const tbody =
-    document.getElementById("residence-table-body");
-
+        document.getElementById("residence-table-body");
 
     if(tbody && data.residences){
 
         tbody.innerHTML = "";
 
-
-        data.residences.forEach(item=>{
-
+        data.residences.forEach(item => {
 
             const row =
-            document.createElement("tr");
-
+                document.createElement("tr");
 
             row.innerHTML = `
 
@@ -107,115 +107,100 @@ function renderResidence(data){
 
                 <td class="plan-cell">
 
-    <button 
-        class="plan-link"
-        data-plan="${item.layout}"
-        data-title="${item.name} Floor Plan">
+                    <button
+                        class="plan-link"
+                        data-plan="${item.layout}"
+                        data-title="${item.name} Floor Plan">
 
-        <img
-            src="${item.preview || item.layout}"
-            class="plan-thumb"
-            alt="${item.name} Floor Plan">
+                        <img
+                            src="${item.preview || item.layout}"
+                            class="plan-thumb"
+                            alt="${item.name} Floor Plan">
 
-    </button>
+                    </button>
 
-</td>
+                </td>
 
             `;
 
-
             tbody.appendChild(row);
-
 
         });
 
     }
 
 
+    /* =========================
+       HERO
+    ========================= */
 
+    const title =
+        document.getElementById("property-title");
 
-/* =========================
-   HERO
-========================= */
+    if(title){
 
-
-const title =
-document.getElementById("property-title");
-
-
-if(title){
-
-    title.textContent =
-    data.title || "Private Residence Opportunity";
-
-}
-
-
-
-const address =
-document.getElementById("property-address");
-
-
-if(address){
-
-    const locationText =
-    [data.address, data.location]
-    .filter(Boolean)
-    .join(" · ");
-
-
-    address.textContent =
-    locationText || "Location Details Coming Soon";
-
-}
-
-
-
-const status =
-document.getElementById("property-status");
-
-
-if(status){
-
-    status.textContent =
-    data.status || "Coming Soon";
-
-}
-
-
-
-const update =
-document.getElementById("last-update");
-
-
-if(update){
-
-    update.textContent =
-    data.lastUpdated || "Last updated today";
-
-}
-
-
-
-const rating =
-document.getElementById("ai-rating");
-
-
-if(rating){
-
-    if(data.aiRating && data.aiRating.overall){
-
-        rating.textContent =
-        `${data.aiRating.overall} AI Rating`;
-
-    } else {
-
-        rating.textContent =
-        "AI Rating Coming Soon";
+        title.textContent =
+            data.title || "Private Residence Opportunity";
 
     }
 
-}
+
+    const address =
+        document.getElementById("property-address");
+
+    if(address){
+
+        const locationText =
+            [data.address, data.location]
+            .filter(Boolean)
+            .join(" · ");
+
+        address.textContent =
+            locationText || "Location Details Coming Soon";
+
+    }
+
+
+    const status =
+        document.getElementById("property-status");
+
+    if(status){
+
+        status.textContent =
+            data.status || "Coming Soon";
+
+    }
+
+
+    const update =
+        document.getElementById("last-update");
+
+    if(update){
+
+        update.textContent =
+            data.lastUpdated || "Last updated today";
+
+    }
+
+
+    const rating =
+        document.getElementById("ai-rating");
+
+    if(rating){
+
+        if(data.aiRating && data.aiRating.overall){
+
+            rating.textContent =
+                `${data.aiRating.overall} AI Rating`;
+
+        }else{
+
+            rating.textContent =
+                "AI Rating Coming Soon";
+
+        }
+
+    }
 
 
 /* =========================
@@ -1676,46 +1661,32 @@ function initAIModal(){
 function renderFAQ(){
 
     const faqList =
-    document.getElementById(
-        "faq-list"
-    );
+        document.getElementById("faq-list");
 
 
-    console.log(
-        "FAQ LIST:",
-        faqList
-    );
+    console.log("FAQ LIST:", faqList);
+
+    console.log("PROPERTY DATA:", currentProperty);
 
 
-    console.log(
-    "RESIDENCE DATA:",
-    currentResidence
-);
+    if(!faqList || !currentProperty?.faq){
+
+        console.log("FAQ DATA NOT FOUND");
+
+        return;
+
+    }
 
 
-if(!faqList || !currentResidence?.faq){
-
-    console.log(
-        "FAQ DATA NOT FOUND"
-    );
-
-    return;
-
-}
+    faqList.innerHTML = "";
 
 
-currentResidence.faq.forEach(item=>{
-
+    currentProperty.faq.forEach(item => {
 
         const faq =
-        document.createElement(
-            "div"
-        );
+            document.createElement("div");
 
-
-        faq.className =
-        "faq-item";
-
+        faq.className = "faq-item";
 
         faq.innerHTML = `
 
@@ -1727,7 +1698,6 @@ currentResidence.faq.forEach(item=>{
 
             </button>
 
-
             <div class="faq-answer">
 
                 <p>${item.answer}</p>
@@ -1736,15 +1706,11 @@ currentResidence.faq.forEach(item=>{
 
         `;
 
-
         faqList.appendChild(faq);
-
 
     });
 
-
 }
-
 
 
 /* =========================
