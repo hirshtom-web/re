@@ -1584,7 +1584,6 @@ function initAIModal(){
     });
 
 
-}
 
 
 /* =========================
@@ -1767,7 +1766,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 
 
-
+}
 
 
 
