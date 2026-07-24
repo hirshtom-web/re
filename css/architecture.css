@@ -131,7 +131,6 @@
    ARCHITECTURE & DESIGN
 ========================= */
 
-
 .architecture-feature{
 
     display:grid;
@@ -145,11 +144,9 @@
 }
 
 
-
 /* =========================
    MEDIA SLIDER
 ========================= */
-
 
 .architecture-gallery{
 
@@ -163,7 +160,7 @@
 
     -webkit-overflow-scrolling:touch;
 
-    height:100%;
+    height:520px;
 
     max-height:520px;
 
@@ -172,13 +169,11 @@
 }
 
 
-
 .architecture-gallery::-webkit-scrollbar{
 
     display:none;
 
 }
-
 
 
 .architecture-card{
@@ -198,7 +193,6 @@
 }
 
 
-
 .architecture-card img,
 .architecture-card video{
 
@@ -209,6 +203,23 @@
     object-fit:cover;
 
     display:block;
+
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.architecture-content{
+
+    padding:20px;
+
+    max-width:560px;
+
+    height:520px;
+
+    overflow:hidden;
 
 }
 
@@ -233,8 +244,6 @@
     border-radius:50%;
 
     border:none;
-
-    background:rgba(0,0,0,.55);
 
     color:white;
 
@@ -306,15 +315,6 @@
 /* =========================
    CONTENT
 ========================= */
-
-
-.architecture-content{
-
-    padding:20px;
-
-    max-width:560px;
-
-}
 
 
 
@@ -403,7 +403,6 @@
 
 @media(max-width:768px){
 
-
     .architecture-feature{
 
         grid-template-columns:1fr;
@@ -415,18 +414,9 @@
 
     .architecture-gallery{
 
-
-        border-radius:24px;
-
-        max-height:320px;
-
         height:320px;
 
-    }
-
-
-
-    .architecture-card{
+        max-height:320px;
 
         border-radius:24px;
 
@@ -435,14 +425,13 @@
 
     .architecture-content{
 
+        height:auto;
+
         padding:0;
 
     }
 
-
 }
-
-
 
 /* =========================
    FINANCIAL OVERVIEW
