@@ -28,8 +28,7 @@ return;
 
 // HERO IMAGE
 
-document.getElementById("residence-main-image")
-.src =
+document.getElementById("gallery-main").src =
 property.images?.[0] || property.thumbnail;
 
 
