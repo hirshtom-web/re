@@ -957,7 +957,6 @@ if(data.architecture){
 
     }
 
-
     if(architectureText){
 
         architectureText.textContent =
@@ -973,29 +972,16 @@ if(architectureGallery && data.architectureGallery){
 
     architectureGallery.innerHTML = "";
 
-
     data.architectureGallery.forEach(item=>{
-
 
         const card =
         document.createElement("div");
-
 
         card.className =
         "architecture-card";
 
 
-
-        const isVideo =
-        item.image.toLowerCase().indexOf(".mp4") !== -1;
-
-
-
-        if(isVideo){
-
-
-            card.classList.add("video-card");
-
+        if(item.image.toLowerCase().endsWith(".mp4")){
 
             card.innerHTML = `
 
@@ -1004,29 +990,18 @@ if(architectureGallery && data.architectureGallery){
                     muted
                     loop
                     playsinline
+                    controls
                 >
-
                     <source
                         src="${item.image}"
                         type="video/mp4">
-
                 </video>
 
-
-                <button class="video-toggle">
-                    ❚❚
-                </button>
-
-
-                <p>
-                    ${item.caption || ""}
-                </p>
+                <p>${item.caption || ""}</p>
 
             `;
 
-
         }else{
-
 
             card.innerHTML = `
 
@@ -1034,62 +1009,59 @@ if(architectureGallery && data.architectureGallery){
                     src="${item.image}"
                     alt="${item.caption || ""}">
 
-
-                <p>
-                    ${item.caption || ""}
-                </p>
+                <p>${item.caption || ""}</p>
 
             `;
 
         }
 
-
-
         architectureGallery.appendChild(card);
 
-
     });
 
+}
 
 
-    architectureGallery
-    .querySelectorAll(".video-toggle")
-    .forEach(button=>{
+
+if(data.designTeam){
+
+    const architect =
+    document.getElementById("team-architect");
+
+    const interiors =
+    document.getElementById("team-interiors");
+
+    const landscape =
+    document.getElementById("team-landscape");
 
 
-        const video =
-        button.parentElement.querySelector("video");
+    if(architect){
+
+        architect.textContent =
+        data.designTeam.architect || "Coming Soon";
+
+    }
 
 
-        button.addEventListener("click",()=>{
+    if(interiors){
+
+        interiors.textContent =
+        data.designTeam.interiors || "Coming Soon";
+
+    }
 
 
-            if(video.paused){
+    if(landscape){
 
-                video.play();
+        landscape.textContent =
+        data.designTeam.landscape || "Coming Soon";
 
-                button.textContent="❚❚";
-
-
-            }else{
-
-
-                video.pause();
-
-                button.textContent="▶";
-
-
-            }
-
-
-        });
-
-
-    });
+    }
 
 }
     
 }
+
 
 /* =========================
    INFO CARD POPUPS
