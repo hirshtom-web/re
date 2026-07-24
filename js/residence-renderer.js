@@ -1158,6 +1158,8 @@ if(architectureReadMore && architectureParagraph){
 
 }
 
+}
+
     /* =========================
    MORTGAGE CALCULATOR
 ========================= */
