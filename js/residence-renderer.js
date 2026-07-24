@@ -1163,24 +1163,45 @@ if(architectureReadMore && architectureParagraph){
    MORTGAGE CALCULATOR
 ========================= */
 
-
 if(data.mortgage){
+
+    const propertyData =
+    document.querySelector(".property-data");
+
+
+    if(propertyData){
+
+        propertyData.dataset.price =
+        data.mortgage.price;
+
+        propertyData.dataset.downPayment =
+        data.mortgage.downPayment;
+
+        propertyData.dataset.taxRate =
+        data.mortgage.taxRate;
+
+        propertyData.dataset.insuranceRate =
+        data.mortgage.insuranceRate;
+
+        propertyData.dataset.hoaSqft =
+        data.mortgage.hoaSqft;
+
+        propertyData.dataset.unitSize =
+        data.mortgage.size;
+
+        propertyData.dataset.interestRate =
+        data.mortgage.interestRate;
+
+    }
+
 
 
     const homePrice =
     document.getElementById("home-price");
 
 
-    const priceDisplay =
-    document.getElementById("price-display");
-
-
     const downPayment =
     document.getElementById("down-payment");
-
-
-    const downDisplay =
-    document.getElementById("down-display");
 
 
     const interestRate =
@@ -1197,10 +1218,6 @@ if(data.mortgage){
         homePrice.value =
         data.mortgage.price;
 
-
-        priceDisplay.textContent =
-        "$" + data.mortgage.price.toLocaleString();
-
     }
 
 
@@ -1209,10 +1226,6 @@ if(data.mortgage){
 
         downPayment.value =
         data.mortgage.downPayment;
-
-
-        downDisplay.textContent =
-        data.mortgage.downPayment + "%";
 
     }
 
@@ -1230,54 +1243,19 @@ if(data.mortgage){
     if(loanYears){
 
         loanYears.value =
-        data.mortgage.loanYears;
+        data.mortgage.loanYears || 30;
 
     }
 
 
 
-    /*
-    Trigger existing calculator
-    after property data loads
-    */
+    // refresh calculator
 
+    if(typeof calculate === "function"){
 
-    [
-        homePrice,
-        downPayment,
-        interestRate,
-        loanYears
-
-    ].forEach(input=>{
-
-
-        if(input){
-
-            input.dispatchEvent(
-                new Event("input",
-                {
-                    bubbles:true
-                })
-            );
-
-        }
-
-
-    });
-
-
-
-    /*
-    Backup refresh
-    */
-
-
-    if(typeof updateMortgage === "function"){
-
-        updateMortgage();
+        calculate();
 
     }
-
 
 }
     
