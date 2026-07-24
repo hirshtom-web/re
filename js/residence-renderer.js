@@ -937,7 +937,6 @@ if(map && data.coordinates){
 
 
 
-    
 /* =========================
    ARCHITECTURE & DESIGN
 ========================= */
@@ -1034,8 +1033,6 @@ if(architectureGallery && data.architectureGallery){
                 src="${item.image}"
                 alt="${item.caption || ""}">
 
-
-
             `;
 
         }
@@ -1091,71 +1088,136 @@ if(architectureGallery && data.architectureGallery){
 
 
 
+/* =========================
+   DESIGN TEAM
+========================= */
+
+
 if(data.designTeam){
 
 
     const architect =
-    document.getElementById("team-architect");
+    document.getElementById(
+        "team-architect"
+    );
 
 
-    const interiors =
-    document.getElementById("team-interiors");
+    const designer =
+    document.getElementById(
+        "team-designer"
+    );
 
 
-    const landscape =
-    document.getElementById("team-landscape");
+    const interior =
+    document.getElementById(
+        "team-interior"
+    );
 
 
 
     if(architect){
 
         architect.textContent =
-        data.designTeam.architect || "Coming Soon";
+        data.designTeam.architect ||
+        "Coming Soon";
 
     }
 
 
-    if(interiors){
 
-        interiors.textContent =
-        data.designTeam.interiors || "Coming Soon";
+    if(designer){
+
+        designer.textContent =
+        data.designTeam.designer ||
+        "Coming Soon";
+
+    }
+
+
+
+    if(interior){
+
+        interior.textContent =
+        data.designTeam.interior ||
+        "Coming Soon";
 
     }
 
 
-    if(landscape){
-
-        landscape.textContent =
-        data.designTeam.landscape || "Coming Soon";
-
-    }
-    
 }
-    
-    
-    const architectureReadMore =
-document.querySelector(".architecture-content .read-more");
+
+
+
+/* =========================
+   ARCHITECTURE POPUP
+========================= */
+
+
+const architectureReadMore =
+document.querySelector(
+    ".architecture-content .read-more"
+);
 
 
 const architectureParagraph =
-document.getElementById("architecture-text");
+document.getElementById(
+    "architecture-text"
+);
 
 
-if(architectureReadMore && architectureParagraph){
 
-    architectureReadMore.addEventListener("click",()=>{
+if(
+    architectureReadMore &&
+    architectureParagraph
+){
 
-        architectureParagraph.classList.toggle("expanded");
+
+    architectureReadMore.addEventListener(
+        "click",
+        ()=>{
 
 
-        architectureReadMore.textContent =
-        architectureParagraph.classList.contains("expanded")
-        ?
-        "Read less ←"
-        :
-        "Read more →";
+            const popup =
+            document.getElementById(
+                "popup"
+            );
 
-    });
+
+            const popupTitle =
+            document.getElementById(
+                "popup-title"
+            );
+
+
+            const popupContent =
+            document.getElementById(
+                "popup-content"
+            );
+
+
+
+            if(!popup){
+
+                return;
+
+            }
+
+
+
+            popupTitle.textContent =
+            "Architecture & Design";
+
+
+            popupContent.textContent =
+            architectureParagraph.textContent;
+
+
+            popup.style.display =
+            "flex";
+
+
+        }
+    );
 
 
 }
