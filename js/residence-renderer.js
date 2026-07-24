@@ -1102,15 +1102,15 @@ if(data.designTeam){
     );
 
 
-    const designer =
+    const interiors =
     document.getElementById(
-        "team-designer"
+        "team-interiors"
     );
 
 
-    const interior =
+    const landscape =
     document.getElementById(
-        "team-interior"
+        "team-landscape"
     );
 
 
@@ -1125,20 +1125,20 @@ if(data.designTeam){
 
 
 
-    if(designer){
+    if(interiors){
 
-        designer.textContent =
-        data.designTeam.designer ||
+        interiors.textContent =
+        data.designTeam.interiors ||
         "Coming Soon";
 
     }
 
 
 
-    if(interior){
+    if(landscape){
 
-        interior.textContent =
-        data.designTeam.interior ||
+        landscape.textContent =
+        data.designTeam.landscape ||
         "Coming Soon";
 
     }
