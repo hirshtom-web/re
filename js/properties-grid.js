@@ -16,7 +16,7 @@ return;
 propertiesGrid.innerHTML="";
 
 
-propertiesList.forEach(property=>{
+window.properties.forEach(property=>{
 
 
 propertiesGrid.innerHTML += `
