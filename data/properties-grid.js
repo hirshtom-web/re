@@ -1,5 +1,5 @@
-function renderProperties(properties = window.residences){
-
+function renderPropertiesGrid(){
+  
 
 const propertiesGrid =
 document.getElementById("properties-grid");
