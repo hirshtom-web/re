@@ -1667,7 +1667,6 @@ if(faqList && data.faq){
     });
 
 
-}
 
 /* =========================
    FAQ ACCORDION
