@@ -699,7 +699,48 @@ file:"#"
 
 ],
 
+   /* =========================
+   CONSTRUCTION TIMELINE
+========================= */
 
+constructionTimeline:[
+
+{
+    year:"2026",
+    title:"Reservations Open",
+    status:"Completed",
+    state:"completed"
+},
+
+{
+    year:"2027",
+    title:"Construction Begins",
+    status:"Current Status",
+    state:"active"
+},
+
+{
+    year:"2027",
+    title:"Structure Complete",
+    status:"",
+    state:"upcoming"
+},
+
+{
+    year:"2028",
+    title:"Final Inspections",
+    status:"",
+    state:"upcoming"
+},
+
+{
+    year:"2028",
+    title:"Residence Delivery",
+    status:"",
+    state:"upcoming"
+}
+
+],
 
 /* =========================
    LEGAL
