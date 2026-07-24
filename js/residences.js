@@ -331,8 +331,6 @@ images:[
 
 "https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AByaFwrZVvNkmgS9V9n9CtQ/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2007_APARTMENT_FI.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1",
 
-"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/ALAXRyt2Fb1HrmJBn72xmkY/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2009_KITCHEN%20LIVING%20FINAL.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1",
-
 "https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AKmu9f_gLk4LUdDXneEydUs/Rendering/Interiors/NQS_ONE%20PARK%20TOWER_VIEW%2010_BATHROOM_FINAL.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1",
 
 "https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/APz2iUibIr8rybWPfGcK5kA/Rendering/Interiors/TU1323_Miami_TurnberryOneParkTower_VPExt_terrace_17.25x11.2629in.jpg?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1",
