@@ -283,7 +283,7 @@ if(desktopGrid){
     desktopGrid.innerHTML = "";
 
 
-    images.slice(1,6).forEach(image=>{
+    images.slice(1).forEach(image=>{
 
         const img = document.createElement("img");
 
