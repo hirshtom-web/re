@@ -1,5 +1,7 @@
 console.log("RESIDENCE RENDERER STARTED");
 
+let currentResidence = null;
+
 
 window.hideMapLoading = function(){
 
@@ -33,22 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
         new URLSearchParams(window.location.search).get("id");
 
 
-    const residence =
-        window.residences?.find(
-            item => item.id === propertyID
-        );
+    currentResidence =
+window.residences?.find(
+    item => item.id === propertyID
+);
 
 
-    if(!residence){
+    if(!currentResidence){
 
-        console.warn("No residence data found.");
+    console.warn("No residence data found.");
 
-        return;
+    return;
 
-    }
+}
 
 
-    renderResidence(residence);
+renderResidence(currentResidence);
 
 });
 
@@ -1611,26 +1613,23 @@ function renderFAQ(){
 
 
     console.log(
-        "RESIDENCE DATA:",
-        residence
+    "RESIDENCE DATA:",
+    currentResidence
+);
+
+
+if(!faqList || !currentResidence?.faq){
+
+    console.log(
+        "FAQ DATA NOT FOUND"
     );
 
+    return;
 
-    if(!faqList || !residence?.faq){
-
-        console.log(
-            "FAQ DATA NOT FOUND"
-        );
-
-        return;
-
-    }
+}
 
 
-    faqList.innerHTML = "";
-
-
-    residence.faq.forEach(item=>{
+currentResidence.faq.forEach(item=>{
 
 
         const faq =
