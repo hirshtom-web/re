@@ -933,25 +933,29 @@ if(architectureGallery && data.architectureGallery){
         const card =
         document.createElement("div");
 
-        card.className =
-        "architecture-card";
+        card.className = "architecture-card";
 
 
         if(item.image.toLowerCase().endsWith(".mp4")){
 
+            card.classList.add("video-card");
+
             card.innerHTML = `
 
                 <video
-                    autoplay
-                    muted
-                    loop
+                    preload="metadata"
                     playsinline
-                    controls
                 >
+
                     <source
                         src="${item.image}"
                         type="video/mp4">
+
                 </video>
+
+                <button class="video-play">
+                    ▶
+                </button>
 
                 <p>${item.caption || ""}</p>
 
@@ -972,6 +976,28 @@ if(architectureGallery && data.architectureGallery){
         }
 
         architectureGallery.appendChild(card);
+
+    });
+
+
+    architectureGallery
+    .querySelectorAll(".video-play")
+    .forEach(button=>{
+
+        button.addEventListener("click",()=>{
+
+            const card =
+            button.closest(".video-card");
+
+            const video =
+            card.querySelector("video");
+
+            video.controls = true;
+            video.play();
+
+            button.style.display = "none";
+
+        });
 
     });
 
