@@ -957,6 +957,7 @@ if(data.architecture){
 
     }
 
+
     if(architectureText){
 
         architectureText.textContent =
@@ -972,18 +973,29 @@ if(architectureGallery && data.architectureGallery){
 
     architectureGallery.innerHTML = "";
 
+
     data.architectureGallery.forEach(item=>{
+
 
         const card =
         document.createElement("div");
+
 
         card.className =
         "architecture-card";
 
 
-        if(item.image.toLowerCase().includes(".mp4")){
+
+        const isVideo =
+        item.image.toLowerCase().indexOf(".mp4") !== -1;
+
+
+
+        if(isVideo){
+
 
             card.classList.add("video-card");
+
 
             card.innerHTML = `
 
@@ -1000,15 +1012,21 @@ if(architectureGallery && data.architectureGallery){
 
                 </video>
 
+
                 <button class="video-toggle">
                     ❚❚
                 </button>
 
-                <p>${item.caption || ""}</p>
+
+                <p>
+                    ${item.caption || ""}
+                </p>
 
             `;
 
+
         }else{
+
 
             card.innerHTML = `
 
@@ -1016,82 +1034,58 @@ if(architectureGallery && data.architectureGallery){
                     src="${item.image}"
                     alt="${item.caption || ""}">
 
-                <p>${item.caption || ""}</p>
+
+                <p>
+                    ${item.caption || ""}
+                </p>
 
             `;
 
         }
 
+
+
         architectureGallery.appendChild(card);
 
+
     });
+
 
 
     architectureGallery
     .querySelectorAll(".video-toggle")
     .forEach(button=>{
 
+
         const video =
-        button.previousElementSibling;
+        button.parentElement.querySelector("video");
+
 
         button.addEventListener("click",()=>{
+
 
             if(video.paused){
 
                 video.play();
 
-                button.innerHTML = "❚❚";
+                button.textContent="❚❚";
+
 
             }else{
 
+
                 video.pause();
 
-                button.innerHTML = "▶";
+                button.textContent="▶";
+
 
             }
 
+
         });
 
+
     });
-
-}
-
-
-
-if(data.designTeam){
-
-    const architect =
-    document.getElementById("team-architect");
-
-    const interiors =
-    document.getElementById("team-interiors");
-
-    const landscape =
-    document.getElementById("team-landscape");
-
-
-    if(architect){
-
-        architect.textContent =
-        data.designTeam.architect || "Coming Soon";
-
-    }
-
-
-    if(interiors){
-
-        interiors.textContent =
-        data.designTeam.interiors || "Coming Soon";
-
-    }
-
-
-    if(landscape){
-
-        landscape.textContent =
-        data.designTeam.landscape || "Coming Soon";
-
-    }
 
 }
     
