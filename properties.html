@@ -23,41 +23,100 @@
 
     <section class="properties-toolbar">
 
+    <div class="search-box">
 
-<input
-id="property-search"
-type="text"
-placeholder="Search residences, locations..."
->
+        <span class="material-symbols-rounded">
+            search
+        </span>
+
+        <input
+        id="property-search"
+        type="text"
+        placeholder="Search residences, buildings, locations..."
+        >
+
+    </div>
 
 
-<select id="location-filter">
+    <div class="filter-group">
 
-<option value="">
-All Locations
-</option>
+        <select id="location-filter">
 
-<option value="Miami Beach">
-Miami Beach
-</option>
+            <option value="">
+                Location
+            </option>
 
-<option value="Brickell">
-Brickell
-</option>
+            <option value="Miami Beach">
+                Miami Beach
+            </option>
 
-<option value="Downtown Miami">
-Downtown Miami
-</option>
+            <option value="Brickell">
+                Brickell
+            </option>
 
-<option value="Sunny Isles Beach">
-Sunny Isles Beach
-</option>
+            <option value="Downtown Miami">
+                Downtown Miami
+            </option>
 
-</select>
+            <option value="Sunny Isles Beach">
+                Sunny Isles Beach
+            </option>
+
+        </select>
+
+
+
+        <select id="price-filter">
+
+            <option value="">
+                Price Range
+            </option>
+
+            <option value="1">
+                Under $2M
+            </option>
+
+            <option value="2">
+                $2M - $5M
+            </option>
+
+            <option value="3">
+                $5M+
+            </option>
+
+        </select>
+
+
+
+        <select id="sort-filter">
+
+            <option value="">
+                Sort By
+            </option>
+
+            <option value="price-low">
+                Price: Low to High
+            </option>
+
+            <option value="price-high">
+                Price: High to Low
+            </option>
+
+            <option value="name">
+                Name A-Z
+            </option>
+
+            <option value="location">
+                Location
+            </option>
+
+        </select>
+
+
+    </div>
 
 
 </section>
-
 
     
 <div id="property-map"></div>
