@@ -407,3 +407,23 @@ body.modal-open{
     margin:8px 0;
 
 }
+
+/* ==========================================
+   MODAL ICONS
+========================================== */
+
+.modal .material-symbols-outlined{
+
+    font-size:22px;
+
+    color:inherit;
+
+    flex-shrink:0;
+
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 200,
+        'GRAD' 0,
+        'opsz' 24;
+
+}
