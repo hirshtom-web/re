@@ -71,14 +71,6 @@ body{
 MAP
 ===================== */
 
-/* =====================
-   MAP + PROPERTY LAYOUT
-===================== */
-
-/* =========================
-   PROPERTY MAP LAYOUT
-========================= */
-
 .properties-layout{
 
     display:flex;
@@ -93,13 +85,9 @@ MAP
 
     overflow:hidden;
 
+    align-items:flex-start;
+
 }
-
-
-
-/* =========================
-   MAP SIDE
-========================= */
 
 
 .map-container{
@@ -116,10 +104,9 @@ MAP
 
     overflow:hidden;
 
-    flex-shrink:0;
+    margin-bottom:50px;
 
 }
-
 
 
 #map{
@@ -129,7 +116,6 @@ MAP
     height:100%;
 
 }
-
 
 
 /* =========================
