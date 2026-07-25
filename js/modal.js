@@ -1,5 +1,5 @@
 /* ==========================================
-   MODAL CONTROLLER FINAL
+   MODAL CONTROLLER
 ========================================== */
 
 
@@ -11,16 +11,25 @@ if (window.self !== window.top) {
 
 
 let modalOpen = false;
-let modalHistoryActive = false;
+let modalState = false;
+let opening = false;
 
 
 
 /* ==========================================
-   OPEN PROPERTY MODAL
+   OPEN MODAL
 ========================================== */
 
 
-window.openModal = function(page, id){
+window.openModal = function(page,id){
+
+
+    if(opening){
+        return;
+    }
+
+
+    opening = true;
 
 
     console.log(
@@ -41,9 +50,10 @@ window.openModal = function(page, id){
     if(!modal || !frame){
 
         console.error(
-            "Missing modal elements"
+            "Modal elements missing"
         );
 
+        opening=false;
         return;
 
     }
@@ -51,8 +61,9 @@ window.openModal = function(page, id){
 
 
     const url =
-        new URL(window.location.href);
-
+        new URL(
+            window.location.href
+        );
 
 
     url.searchParams.set(
@@ -69,33 +80,37 @@ window.openModal = function(page, id){
 
 
     /*
-       ONE history entry only.
-       Browser back now closes modal.
+       Create ONE browser history state
     */
 
     history.pushState(
         {
-            modal:true
+            modal:true,
+            property:id
         },
         "",
         url.pathname + url.search
     );
 
 
-    modalHistoryActive = true;
+    modalState=true;
 
 
 
-    frame.style.opacity = "0";
+    frame.onload=function(){
 
-
-    frame.onload = function(){
-
-        frame.style.opacity = "1";
+        frame.style.opacity="1";
 
     };
 
 
+
+    frame.style.opacity="0";
+
+
+    /*
+       Load iframe once
+    */
 
     frame.src =
         page +
@@ -120,7 +135,14 @@ window.openModal = function(page, id){
     );
 
 
-    modalOpen = true;
+    modalOpen=true;
+
+
+    setTimeout(()=>{
+
+        opening=false;
+
+    },200);
 
 
 };
@@ -129,9 +151,8 @@ window.openModal = function(page, id){
 
 
 
-
 /* ==========================================
-   HIDE MODAL
+   HIDE ONLY
 ========================================== */
 
 
@@ -152,15 +173,15 @@ function hideModal(){
 
 
 
-    if(!modal)
+    if(!modal){
         return;
+    }
 
 
 
     modal.classList.remove(
         "active"
     );
-
 
 
     document.body.classList.remove(
@@ -175,20 +196,20 @@ function hideModal(){
 
 
     /*
-       Keep iframe.
-       Do NOT clear src.
+       Keep iframe alive.
+       Prevent reload.
     */
 
     if(frame){
 
-        frame.style.opacity = "0";
+        frame.style.opacity="0";
 
     }
 
 
 
-    modalOpen = false;
-    modalHistoryActive = false;
+    modalOpen=false;
+    modalState=false;
 
 
 }
@@ -197,13 +218,12 @@ function hideModal(){
 
 
 
-
 /* ==========================================
-   CLOSE BUTTON / MODAL BACK BUTTON
+   CLOSE BUTTON
 ========================================== */
 
 
-window.closeDeal = function(){
+window.closeDeal=function(){
 
 
     console.log(
@@ -212,12 +232,16 @@ window.closeDeal = function(){
 
 
 
-    if(modalHistoryActive){
+    if(modalState){
+
+        /*
+           Browser back removes our modal state
+        */
 
         history.back();
 
     }
-    else {
+    else{
 
         hideModal();
 
@@ -238,11 +262,12 @@ window.closeDeal = function(){
 
 window.addEventListener(
 "popstate",
-function(){
+function(e){
 
 
     console.log(
-        "POPSTATE"
+        "POPSTATE",
+        e.state
     );
 
 
@@ -254,6 +279,7 @@ function(){
     }
 
 
+
 });
 
 
@@ -262,12 +288,12 @@ function(){
 
 
 /* ==========================================
-   CLICK OUTSIDE
+   OUTSIDE CLICK
 ========================================== */
 
 
 document.addEventListener(
-"click",
+"mousedown",
 function(e){
 
 
@@ -305,7 +331,7 @@ function(e){
 
 
     if(
-        e.key === "Escape" &&
+        e.key==="Escape" &&
         modalOpen
     ){
 
@@ -322,7 +348,7 @@ function(e){
 
 
 /* ==========================================
-   DIRECT LOAD
+   DIRECT URL
 ========================================== */
 
 
@@ -346,7 +372,10 @@ function(){
 
 
 
-    if(property && page){
+    if(
+        property &&
+        page
+    ){
 
 
         const modal =
@@ -363,11 +392,13 @@ function(){
             frame
         ){
 
+
             frame.src =
                 page +
                 "?id=" +
                 encodeURIComponent(property) +
                 "&embedded=true";
+
 
 
             modal.classList.add(
@@ -385,10 +416,9 @@ function(){
             );
 
 
-            modalOpen = true;
+            modalOpen=true;
 
         }
-
 
     }
 
