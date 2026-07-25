@@ -223,45 +223,37 @@ PRICE FILTER
 
 .price-popup{
 
-
     position:absolute;
-
 
     top:62px;
 
-
     left:0;
-
 
     width:360px;
 
-
     background:#fff;
-
 
     border-radius:28px;
 
-
     padding:25px;
-
 
     box-sizing:border-box;
 
-
     box-shadow:
-
     0 25px 70px rgba(0,0,0,.15);
-
-
 
     display:none;
 
-
     z-index:9999;
-
 
 }
 
+
+.price-popup.active{
+
+    display:block;
+
+}
 
 
 .price-popup.active{
