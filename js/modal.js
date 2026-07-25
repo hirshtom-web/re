@@ -2,24 +2,25 @@
    MODAL CONTROLLER
 ========================================== */
 
+
 if (window.self !== window.top) {
 
-    console.log("Modal skipped inside iframe");
+    console.log("Modal JS skipped inside iframe");
 
 } else {
 
 
 let modalOpen = false;
-let savedScrollPosition = 0;
-let ignoreNextPop = false;
 
 
 
 /* ==========================================
-   OPEN
+   OPEN PROPERTY MODAL
 ========================================== */
 
-window.openModal = function(page,id){
+
+window.openModal = function(page, id){
+
 
     console.log(
         "OPEN MODAL:",
@@ -30,26 +31,27 @@ window.openModal = function(page,id){
     const modal =
         document.getElementById("dealModal");
 
+
     const frame =
         document.getElementById("dealFrame");
 
 
+
     if(!modal || !frame){
+
         console.error(
-            "Modal elements missing"
+            "Missing modal elements"
         );
+
         return;
+
     }
-
-
-
-    savedScrollPosition =
-        window.scrollY;
 
 
 
     const url =
         new URL(window.location.href);
+
 
 
     url.searchParams.set(
@@ -64,15 +66,18 @@ window.openModal = function(page,id){
     );
 
 
+
     /*
-       Only create history entry
-       when opening
+       IMPORTANT:
+       Replace, do not push.
+       Modal is not a new browser page.
     */
 
-    history.pushState(
+    history.replaceState(
         {
             modal:true,
-            property:id
+            property:id,
+            page:page
         },
         "",
         url.pathname + url.search
@@ -80,12 +85,15 @@ window.openModal = function(page,id){
 
 
 
+    frame.style.opacity="0";
+
+
     frame.onload=function(){
+
         frame.style.opacity="1";
+
     };
 
-
-    frame.style.opacity="0";
 
 
     frame.src =
@@ -95,17 +103,18 @@ window.openModal = function(page,id){
 
 
 
+    modal.classList.add(
+        "active"
+    );
+
+
     document.body.classList.add(
         "modal-open"
     );
 
+
     document.documentElement.classList.add(
         "modal-open"
-    );
-
-
-    modal.classList.add(
-        "active"
     );
 
 
@@ -117,21 +126,23 @@ window.openModal = function(page,id){
 
 
 
+
 /* ==========================================
-   CLOSE
+   CLOSE MODAL ONLY
 ========================================== */
 
 
-function closeModalOnly(){
+function hideModal(){
 
 
     console.log(
-        "CLOSE MODAL"
+        "HIDE MODAL"
     );
 
 
     const modal =
         document.getElementById("dealModal");
+
 
     const frame =
         document.getElementById("dealFrame");
@@ -148,6 +159,7 @@ function closeModalOnly(){
     );
 
 
+
     document.body.classList.remove(
         "modal-open"
     );
@@ -159,28 +171,24 @@ function closeModalOnly(){
 
 
 
+    /*
+       Do not destroy iframe immediately.
+       Prevents reload loops.
+    */
+
     if(frame){
 
-        /*
-          Important:
-          do NOT clear src immediately.
-          Safari can trigger reload loops.
-        */
-
-        setTimeout(()=>{
-
-            frame.src="";
-
-        },300);
+        frame.style.opacity="0";
 
     }
+
 
 
     modalOpen=false;
 
 
-
 }
+
 
 
 
@@ -193,7 +201,12 @@ function closeModalOnly(){
 window.closeDeal=function(){
 
 
-    closeModalOnly();
+    console.log(
+        "CLOSE DEAL"
+    );
+
+
+    hideModal();
 
 
 
@@ -213,11 +226,6 @@ window.closeDeal=function(){
 
 
 
-    /*
-      Replace only.
-      Never push.
-    */
-
     history.replaceState(
         {},
         "",
@@ -225,47 +233,31 @@ window.closeDeal=function(){
     );
 
 
-
-    setTimeout(()=>{
-
-        window.scrollTo(
-            0,
-            savedScrollPosition
-        );
-
-    },50);
-
-
 };
 
 
 
 
+
 /* ==========================================
-   BACK BUTTON FIX
+   BROWSER BACK BUTTON
 ========================================== */
 
 
 window.addEventListener(
 "popstate",
-function(e){
+function(){
 
 
     console.log(
-        "BACK EVENT",
-        window.location.href
+        "POPSTATE CLOSE MODAL"
     );
 
 
 
-    /*
-       Browser already moved.
-       Just kill modal.
-    */
-
     if(modalOpen){
 
-        closeModalOnly();
+        hideModal();
 
     }
 
@@ -278,7 +270,7 @@ function(e){
 
 
 /* ==========================================
-   OUTSIDE CLICK
+   CLICK OUTSIDE MODAL
 ========================================== */
 
 
@@ -291,10 +283,11 @@ function(e){
         document.getElementById("dealModal");
 
 
+
     if(
         modal &&
-        e.target === modal &&
-        modalOpen
+        modal.classList.contains("active") &&
+        e.target === modal
     ){
 
         closeDeal();
@@ -309,7 +302,7 @@ function(e){
 
 
 /* ==========================================
-   ESCAPE
+   ESC KEY
 ========================================== */
 
 
@@ -317,8 +310,9 @@ document.addEventListener(
 "keydown",
 function(e){
 
+
     if(
-        e.key==="Escape" &&
+        e.key === "Escape" &&
         modalOpen
     ){
 
@@ -326,15 +320,15 @@ function(e){
 
     }
 
+
 });
 
 
 
 
 
-
 /* ==========================================
-   DIRECT URL LOAD
+   DIRECT URL OPEN
 ========================================== */
 
 
@@ -358,10 +352,13 @@ function(){
 
 
 
-    if(property && page){
+    if(
+        property &&
+        page
+    ){
 
 
-        setTimeout(()=>{
+        setTimeout(function(){
 
 
             openModal(
@@ -377,7 +374,6 @@ function(){
 
 
 });
-
 
 
 }
