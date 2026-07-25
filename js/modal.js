@@ -13,7 +13,6 @@ if (window.self !== window.top) {
 let modalOpen = false;
 
 
-
 /* ==========================================
    OPEN PROPERTY MODAL
 ========================================== */
@@ -68,22 +67,28 @@ window.openModal = function(page, id){
 
 
     /*
-       IMPORTANT:
-       Replace, do not push.
-       Modal is not a new browser page.
+        Create browser history entry.
+        This allows browser back button
+        to close modal in one click.
     */
 
-    // DO NOT ADD HISTORY HERE
-// Modal is only visual state
+    history.pushState(
+        {
+            modal:true,
+            property:id,
+            page:page
+        },
+        "",
+        url.pathname + url.search
+    );
 
 
 
-    frame.style.opacity="0";
+    frame.style.opacity = "0";
 
+    frame.onload = function(){
 
-    frame.onload=function(){
-
-        frame.style.opacity="1";
+        frame.style.opacity = "1";
 
     };
 
@@ -111,7 +116,7 @@ window.openModal = function(page, id){
     );
 
 
-    modalOpen=true;
+    modalOpen = true;
 
 
 };
@@ -121,7 +126,7 @@ window.openModal = function(page, id){
 
 
 /* ==========================================
-   CLOSE MODAL ONLY
+   HIDE MODAL
 ========================================== */
 
 
@@ -142,8 +147,11 @@ function hideModal(){
 
 
 
-    if(!modal)
+    if(!modal){
+
         return;
+
+    }
 
 
 
@@ -165,22 +173,24 @@ function hideModal(){
 
 
     /*
-       Do not destroy iframe immediately.
-       Prevents reload loops.
+        Keep iframe alive.
+        Do not clear src.
+        Prevents reload issues.
     */
 
     if(frame){
 
-        frame.style.opacity="0";
+        frame.style.opacity = "0";
 
     }
 
 
 
-    modalOpen=false;
+    modalOpen = false;
 
 
 }
+
 
 
 
@@ -191,29 +201,38 @@ function hideModal(){
 ========================================== */
 
 
-window.closeDeal=function(){
-
-    console.log("CLOSE DEAL");
+window.closeDeal = function(){
 
 
-    hideModal();
-
-
-    const url =
-        new URL(window.location.href);
-
-
-    url.searchParams.delete("property");
-    url.searchParams.delete("page");
-
-
-    history.replaceState(
-        null,
-        "",
-        url.pathname
+    console.log(
+        "CLOSE DEAL"
     );
 
+
+
+    /*
+       If modal has history state,
+       go back naturally.
+    */
+
+    if(
+        history.state &&
+        history.state.modal
+    ){
+
+        history.back();
+
+    }
+    else {
+
+        hideModal();
+
+    }
+
+
 };
+
+
 
 
 
@@ -229,20 +248,18 @@ function(){
 
 
     console.log(
-        "POPSTATE CLOSE MODAL"
+        "POPSTATE:",
+        window.location.href
     );
 
 
 
-    if(modalOpen){
-
-        hideModal();
-
-    }
+    hideModal();
 
 
 
 });
+
 
 
 
@@ -280,6 +297,7 @@ function(e){
 
 
 
+
 /* ==========================================
    ESC KEY
 ========================================== */
@@ -301,6 +319,7 @@ function(e){
 
 
 });
+
 
 
 
@@ -331,7 +350,63 @@ function(){
 
 
 
-   
+    if(
+        property &&
+        page
+    ){
+
+        console.log(
+            "DIRECT MODAL LOAD:",
+            property
+        );
+
+
+        setTimeout(function(){
+
+            const modal =
+                document.getElementById("dealModal");
+
+
+            const frame =
+                document.getElementById("dealFrame");
+
+
+
+            if(
+                modal &&
+                frame
+            ){
+
+                frame.src =
+                    page +
+                    "?id=" +
+                    encodeURIComponent(property);
+
+
+
+                modal.classList.add(
+                    "active"
+                );
+
+
+                document.body.classList.add(
+                    "modal-open"
+                );
+
+
+                document.documentElement.classList.add(
+                    "modal-open"
+                );
+
+
+                modalOpen = true;
+
+            }
+
+
+        },100);
+
+    }
 
 
 });
