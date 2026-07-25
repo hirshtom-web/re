@@ -1,355 +1,208 @@
-/* ==========================================
-   MODAL CONTROLLER
-========================================== */
-
-
-if (window.self !== window.top) {
-
-    console.log("Modal JS skipped inside iframe");
-
-} else {
-
-
-let modalOpen = false;
+let savedScrollPosition = 0;
 
 
 /* ==========================================
-   OPEN MODAL
+   OPEN PROPERTY MODAL
 ========================================== */
 
+function openModal(page, id){
 
-window.openModal = function(page,id){
-
-
-    console.log(
-        "OPEN MODAL:",
-        id
-    );
-
+    console.log("OPENING PROPERTY:", id);
 
     const modal =
         document.getElementById("dealModal");
 
+    const frame =
+        document.getElementById("dealFrame");
+
+    if(!modal || !frame){
+        console.error("Modal elements missing");
+        return;
+    }
+
+
+    savedScrollPosition = window.scrollY;
+
+
+    window.currentPropertyID = id;
+
+
+    /*
+        SAVE OPEN PROPERTY IN URL
+    */
+
+    history.pushState(
+        null,
+        "",
+        "?property=" + encodeURIComponent(id)
+    );
+
+
+    const url =
+        page + "?id=" + encodeURIComponent(id);
+
+
+    console.log("IFRAME LOADING:", url);
+
+
+    frame.style.opacity = "0";
+
+    modal.classList.add("loading");
+
+    frame.src = url;
+
+
+    frame.onload = function(){
+
+        frame.style.opacity = "1";
+
+        modal.classList.remove("loading");
+
+    };
+
+
+    document.documentElement.classList.add("modal-open");
+
+    document.body.classList.add("modal-open");
+
+
+    modal.classList.add("active");
+
+}
+
+
+/* ==========================================
+   CLOSE PROPERTY MODAL
+========================================== */
+
+function closeDeal(){
+
+    const modal =
+        document.getElementById("dealModal");
 
     const frame =
         document.getElementById("dealFrame");
 
 
     if(!modal || !frame){
-        console.error("Missing modal elements");
         return;
     }
 
 
-
-    const url =
-        new URL(window.location.href);
-
-
-    url.searchParams.set(
-        "property",
-        id
-    );
-
-
-    url.searchParams.set(
-        "page",
-        page
-    );
-
+    modal.classList.remove("active");
 
 
     /*
-       THIS CREATES THE BACK BUTTON STEP
+        REMOVE PROPERTY FROM URL
     */
 
     history.pushState(
-        {
-            modal:true,
-            property:id
-        },
-        "",
-        url.pathname + url.search
-    );
+    null,
+    "",
+    "?property=" + encodeURIComponent(id) +
+    "&page=" + encodeURIComponent(page)
+);
 
 
+    document.documentElement.classList.remove("modal-open");
 
-    frame.style.opacity="0";
-
-
-    frame.onload=function(){
-
-        frame.style.opacity="1";
-
-    };
+    document.body.classList.remove("modal-open");
 
 
-    frame.src =
-        page +
-        "?id=" +
-        encodeURIComponent(id) +
-        "&embedded=true";
+    frame.style.opacity = "0";
+
+    frame.src = "";
 
 
+    setTimeout(function(){
 
-    modal.classList.add(
-        "active"
-    );
+        window.scrollTo(
+            0,
+            savedScrollPosition
+        );
 
-
-    document.body.classList.add(
-        "modal-open"
-    );
-
-
-    document.documentElement.classList.add(
-        "modal-open"
-    );
-
-
-    modalOpen=true;
-
-
-};
-
-
-
-
-
-/* ==========================================
-   HIDE MODAL
-========================================== */
-
-
-function hideModal(){
-
-
-    console.log(
-        "HIDE MODAL"
-    );
-
-
-    const modal =
-        document.getElementById("dealModal");
-
-
-
-    if(!modal)
-        return;
-
-
-
-    modal.classList.remove(
-        "active"
-    );
-
-
-    document.body.classList.remove(
-        "modal-open"
-    );
-
-
-    document.documentElement.classList.remove(
-        "modal-open"
-    );
-
-
-    modalOpen=false;
-
+    },50);
 
 }
 
 
-
-
-
 /* ==========================================
-   CLOSE BUTTON
+   ESC TO CLOSE
 ========================================== */
 
-
-window.closeDeal=function(){
-
-
-    console.log(
-        "CLOSE DEAL"
-    );
-
-
-    /*
-       Go back one history entry.
-       Same as browser back.
-    */
-
-    history.back();
-
-
-};
-
-
-
-
-
-
-/* ==========================================
-   BROWSER BACK
-========================================== */
-
-
-window.addEventListener(
-"popstate",
-function(e){
-
-
-    console.log(
-        "POPSTATE",
-        e.state
-    );
-
-
-    if(modalOpen){
-
-        hideModal();
-
-    }
-
-
-});
-
-
-
-
-
-
-/* ==========================================
-   CLICK OUTSIDE
-========================================== */
-
-
-document.addEventListener(
-"click",
-function(e){
-
+document.addEventListener("keydown",(e)=>{
 
     const modal =
         document.getElementById("dealModal");
 
 
-
     if(
+        e.key === "Escape" &&
         modal &&
-        modal.classList.contains("active") &&
-        e.target === modal
+        modal.classList.contains("active")
     ){
 
         closeDeal();
 
     }
 
-
 });
 
 
 
-
-
-
 /* ==========================================
-   ESC
+   CLICK OUTSIDE TO CLOSE
 ========================================== */
 
-
-document.addEventListener(
-"keydown",
-function(e){
+const dealModal =
+document.getElementById("dealModal");
 
 
-    if(
-        e.key==="Escape" &&
-        modalOpen
-    ){
+if(dealModal){
 
-        closeDeal();
+    dealModal.addEventListener("click",(e)=>{
 
-    }
+        if(e.target === dealModal){
 
-
-});
-
-
-
-
-
-/* ==========================================
-   DIRECT URL LOAD
-========================================== */
-
-
-document.addEventListener(
-"DOMContentLoaded",
-function(){
-
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const property =
-        params.get("property");
-
-
-    const page =
-        params.get("page");
-
-
-
-    if(property && page){
-
-
-        const modal =
-            document.getElementById("dealModal");
-
-
-        const frame =
-            document.getElementById("dealFrame");
-
-
-        if(modal && frame){
-
-
-            frame.src =
-                page +
-                "?id=" +
-                encodeURIComponent(property) +
-                "&embedded=true";
-
-
-            modal.classList.add(
-                "active"
-            );
-
-
-            document.body.classList.add(
-                "modal-open"
-            );
-
-
-            document.documentElement.classList.add(
-                "modal-open"
-            );
-
-
-            modalOpen=true;
+            closeDeal();
 
         }
 
+    });
+
+}
+
+
+
+/* ==========================================
+   RESTORE MODAL AFTER PAGE REFRESH
+========================================== */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+    const params =
+    new URLSearchParams(window.location.search);
+
+
+    const propertyID =
+    params.get("property");
+
+
+    const savedPage =
+    params.get("page") || "residence.html";
+
+
+    if(propertyID){
+
+        setTimeout(()=>{
+
+            openModal(
+                savedPage,
+                propertyID
+            );
+
+        },100);
 
     }
 
-
 });
-
-
-}
