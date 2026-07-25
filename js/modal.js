@@ -73,15 +73,8 @@ window.openModal = function(page, id){
        Modal is not a new browser page.
     */
 
-    history.replaceState(
-        {
-            modal:true,
-            property:id,
-            page:page
-        },
-        "",
-        url.pathname + url.search
-    );
+    // DO NOT ADD HISTORY HERE
+// Modal is only visual state
 
 
 
@@ -200,41 +193,27 @@ function hideModal(){
 
 window.closeDeal=function(){
 
-
-    console.log(
-        "CLOSE DEAL"
-    );
+    console.log("CLOSE DEAL");
 
 
     hideModal();
-
 
 
     const url =
         new URL(window.location.href);
 
 
-
-    url.searchParams.delete(
-        "property"
-    );
-
-
-    url.searchParams.delete(
-        "page"
-    );
-
+    url.searchParams.delete("property");
+    url.searchParams.delete("page");
 
 
     history.replaceState(
-        {},
+        null,
         "",
         url.pathname
     );
 
-
 };
-
 
 
 
@@ -352,25 +331,7 @@ function(){
 
 
 
-    if(
-        property &&
-        page
-    ){
-
-
-        setTimeout(function(){
-
-
-            openModal(
-                page,
-                property
-            );
-
-
-        },100);
-
-
-    }
+   
 
 
 });
