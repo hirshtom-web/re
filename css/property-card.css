@@ -73,7 +73,7 @@ TEXT
 
 .property-card-info{
 
-    padding:18px 0 0 0;
+    padding:18px 5px 0 0;
 
 }
 
@@ -83,7 +83,7 @@ TEXT
 
     margin:0 0 8px;
 
-    font-size:20px;
+    font-size:12px;
 
     font-weight:500;
 
@@ -101,15 +101,17 @@ TEXT
 
     letter-spacing:.6px;
 
+    font-size:10px;
+
 }
 
 
 
 .property-card-info strong{
 
-    font-size:16px;
+    font-size:10px;
 
-    font-weight:600;
+    font-weight:500;
 
     letter-spacing:.5px;
 
@@ -131,13 +133,13 @@ BADGE
 
     background:white;
 
-    padding:8px 14px;
+    padding:5px 10px;
 
     border-radius:50px;
 
-    font-size:12px;
+    font-size:9px;
 
-    font-weight:600;
+    font-weight:500;
 
     letter-spacing:1px;
 
