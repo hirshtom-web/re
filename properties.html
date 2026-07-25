@@ -278,11 +278,24 @@ Back
 <script src="../data/properties.js"></script>
 
 
+<!-- Render cards -->
 <script src="../js/properties-grid.js"></script>
-<script src="../js/properties-search.js"></script>
+
+
+<!-- Map must load before search updates markers -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_KEY"></script>
 <script src="../js/properties-map.js"></script>
 
+
+<!-- Search needs renderPropertiesGrid + updateMapMarkers -->
+<script src="../js/properties-search.js"></script>
+
+
+<!-- View toggle -->
 <script src="../js/properties-view.js"></script>
+
+
+<!-- Modal and contacts -->
 <script src="../js/modal.js"></script>
 <script src="../js/contact.js"></script>
 
