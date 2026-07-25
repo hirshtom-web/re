@@ -1,5 +1,5 @@
 /* ==========================================
-   MODAL CONTROLLER
+   MODAL CONTROLLER FINAL
 ========================================== */
 
 
@@ -11,6 +11,8 @@ if (window.self !== window.top) {
 
 
 let modalOpen = false;
+let modalHistoryActive = false;
+
 
 
 /* ==========================================
@@ -67,24 +69,25 @@ window.openModal = function(page, id){
 
 
     /*
-        Create browser history entry.
-        This allows browser back button
-        to close modal in one click.
+       ONE history entry only.
+       Browser back now closes modal.
     */
 
     history.pushState(
         {
-            modal:true,
-            property:id,
-            page:page
+            modal:true
         },
         "",
         url.pathname + url.search
     );
 
 
+    modalHistoryActive = true;
+
+
 
     frame.style.opacity = "0";
+
 
     frame.onload = function(){
 
@@ -97,7 +100,8 @@ window.openModal = function(page, id){
     frame.src =
         page +
         "?id=" +
-        encodeURIComponent(id);
+        encodeURIComponent(id) +
+        "&embedded=true";
 
 
 
@@ -125,6 +129,7 @@ window.openModal = function(page, id){
 
 
 
+
 /* ==========================================
    HIDE MODAL
 ========================================== */
@@ -147,11 +152,8 @@ function hideModal(){
 
 
 
-    if(!modal){
-
+    if(!modal)
         return;
-
-    }
 
 
 
@@ -173,9 +175,8 @@ function hideModal(){
 
 
     /*
-        Keep iframe alive.
-        Do not clear src.
-        Prevents reload issues.
+       Keep iframe.
+       Do NOT clear src.
     */
 
     if(frame){
@@ -187,6 +188,7 @@ function hideModal(){
 
 
     modalOpen = false;
+    modalHistoryActive = false;
 
 
 }
@@ -197,7 +199,7 @@ function hideModal(){
 
 
 /* ==========================================
-   CLOSE BUTTON
+   CLOSE BUTTON / MODAL BACK BUTTON
 ========================================== */
 
 
@@ -210,15 +212,7 @@ window.closeDeal = function(){
 
 
 
-    /*
-       If modal has history state,
-       go back naturally.
-    */
-
-    if(
-        history.state &&
-        history.state.modal
-    ){
+    if(modalHistoryActive){
 
         history.back();
 
@@ -238,7 +232,7 @@ window.closeDeal = function(){
 
 
 /* ==========================================
-   BROWSER BACK BUTTON
+   BROWSER BACK
 ========================================== */
 
 
@@ -248,14 +242,16 @@ function(){
 
 
     console.log(
-        "POPSTATE:",
-        window.location.href
+        "POPSTATE"
     );
 
 
 
-    hideModal();
+    if(modalOpen){
 
+        hideModal();
+
+    }
 
 
 });
@@ -266,7 +262,7 @@ function(){
 
 
 /* ==========================================
-   CLICK OUTSIDE MODAL
+   CLICK OUTSIDE
 ========================================== */
 
 
@@ -299,7 +295,7 @@ function(e){
 
 
 /* ==========================================
-   ESC KEY
+   ESC
 ========================================== */
 
 
@@ -326,7 +322,7 @@ function(e){
 
 
 /* ==========================================
-   DIRECT URL OPEN
+   DIRECT LOAD
 ========================================== */
 
 
@@ -350,61 +346,49 @@ function(){
 
 
 
-    if(
-        property &&
-        page
-    ){
-
-        console.log(
-            "DIRECT MODAL LOAD:",
-            property
-        );
+    if(property && page){
 
 
-        setTimeout(function(){
-
-            const modal =
-                document.getElementById("dealModal");
+        const modal =
+            document.getElementById("dealModal");
 
 
-            const frame =
-                document.getElementById("dealFrame");
+        const frame =
+            document.getElementById("dealFrame");
 
 
 
-            if(
-                modal &&
-                frame
-            ){
+        if(
+            modal &&
+            frame
+        ){
 
-                frame.src =
-                    page +
-                    "?id=" +
-                    encodeURIComponent(property);
-
-
-
-                modal.classList.add(
-                    "active"
-                );
+            frame.src =
+                page +
+                "?id=" +
+                encodeURIComponent(property) +
+                "&embedded=true";
 
 
-                document.body.classList.add(
-                    "modal-open"
-                );
+            modal.classList.add(
+                "active"
+            );
 
 
-                document.documentElement.classList.add(
-                    "modal-open"
-                );
+            document.body.classList.add(
+                "modal-open"
+            );
 
 
-                modalOpen = true;
+            document.documentElement.classList.add(
+                "modal-open"
+            );
 
-            }
 
+            modalOpen = true;
 
-        },100);
+        }
+
 
     }
 
