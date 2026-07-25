@@ -26,6 +26,7 @@ propertiesGrid.innerHTML += `
 
     </div>
 
+
     <div class="property-card-info">
 
         <div class="property-card-header">
@@ -35,6 +36,7 @@ propertiesGrid.innerHTML += `
             <strong>${property.price}</strong>
 
         </div>
+
 
         <p>${property.location}</p>
 
