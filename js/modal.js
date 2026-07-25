@@ -28,14 +28,21 @@ function openModal(page, id){
 
 
     /*
-        SAVE OPEN PROPERTY IN URL
-    */
+    SAVE CURRENT GRID URL
+*/
 
-    history.pushState(
-        null,
-        "",
-        "?property=" + encodeURIComponent(id)
-    );
+const previousURL = window.location.href;
+
+history.pushState(
+    {
+        previousURL
+    },
+    "",
+    previousURL +
+    (previousURL.includes("?") ? "&" : "?") +
+    "property=" + encodeURIComponent(id) +
+    "&page=" + encodeURIComponent(page)
+);
 
 
     const url =
