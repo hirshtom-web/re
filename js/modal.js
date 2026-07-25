@@ -12,6 +12,7 @@ function openModal(page, id, restore = false){
     const modal = document.getElementById("dealModal");
     const frame = document.getElementById("dealFrame");
 
+
     if(!modal || !frame){
         console.error("Modal elements missing");
         return;
@@ -23,9 +24,10 @@ function openModal(page, id, restore = false){
     window.currentPropertyID = id;
 
 
+
     /*
-        ONLY CHANGE URL WHEN USER CLICKS A PROPERTY
-        NOT WHEN RESTORING AFTER REFRESH
+       ADD URL STATE ONLY WHEN USER CLICKS
+       NOT WHEN RESTORING AFTER REFRESH/BACK
     */
 
     if(!restore){
@@ -44,6 +46,7 @@ function openModal(page, id, restore = false){
             "&page=" + encodeURIComponent(page);
 
 
+
         history.pushState(
             {
                 property:id,
@@ -56,19 +59,22 @@ function openModal(page, id, restore = false){
     }
 
 
-    const url =
+
+    const iframeURL =
         page + "?id=" + encodeURIComponent(id);
 
 
-    console.log("IFRAME LOADING:", url);
+
+    console.log("IFRAME LOADING:", iframeURL);
+
 
 
     frame.style.opacity = "0";
 
     modal.classList.add("loading");
 
+    frame.src = iframeURL;
 
-    frame.src = url;
 
 
     frame.onload = function(){
@@ -78,6 +84,7 @@ function openModal(page, id, restore = false){
         modal.classList.remove("loading");
 
     };
+
 
 
     document.documentElement.classList.add("modal-open");
@@ -91,14 +98,17 @@ function openModal(page, id, restore = false){
 
 
 
+
 /* ==========================================
    CLOSE PROPERTY MODAL
 ========================================== */
 
 function closeDeal(updateURL = true){
 
+
     const modal = document.getElementById("dealModal");
     const frame = document.getElementById("dealFrame");
+
 
 
     if(!modal || !frame){
@@ -106,7 +116,9 @@ function closeDeal(updateURL = true){
     }
 
 
+
     modal.classList.remove("active");
+    modal.classList.remove("loading");
 
 
 
@@ -114,8 +126,10 @@ function closeDeal(updateURL = true){
 
         const url = new URL(window.location.href);
 
+
         url.searchParams.delete("property");
         url.searchParams.delete("page");
+
 
 
         history.replaceState(
@@ -132,9 +146,12 @@ function closeDeal(updateURL = true){
     document.body.classList.remove("modal-open");
 
 
+
     frame.style.opacity = "0";
 
     frame.src = "";
+
+    frame.removeAttribute("src");
 
 
 
@@ -147,7 +164,9 @@ function closeDeal(updateURL = true){
 
     },50);
 
+
 }
+
 
 
 
@@ -163,6 +182,7 @@ document.addEventListener("keydown",(e)=>{
         document.getElementById("dealModal");
 
 
+
     if(
         e.key === "Escape" &&
         modal &&
@@ -173,7 +193,9 @@ document.addEventListener("keydown",(e)=>{
 
     }
 
+
 });
+
 
 
 
@@ -183,20 +205,22 @@ document.addEventListener("keydown",(e)=>{
    CLICK OUTSIDE CLOSE
 ========================================== */
 
-
 const dealModal =
 document.getElementById("dealModal");
+
 
 
 if(dealModal){
 
     dealModal.addEventListener("click",(e)=>{
 
+
         if(e.target === dealModal){
 
             closeDeal();
 
         }
+
 
     });
 
@@ -205,10 +229,11 @@ if(dealModal){
 
 
 
-/* ==========================================
-   RESTORE MODAL AFTER REFRESH
-========================================== */
 
+
+/* ==========================================
+   RESTORE AFTER REFRESH
+========================================== */
 
 document.addEventListener("DOMContentLoaded",()=>{
 
@@ -217,11 +242,13 @@ document.addEventListener("DOMContentLoaded",()=>{
         new URLSearchParams(window.location.search);
 
 
+
     const propertyID =
         params.get("property");
 
 
-    const savedPage =
+
+    const page =
         params.get("page") || "residence.html";
 
 
@@ -233,7 +260,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
             openModal(
-                savedPage,
+                page,
                 propertyID,
                 true
             );
@@ -251,10 +278,10 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
-/* ==========================================
-   BROWSER BACK / FORWARD BUTTON
-========================================== */
 
+/* ==========================================
+   BROWSER BACK / FORWARD
+========================================== */
 
 window.addEventListener("popstate",()=>{
 
@@ -263,8 +290,10 @@ window.addEventListener("popstate",()=>{
         new URLSearchParams(window.location.search);
 
 
+
     const propertyID =
         params.get("property");
+
 
 
     const page =
@@ -285,18 +314,7 @@ window.addEventListener("popstate",()=>{
     } else {
 
 
-        const modal =
-            document.getElementById("dealModal");
-
-
-        if(
-            modal &&
-            modal.classList.contains("active")
-        ){
-
-            closeDeal(false);
-
-        }
+        closeDeal(false);
 
     }
 
