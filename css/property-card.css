@@ -197,3 +197,28 @@ BADGE
     backdrop-filter:blur(8px);
 
 }
+
+.property-stats{
+
+    display:flex;
+
+    gap:16px;
+
+    margin-top:10px;
+
+    color:#666;
+
+    font-size:10px;
+
+    letter-spacing:.4px;
+
+}
+
+
+.property-stats span{
+
+    display:flex;
+
+    align-items:center;
+
+}
