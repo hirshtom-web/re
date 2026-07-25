@@ -82,5 +82,8 @@ ${property.price || "Request Pricing"}
 
 
 // initial load
-
 renderPropertiesGrid();
+
+
+// backwards compatibility
+window.renderProperties = renderPropertiesGrid;
