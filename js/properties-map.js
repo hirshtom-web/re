@@ -54,3 +54,37 @@ function loadPropertiesMap(){
     });
 
 }
+
+map = new google.maps.Map(document.getElementById("map"), {
+    center: {
+        lat: 25.7617,
+        lng: -80.1918
+    },
+    zoom: 11,
+
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: false,
+    rotateControl: false,
+    scaleControl: false,
+    clickableIcons: false,
+
+    gestureHandling: "greedy"
+});
+
+styles: [
+    {
+        featureType: "poi",
+        stylers: [{ visibility: "off" }]
+    },
+    {
+        featureType: "transit",
+        stylers: [{ visibility: "off" }]
+    },
+    {
+        featureType: "road",
+        elementType: "labels.icon",
+        stylers: [{ visibility: "off" }]
+    }
+]
+
