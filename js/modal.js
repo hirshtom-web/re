@@ -9,42 +9,52 @@ function openModal(page, id, restore = false){
 
     console.log("OPENING PROPERTY:", id);
 
-    const modal =
-        document.getElementById("dealModal");
-
-    const frame =
-        document.getElementById("dealFrame");
+    const modal = document.getElementById("dealModal");
+    const frame = document.getElementById("dealFrame");
 
     if(!modal || !frame){
         console.error("Modal elements missing");
         return;
     }
 
+
     savedScrollPosition = window.scrollY;
 
     window.currentPropertyID = id;
 
 
-    if (!restore) {
+    /*
+        ONLY CHANGE URL WHEN USER CLICKS A PROPERTY
+        NOT WHEN RESTORING AFTER REFRESH
+    */
+
+    if(!restore){
 
         const cleanURL = new URL(window.location.href);
 
-cleanURL.searchParams.delete("property");
-cleanURL.searchParams.delete("page");
+        cleanURL.searchParams.delete("property");
+        cleanURL.searchParams.delete("page");
+
+
+        const newURL =
+            cleanURL.pathname +
+            cleanURL.search +
+            (cleanURL.search ? "&" : "?") +
+            "property=" + encodeURIComponent(id) +
+            "&page=" + encodeURIComponent(page);
+
 
         history.pushState(
-    {
-        previousURL: cleanURL.pathname + cleanURL.search
-    },
-    "",
-    cleanURL.pathname +
-    cleanURL.search +
-    (cleanURL.search ? "&" : "?") +
-    "property=" + encodeURIComponent(id) +
-    "&page=" + encodeURIComponent(page)
-);
+            {
+                property:id,
+                page:page
+            },
+            "",
+            newURL
+        );
 
     }
+
 
     const url =
         page + "?id=" + encodeURIComponent(id);
@@ -56,6 +66,7 @@ cleanURL.searchParams.delete("page");
     frame.style.opacity = "0";
 
     modal.classList.add("loading");
+
 
     frame.src = url;
 
@@ -70,7 +81,6 @@ cleanURL.searchParams.delete("page");
 
 
     document.documentElement.classList.add("modal-open");
-
     document.body.classList.add("modal-open");
 
 
@@ -79,17 +89,16 @@ cleanURL.searchParams.delete("page");
 }
 
 
+
+
 /* ==========================================
    CLOSE PROPERTY MODAL
 ========================================== */
 
-function closeDeal(){
+function closeDeal(updateURL = true){
 
-    const modal =
-        document.getElementById("dealModal");
-
-    const frame =
-        document.getElementById("dealFrame");
+    const modal = document.getElementById("dealModal");
+    const frame = document.getElementById("dealFrame");
 
 
     if(!modal || !frame){
@@ -100,24 +109,26 @@ function closeDeal(){
     modal.classList.remove("active");
 
 
-    /*
-    RESTORE GRID URL
-*/
 
-const url = new URL(window.location.href);
+    if(updateURL){
 
-url.searchParams.delete("property");
-url.searchParams.delete("page");
+        const url = new URL(window.location.href);
 
-history.pushState(
-    {},
-    "",
-    url.pathname + url.search
-);
+        url.searchParams.delete("property");
+        url.searchParams.delete("page");
+
+
+        history.replaceState(
+            {},
+            "",
+            url.pathname + url.search
+        );
+
+    }
+
 
 
     document.documentElement.classList.remove("modal-open");
-
     document.body.classList.remove("modal-open");
 
 
@@ -126,7 +137,8 @@ history.pushState(
     frame.src = "";
 
 
-    setTimeout(function(){
+
+    setTimeout(()=>{
 
         window.scrollTo(
             0,
@@ -138,11 +150,14 @@ history.pushState(
 }
 
 
+
+
 /* ==========================================
-   ESC TO CLOSE
+   ESC CLOSE
 ========================================== */
 
 document.addEventListener("keydown",(e)=>{
+
 
     const modal =
         document.getElementById("dealModal");
@@ -162,9 +177,12 @@ document.addEventListener("keydown",(e)=>{
 
 
 
+
+
 /* ==========================================
-   CLICK OUTSIDE TO CLOSE
+   CLICK OUTSIDE CLOSE
 ========================================== */
+
 
 const dealModal =
 document.getElementById("dealModal");
@@ -186,53 +204,101 @@ if(dealModal){
 
 
 
+
 /* ==========================================
-   RESTORE MODAL AFTER PAGE REFRESH
+   RESTORE MODAL AFTER REFRESH
 ========================================== */
+
 
 document.addEventListener("DOMContentLoaded",()=>{
 
+
     const params =
-    new URLSearchParams(window.location.search);
+        new URLSearchParams(window.location.search);
 
 
     const propertyID =
-    params.get("property");
+        params.get("property");
 
 
     const savedPage =
-    params.get("page") || "residence.html";
+        params.get("page") || "residence.html";
+
 
 
     if(propertyID){
 
+
         setTimeout(()=>{
 
+
             openModal(
-    savedPage,
-    propertyID,
-    true
-);
+                savedPage,
+                propertyID,
+                true
+            );
+
 
         },100);
 
+
     }
+
 
 });
 
 
-window.addEventListener("popstate", ()=>{
+
+
+
+/* ==========================================
+   BROWSER BACK / FORWARD BUTTON
+========================================== */
+
+
+window.addEventListener("popstate",()=>{
+
 
     const params =
-    new URLSearchParams(window.location.search);
+        new URLSearchParams(window.location.search);
+
 
     const propertyID =
-    params.get("property");
+        params.get("property");
 
-    if(!propertyID){
 
-        closeDeal();
+    const page =
+        params.get("page") || "residence.html";
+
+
+
+    if(propertyID){
+
+
+        openModal(
+            page,
+            propertyID,
+            true
+        );
+
+
+    } else {
+
+
+        const modal =
+            document.getElementById("dealModal");
+
+
+        if(
+            modal &&
+            modal.classList.contains("active")
+        ){
+
+            closeDeal(false);
+
+        }
 
     }
+
 
 });
