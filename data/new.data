@@ -1,101 +1,2945 @@
-| Area               | Development                               | Address                                         | Status                       | From Price | Completion | Developer                             | Units | Floors |  PPSF |
-| ------------------ | ----------------------------------------- | ----------------------------------------------- | ---------------------------- | ---------- | ---------- | ------------------------------------- | ----: | -----: | ----: |
-| Art District       | Casa Bella by B&B Italia                  | 1444 Biscayne Blvd, Miami, FL                   | Pre-Construction             | ~$700K+    | 2027       | Related Group / Alta Developers       |   306 |     56 |   TBD |
-| Aventura           | TAL Aventura                              | 17111 Biscayne Blvd, Aventura, FL               | Pre-Construction             | ~$1M+      | 2027       | Rieber Developments                   |    86 |      9 |   TBD |
-| Bal Harbour        | Rivage Bal Harbour                        | 10245 Collins Ave, Bal Harbour, FL              | Pre-Construction             | ~$7M+      | 2026       | Related Group / Two Roads Development |    56 |     24 | ~$4K+ |
-| Bay Harbor Islands | Alana Bay Harbor Islands                  | 9901 West Bay Harbor Dr, Bay Harbor Islands, FL | Pre-Construction             | ~$1.5M+    | 2025/26    | Lefferts / The Estate Companies       |    30 |      8 |   TBD |
-| Bay Harbor Islands | Indian Creek Residences and Yacht Club    | 9455 E Broadview Dr, Bay Harbor Islands, FL     | Pre-Construction             | ~$2M+      | TBD        | TBD                                   |   TBD |    TBD |   TBD |
-| Bay Harbor Islands | La Baia Bay Harbor                        | 9201 E Bay Harbor Dr, Bay Harbor Islands, FL    | Completed                    | ~$1M+      | 2024       | Lefferts                              |    68 |      9 |   TBD |
-| Bay Harbor Islands | La Maré Residences                        | 10203 E Bay Harbor Dr, Bay Harbor Islands, FL   | Pre-Construction             | ~$1.5M+    | TBD        | Alta Developers                       |    72 |      9 |   TBD |
-| Bay Harbor Islands | Onda Residences                           | 1135 103rd St, Bay Harbor Islands, FL           | Completed                    | ~$2M+      | 2023       | Morabito Properties                   |    41 |      8 |   TBD |
-| Bay Harbor Islands | Origin Residences                         | 9940 West Bay Harbor Dr, Bay Harbor Islands, FL | Pre-Construction             | TBD        | 2026       | The Related Group                     |    79 |     14 |   TBD |
-| Bay Harbor Islands | THE WELL Bay Harbor Islands               | 1100 Kane Concourse, Bay Harbor Islands, FL     | Pre-Construction             | ~$1M+      | 2026       | Terra / THE WELL                      |    54 |     10 |   TBD |
-| Boca Raton         | Alina Residences                          | 200 SE Mizner Blvd, Boca Raton, FL              | Completed                    | ~$1.5M+    | 2021       | Compson Associates                    |   121 |     12 |   TBD |
-| Boca Raton         | Mandarin Oriental Residences Boca Raton   | 105 E Camino Real, Boca Raton, FL               | Pre-Construction             | ~$3M+      | 2027       | Penn-Florida Companies                |    92 |      5 |   TBD |
-| Brickell           | 2200 Brickell                             | 2200 Brickell Ave, Miami, FL                    | Pre-Construction             | ~$1.5M+    | 2026       | Related Group                         |    35 |      7 |   TBD |
-| Brickell           | 888 Brickell                              | 888 Brickell Ave, Miami, FL                     | Pre-Construction             | ~$1.5M+    | 2028       | JDS Development                       |   259 |     50 |   TBD |
-| Brickell           | Baccarat Residences Miami                 | 99 SE 5th St, Miami, FL                         | Pre-Construction             | ~$1.5M+    | 2026       | SH Hotels & Resorts / Related Group   |   324 |     75 |   TBD |
-| Brickell           | Cipriani Residences Miami                 | 40 SW 12th St, Miami, FL                        | Pre-Construction             | ~$1M+      | 2026       | Related Group                         |   397 |     80 |   TBD |
-| Brickell           | Domus Brickell Park                       | 1611 SW 2nd Ave, Miami, FL                      | Completed                    | ~$500K+    | 2025       | North Development                     |   171 |     12 |   TBD |
-| Brickell           | Lofty Brickell                            | 99 SW 7th St, Miami, FL                         | Pre-Construction             | ~$600K+    | 2025       | Habitat Group                         |   489 |     46 |   TBD |
-| Brickell           | ORA By Casa Tua                           | 1210 Brickell Ave, Miami, FL                    | Pre-Construction             | ~$1M+      | 2026       | Casa Tua / Fortune International      |    76 |     20 |   TBD |
-| Brickell           | Smart Brickell Tower                      | 239 SW 9th St, Miami, FL                        | Completed                    | ~$500K+    | 2023       | Habitat Group                         |    50 |     25 |   TBD |
-| Brickell           | St. Regis Residences Miami                | 1809 Brickell Ave, Miami, FL                    | Pre-Construction             | ~$5M+      | 2027       | Related Group / The St. Regis         |   152 |     46 |   TBD |
-| Brickell           | The Residences at 1428 Brickell           | 1428 Brickell Ave, Miami, FL                    | Pre-Construction             | ~$2M+      | 2028       | Yamal Yidios                          |   189 |     70 |   TBD |
-| Brickell           | Una Residences                            | 175 SE 25th Rd, Miami, FL                       | Completed                    | ~$1M+      | 2024       | OKO Group                             |   135 |     47 |   TBD |
-| Brickell           | Visions at Brickell Station               | 1250 S Miami Ave, Miami, FL                     | Pre-Construction             | ~$700K+    | TBD        | TBD                                   |   TBD |    TBD |   TBD |
-| Brickell Key       | One Island Drive                          | 550 Brickell Key Dr, Miami, FL                  | Completed                    | TBD        | 1990s      | TBD                                   |   TBD |    TBD |   TBD |
-| Brickell Key       | The Residences at Mandarin Oriental Miami | 5000 Island Blvd, Miami, FL                     | Completed                    | TBD        | 2000       | Swire Properties                      |   228 |     44 |   TBD |
-| Coconut Grove      | Mr. C Residences                       | 2655 S Bayshore Dr, Miami, FL                      | Completed        | ~$1.5M+    | 2022       | Urban Network Capital Group / Ignazio Cipriani |   100 |      8 |  TBD |
-| Coconut Grove      | Mr. C Tigertail Residences             | 1315 S Tigertail Ave, Miami, FL                    | Pre-Construction | ~$1.5M+    | 2026       | Urban Network Capital Group                    |    60 |      8 |  TBD |
-| Coconut Grove      | Residences in the Grove                | 2669 S Bayshore Dr, Miami, FL                      | Pre-Construction | TBD        | TBD        | TBD                                            |   TBD |    TBD |  TBD |
-| Coconut Grove      | Urbin Coconut Grove                    | 3140 Commodore Plaza, Miami, FL                    | Pre-Construction | TBD        | 2026       | Urbin / Terra                                  |   TBD |    TBD |  TBD |
-| Coconut Grove      | Vita Residences at Grove Isle          | 4 Grove Isle Dr, Miami, FL                         | Pre-Construction | ~$2M+      | 2025/26    | Terra Group                                    |    65 |      9 |  TBD |
-| Coral Gables       | 719 Biltmore Way Residences            | 719 Biltmore Way, Coral Gables, FL    | Pre-Construction | TBD        | TBD        | TBD                                            |   TBD |    TBD |  TBD |
-| Coral Gables       | The Avenue Coral Gables                | 351 San Lorenzo Ave, Coral Gables, FL | Pre-Construction | ~$1M+      | 2026       | Agave Holdings                                 |    48 |      8 |  TBD |
-| Downtown Miami     | 501 FIRST Residences                   | 501 NE 1st Ave, Miami, FL             | Pre-Construction | ~$500K+    | 2028       | Terra Group                                    |   149 |     40 |  TBD |
-| Downtown Miami     | 600 Miami Worldcenter                  | 600 NE 1st Ave, Miami, FL             | Pre-Construction | ~$700K+    | 2028       | Naftali Group                                  |   579 |     54 |  TBD |
-| Downtown Miami     | Aston Martin Residences                | 300 Biscayne Blvd Way, Miami, FL      | Completed        | ~$1M+      | 2024       | G&G Business Developments                      |   391 |     66 |  TBD |
-| Downtown Miami     | District 225                           | 225 NE 1st St, Miami, FL              | Completed        | ~$500K+    | 2024       | Related Group                                  |   343 |     37 |  TBD |
-| Downtown Miami     | E11EVEN Hotel & Residences             | 29 NE 11th St, Miami, FL              | Completed        | ~$700K+    | 2022       | PMG                                            |   450 |     65 |  TBD |
-| Downtown Miami     | E11EVEN Residences Beyond              | 1016 NE 2nd Ave, Miami, FL            | Pre-Construction | ~$700K+    | 2026       | PMG                                            |   461 |     65 |  TBD |
-| Downtown Miami     | Legacy Residences at Miami Worldcenter | 698 NE 1st Ave, Miami, FL             | Pre-Construction | ~$600K+    | 2026       | Royal Palm Companies                           |   310 |     55 |  TBD |
-| Downtown Miami     | Natiivo Miami                          | 601 NE 1st Ave, Miami, FL             | Completed        | ~$500K+    | 2023       | Airbnb / Newgard                               |   448 |     51 |  TBD |
-| Downtown Miami     | Okan Tower                             | 555 N Miami Ave, Miami, FL            | Pre-Construction | ~$700K+    | 2027       | Okan Group                                     |   236 |     70 |  TBD |
-| Downtown Miami     | The Crosby Miami Worldcenter           | 601 NE 1st Ave, Miami, FL             | Pre-Construction | ~$500K+    | 2027       | Related Group                                  |   450 |     34 |  TBD |
-| Downtown Miami     | Waldorf Astoria Residences Miami       | 300 Biscayne Blvd, Miami, FL          | Pre-Construction | ~$1.5M+    | 2028       | PMG / Hilton                                   |   360 |    100 |  TBD |
-| Downtown Miami     | West Eleventh Residences Miami         | 175 NW 11th St, Miami, FL             | Pre-Construction | ~$400K+    | 2028       | Property Markets Group                         |   659 |     44 |  TBD |
-| Edgewater          | Aria Reserve Miami                             | 710 NE 24th St, Miami, FL                             | Pre-Construction | ~$1M+      | 2025/26    | Melo Group                       |   792 |     62 |  TBD |
-| Edgewater          | Cove Miami                                     | 520 NE 34th St, Miami, FL                             | Pre-Construction | ~$700K+    | 2026       | Two Roads Development            |   116 |     40 |  TBD |
-| Edgewater          | Edition Residences Edgewater                   | 1850 NE 24th St, Miami, FL                            | Pre-Construction | ~$3M+      | 2026       | Terra Group / Marriott Edition   |   185 |     55 |  TBD |
-| Edgewater          | The Villa                                      | 2100 Biscayne Blvd, Miami, FL                         | Pre-Construction | TBD        | TBD        | TBD                              |   TBD |    TBD |  TBD |
-| Edgewater          | Vida Residences Edgewater                      | 460 NE 28th St, Miami, FL                             | Pre-Construction | ~$700K+    | TBD        | Urbana Development               |    61 |     12 |  TBD |
-| Fisher Island      | Six Fisher Island                              | 6 Fisher Island Dr, Fisher Island, FL                 | Pre-Construction | ~$10M+     | 2026       | CMC Group                        |    50 |     10 |  TBD |
-| Fisher Island      | The Links Estates at Fisher Island             | Fisher Island, FL                                     | Completed        | ~$5M+      | Existing   | Fisher Island Development        |   TBD |    TBD |  TBD |
-| Fort Lauderdale    | 160 Marina Bay                                 | 160 Isle of Venice Dr, Fort Lauderdale, FL            | Pre-Construction | TBD        | TBD        | TBD                              |   TBD |    TBD |  TBD |
-| Fort Lauderdale    | 3000 Waterside                                 | 3000 E Las Olas Blvd, Fort Lauderdale, FL             | Pre-Construction | ~$1M+      | 2026       | Related Group                    |   TBD |    TBD |  TBD |
-| Fort Lauderdale    | Edition Residences Fort Lauderdale             | 551 N Fort Lauderdale Beach Blvd, Fort Lauderdale, FL | Pre-Construction | ~$3M+      | 2027       | Fort Partners / Marriott Edition |    92 |     11 |  TBD |
-| Fort Lauderdale    | Ocean Harbor                                   | 3200 N Ocean Blvd, Fort Lauderdale, FL                | Pre-Construction | TBD        | TBD        | TBD                              |   TBD |    TBD |  TBD |
-| Fort Lauderdale    | Pier Sixty-Six Residences                      | 2301 SE 17th St, Fort Lauderdale, FL                  | Pre-Construction | ~$2M+      | 2026       | Tavistock Development            |    92 |    TBD |  TBD |
-| Fort Lauderdale    | Selene Oceanfront Residences                   | 151 N Seabreeze Blvd, Fort Lauderdale, FL             | Completed        | ~$1M+      | 2024       | Kolter Urban                     |   194 |     26 |  TBD |
-| Fort Lauderdale    | Sixth and Rio                                  | 501 SE 6th Ave, Fort Lauderdale, FL                   | Pre-Construction | ~$700K+    | 2026       | Dev Motwani                      |    92 |     15 |  TBD |
-| Fort Lauderdale    | The Bahia Mar Residences                       | 801 Seabreeze Blvd, Fort Lauderdale, FL               | Pre-Construction | ~$2M+      | TBD        | Related Group                    |   TBD |    TBD |  TBD |
-| Fort Lauderdale    | The Edition Hotel & Residences Fort Lauderdale | 551 N Fort Lauderdale Beach Blvd, Fort Lauderdale, FL | Pre-Construction | ~$3M+      | 2027       | Fort Partners                    |    92 |     11 |  TBD |
-| Fort Lauderdale    | The Muse Tower                                 | Fort Lauderdale, FL                                   | Pre-Construction | TBD        | TBD        | TBD                              |   TBD |    TBD |  TBD |
-| Fort Lauderdale    | The Terraces Fort Lauderdale                   | Fort Lauderdale, FL                                   | Pre-Construction | TBD        | TBD        | TBD                              |   TBD |    TBD |  TBD |
-| Hallandale Beach   | Oasis Hallandale                               | 1100 E Hallandale Beach Blvd, Hallandale Beach, FL | Completed        | ~$600K+    | 2023       | RECHT Group                     |   250 |     26 |  TBD |
-| Hallandale Beach   | The Residences at Shell Bay                    | 501 Diplomat Pkwy, Hallandale Beach, FL            | Pre-Construction | ~$2M+      | 2026       | Witkoff / PPG Development       |   108 |     20 |  TBD |
-| Hollywood          | Artist Townhomes                               | Hollywood, FL                                      | Pre-Construction | TBD        | TBD        | TBD                             |   TBD |    TBD |  TBD |
-| Hollywood          | Hollywood Arts Residences                      | 1735 Van Buren St, Hollywood, FL                   | Pre-Construction | ~$500K+    | 2026       | PMG                             |   TBD |    TBD |  TBD |
-| Miami Beach        | 42 Pine Miami Beach                            | 42 Pine Tree Dr, Miami Beach, FL                   | Pre-Construction | ~$2M+      | TBD        | TBD                             |   TBD |    TBD |  TBD |
-| Miami Beach        | 72 Park Miami Beach                            | 580 72nd St, Miami Beach, FL                       | Completed        | ~$700K+    | 2023       | Lefferts                        |   216 |     22 |  TBD |
-| Miami Beach        | Aman Residences Miami Beach                    | 3425 Collins Ave, Miami Beach, FL                  | Pre-Construction | ~$4M+      | 2027       | OKO Group / Aman                |    56 |     18 |  TBD |
-| Miami Beach        | Ella Miami Beach                               | 6310 Collins Ave, Miami Beach, FL                  | Pre-Construction | ~$700K+    | 2026       | The Estate Companies            |    95 |     10 |  TBD |
-| Miami Beach        | The Perigon Miami Beach                        | 5333 Collins Ave, Miami Beach, FL                  | Pre-Construction | ~$4M+      | 2026       | Mast Capital / Starwood Capital |    73 |     17 |  TBD |
-| Miami Beach        | Twenty-Nine Indian Creek                       | 2900 Indian Creek Dr, Miami Beach, FL              | Pre-Construction | ~$2M+      | TBD        | TBD                             |   TBD |    TBD |  TBD |
-| Miami River        | One River Point                                | 24 SW 4th St, Miami, FL                            | Pre-Construction | ~$1M+      | 2027       | Urban Network Capital Group     |   386 |     60 |  TBD |
-| Midtown Miami      | The Standard Residences Miami                  | 3100 NE 1st Ave, Miami, FL                         | Pre-Construction | ~$700K+    | 2025/26    | Rosso Development               |   228 |     12 |  TBD |
-| North Bay Village  | 7918 West Drive                                | 7918 West Dr, North Bay Village, FL                | Pre-Construction | ~$1M+      | TBD        | TBD                             |   TBD |    TBD |  TBD |
-| North Bay Village  | Continuum North Bay Village                    | 1800 79th Street Causeway, North Bay Village, FL   | Pre-Construction | ~$2M+      | 2026       | Continuum Company               |   TBD |    TBD |  TBD |
-| North Bay Village  | Shoma Bay                                      | 1850 79th Street Causeway, North Bay Village, FL   | Completed        | ~$700K+    | 2024       | Shoma Group                     |   333 |     24 |  TBD |
-| North Miami        | One Park Tower by Turnberry                    | 16385 Biscayne Blvd, North Miami Beach, FL | Completed        | ~$600K+    | 2022       | Turnberry Associates                        |   184 |     33 |  TBD |
-| North Miami Beach  | Nexo Residences                                | 13899 Biscayne Blvd, North Miami Beach, FL | Pre-Construction | ~$600K+    | 2026       | Nexo Group                                  |   254 |     15 |  TBD |
-| Palm Beach         | Pearl Palm Beach Shores                        | 3105 S Ocean Blvd, Palm Beach Shores, FL   | Pre-Construction | ~$2M+      | TBD        | TBD                                         |   TBD |    TBD |  TBD |
-| Palm Beach Gardens | The Ritz-Carlton Residences Palm Beach Gardens | 4300 PGA Blvd, Palm Beach Gardens, FL      | Pre-Construction | ~$2M+      | 2026       | Catalfumo Companies                         |   144 |     11 |  TBD |
-| Pompano Beach      | Casamar Pompano Beach                          | 20 N Ocean Blvd, Pompano Beach, FL         | Completed        | ~$1M+      | 2025       | U.S. Development                            |   119 |     21 |  TBD |
-| Pompano Beach      | Ritz-Carlton Residences Pompano Beach          | 1380 S Ocean Blvd, Pompano Beach, FL       | Pre-Construction | ~$3M+      | 2027       | Fortune International Group / Oak Capital   |   205 |     32 |  TBD |
-| Pompano Beach      | Salato Pompano Beach                           | 405 N Ocean Blvd, Pompano Beach, FL        | Pre-Construction | ~$1M+      | 2026       | U.S. Development                            |    40 |      9 |  TBD |
-| Pompano Beach      | Solemar Pompano Beach                          | 1116 N Ocean Blvd, Pompano Beach, FL       | Completed        | ~$1M+      | 2024       | Related Group                               |   105 |     20 |  TBD |
-| Pompano Beach      | Waldorf Astoria Residences Pompano Beach       | 1350 S Ocean Blvd, Pompano Beach, FL       | Pre-Construction | ~$2M+      | 2026       | Related Group / Hilton                      |    92 |     20 |  TBD |
-| South Beach        | Five Park South Beach                          | 500 Alton Rd, Miami Beach, FL              | Completed        | ~$1.5M+    | 2024       | Terra Group                                 |    98 |     48 |  TBD |
-| South Beach        | Shore Club Collection                          | 1901 Collins Ave, Miami Beach, FL          | Pre-Construction | ~$3M+      | 2026       | Witkoff / New Valley                        |    49 |     20 |  TBD |
-| South Beach        | Urbin Miami Beach                              | 1260 Washington Ave, Miami Beach, FL       | Pre-Construction | TBD        | TBD        | Urbin                                       |   TBD |    TBD |  TBD |
-| Sunny Isles Beach  | Bentley Residences                             | 18401 Collins Ave, Sunny Isles Beach, FL   | Pre-Construction | ~$5M+      | 2027       | Dezer Development / Bentley Motors          |   216 |     63 |  TBD |
-| Sunny Isles Beach  | St. Regis Residences Sunny Isles Beach         | 18801 Collins Ave, Sunny Isles Beach, FL   | Completed        | ~$3M+      | 2021       | Fortune International Group / Chateau Group |   246 |     49 |  TBD |
-| Surfside           | 93 Ocean                                       | 9301 Collins Ave, Surfside, FL             | Pre-Construction | ~$5M+      | 2025/26    | Stackhouse                                  |    24 |      5 |  TBD |
-| Surfside           | Surf Row Residences                            | 8900 Collins Ave, Surfside, FL             | Pre-Construction | ~$2M+      | TBD        | TBD                                         |   TBD |    TBD |  TBD |
-| West Palm Beach    | Alba Palm Beach                                | 4715 S Dixie Hwy, West Palm Beach, FL      | Pre-Construction | ~$800K+    | 2026       | Apollo Development                          |    55 |      9 |  TBD |
-| West Palm Beach    | Forté on Flagler                               | 3100 S Flagler Dr, West Palm Beach, FL     | Pre-Construction | ~$2M+      | 2027       | Catalfumo Companies                         |    41 |      6 |  TBD |
-| West Palm Beach    | La Clara Palm Beach                            | 333 S Flagler Dr, West Palm Beach, FL      | Completed        | ~$2M+      | 2024       | BGI Companies                               |    83 |     25 |  TBD |
-| West Palm Beach    | Nautilus 220                                   | 220 S Dixie Hwy, West Palm Beach, FL       | Completed        | ~$600K+    | 2022       | Greenwich Development                       |   249 |     24 |  TBD |
-| West Palm Beach    | Olara Residences                               | 1901 N Flagler Dr, West Palm Beach, FL     | Pre-Construction |            |            |                                             |       |        |      |
+export const developments = [
+  {
+    id: "casa-bella-by-bb-italia",
+    title: "Casa Bella by B&B Italia",
+    subtitle: "Italian-Inspired Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7896,
+      lng: -80.1895
+    },
+    neighborhood: "Art District",
+    address: "1444 Biscayne Blvd, Miami, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "Related Group / Alta Developers",
+    units: 306,
+    floors: 56,
+    ppsf: "TBD",
+    highlights: [
+      "Luxury residences with B&B Italia design influence",
+      "Prime Miami Art District location",
+      "Developed by Related Group and Alta Developers",
+      "Expected completion in 2027"
+    ]
+  },
+
+  {
+    id: "tal-aventura",
+    title: "TAL Aventura",
+    subtitle: "Boutique Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Aventura, Florida",
+    coordinates: {
+      lat: 25.9320,
+      lng: -80.1625
+    },
+    neighborhood: "Aventura",
+    address: "17111 Biscayne Blvd, Aventura, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "Rieber Developments",
+    units: 86,
+    floors: 9,
+    ppsf: "TBD",
+    highlights: [
+      "Boutique luxury condominium",
+      "Located in Aventura's Biscayne corridor",
+      "Limited collection of residences",
+      "Expected completion in 2027"
+    ]
+  },
+
+  {
+    id: "rivage-bal-harbour",
+    title: "Rivage Bal Harbour",
+    subtitle: "Ultra-Luxury Waterfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Bal Harbour, Florida",
+    coordinates: {
+      lat: 25.8876,
+      lng: -80.1239
+    },
+    neighborhood: "Bal Harbour",
+    address: "10245 Collins Ave, Bal Harbour, FL",
+    price: "~$7M+",
+    priceRange: "~$7M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Related Group / Two Roads Development",
+    units: 56,
+    floors: 24,
+    ppsf: "~$4K+",
+    highlights: [
+      "Ultra-luxury oceanfront lifestyle",
+      "Exclusive Bal Harbour location",
+      "Private luxury amenities",
+      "High-end waterfront investment opportunity"
+    ]
+  },
+
+  {
+    id: "alana-bay-harbor-islands",
+    title: "Alana Bay Harbor Islands",
+    subtitle: "Boutique Island Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Bay Harbor Islands, Florida",
+    coordinates: {
+      lat: 25.8870,
+      lng: -80.1310
+    },
+    neighborhood: "Bay Harbor Islands",
+    address: "9901 West Bay Harbor Dr, Bay Harbor Islands, FL",
+    price: "~$1.5M+",
+    priceRange: "~$1.5M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2025/26",
+    developer: "Lefferts / The Estate Companies",
+    units: 30,
+    floors: 8,
+    ppsf: "TBD",
+    highlights: [
+      "Boutique waterfront residences",
+      "Exclusive Bay Harbor Islands location",
+      "Modern luxury living",
+      "Limited residential collection"
+    ]
+  },
+
+  {
+    id: "indian-creek-residences-and-yacht-club",
+    title: "Indian Creek Residences and Yacht Club",
+    subtitle: "Waterfront Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Bay Harbor Islands, Florida",
+    coordinates: {
+      lat: 25.8930,
+      lng: -80.1300
+    },
+    neighborhood: "Bay Harbor Islands",
+    address: "9455 E Broadview Dr, Bay Harbor Islands, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Private yacht club lifestyle",
+      "Waterfront Bay Harbor Islands setting",
+      "Luxury residential concept",
+      "Exclusive Miami location"
+    ]
+  },
+
+  {
+    id: "la-baia-bay-harbor",
+    title: "La Baia Bay Harbor",
+    subtitle: "Waterfront Boutique Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Bay Harbor Islands, Florida",
+    coordinates: {
+      lat: 25.8890,
+      lng: -80.1315
+    },
+    neighborhood: "Bay Harbor Islands",
+    address: "9201 E Bay Harbor Dr, Bay Harbor Islands, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2024",
+    developer: "Lefferts",
+    units: 68,
+    floors: 9,
+    ppsf: "TBD",
+    highlights: [
+      "Completed waterfront residences",
+      "Boutique island living",
+      "Bay Harbor Islands location",
+      "Modern luxury amenities"
+    ]
+  },
+
+  {
+    id: "la-mare-residences",
+    title: "La Maré Residences",
+    subtitle: "Luxury Bay Harbor Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Bay Harbor Islands, Florida",
+    coordinates: {
+      lat: 25.8895,
+      lng: -80.1305
+    },
+    neighborhood: "Bay Harbor Islands",
+    address: "10203 E Bay Harbor Dr, Bay Harbor Islands, FL",
+    price: "~$1.5M+",
+    priceRange: "~$1.5M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "Alta Developers",
+    units: 72,
+    floors: 9,
+    ppsf: "TBD",
+    highlights: [
+      "Boutique luxury residences",
+      "Bay Harbor Islands waterfront setting",
+      "Contemporary residential design",
+      "Premium Miami lifestyle"
+    ]
+  },
+
+  {
+    id: "onda-residences",
+    title: "Onda Residences",
+    subtitle: "Waterfront Luxury Condominiums",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Bay Harbor Islands, Florida",
+    coordinates: {
+      lat: 25.8920,
+      lng: -80.1300
+    },
+    neighborhood: "Bay Harbor Islands",
+    address: "1135 103rd St, Bay Harbor Islands, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2023",
+    developer: "Morabito Properties",
+    units: 41,
+    floors: 8,
+    ppsf: "TBD",
+    highlights: [
+      "Designed by renowned architecture team",
+      "Waterfront boutique living",
+      "Exclusive Bay Harbor location",
+      "Completed luxury residences"
+    ]
+  },
+
+  {
+    id: "origin-residences",
+    title: "Origin Residences",
+    subtitle: "Modern Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Bay Harbor Islands, Florida",
+    coordinates: {
+      lat: 25.8875,
+      lng: -80.1320
+    },
+    neighborhood: "Bay Harbor Islands",
+    address: "9940 West Bay Harbor Dr, Bay Harbor Islands, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "The Related Group",
+    units: 79,
+    floors: 14,
+    ppsf: "TBD",
+    highlights: [
+      "Modern luxury residences",
+      "Prime Bay Harbor Islands location",
+      "Developed by The Related Group",
+      "Expected completion in 2026"
+    ]
+  },
+
+  {
+    id: "the-well-bay-harbor-islands",
+    title: "THE WELL Bay Harbor Islands",
+    subtitle: "Wellness-Focused Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Bay Harbor Islands, Florida",
+    coordinates: {
+      lat: 25.8879,
+      lng: -80.1315
+    },
+    neighborhood: "Bay Harbor Islands",
+    address: "1100 Kane Concourse, Bay Harbor Islands, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Terra / THE WELL",
+    units: 54,
+    floors: 10,
+    ppsf: "TBD",
+    highlights: [
+      "Wellness-centered luxury lifestyle",
+      "Exclusive Bay Harbor Islands location",
+      "Residential amenities focused on health and wellbeing",
+      "Developed by Terra and THE WELL"
+    ]
+  },
+
+  {
+    id: "alina-residences-boca-raton",
+    title: "Alina Residences",
+    subtitle: "Luxury Downtown Boca Raton Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Boca Raton, Florida",
+    coordinates: {
+      lat: 26.3518,
+      lng: -80.0851
+    },
+    neighborhood: "Boca Raton",
+    address: "200 SE Mizner Blvd, Boca Raton, FL",
+    price: "~$1.5M+",
+    priceRange: "~$1.5M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2021",
+    developer: "Compson Associates",
+    units: 121,
+    floors: 12,
+    ppsf: "TBD",
+    highlights: [
+      "Completed luxury residences",
+      "Located in downtown Boca Raton",
+      "Walkable Mizner Park lifestyle",
+      "High-end residential amenities"
+    ]
+  },
+
+  {
+    id: "mandarin-oriental-residences-boca-raton",
+    title: "Mandarin Oriental Residences Boca Raton",
+    subtitle: "Five-Star Branded Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Boca Raton, Florida",
+    coordinates: {
+      lat: 26.3478,
+      lng: -80.0845
+    },
+    neighborhood: "Boca Raton",
+    address: "105 E Camino Real, Boca Raton, FL",
+    price: "~$3M+",
+    priceRange: "~$3M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "Penn-Florida Companies",
+    units: 92,
+    floors: 5,
+    ppsf: "TBD",
+    highlights: [
+      "Mandarin Oriental branded residences",
+      "Five-star hospitality services",
+      "Exclusive Boca Raton location",
+      "Ultra-luxury lifestyle offering"
+    ]
+  },
+
+  {
+    id: "2200-brickell",
+    title: "2200 Brickell",
+    subtitle: "Boutique Brickell Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7560,
+      lng: -80.1930
+    },
+    neighborhood: "Brickell",
+    address: "2200 Brickell Ave, Miami, FL",
+    price: "~$1.5M+",
+    priceRange: "~$1.5M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Related Group",
+    units: 35,
+    floors: 7,
+    ppsf: "TBD",
+    highlights: [
+      "Boutique Brickell residences",
+      "Prime Miami financial district location",
+      "Limited collection of homes",
+      "Developed by Related Group"
+    ]
+  },
+
+  {
+    id: "888-brickell",
+    title: "888 Brickell",
+    subtitle: "Ultra-Luxury Brickell Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7604,
+      lng: -80.1917
+    },
+    neighborhood: "Brickell",
+    address: "888 Brickell Ave, Miami, FL",
+    price: "~$1.5M+",
+    priceRange: "~$1.5M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2028",
+    developer: "JDS Development",
+    units: 259,
+    floors: 50,
+    ppsf: "TBD",
+    highlights: [
+      "Iconic Brickell tower development",
+      "Luxury residences in Miami's financial district",
+      "Modern architectural design",
+      "Expected completion in 2028"
+    ]
+  },
+
+  {
+    id: "baccarat-residences-miami",
+    title: "Baccarat Residences Miami",
+    subtitle: "Branded Five-Star Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7730,
+      lng: -80.1880
+    },
+    neighborhood: "Brickell",
+    address: "99 SE 5th St, Miami, FL",
+    price: "~$1.5M+",
+    priceRange: "~$1.5M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "SH Hotels & Resorts / Related Group",
+    units: 324,
+    floors: 75,
+    ppsf: "TBD",
+    highlights: [
+      "Baccarat branded luxury residences",
+      "Five-star hospitality experience",
+      "Brickell waterfront location",
+      "Developed by Related Group"
+    ]
+  },
+
+  {
+    id: "cipriani-residences-miami",
+    title: "Cipriani Residences Miami",
+    subtitle: "Italian-Inspired Branded Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7590,
+      lng: -80.1945
+    },
+    neighborhood: "Brickell",
+    address: "40 SW 12th St, Miami, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Related Group",
+    units: 397,
+    floors: 80,
+    ppsf: "TBD",
+    highlights: [
+      "Cipriani branded residences",
+      "Italian luxury hospitality concept",
+      "Prime Brickell location",
+      "Large-scale luxury tower"
+    ]
+  },
+
+  {
+    id: "domus-brickell-park",
+    title: "Domus Brickell Park",
+    subtitle: "Modern Brickell Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7615,
+      lng: -80.1985
+    },
+    neighborhood: "Brickell",
+    address: "1611 SW 2nd Ave, Miami, FL",
+    price: "~$500K+",
+    priceRange: "~$500K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2025",
+    developer: "North Development",
+    units: 171,
+    floors: 12,
+    ppsf: "TBD",
+    highlights: [
+      "Modern urban residences",
+      "Prime Brickell location",
+      "Contemporary amenities",
+      "Completed residential development"
+    ]
+  },
+
+  {
+    id: "lofty-brickell",
+    title: "Lofty Brickell",
+    subtitle: "Urban Luxury Living",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7650,
+      lng: -80.1965
+    },
+    neighborhood: "Brickell",
+    address: "99 SW 7th St, Miami, FL",
+    price: "~$600K+",
+    priceRange: "~$600K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2025",
+    developer: "Habitat Group",
+    units: 489,
+    floors: 46,
+    ppsf: "TBD",
+    highlights: [
+      "Modern Brickell residences",
+      "Designed for urban lifestyle",
+      "Large residential collection",
+      "Prime downtown Miami location"
+    ]
+  },
+
+  {
+    id: "ora-by-casa-tua",
+    title: "ORA By Casa Tua",
+    subtitle: "Luxury Hospitality Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7605,
+      lng: -80.1915
+    },
+    neighborhood: "Brickell",
+    address: "1210 Brickell Ave, Miami, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Casa Tua / Fortune International",
+    units: 76,
+    floors: 20,
+    ppsf: "TBD",
+    highlights: [
+      "Casa Tua branded residences",
+      "Luxury hospitality-inspired living",
+      "Brickell Avenue location",
+      "Exclusive residential collection"
+    ]
+  },
+
+  {
+    id: "smart-brickell-tower",
+    title: "Smart Brickell Tower",
+    subtitle: "Technology-Driven Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7650,
+      lng: -80.1930
+    },
+    neighborhood: "Brickell",
+    address: "239 SW 9th St, Miami, FL",
+    price: "~$500K+",
+    priceRange: "~$500K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2023",
+    developer: "Habitat Group",
+    units: 50,
+    floors: 25,
+    ppsf: "TBD",
+    highlights: [
+      "Smart home technology features",
+      "Brickell urban lifestyle",
+      "Completed luxury tower",
+      "Modern residential amenities"
+    ]
+  },
+
+  {
+    id: "st-regis-residences-miami",
+    title: "St. Regis Residences Miami",
+    subtitle: "Ultra-Luxury Waterfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7595,
+      lng: -80.1885
+    },
+    neighborhood: "Brickell",
+    address: "1809 Brickell Ave, Miami, FL",
+    price: "~$5M+",
+    priceRange: "~$5M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "2 - 6 Bedrooms",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "Related Group / The St. Regis",
+    units: 152,
+    floors: 46,
+    ppsf: "TBD",
+    highlights: [
+      "Five-star St. Regis lifestyle",
+      "Waterfront Brickell location",
+      "Private luxury services",
+      "Ultra-luxury investment opportunity"
+    ]
+  },
+
+  {
+    id: "the-residences-at-1428-brickell",
+    title: "The Residences at 1428 Brickell",
+    subtitle: "Next-Generation Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7598,
+      lng: -80.1935
+    },
+    neighborhood: "Brickell",
+    address: "1428 Brickell Ave, Miami, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2028",
+    developer: "Yamal Yidios",
+    units: 189,
+    floors: 70,
+    ppsf: "TBD",
+    highlights: [
+      "Iconic Brickell skyline tower",
+      "Luxury sustainable design",
+      "Premium financial district location",
+      "Expected completion in 2028"
+    ]
+  },
+
+  {
+    id: "una-residences",
+    title: "Una Residences",
+    subtitle: "Waterfront Brickell Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7495,
+      lng: -80.1960
+    },
+    neighborhood: "Brickell",
+    address: "175 SE 25th Rd, Miami, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2024",
+    developer: "OKO Group",
+    units: 135,
+    floors: 47,
+    ppsf: "TBD",
+    highlights: [
+      "Waterfront Brickell residences",
+      "Contemporary architectural design",
+      "Luxury amenities",
+      "Completed residential tower"
+    ]
+  },
+
+  {
+    id: "visions-at-brickell-station",
+    title: "Visions at Brickell Station",
+    subtitle: "Modern Brickell Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7635,
+      lng: -80.1960
+    },
+    neighborhood: "Brickell",
+    address: "1250 S Miami Ave, Miami, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Brickell neighborhood location",
+      "Modern residential concept",
+      "Urban Miami lifestyle",
+      "Future development opportunity"
+    ]
+  },
+
+  {
+    id: "one-island-drive",
+    title: "One Island Drive",
+    subtitle: "Brickell Key Waterfront Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7680,
+      lng: -80.1850
+    },
+    neighborhood: "Brickell Key",
+    address: "550 Brickell Key Dr, Miami, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "1990s",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Established Brickell Key waterfront community",
+      "Island lifestyle in Miami",
+      "Private residential setting",
+      "Prime downtown location"
+    ]
+  },
+
+  {
+    id: "the-residences-at-mandarin-oriental-miami",
+    title: "The Residences at Mandarin Oriental Miami",
+    subtitle: "Luxury Island Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7675,
+      lng: -80.1835
+    },
+    neighborhood: "Brickell Key",
+    address: "5000 Island Blvd, Miami, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2000",
+    developer: "Swire Properties",
+    units: 228,
+    floors: 44,
+    ppsf: "TBD",
+    highlights: [
+      "Mandarin Oriental branded residences",
+      "Exclusive island location",
+      "Five-star hospitality services",
+      "Luxury waterfront lifestyle"
+    ]
+  },
+
+  {
+    id: "mr-c-residences",
+    title: "Mr. C Residences",
+    subtitle: "Cipriani Family Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7275,
+      lng: -80.2390
+    },
+    neighborhood: "Coconut Grove",
+    address: "2655 S Bayshore Dr, Miami, FL",
+    price: "~$1.5M+",
+    priceRange: "~$1.5M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2022",
+    developer: "Urban Network Capital Group / Ignazio Cipriani",
+    units: 100,
+    floors: 8,
+    ppsf: "TBD",
+    highlights: [
+      "European-inspired luxury residences",
+      "Coconut Grove waterfront lifestyle",
+      "Cipriani family hospitality influence",
+      "Boutique residential experience"
+    ]
+  },
+
+  {
+    id: "mr-c-tigertail-residences",
+    title: "Mr. C Tigertail Residences",
+    subtitle: "Boutique Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7285,
+      lng: -80.2430
+    },
+    neighborhood: "Coconut Grove",
+    address: "1315 S Tigertail Ave, Miami, FL",
+    price: "~$1.5M+",
+    priceRange: "~$1.5M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Urban Network Capital Group",
+    units: 60,
+    floors: 8,
+    ppsf: "TBD",
+    highlights: [
+      "Boutique Coconut Grove residences",
+      "Luxury hospitality-inspired living",
+      "Limited residential collection",
+      "Expected completion in 2026"
+    ]
+  },
+
+  {
+    id: "residences-in-the-grove",
+    title: "Residences in the Grove",
+    subtitle: "Coconut Grove Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7270,
+      lng: -80.2385
+    },
+    neighborhood: "Coconut Grove",
+    address: "2669 S Bayshore Dr, Miami, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Prime Coconut Grove location",
+      "Luxury residential development",
+      "Near waterfront lifestyle amenities",
+      "Exclusive Miami neighborhood"
+    ]
+  },
+
+  {
+    id: "urbin-coconut-grove",
+    title: "Urbin Coconut Grove",
+    subtitle: "Modern Flexible Living Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7280,
+      lng: -80.2340
+    },
+    neighborhood: "Coconut Grove",
+    address: "3140 Commodore Plaza, Miami, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Urbin / Terra",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Innovative residential concept",
+      "Coconut Grove lifestyle",
+      "Developed by Urbin and Terra",
+      "Modern flexible living model"
+    ]
+  },
+
+  {
+    id: "vita-residences-at-grove-isle",
+    title: "Vita Residences at Grove Isle",
+    subtitle: "Private Island Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7360,
+      lng: -80.2235
+    },
+    neighborhood: "Coconut Grove",
+    address: "4 Grove Isle Dr, Miami, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2025/26",
+    developer: "Terra Group",
+    units: 65,
+    floors: 9,
+    ppsf: "TBD",
+    highlights: [
+      "Private island residential lifestyle",
+      "Waterfront Coconut Grove setting",
+      "Luxury amenities",
+      "Exclusive Terra Group development"
+    ]
+  },
+
+  {
+    id: "719-biltmore-way-residences",
+    title: "719 Biltmore Way Residences",
+    subtitle: "Coral Gables Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Coral Gables, Florida",
+    coordinates: {
+      lat: 25.7480,
+      lng: -80.2595
+    },
+    neighborhood: "Coral Gables",
+    address: "719 Biltmore Way, Coral Gables, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Exclusive Coral Gables location",
+      "Boutique luxury residences",
+      "Near Biltmore Hotel and Miracle Mile",
+      "Premium South Florida lifestyle"
+    ]
+  },
+
+  {
+    id: "the-avenue-coral-gables",
+    title: "The Avenue Coral Gables",
+    subtitle: "Boutique Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Coral Gables, Florida",
+    coordinates: {
+      lat: 25.7510,
+      lng: -80.2580
+    },
+    neighborhood: "Coral Gables",
+    address: "351 San Lorenzo Ave, Coral Gables, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Agave Holdings",
+    units: 48,
+    floors: 8,
+    ppsf: "TBD",
+    highlights: [
+      "Boutique Coral Gables residences",
+      "Walkable luxury lifestyle",
+      "Prime city-center location",
+      "Modern architectural design"
+    ]
+  },
+
+  {
+    id: "501-first-residences",
+    title: "501 FIRST Residences",
+    subtitle: "Downtown Miami Modern Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7750,
+      lng: -80.1915
+    },
+    neighborhood: "Downtown Miami",
+    address: "501 NE 1st Ave, Miami, FL",
+    price: "~$500K+",
+    priceRange: "~$500K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2028",
+    developer: "Terra Group",
+    units: 149,
+    floors: 40,
+    ppsf: "TBD",
+    highlights: [
+      "Downtown Miami urban living",
+      "Developed by Terra Group",
+      "Modern residential tower",
+      "Expected completion in 2028"
+    ]
+  },
+
+  {
+    id: "600-miami-worldcenter",
+    title: "600 Miami Worldcenter",
+    subtitle: "World-Class Downtown Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7800,
+      lng: -80.1910
+    },
+    neighborhood: "Downtown Miami",
+    address: "600 NE 1st Ave, Miami, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2028",
+    developer: "Naftali Group",
+    units: 579,
+    floors: 54,
+    ppsf: "TBD",
+    highlights: [
+      "Miami Worldcenter location",
+      "Large-scale luxury residential tower",
+      "Connected downtown lifestyle",
+      "Major Miami development"
+    ]
+  },
+
+  {
+    id: "aston-martin-residences",
+    title: "Aston Martin Residences",
+    subtitle: "Automotive-Inspired Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7710,
+      lng: -80.1860
+    },
+    neighborhood: "Downtown Miami",
+    address: "300 Biscayne Blvd Way, Miami, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2024",
+    developer: "G&G Business Developments",
+    units: 391,
+    floors: 66,
+    ppsf: "TBD",
+    highlights: [
+      "Aston Martin branded residences",
+      "Iconic Miami River location",
+      "Luxury amenities and design",
+      "Completed landmark tower"
+    ]
+  },
+
+  {
+    id: "district-225",
+    title: "District 225",
+    subtitle: "Downtown Miami Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7755,
+      lng: -80.1910
+    },
+    neighborhood: "Downtown Miami",
+    address: "225 NE 1st St, Miami, FL",
+    price: "~$500K+",
+    priceRange: "~$500K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2024",
+    developer: "Related Group",
+    units: 343,
+    floors: 37,
+    ppsf: "TBD",
+    highlights: [
+      "Downtown Miami location",
+      "Developed by Related Group",
+      "Modern residential tower",
+      "Urban lifestyle amenities"
+    ]
+  },
+
+  {
+    id: "e11even-hotel-residences",
+    title: "E11EVEN Hotel & Residences",
+    subtitle: "Entertainment District Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7840,
+      lng: -80.1910
+    },
+    neighborhood: "Downtown Miami",
+    address: "29 NE 11th St, Miami, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2022",
+    developer: "PMG",
+    units: 450,
+    floors: 65,
+    ppsf: "TBD",
+    highlights: [
+      "Entertainment-driven lifestyle",
+      "E11EVEN branded residences",
+      "Downtown Miami location",
+      "Hotel-style services"
+    ]
+  },
+
+  {
+    id: "e11even-residences-beyond",
+    title: "E11EVEN Residences Beyond",
+    subtitle: "Entertainment District Luxury Tower",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7845,
+      lng: -80.1915
+    },
+    neighborhood: "Downtown Miami",
+    address: "1016 NE 2nd Ave, Miami, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "PMG",
+    units: 461,
+    floors: 65,
+    ppsf: "TBD",
+    highlights: [
+      "Continuation of the E11EVEN lifestyle brand",
+      "Entertainment-focused luxury residences",
+      "Downtown Miami location",
+      "Hotel-style services and amenities"
+    ]
+  },
+
+  {
+    id: "legacy-residences-at-miami-worldcenter",
+    title: "Legacy Residences at Miami Worldcenter",
+    subtitle: "Healthcare-Inspired Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7790,
+      lng: -80.1905
+    },
+    neighborhood: "Downtown Miami",
+    address: "698 NE 1st Ave, Miami, FL",
+    price: "~$600K+",
+    priceRange: "~$600K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Royal Palm Companies",
+    units: 310,
+    floors: 55,
+    ppsf: "TBD",
+    highlights: [
+      "Luxury residences at Miami Worldcenter",
+      "Integrated wellness and healthcare concept",
+      "Prime downtown location",
+      "Modern residential tower"
+    ]
+  },
+
+  {
+    id: "natiivo-miami",
+    title: "Natiivo Miami",
+    subtitle: "Flexible Hospitality Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7795,
+      lng: -80.1900
+    },
+    neighborhood: "Downtown Miami",
+    address: "601 NE 1st Ave, Miami, FL",
+    price: "~$500K+",
+    priceRange: "~$500K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2023",
+    developer: "Airbnb / Newgard",
+    units: 448,
+    floors: 51,
+    ppsf: "TBD",
+    highlights: [
+      "Hospitality-inspired residences",
+      "Flexible ownership model",
+      "Miami Worldcenter location",
+      "Modern downtown lifestyle"
+    ]
+  },
+
+  {
+    id: "okan-tower",
+    title: "Okan Tower",
+    subtitle: "Iconic Downtown Miami Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7810,
+      lng: -80.1930
+    },
+    neighborhood: "Downtown Miami",
+    address: "555 N Miami Ave, Miami, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "Okan Group",
+    units: 236,
+    floors: 70,
+    ppsf: "TBD",
+    highlights: [
+      "Iconic Miami skyline tower",
+      "Turkish-inspired luxury development",
+      "High-rise downtown living",
+      "Expected completion in 2027"
+    ]
+  },
+
+  {
+    id: "the-crosby-miami-worldcenter",
+    title: "The Crosby Miami Worldcenter",
+    subtitle: "Modern Urban Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7795,
+      lng: -80.1905
+    },
+    neighborhood: "Downtown Miami",
+    address: "601 NE 1st Ave, Miami, FL",
+    price: "~$500K+",
+    priceRange: "~$500K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "Related Group",
+    units: 450,
+    floors: 34,
+    ppsf: "TBD",
+    highlights: [
+      "Miami Worldcenter lifestyle",
+      "Developed by Related Group",
+      "Urban residential community",
+      "Downtown entertainment access"
+    ]
+  },
+
+  {
+    id: "waldorf-astoria-residences-miami",
+    title: "Waldorf Astoria Residences Miami",
+    subtitle: "Ultra-Luxury Branded Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7710,
+      lng: -80.1855
+    },
+    neighborhood: "Downtown Miami",
+    address: "300 Biscayne Blvd, Miami, FL",
+    price: "~$1.5M+",
+    priceRange: "~$1.5M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2028",
+    developer: "PMG / Hilton",
+    units: 360,
+    floors: 100,
+    ppsf: "TBD",
+    highlights: [
+      "Waldorf Astoria branded residences",
+      "Iconic supertall Miami tower",
+      "Five-star hospitality services",
+      "Ultra-luxury downtown living"
+    ]
+  },
+
+  {
+    id: "west-eleventh-residences-miami",
+    title: "West Eleventh Residences Miami",
+    subtitle: "Modern Miami Lifestyle Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7845,
+      lng: -80.1910
+    },
+    neighborhood: "Downtown Miami",
+    address: "175 NW 11th St, Miami, FL",
+    price: "~$400K+",
+    priceRange: "~$400K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2028",
+    developer: "Property Markets Group",
+    units: 659,
+    floors: 44,
+    ppsf: "TBD",
+    highlights: [
+      "Downtown Miami residential tower",
+      "Entertainment district access",
+      "Large-scale luxury development",
+      "Expected completion in 2028"
+    ]
+  },
+
+  {
+    id: "aria-reserve-miami",
+    title: "Aria Reserve Miami",
+    subtitle: "Waterfront Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7990,
+      lng: -80.1865
+    },
+    neighborhood: "Edgewater",
+    address: "710 NE 24th St, Miami, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2025/26",
+    developer: "Melo Group",
+    units: 792,
+    floors: 62,
+    ppsf: "TBD",
+    highlights: [
+      "Waterfront Edgewater residences",
+      "Large-scale luxury development",
+      "Bay views and resort-style amenities",
+      "Developed by Melo Group"
+    ]
+  },
+
+  {
+    id: "cove-miami",
+    title: "Cove Miami",
+    subtitle: "Modern Waterfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.8070,
+      lng: -80.1845
+    },
+    neighborhood: "Edgewater",
+    address: "520 NE 34th St, Miami, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Two Roads Development",
+    units: 116,
+    floors: 40,
+    ppsf: "TBD",
+    highlights: [
+      "Edgewater waterfront lifestyle",
+      "Boutique luxury residences",
+      "Modern architectural design",
+      "Premium Miami location"
+    ]
+  },
+
+  {
+    id: "edition-residences-edgewater",
+    title: "Edition Residences Edgewater",
+    subtitle: "Branded Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.8000,
+      lng: -80.1875
+    },
+    neighborhood: "Edgewater",
+    address: "1850 NE 24th St, Miami, FL",
+    price: "~$3M+",
+    priceRange: "~$3M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Terra Group / Marriott Edition",
+    units: 185,
+    floors: 55,
+    ppsf: "TBD",
+    highlights: [
+      "EDITION branded residences",
+      "Five-star hospitality experience",
+      "Waterfront Edgewater location",
+      "Luxury residential amenities"
+    ]
+  },
+
+  {
+    id: "the-villa-edgewater",
+    title: "The Villa",
+    subtitle: "Boutique Miami Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7935,
+      lng: -80.1910
+    },
+    neighborhood: "Edgewater",
+    address: "2100 Biscayne Blvd, Miami, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Boutique Edgewater development",
+      "Central Miami location",
+      "Luxury residential concept",
+      "Modern urban lifestyle"
+    ]
+  },
+
+  {
+    id: "vida-residences-edgewater",
+    title: "Vida Residences Edgewater",
+    subtitle: "Contemporary Waterfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.8025,
+      lng: -80.1855
+    },
+    neighborhood: "Edgewater",
+    address: "460 NE 28th St, Miami, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "Urbana Development",
+    units: 61,
+    floors: 12,
+    ppsf: "TBD",
+    highlights: [
+      "Boutique Edgewater residences",
+      "Contemporary design",
+      "Miami waterfront lifestyle",
+      "Limited residential collection"
+    ]
+  },
+
+  {
+    id: "six-fisher-island",
+    title: "Six Fisher Island",
+    subtitle: "Ultra-Exclusive Island Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Fisher Island, Florida",
+    coordinates: {
+      lat: 25.7610,
+      lng: -80.1415
+    },
+    neighborhood: "Fisher Island",
+    address: "6 Fisher Island Dr, Fisher Island, FL",
+    price: "~$10M+",
+    priceRange: "~$10M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "CMC Group",
+    units: 50,
+    floors: 10,
+    ppsf: "TBD",
+    highlights: [
+      "One of Miami's most exclusive communities",
+      "Private island lifestyle",
+      "Ultra-luxury residences",
+      "Limited collection of homes"
+    ]
+  },
+
+  {
+    id: "the-links-estates-at-fisher-island",
+    title: "The Links Estates at Fisher Island",
+    subtitle: "Private Island Estate Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Fisher Island, Florida",
+    coordinates: {
+      lat: 25.7590,
+      lng: -80.1450
+    },
+    neighborhood: "Fisher Island",
+    address: "Fisher Island, FL",
+    price: "~$5M+",
+    priceRange: "~$5M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "Existing",
+    developer: "Fisher Island Development",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Exclusive Fisher Island estates",
+      "Private golf and marina lifestyle",
+      "Ultra-luxury community",
+      "Highly limited availability"
+    ]
+  },
+
+  {
+    id: "160-marina-bay",
+    title: "160 Marina Bay",
+    subtitle: "Waterfront Fort Lauderdale Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Fort Lauderdale, Florida",
+    coordinates: {
+      lat: 26.1205,
+      lng: -80.1135
+    },
+    neighborhood: "Fort Lauderdale",
+    address: "160 Isle of Venice Dr, Fort Lauderdale, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Waterfront Fort Lauderdale location",
+      "Luxury residential concept",
+      "Exclusive island setting",
+      "Future boutique development"
+    ]
+  },
+
+  {
+    id: "3000-waterside",
+    title: "3000 Waterside",
+    subtitle: "Luxury Waterfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Fort Lauderdale, Florida",
+    coordinates: {
+      lat: 26.1210,
+      lng: -80.1050
+    },
+    neighborhood: "Fort Lauderdale",
+    address: "3000 E Las Olas Blvd, Fort Lauderdale, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Related Group",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Las Olas waterfront lifestyle",
+      "Developed by Related Group",
+      "Luxury Fort Lauderdale residences",
+      "Premium coastal location"
+    ]
+  },
+
+  {
+    id: "edition-residences-fort-lauderdale",
+    title: "Edition Residences Fort Lauderdale",
+    subtitle: "Branded Oceanfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Fort Lauderdale, Florida",
+    coordinates: {
+      lat: 26.1290,
+      lng: -80.1040
+    },
+    neighborhood: "Fort Lauderdale",
+    address: "551 N Fort Lauderdale Beach Blvd, Fort Lauderdale, FL",
+    price: "~$3M+",
+    priceRange: "~$3M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "Fort Partners / Marriott Edition",
+    units: 92,
+    floors: 11,
+    ppsf: "TBD",
+    highlights: [
+      "EDITION branded residences",
+      "Beachfront luxury lifestyle",
+      "Five-star hospitality services",
+      "Fort Lauderdale beachfront location"
+    ]
+  },
+
+  {
+    id: "ocean-harbor-fort-lauderdale",
+    title: "Ocean Harbor",
+    subtitle: "Oceanfront Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Fort Lauderdale, Florida",
+    coordinates: {
+      lat: 26.1650,
+      lng: -80.1000
+    },
+    neighborhood: "Fort Lauderdale",
+    address: "3200 N Ocean Blvd, Fort Lauderdale, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Oceanfront Fort Lauderdale location",
+      "Luxury coastal living",
+      "Boutique residential concept",
+      "Premium beachfront setting"
+    ]
+  },
+
+  {
+    id: "pier-sixty-six-residences",
+    title: "Pier Sixty-Six Residences",
+    subtitle: "Luxury Marina Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Fort Lauderdale, Florida",
+    coordinates: {
+      lat: 26.1080,
+      lng: -80.1105
+    },
+    neighborhood: "Fort Lauderdale",
+    address: "2301 SE 17th St, Fort Lauderdale, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Tavistock Development",
+    units: 92,
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Iconic Pier Sixty-Six destination",
+      "Marina lifestyle residences",
+      "Waterfront amenities",
+      "Luxury Fort Lauderdale address"
+    ]
+  },
+
+  {
+    id: "selene-oceanfront-residences",
+    title: "Selene Oceanfront Residences",
+    subtitle: "Completed Oceanfront Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Fort Lauderdale, Florida",
+    coordinates: {
+      lat: 26.1200,
+      lng: -80.1055
+    },
+    neighborhood: "Fort Lauderdale",
+    address: "151 N Seabreeze Blvd, Fort Lauderdale, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2024",
+    developer: "Kolter Urban",
+    units: 194,
+    floors: 26,
+    ppsf: "TBD",
+    highlights: [
+      "Oceanfront Fort Lauderdale residences",
+      "Modern coastal design",
+      "Completed luxury tower",
+      "Resort-style amenities"
+    ]
+  },
+
+  {
+    id: "sixth-and-rio",
+    title: "Sixth and Rio",
+    subtitle: "Urban Waterfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Fort Lauderdale, Florida",
+    coordinates: {
+      lat: 26.1175,
+      lng: -80.1420
+    },
+    neighborhood: "Fort Lauderdale",
+    address: "501 SE 6th Ave, Fort Lauderdale, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Dev Motwani",
+    units: 92,
+    floors: 15,
+    ppsf: "TBD",
+    highlights: [
+      "Downtown Fort Lauderdale lifestyle",
+      "Modern residential development",
+      "Riverfront proximity",
+      "Urban luxury living"
+    ]
+  },
+
+  {
+    id: "the-bahia-mar-residences",
+    title: "The Bahia Mar Residences",
+    subtitle: "Beachfront Fort Lauderdale Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Fort Lauderdale, Florida",
+    coordinates: {
+      lat: 26.1215,
+      lng: -80.1075
+    },
+    neighborhood: "Fort Lauderdale",
+    address: "801 Seabreeze Blvd, Fort Lauderdale, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "Related Group",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Iconic Bahia Mar waterfront location",
+      "Beachfront luxury lifestyle",
+      "Developed by Related Group",
+      "Premium Fort Lauderdale address"
+    ]
+  },
+
+  {
+    id: "the-edition-hotel-residences-fort-lauderdale",
+    title: "The Edition Hotel & Residences Fort Lauderdale",
+    subtitle: "Oceanfront Branded Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Fort Lauderdale, Florida",
+    coordinates: {
+      lat: 26.1290,
+      lng: -80.1040
+    },
+    neighborhood: "Fort Lauderdale",
+    address: "551 N Fort Lauderdale Beach Blvd, Fort Lauderdale, FL",
+    price: "~$3M+",
+    priceRange: "~$3M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "Fort Partners",
+    units: 92,
+    floors: 11,
+    ppsf: "TBD",
+    highlights: [
+      "Marriott EDITION branded residences",
+      "Oceanfront hospitality lifestyle",
+      "Luxury beachfront amenities",
+      "Exclusive Fort Lauderdale community"
+    ]
+  },
+
+  {
+    id: "the-muse-tower-fort-lauderdale",
+    title: "The Muse Tower",
+    subtitle: "Luxury Coastal Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Fort Lauderdale, Florida",
+    coordinates: {
+      lat: 26.1400,
+      lng: -80.1050
+    },
+    neighborhood: "Fort Lauderdale",
+    address: "Fort Lauderdale, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Luxury coastal residences",
+      "Fort Lauderdale lifestyle",
+      "Boutique residential concept",
+      "Future development opportunity"
+    ]
+  },
+
+  {
+    id: "the-terraces-fort-lauderdale",
+    title: "The Terraces Fort Lauderdale",
+    subtitle: "Modern Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Fort Lauderdale, Florida",
+    coordinates: {
+      lat: 26.1200,
+      lng: -80.1300
+    },
+    neighborhood: "Fort Lauderdale",
+    address: "Fort Lauderdale, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Modern residential design",
+      "Fort Lauderdale market opportunity",
+      "Luxury lifestyle positioning",
+      "Future condominium development"
+    ]
+  },
+
+  {
+    id: "oasis-hallandale",
+    title: "Oasis Hallandale",
+    subtitle: "Modern South Florida Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Hallandale Beach, Florida",
+    coordinates: {
+      lat: 25.9870,
+      lng: -80.1320
+    },
+    neighborhood: "Hallandale Beach",
+    address: "1100 E Hallandale Beach Blvd, Hallandale Beach, FL",
+    price: "~$600K+",
+    priceRange: "~$600K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2023",
+    developer: "RECHT Group",
+    units: 250,
+    floors: 26,
+    ppsf: "TBD",
+    highlights: [
+      "Completed Hallandale Beach residences",
+      "Modern amenities",
+      "Convenient South Florida location",
+      "Contemporary urban lifestyle"
+    ]
+  },
+
+  {
+    id: "the-residences-at-shell-bay",
+    title: "The Residences at Shell Bay",
+    subtitle: "Golf Resort Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Hallandale Beach, Florida",
+    coordinates: {
+      lat: 25.9910,
+      lng: -80.1500
+    },
+    neighborhood: "Hallandale Beach",
+    address: "501 Diplomat Pkwy, Hallandale Beach, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Witkoff / PPG Development",
+    units: 108,
+    floors: 20,
+    ppsf: "TBD",
+    highlights: [
+      "Shell Bay resort lifestyle",
+      "Golf and wellness amenities",
+      "Luxury residential community",
+      "Exclusive South Florida location"
+    ]
+  },
+
+  {
+    id: "artist-townhomes-hollywood",
+    title: "Artist Townhomes",
+    subtitle: "Contemporary Hollywood Residences",
+    type: "Luxury Townhomes",
+    status: "Pre-Construction",
+    location: "Hollywood, Florida",
+    coordinates: {
+      lat: 26.0110,
+      lng: -80.1430
+    },
+    neighborhood: "Hollywood",
+    address: "Hollywood, FL",
+    price: "TBD",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Modern townhome concept",
+      "Hollywood lifestyle location",
+      "Contemporary residential design",
+      "Future development opportunity"
+    ]
+  },
+
+  {
+    id: "hollywood-arts-residences",
+    title: "Hollywood Arts Residences",
+    subtitle: "Creative District Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Hollywood, Florida",
+    coordinates: {
+      lat: 26.0115,
+      lng: -80.1410
+    },
+    neighborhood: "Hollywood",
+    address: "1735 Van Buren St, Hollywood, FL",
+    price: "~$500K+",
+    priceRange: "~$500K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "PMG",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Arts district location",
+      "Developed by PMG",
+      "Modern residential living",
+      "Downtown Hollywood access"
+    ]
+  },
+
+  {
+    id: "42-pine-miami-beach",
+    title: "42 Pine Miami Beach",
+    subtitle: "Boutique Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami Beach, Florida",
+    coordinates: {
+      lat: 25.8050,
+      lng: -80.1230
+    },
+    neighborhood: "Miami Beach",
+    address: "42 Pine Tree Dr, Miami Beach, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Exclusive Pine Tree Drive location",
+      "Boutique Miami Beach residences",
+      "Luxury coastal lifestyle",
+      "Limited residential opportunity"
+    ]
+  },
+
+  {
+    id: "72-park-miami-beach",
+    title: "72 Park Miami Beach",
+    subtitle: "Modern North Beach Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Miami Beach, Florida",
+    coordinates: {
+      lat: 25.8460,
+      lng: -80.1230
+    },
+    neighborhood: "Miami Beach",
+    address: "580 72nd St, Miami Beach, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2023",
+    developer: "Lefferts",
+    units: 216,
+    floors: 22,
+    ppsf: "TBD",
+    highlights: [
+      "North Beach lifestyle",
+      "Modern residential tower",
+      "Completed Miami Beach development",
+      "Contemporary amenities"
+    ]
+  },
+
+  {
+    id: "aman-residences-miami-beach",
+    title: "Aman Residences Miami Beach",
+    subtitle: "Ultra-Luxury Branded Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami Beach, Florida",
+    coordinates: {
+      lat: 25.8075,
+      lng: -80.1235
+    },
+    neighborhood: "Miami Beach",
+    address: "3425 Collins Ave, Miami Beach, FL",
+    price: "~$4M+",
+    priceRange: "~$4M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "OKO Group / Aman",
+    units: 56,
+    floors: 18,
+    ppsf: "TBD",
+    highlights: [
+      "Aman branded residences",
+      "Ultra-luxury hospitality experience",
+      "Exclusive Miami Beach location",
+      "Limited collection of residences"
+    ]
+  },
+
+  {
+    id: "ella-miami-beach",
+    title: "Ella Miami Beach",
+    subtitle: "Modern Beachside Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami Beach, Florida",
+    coordinates: {
+      lat: 25.8400,
+      lng: -80.1225
+    },
+    neighborhood: "Miami Beach",
+    address: "6310 Collins Ave, Miami Beach, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "The Estate Companies",
+    units: 95,
+    floors: 10,
+    ppsf: "TBD",
+    highlights: [
+      "Beachside residential lifestyle",
+      "Modern boutique design",
+      "Miami Beach location",
+      "Contemporary amenities"
+    ]
+  },
+
+  {
+    id: "the-perigon-miami-beach",
+    title: "The Perigon Miami Beach",
+    subtitle: "Ultra-Luxury Oceanfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami Beach, Florida",
+    coordinates: {
+      lat: 25.8350,
+      lng: -80.1220
+    },
+    neighborhood: "Miami Beach",
+    address: "5333 Collins Ave, Miami Beach, FL",
+    price: "~$4M+",
+    priceRange: "~$4M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Mast Capital / Starwood Capital",
+    units: 73,
+    floors: 17,
+    ppsf: "TBD",
+    highlights: [
+      "Oceanfront luxury residences",
+      "Five-star amenities",
+      "Boutique ultra-luxury collection",
+      "Prime Miami Beach location"
+    ]
+  },
+
+  {
+    id: "twenty-nine-indian-creek",
+    title: "Twenty-Nine Indian Creek",
+    subtitle: "Boutique Miami Beach Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami Beach, Florida",
+    coordinates: {
+      lat: 25.8055,
+      lng: -80.1240
+    },
+    neighborhood: "Miami Beach",
+    address: "2900 Indian Creek Dr, Miami Beach, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Indian Creek location",
+      "Boutique luxury residences",
+      "Miami Beach lifestyle",
+      "Limited availability"
+    ]
+  },
+
+  {
+    id: "one-river-point",
+    title: "One River Point",
+    subtitle: "Miami River Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.7700,
+      lng: -80.1930
+    },
+    neighborhood: "Miami River",
+    address: "24 SW 4th St, Miami, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "Urban Network Capital Group",
+    units: 386,
+    floors: 60,
+    ppsf: "TBD",
+    highlights: [
+      "Miami River waterfront location",
+      "Luxury urban residences",
+      "Skyline views",
+      "Modern amenities"
+    ]
+  },
+
+  {
+    id: "the-standard-residences-miami",
+    title: "The Standard Residences Miami",
+    subtitle: "Modern Hospitality-Inspired Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Miami, Florida",
+    coordinates: {
+      lat: 25.8070,
+      lng: -80.1915
+    },
+    neighborhood: "Midtown Miami",
+    address: "3100 NE 1st Ave, Miami, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2025/26",
+    developer: "Rosso Development",
+    units: 228,
+    floors: 12,
+    ppsf: "TBD",
+    highlights: [
+      "The Standard branded residences",
+      "Midtown Miami lifestyle",
+      "Hospitality-inspired amenities",
+      "Walkable urban location"
+    ]
+  },
+
+  {
+    id: "7918-west-drive",
+    title: "7918 West Drive",
+    subtitle: "Waterfront North Bay Village Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "North Bay Village, Florida",
+    coordinates: {
+      lat: 25.8470,
+      lng: -80.1550
+    },
+    neighborhood: "North Bay Village",
+    address: "7918 West Dr, North Bay Village, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Waterfront island location",
+      "North Bay Village lifestyle",
+      "Modern luxury residences",
+      "Miami skyline views"
+    ]
+  },
+
+  {
+    id: "continuum-north-bay-village",
+    title: "Continuum North Bay Village",
+    subtitle: "Luxury Island Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "North Bay Village, Florida",
+    coordinates: {
+      lat: 25.8465,
+      lng: -80.1540
+    },
+    neighborhood: "North Bay Village",
+    address: "1800 79th Street Causeway, North Bay Village, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Continuum Company",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Continuum luxury brand",
+      "Private island lifestyle",
+      "Waterfront residences",
+      "Premium Miami location"
+    ]
+  },
+
+  {
+    id: "shoma-bay",
+    title: "Shoma Bay",
+    subtitle: "Modern Waterfront Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "North Bay Village, Florida",
+    coordinates: {
+      lat: 25.8460,
+      lng: -80.1555
+    },
+    neighborhood: "North Bay Village",
+    address: "1850 79th Street Causeway, North Bay Village, FL",
+    price: "~$700K+",
+    priceRange: "~$700K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2024",
+    developer: "Shoma Group",
+    units: 333,
+    floors: 24,
+    ppsf: "TBD",
+    highlights: [
+      "Waterfront community",
+      "Completed Shoma development",
+      "Modern amenities",
+      "Bayfront lifestyle"
+    ]
+  },
+
+  {
+    id: "nexo-residences",
+    title: "Nexo Residences",
+    subtitle: "Flexible Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "North Miami Beach, Florida",
+    coordinates: {
+      lat: 25.9050,
+      lng: -80.1600
+    },
+    neighborhood: "North Miami Beach",
+    address: "13899 Biscayne Blvd, North Miami Beach, FL",
+    price: "~$600K+",
+    priceRange: "~$600K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Nexo Group",
+    units: 254,
+    floors: 15,
+    ppsf: "TBD",
+    highlights: [
+      "Modern flexible living concept",
+      "North Miami Beach location",
+      "Contemporary amenities",
+      "Investment-focused residences"
+    ]
+  },
+
+  {
+    id: "one-park-tower-by-turnberry",
+    title: "One Park Tower by Turnberry",
+    subtitle: "North Miami Luxury Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "North Miami Beach, Florida",
+    coordinates: {
+      lat: 25.9270,
+      lng: -80.1610
+    },
+    neighborhood: "North Miami Beach",
+    address: "16385 Biscayne Blvd, North Miami Beach, FL",
+    price: "~$600K+",
+    priceRange: "~$600K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2022",
+    developer: "Turnberry Associates",
+    units: 184,
+    floors: 33,
+    ppsf: "TBD",
+    highlights: [
+      "Turnberry luxury development",
+      "Aventura-adjacent location",
+      "Modern residential tower",
+      "Resort-style amenities"
+    ]
+  },
+
+  {
+    id: "pearl-palm-beach-shores",
+    title: "Pearl Palm Beach Shores",
+    subtitle: "Luxury Coastal Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Palm Beach Shores, Florida",
+    coordinates: {
+      lat: 26.7750,
+      lng: -80.0360
+    },
+    neighborhood: "Palm Beach",
+    address: "3105 S Ocean Blvd, Palm Beach Shores, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Coastal luxury lifestyle",
+      "Palm Beach market location",
+      "Oceanfront proximity",
+      "Exclusive residences"
+    ]
+  },
+
+  {
+    id: "ritz-carlton-residences-palm-beach-gardens",
+    title: "The Ritz-Carlton Residences Palm Beach Gardens",
+    subtitle: "Luxury Golf & Resort Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Palm Beach Gardens, Florida",
+    coordinates: {
+      lat: 26.8235,
+      lng: -80.1385
+    },
+    neighborhood: "Palm Beach Gardens",
+    address: "4300 PGA Blvd, Palm Beach Gardens, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Catalfumo Companies",
+    units: 144,
+    floors: 11,
+    ppsf: "TBD",
+    highlights: [
+      "Ritz-Carlton branded residences",
+      "Luxury golf and resort lifestyle",
+      "Palm Beach Gardens location",
+      "Five-star amenities"
+    ]
+  },
+
+  {
+    id: "casamar-pompano-beach",
+    title: "Casamar Pompano Beach",
+    subtitle: "Oceanfront Boutique Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Pompano Beach, Florida",
+    coordinates: {
+      lat: 26.2380,
+      lng: -80.0915
+    },
+    neighborhood: "Pompano Beach",
+    address: "20 N Ocean Blvd, Pompano Beach, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2025",
+    developer: "U.S. Development",
+    units: 119,
+    floors: 21,
+    ppsf: "TBD",
+    highlights: [
+      "Oceanfront boutique residences",
+      "Completed luxury development",
+      "Beach lifestyle location",
+      "Modern coastal design"
+    ]
+  },
+
+  {
+    id: "ritz-carlton-residences-pompano-beach",
+    title: "Ritz-Carlton Residences Pompano Beach",
+    subtitle: "Ultra-Luxury Oceanfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Pompano Beach, Florida",
+    coordinates: {
+      lat: 26.2305,
+      lng: -80.0910
+    },
+    neighborhood: "Pompano Beach",
+    address: "1380 S Ocean Blvd, Pompano Beach, FL",
+    price: "~$3M+",
+    priceRange: "~$3M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "Fortune International Group / Oak Capital",
+    units: 205,
+    floors: 32,
+    ppsf: "TBD",
+    highlights: [
+      "Ritz-Carlton branded residences",
+      "Oceanfront luxury lifestyle",
+      "Five-star services",
+      "Exclusive coastal community"
+    ]
+  },
+
+  {
+    id: "salato-pompano-beach",
+    title: "Salato Pompano Beach",
+    subtitle: "Boutique Oceanfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Pompano Beach, Florida",
+    coordinates: {
+      lat: 26.2400,
+      lng: -80.0910
+    },
+    neighborhood: "Pompano Beach",
+    address: "405 N Ocean Blvd, Pompano Beach, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "U.S. Development",
+    units: 40,
+    floors: 9,
+    ppsf: "TBD",
+    highlights: [
+      "Boutique oceanfront residences",
+      "Limited collection",
+      "Modern coastal architecture",
+      "Premium beach location"
+    ]
+  },
+
+  {
+    id: "solemar-pompano-beach",
+    title: "Solemar Pompano Beach",
+    subtitle: "Luxury Beachfront Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "Pompano Beach, Florida",
+    coordinates: {
+      lat: 26.2360,
+      lng: -80.0910
+    },
+    neighborhood: "Pompano Beach",
+    address: "1116 N Ocean Blvd, Pompano Beach, FL",
+    price: "~$1M+",
+    priceRange: "~$1M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2024",
+    developer: "Related Group",
+    units: 105,
+    floors: 20,
+    ppsf: "TBD",
+    highlights: [
+      "Related Group beachfront development",
+      "Luxury oceanfront lifestyle",
+      "Resort-style amenities",
+      "Completed residences"
+    ]
+  },
+
+  {
+    id: "waldorf-astoria-residences-pompano-beach",
+    title: "Waldorf Astoria Residences Pompano Beach",
+    subtitle: "Ultra-Luxury Branded Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "Pompano Beach, Florida",
+    coordinates: {
+      lat: 26.2290,
+      lng: -80.0910
+    },
+    neighborhood: "Pompano Beach",
+    address: "1350 S Ocean Blvd, Pompano Beach, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Related Group / Hilton",
+    units: 92,
+    floors: 20,
+    ppsf: "TBD",
+    highlights: [
+      "Waldorf Astoria branded residences",
+      "Luxury oceanfront living",
+      "Five-star hospitality services",
+      "Exclusive Pompano Beach location"
+    ]
+  },
+
+  {
+    id: "alba-palm-beach",
+    title: "Alba Palm Beach",
+    subtitle: "Modern Palm Beach Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "West Palm Beach, Florida",
+    coordinates: {
+      lat: 26.6500,
+      lng: -80.0530
+    },
+    neighborhood: "West Palm Beach",
+    address: "4715 S Dixie Hwy, West Palm Beach, FL",
+    price: "~$800K+",
+    priceRange: "~$800K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2026",
+    developer: "Apollo Development",
+    units: 55,
+    floors: 9,
+    ppsf: "TBD",
+    highlights: [
+      "Modern Palm Beach residences",
+      "Boutique development",
+      "South Florida lifestyle",
+      "Contemporary architecture"
+    ]
+  },
+
+  {
+    id: "forte-on-flagler",
+    title: "Forté on Flagler",
+    subtitle: "Luxury Waterfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "West Palm Beach, Florida",
+    coordinates: {
+      lat: 26.7050,
+      lng: -80.0470
+    },
+    neighborhood: "West Palm Beach",
+    address: "3100 S Flagler Dr, West Palm Beach, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2027",
+    developer: "Catalfumo Companies",
+    units: 41,
+    floors: 6,
+    ppsf: "TBD",
+    highlights: [
+      "Waterfront Flagler Drive location",
+      "Boutique luxury residences",
+      "Palm Beach lifestyle",
+      "Limited collection"
+    ]
+  },
+
+  {
+    id: "la-clara-palm-beach",
+    title: "La Clara Palm Beach",
+    subtitle: "Luxury Waterfront Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "West Palm Beach, Florida",
+    coordinates: {
+      lat: 26.7100,
+      lng: -80.0490
+    },
+    neighborhood: "West Palm Beach",
+    address: "333 S Flagler Dr, West Palm Beach, FL",
+    price: "~$2M+",
+    priceRange: "~$2M+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2024",
+    developer: "BGI Companies",
+    units: 83,
+    floors: 25,
+    ppsf: "TBD",
+    highlights: [
+      "Waterfront West Palm Beach location",
+      "Luxury condominium residences",
+      "Premium Flagler Drive address",
+      "Modern amenities and design"
+    ]
+  },
+
+  {
+    id: "nautilus-220",
+    title: "Nautilus 220",
+    subtitle: "Modern Downtown Residences",
+    type: "Luxury Condominium",
+    status: "Completed",
+    location: "West Palm Beach, Florida",
+    coordinates: {
+      lat: 26.7105,
+      lng: -80.0540
+    },
+    neighborhood: "West Palm Beach",
+    address: "220 S Dixie Hwy, West Palm Beach, FL",
+    price: "~$600K+",
+    priceRange: "~$600K+",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "2022",
+    developer: "Greenwich Development",
+    units: 249,
+    floors: 24,
+    ppsf: "TBD",
+    highlights: [
+      "Downtown West Palm Beach location",
+      "Modern residential tower",
+      "Luxury amenities",
+      "Urban Palm Beach lifestyle"
+    ]
+  },
+
+  {
+    id: "olara-residences",
+    title: "Olara Residences",
+    subtitle: "Ultra-Luxury Waterfront Residences",
+    type: "Luxury Condominium",
+    status: "Pre-Construction",
+    location: "West Palm Beach, Florida",
+    coordinates: {
+      lat: 26.7300,
+      lng: -80.0495
+    },
+    neighborhood: "West Palm Beach",
+    address: "1901 N Flagler Dr, West Palm Beach, FL",
+    price: "Request Pricing",
+    priceRange: "Contact For Availability",
+    thumbnail: "",
+    images: [],
+    bedrooms: "Contact For Availability",
+    bathrooms: "Luxury Residences",
+    delivery: "TBD",
+    developer: "TBD",
+    units: "TBD",
+    floors: "TBD",
+    ppsf: "TBD",
+    highlights: [
+      "Luxury waterfront lifestyle",
+      "Flagler Drive location",
+      "Premium Palm Beach market",
+      "Exclusive residential opportunity"
+    ]
+  }
+]
