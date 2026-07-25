@@ -374,3 +374,17 @@ MAP VIEW
     }
 
 }
+
+    .properties-layout{
+
+    display:flex;
+
+    gap:30px;
+
+    padding:0 30px 30px;
+
+    height:calc(100vh - 150px);
+
+    align-items:flex-start;
+
+}
