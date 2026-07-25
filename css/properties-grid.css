@@ -1,19 +1,13 @@
+/* =========================
+ROOT
+========================= */
+
 :root{
 
     --bg:#fafafa;
     --text:#111;
     --muted:#666;
-
-    --card:#fff;
-
-    --radius-xl:40px;
-    --radius-lg:28px;
-
-    --shadow:
-    0 30px 80px rgba(0,0,0,.06);
-
-    --border:
-    1px solid rgba(0,0,0,.06);
+    --gap:30px;
 
 }
 
@@ -28,55 +22,45 @@ body{
 
 
 
-/* GRID */
-
 /* =========================
-PROPERTY GRID
+TOOLBAR
 ========================= */
 
-.properties-grid{
 
-    width:100%;
+.properties-toolbar{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:repeat(2,1fr);
+    align-items:center;
 
-    gap:30px;
+    justify-content:space-between;
 
-}
+    gap:20px;
 
+    padding:30px;
 
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-    .properties-grid{
-
-        grid-template-columns:1fr;
-
-    }
+    box-sizing:border-box;
 
 }
 
-/* =====================
-MAP
-===================== */
+
+
+/* =========================
+MAIN LAYOUT
+========================= */
+
 
 .properties-layout{
 
     display:flex;
 
-    min-height:100vh;
+    gap:30px;
+
+    height:calc(100vh - 120px);
+
+    padding:0 30px 30px;
 
     box-sizing:border-box;
-
-    padding:30px;
-
-    padding-bottom:60px;
-
-    gap:30px;
 
     overflow:hidden;
 
@@ -86,13 +70,16 @@ MAP
 
 
 
-/* MAP SIDE */
+/* =========================
+MAP
+========================= */
+
 
 .map-container{
 
-    flex:1;
+    width:50%;
 
-    height:calc(100vh - 90px);
+    height:100%;
 
     position:sticky;
 
@@ -102,17 +89,7 @@ MAP
 
     overflow:hidden;
 
-}
-
-.properties-scroll{
-
-    flex:1;
-
-    height:calc(100vh - 90px);
-
-    overflow-y:auto;
-
-    padding-top:0;
+    flex-shrink:0;
 
 }
 
@@ -124,27 +101,27 @@ MAP
 
     height:100%;
 
-    border-radius:30px;
-
 }
 
 
 
-/* CARDS SIDE */
+/* =========================
+CARDS SCROLL
+========================= */
+
 
 .properties-scroll{
 
-    flex:1;
+    width:50%;
 
-    height:calc(100vh - 60px);
+    height:100%;
 
     overflow-y:auto;
 
+    scrollbar-width:none;
+
 }
 
-
-
-/* hide scrollbar */
 
 .properties-scroll::-webkit-scrollbar{
 
@@ -153,15 +130,11 @@ MAP
 }
 
 
-.properties-scroll{
 
-    scrollbar-width:none;
+/* =========================
+GRID
+========================= */
 
-}
-
-
-
-/* GRID */
 
 .properties-grid{
 
@@ -173,45 +146,37 @@ MAP
 
 }
 
-/* =====================
-PROPERTY CARD CLEAN FRAMELESS
-===================== */
+
+
+/* =========================
+CARDS
+========================= */
+
 
 .property-card{
 
-    background:transparent !important;
+    background:transparent;
 
-    border:none !important;
+    border:none;
 
-    box-shadow:none !important;
+    box-shadow:none;
 
     padding:0;
 
-}
-
-
-/* keep previous text styling */
-
-.property-card-content{
-
-    background:transparent !important;
-
-    border:none !important;
-
-    box-shadow:none !important;
+    cursor:pointer;
 
 }
 
 
-/* image only gets the effect */
 
-/* =====================
-PROPERTY IMAGE WRAPPER
-===================== */
+/* IMAGE */
+
 
 .property-card-image{
 
-    border-radius:28px;
+    width:100%;
+
+    border-radius:30px;
 
     overflow:hidden;
 
@@ -222,25 +187,21 @@ PROPERTY IMAGE WRAPPER
 
 
 
-/* IMAGE */
-
 .property-card-image img{
 
     width:100%;
 
-    display:block;
-
-    aspect-ratio:4 / 3;
+    aspect-ratio:4/3;
 
     object-fit:cover;
 
-    transition:transform .45s ease;
+    display:block;
+
+    transition:.45s ease;
 
 }
 
 
-
-/* HOVER ZOOM */
 
 .property-card:hover .property-card-image img{
 
@@ -249,30 +210,70 @@ PROPERTY IMAGE WRAPPER
 }
 
 
-.property-card:hover img{
 
-    transform:scale(1.04);
+/* TEXT */
 
-    box-shadow:
-    0 20px 45px rgba(0,0,0,.18);
+
+.property-card-info{
+
+    padding:20px 0;
+
+    background:transparent;
 
 }
 
+
+
+.property-card-info h3{
+
+    margin:0 0 10px;
+
+    font-size:18px;
+
+    font-weight:500;
+
+}
+
+
+
+.property-card-info p{
+
+    margin:0;
+
+    color:#666;
+
+}
+
+
+
+/* =========================
+MOBILE
+========================= */
+
+
 @media(max-width:900px){
 
-   @media(max-width:900px){
+
+    .properties-toolbar{
+
+        padding:20px;
+
+        flex-direction:column;
+
+    }
+
+
 
     .properties-layout{
-
-        width:100%;
 
         height:auto;
 
         flex-direction:column;
 
-        padding:30px;
+        padding:0 20px 30px;
 
     }
+
 
 
     .map-container{
@@ -288,12 +289,24 @@ PROPERTY IMAGE WRAPPER
     }
 
 
+
     .properties-scroll{
+
+        width:100%;
 
         height:auto;
 
         overflow:visible;
 
     }
+
+
+
+    .properties-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
 
 }
