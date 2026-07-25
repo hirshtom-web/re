@@ -274,28 +274,29 @@ function(){
 ========================================== */
 
 
-document.addEventListener(
-"click",
-function(e){
+window.closeDeal=function(){
+
+    console.log("CLOSE DEAL");
 
 
-    const modal =
-        document.getElementById("dealModal");
+    hideModal();
 
 
-
-    if(
-        modal &&
-        modal.classList.contains("active") &&
-        e.target === modal
-    ){
-
-        closeDeal();
-
-    }
+    const url =
+        new URL(window.location.href);
 
 
-});
+    url.searchParams.delete("property");
+    url.searchParams.delete("page");
+
+
+    history.replaceState(
+        null,
+        "",
+        url.pathname
+    );
+
+};
 
 
 
