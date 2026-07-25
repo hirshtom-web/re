@@ -123,16 +123,49 @@ rel="stylesheet">
 </section>
 
     
-<div id="property-map"></div>
+<div class="view-toggle">
+
+    <button id="grid-view-btn" class="active">
+        <span class="material-symbols-outlined">
+            grid_view
+        </span>
+        Grid
+    </button>
 
 
-    
-<section class="properties-grid-section">
+    <button id="map-view-btn">
 
-    <div 
-    id="properties-grid"
-    class="properties-grid">
+        <span class="material-symbols-outlined">
+            map
+        </span>
+        Map
+
+    </button>
+
+</div>
+
+
+
+<section class="properties-layout">
+
+
+    <div class="map-container">
+
+        <div id="property-map"></div>
+
     </div>
+
+
+
+    <div class="properties-scroll">
+
+        <div 
+        id="properties-grid"
+        class="properties-grid">
+        </div>
+
+    </div>
+
 
 </section>
 
