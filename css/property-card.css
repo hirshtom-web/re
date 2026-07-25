@@ -1,3 +1,14 @@
+.property-card,
+.property-card h3,
+.property-card strong,
+.property-card p {
+
+    font-family:"Inter",sans-serif;
+
+    letter-spacing:0;
+
+}
+
 /* =========================
 PROPERTY CARD
 ========================= */
