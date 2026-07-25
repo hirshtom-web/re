@@ -6,13 +6,11 @@ if (window.self !== window.top) {
 
     console.log("Modal JS skipped inside iframe");
 
-
 } else {
 
 
 let savedScrollPosition = 0;
 let modalOpen = false;
-let blockClicksUntil = 0;
 
 
 
@@ -20,32 +18,13 @@ let blockClicksUntil = 0;
    OPEN PROPERTY MODAL
 ========================================== */
 
-
-function openModal(page, id){
-
-
-    /*
-       Prevent accidental reopen after BACK
-    */
-
-    if(Date.now() < blockClicksUntil){
-
-        console.log(
-            "BLOCKED ACCIDENTAL OPEN:",
-            id
-        );
-
-        return;
-
-    }
+function openModal(page, id, skipHistory = false){
 
 
-
-    console.trace(
-        "OPEN MODAL CALLED:",
+    console.log(
+        "OPEN MODAL:",
         id
     );
-
 
 
     const modal =
@@ -74,33 +53,41 @@ function openModal(page, id){
 
 
 
-    const url =
-        new URL(window.location.href);
+    /*
+       ONLY CREATE HISTORY
+       WHEN USER CLICKS
+    */
+
+    if(!skipHistory){
 
 
-
-    url.searchParams.set(
-        "property",
-        id
-    );
+        const url =
+            new URL(window.location.href);
 
 
-    url.searchParams.set(
-        "page",
-        page
-    );
+        url.searchParams.set(
+            "property",
+            id
+        );
 
 
+        url.searchParams.set(
+            "page",
+            page
+        );
 
-    history.pushState(
-        {
-            modal:true,
-            property:id,
-            page:page
-        },
-        "",
-        url.pathname + url.search
-    );
+
+        history.pushState(
+            {
+                modal:true,
+                property:id,
+                page:page
+            },
+            "",
+            url.pathname + url.search
+        );
+
+    }
 
 
 
@@ -147,10 +134,10 @@ function openModal(page, id){
 
 
 
+
 /* ==========================================
    HIDE MODAL
 ========================================== */
-
 
 function hideModal(){
 
@@ -158,7 +145,6 @@ function hideModal(){
     console.log(
         "HIDE MODAL"
     );
-
 
 
     const modal =
@@ -171,23 +157,18 @@ function hideModal(){
 
 
     if(!modal){
-
         return;
-
     }
-
-
-
-    /*
-       Stop click-through
-    */
-
-    modal.style.pointerEvents="none";
 
 
 
     modal.classList.remove(
         "active"
+    );
+
+
+    modal.classList.remove(
+        "loading"
     );
 
 
@@ -205,7 +186,9 @@ function hideModal(){
 
     if(frame){
 
-        frame.src="";
+        frame.removeAttribute(
+            "src"
+        );
 
     }
 
@@ -217,10 +200,12 @@ function hideModal(){
 
     setTimeout(()=>{
 
-        modal.style.pointerEvents="";
+        window.scrollTo(
+            0,
+            savedScrollPosition
+        );
 
-    },300);
-
+    },50);
 
 
 }
@@ -230,10 +215,10 @@ function hideModal(){
 
 
 
-/* ==========================================
-   CLOSE MODAL + REMOVE URL
-========================================== */
 
+/* ==========================================
+   CLOSE BUTTON / ESC
+========================================== */
 
 function closeDeal(){
 
@@ -241,9 +226,6 @@ function closeDeal(){
     console.log(
         "CLOSE MODAL"
     );
-
-
-    hideModal();
 
 
 
@@ -263,24 +245,12 @@ function closeDeal(){
 
 
 
-    history.replaceState(
-        {},
-        "",
-        url.pathname + url.search
-    );
+    /*
+       GO BACK ONE HISTORY STEP
+       instead of replacing it
+    */
 
-
-
-    setTimeout(()=>{
-
-
-        window.scrollTo(
-            0,
-            savedScrollPosition
-        );
-
-
-    },50);
+    history.back();
 
 
 }
@@ -290,10 +260,10 @@ function closeDeal(){
 
 
 
-/* ==========================================
-   ESC
-========================================== */
 
+/* ==========================================
+   ESC KEY
+========================================== */
 
 document.addEventListener(
 "keydown",
@@ -317,10 +287,10 @@ function(e){
 
 
 
+
 /* ==========================================
    CLICK OUTSIDE
 ========================================== */
-
 
 const modal =
 document.getElementById("dealModal");
@@ -334,7 +304,7 @@ if(modal){
     function(e){
 
 
-        if(e.target===modal){
+        if(e.target === modal){
 
             closeDeal();
 
@@ -351,14 +321,14 @@ if(modal){
 
 
 
-/* ==========================================
-   BACK BUTTON
-========================================== */
 
+/* ==========================================
+   BACK / FORWARD BUTTON
+========================================== */
 
 window.addEventListener(
 "popstate",
-function(){
+function(e){
 
 
     console.log(
@@ -368,21 +338,49 @@ function(){
 
 
 
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+
+    const property =
+        params.get("property");
+
+
+    const page =
+        params.get("page");
+
+
+
     /*
-       Block any click event
-       that follows immediately
+       FORWARD BUTTON
+       URL HAS PROPERTY
     */
 
-    blockClicksUntil =
-        Date.now() + 500;
+    if(property && page){
 
 
+        openModal(
+            page,
+            property,
+            true
+        );
 
-    if(modalOpen){
 
-        hideModal();
+        return;
 
     }
+
+
+
+    /*
+       BACK BUTTON
+       URL CLEAN
+    */
+
+    hideModal();
 
 
 
@@ -393,10 +391,10 @@ function(){
 
 
 
-/* ==========================================
-   OPEN DIRECT URL ONLY
-========================================== */
 
+/* ==========================================
+   OPEN FROM DIRECT URL
+========================================== */
 
 document.addEventListener(
 "DOMContentLoaded",
@@ -421,20 +419,11 @@ function(){
     if(property && page){
 
 
-        /*
-           Direct page load only
-        */
-
-        setTimeout(()=>{
-
-
-            openModal(
-                page,
-                property
-            );
-
-
-        },100);
+        openModal(
+            page,
+            property,
+            true
+        );
 
 
     }
