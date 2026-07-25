@@ -1,17 +1,10 @@
 /* ==========================================
-   MODAL.JS
-   Property iframe modal controller
+   STOP MODAL SCRIPT INSIDE IFRAME
 ========================================== */
-
-
-/*
-   Do not run inside iframe property pages
-*/
 
 if (window.self !== window.top) {
 
     console.log("Modal JS skipped inside iframe");
-
 
 } else {
 
@@ -21,11 +14,9 @@ let savedScrollPosition = 0;
 
 
 
-
 /* ==========================================
    OPEN PROPERTY MODAL
 ========================================== */
-
 
 function openModal(page, id, skipHistory = false){
 
@@ -49,7 +40,7 @@ function openModal(page, id, skipHistory = false){
     if(!modal || !frame){
 
         console.error(
-            "Modal elements missing"
+            "Missing modal elements"
         );
 
         return;
@@ -63,11 +54,11 @@ function openModal(page, id, skipHistory = false){
 
 
 
-    /*
-       Add browser history entry
-       only for user click
-    */
 
+    /*
+       Create history entry only
+       when user clicks a property
+    */
 
     if(!skipHistory){
 
@@ -76,7 +67,6 @@ function openModal(page, id, skipHistory = false){
             new URL(
                 window.location.href
             );
-
 
 
         url.searchParams.set(
@@ -109,8 +99,9 @@ function openModal(page, id, skipHistory = false){
 
 
 
+
     /*
-       Load iframe
+       Load iframe property page
     */
 
 
@@ -130,6 +121,7 @@ function openModal(page, id, skipHistory = false){
 
 
 
+
     frame.onload = function(){
 
 
@@ -142,6 +134,8 @@ function openModal(page, id, skipHistory = false){
 
 
     };
+
+
 
 
 
@@ -200,7 +194,6 @@ function closeDeal(removeURL = true){
 
 
 
-
     modal.classList.remove(
         "active"
     );
@@ -233,6 +226,7 @@ function closeDeal(removeURL = true){
 
 
 
+
     if(removeURL){
 
 
@@ -240,7 +234,6 @@ function closeDeal(removeURL = true){
             new URL(
                 window.location.href
             );
-
 
 
         url.searchParams.delete(
@@ -263,6 +256,7 @@ function closeDeal(removeURL = true){
 
 
     }
+
 
 
 
@@ -296,9 +290,7 @@ document.addEventListener(
 function(e){
 
 
-    if(
-        e.key === "Escape"
-    ){
+    if(e.key === "Escape"){
 
 
         const modal =
@@ -319,11 +311,11 @@ function(e){
 
         }
 
+
     }
 
 
 });
-
 
 
 
@@ -346,21 +338,18 @@ if(dealModal){
 
 
     dealModal.addEventListener(
-        "click",
-        function(e){
+    "click",
+    function(e){
 
 
-            if(
-                e.target === dealModal
-            ){
+        if(e.target === dealModal){
 
-                closeDeal();
-
-            }
-
+            closeDeal();
 
         }
-    );
+
+
+    });
 
 
 }
@@ -370,9 +359,8 @@ if(dealModal){
 
 
 
-
 /* ==========================================
-   RESTORE AFTER REFRESH
+   RESTORE MODAL AFTER REFRESH
 ========================================== */
 
 
@@ -427,7 +415,7 @@ function(){
 
 
 /* ==========================================
-   BROWSER BACK BUTTON
+   BROWSER BACK / FORWARD
 ========================================== */
 
 
@@ -437,7 +425,8 @@ function(){
 
 
     console.log(
-        "BACK BUTTON"
+        "POPSTATE",
+        window.location.href
     );
 
 
@@ -456,18 +445,10 @@ function(){
 
 
 
-    /*
-       If URL has no property,
-       close modal
-    */
-
-
     if(!propertyID){
 
 
-        closeDeal(
-            false
-        );
+        closeDeal(false);
 
 
     }
