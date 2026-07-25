@@ -14,6 +14,7 @@ let savedScrollPosition = 0;
 
 
 
+
 /* ==========================================
    OPEN PROPERTY MODAL
 ========================================== */
@@ -29,11 +30,15 @@ function openModal(page, id, skipHistory = false){
 
 
     const modal =
-        document.getElementById("dealModal");
+        document.getElementById(
+            "dealModal"
+        );
 
 
     const frame =
-        document.getElementById("dealFrame");
+        document.getElementById(
+            "dealFrame"
+        );
 
 
 
@@ -56,26 +61,50 @@ function openModal(page, id, skipHistory = false){
 
 
     /*
-       Create history entry only
-       when user clicks a property
+       CREATE MODAL HISTORY STATE
+
+       Grid:
+       /properties
+
+       Modal:
+       /properties?property=id&page=file
+
     */
+
 
     if(!skipHistory){
 
 
-        const url =
+        const gridURL =
+            window.location.pathname +
+            window.location.search;
+
+
+
+        history.pushState(
+            {
+                type:"grid"
+            },
+            "",
+            gridURL
+        );
+
+
+
+
+        const modalURL =
             new URL(
                 window.location.href
             );
 
 
-        url.searchParams.set(
+        modalURL.searchParams.set(
             "property",
             id
         );
 
 
-        url.searchParams.set(
+        modalURL.searchParams.set(
             "page",
             page
         );
@@ -84,13 +113,13 @@ function openModal(page, id, skipHistory = false){
 
         history.pushState(
             {
-                modal:true,
+                type:"modal",
                 property:id,
                 page:page
             },
             "",
-            url.pathname +
-            url.search
+            modalURL.pathname +
+            modalURL.search
         );
 
 
@@ -100,12 +129,14 @@ function openModal(page, id, skipHistory = false){
 
 
 
+
     /*
-       Load iframe property page
+       LOAD IFRAME
     */
 
 
-    frame.style.opacity = "0";
+    frame.style.opacity =
+        "0";
 
 
     modal.classList.add(
@@ -125,7 +156,8 @@ function openModal(page, id, skipHistory = false){
     frame.onload = function(){
 
 
-        frame.style.opacity = "1";
+        frame.style.opacity =
+            "1";
 
 
         modal.classList.remove(
@@ -138,6 +170,12 @@ function openModal(page, id, skipHistory = false){
 
 
 
+
+
+
+    /*
+       LOCK PAGE SCROLL
+    */
 
 
     document.documentElement.classList.add(
@@ -156,7 +194,9 @@ function openModal(page, id, skipHistory = false){
     );
 
 
+
 }
+
 
 
 
@@ -171,6 +211,7 @@ function openModal(page, id, skipHistory = false){
 function closeDeal(removeURL = true){
 
 
+
     console.log(
         "CLOSE MODAL"
     );
@@ -178,11 +219,15 @@ function closeDeal(removeURL = true){
 
 
     const modal =
-        document.getElementById("dealModal");
+        document.getElementById(
+            "dealModal"
+        );
 
 
     const frame =
-        document.getElementById("dealFrame");
+        document.getElementById(
+            "dealFrame"
+        );
 
 
 
@@ -194,6 +239,8 @@ function closeDeal(removeURL = true){
 
 
 
+
+
     modal.classList.remove(
         "active"
     );
@@ -202,6 +249,8 @@ function closeDeal(removeURL = true){
     modal.classList.remove(
         "loading"
     );
+
+
 
 
 
@@ -217,10 +266,15 @@ function closeDeal(removeURL = true){
 
 
 
-    frame.style.opacity = "0";
+
+    frame.style.opacity =
+        "0";
 
 
-    frame.src = "";
+    frame.removeAttribute(
+        "src"
+    );
+
 
 
 
@@ -230,10 +284,12 @@ function closeDeal(removeURL = true){
     if(removeURL){
 
 
+
         const url =
             new URL(
                 window.location.href
             );
+
 
 
         url.searchParams.delete(
@@ -260,6 +316,8 @@ function closeDeal(removeURL = true){
 
 
 
+
+
     setTimeout(()=>{
 
 
@@ -280,6 +338,8 @@ function closeDeal(removeURL = true){
 
 
 
+
+
 /* ==========================================
    ESC CLOSE
 ========================================== */
@@ -290,32 +350,36 @@ document.addEventListener(
 function(e){
 
 
-    if(e.key === "Escape"){
+    if(e.key !== "Escape"){
 
-
-        const modal =
-            document.getElementById(
-                "dealModal"
-            );
-
-
-
-        if(
-            modal &&
-            modal.classList.contains(
-                "active"
-            )
-        ){
-
-            closeDeal();
-
-        }
-
+        return;
 
     }
 
 
+
+    const modal =
+        document.getElementById(
+            "dealModal"
+        );
+
+
+
+    if(
+        modal &&
+        modal.classList.contains(
+            "active"
+        )
+    ){
+
+        closeDeal();
+
+    }
+
+
+
 });
+
 
 
 
@@ -342,7 +406,9 @@ if(dealModal){
     function(e){
 
 
-        if(e.target === dealModal){
+        if(
+            e.target === dealModal
+        ){
 
             closeDeal();
 
@@ -359,8 +425,9 @@ if(dealModal){
 
 
 
+
 /* ==========================================
-   RESTORE MODAL AFTER REFRESH
+   RESTORE AFTER REFRESH
 ========================================== */
 
 
@@ -382,11 +449,11 @@ function(){
         );
 
 
-
     const page =
         params.get(
             "page"
         );
+
 
 
 
@@ -414,6 +481,7 @@ function(){
 
 
 
+
 /* ==========================================
    BROWSER BACK / FORWARD
 ========================================== */
@@ -421,12 +489,13 @@ function(){
 
 window.addEventListener(
 "popstate",
-function(){
+function(e){
 
 
     console.log(
         "POPSTATE",
-        window.location.href
+        window.location.href,
+        e.state
     );
 
 
@@ -444,8 +513,29 @@ function(){
         );
 
 
+    const page =
+        params.get(
+            "page"
+        );
 
-    if(!propertyID){
+
+
+
+    if(
+        propertyID &&
+        page
+    ){
+
+
+        openModal(
+            page,
+            propertyID,
+            true
+        );
+
+
+    }
+    else{
 
 
         closeDeal(false);
