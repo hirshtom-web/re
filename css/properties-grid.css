@@ -1,13 +1,19 @@
-/* =========================
-ROOT
-========================= */
-
 :root{
 
     --bg:#fafafa;
     --text:#111;
     --muted:#666;
-    --gap:30px;
+
+    --card:#fff;
+
+    --radius-xl:40px;
+    --radius-lg:28px;
+
+    --shadow:
+    0 30px 80px rgba(0,0,0,.06);
+
+    --border:
+    1px solid rgba(0,0,0,.06);
 
 }
 
@@ -22,121 +28,15 @@ body{
 
 
 
-/* =========================
-TOOLBAR
-========================= */
-
-
-.properties-toolbar{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:20px;
-
-    padding:30px;
-
-    box-sizing:border-box;
-
-}
-
-
+/* GRID */
 
 /* =========================
-MAIN LAYOUT
+PROPERTY GRID
 ========================= */
-
-
-.properties-layout{
-
-    display:flex;
-
-    gap:30px;
-
-    height:calc(100vh - 120px);
-
-    padding:0 30px 30px;
-
-    box-sizing:border-box;
-
-    overflow:hidden;
-
-    align-items:flex-start;
-
-}
-
-
-
-/* =========================
-MAP
-========================= */
-
-
-.map-container{
-
-    width:50%;
-
-    height:100%;
-
-    position:sticky;
-
-    top:30px;
-
-    border-radius:30px;
-
-    overflow:hidden;
-
-    flex-shrink:0;
-
-}
-
-
-
-#map{
-
-    width:100%;
-
-    height:100%;
-
-}
-
-
-
-/* =========================
-CARDS SCROLL
-========================= */
-
-
-.properties-scroll{
-
-    width:50%;
-
-    height:100%;
-
-    overflow-y:auto;
-
-    scrollbar-width:none;
-
-}
-
-
-.properties-scroll::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-
-
-/* =========================
-GRID
-========================= */
-
 
 .properties-grid{
+
+    width:100%;
 
     display:grid;
 
@@ -148,35 +48,171 @@ GRID
 
 
 
-/* =========================
-CARDS
-========================= */
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .properties-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
 
 
-.property-card{
+/* =====================
+MAP
+===================== */
 
-    background:transparent;
+.properties-layout{
 
-    border:none;
+    display:flex;
 
-    box-shadow:none;
+    min-height:100vh;
 
-    padding:0;
+    box-sizing:border-box;
 
-    cursor:pointer;
+    padding:30px;
+
+    padding-bottom:60px;
+
+    gap:30px;
+
+    overflow:hidden;
+
+    align-items:flex-start;
 
 }
 
 
 
-/* IMAGE */
+/* MAP SIDE */
+
+.map-container{
+
+    flex:1;
+
+    height:calc(100vh - 90px);
+
+    position:sticky;
+
+    top:30px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+.properties-scroll{
+
+    flex:1;
+
+    height:calc(100vh - 90px);
+
+    overflow-y:auto;
+
+    padding-top:0;
+
+}
 
 
-.property-card-image{
+
+#map{
 
     width:100%;
 
+    height:100%;
+
     border-radius:30px;
+
+}
+
+
+
+/* CARDS SIDE */
+
+.properties-scroll{
+
+    flex:1;
+
+    height:calc(100vh - 60px);
+
+    overflow-y:auto;
+
+}
+
+
+
+/* hide scrollbar */
+
+.properties-scroll::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+.properties-scroll{
+
+    scrollbar-width:none;
+
+}
+
+
+
+/* GRID */
+
+.properties-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+}
+
+/* =====================
+PROPERTY CARD CLEAN FRAMELESS
+===================== */
+
+.property-card{
+
+    background:transparent !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+    padding:0;
+
+}
+
+
+/* keep previous text styling */
+
+.property-card-content{
+
+    background:transparent !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+}
+
+
+/* image only gets the effect */
+
+/* =====================
+PROPERTY IMAGE WRAPPER
+===================== */
+
+.property-card-image{
+
+    border-radius:28px;
 
     overflow:hidden;
 
@@ -187,21 +223,25 @@ CARDS
 
 
 
+/* IMAGE */
+
 .property-card-image img{
 
     width:100%;
 
-    aspect-ratio:4/3;
+    display:block;
+
+    aspect-ratio:4 / 3;
 
     object-fit:cover;
 
-    display:block;
-
-    transition:.45s ease;
+    transition:transform .45s ease;
 
 }
 
 
+
+/* HOVER ZOOM */
 
 .property-card:hover .property-card-image img{
 
@@ -210,70 +250,30 @@ CARDS
 }
 
 
+.property-card:hover img{
 
-/* TEXT */
+    transform:scale(1.04);
 
-
-.property-card-info{
-
-    padding:20px 0;
-
-    background:transparent;
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.18);
 
 }
-
-
-
-.property-card-info h3{
-
-    margin:0 0 10px;
-
-    font-size:18px;
-
-    font-weight:500;
-
-}
-
-
-
-.property-card-info p{
-
-    margin:0;
-
-    color:#666;
-
-}
-
-
-
-/* =========================
-MOBILE
-========================= */
-
 
 @media(max-width:900px){
 
-
-    .properties-toolbar{
-
-        padding:20px;
-
-        flex-direction:column;
-
-    }
-
-
+   @media(max-width:900px){
 
     .properties-layout{
+
+        width:100%;
 
         height:auto;
 
         flex-direction:column;
 
-        padding:0 20px 30px;
+        padding:30px;
 
     }
-
 
 
     .map-container{
@@ -289,24 +289,12 @@ MOBILE
     }
 
 
-
     .properties-scroll{
-
-        width:100%;
 
         height:auto;
 
         overflow:visible;
 
     }
-
-
-
-    .properties-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
 
 }
