@@ -78,7 +78,7 @@ MAP
 
     padding:30px;
 
-    gap:0;
+    gap:30px;
 
     overflow:hidden;
 
@@ -88,14 +88,11 @@ MAP
 
 
 
-/* =========================
-   MAP
-========================= */
-
+/* MAP SIDE */
 
 .map-container{
 
-    flex:0 0 58%;
+    flex:1;
 
     height:calc(100vh - 60px);
 
@@ -103,13 +100,9 @@ MAP
 
     top:30px;
 
-    border-radius:28px;
+    border-radius:30px;
 
     overflow:hidden;
-
-    padding-right:15px;
-
-    box-sizing:border-box;
 
 }
 
@@ -121,16 +114,13 @@ MAP
 
     height:100%;
 
-    border-radius:28px;
+    border-radius:30px;
 
 }
 
 
 
-/* =========================
-   PROPERTY SIDE
-========================= */
-
+/* CARDS SIDE */
 
 .properties-scroll{
 
@@ -139,12 +129,6 @@ MAP
     height:calc(100vh - 60px);
 
     overflow-y:auto;
-
-    padding-left:15px;
-
-    padding-right:0;
-
-    box-sizing:border-box;
 
 }
 
@@ -167,10 +151,7 @@ MAP
 
 
 
-/* =========================
-   GRID
-========================= */
-
+/* GRID */
 
 .properties-grid{
 
@@ -181,7 +162,6 @@ MAP
     gap:30px;
 
 }
-
 
 /* =====================
 PROPERTY CARD CLEAN FRAMELESS
