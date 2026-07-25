@@ -298,3 +298,79 @@ PROPERTY IMAGE WRAPPER
     }
 
 }
+
+
+/* DEFAULT MAP VIEW */
+
+.properties-layout{
+
+    display:flex;
+
+}
+
+
+/* =====================
+GRID ONLY VIEW
+===================== */
+
+
+.properties-layout.grid-mode .map-container{
+
+    display:none;
+
+}
+
+
+.properties-layout.grid-mode .properties-scroll{
+
+    width:100%;
+
+}
+
+
+.properties-layout.grid-mode .properties-grid{
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+
+
+/* =====================
+MAP VIEW
+===================== */
+
+
+.properties-layout.map-mode .map-container{
+
+    display:block;
+
+}
+
+
+.properties-layout.map-mode .properties-scroll{
+
+    width:50%;
+
+}
+
+
+.properties-layout.map-mode .map-container{
+
+    width:50%;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .properties-layout.grid-mode .properties-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
