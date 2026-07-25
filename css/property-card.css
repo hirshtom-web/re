@@ -1,16 +1,7 @@
-.property-card,
-.property-card h3,
-.property-card strong,
-.property-card p {
-
-    font-family:"Inter",sans-serif;
-
-    letter-spacing:0;
-
-}
-
 /* =========================
 PROPERTY CARD
+Controls:
+- Entire card container
 ========================= */
 
 .property-card {
@@ -34,6 +25,11 @@ PROPERTY CARD
 
 /* =========================
 IMAGE
+Controls:
+- Main property image
+- Image size
+- Rounded corners
+- Image hover zoom
 ========================= */
 
 .property-card-image {
@@ -74,21 +70,15 @@ IMAGE
 }
 
 
+
 /* =========================
-IMAGE LABELS
+STATUS BADGE
+Controls:
+- Pre-Construction
+- Completed
+- Available
+(top left on image)
 ========================= */
-
-.property-badge,
-.property-tag {
-
-    font-family:"Inter", sans-serif;
-
-    font-weight:500;
-
-    letter-spacing:0;
-
-}
-
 
 .property-badge {
 
@@ -111,6 +101,16 @@ IMAGE LABELS
 }
 
 
+
+/* =========================
+PROPERTY TYPE TAG
+Controls:
+- Condominium
+- Luxury
+- Residence
+(top right on image)
+========================= */
+
 .property-tag {
 
     position:absolute;
@@ -129,13 +129,15 @@ IMAGE LABELS
 
     color:#000;
 
-    backdrop-filter:blur(8px);
-
 }
 
 
+
 /* =========================
-TEXT BELOW IMAGE
+TEXT AREA BELOW IMAGE
+Controls:
+- Space between image and text
+- Left/right padding
 ========================= */
 
 .property-card-info {
@@ -145,8 +147,12 @@ TEXT BELOW IMAGE
 }
 
 
+
 /* =========================
-NAME + PRICE
+NAME + PRICE ROW
+Controls:
+- Condo name LEFT
+- Price RIGHT
 ========================= */
 
 .property-card-header {
@@ -163,6 +169,16 @@ NAME + PRICE
 
 }
 
+
+
+/* =========================
+CONDO NAME / TITLE
+Controls:
+property.title
+
+Example:
+"St. Regis Residences Miami"
+========================= */
 
 .property-card-header h3 {
 
@@ -185,6 +201,16 @@ NAME + PRICE
 }
 
 
+
+/* =========================
+PRICE
+Controls:
+property.price
+
+Example:
+"$5M+"
+========================= */
+
 .property-card-header strong {
 
     margin:0;
@@ -206,15 +232,25 @@ NAME + PRICE
 }
 
 
+
 /* =========================
-CITY
+ADDRESS / LOCATION
+Controls:
+property.location
+or
+property.address
+
+Example:
+"Miami, Florida"
+or
+"1809 Brickell Ave, Miami, FL"
 ========================= */
 
 .property-card-info p {
 
     margin:5px 0 0;
 
-    color:#000;
+    color:#666;
 
     font-size:12px;
 
@@ -227,8 +263,14 @@ CITY
 }
 
 
+
 /* =========================
-STATS
+PROPERTY STATS
+Controls:
+- Bedrooms
+- Bathrooms
+- Units
+- Floors
 ========================= */
 
 .property-stats {
@@ -250,17 +292,11 @@ STATS
 }
 
 
-.property-stats span {
-
-    display:flex;
-
-    align-items:center;
-
-}
-
 
 /* =========================
-GRID OFFSET
+GRID POSITION
+Controls:
+- Distance from toolbar/map
 ========================= */
 
 .properties-grid {
