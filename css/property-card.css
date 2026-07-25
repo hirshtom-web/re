@@ -249,3 +249,24 @@ GRID OFFSET
     margin-top:-30px;
 
 }
+
+.property-card-header {
+    display:flex !important;
+    flex-direction:row !important;
+    justify-content:space-between !important;
+    align-items:center !important;
+    width:100%;
+}
+
+
+.property-card-header h3 {
+    margin:0;
+    text-align:left;
+}
+
+
+.property-card-header strong {
+    margin-left:auto !important;
+    text-align:right;
+    white-space:nowrap;
+}
