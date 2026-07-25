@@ -66,3 +66,99 @@ body{
 
 
 }
+
+/* =====================
+MAP
+===================== */
+
+/* =====================
+MAP
+===================== */
+
+.properties-layout{
+
+    width:min(90%,1440px);
+
+    margin:auto;
+
+    display:flex;
+
+    gap:30px;
+
+    height:100vh;
+
+    padding:30px 0;
+
+    box-sizing:border-box;
+
+}
+
+
+.map-container{
+
+    width:50%;
+
+    height:calc(100vh - 60px);
+
+    flex-shrink:0;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+}
+
+
+#map{
+
+    width:100%;
+
+    height:100%;
+
+}
+
+
+.properties-scroll{
+
+    flex:1;
+
+    height:calc(100vh - 60px);
+
+    overflow-y:auto;
+
+}
+
+
+@media(max-width:900px){
+
+    .properties-layout{
+
+        width:90%;
+
+        height:auto;
+
+        flex-direction:column;
+
+        padding:30px 0;
+
+    }
+
+
+    .map-container{
+
+        width:100%;
+
+        height:50vh;
+
+    }
+
+
+    .properties-scroll{
+
+        height:auto;
+
+        overflow:visible;
+
+    }
+
+}
