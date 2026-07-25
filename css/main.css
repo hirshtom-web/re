@@ -87,11 +87,9 @@ MAP
 
     padding:30px;
 
-    height:100vh;
-
     box-sizing:border-box;
 
-    overflow:hidden;
+    align-items:flex-start;
 
 }
 
@@ -101,6 +99,10 @@ MAP
     width:45vw;
 
     height:calc(100vh - 60px);
+
+    position:sticky;
+
+    top:30px;
 
     flex-shrink:0;
 
@@ -123,10 +125,6 @@ MAP
 .properties-scroll{
 
     flex:1;
-
-    height:calc(100vh - 60px);
-
-    overflow-y:auto;
 
 }
 
