@@ -1,5 +1,5 @@
 /* ==========================================
-   STOP MODAL SCRIPT INSIDE IFRAME
+   STOP INSIDE IFRAME
 ========================================== */
 
 if (window.self !== window.top) {
@@ -9,17 +9,15 @@ if (window.self !== window.top) {
 } else {
 
 
-
 let savedScrollPosition = 0;
 
 
-
-
 /* ==========================================
-   OPEN PROPERTY MODAL
+   OPEN MODAL
 ========================================== */
 
-function openModal(page, id, skipHistory = false){
+
+function openModal(page, id){
 
 
     console.log(
@@ -28,18 +26,11 @@ function openModal(page, id, skipHistory = false){
     );
 
 
-
     const modal =
-        document.getElementById(
-            "dealModal"
-        );
-
+        document.getElementById("dealModal");
 
     const frame =
-        document.getElementById(
-            "dealFrame"
-        );
-
+        document.getElementById("dealFrame");
 
 
     if(!modal || !frame){
@@ -49,7 +40,6 @@ function openModal(page, id, skipHistory = false){
         );
 
         return;
-
     }
 
 
@@ -59,90 +49,44 @@ function openModal(page, id, skipHistory = false){
 
 
 
-
     /*
-       CREATE MODAL HISTORY STATE
-
-       Grid:
-       /properties
-
-       Modal:
-       /properties?property=id&page=file
-
+       ADD HISTORY ENTRY
     */
 
-
-    if(!skipHistory){
-
-
-        const gridURL =
-            window.location.pathname +
-            window.location.search;
+    const url =
+        new URL(window.location.href);
 
 
-
-        history.pushState(
-            {
-                type:"grid"
-            },
-            "",
-            gridURL
-        );
-
-
-
-
-        const modalURL =
-            new URL(
-                window.location.href
-            );
-
-
-        modalURL.searchParams.set(
-            "property",
-            id
-        );
-
-
-        modalURL.searchParams.set(
-            "page",
-            page
-        );
-
-
-
-        history.pushState(
-            {
-                type:"modal",
-                property:id,
-                page:page
-            },
-            "",
-            modalURL.pathname +
-            modalURL.search
-        );
-
-
-    }
-
-
-
-
-
-
-    /*
-       LOAD IFRAME
-    */
-
-
-    frame.style.opacity =
-        "0";
-
-
-    modal.classList.add(
-        "loading"
+    url.searchParams.set(
+        "property",
+        id
     );
 
+
+    url.searchParams.set(
+        "page",
+        page
+    );
+
+
+
+    history.pushState(
+        {
+            modal:true,
+            property:id
+        },
+        "",
+        url.pathname + url.search
+    );
+
+
+
+    /*
+       LOAD FRAME
+    */
+
+
+    frame.style.opacity="0";
 
 
     frame.src =
@@ -152,30 +96,12 @@ function openModal(page, id, skipHistory = false){
 
 
 
+    frame.onload=function(){
 
-    frame.onload = function(){
-
-
-        frame.style.opacity =
-            "1";
-
-
-        modal.classList.remove(
-            "loading"
-        );
-
+        frame.style.opacity="1";
 
     };
 
-
-
-
-
-
-
-    /*
-       LOCK PAGE SCROLL
-    */
 
 
     document.documentElement.classList.add(
@@ -188,15 +114,12 @@ function openModal(page, id, skipHistory = false){
     );
 
 
-
     modal.classList.add(
         "active"
     );
 
 
-
 }
-
 
 
 
@@ -208,8 +131,7 @@ function openModal(page, id, skipHistory = false){
 ========================================== */
 
 
-function closeDeal(removeURL = true){
-
+function closeDeal(){
 
 
     console.log(
@@ -217,17 +139,12 @@ function closeDeal(removeURL = true){
     );
 
 
-
     const modal =
-        document.getElementById(
-            "dealModal"
-        );
+        document.getElementById("dealModal");
 
 
     const frame =
-        document.getElementById(
-            "dealFrame"
-        );
+        document.getElementById("dealFrame");
 
 
 
@@ -239,19 +156,9 @@ function closeDeal(removeURL = true){
 
 
 
-
-
     modal.classList.remove(
         "active"
     );
-
-
-    modal.classList.remove(
-        "loading"
-    );
-
-
-
 
 
     document.documentElement.classList.remove(
@@ -265,56 +172,29 @@ function closeDeal(removeURL = true){
 
 
 
+    frame.src="";
 
 
-    frame.style.opacity =
-        "0";
+
+    const url =
+        new URL(window.location.href);
 
 
-    frame.removeAttribute(
-        "src"
+    url.searchParams.delete(
+        "property"
     );
 
 
+    url.searchParams.delete(
+        "page"
+    );
 
 
-
-
-
-    if(removeURL){
-
-
-
-        const url =
-            new URL(
-                window.location.href
-            );
-
-
-
-        url.searchParams.delete(
-            "property"
-        );
-
-
-        url.searchParams.delete(
-            "page"
-        );
-
-
-
-        history.replaceState(
-            {},
-            "",
-            url.pathname +
-            url.search
-        );
-
-
-    }
-
-
-
+    history.replaceState(
+        {},
+        "",
+        url.pathname + url.search
+    );
 
 
 
@@ -338,10 +218,8 @@ function closeDeal(removeURL = true){
 
 
 
-
-
 /* ==========================================
-   ESC CLOSE
+   ESC
 ========================================== */
 
 
@@ -350,32 +228,11 @@ document.addEventListener(
 function(e){
 
 
-    if(e.key !== "Escape"){
-
-        return;
-
-    }
-
-
-
-    const modal =
-        document.getElementById(
-            "dealModal"
-        );
-
-
-
-    if(
-        modal &&
-        modal.classList.contains(
-            "active"
-        )
-    ){
+    if(e.key==="Escape"){
 
         closeDeal();
 
     }
-
 
 
 });
@@ -385,37 +242,31 @@ function(e){
 
 
 
-
 /* ==========================================
-   CLICK OUTSIDE CLOSE
+   CLICK OUTSIDE
 ========================================== */
 
 
-const dealModal =
-document.getElementById(
-    "dealModal"
-);
+const modal =
+document.getElementById("dealModal");
 
 
-
-if(dealModal){
-
-
-    dealModal.addEventListener(
-    "click",
-    function(e){
+if(modal){
 
 
-        if(
-            e.target === dealModal
-        ){
-
-            closeDeal();
-
-        }
+modal.addEventListener(
+"click",
+function(e){
 
 
-    });
+    if(e.target===modal){
+
+        closeDeal();
+
+    }
+
+
+});
 
 
 }
@@ -425,9 +276,75 @@ if(dealModal){
 
 
 
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+
+window.addEventListener(
+"popstate",
+function(e){
+
+
+    console.log(
+        "BACK BUTTON",
+        window.location.href
+    );
+
+
+    /*
+       ALWAYS CLOSE MODAL
+       DO NOT REOPEN
+    */
+
+
+    const modal =
+        document.getElementById("dealModal");
+
+
+    if(
+        modal &&
+        modal.classList.contains("active")
+    ){
+
+        const frame =
+            document.getElementById("dealFrame");
+
+
+        modal.classList.remove(
+            "active"
+        );
+
+
+        document.documentElement.classList.remove(
+            "modal-open"
+        );
+
+
+        document.body.classList.remove(
+            "modal-open"
+        );
+
+
+        if(frame){
+
+            frame.src="";
+
+        }
+
+
+    }
+
+
+});
+
+
+
+
+
 
 /* ==========================================
-   RESTORE AFTER REFRESH
+   OPEN FROM DIRECT URL ONLY
 ========================================== */
 
 
@@ -442,106 +359,42 @@ function(){
         );
 
 
-
-    const propertyID =
-        params.get(
-            "property"
-        );
+    const property =
+        params.get("property");
 
 
     const page =
-        params.get(
-            "page"
-        );
+        params.get("page");
 
 
 
-
-    if(
-        propertyID &&
-        page
-    ){
+    if(property && page){
 
 
-        openModal(
-            page,
-            propertyID,
-            true
-        );
+        const modal =
+            document.getElementById("dealModal");
 
 
-    }
+        if(modal &&
+           !modal.classList.contains("active")){
 
 
-});
+            console.log(
+                "OPEN FROM URL"
+            );
 
 
+            openModal(
+                page,
+                property
+            );
 
 
-
-
-
-
-/* ==========================================
-   BROWSER BACK / FORWARD
-========================================== */
-
-
-window.addEventListener(
-"popstate",
-function(e){
-
-
-    console.log(
-        "POPSTATE",
-        window.location.href,
-        e.state
-    );
-
-
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-
-    const propertyID =
-        params.get(
-            "property"
-        );
-
-
-    const page =
-        params.get(
-            "page"
-        );
-
-
-
-
-    if(
-        propertyID &&
-        page
-    ){
-
-
-        openModal(
-            page,
-            propertyID,
-            true
-        );
+        }
 
 
     }
-    else{
 
-
-        closeDeal(false);
-
-
-    }
 
 
 });
