@@ -1181,6 +1181,1032 @@ highlights:[
 
 ]
 
+},
+
+
+{
+id:"casa-bella-bb-italia",
+
+title:"Casa Bella by B&B Italia",
+
+subtitle:"Luxury Residences In Miami",
+
+type:"Luxury Condominium",
+
+status:"Pre-Construction",
+
+location:"Art District, Miami, Florida",
+
+address:"1444 Biscayne Blvd, Miami, FL",
+
+description:
+"Luxury residences inspired by Italian design, modern architecture, and Miami's cultural district.",
+
+thumbnail:"",
+
+price:"$700K+",
+
+priceRange:"$700K+",
+
+pricePerSqft:"TBD",
+
+hoa:"TBD",
+
+estimatedTaxes:"TBD",
+
+mortgage:{
+price:700000,
+downPayment:30,
+taxRate:1.5,
+insuranceRate:0.5,
+hoaSqft:1.85,
+size:null,
+interestRate:6.5,
+loanYears:30
+},
+
+bedrooms:"TBD",
+
+bathrooms:"TBD",
+
+interiorSize:"TBD",
+
+terraceSize:"TBD",
+
+floors:"56",
+
+units:"306",
+
+delivery:"2027",
+
+yearBuilt:"2027",
+
+developer:"Related Group / Alta Developers",
+
+neighborhood:"Art District",
+
+city:"Miami",
+
+state:"Florida",
+
+country:"USA",
+
+coordinates:{
+lat:null,
+lng:null
+},
+
+nearby:[],
+
+lifestyleIntro:
+"An urban Miami lifestyle surrounded by culture, dining, entertainment, and investment opportunities.",
+
+lifestyleHighlights:[],
+
+lifestyleExperiences:[],
+
+timeline:[
+{
+year:"2027",
+label:"Residence Delivery"
+}
+],
+
+images:[],
+
+amenities:[],
+
+highlights:[
+{
+title:"Prime Location",
+text:"Located in Miami's growing Arts District."
+}
+],
+
+aiRating:{
+overall:null,
+confidence:null,
+summary:"",
+scores:[],
+strengths:[],
+risks:[]
+},
+
+residences:[],
+
+architecture:{
+title:"",
+text:""
+},
+
+architectureGallery:[],
+
+designTeam:{
+architect:"",
+interiors:"B&B Italia",
+landscape:""
+},
+
+documents:[],
+
+constructionTimeline:[],
+
+faq:[],
+
+disclaimer:
+"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
+
+},
+
+
+{
+id:"tal-aventura",
+
+title:"TAL Aventura",
+
+subtitle:"Luxury Residences In Aventura",
+
+type:"Luxury Condominium",
+
+status:"Pre-Construction",
+
+location:"Aventura, Florida",
+
+address:"17111 Biscayne Blvd, Aventura, FL",
+
+description:
+"Boutique luxury residences located in Aventura with modern design and convenient access to shopping, dining, and coastal destinations.",
+
+thumbnail:"",
+
+price:"$1M+",
+
+priceRange:"$1M+",
+
+pricePerSqft:"TBD",
+
+hoa:"TBD",
+
+estimatedTaxes:"TBD",
+
+mortgage:{
+price:1000000,
+downPayment:30,
+taxRate:1.5,
+insuranceRate:0.5,
+hoaSqft:1.85,
+size:null,
+interestRate:6.5,
+loanYears:30
+},
+
+bedrooms:"TBD",
+
+bathrooms:"TBD",
+
+interiorSize:"TBD",
+
+terraceSize:"TBD",
+
+floors:"9",
+
+units:"86",
+
+delivery:"2027",
+
+yearBuilt:"2027",
+
+developer:"Rieber Developments",
+
+neighborhood:"Aventura",
+
+city:"Aventura",
+
+state:"Florida",
+
+country:"USA",
+
+coordinates:{
+lat:null,
+lng:null
+},
+
+nearby:[],
+
+lifestyleIntro:
+"Luxury Aventura living with access to dining, shopping, golf, and waterfront experiences.",
+
+lifestyleHighlights:[],
+
+lifestyleExperiences:[],
+
+timeline:[
+{
+year:"2027",
+label:"Residence Delivery"
+}
+],
+
+images:[],
+
+amenities:[],
+
+highlights:[
+{
+title:"Boutique Collection",
+text:"Limited residences in one of South Florida's most desirable communities."
+}
+],
+
+aiRating:{
+overall:null,
+confidence:null,
+summary:"",
+scores:[],
+strengths:[],
+risks:[]
+},
+
+residences:[],
+
+architecture:{
+title:"",
+text:""
+},
+
+architectureGallery:[],
+
+designTeam:{
+architect:"",
+interiors:"",
+landscape:""
+},
+
+documents:[],
+
+constructionTimeline:[],
+
+faq:[],
+
+disclaimer:
+"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
+
+},
+
+   // =========================
+// PART 2/5
+// =========================
+
+{
+id:"rivage-bal-harbour",
+
+title:"Rivage Bal Harbour",
+
+subtitle:"Ultra Luxury Waterfront Residences",
+
+type:"Luxury Condominium",
+
+status:"Pre-Construction",
+
+location:"Bal Harbour, Florida",
+
+address:"10245 Collins Ave, Bal Harbour, FL",
+
+description:
+"Exclusive waterfront residences in Bal Harbour offering exceptional privacy, luxury amenities, and direct access to one of Miami's most prestigious communities.",
+
+thumbnail:"",
+
+price:"$7M+",
+
+priceRange:"$7M+",
+
+pricePerSqft:"~$4K+",
+
+hoa:"TBD",
+
+estimatedTaxes:"TBD",
+
+mortgage:{
+price:7000000,
+downPayment:30,
+taxRate:1.5,
+insuranceRate:0.5,
+hoaSqft:1.85,
+size:null,
+interestRate:6.5,
+loanYears:30
+},
+
+bedrooms:"TBD",
+
+bathrooms:"TBD",
+
+interiorSize:"TBD",
+
+terraceSize:"Private Terraces",
+
+floors:"24",
+
+units:"56",
+
+delivery:"2026",
+
+yearBuilt:"2026",
+
+developer:"Related Group / Two Roads Development",
+
+neighborhood:"Bal Harbour",
+
+city:"Bal Harbour",
+
+state:"Florida",
+
+country:"USA",
+
+coordinates:{
+lat:null,
+lng:null
+},
+
+nearby:[],
+
+lifestyleIntro:
+"Bal Harbour represents one of Miami's most exclusive coastal lifestyles with luxury shopping, fine dining, and waterfront experiences.",
+
+lifestyleHighlights:[],
+
+lifestyleExperiences:[],
+
+timeline:[
+{
+year:"2026",
+label:"Residence Delivery"
+}
+],
+
+images:[],
+
+amenities:[],
+
+highlights:[
+{
+title:"Ultra Luxury Positioning",
+text:"Rare inventory in one of South Florida's most prestigious neighborhoods."
+}
+],
+
+aiRating:{
+overall:null,
+confidence:null,
+summary:"",
+scores:[],
+strengths:[],
+risks:[]
+},
+
+residences:[],
+
+architecture:{
+title:"",
+text:""
+},
+
+architectureGallery:[],
+
+designTeam:{
+architect:"",
+interiors:"",
+landscape:""
+},
+
+documents:[],
+
+constructionTimeline:[],
+
+faq:[],
+
+disclaimer:
+"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
+
+},
+
+
+{
+id:"alana-bay-harbor-islands",
+
+title:"Alana Bay Harbor Islands",
+
+subtitle:"Modern Island Residences",
+
+type:"Luxury Condominium",
+
+status:"Pre-Construction",
+
+location:"Bay Harbor Islands, Florida",
+
+address:"9901 West Bay Harbor Dr, Bay Harbor Islands, FL",
+
+description:
+"Boutique island residences designed around waterfront living, privacy, and modern luxury.",
+
+thumbnail:"",
+
+price:"$1.5M+",
+
+priceRange:"$1.5M+",
+
+pricePerSqft:"TBD",
+
+hoa:"TBD",
+
+estimatedTaxes:"TBD",
+
+mortgage:{
+price:1500000,
+downPayment:30,
+taxRate:1.5,
+insuranceRate:0.5,
+hoaSqft:1.85,
+size:null,
+interestRate:6.5,
+loanYears:30
+},
+
+bedrooms:"TBD",
+
+bathrooms:"TBD",
+
+interiorSize:"TBD",
+
+terraceSize:"TBD",
+
+floors:"8",
+
+units:"30",
+
+delivery:"2026",
+
+yearBuilt:"2026",
+
+developer:"Lefferts / The Estate Companies",
+
+neighborhood:"Bay Harbor Islands",
+
+city:"Bay Harbor Islands",
+
+state:"Florida",
+
+country:"USA",
+
+coordinates:{
+lat:null,
+lng:null
+},
+
+nearby:[],
+
+lifestyleIntro:
+"Quiet island living surrounded by waterfront views, restaurants, and luxury destinations.",
+
+lifestyleHighlights:[],
+
+lifestyleExperiences:[],
+
+timeline:[
+{
+year:"2026",
+label:"Residence Delivery"
+}
+],
+
+images:[],
+
+amenities:[],
+
+highlights:[
+{
+title:"Boutique Island Living",
+text:"A limited collection of residences in Bay Harbor Islands."
+}
+],
+
+aiRating:{
+overall:null,
+confidence:null,
+summary:"",
+scores:[],
+strengths:[],
+risks:[]
+},
+
+residences:[],
+
+architecture:{
+title:"",
+text:""
+},
+
+architectureGallery:[],
+
+designTeam:{
+architect:"",
+interiors:"",
+landscape:""
+},
+
+documents:[],
+
+constructionTimeline:[],
+
+faq:[],
+
+disclaimer:
+"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
+
+},
+
+
+{
+id:"indian-creek-residences-yacht-club",
+
+title:"Indian Creek Residences and Yacht Club",
+
+subtitle:"Waterfront Luxury Living",
+
+type:"Luxury Condominium",
+
+status:"Pre-Construction",
+
+location:"Bay Harbor Islands, Florida",
+
+address:"9455 E Broadview Dr, Bay Harbor Islands, FL",
+
+description:
+"Exclusive waterfront residences with yacht-focused amenities and private island lifestyle appeal.",
+
+thumbnail:"",
+
+price:"$2M+",
+
+priceRange:"$2M+",
+
+pricePerSqft:"TBD",
+
+hoa:"TBD",
+
+estimatedTaxes:"TBD",
+
+mortgage:{
+price:2000000,
+downPayment:30,
+taxRate:1.5,
+insuranceRate:0.5,
+hoaSqft:1.85,
+size:null,
+interestRate:6.5,
+loanYears:30
+},
+
+bedrooms:"TBD",
+
+bathrooms:"TBD",
+
+interiorSize:"TBD",
+
+terraceSize:"TBD",
+
+floors:"TBD",
+
+units:"TBD",
+
+delivery:"TBD",
+
+yearBuilt:"TBD",
+
+developer:"TBD",
+
+neighborhood:"Bay Harbor Islands",
+
+city:"Bay Harbor Islands",
+
+state:"Florida",
+
+country:"USA",
+
+coordinates:{
+lat:null,
+lng:null
+},
+
+nearby:[],
+
+lifestyleIntro:
+"Waterfront living designed for residents seeking privacy, boating access, and luxury convenience.",
+
+lifestyleHighlights:[],
+
+lifestyleExperiences:[],
+
+timeline:[],
+
+images:[],
+
+amenities:[],
+
+highlights:[],
+
+aiRating:{
+overall:null,
+confidence:null,
+summary:"",
+scores:[],
+strengths:[],
+risks:[]
+},
+
+residences:[],
+
+architecture:{
+title:"",
+text:""
+},
+
+architectureGallery:[],
+
+designTeam:{
+architect:"",
+interiors:"",
+landscape:""
+},
+
+documents:[],
+
+constructionTimeline:[],
+
+faq:[],
+
+disclaimer:
+"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
+
+},
+
+   // =========================
+// PART 3/5
+// =========================
+
+{
+id:"la-baia-bay-harbor",
+
+title:"La Baia Bay Harbor",
+
+subtitle:"Waterfront Residences",
+
+type:"Luxury Condominium",
+
+status:"Completed",
+
+location:"Bay Harbor Islands, Florida",
+
+address:"9201 E Bay Harbor Dr, Bay Harbor Islands, FL",
+
+description:
+"Waterfront residences offering modern island living with access to dining, shopping, and coastal experiences.",
+
+thumbnail:"",
+
+price:"$1M+",
+
+priceRange:"$1M+",
+
+pricePerSqft:"TBD",
+
+hoa:"TBD",
+
+estimatedTaxes:"TBD",
+
+mortgage:{
+price:1000000,
+downPayment:30,
+taxRate:1.5,
+insuranceRate:0.5,
+hoaSqft:1.85,
+size:null,
+interestRate:6.5,
+loanYears:30
+},
+
+bedrooms:"TBD",
+bathrooms:"TBD",
+interiorSize:"TBD",
+terraceSize:"TBD",
+
+floors:"9",
+units:"68",
+
+delivery:"2024",
+yearBuilt:"2024",
+
+developer:"Lefferts",
+
+neighborhood:"Bay Harbor Islands",
+
+city:"Bay Harbor Islands",
+state:"Florida",
+country:"USA",
+
+coordinates:{
+lat:null,
+lng:null
+},
+
+nearby:[],
+
+lifestyleIntro:
+"Island living surrounded by waterfront views, boutique shopping, and fine dining.",
+
+lifestyleHighlights:[],
+lifestyleExperiences:[],
+
+timeline:[
+{
+year:"2024",
+label:"Completed"
+}
+],
+
+images:[],
+amenities:[],
+
+highlights:[
+{
+title:"Waterfront Lifestyle",
+text:"Premium island location with coastal amenities nearby."
+}
+],
+
+aiRating:{
+overall:null,
+confidence:null,
+summary:"",
+scores:[],
+strengths:[],
+risks:[]
+},
+
+residences:[],
+
+architecture:{
+title:"",
+text:""
+},
+
+architectureGallery:[],
+
+designTeam:{
+architect:"",
+interiors:"",
+landscape:""
+},
+
+documents:[],
+constructionTimeline:[],
+faq:[],
+
+disclaimer:
+"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
+
+},
+
+
+{
+id:"la-mare-residences",
+
+title:"La Maré Residences",
+
+subtitle:"Luxury Bay Harbor Residences",
+
+type:"Luxury Condominium",
+
+status:"Pre-Construction",
+
+location:"Bay Harbor Islands, Florida",
+
+address:"10203 E Bay Harbor Dr, Bay Harbor Islands, FL",
+
+description:
+"Boutique luxury residences designed for refined waterfront living.",
+
+thumbnail:"",
+
+price:"$1.5M+",
+
+priceRange:"$1.5M+",
+
+pricePerSqft:"TBD",
+
+hoa:"TBD",
+
+estimatedTaxes:"TBD",
+
+mortgage:{
+price:1500000,
+downPayment:30,
+taxRate:1.5,
+insuranceRate:0.5,
+hoaSqft:1.85,
+size:null,
+interestRate:6.5,
+loanYears:30
+},
+
+bedrooms:"TBD",
+bathrooms:"TBD",
+interiorSize:"TBD",
+terraceSize:"TBD",
+
+floors:"9",
+units:"72",
+
+delivery:"TBD",
+yearBuilt:"TBD",
+
+developer:"Alta Developers",
+
+neighborhood:"Bay Harbor Islands",
+
+city:"Bay Harbor Islands",
+state:"Florida",
+country:"USA",
+
+coordinates:{
+lat:null,
+lng:null
+},
+
+nearby:[],
+
+lifestyleIntro:
+"Exclusive island residences near Miami's most desirable coastal destinations.",
+
+lifestyleHighlights:[],
+lifestyleExperiences:[],
+
+timeline:[],
+
+images:[],
+amenities:[],
+highlights:[],
+
+aiRating:{
+overall:null,
+confidence:null,
+summary:"",
+scores:[],
+strengths:[],
+risks:[]
+},
+
+residences:[],
+
+architecture:{
+title:"",
+text:""
+},
+
+architectureGallery:[],
+
+designTeam:{
+architect:"",
+interiors:"",
+landscape:""
+},
+
+documents:[],
+constructionTimeline:[],
+faq:[],
+
+disclaimer:
+"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
+
+},
+
+
+{
+id:"onda-residences",
+
+title:"Onda Residences",
+
+subtitle:"Waterfront Luxury Living",
+
+type:"Luxury Condominium",
+
+status:"Completed",
+
+location:"Bay Harbor Islands, Florida",
+
+address:"1135 103rd St, Bay Harbor Islands, FL",
+
+description:
+"Modern waterfront residences offering elegant design and private island lifestyle.",
+
+thumbnail:"",
+
+price:"$2M+",
+
+priceRange:"$2M+",
+
+pricePerSqft:"TBD",
+
+hoa:"TBD",
+
+estimatedTaxes:"TBD",
+
+mortgage:{
+price:2000000,
+downPayment:30,
+taxRate:1.5,
+insuranceRate:0.5,
+hoaSqft:1.85,
+size:null,
+interestRate:6.5,
+loanYears:30
+},
+
+bedrooms:"TBD",
+bathrooms:"TBD",
+interiorSize:"TBD",
+terraceSize:"TBD",
+
+floors:"8",
+units:"41",
+
+delivery:"2023",
+yearBuilt:"2023",
+
+developer:"Morabito Properties",
+
+neighborhood:"Bay Harbor Islands",
+
+city:"Bay Harbor Islands",
+state:"Florida",
+country:"USA",
+
+coordinates:{
+lat:null,
+lng:null
+},
+
+nearby:[],
+
+lifestyleIntro:
+"Private waterfront living with architecture focused on nature, light, and design.",
+
+lifestyleHighlights:[],
+lifestyleExperiences:[],
+
+timeline:[
+{
+year:"2023",
+label:"Completed"
+}
+],
+
+images:[],
+amenities:[],
+highlights:[],
+
+aiRating:{
+overall:null,
+confidence:null,
+summary:"",
+scores:[],
+strengths:[],
+risks:[]
+},
+
+residences:[],
+
+architecture:{
+title:"",
+text:""
+},
+
+architectureGallery:[],
+
+designTeam:{
+architect:"",
+interiors:"",
+landscape:""
+},
+
+documents:[],
+constructionTimeline:[],
+faq:[],
+
+disclaimer:
+"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
+
 }
   
 ];
