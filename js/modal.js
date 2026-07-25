@@ -1,3 +1,9 @@
+function openModal(page,id){
+
+    debugger;
+
+    console.trace("WHO OPENED MODAL:", id);
+
 /* ==========================================
    STOP MODAL SCRIPT INSIDE IFRAME
 ========================================== */
