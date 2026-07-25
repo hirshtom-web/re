@@ -99,8 +99,7 @@ function closeDeal(){
     history.pushState(
     null,
     "",
-    "?property=" + encodeURIComponent(id) +
-    "&page=" + encodeURIComponent(page)
+    window.location.pathname
 );
 
 
