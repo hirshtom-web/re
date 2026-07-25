@@ -73,17 +73,28 @@ a {
     position:relative;
 }
 
-#map{
 
-    width:100%;
 
-    height:clamp(
-        450px,
-        50vh,
-        900px
-    );
+/* =====================
+MAP
+===================== */
 
+.property-layout{
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
 }
+
+.property-content{
+    flex: 1;
+}
+
+#map{
+    width: clamp(350px, 50vw, 900px);
+    height: clamp(500px, 80vh, 900px);
+    flex-shrink: 0;
+}
+
 
 /* =====================
 LOADER
