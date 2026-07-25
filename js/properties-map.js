@@ -3,7 +3,6 @@ let map;
 let markers = {};
 
 
-
 function initMap(){
 
 
@@ -31,10 +30,23 @@ function initMap(){
 
             clickableIcons:false,
 
+            zoomControl:false,
+
             gestureHandling:"greedy",
 
 
             styles:[
+
+                {
+                    featureType:"all",
+                    elementType:"labels.text.fill",
+                    stylers:[
+                        {
+                            color:"#555555"
+                        }
+                    ]
+                },
+
 
                 {
                     featureType:"poi",
@@ -53,6 +65,39 @@ function initMap(){
                             visibility:"off"
                         }
                     ]
+                },
+
+
+                {
+                    featureType:"road",
+                    elementType:"geometry",
+                    stylers:[
+                        {
+                            color:"#eeeeee"
+                        }
+                    ]
+                },
+
+
+                {
+                    featureType:"water",
+                    elementType:"geometry",
+                    stylers:[
+                        {
+                            color:"#dbe9f2"
+                        }
+                    ]
+                },
+
+
+                {
+                    featureType:"landscape",
+                    elementType:"geometry",
+                    stylers:[
+                        {
+                            color:"#f7f6f2"
+                        }
+                    ]
                 }
 
             ]
@@ -62,7 +107,6 @@ function initMap(){
 
 
     loadPropertiesMap();
-
 
 }
 
