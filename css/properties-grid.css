@@ -75,35 +75,21 @@ MAP
    MAP + PROPERTY LAYOUT
 ===================== */
 
+/* =========================
+   PROPERTY MAP LAYOUT
+========================= */
+
 .properties-layout{
-
-    width:min(95%,1600px);
-
-    margin:auto;
 
     display:flex;
 
-    gap:30px;
+    gap:50px;
+
+    padding:50px;
 
     height:100vh;
 
-    padding:30px 0;
-
     box-sizing:border-box;
-
-}
-
-
-
-/* MAP */
-
-.map-container{
-
-    flex:0 0 58%;
-
-    height:calc(100vh - 60px);
-
-    border-radius:28px;
 
     overflow:hidden;
 
@@ -111,7 +97,30 @@ MAP
 
 
 
-/* GOOGLE MAP */
+/* =========================
+   MAP SIDE
+========================= */
+
+
+.map-container{
+
+    flex:0 0 55%;
+
+    height:calc(100vh - 100px);
+
+    position:sticky;
+
+    top:50px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+}
+
+
 
 #map{
 
@@ -123,20 +132,26 @@ MAP
 
 
 
-/* PROPERTY SIDE */
+/* =========================
+   PROPERTY GRID SIDE
+========================= */
+
 
 .properties-scroll{
 
     flex:1;
 
-    height:calc(100vh - 60px);
+    height:calc(100vh - 100px);
 
     overflow-y:auto;
 
-    scrollbar-width:none;
+    padding-right:10px;
 
 }
 
+
+
+/* hide scrollbar */
 
 .properties-scroll::-webkit-scrollbar{
 
@@ -145,24 +160,9 @@ MAP
 }
 
 
-/* CARDS SIDE */
-
 .properties-scroll{
 
-    flex:1;
-
-    height:calc(100vh - 60px);
-
-    overflow-y:auto;
-
     scrollbar-width:none;
-
-}
-
-
-.properties-scroll::-webkit-scrollbar{
-
-    display:none;
 
 }
 
