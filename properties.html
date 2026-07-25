@@ -189,69 +189,83 @@ rel="stylesheet">
 
 
         <!-- PRICE -->
-
-        <div class="price-filter-wrapper">
-
-
-            <button id="price-filter">
-
-                Price
-
-            </button>
+<div class="price-filter-wrapper">
 
 
+    <button id="price-filter">
 
-            <div class="price-popup">
+        Price
 
-
-                <div class="price-inputs">
-
-                    <input 
-                    id="min-price"
-                    value="500000">
-
-
-                    <input 
-                    id="max-price"
-                    value="10000000">
-
-                </div>
+    </button>
 
 
 
-                <div class="price-chart">
-
-                    <div style="height:20%"></div>
-                    <div style="height:45%"></div>
-                    <div style="height:80%"></div>
-                    <div style="height:100%"></div>
-                    <div style="height:60%"></div>
-                    <div style="height:30%"></div>
-
-                </div>
+    <div class="price-popup">
 
 
-
-                <div class="range-slider">
-
-
-                    <input 
-                    type="range"
-                    id="min-range">
+        <div class="price-range-values">
 
 
-                    <input 
-                    type="range"
-                    id="max-range">
+            <input 
+            id="min-price"
+            type="number"
+            value="500000">
 
 
-                </div>
-
-
-            </div>
+            <input 
+            id="max-price"
+            type="number"
+            value="10000000">
 
 
         </div>
+
+
+
+        <div class="range-slider">
+
+
+            <div class="slider-track"></div>
+
+
+            <input
+            id="min-range"
+            type="range"
+            min="0"
+            max="20000000"
+            value="500000">
+
+
+            <input
+            id="max-range"
+            type="range"
+            min="0"
+            max="20000000"
+            value="10000000">
+
+
+        </div>
+
+
+
+        <div class="price-chart">
+
+
+            <div style="height:20%"></div>
+            <div style="height:45%"></div>
+            <div style="height:80%"></div>
+            <div style="height:100%"></div>
+            <div style="height:60%"></div>
+            <div style="height:30%"></div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
 
 
 
