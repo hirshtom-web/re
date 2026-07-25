@@ -551,11 +551,18 @@ Back
 
 <!-- Map must load before search updates markers -->
 <script src="../js/properties-map.js"></script>
-    
-<script 
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApjRl527xXbpu2WN_c2E-mVvJhJAzkAC8&callback=initMap"
-async
-defer>
+
+    <script>
+function loadGoogleMaps() {
+  const script = document.createElement("script");
+  script.src =
+    "https://maps.googleapis.com/maps/api/js?key=AIzaSyApjRl527xXbpu2WN_c2E-mVvJhJAzkAC8&callback=initMap&loading=async";
+  script.async = true;
+  script.defer = true;
+  document.head.appendChild(script);
+}
+
+loadGoogleMaps();
 </script>
 
 <!-- Search needs renderPropertiesGrid + updateMapMarkers -->
