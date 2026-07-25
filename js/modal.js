@@ -1,4 +1,16 @@
+/* ==========================================
+   STOP MODAL SCRIPT INSIDE IFRAME
+========================================== */
+
+if (window.self !== window.top) {
+
+    console.log("Modal JS skipped inside iframe");
+
+} else {
+
+
 let savedScrollPosition = 0;
+
 
 
 /* ==========================================
@@ -18,7 +30,6 @@ function openModal(page, id, skipHistory = false){
         console.error("Missing modal elements");
         return;
     }
-
 
 
     savedScrollPosition = window.scrollY;
@@ -47,7 +58,6 @@ function openModal(page, id, skipHistory = false){
         );
 
 
-
         history.pushState(
             {
                 property:id,
@@ -61,13 +71,11 @@ function openModal(page, id, skipHistory = false){
 
 
 
-
     /*
-       LOAD PROPERTY INSIDE IFRAME
+       LOAD PROPERTY
     */
 
     frame.style.opacity = "0";
-
 
     modal.classList.add("loading");
 
@@ -87,7 +95,6 @@ function openModal(page, id, skipHistory = false){
 
 
 
-
     document.documentElement.classList.add(
         "modal-open"
     );
@@ -101,7 +108,6 @@ function openModal(page, id, skipHistory = false){
     modal.classList.add(
         "active"
     );
-
 
 }
 
@@ -144,11 +150,10 @@ function closeDeal(removeURL = true){
 
 
 
-
     frame.style.opacity = "0";
 
 
-    frame.src = "";
+    frame.removeAttribute("src");
 
 
 
@@ -178,7 +183,6 @@ function closeDeal(removeURL = true){
         );
 
     }
-
 
 
 
@@ -364,3 +368,6 @@ function(){
 
 
 });
+
+
+}
