@@ -11,9 +11,6 @@ if (window.self !== window.top) {
 
 
 let modalOpen = false;
-let modalState = false;
-let opening = false;
-
 
 
 /* ==========================================
@@ -22,14 +19,6 @@ let opening = false;
 
 
 window.openModal = function(page,id){
-
-
-    if(opening){
-        return;
-    }
-
-
-    opening = true;
 
 
     console.log(
@@ -46,24 +35,15 @@ window.openModal = function(page,id){
         document.getElementById("dealFrame");
 
 
-
     if(!modal || !frame){
-
-        console.error(
-            "Modal elements missing"
-        );
-
-        opening=false;
+        console.error("Missing modal elements");
         return;
-
     }
 
 
 
     const url =
-        new URL(
-            window.location.href
-        );
+        new URL(window.location.href);
 
 
     url.searchParams.set(
@@ -80,22 +60,21 @@ window.openModal = function(page,id){
 
 
     /*
-       Create ONE browser history state
+       THIS CREATES THE BACK BUTTON STEP
     */
 
-    history.replaceState(
-    {
-        type:"modal",
-        modal:true,
-        property:id
-    },
-    "",
-    url.pathname + url.search
-);
+    history.pushState(
+        {
+            modal:true,
+            property:id
+        },
+        "",
+        url.pathname + url.search
+    );
 
 
-    modalState=true;
 
+    frame.style.opacity="0";
 
 
     frame.onload=function(){
@@ -104,14 +83,6 @@ window.openModal = function(page,id){
 
     };
 
-
-
-    frame.style.opacity="0";
-
-
-    /*
-       Load iframe once
-    */
 
     frame.src =
         page +
@@ -139,13 +110,6 @@ window.openModal = function(page,id){
     modalOpen=true;
 
 
-    setTimeout(()=>{
-
-        opening=false;
-
-    },200);
-
-
 };
 
 
@@ -153,7 +117,7 @@ window.openModal = function(page,id){
 
 
 /* ==========================================
-   HIDE ONLY
+   HIDE MODAL
 ========================================== */
 
 
@@ -169,14 +133,9 @@ function hideModal(){
         document.getElementById("dealModal");
 
 
-    const frame =
-        document.getElementById("dealFrame");
 
-
-
-    if(!modal){
+    if(!modal)
         return;
-    }
 
 
 
@@ -195,22 +154,7 @@ function hideModal(){
     );
 
 
-
-    /*
-       Keep iframe alive.
-       Prevent reload.
-    */
-
-    if(frame){
-
-        frame.style.opacity="0";
-
-    }
-
-
-
     modalOpen=false;
-    modalState=false;
 
 
 }
@@ -223,6 +167,7 @@ function hideModal(){
    CLOSE BUTTON
 ========================================== */
 
+
 window.closeDeal=function(){
 
 
@@ -231,23 +176,12 @@ window.closeDeal=function(){
     );
 
 
-    hideModal();
+    /*
+       Go back one history entry.
+       Same as browser back.
+    */
 
-
-    const url = new URL(window.location.href);
-
-
-    url.searchParams.delete("property");
-    url.searchParams.delete("page");
-
-
-    history.replaceState(
-        {
-            type:"grid"
-        },
-        "",
-        url.pathname
-    );
+    history.back();
 
 
 };
@@ -273,13 +207,11 @@ function(e){
     );
 
 
-
     if(modalOpen){
 
         hideModal();
 
     }
-
 
 
 });
@@ -290,12 +222,12 @@ function(e){
 
 
 /* ==========================================
-   OUTSIDE CLICK
+   CLICK OUTSIDE
 ========================================== */
 
 
 document.addEventListener(
-"mousedown",
+"click",
 function(e){
 
 
@@ -348,9 +280,8 @@ function(e){
 
 
 
-
 /* ==========================================
-   DIRECT URL
+   DIRECT URL LOAD
 ========================================== */
 
 
@@ -374,10 +305,7 @@ function(){
 
 
 
-    if(
-        property &&
-        page
-    ){
+    if(property && page){
 
 
         const modal =
@@ -388,11 +316,7 @@ function(){
             document.getElementById("dealFrame");
 
 
-
-        if(
-            modal &&
-            frame
-        ){
+        if(modal && frame){
 
 
             frame.src =
@@ -400,7 +324,6 @@ function(){
                 "?id=" +
                 encodeURIComponent(property) +
                 "&embedded=true";
-
 
 
             modal.classList.add(
@@ -421,6 +344,7 @@ function(){
             modalOpen=true;
 
         }
+
 
     }
 
