@@ -33,16 +33,24 @@ function openModal(page, id){
 
 const previousURL = window.location.href;
 
-history.pushState(
-    {
-        previousURL
-    },
-    "",
-    previousURL +
-    (previousURL.includes("?") ? "&" : "?") +
-    "property=" + encodeURIComponent(id) +
-    "&page=" + encodeURIComponent(page)
-);
+if (!restore) {
+
+    const cleanURL =
+        window.location.pathname +
+        window.location.search;
+
+    history.pushState(
+        {
+            previousURL: cleanURL
+        },
+        "",
+        cleanURL +
+        (cleanURL.includes("?") ? "&" : "?") +
+        "property=" + encodeURIComponent(id) +
+        "&page=" + encodeURIComponent(page)
+    );
+
+}
 
 
     const url =
@@ -103,23 +111,16 @@ function closeDeal(){
     RESTORE GRID URL
 */
 
-if (history.state?.previousURL) {
+const url = new URL(window.location.href);
 
-    history.replaceState(
-        {},
-        "",
-        history.state.previousURL
-    );
+url.searchParams.delete("property");
+url.searchParams.delete("page");
 
-} else {
-
-    history.replaceState(
-        {},
-        "",
-        window.location.pathname
-    );
-
-}
+history.replaceState(
+    {},
+    "",
+    url.pathname + url.search
+);
 
 
     document.documentElement.classList.remove("modal-open");
@@ -215,9 +216,10 @@ document.addEventListener("DOMContentLoaded",()=>{
         setTimeout(()=>{
 
             openModal(
-                savedPage,
-                propertyID
-            );
+    savedPage,
+    propertyID,
+    true
+);
 
         },100);
 
