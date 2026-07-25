@@ -38,20 +38,22 @@ CONTAINER
 ========================= */
 
 
+/* =========================
+AI MODAL CONTAINER
+========================= */
+
 .ai-modal{
 
-    width:min(520px,90%);
+    width:min(680px,92vw);
 
     background:#fff;
 
-    border-radius:36px;
+    border-radius:40px;
 
-    padding:40px;
+    padding:50px;
 
     box-shadow:
-    0 40px 100px rgba(0,0,0,.18);
-
-    position:relative;
+    0 50px 120px rgba(0,0,0,.18);
 
 }
 
@@ -112,76 +114,38 @@ GAUGE
 
 .ai-gauge{
 
-    width:180px;
+    width:220px;
 
-    height:90px;
+    height:110px;
 
-    margin:30px auto 10px;
-
-    overflow:hidden;
-
-    position:relative;
+    margin:35px auto 15px;
 
 }
 
 
 .ai-gauge:before{
 
-    content:"";
+    width:220px;
 
-    position:absolute;
-
-    width:180px;
-
-    height:180px;
-
-    border-radius:50%;
-
-    background:
-    conic-gradient(
-        #111 0deg 310deg,
-        #e8e8e8 310deg 360deg
-    );
+    height:220px;
 
 }
-
 
 
 .ai-gauge-inner{
 
-    position:absolute;
+    left:25px;
 
-    bottom:0;
+    width:170px;
 
-    left:20px;
-
-    width:140px;
-
-    height:70px;
-
-    background:white;
-
-    border-radius:140px 140px 0 0;
-
-    display:flex;
-
-    align-items:flex-end;
-
-    justify-content:center;
-
-    padding-bottom:5px;
+    height:85px;
 
 }
 
 
-
 .ai-gauge-inner strong{
 
-    font-size:48px;
-
-    line-height:1;
-
-    letter-spacing:-3px;
+    font-size:58px;
 
 }
 
@@ -275,48 +239,46 @@ GAUGE
 
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(3,1fr);
 
-    gap:18px;
+    gap:14px;
 
 }
-
 
 
 .ai-metrics div{
 
     background:#fafafa;
 
-    border-radius:18px;
+    border-radius:22px;
 
-    padding:16px;
+    padding:18px;
+
+    border:1px solid rgba(0,0,0,.04);
 
 }
-
 
 
 .ai-metrics span{
 
-    display:block;
+    font-size:11px;
 
-    font-size:12px;
+    color:#777;
 
-    color:#666;
+    text-transform:uppercase;
 
-    margin-bottom:8px;
+    letter-spacing:.5px;
 
 }
-
 
 
 .ai-metrics b{
 
-    font-size:14px;
+    font-size:13px;
 
     letter-spacing:2px;
 
 }
-
 
 
 /* =========================
@@ -324,19 +286,37 @@ CONFIDENCE
 ========================= */
 
 
+/* =========================
+AI FOOTER / DISCLAIMER
+========================= */
+
+
 .ai-confidence{
+
+    margin-top:10px;
+
+    padding:18px 22px;
+
+    background:#fafafa;
+
+    border-radius:20px;
 
     text-align:center;
 
 }
 
 
-
 .ai-confidence small{
 
-    color:#777;
+    display:block;
 
-    font-size:13px;
+    color:#999;
+
+    font-size:11px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
 
 }
 
@@ -346,11 +326,11 @@ CONFIDENCE
 
     display:block;
 
-    font-size:42px;
+    font-size:28px;
 
-    letter-spacing:-2px;
+    font-weight:600;
 
-    margin-top:5px;
+    margin-top:4px;
 
 }
 
@@ -358,10 +338,14 @@ CONFIDENCE
 
 .ai-confidence p{
 
-    margin-top:8px;
+    margin:8px auto 0;
 
-    color:#777;
+    max-width:420px;
 
-    font-size:13px;
+    color:#888;
+
+    font-size:11px;
+
+    line-height:1.5;
 
 }
