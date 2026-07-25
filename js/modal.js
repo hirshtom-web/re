@@ -1,9 +1,3 @@
-function openModal(page,id){
-
-    debugger;
-
-    console.trace("WHO OPENED MODAL:", id);
-
 /* ==========================================
    STOP MODAL SCRIPT INSIDE IFRAME
 ========================================== */
@@ -18,6 +12,7 @@ if (window.self !== window.top) {
 
 let savedScrollPosition = 0;
 let modalOpen = false;
+let blockClicksUntil = 0;
 
 
 
@@ -29,10 +24,28 @@ let modalOpen = false;
 function openModal(page, id){
 
 
+    /*
+       Prevent accidental reopen after BACK
+    */
+
+    if(Date.now() < blockClicksUntil){
+
+        console.log(
+            "BLOCKED ACCIDENTAL OPEN:",
+            id
+        );
+
+        return;
+
+    }
+
+
+
     console.trace(
         "OPEN MODAL CALLED:",
         id
     );
+
 
 
     const modal =
@@ -61,12 +74,9 @@ function openModal(page, id){
 
 
 
-    /*
-       CREATE HISTORY ENTRY
-    */
-
     const url =
         new URL(window.location.href);
+
 
 
     url.searchParams.set(
@@ -94,12 +104,7 @@ function openModal(page, id){
 
 
 
-    /*
-       LOAD IFRAME
-    */
-
-
-    frame.style.opacity = "0";
+    frame.style.opacity="0";
 
 
     frame.src =
@@ -109,11 +114,9 @@ function openModal(page, id){
 
 
 
-    frame.onload = function(){
-
+    frame.onload=function(){
 
         frame.style.opacity="1";
-
 
     };
 
@@ -134,7 +137,7 @@ function openModal(page, id){
     );
 
 
-    modalOpen = true;
+    modalOpen=true;
 
 
 }
@@ -145,16 +148,17 @@ function openModal(page, id){
 
 
 /* ==========================================
-   CLOSE MODAL VISUAL ONLY
+   HIDE MODAL
 ========================================== */
 
 
 function hideModal(){
 
 
-    console.trace(
+    console.log(
         "HIDE MODAL"
     );
+
 
 
     const modal =
@@ -174,9 +178,18 @@ function hideModal(){
 
 
 
+    /*
+       Stop click-through
+    */
+
+    modal.style.pointerEvents="none";
+
+
+
     modal.classList.remove(
         "active"
     );
+
 
 
     document.documentElement.classList.remove(
@@ -197,7 +210,16 @@ function hideModal(){
     }
 
 
+
     modalOpen=false;
+
+
+
+    setTimeout(()=>{
+
+        modal.style.pointerEvents="";
+
+    },300);
 
 
 
@@ -209,7 +231,7 @@ function hideModal(){
 
 
 /* ==========================================
-   CLOSE + REMOVE URL
+   CLOSE MODAL + REMOVE URL
 ========================================== */
 
 
@@ -268,9 +290,8 @@ function closeDeal(){
 
 
 
-
 /* ==========================================
-   ESC CLOSE
+   ESC
 ========================================== */
 
 
@@ -290,8 +311,6 @@ function(e){
 
 
 });
-
-
 
 
 
@@ -333,13 +352,13 @@ if(modal){
 
 
 /* ==========================================
-   BACK / FORWARD BUTTON
+   BACK BUTTON
 ========================================== */
 
 
 window.addEventListener(
 "popstate",
-function(e){
+function(){
 
 
     console.log(
@@ -350,11 +369,13 @@ function(e){
 
 
     /*
-       NEVER OPEN MODAL HERE
-
-       Browser already changed URL.
-       Just close current modal.
+       Block any click event
+       that follows immediately
     */
+
+    blockClicksUntil =
+        Date.now() + 500;
+
 
 
     if(modalOpen){
@@ -372,10 +393,8 @@ function(e){
 
 
 
-
-
 /* ==========================================
-   OPEN FROM URL ONLY ON FIRST PAGE LOAD
+   OPEN DIRECT URL ONLY
 ========================================== */
 
 
@@ -384,47 +403,29 @@ document.addEventListener(
 function(){
 
 
-    /*
-       Wait a moment.
-       Prevents race with history navigation.
-    */
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
 
-    setTimeout(()=>{
+    const property =
+        params.get("property");
 
 
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
-
-
-        const property =
-            params.get("property");
-
-
-        const page =
-            params.get("page");
+    const page =
+        params.get("page");
 
 
 
-        if(
-            property &&
-            page &&
-            !modalOpen
-        ){
+    if(property && page){
 
 
-            console.log(
-                "OPEN INITIAL URL PROPERTY"
-            );
+        /*
+           Direct page load only
+        */
 
-
-            /*
-               IMPORTANT:
-               replace current history entry
-               so back returns to grid
-            */
+        setTimeout(()=>{
 
 
             openModal(
@@ -433,11 +434,10 @@ function(){
             );
 
 
-        }
+        },100);
 
 
-    },100);
-
+    }
 
 
 });
