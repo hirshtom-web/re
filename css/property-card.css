@@ -120,7 +120,7 @@ IMAGE LABELS
 
 
 /* =========================
-TEXT AREA
+PROPERTY TEXT
 ========================= */
 
 .property-card-info {
@@ -137,6 +137,8 @@ NAME + PRICE ROW
 .property-card-header {
 
     display:flex;
+
+    flex-direction:row;
 
     justify-content:space-between;
 
@@ -155,11 +157,11 @@ NAME + PRICE ROW
 
     color:#000;
 
-    font-size:13px;
+    font-size:12px;
 
     font-weight:500;
 
-    letter-spacing:.2px;
+    letter-spacing:0;
 
     line-height:1.2;
 
@@ -176,11 +178,13 @@ NAME + PRICE ROW
 
     color:#000;
 
-    font-size:13px;
+    font-size:12px;
 
     font-weight:500;
 
-    letter-spacing:.2px;
+    letter-spacing:0;
+
+    line-height:1.2;
 
     white-space:nowrap;
 
@@ -197,13 +201,13 @@ CITY
 
     margin:5px 0 0;
 
-    color:#888;
+    color:#000;
 
-    font-size:10px;
+    font-size:12px;
 
-    font-weight:400;
+    font-weight:500;
 
-    letter-spacing:.4px;
+    letter-spacing:0;
 
     line-height:1.2;
 
@@ -222,11 +226,13 @@ STATS
 
     margin-top:10px;
 
-    color:#666;
+    color:#000;
 
-    font-size:10px;
+    font-size:12px;
 
-    letter-spacing:.4px;
+    font-weight:500;
+
+    letter-spacing:0;
 
 }
 
@@ -239,7 +245,6 @@ STATS
 
 }
 
-
 /* =========================
 GRID OFFSET
 ========================= */
@@ -248,14 +253,6 @@ GRID OFFSET
 
     margin-top:-30px;
 
-}
-
-.property-card-header {
-    display:flex !important;
-    flex-direction:row !important;
-    justify-content:space-between !important;
-    align-items:center !important;
-    width:100%;
 }
 
 
