@@ -82,22 +82,35 @@ MAP
 .properties-layout{
 
     display:flex;
-    align-items:flex-start;
-    gap:2rem;
+
+    width:100%;
+
+    height:100vh;
+
+    gap:30px;
+
+    padding:30px;
+
+    box-sizing:border-box;
 
 }
 
 
 .map-container{
 
-    width:clamp(380px,50vw,900px);
+    width:45vw; /* 90% of roughly half screen */
 
-    height:100vh;
+    height:90vh;
 
     position:sticky;
-    top:0;
+
+    top:30px;
 
     flex-shrink:0;
+
+    border-radius:28px;
+
+    overflow:hidden;
 
 }
 
@@ -105,6 +118,7 @@ MAP
 #map{
 
     width:100%;
+
     height:100%;
 
 }
@@ -114,7 +128,9 @@ MAP
 
     flex:1;
 
-    min-width:0;
+    height:90vh;
+
+    overflow-y:auto;
 
 }
 
