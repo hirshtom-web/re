@@ -1,13 +1,18 @@
+/* =========================
+PROPERTY CARD
+========================= */
+
 .property-card{
 
-    background:#fff;
-    border-radius:30px;
-    overflow:hidden;
+    background:transparent;
 
-    border:1px solid rgba(0,0,0,.06);
+    border:none;
 
-    box-shadow:
-    0 30px 80px rgba(0,0,0,.06);
+    border-radius:0;
+
+    overflow:visible;
+
+    box-shadow:none;
 
     cursor:pointer;
 
@@ -16,15 +21,9 @@
 }
 
 
-.property-card:hover{
-
-    transform:translateY(-5px);
-
-    box-shadow:
-    0 20px 40px rgba(0,0,0,.12);
-
-}
-
+/* =========================
+IMAGE
+========================= */
 
 .property-card-image{
 
@@ -34,19 +33,29 @@
 
     overflow:hidden;
 
+    border-radius:30px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.12);
+
 }
+
 
 
 .property-card-image img{
 
     width:100%;
+
     height:100%;
 
     object-fit:cover;
 
-    transition:.4s ease;
+    display:block;
+
+    transition:.5s ease;
 
 }
+
 
 
 .property-card:hover img{
@@ -56,18 +65,25 @@
 }
 
 
+
+/* =========================
+TEXT
+========================= */
+
+
 .property-card-info{
 
-    padding:25px;
+    padding:18px 0 0 0;
 
 }
 
 
+
 .property-card-info h3{
 
-    margin:0 0 10px;
+    margin:0 0 8px;
 
-    font-size:18px;
+    font-size:20px;
 
     font-weight:500;
 
@@ -76,9 +92,10 @@
 }
 
 
+
 .property-card-info p{
 
-    margin:0 0 15px;
+    margin:0 0 12px;
 
     color:#666;
 
@@ -87,15 +104,22 @@
 }
 
 
+
 .property-card-info strong{
 
     font-size:16px;
 
-    font-weight:600;3
+    font-weight:600;
+
     letter-spacing:.5px;
 
 }
 
+
+
+/* =========================
+BADGE
+========================= */
 
 .property-badge{
 
