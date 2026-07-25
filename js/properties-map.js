@@ -29,21 +29,26 @@ function loadPropertiesMap(){
     }
 
 
-    window.properties.forEach(property => {
+   window.properties.forEach(property => {
 
-        new google.maps.Marker({
+    if(!property.coordinates){
+        console.warn("Missing coordinates:", property);
+        return;
+    }
 
-            position:{
-                lat: property.coordinates.lat,
-                lng: property.coordinates.lng
-            },
+    new google.maps.Marker({
 
-            map: map,
+        position:{
+            lat: property.coordinates.lat,
+            lng: property.coordinates.lng
+        },
 
-            title: property.title
+        map: map,
 
-        });
+        title: property.title
 
     });
+
+});
 
 }
