@@ -83,14 +83,15 @@ window.openModal = function(page,id){
        Create ONE browser history state
     */
 
-    history.pushState(
-        {
-            modal:true,
-            property:id
-        },
-        "",
-        url.pathname + url.search
-    );
+    history.replaceState(
+    {
+        type:"modal",
+        modal:true,
+        property:id
+    },
+    "",
+    url.pathname + url.search
+);
 
 
     modalState=true;
@@ -222,7 +223,6 @@ function hideModal(){
    CLOSE BUTTON
 ========================================== */
 
-
 window.closeDeal=function(){
 
 
@@ -231,21 +231,23 @@ window.closeDeal=function(){
     );
 
 
+    hideModal();
 
-    if(modalState){
 
-        /*
-           Browser back removes our modal state
-        */
+    const url = new URL(window.location.href);
 
-        history.back();
 
-    }
-    else{
+    url.searchParams.delete("property");
+    url.searchParams.delete("page");
 
-        hideModal();
 
-    }
+    history.replaceState(
+        {
+            type:"grid"
+        },
+        "",
+        url.pathname
+    );
 
 
 };
