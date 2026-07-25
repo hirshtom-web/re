@@ -79,22 +79,64 @@ a {
 MAP
 ===================== */
 
-.property-layout{
-    display: flex;
-    gap: 2rem;
-    align-items: stretch;
+.properties-layout{
+
+    display:flex;
+    align-items:flex-start;
+    gap:2rem;
+
 }
 
-.property-content{
-    flex: 1;
+
+.map-container{
+
+    width:clamp(380px,50vw,900px);
+
+    height:100vh;
+
+    position:sticky;
+    top:0;
+
+    flex-shrink:0;
+
 }
+
 
 #map{
-    width: clamp(350px, 50vw, 900px);
-    height: clamp(500px, 80vh, 900px);
-    flex-shrink: 0;
+
+    width:100%;
+    height:100%;
+
 }
 
+
+.properties-scroll{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+@media (max-width:900px){
+
+    .properties-layout{
+
+        flex-direction:column;
+
+    }
+
+    .map-container{
+
+        position:relative;
+
+        width:100%;
+
+        height:50vh;
+
+    }
+
+}
 
 /* =====================
 LOADER
