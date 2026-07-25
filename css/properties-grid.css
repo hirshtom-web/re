@@ -30,23 +30,17 @@ body{
 
 /* GRID */
 
-.properties-grid-section{
-
-    padding:60px 0;
-
-}
-
+/* =========================
+PROPERTY GRID
+========================= */
 
 .properties-grid{
 
-    width:min(90%,1440px);
-
-    margin:auto;
+    width:100%;
 
     display:grid;
 
-    grid-template-columns:
-    repeat(3,1fr);
+    grid-template-columns:repeat(2,1fr);
 
     gap:30px;
 
@@ -64,24 +58,27 @@ body{
 
     }
 
-
 }
 
 /* =====================
 MAP
 ===================== */
 
+/* =========================
+   MAIN MAP + GRID LAYOUT
+========================= */
+
 .properties-layout{
 
     display:flex;
 
-    gap:50px;
-
-    padding:50px;
-
     height:100vh;
 
     box-sizing:border-box;
+
+    padding:30px;
+
+    gap:0;
 
     overflow:hidden;
 
@@ -90,23 +87,32 @@ MAP
 }
 
 
+
+/* =========================
+   MAP
+========================= */
+
+
 .map-container{
 
-    flex:0 0 55%;
+    flex:0 0 58%;
 
-    height:calc(100vh - 100px);
+    height:calc(100vh - 60px);
 
     position:sticky;
 
-    top:50px;
+    top:30px;
 
-    border-radius:30px;
+    border-radius:28px;
 
     overflow:hidden;
 
-    margin-bottom:50px;
+    padding-right:15px;
+
+    box-sizing:border-box;
 
 }
+
 
 
 #map{
@@ -115,11 +121,14 @@ MAP
 
     height:100%;
 
+    border-radius:28px;
+
 }
 
 
+
 /* =========================
-   PROPERTY GRID SIDE
+   PROPERTY SIDE
 ========================= */
 
 
@@ -127,11 +136,15 @@ MAP
 
     flex:1;
 
-    height:calc(100vh - 100px);
+    height:calc(100vh - 60px);
 
     overflow-y:auto;
 
-    padding-right:10px;
+    padding-left:15px;
+
+    padding-right:0;
+
+    box-sizing:border-box;
 
 }
 
@@ -149,6 +162,23 @@ MAP
 .properties-scroll{
 
     scrollbar-width:none;
+
+}
+
+
+
+/* =========================
+   GRID
+========================= */
+
+
+.properties-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
 
 }
 
