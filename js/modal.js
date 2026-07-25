@@ -5,7 +5,7 @@ let savedScrollPosition = 0;
    OPEN PROPERTY MODAL
 ========================================== */
 
-function openModal(page, id){
+function openModal(page, id, restore = false){
 
     console.log("OPENING PROPERTY:", id);
 
@@ -20,38 +20,31 @@ function openModal(page, id){
         return;
     }
 
-
     savedScrollPosition = window.scrollY;
-
 
     window.currentPropertyID = id;
 
 
-    /*
-    SAVE CURRENT GRID URL
-*/
+    if (!restore) {
 
-const previousURL = window.location.href;
+        const cleanURL = new URL(window.location.href);
 
-if (!restore) {
+cleanURL.searchParams.delete("property");
+cleanURL.searchParams.delete("page");
 
-    const cleanURL =
-        window.location.pathname +
-        window.location.search;
+        history.pushState(
+    {
+        previousURL: cleanURL.pathname + cleanURL.search
+    },
+    "",
+    cleanURL.pathname +
+    cleanURL.search +
+    (cleanURL.search ? "&" : "?") +
+    "property=" + encodeURIComponent(id) +
+    "&page=" + encodeURIComponent(page)
+);
 
-    history.pushState(
-        {
-            previousURL: cleanURL
-        },
-        "",
-        cleanURL +
-        (cleanURL.includes("?") ? "&" : "?") +
-        "property=" + encodeURIComponent(id) +
-        "&page=" + encodeURIComponent(page)
-    );
-
-}
-
+    }
 
     const url =
         page + "?id=" + encodeURIComponent(id);
@@ -116,7 +109,7 @@ const url = new URL(window.location.href);
 url.searchParams.delete("property");
 url.searchParams.delete("page");
 
-history.replaceState(
+history.pushState(
     {},
     "",
     url.pathname + url.search
@@ -222,6 +215,23 @@ document.addEventListener("DOMContentLoaded",()=>{
 );
 
         },100);
+
+    }
+
+});
+
+
+window.addEventListener("popstate", ()=>{
+
+    const params =
+    new URLSearchParams(window.location.search);
+
+    const propertyID =
+    params.get("property");
+
+    if(!propertyID){
+
+        closeDeal();
 
     }
 
