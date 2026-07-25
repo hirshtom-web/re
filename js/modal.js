@@ -22,14 +22,20 @@ function openModal(page, id, skipHistory = false){
     console.log("OPEN PROPERTY:", id);
 
 
-    const modal = document.getElementById("dealModal");
-    const frame = document.getElementById("dealFrame");
+    const modal =
+        document.getElementById("dealModal");
+
+    const frame =
+        document.getElementById("dealFrame");
 
 
     if(!modal || !frame){
+
         console.error("Missing modal elements");
+
         return;
     }
+
 
 
     savedScrollPosition = window.scrollY;
@@ -37,13 +43,15 @@ function openModal(page, id, skipHistory = false){
 
 
     /*
-       UPDATE URL ONLY WHEN USER CLICKS
+       ONLY CREATE HISTORY WHEN USER CLICKS
     */
 
     if(!skipHistory){
 
 
-        const url = new URL(window.location.href);
+        const url =
+            new URL(window.location.href);
+
 
 
         url.searchParams.set(
@@ -56,6 +64,7 @@ function openModal(page, id, skipHistory = false){
             "page",
             page
         );
+
 
 
         history.pushState(
@@ -71,13 +80,19 @@ function openModal(page, id, skipHistory = false){
 
 
 
+
     /*
-       LOAD PROPERTY
+       LOAD PROPERTY PAGE
     */
+
 
     frame.style.opacity = "0";
 
-    modal.classList.add("loading");
+
+    modal.classList.add(
+        "loading"
+    );
+
 
 
     frame.src =
@@ -87,11 +102,18 @@ function openModal(page, id, skipHistory = false){
 
     frame.onload = function(){
 
+
         frame.style.opacity = "1";
 
-        modal.classList.remove("loading");
+
+        modal.classList.remove(
+            "loading"
+        );
+
 
     };
+
+
 
 
 
@@ -109,6 +131,7 @@ function openModal(page, id, skipHistory = false){
         "active"
     );
 
+
 }
 
 
@@ -120,22 +143,39 @@ function openModal(page, id, skipHistory = false){
    CLOSE PROPERTY MODAL
 ========================================== */
 
+
 function closeDeal(removeURL = true){
 
 
-    const modal = document.getElementById("dealModal");
-    const frame = document.getElementById("dealFrame");
+    console.log("CLOSING MODAL");
+
+
+    const modal =
+        document.getElementById("dealModal");
+
+
+    const frame =
+        document.getElementById("dealFrame");
 
 
 
     if(!modal || !frame){
+
         return;
+
     }
 
 
 
-    modal.classList.remove("active");
-    modal.classList.remove("loading");
+    modal.classList.remove(
+        "active"
+    );
+
+
+    modal.classList.remove(
+        "loading"
+    );
+
 
 
 
@@ -150,10 +190,13 @@ function closeDeal(removeURL = true){
 
 
 
+
     frame.style.opacity = "0";
 
 
-    frame.removeAttribute("src");
+    frame.src = "";
+
+
 
 
 
@@ -182,16 +225,21 @@ function closeDeal(removeURL = true){
             url.pathname + url.search
         );
 
+
     }
+
+
 
 
 
     setTimeout(()=>{
 
+
         window.scrollTo(
             0,
             savedScrollPosition
         );
+
 
     },50);
 
@@ -207,28 +255,28 @@ function closeDeal(removeURL = true){
    ESC CLOSE
 ========================================== */
 
+
 document.addEventListener(
 "keydown",
 function(e){
 
 
-    if(e.key !== "Escape"){
-        return;
-    }
+    if(e.key === "Escape"){
+
+
+        const modal =
+            document.getElementById("dealModal");
 
 
 
-    const modal =
-        document.getElementById("dealModal");
+        if(
+            modal &&
+            modal.classList.contains("active")
+        ){
 
+            closeDeal();
 
-
-    if(
-        modal &&
-        modal.classList.contains("active")
-    ){
-
-        closeDeal();
+        }
 
     }
 
@@ -240,24 +288,24 @@ function(e){
 
 
 
-
 /* ==========================================
    CLICK OUTSIDE CLOSE
 ========================================== */
 
-const modal =
+
+const dealModal =
 document.getElementById("dealModal");
 
 
-if(modal){
+if(dealModal){
 
 
-    modal.addEventListener(
+    dealModal.addEventListener(
     "click",
     function(e){
 
 
-        if(e.target === modal){
+        if(e.target === dealModal){
 
             closeDeal();
 
@@ -274,10 +322,10 @@ if(modal){
 
 
 
-
 /* ==========================================
-   OPEN FROM URL ON LOAD
+   RESTORE MODAL AFTER REFRESH
 ========================================== */
+
 
 document.addEventListener(
 "DOMContentLoaded",
@@ -304,11 +352,17 @@ function(){
     if(propertyID && page){
 
 
-        openModal(
-            page,
-            propertyID,
-            true
-        );
+        setTimeout(()=>{
+
+
+            openModal(
+                page,
+                propertyID,
+                true
+            );
+
+
+        },100);
 
 
     }
@@ -326,9 +380,17 @@ function(){
    BROWSER BACK / FORWARD
 ========================================== */
 
+
 window.addEventListener(
 "popstate",
 function(){
+
+
+    console.log(
+        "POPSTATE:",
+        window.location.href
+    );
+
 
 
     const params =
@@ -348,6 +410,8 @@ function(){
 
 
 
+
+
     if(propertyID && page){
 
 
@@ -358,7 +422,8 @@ function(){
         );
 
 
-    } else {
+    }
+    else {
 
 
         closeDeal(false);
@@ -368,6 +433,7 @@ function(){
 
 
 });
+
 
 
 }
