@@ -1,19 +1,27 @@
 /* =========================
-   AI MODAL
+AI MODAL
 ========================= */
+
 
 .ai-modal-overlay{
 
     position:fixed;
+
     inset:0;
 
     display:none;
+
     align-items:center;
+
     justify-content:center;
 
-    background:rgba(0,0,0,.35);
+    background:
+    rgba(0,0,0,.35);
+
+    backdrop-filter:blur(10px);
 
     z-index:9999;
+
 }
 
 
@@ -24,114 +32,198 @@
 }
 
 
+
+/* =========================
+CONTAINER
+========================= */
+
+
 .ai-modal{
 
-    position:relative;
-
-    width:min(560px,90%);
+    width:min(520px,90%);
 
     background:#fff;
 
-    border-radius:28px;
+    border-radius:36px;
 
-    padding:42px;
+    padding:40px;
 
     box-shadow:
-    0 25px 70px rgba(0,0,0,.14);
+    0 40px 100px rgba(0,0,0,.18);
+
+    position:relative;
 
 }
 
 
-/* close X */
+
+/* CLOSE */
+
 
 .ai-modal-close{
 
     position:absolute;
 
-    top:18px;
-    right:18px;
+    top:20px;
 
-    width:36px;
-    height:36px;
+    right:20px;
 
-    padding:0;
+    width:38px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    height:38px;
+
+    border-radius:50%;
 
     border:0;
-    border-radius:50%;
 
     background:#f4f4f4;
 
-    color:#111;
-
     font-size:22px;
-    line-height:1;
 
     cursor:pointer;
 
 }
 
-.ai-modal-close:hover{
 
-    background:#eeeeee;
 
-    color:#111;
+/* TITLE */
 
-}
 
 .ai-title{
 
     text-align:center;
 
-    font-size:15px;
+    font-size:14px;
 
     font-weight:600;
 
     color:#555;
 
+    letter-spacing:.2px;
+
 }
 
 
-.ai-score{
 
-    text-align:center;
+/* =========================
+GAUGE
+========================= */
 
-    margin-top:10px;
 
-    font-size:72px;
+.ai-gauge{
+
+    width:180px;
+
+    height:90px;
+
+    margin:30px auto 10px;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+
+.ai-gauge:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+    conic-gradient(
+        #111 0deg 310deg,
+        #e8e8e8 310deg 360deg
+    );
+
+}
+
+
+
+.ai-gauge-inner{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:20px;
+
+    width:140px;
+
+    height:70px;
+
+    background:white;
+
+    border-radius:140px 140px 0 0;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    padding-bottom:5px;
+
+}
+
+
+
+.ai-gauge-inner strong{
+
+    font-size:48px;
 
     line-height:1;
 
-    font-weight:700;
-
-    letter-spacing:-5px;
+    letter-spacing:-3px;
 
 }
+
+
+
+.ai-gauge-inner span{
+
+    font-size:16px;
+
+    color:#777;
+
+    margin-bottom:7px;
+
+}
+
+
+
+/* STARS */
 
 
 .ai-stars{
 
     text-align:center;
 
-    margin-top:8px;
-
-    color:#111;
+    font-size:18px;
 
     letter-spacing:4px;
 
-    font-size:18px;
+    margin-top:12px;
 
 }
+
+
+
+/* STATUS */
 
 
 .ai-status{
 
     text-align:center;
 
-    margin-top:16px;
+    margin-top:14px;
 
     font-size:17px;
 
@@ -140,82 +232,107 @@
 }
 
 
+
 .ai-description{
 
     text-align:center;
 
-    margin:12px auto 0;
+    margin:12px auto;
 
-    max-width:280px;
+    max-width:300px;
+
+    color:#777;
 
     font-size:13px;
 
     line-height:1.5;
 
-    color:#777;
-
 }
+
+
+
+/* DIVIDER */
 
 
 .ai-divider{
 
     height:1px;
 
-    background:#eeeeee;
+    background:#eee;
 
     margin:28px 0;
 
 }
 
 
+
+/* =========================
+2x2 METRICS
+========================= */
+
+
 .ai-metrics{
 
-    display:flex;
+    display:grid;
 
-    flex-direction:column;
+    grid-template-columns:1fr 1fr;
 
-    gap:14px;
+    gap:18px;
 
 }
+
 
 
 .ai-metrics div{
 
-    display:flex;
+    background:#fafafa;
 
-    justify-content:space-between;
+    border-radius:18px;
 
-    align-items:center;
-
-    font-size:14px;
+    padding:16px;
 
 }
+
 
 
 .ai-metrics span{
 
-    color:#333;
+    display:block;
+
+    font-size:12px;
+
+    color:#666;
+
+    margin-bottom:8px;
 
 }
 
 
+
 .ai-metrics b{
 
-    font-size:13px;
+    font-size:14px;
 
     letter-spacing:2px;
 
 }
 
 
-.ai-overall{
+
+/* =========================
+CONFIDENCE
+========================= */
+
+
+.ai-confidence{
 
     text-align:center;
 
 }
 
 
-.ai-overall small{
+
+.ai-confidence small{
 
     color:#777;
 
@@ -224,29 +341,22 @@
 }
 
 
-.ai-overall strong{
+
+.ai-confidence strong{
 
     display:block;
 
-    margin-top:8px;
-
-    font-size:36px;
+    font-size:42px;
 
     letter-spacing:-2px;
 
-}
-
-
-.ai-overall strong span{
-
-    color:#777;
-
-    font-size:16px;
+    margin-top:5px;
 
 }
 
 
-.ai-overall p{
+
+.ai-confidence p{
 
     margin-top:8px;
 
