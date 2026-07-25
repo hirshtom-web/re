@@ -851,6 +851,11 @@ status:"Pre-Construction",
 
 location:"Miami, Florida",
 
+coordinates:{
+    lat:25.7617,
+    lng:-80.1918
+},
+
 neighborhood:"Brickell",
 
 price:"Request Pricing",
@@ -948,6 +953,11 @@ type:"Luxury Condominium",
 status:"Pre-Construction",
 
 location:"Downtown Miami, Florida",
+
+coordinates:{
+    lat:25.7781,
+    lng:-80.1870
+},
 
 neighborhood:"Downtown Miami",
 
@@ -1080,6 +1090,11 @@ status:"Pre-Construction",
 
 location:"Brickell, Miami",
 
+coordinates:{
+    lat:25.7580,
+    lng:-80.1900
+},
+
 neighborhood:"Brickell",
 
 price:"Request Pricing",
@@ -1122,6 +1137,11 @@ type:"Luxury Condominium",
 status:"Pre-Construction",
 
 location:"Miami, Florida",
+
+coordinates:{
+    lat:25.7905,
+    lng:-80.2010
+},
 
 price:"Request Pricing",
 
