@@ -179,25 +179,12 @@ rel="stylesheet">
 
 
 
-        <select id="price-filter">
+        <button id="price-filter">
 
-            <option value="">
-                Price Range
-            </option>
+Price
 
-            <option value="1">
-                Under $2M
-            </option>
+</button>
 
-            <option value="2">
-                $2M - $5M
-            </option>
-
-            <option value="3">
-                $5M+
-            </option>
-
-        </select>
 
         <div class="filter-group">
 
@@ -320,7 +307,48 @@ rel="stylesheet">
 </section>
 
     
+<div class="price-popup">
 
+
+<div class="price-inputs">
+
+<input id="min-price"
+value="500000">
+
+
+<input id="max-price"
+value="10000000">
+
+
+</div>
+
+
+<div class="price-chart">
+
+<div style="height:20%"></div>
+<div style="height:45%"></div>
+<div style="height:80%"></div>
+<div style="height:100%"></div>
+<div style="height:60%"></div>
+<div style="height:30%"></div>
+
+</div>
+
+
+
+<div class="range-slider">
+
+<input type="range"
+id="min-range">
+
+
+<input type="range"
+id="max-range">
+
+</div>
+
+
+</div>
 
 
     
