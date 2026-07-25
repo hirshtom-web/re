@@ -1,4 +1,5 @@
 let map;
+let geocoder;
 
 
 function initMap(){
@@ -7,13 +8,15 @@ function initMap(){
         document.getElementById("map"),
         {
             center:{
-                lat:31.7683,
-                lng:35.2137
+                lat:25.7617,
+                lng:-80.1918
             },
             zoom:12
         }
     );
 
+
+    geocoder = new google.maps.Geocoder();
 
     loadPropertiesMap();
 
@@ -29,26 +32,51 @@ function loadPropertiesMap(){
     }
 
 
-   window.properties.forEach(property => {
+    window.properties.forEach(property => {
 
-    if(!property.coordinates){
-        console.warn("Missing coordinates:", property);
-        return;
-    }
 
-    new google.maps.Marker({
+        if(!property.address){
+            console.warn("No address:", property.title);
+            return;
+        }
 
-        position:{
-            lat: property.coordinates.lat,
-            lng: property.coordinates.lng
-        },
 
-        map: map,
+        geocoder.geocode(
+            {
+                address: property.address
+            },
 
-        title: property.title
+            (results, status) => {
+
+
+                if(status === "OK"){
+
+
+                    new google.maps.Marker({
+
+                        map: map,
+
+                        position: results[0].geometry.location,
+
+                        title: property.title
+
+                    });
+
+
+                } else {
+
+                    console.warn(
+                        "Geocode failed:",
+                        property.title,
+                        status
+                    );
+
+                }
+
+            }
+        );
+
 
     });
-
-});
 
 }
