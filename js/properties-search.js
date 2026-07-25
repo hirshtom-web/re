@@ -1,177 +1,119 @@
-/* ==========================================
-   PROPERTY SEARCH + FILTER + SORT
-========================================== */
-
-
 function filterProperties(){
 
 
-    const searchInput =
-    document.getElementById("property-search");
+const searchInput =
+document.getElementById("property-search");
 
 
-    const locationFilter =
-    document.getElementById("location-filter");
+const locationFilter =
+document.getElementById("location-filter");
 
 
-    const sortFilter =
-    document.getElementById("property-sort");
+const priceFilter =
+document.getElementById("price-filter");
 
 
+const sortFilter =
+document.getElementById("sort-filter");
 
-    if(!searchInput || !locationFilter){
 
-        console.warn("Search elements missing");
-        return;
 
-    }
+let search =
+searchInput.value.toLowerCase();
 
 
 
-    const search =
-    searchInput.value
-    .trim()
-    .toLowerCase();
+let location =
+locationFilter.value;
 
 
 
-    const location =
-    locationFilter.value;
+let price =
+priceFilter.value;
 
 
 
-    let filtered =
-    (window.properties || []).filter(property=>{
+let filtered =
+window.properties.filter(property=>{
 
 
-        const title =
-        (property.title || "")
-        .toLowerCase();
+const title =
+(property.title || "")
+.toLowerCase();
 
 
 
-        const propertyLocation =
-        (property.location || "")
-        .toLowerCase();
+const loc =
+(property.location || "")
+.toLowerCase();
 
 
 
-        const neighborhood =
-        (property.neighborhood || "")
-        .toLowerCase();
+const neighborhood =
+(property.neighborhood || "")
+.toLowerCase();
 
 
 
-        const textMatch =
+const textMatch =
 
-        title.includes(search)
+title.includes(search)
 
-        ||
+||
 
-        propertyLocation.includes(search)
+loc.includes(search)
 
-        ||
+||
 
-        neighborhood.includes(search);
+neighborhood.includes(search);
 
 
 
-        const locationMatch =
+const locationMatch =
 
-        !location
+!location
 
-        ||
+||
 
-        propertyLocation.includes(
-            location.toLowerCase()
-        );
+property.location.includes(location);
 
 
 
-        return textMatch && locationMatch;
+let priceMatch=true;
 
 
-    });
 
+if(price){
 
 
-    /* =========================
-       SORTING
-    ========================= */
+const value =
+property.priceValue || 0;
 
 
-    if(sortFilter){
 
+if(price==="1"){
 
-        switch(sortFilter.value){
+priceMatch=value < 2000000;
 
+}
 
-            case "price-low":
 
-                filtered.sort((a,b)=>{
 
-                    return (
-                        a.priceValue || 0
-                    )
-                    -
-                    (
-                        b.priceValue || 0
-                    );
+if(price==="2"){
 
-                });
+priceMatch=
+value >=2000000 &&
+value <=5000000;
 
-            break;
+}
 
 
 
-            case "price-high":
+if(price==="3"){
 
-                filtered.sort((a,b)=>{
+priceMatch=value >5000000;
 
-                    return (
-                        b.priceValue || 0
-                    )
-                    -
-                    (
-                        a.priceValue || 0
-                    );
-
-                });
-
-            break;
-
-
-
-            case "name":
-
-                filtered.sort((a,b)=>{
-
-                    return (
-                        a.title || ""
-                    )
-                    .localeCompare(
-                        b.title || ""
-                    );
-
-                });
-
-            break;
-
-
-        }
-
-    }
-
-
-
-    console.log(
-        "FILTER RESULTS:",
-        filtered.length
-    );
-
-
-
-    renderPropertiesGrid(filtered);
+}
 
 
 }
@@ -179,66 +121,133 @@ function filterProperties(){
 
 
 
+return (
 
-/* ==========================================
-   EVENT LISTENERS
-========================================== */
+textMatch
 
+&&
 
-document.addEventListener(
-"DOMContentLoaded",
-()=>{
+locationMatch
 
+&&
 
-    const searchInput =
-    document.getElementById(
-        "property-search"
-    );
+priceMatch
 
-
-    const locationFilter =
-    document.getElementById(
-        "location-filter"
-    );
-
-
-    const sortFilter =
-    document.getElementById(
-        "property-sort"
-    );
-
-
-
-    if(searchInput){
-
-        searchInput.addEventListener(
-            "input",
-            filterProperties
-        );
-
-    }
-
-
-
-    if(locationFilter){
-
-        locationFilter.addEventListener(
-            "change",
-            filterProperties
-        );
-
-    }
-
-
-
-    if(sortFilter){
-
-        sortFilter.addEventListener(
-            "change",
-            filterProperties
-        );
-
-    }
+);
 
 
 });
+
+
+
+
+
+// SORT
+
+
+if(sortFilter.value){
+
+
+switch(sortFilter.value){
+
+
+case "price-low":
+
+filtered.sort((a,b)=>
+(a.priceValue||0)
+-
+(b.priceValue||0)
+);
+
+break;
+
+
+
+case "price-high":
+
+filtered.sort((a,b)=>
+(b.priceValue||0)
+-
+(a.priceValue||0)
+);
+
+break;
+
+
+
+case "name":
+
+filtered.sort((a,b)=>
+a.title.localeCompare(b.title)
+);
+
+break;
+
+
+
+case "location":
+
+filtered.sort((a,b)=>
+a.location.localeCompare(b.location)
+);
+
+break;
+
+
+}
+
+
+
+}
+
+
+
+renderPropertiesGrid(filtered);
+
+
+
+if(window.updateMapMarkers){
+
+updateMapMarkers(filtered);
+
+}
+
+
+}
+
+
+
+
+document
+.getElementById("property-search")
+?.addEventListener(
+"input",
+filterProperties
+);
+
+
+
+document
+.getElementById("location-filter")
+?.addEventListener(
+"change",
+filterProperties
+);
+
+
+
+document
+.getElementById("price-filter")
+?.addEventListener(
+"change",
+filterProperties
+);
+
+
+
+document
+.getElementById("sort-filter")
+?.addEventListener(
+"change",
+filterProperties
+);
