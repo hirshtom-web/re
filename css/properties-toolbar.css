@@ -473,3 +473,130 @@ MOBILE
 
 
 }
+
+
+.price-range-values{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+}
+
+
+.price-range-values input{
+
+    width:50%;
+
+    height:42px;
+
+    border:1px solid rgba(0,0,0,.08);
+
+    border-radius:12px;
+
+    padding:0 12px;
+
+    font-size:14px;
+
+}
+
+
+
+.range-slider{
+
+    position:relative;
+
+    height:40px;
+
+}
+
+
+
+.slider-track{
+
+    position:absolute;
+
+    top:18px;
+
+    left:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:#ddd;
+
+    border-radius:10px;
+
+}
+
+
+
+
+.range-slider input[type="range"]{
+
+    position:absolute;
+
+    width:100%;
+
+    top:8px;
+
+    pointer-events:none;
+
+    appearance:none;
+
+    background:none;
+
+}
+
+
+
+.range-slider input[type="range"]::-webkit-slider-thumb{
+
+
+    pointer-events:auto;
+
+    appearance:none;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:#8b5cf6;
+
+    cursor:pointer;
+
+    border:none;
+
+    box-shadow:
+
+    0 5px 15px rgba(139,92,246,.35);
+
+}
+
+
+
+.range-slider input[type="range"]::-moz-range-thumb{
+
+
+    pointer-events:auto;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:#8b5cf6;
+
+    cursor:pointer;
+
+    border:none;
+
+}
