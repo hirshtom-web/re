@@ -1,27 +1,30 @@
 /* ==========================================
-   STOP INSIDE IFRAME
+   STOP MODAL SCRIPT INSIDE IFRAME
 ========================================== */
 
 if (window.self !== window.top) {
 
     console.log("Modal JS skipped inside iframe");
 
+
 } else {
 
 
 let savedScrollPosition = 0;
+let modalOpen = false;
+
 
 
 /* ==========================================
-   OPEN MODAL
+   OPEN PROPERTY MODAL
 ========================================== */
 
 
 function openModal(page, id){
 
 
-    console.log(
-        "OPEN PROPERTY:",
+    console.trace(
+        "OPEN MODAL CALLED:",
         id
     );
 
@@ -29,8 +32,10 @@ function openModal(page, id){
     const modal =
         document.getElementById("dealModal");
 
+
     const frame =
         document.getElementById("dealFrame");
+
 
 
     if(!modal || !frame){
@@ -40,6 +45,7 @@ function openModal(page, id){
         );
 
         return;
+
     }
 
 
@@ -50,7 +56,7 @@ function openModal(page, id){
 
 
     /*
-       ADD HISTORY ENTRY
+       CREATE HISTORY ENTRY
     */
 
     const url =
@@ -73,7 +79,8 @@ function openModal(page, id){
     history.pushState(
         {
             modal:true,
-            property:id
+            property:id,
+            page:page
         },
         "",
         url.pathname + url.search
@@ -82,11 +89,11 @@ function openModal(page, id){
 
 
     /*
-       LOAD FRAME
+       LOAD IFRAME
     */
 
 
-    frame.style.opacity="0";
+    frame.style.opacity = "0";
 
 
     frame.src =
@@ -96,9 +103,11 @@ function openModal(page, id){
 
 
 
-    frame.onload=function(){
+    frame.onload = function(){
+
 
         frame.style.opacity="1";
+
 
     };
 
@@ -119,6 +128,9 @@ function openModal(page, id){
     );
 
 
+    modalOpen = true;
+
+
 }
 
 
@@ -127,15 +139,15 @@ function openModal(page, id){
 
 
 /* ==========================================
-   CLOSE MODAL
+   CLOSE MODAL VISUAL ONLY
 ========================================== */
 
 
-function closeDeal(){
+function hideModal(){
 
 
-    console.log(
-        "CLOSE MODAL"
+    console.trace(
+        "HIDE MODAL"
     );
 
 
@@ -148,7 +160,7 @@ function closeDeal(){
 
 
 
-    if(!modal || !frame){
+    if(!modal){
 
         return;
 
@@ -172,12 +184,44 @@ function closeDeal(){
 
 
 
-    frame.src="";
+    if(frame){
+
+        frame.src="";
+
+    }
+
+
+    modalOpen=false;
+
+
+
+}
+
+
+
+
+
+
+/* ==========================================
+   CLOSE + REMOVE URL
+========================================== */
+
+
+function closeDeal(){
+
+
+    console.log(
+        "CLOSE MODAL"
+    );
+
+
+    hideModal();
 
 
 
     const url =
         new URL(window.location.href);
+
 
 
     url.searchParams.delete(
@@ -188,6 +232,7 @@ function closeDeal(){
     url.searchParams.delete(
         "page"
     );
+
 
 
     history.replaceState(
@@ -210,7 +255,6 @@ function closeDeal(){
     },50);
 
 
-
 }
 
 
@@ -218,8 +262,9 @@ function closeDeal(){
 
 
 
+
 /* ==========================================
-   ESC
+   ESC CLOSE
 ========================================== */
 
 
@@ -228,7 +273,10 @@ document.addEventListener(
 function(e){
 
 
-    if(e.key==="Escape"){
+    if(
+        e.key==="Escape" &&
+        modalOpen
+    ){
 
         closeDeal();
 
@@ -236,6 +284,8 @@ function(e){
 
 
 });
+
+
 
 
 
@@ -254,19 +304,19 @@ document.getElementById("dealModal");
 if(modal){
 
 
-modal.addEventListener(
-"click",
-function(e){
+    modal.addEventListener(
+    "click",
+    function(e){
 
 
-    if(e.target===modal){
+        if(e.target===modal){
 
-        closeDeal();
+            closeDeal();
 
-    }
+        }
 
 
-});
+    });
 
 
 }
@@ -277,7 +327,7 @@ function(e){
 
 
 /* ==========================================
-   BACK BUTTON
+   BACK / FORWARD BUTTON
 ========================================== */
 
 
@@ -287,53 +337,26 @@ function(e){
 
 
     console.log(
-        "BACK BUTTON",
+        "POPSTATE:",
         window.location.href
     );
 
 
+
     /*
-       ALWAYS CLOSE MODAL
-       DO NOT REOPEN
+       NEVER OPEN MODAL HERE
+
+       Browser already changed URL.
+       Just close current modal.
     */
 
 
-    const modal =
-        document.getElementById("dealModal");
+    if(modalOpen){
 
-
-    if(
-        modal &&
-        modal.classList.contains("active")
-    ){
-
-        const frame =
-            document.getElementById("dealFrame");
-
-
-        modal.classList.remove(
-            "active"
-        );
-
-
-        document.documentElement.classList.remove(
-            "modal-open"
-        );
-
-
-        document.body.classList.remove(
-            "modal-open"
-        );
-
-
-        if(frame){
-
-            frame.src="";
-
-        }
-
+        hideModal();
 
     }
+
 
 
 });
@@ -343,8 +366,10 @@ function(e){
 
 
 
+
+
 /* ==========================================
-   OPEN FROM DIRECT URL ONLY
+   OPEN FROM URL ONLY ON FIRST PAGE LOAD
 ========================================== */
 
 
@@ -353,35 +378,47 @@ document.addEventListener(
 function(){
 
 
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
+    /*
+       Wait a moment.
+       Prevents race with history navigation.
+    */
 
 
-    const property =
-        params.get("property");
+    setTimeout(()=>{
 
 
-    const page =
-        params.get("page");
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const property =
+            params.get("property");
+
+
+        const page =
+            params.get("page");
 
 
 
-    if(property && page){
-
-
-        const modal =
-            document.getElementById("dealModal");
-
-
-        if(modal &&
-           !modal.classList.contains("active")){
+        if(
+            property &&
+            page &&
+            !modalOpen
+        ){
 
 
             console.log(
-                "OPEN FROM URL"
+                "OPEN INITIAL URL PROPERTY"
             );
+
+
+            /*
+               IMPORTANT:
+               replace current history entry
+               so back returns to grid
+            */
 
 
             openModal(
@@ -393,7 +430,7 @@ function(){
         }
 
 
-    }
+    },100);
 
 
 
