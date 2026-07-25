@@ -81,7 +81,7 @@ TEXT
 
 .property-card-info h3{
 
-    margin:0 0 8px;
+    margin:0;
 
     font-size:12px;
 
@@ -93,21 +93,9 @@ TEXT
 
 
 
-.property-card-info p{
-
-    margin:0 0 12px;
-
-    color:#666;
-
-    letter-spacing:.6px;
-
-    font-size:10px;
-
-}
-
-
-
 .property-card-info strong{
+
+    margin:0;
 
     font-size:10px;
 
@@ -115,7 +103,25 @@ TEXT
 
     letter-spacing:.5px;
 
+    white-space:nowrap;
+
+    text-align:right;
+
 }
+
+
+.property-card-info p{
+
+    margin:0;
+
+    color:#666;
+
+    font-size:10px;
+
+    letter-spacing:.6px;
+
+}
+
 
 
 
@@ -149,4 +155,19 @@ BADGE
 
 .properties-grid{
     margin-top:-30px;
+}
+
+
+.property-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    margin-bottom:8px;
+
 }
