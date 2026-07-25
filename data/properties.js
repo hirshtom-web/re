@@ -907,6 +907,11 @@ status:"Pre-Construction",
 
 location:"North Bay Village, Florida",
 
+coordinates:{
+    lat:25.8460,
+    lng:-80.1530
+},
+
 neighborhood:"North Bay Village",
 
 price:"Request Pricing",
@@ -1006,6 +1011,11 @@ status:"Pre-Construction",
 
 location:"Miami River District, Florida",
 
+coordinates:{
+    lat:25.7725,
+    lng:-80.1960
+},
+
 neighborhood:"Miami River",
 
 price:"Request Pricing",
@@ -1046,6 +1056,11 @@ type:"Luxury Condominium",
 status:"Pre-Construction",
 
 location:"North Bay Village, Florida",
+
+coordinates:{
+    lat:25.8465,
+    lng:-80.1535
+},
 
 neighborhood:"North Bay Village",
 
