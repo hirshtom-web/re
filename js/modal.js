@@ -100,14 +100,26 @@ function closeDeal(){
 
 
     /*
-        REMOVE PROPERTY FROM URL
-    */
+    RESTORE GRID URL
+*/
 
-    history.pushState(
-    null,
-    "",
-    window.location.pathname
-);
+if (history.state?.previousURL) {
+
+    history.replaceState(
+        {},
+        "",
+        history.state.previousURL
+    );
+
+} else {
+
+    history.replaceState(
+        {},
+        "",
+        window.location.pathname
+    );
+
+}
 
 
     document.documentElement.classList.remove("modal-open");
