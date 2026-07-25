@@ -1,5 +1,4 @@
 let map;
-let geocoder;
 
 
 function initMap(){
@@ -14,9 +13,6 @@ function initMap(){
             zoom:12
         }
     );
-
-
-    geocoder = new google.maps.Geocoder();
 
     loadPropertiesMap();
 
@@ -35,46 +31,24 @@ function loadPropertiesMap(){
     window.properties.forEach(property => {
 
 
-        if(!property.address){
-            console.warn("No address:", property.title);
+        if(!property.coordinates){
+            console.warn("Missing coordinates:", property.title);
             return;
         }
 
 
-        geocoder.geocode(
-            {
-                address: property.address
+        new google.maps.Marker({
+
+            position:{
+                lat: property.coordinates.lat,
+                lng: property.coordinates.lng
             },
 
-            (results, status) => {
+            map: map,
 
+            title: property.title
 
-                if(status === "OK"){
-
-
-                    new google.maps.Marker({
-
-                        map: map,
-
-                        position: results[0].geometry.location,
-
-                        title: property.title
-
-                    });
-
-
-                } else {
-
-                    console.warn(
-                        "Geocode failed:",
-                        property.title,
-                        status
-                    );
-
-                }
-
-            }
-        );
+        });
 
 
     });
