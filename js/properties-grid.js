@@ -131,6 +131,8 @@ window.addEventListener(
 );
 
 
+
+
 /* =========================
 PROPERTY SHEET DRAG
 ========================= */
@@ -138,99 +140,80 @@ PROPERTY SHEET DRAG
 document.addEventListener("DOMContentLoaded",()=>{
 
 
-const sheet =
-document.querySelector(".property-sheet");
+const sheet = document.querySelector(".property-sheet");
+
+const dragArea = document.querySelector(
+    ".property-sheet .sheet-handle, .property-sheet .sheet-header"
+);
 
 
-const handle =
-document.querySelector(".sheet-handle");
-
-
-if(!sheet || !handle) return;
-
-
-
-let startY = 0;
-let startTranslate = 0;
-
-
-
-function getY(){
-
-    const matrix =
-    new DOMMatrix(
-        getComputedStyle(sheet).transform
-    );
-
-    return matrix.m42;
-
+if(!sheet || !dragArea){
+    console.log("Sheet drag elements missing");
+    return;
 }
 
 
 
-handle.addEventListener("pointerdown",e=>{
+let startY = 0;
+let currentY = 0;
+
+
+
+dragArea.addEventListener("pointerdown", e=>{
 
 
     startY = e.clientY;
-
-    startTranslate = getY();
-
-
-    handle.setPointerCapture(
-        e.pointerId
-    );
 
 
     sheet.classList.add("dragging");
 
 
+    dragArea.setPointerCapture(
+        e.pointerId
+    );
+
+
 });
 
 
 
-handle.addEventListener("pointermove",e=>{
+dragArea.addEventListener("pointermove", e=>{
 
 
     if(!startY) return;
 
 
-    let move =
-    e.clientY - startY;
+    currentY = e.clientY - startY;
 
 
-    let y =
-    startTranslate + move;
+    let translate =
+    window.innerHeight * 0.75 + currentY;
 
 
-    y = Math.max(
+    translate = Math.max(
         0,
         Math.min(
-            window.innerHeight * .75,
-            y
+            window.innerHeight * 0.75,
+            translate
         )
     );
 
 
     sheet.style.transform =
-    `translateY(${y}px)`;
+    `translateY(${translate}px)`;
 
 
 });
 
 
 
-handle.addEventListener("pointerup",()=>{
+dragArea.addEventListener("pointerup",()=>{
 
 
-    const y = getY();
+    sheet.classList.remove("dragging");
 
 
-    sheet.classList.remove(
-        "dragging"
-    );
-
-
-    if(y < window.innerHeight * .4){
+    if(currentY < -80){
 
         // OPEN
 
@@ -248,7 +231,8 @@ handle.addEventListener("pointerup",()=>{
     }
 
 
-    startY=0;
+    startY = 0;
+    currentY = 0;
 
 
 });
