@@ -114,3 +114,21 @@ document.addEventListener(
 
 window.renderProperties =
 renderPropertiesGrid;
+
+
+/* =========================
+PROPERTY SHEET
+========================= */
+
+function togglePropertySheet(){
+
+    const sheet =
+    document.querySelector(".property-sheet");
+
+    if(sheet){
+
+        sheet.classList.toggle("open");
+
+    }
+
+}
