@@ -481,28 +481,29 @@ PROPERTY SHEET HEADER
 
 .sheet-header{
 
-    position:relative;
+        height:65px;
 
-    height:60px;
+        display:flex;
 
-    display:flex;
+        justify-content:center;
 
-    justify-content:center;
+        align-items:center;
 
-    align-items:center;
+        padding-top:10px;
 
-    font-size:17px;
+        font-size:17px;
 
-    font-weight:600;
+        font-weight:600;
 
-    touch-action:none;
+        touch-action:none;
 
-    cursor:grab;
+        cursor:grab;
 
-    -webkit-user-select:none;
-    user-select:none;
+        -webkit-user-select:none;
 
-}
+        user-select:none;
+
+    }
 
 
 
