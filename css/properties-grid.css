@@ -390,20 +390,42 @@ MAP VIEW
 }
 
 
-    @media (max-width:900px){
+    @media(max-width:900px){
 
 .mobile-map-layout{
+
     position:fixed;
     inset:0;
     overflow:hidden;
+
 }
 
+
 #map{
+
     position:absolute;
-    inset:0;
+
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+
     width:100%;
     height:100%;
+
 }
+
+
+/* hide old toolbar */
+
+.mobile-toolbar{
+
+    display:none;
+
+}
+
+
+/* PROPERTY SHEET */
 
 .property-sheet{
 
@@ -415,73 +437,62 @@ MAP VIEW
 
     height:90vh;
 
-    background:#fff;
+    background:white;
 
     border-radius:28px 28px 0 0;
 
-    transform:translateY(calc(90vh - 120px));
+    transform:translateY(calc(90vh - 130px));
 
-    transition:.3s;
+    transition:transform .25s ease;
 
-    display:flex;
-    flex-direction:column;
+    z-index:20;
 
-    box-shadow:0 -20px 45px rgba(0,0,0,.15);
+    box-shadow:
+    0 -15px 40px rgba(0,0,0,.18);
 
 }
 
+
+.property-sheet.dragging{
+
+    transition:none;
+
+}
+
+
+.sheet-content{
+
+    height:calc(100% - 60px);
+
+    overflow-y:auto;
+
+}
+
+
 .sheet-handle{
 
-    width:44px;
+    width:45px;
+
     height:5px;
 
-    background:#ddd;
+    background:#ccc;
 
-    border-radius:99px;
+    border-radius:20px;
 
     margin:12px auto;
 
 }
 
-.sheet-header{
 
-    text-align:center;
-
-    font-weight:600;
-
-    padding-bottom:18px;
-
-}
-
-.sheet-content{
-
-    flex:1;
-
-    overflow-y:auto;
-
-    padding:0 18px 30px;
-
-}
-
-.sheet-content::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-.sheet-content{
-
-    scrollbar-width:none;
-
-}
-
-.property-sheet .properties-grid{
+.properties-grid{
 
     display:grid;
 
     grid-template-columns:1fr;
 
-    gap:22px;
+    gap:20px;
+
+    padding:0 20px 40px;
 
 }
 
