@@ -646,28 +646,3 @@ HIDE DESKTOP UI
 }
 
 
-.property-sheet {
-
-    transform:
-    translateY(calc(100vh - 180px));
-
-    transition:
-    transform .35s ease;
-
-}
-
-
-.property-sheet.sheet-mid {
-
-    transform:
-    translateY(45vh);
-
-}
-
-
-.property-sheet.sheet-open {
-
-    transform:
-    translateY(0);
-
-}
