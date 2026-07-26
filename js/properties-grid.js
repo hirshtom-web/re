@@ -137,6 +137,10 @@ window.addEventListener(
 PROPERTY SHEET DRAG (MOBILE)
 ========================= */
 
+/* =========================
+PROPERTY SHEET DRAG
+========================= */
+
 document.addEventListener("DOMContentLoaded",()=>{
 
 
@@ -144,27 +148,39 @@ const sheet =
 document.querySelector(".property-sheet");
 
 
-const dragArea =
-document.querySelector(
-".property-sheet .sheet-handle, .property-sheet .sheet-header"
-);
+const handle =
+document.querySelector(".property-sheet .sheet-handle");
 
 
-if(!sheet || !dragArea) return;
+if(!sheet || !handle){
+
+    console.log("Sheet drag elements missing");
+
+    return;
+
+}
 
 
 
 let startY = 0;
-let startPosition = 0;
+let startTranslate = 0;
 
 
 
-function getTranslateY(){
+function getY(){
+
+    const style =
+    window.getComputedStyle(sheet);
+
+
+    if(style.transform === "none"){
+        return 0;
+    }
+
 
     const matrix =
-    new DOMMatrix(
-        window.getComputedStyle(sheet).transform
-    );
+    new DOMMatrix(style.transform);
+
 
     return matrix.m42;
 
@@ -172,7 +188,9 @@ function getTranslateY(){
 
 
 
-dragArea.addEventListener(
+
+
+handle.addEventListener(
 "touchstart",
 (e)=>{
 
@@ -181,8 +199,8 @@ dragArea.addEventListener(
     e.touches[0].clientY;
 
 
-    startPosition =
-    getTranslateY();
+    startTranslate =
+    getY();
 
 
     sheet.classList.add(
@@ -196,7 +214,9 @@ dragArea.addEventListener(
 
 
 
-dragArea.addEventListener(
+
+
+handle.addEventListener(
 "touchmove",
 (e)=>{
 
@@ -208,33 +228,29 @@ dragArea.addEventListener(
     e.touches[0].clientY;
 
 
-    const diff =
-    currentY - startY;
-
-
-
-    let position =
-    startPosition + diff;
+    let move =
+    startTranslate +
+    (currentY - startY);
 
 
 
     const closed =
-    window.innerHeight * 0.75;
+    window.innerHeight - 180;
 
 
 
-    position = Math.max(
+    move =
+    Math.max(
         0,
         Math.min(
             closed,
-            position
+            move
         )
     );
 
 
-
     sheet.style.transform =
-    `translateY(${position}px)`;
+    `translateY(${move}px)`;
 
 
 },
@@ -243,22 +259,24 @@ dragArea.addEventListener(
 
 
 
-dragArea.addEventListener(
+
+
+
+handle.addEventListener(
 "touchend",
 ()=>{
 
 
     const closed =
-    window.innerHeight * 0.75;
+    window.innerHeight - 180;
+
+
+    const current =
+    getY();
 
 
 
-    const position =
-    getTranslateY();
-
-
-
-    if(position < closed / 2){
+    if(current < closed / 2){
 
         sheet.style.transform =
         "translateY(0px)";
@@ -270,7 +288,6 @@ dragArea.addEventListener(
         `translateY(${closed}px)`;
 
     }
-
 
 
     sheet.classList.remove(
@@ -285,6 +302,7 @@ dragArea.addEventListener(
 
 
 });
+
 
 /* =========================
 FILTER POPUP
