@@ -323,7 +323,6 @@ MAP VIEW
 
 
 
-
 @media(max-width:900px){
 
 
@@ -481,29 +480,28 @@ PROPERTY SHEET HEADER
 
 .sheet-header{
 
-        height:65px;
+    position:relative;
 
-        display:flex;
+    height:60px;
 
-        justify-content:center;
+    display:flex;
 
-        align-items:center;
+    justify-content:center;
 
-        padding-top:10px;
+    align-items:center;
 
-        font-size:17px;
+    font-size:17px;
 
-        font-weight:600;
+    font-weight:600;
 
-        touch-action:none;
+    touch-action:none;
 
-        cursor:grab;
+    cursor:grab;
 
-        -webkit-user-select:none;
+    -webkit-user-select:none;
+    user-select:none;
 
-        user-select:none;
-
-    }
+}
 
 
 
@@ -630,12 +628,4 @@ HIDE DESKTOP UI
 
 }
 
-}
-
-.sheet-header{
-    height:65px;
-}
-
-.sheet-content .properties-grid{
-    padding:15px 20px 50px;
 }
