@@ -619,4 +619,13 @@ HIDE DESKTOP UI
 
     }
 
+    
+    .sheet-content .properties-grid{
+
+    margin-top:0;
+
+    padding-top:5px;
+
+}
+
 }
