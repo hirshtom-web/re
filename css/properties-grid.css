@@ -490,6 +490,16 @@ PROPERTY SHEET HEADER
 
 }
 
+    .sheet-header{
+
+    touch-action:none;
+    cursor:grab;
+
+    -webkit-user-select:none;
+    user-select:none;
+
+}
+
 
 /* CONTENT */
 
