@@ -289,7 +289,6 @@ dragArea.addEventListener(
 /* =========================
 FILTER POPUP
 ========================= */
-
 function openFilters(){
 
     const filterSheet =
@@ -302,17 +301,26 @@ function openFilters(){
     if(!filterSheet || !propertySheet) return;
 
 
-
-    // hide properties
-
-    propertySheet.style.transform =
-    `translateY(${window.innerHeight - 180}px)`;
+    const isOpen =
+    filterSheet.classList.toggle("open");
 
 
-    // open filters
+    if(isOpen){
 
-    filterSheet.style.transform =
-    "translateY(0px)";
+        // move property sheet down
+
+        propertySheet.style.transform =
+        "translateY(calc(100vh - 80px))";
+
+    }
+    else{
+
+        // bring property sheet back
+
+        propertySheet.style.transform =
+        "translateY(calc(100vh - 180px))";
+
+    }
 
 }
 
