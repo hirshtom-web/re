@@ -1,16 +1,36 @@
+// ======================================
+// PROPERTY MAP CONTROLLER
+// ======================================
+
 let map;
 
 let markers = {};
 
+let AdvancedMarkerElement;
 
 
-function initMap(){
+
+// ======================================
+// INIT MAP
+// ======================================
+
+async function initMap(){
 
 
-    const mapElement = 
+    const { AdvancedMarkerElement: MarkerClass } =
+    await google.maps.importLibrary("marker");
+
+
+    AdvancedMarkerElement = MarkerClass;
+
+
+
+    const mapElement =
     window.innerWidth <= 900
-    ? document.getElementById("mobile-map")
-    : document.getElementById("desktop-map");
+    ?
+    document.getElementById("mobile-map")
+    :
+    document.getElementById("desktop-map");
 
 
 
@@ -24,8 +44,8 @@ function initMap(){
 
 
 
-
-    map = new google.maps.Map(
+    map =
+    new google.maps.Map(
 
         mapElement,
 
@@ -41,6 +61,9 @@ function initMap(){
 
 
             zoom:11,
+
+
+            mapId:"d44ebce34f2241f5985860cf",
 
 
             mapTypeControl:false,
@@ -74,9 +97,7 @@ function initMap(){
                     stylers:[
 
                         {
-
                             color:"#555555"
-
                         }
 
                     ]
@@ -91,9 +112,7 @@ function initMap(){
                     stylers:[
 
                         {
-
                             visibility:"off"
-
                         }
 
                     ]
@@ -108,9 +127,7 @@ function initMap(){
                     stylers:[
 
                         {
-
                             visibility:"off"
-
                         }
 
                     ]
@@ -127,9 +144,7 @@ function initMap(){
                     stylers:[
 
                         {
-
                             color:"#eeeeee"
-
                         }
 
                     ]
@@ -146,9 +161,7 @@ function initMap(){
                     stylers:[
 
                         {
-
                             color:"#dbe9f2"
-
                         }
 
                     ]
@@ -165,9 +178,7 @@ function initMap(){
                     stylers:[
 
                         {
-
                             color:"#f7f6f2"
-
                         }
 
                     ]
@@ -184,10 +195,6 @@ function initMap(){
     );
 
 
-
-    /*
-    Wait until Google finishes rendering
-    */
 
     google.maps.event.addListenerOnce(
 
@@ -209,6 +216,9 @@ function initMap(){
 
 
 
+// ======================================
+// LOAD PROPERTY MARKERS
+// ======================================
 
 function loadPropertiesMap(){
 
@@ -225,7 +235,8 @@ function loadPropertiesMap(){
 
 
 
-    const bounds = new google.maps.LatLngBounds();
+    const bounds =
+    new google.maps.LatLngBounds();
 
 
 
@@ -235,11 +246,8 @@ function loadPropertiesMap(){
         if(!property.coordinates){
 
             console.warn(
-
                 "Missing coordinates:",
-
                 property.title
-
             );
 
             return;
@@ -250,57 +258,81 @@ function loadPropertiesMap(){
 
         const position = {
 
-
             lat:Number(property.coordinates.lat),
 
-
             lng:Number(property.coordinates.lng)
-
 
         };
 
 
 
-       const price = document.createElement("div");
 
-price.className = "price-marker";
 
-const rawPrice = property.price || "";
+        // ==========================
+        // PRICE PILL
+        // ==========================
 
-let priceText = "Price";
+        const price =
+        document.createElement("div");
 
-if (rawPrice) {
 
-    if (/request pricing/i.test(rawPrice)) {
+        price.className =
+        "price-marker";
 
-        priceText = "Price";
 
-    } else {
 
-        const isFrom = /^from\s+/i.test(rawPrice);
+        let priceText =
+        property.price || "Price";
 
-        priceText = rawPrice.replace(/^from\s+/i, "");
 
-        if (isFrom) {
+
+        const isFrom =
+        /^from\s+/i.test(priceText);
+
+
+
+        priceText =
+        priceText.replace(
+            /^from\s+/i,
+            ""
+        );
+
+
+
+        if(isFrom){
+
             priceText += "+";
+
         }
 
-    }
-
-}
-
-price.textContent = priceText;
-
-new AdvancedMarkerElement({
-
-    map,
-    position,
-    content: price
-
-});
 
 
-        markers[property.id] = marker;
+        price.textContent =
+        priceText;
+
+
+
+        // ==========================
+        // ADVANCED MARKER
+        // ==========================
+
+        const marker =
+        new AdvancedMarkerElement({
+
+            map:map,
+
+            position:position,
+
+            content:price,
+
+            title:property.title
+
+        });
+
+
+
+        markers[property.id] =
+        marker;
 
 
 
@@ -309,16 +341,23 @@ new AdvancedMarkerElement({
 
 
 
-        marker.addListener(
+        // ==========================
+        // MARKER CLICK
+        // ==========================
 
-            "click",
+        marker.addEventListener(
+
+            "gmp-click",
 
             ()=>{
 
 
-                const card = document.querySelector(
-    `[data-property-id="${property.id}"]`
-);
+                const card =
+                document.querySelector(
+
+                    `[data-property-id="${property.id}"]`
+
+                );
 
 
 
@@ -331,15 +370,12 @@ new AdvancedMarkerElement({
 
                         block:"center"
 
-
                     });
 
 
 
                     card.classList.add(
-
                         "active-property"
-
                     );
 
 
@@ -348,9 +384,7 @@ new AdvancedMarkerElement({
 
 
                         card.classList.remove(
-
                             "active-property"
-
                         );
 
 
@@ -367,6 +401,7 @@ new AdvancedMarkerElement({
 
 
     });
+
 
 
 
@@ -414,11 +449,16 @@ new AdvancedMarkerElement({
 
 
 
+// ======================================
+// CONNECT CARDS TO MAP
+// ======================================
+
 function connectCardsToMap(){
 
 
 
-    const cards = document.querySelectorAll(
+    const cards =
+    document.querySelectorAll(
 
         ".property-card"
 
@@ -429,11 +469,13 @@ function connectCardsToMap(){
     cards.forEach(card=>{
 
 
-        const id = card.dataset.propertyId;
+        const id =
+        card.dataset.propertyId;
 
 
 
-        const marker = markers[id];
+        const marker =
+        markers[id];
 
 
 
@@ -446,11 +488,7 @@ function connectCardsToMap(){
 
 
 
-
-        /*
-        Card click -> move map
-        */
-
+        // Card click
 
         card.addEventListener(
 
@@ -461,7 +499,7 @@ function connectCardsToMap(){
 
                 map.panTo(
 
-                    marker.getPosition()
+                    marker.position
 
                 );
 
@@ -477,11 +515,7 @@ function connectCardsToMap(){
 
 
 
-
-        /*
-        Card hover -> highlight marker
-        */
-
+        // Hover
 
         card.addEventListener(
 
@@ -492,35 +526,9 @@ function connectCardsToMap(){
 
                 map.panTo(
 
-                    marker.getPosition()
+                    marker.position
 
                 );
-
-
-
-                marker.setAnimation(
-
-                    google.maps.Animation.BOUNCE
-
-                );
-
-
-            }
-
-        );
-
-
-
-
-
-        card.addEventListener(
-
-            "mouseleave",
-
-            ()=>{
-
-
-                marker.setAnimation(null);
 
 
             }
@@ -530,7 +538,6 @@ function connectCardsToMap(){
 
 
     });
-
 
 
 }
