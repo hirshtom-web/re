@@ -134,10 +134,6 @@ window.addEventListener(
 
 
 /* =========================
-PROPERTY SHEET DRAG (MOBILE)
-========================= */
-
-/* =========================
 PROPERTY SHEET DRAG
 ========================= */
 
@@ -149,7 +145,7 @@ document.querySelector(".property-sheet");
 
 
 const handle =
-document.querySelector(".property-sheet .sheet-handle");
+document.querySelector(".property-sheet .sheet-header");
 
 
 if(!sheet || !handle){
