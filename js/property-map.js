@@ -14,7 +14,7 @@ let AdvancedMarkerElement;
 
 const propertyData = {
 
-    title: "St. Regis Residences Miami",
+    title:"St. Regis Residences Miami",
 
     coordinates:{
         lat:25.7617,
@@ -52,6 +52,32 @@ const soldProperties = [
 
 
 // ======================================
+// NEARBY DEVELOPMENTS
+// ======================================
+
+const nearbyProperties = [
+
+    {
+        title:"888 Brickell",
+        status:"Pre-Construction",
+        price:"$1.5M+",
+        lat:25.7650,
+        lng:-80.1900
+    },
+
+    {
+        title:"Baccarat Residences Miami",
+        status:"Pre-Construction",
+        price:"$1.5M+",
+        lat:25.7660,
+        lng:-80.1885
+    }
+
+];
+
+
+
+// ======================================
 // POINTS OF INTEREST
 // ======================================
 
@@ -80,33 +106,7 @@ const pointsOfInterest = [
 
 
 // ======================================
-// NEARBY DEVELOPMENTS
-// ======================================
-
-const nearbyProperties = [
-
-    {
-        title:"888 Brickell",
-        status:"Pre-Construction",
-        price:"$1.5M+",
-        lat:25.7650,
-        lng:-80.1900
-    },
-
-    {
-        title:"Baccarat Residences Miami",
-        status:"Pre-Construction",
-        price:"$1.5M+",
-        lat:25.7660,
-        lng:-80.1885
-    }
-
-];
-
-
-
-// ======================================
-// INITIALIZE MAP
+// INIT MAP
 // ======================================
 
 async function initMap(){
@@ -132,7 +132,16 @@ async function initMap(){
 
             zoom:17,
 
+
+            // keep your Map ID
             mapId:"d44ebce34f2241f5985860cf",
+
+
+            mapTypeControl:false,
+
+            streetViewControl:false,
+
+            fullscreenControl:false,
 
 
             styles:[
@@ -145,8 +154,8 @@ async function initMap(){
                             color:"#1c1c1c"
                         }
                     ]
-                },
 
+                },
 
                 {
                     elementType:"labels.text.fill",
@@ -156,8 +165,8 @@ async function initMap(){
                             color:"#d8d8d8"
                         }
                     ]
-                },
 
+                },
 
                 {
                     featureType:"poi",
@@ -167,6 +176,7 @@ async function initMap(){
                             visibility:"off"
                         }
                     ]
+
                 }
 
             ]
@@ -192,10 +202,10 @@ async function initMap(){
 
 
 // ======================================
-// PRICE PILL CREATOR
+// PRICE PILL
 // ======================================
 
-function createPricePill(price){
+function createPricePill(value){
 
 
     const pill =
@@ -207,10 +217,10 @@ function createPricePill(price){
 
 
     let text =
-    price || "Price";
+    value || "Price";
 
 
-    const isFrom =
+    const from =
     /^from\s+/i.test(text);
 
 
@@ -218,21 +228,21 @@ function createPricePill(price){
     text.replace(/^from\s+/i,"");
 
 
-    if(isFrom){
+    if(from){
 
         text += "+";
 
     }
 
 
-    pill.textContent = text;
+    pill.innerText =
+    text;
 
 
     return pill;
 
 
 }
-
 
 
 
@@ -284,9 +294,7 @@ function addMainProperty(){
 
 
     marker.addListener(
-
         "click",
-
         ()=>{
 
             info.open({
@@ -298,7 +306,6 @@ function addMainProperty(){
             });
 
         }
-
     );
 
 
@@ -307,9 +314,8 @@ function addMainProperty(){
 
 
 
-
 // ======================================
-// SOLD PROPERTIES
+// SOLD
 // ======================================
 
 function addSoldProperties(){
@@ -323,11 +329,8 @@ function addSoldProperties(){
             map:propertyMap,
 
             position:{
-
                 lat:property.lat,
-
                 lng:property.lng
-
             },
 
             title:property.title,
@@ -347,7 +350,7 @@ function addSoldProperties(){
 
 
 // ======================================
-// NEARBY DEVELOPMENTS
+// DEVELOPMENTS
 // ======================================
 
 function addNearbyProperties(){
@@ -361,18 +364,12 @@ function addNearbyProperties(){
 
             map:propertyMap,
 
-
             position:{
-
                 lat:property.lat,
-
                 lng:property.lng
-
             },
 
-
             title:property.title,
-
 
             content:
             createPricePill(property.price)
@@ -388,17 +385,11 @@ function addNearbyProperties(){
 
             <div>
 
-                <h4>
-                ${property.title}
-                </h4>
+            <h4>${property.title}</h4>
 
-                <p>
-                ${property.status}
-                </p>
+            <p>${property.status}</p>
 
-                <strong>
-                ${property.price}
-                </strong>
+            <strong>${property.price}</strong>
 
             </div>
 
@@ -409,9 +400,7 @@ function addNearbyProperties(){
 
 
         marker.addListener(
-
             "click",
-
             ()=>{
 
                 info.open({
@@ -423,7 +412,6 @@ function addNearbyProperties(){
                 });
 
             }
-
         );
 
 
@@ -435,9 +423,8 @@ function addNearbyProperties(){
 
 
 
-
 // ======================================
-// POINTS OF INTEREST
+// POI
 // ======================================
 
 function addPointsOfInterest(){
@@ -450,22 +437,15 @@ function addPointsOfInterest(){
 
             map:propertyMap,
 
-
             position:{
-
                 lat:place.lat,
-
                 lng:place.lng
-
             },
-
 
             title:place.name,
 
-
             content:
             createPricePill(place.name)
-
 
         });
 
