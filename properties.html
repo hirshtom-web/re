@@ -29,8 +29,14 @@ rel="stylesheet">
 
 
 
-
 <section class="properties-section">
+
+
+<!-- =========================
+DESKTOP FILTERS
+========================= -->
+
+<div class="desktop-filters">
 
 
 <div class="properties-toolbar">
@@ -59,16 +65,12 @@ rel="stylesheet">
     <div class="filter-group">
 
 
-        <!-- LOCATION -->
+         <!-- LOCATION -->
 
         <select id="location-filter">
 
             <option value="">
                 All Locations
-            </option>
-
-            <option value="Art District">
-                Art District
             </option>
 
             <option value="Aventura">
@@ -188,7 +190,8 @@ rel="stylesheet">
 
 
 
-        <!-- PRICE -->
+
+       <!-- PRICE -->
 <div class="price-filter-wrapper">
 
 
@@ -269,9 +272,7 @@ rel="stylesheet">
 
 
 
-
-
-        <!-- PROPERTY TYPE -->
+         <!-- PROPERTY TYPE -->
 
 
         <select id="property-type-filter">
@@ -298,7 +299,7 @@ rel="stylesheet">
 
 
 
-        <!-- COMPLETION -->
+         <!-- COMPLETION -->
 
 
         <select id="completion-filter">
@@ -332,7 +333,6 @@ rel="stylesheet">
 
 
 
-
         <!-- SORT -->
 
 
@@ -360,41 +360,7 @@ rel="stylesheet">
 
         </select>
 
-
-
-
-        <!-- VIEW -->
-
-
-        <div class="view-toggle">
-
-
-            <button id="grid-view-btn" class="active">
-
-                <span class="material-symbols-outlined">
-                    grid_view
-                </span>
-
-                Grid
-
-            </button>
-
-
-
-            <button id="map-view-btn">
-
-
-                <span class="material-symbols-outlined">
-                    map
-                </span>
-
-                Map
-
-
-            </button>
-
-
-        </div>
+        
 
 
     </div>
@@ -403,10 +369,15 @@ rel="stylesheet">
 </div>
 
 
+</div>
 
 
 
-<!-- MAIN CONTENT -->
+
+
+<!-- =========================
+DESKTOP MAP + GRID
+========================= -->
 
 
 <div class="properties-layout">
@@ -414,7 +385,7 @@ rel="stylesheet">
 
     <div class="map-container">
 
-        <div id="map"></div>
+        <div id="desktop-map"></div>
 
     </div>
 
@@ -436,60 +407,109 @@ rel="stylesheet">
 
 
 
-</section>
 
 
-    
 
-    <!-- MOBILE LAYOUT -->
-    
+
+
+<!-- =========================
+MOBILE MAP + SHEETS
+========================= -->
+
+
 <div class="mobile-map-layout">
 
-    <!-- MAP -->
-    <div id="map"></div>
+
+    <!-- FULL SCREEN MOBILE MAP -->
+
+    <div id="mobile-map"></div>
+
+
+
 
 
     <!-- FILTER BUTTON -->
-    <button class="mobile-filter-button" onclick="openFilters()">
+
+    <button 
+    class="mobile-filter-button"
+    onclick="openFilters()">
+
         ⚙ Filters
+
     </button>
 
 
-    <!-- PROPERTY SHEET -->
+
+
+
+
+    <!-- PROPERTY BOTTOM SHEET -->
+
     <div class="property-sheet">
+
 
         <div class="sheet-handle"></div>
 
+
+
         <div class="sheet-header">
+
             <span id="property-count">
                 248 Properties
             </span>
+
         </div>
+
 
 
         <div class="sheet-content">
 
-            <div id="properties-grid" class="properties-grid"></div>
+
+            <div 
+            id="mobile-properties-grid"
+            class="properties-grid">
+            </div>
+
 
         </div>
+
 
     </div>
 
 
-    <!-- FILTER SHEET -->
+
+
+
+
+
+    <!-- FILTER POPUP SHEET -->
+
     <div class="filter-sheet">
 
+
         <div class="sheet-handle"></div>
+
 
         <h2>
             Filters
         </h2>
 
-        <!-- filters here -->
+
+        <!-- PUT MOBILE FILTERS HERE -->
+
 
     </div>
 
+
+
 </div>
+
+
+
+</section>
+
+
+    
     
 
     
