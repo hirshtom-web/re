@@ -149,9 +149,22 @@ document.querySelector(".property-sheet .sheet-handle");
 if(!sheet || !handle) return;
 
 
-
 let startY = 0;
-let current = 0;
+let startPosition = 0;
+
+
+
+function getTranslateY(){
+
+    const style =
+    window.getComputedStyle(sheet);
+
+    const matrix =
+    new DOMMatrix(style.transform);
+
+    return matrix.m42;
+
+}
 
 
 
@@ -162,8 +175,10 @@ handle.addEventListener(
 
     startY = e.clientY;
 
+    startPosition = getTranslateY();
 
-    sheet.setPointerCapture(
+
+    handle.setPointerCapture(
         e.pointerId
     );
 
@@ -177,7 +192,6 @@ handle.addEventListener(
 
 
 
-
 handle.addEventListener(
 "pointermove",
 (e)=>{
@@ -186,31 +200,34 @@ handle.addEventListener(
     if(!startY) return;
 
 
-    let diff =
+    const difference =
     e.clientY - startY;
 
 
-    current =
-    window.innerHeight * .78 + diff;
+    let position =
+    startPosition + difference;
 
 
 
-    current =
-    Math.max(
+    const closed =
+    window.innerHeight * 0.78;
+
+
+
+    position = Math.max(
         0,
         Math.min(
-            window.innerHeight*.78,
-            current
+            closed,
+            position
         )
     );
 
 
     sheet.style.transform =
-    `translateY(${current}px)`;
+    `translateY(${position}px)`;
 
 
 });
-
 
 
 
@@ -219,28 +236,35 @@ handle.addEventListener(
 ()=>{
 
 
-    sheet.classList.remove(
-        "dragging"
-    );
+    const closed =
+    window.innerHeight * 0.78;
 
 
-    if(current < window.innerHeight*.35){
+    const position =
+    getTranslateY();
+
+
+
+    if(position < closed/2){
 
         sheet.style.transform =
         "translateY(0px)";
 
     }
-
     else{
 
         sheet.style.transform =
-        "translateY(78vh)";
+        `translateY(${closed}px)`;
 
     }
 
 
+    sheet.classList.remove(
+        "dragging"
+    );
 
-    startY=0;
+
+    startY = 0;
 
 
 });
