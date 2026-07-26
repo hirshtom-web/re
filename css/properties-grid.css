@@ -588,3 +588,11 @@ MOBILE LATOUT
     }
 
 }
+
+.property-sheet{
+    transform:translateY(78vh);
+}
+
+.property-sheet.dragging{
+    transition:none;
+}
