@@ -325,307 +325,278 @@ MAP VIEW
 
 @media(max-width:900px){
 
-
-.desktop-filters{
-    display:none !important;
-}
-
-
-.properties-layout,
-.properties-scroll,
-.map-container{
-    display:none !important;
-}
+    .desktop-filters,
+    .properties-layout,
+    .properties-scroll,
+    .map-container{
+        display:none !important;
+    }
 
 
-/* FULL SCREEN MAP */
+    /* FULL SCREEN MAP */
 
-.mobile-map-layout{
+    .mobile-map-layout{
 
-    display:block;
+        display:block;
 
-    position:fixed;
+        position:fixed;
 
-    inset:0;
+        inset:0;
 
-    width:100vw;
-    height:100vh;
+        width:100vw;
+        height:100vh;
 
-    overflow:hidden;
+        overflow:hidden;
 
-}
+    }
 
 
-#map,
-#mobile-map{
+    #map,
+    #mobile-map{
 
-    position:absolute;
+        position:absolute;
 
-    inset:0;
+        inset:0;
 
-    width:100%;
-    height:100%;
+        width:100%;
+        height:100%;
 
-}
+    }
 
 
 
-/* FILTER BUTTON */
+    /* FILTER BUTTON */
 
-.mobile-filter-button{
+    .mobile-filter-button{
 
-    position:absolute;
+        position:absolute;
 
-    top:20px;
-    right:20px;
+        top:20px;
+        right:20px;
 
-    z-index:100;
+        z-index:100;
 
-    background:white;
+        background:white;
 
-    border:none;
+        border:none;
 
-    padding:12px 18px;
+        padding:12px 18px;
 
-    border-radius:30px;
+        border-radius:30px;
 
-    box-shadow:
-    0 8px 25px rgba(0,0,0,.18);
+        box-shadow:
+        0 8px 25px rgba(0,0,0,.18);
 
-}
-
-
-
-/* PROPERTY SHEET */
-
-.property-sheet{
-
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:0;
-
-    height:90vh;
-
-    background:white;
-
-    border-radius:30px 30px 0 0;
-
-    transition:transform .25s ease;
+    }
 
 
-}
+
+    /* =========================
+       PROPERTY SHEET
+    ========================= */
+
 
     .property-sheet{
 
-    transform:translateY(calc(100vh - 200px));
+        position:absolute;
 
-    touch-action:none;
+        left:0;
+        right:0;
+        bottom:0;
 
-}
+        height:90vh;
+
+        background:white;
+
+        border-radius:30px 30px 0 0;
+
+        transform:translateY(calc(100vh - 200px));
+
+        transition:transform .25s ease;
+
+        touch-action:none;
+
+        z-index:20;
+
+    }
 
 
-.property-sheet.dragging{
+    .property-sheet.dragging{
 
-    transition:none;
+        transition:none;
+
+    }
+
+
+
+    /* HANDLE */
+
+    .sheet-handle{
+
+        position:absolute;
+
+        top:12px;
+
+        left:50%;
+
+        transform:translateX(-50%);
+
+        width:45px;
+
+        height:5px;
+
+        background:#ddd;
+
+        border-radius:20px;
+
+        pointer-events:none;
+
+    }
+
+
+
+    /* HEADER */
+
+    .sheet-header{
+
+        height:65px;
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        padding-top:10px;
+
+        font-size:17px;
+
+        font-weight:600;
+
+        touch-action:none;
+
+        cursor:grab;
+
+        -webkit-user-select:none;
+
+        user-select:none;
+
+    }
+
+
+
+    /* CONTENT */
+
+    .sheet-content{
+
+        height:calc(100% - 65px);
+
+        overflow-y:auto;
+
+    }
+
+
+    .sheet-content .properties-grid{
+
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+        padding:15px 20px 50px;
+
+        margin-top:0;
+
+    }
+
+
+
+    /* =========================
+       FILTER SHEET
+    ========================= */
+
+
+    .filter-sheet{
+
+        position:absolute;
+
+        left:0;
+        right:0;
+        bottom:0;
+
+        height:90vh;
+
+        background:white;
+
+        border-radius:30px 30px 0 0;
+
+        transform:translateY(100%);
+
+        transition:transform .3s ease;
+
+        box-shadow:
+        0 -20px 50px rgba(0,0,0,.18);
+
+        z-index:30;
+
+        touch-action:none;
+
+    }
+
+
+    .filter-sheet.open{
+
+        transform:translateY(0);
+
+    }
+
+
 
 }
 
 
 
 /* =========================
-PROPERTY SHEET HEADER
-========================= */
-
-.sheet-handle{
-
-    position:absolute;
-
-    top:10px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:45px;
-
-    height:5px;
-
-    background:#ddd;
-
-    border-radius:20px;
-
-    pointer-events:none;
-
-}
-
-
-
-.sheet-handle::after{
-
-    content:"";
-
-    width:45px;
-
-    height:5px;
-
-    background:#ddd;
-
-    border-radius:20px;
-
-}
-
-
-
-.sheet-header{
-
-    position:relative;
-
-    height:60px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:17px;
-
-    font-weight:600;
-
-    touch-action:none;
-
-    cursor:grab;
-
-    -webkit-user-select:none;
-    user-select:none;
-
-}
-
-
-
-/* CONTENT */
-
-.sheet-content{
-
-    height:calc(100% - 70px);
-
-    overflow-y:auto;
-
-}
-
-
-
-.sheet-content .properties-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr;
-
-    gap:20px;
-
-    padding:0 20px 50px;
-
-}
-
-
-
-/* =========================
-FILTER SHEET
-========================= */
-
-/* =========================
-FILTER SHEET
-========================= */
-
-.filter-sheet{
-
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:0;
-
-    height:90vh;
-
-    background:white;
-
-    border-radius:30px 30px 0 0;
-
-    transform:translateY(100%);
-
-    transition:transform .3s ease;
-
-    box-shadow:
-    0 -20px 50px rgba(0,0,0,.18);
-
-    z-index:30;
-
-    touch-action:none;
-
-}
-
-
-.filter-sheet.open{
-
-    transform:translateY(0);
-
-}
-
-}
-
-
-/* =========================
-DESKTOP ONLY
-HIDE MOBILE UI
+   DESKTOP ONLY
 ========================= */
 
 @media(min-width:901px){
 
     .mobile-map-layout,
-    .mobile-filter-button{
+    .mobile-filter-button,
+    .property-sheet,
+    .filter-sheet{
 
         display:none !important;
 
     }
 
 }
+
 
 
 /* =========================
-MOBILE ONLY
-HIDE DESKTOP UI
+   OVERRIDES
+   (safe place for tweaks)
 ========================= */
+
 
 @media(max-width:900px){
 
-    .desktop-filters,
-    .properties-layout,
-    .properties-scroll,
-    .map-container{
+    .sheet-header{
 
-        display:none !important;
+        height:65px;
 
-    }
-
-}
-
-@media (max-width:900px){
-
-    .properties-scroll{
-
-        display:none !important;
+        padding-top:15px;
 
     }
 
-    
+
     .sheet-content .properties-grid{
 
-    margin-top:0;
+        padding-top:20px;
 
-    padding-top:5px;
-
-}
+    }
 
 }
