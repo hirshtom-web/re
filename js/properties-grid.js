@@ -50,10 +50,6 @@ function renderPropertiesGrid(propertiesList = window.properties){
                 </span>
 
 
-                <span class="property-tag">
-                    ${property.type || "Luxury"}
-                </span>
-
 
                 <button
                     class="property-favorite"
