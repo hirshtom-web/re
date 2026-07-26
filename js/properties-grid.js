@@ -142,11 +142,8 @@ const sheet =
 document.querySelector(".property-sheet");
 
 
-const handle =
-document.querySelector(".property-sheet .sheet-handle");
+if(!sheet) return;
 
-
-if(!sheet || !handle) return;
 
 
 let startY = 0;
@@ -156,11 +153,18 @@ let startPosition = 0;
 
 function getTranslateY(){
 
-    const style =
-    window.getComputedStyle(sheet);
+    const transform =
+    window.getComputedStyle(sheet).transform;
+
+
+    if(transform === "none"){
+        return 0;
+    }
+
 
     const matrix =
-    new DOMMatrix(style.transform);
+    new DOMMatrix(transform);
+
 
     return matrix.m42;
 
@@ -168,17 +172,23 @@ function getTranslateY(){
 
 
 
-handle.addEventListener(
+
+sheet.addEventListener(
 "pointerdown",
 (e)=>{
 
 
+    // do not drag when touching property cards
+    if(e.target.closest(".sheet-content")) return;
+
+
     startY = e.clientY;
+
 
     startPosition = getTranslateY();
 
 
-    handle.setPointerCapture(
+    sheet.setPointerCapture(
         e.pointerId
     );
 
@@ -192,7 +202,9 @@ handle.addEventListener(
 
 
 
-handle.addEventListener(
+
+
+sheet.addEventListener(
 "pointermove",
 (e)=>{
 
@@ -204,13 +216,14 @@ handle.addEventListener(
     e.clientY - startY;
 
 
+
     let position =
     startPosition + difference;
 
 
 
     const closed =
-    window.innerHeight * 0.78;
+    window.innerHeight - 170;
 
 
 
@@ -223,6 +236,7 @@ handle.addEventListener(
     );
 
 
+
     sheet.style.transform =
     `translateY(${position}px)`;
 
@@ -231,32 +245,17 @@ handle.addEventListener(
 
 
 
-handle.addEventListener(
+
+
+
+sheet.addEventListener(
 "pointerup",
-()=>{
+(e)=>{
 
 
-    const closed =
-    window.innerHeight * 0.78;
-
-
-    const position =
-    getTranslateY();
-
-
-
-    if(position < closed/2){
-
-        sheet.style.transform =
-        "translateY(0px)";
-
-    }
-    else{
-
-        sheet.style.transform =
-        `translateY(${closed}px)`;
-
-    }
+    sheet.releasePointerCapture(
+        e.pointerId
+    );
 
 
     sheet.classList.remove(
@@ -264,30 +263,45 @@ handle.addEventListener(
     );
 
 
-    startY = 0;
 
-
-});
-
-
-});
+    const closed =
+    window.innerHeight - 170;
 
 
 
-/* =========================
-FILTER POPUP
-========================= */
-
-function openFilters(){
-
-    const filterSheet =
-    document.querySelector(".filter-sheet");
+    const position =
+    getTranslateY();
 
 
-    if(filterSheet){
 
-        filterSheet.classList.toggle("open");
+    if(position < closed * 0.45){
+
+
+        // fully open
+
+        sheet.style.transform =
+        "translateY(0px)";
+
+
+    }
+    else{
+
+
+        // collapsed
+
+        sheet.style.transform =
+        `translateY(${closed}px)`;
+
 
     }
 
-}
+
+
+    startY = 0;
+    startPosition = 0;
+
+
+});
+
+
+});
