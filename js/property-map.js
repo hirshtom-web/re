@@ -4,6 +4,9 @@
 
 let propertyMap;
 
+let AdvancedMarkerElement;
+
+
 
 // ======================================
 // CURRENT PROPERTY DATA
@@ -21,6 +24,7 @@ const propertyData = {
     price:"From $5M"
 
 };
+
 
 
 // ======================================
@@ -46,6 +50,7 @@ const soldProperties = [
 ];
 
 
+
 // ======================================
 // POINTS OF INTEREST
 // ======================================
@@ -54,26 +59,24 @@ const pointsOfInterest = [
 
     {
         name:"Brickell City Centre",
-        category:"shopping",
         lat:25.7670,
         lng:-80.1930
     },
 
     {
         name:"Mandarin Oriental Miami",
-        category:"hotel",
         lat:25.7610,
         lng:-80.1870
     },
 
     {
         name:"Bayside Marketplace",
-        category:"shopping",
         lat:25.7780,
         lng:-80.1860
     }
 
 ];
+
 
 
 // ======================================
@@ -106,10 +109,20 @@ const nearbyProperties = [
 // INITIALIZE MAP
 // ======================================
 
-function initMap(){
+async function initMap(){
 
 
-    propertyMap = new google.maps.Map(
+    const markerLibrary =
+    await google.maps.importLibrary("marker");
+
+
+    AdvancedMarkerElement =
+    markerLibrary.AdvancedMarkerElement;
+
+
+
+    propertyMap =
+    new google.maps.Map(
 
         document.getElementById("property-map"),
 
@@ -121,10 +134,12 @@ function initMap(){
 
             mapId:"d44ebce34f2241f5985860cf",
 
+
             styles:[
 
                 {
                     elementType:"geometry",
+
                     stylers:[
                         {
                             color:"#1c1c1c"
@@ -132,8 +147,10 @@ function initMap(){
                     ]
                 },
 
+
                 {
                     elementType:"labels.text.fill",
+
                     stylers:[
                         {
                             color:"#d8d8d8"
@@ -141,8 +158,10 @@ function initMap(){
                     ]
                 },
 
+
                 {
                     featureType:"poi",
+
                     stylers:[
                         {
                             visibility:"off"
@@ -157,6 +176,7 @@ function initMap(){
     );
 
 
+
     addMainProperty();
 
     addSoldProperties();
@@ -167,6 +187,7 @@ function initMap(){
 
 
 }
+
 
 
 
@@ -185,7 +206,8 @@ function createPricePill(price){
     "price-marker";
 
 
-    let text = price || "Price";
+    let text =
+    price || "Price";
 
 
     const isFrom =
@@ -213,15 +235,17 @@ function createPricePill(price){
 
 
 
+
+
 // ======================================
-// MAIN PROPERTY MARKER
+// MAIN PROPERTY
 // ======================================
 
 function addMainProperty(){
 
 
     const marker =
-    new google.maps.marker.AdvancedMarkerElement({
+    new AdvancedMarkerElement({
 
         map:propertyMap,
 
@@ -243,9 +267,13 @@ function addMainProperty(){
 
         <div class="map-card">
 
-            <h3>${propertyData.title}</h3>
+            <h3>
+            ${propertyData.title}
+            </h3>
 
-            <p>${propertyData.price}</p>
+            <p>
+            ${propertyData.price}
+            </p>
 
         </div>
 
@@ -279,8 +307,9 @@ function addMainProperty(){
 
 
 
+
 // ======================================
-// SOLD PROPERTY MARKERS
+// SOLD PROPERTIES
 // ======================================
 
 function addSoldProperties(){
@@ -289,13 +318,16 @@ function addSoldProperties(){
     soldProperties.forEach(property=>{
 
 
-        new google.maps.marker.AdvancedMarkerElement({
+        new AdvancedMarkerElement({
 
             map:propertyMap,
 
             position:{
+
                 lat:property.lat,
+
                 lng:property.lng
+
             },
 
             title:property.title,
@@ -325,15 +357,17 @@ function addNearbyProperties(){
 
 
         const marker =
-        new google.maps.marker.AdvancedMarkerElement({
-
+        new AdvancedMarkerElement({
 
             map:propertyMap,
 
 
             position:{
+
                 lat:property.lat,
+
                 lng:property.lng
+
             },
 
 
@@ -342,7 +376,6 @@ function addNearbyProperties(){
 
             content:
             createPricePill(property.price)
-
 
         });
 
@@ -355,11 +388,17 @@ function addNearbyProperties(){
 
             <div>
 
-            <h4>${property.title}</h4>
+                <h4>
+                ${property.title}
+                </h4>
 
-            <p>${property.status}</p>
+                <p>
+                ${property.status}
+                </p>
 
-            <strong>${property.price}</strong>
+                <strong>
+                ${property.price}
+                </strong>
 
             </div>
 
@@ -396,6 +435,7 @@ function addNearbyProperties(){
 
 
 
+
 // ======================================
 // POINTS OF INTEREST
 // ======================================
@@ -406,14 +446,17 @@ function addPointsOfInterest(){
     pointsOfInterest.forEach(place=>{
 
 
-        new google.maps.marker.AdvancedMarkerElement({
+        new AdvancedMarkerElement({
 
             map:propertyMap,
 
 
             position:{
+
                 lat:place.lat,
+
                 lng:place.lng
+
             },
 
 
