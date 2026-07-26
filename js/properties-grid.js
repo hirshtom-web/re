@@ -6,7 +6,12 @@ function renderPropertiesGrid(propertiesList = window.properties){
 
 
     const propertiesGrid =
+    window.innerWidth <= 900
+    ?
+    document.getElementById("mobile-properties-grid")
+    :
     document.getElementById("properties-grid");
+
 
 
     if(!propertiesGrid || !propertiesList){
@@ -16,7 +21,7 @@ function renderPropertiesGrid(propertiesList = window.properties){
         return;
 
     }
-
+    
 
     propertiesGrid.innerHTML = "";
 
