@@ -121,6 +121,16 @@ window.renderProperties =
 renderPropertiesGrid;
 
 
+window.addEventListener(
+    "propertiesLoaded",
+    ()=>{
+
+        renderPropertiesGrid();
+
+    }
+);
+
+
 /* =========================
 PROPERTY SHEET DRAG
 ========================= */
