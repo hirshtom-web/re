@@ -572,35 +572,8 @@ FILTER SHEET
 
 
 /* =========================
-HIDE MOBILE MAP/SHEET ON DESKTOP
+MOBILE SHEETS POSITION
 ========================= */
-
-@media(min-width:901px){
-
-    .mobile-map-layout,
-    .mobile-filter-button,
-    .property-sheet,
-    .filter-sheet{
-
-        display:none !important;
-
-    }
-
-}
-
-/* MOBILE REMOVE DESKTOP CARD COLUMN */
-
-@media(max-width:900px){
-
-    .properties-scroll,
-    .properties-layout,
-    .map-container{
-
-        display:none !important;
-
-    }
-
-}
 
 .property-sheet,
 .filter-sheet{
@@ -614,26 +587,31 @@ HIDE MOBILE MAP/SHEET ON DESKTOP
 
 
 .property-sheet{
+
     z-index:20;
+
 }
 
 
 .filter-sheet{
+
     z-index:30;
+
 }
 
 
 /* =========================
-DESKTOP HIDE MOBILE UI
+DESKTOP ONLY
+HIDE MOBILE UI
 ========================= */
 
 @media(min-width:901px){
 
     .mobile-map-layout,
-    .property-sheet,
-    .filter-sheet,
     .mobile-filter-button{
+
         display:none !important;
+
     }
 
 }
@@ -641,13 +619,18 @@ DESKTOP HIDE MOBILE UI
 
 /* =========================
 MOBILE ONLY
+HIDE DESKTOP UI
 ========================= */
 
 @media(max-width:900px){
 
     .desktop-filters,
-    .properties-layout{
+    .properties-layout,
+    .properties-scroll,
+    .map-container{
+
         display:none !important;
+
     }
 
 }
