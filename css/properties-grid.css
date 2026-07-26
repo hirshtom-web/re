@@ -499,8 +499,6 @@ MAP VIEW
 
 
 
-/* FILTER POPUP */
-
 /* =========================
 FILTER SHEET
 ========================= */
@@ -528,7 +526,10 @@ FILTER SHEET
 
     touch-action:none;
 
+    z-index:30;
+
 }
+
 
 
 .filter-sheet.dragging{
@@ -538,6 +539,9 @@ FILTER SHEET
 }
 
 
+
+/* FILTER CONTENT */
+
 .filter-content{
 
     height:calc(90vh - 70px);
@@ -546,45 +550,62 @@ FILTER SHEET
 
 }
 
+
+
+
+/* OPEN STATE */
+
 .filter-sheet.open{
 
     transform:translateY(0);
 
-
 }
 
-.sheet-handle{
-    width:100%;
-    height:35px;
-    background:transparent;
-    position:relative;
-}
 
-.sheet-handle::after{
-    content:"";
-    display:block;
-    width:45px;
-    height:5px;
-    background:#ddd;
-    border-radius:20px;
-    margin:12px auto;
-}
-
-}
 
 /* =========================
-MOBILE SHEETS POSITION
+SHEET HANDLE
 ========================= */
 
-.property-sheet,
-.filter-sheet{
+.filter-sheet .sheet-handle{
 
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
+    width:100%;
+
+    height:35px;
+
+    background:transparent;
+
+    position:relative;
+
+    touch-action:none;
 
 }
+
+
+
+.filter-sheet .sheet-handle::after{
+
+    content:"";
+
+    display:block;
+
+    width:45px;
+
+    height:5px;
+
+    background:#ddd;
+
+    border-radius:20px;
+
+    margin:12px auto;
+
+}
+
+
+
+/* =========================
+SHEET STACKING
+========================= */
 
 
 .property-sheet{
@@ -600,7 +621,7 @@ MOBILE SHEETS POSITION
 
 }
 
-
+    
 /* =========================
 DESKTOP ONLY
 HIDE MOBILE UI
