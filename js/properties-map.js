@@ -58,7 +58,7 @@ async function initMap(){
             },
 
 
-            zoom:11,
+            zoom:12,
 
 
             mapId:"d44ebce34f2241f5985860cf",
