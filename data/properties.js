@@ -4128,3 +4128,8 @@ highlights:[
     ]
   }
 ];
+
+
+window.dispatchEvent(
+    new Event("propertiesLoaded")
+);
