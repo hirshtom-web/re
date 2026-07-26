@@ -292,3 +292,22 @@ dragArea.addEventListener(
 
 
 });
+
+
+/* =========================
+FILTER POPUP
+========================= */
+
+function openFilters(){
+
+    const filterSheet =
+    document.querySelector(".filter-sheet");
+
+
+    if(filterSheet){
+
+        filterSheet.classList.toggle("open");
+
+    }
+
+}
