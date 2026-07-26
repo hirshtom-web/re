@@ -660,15 +660,15 @@ Back
 <script src="../js/properties-map.js"></script>
 
 <script>
-function loadGoogleMaps() {
+function loadGoogleMaps(){
 
-    const script = document.createElement("script");
+    const script=document.createElement("script");
 
     script.src =
-    "https://maps.googleapis.com/maps/api/js?key=AIzaSyApjRl527xXbpu2WN_c2E-mVvJhJAzkAC8&libraries=marker&callback=initMap&loading=async";
+    "https://maps.googleapis.com/maps/api/js?key=AIzaSyApjRl527xXbpu2WN_c2E-mVvJhJAzkAC8&callback=initMap&loading=async&v=weekly";
 
-    script.async = true;
-    script.defer = true;
+    script.async=true;
+    script.defer=true;
 
     document.head.appendChild(script);
 
