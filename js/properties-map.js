@@ -7,7 +7,11 @@ let markers = {};
 function initMap(){
 
 
-    const mapElement = document.getElementById("map");
+    const mapElement = 
+    window.innerWidth <= 900
+    ? document.getElementById("mobile-map")
+    : document.getElementById("desktop-map");
+
 
 
     if(!mapElement){
@@ -17,6 +21,7 @@ function initMap(){
         return;
 
     }
+
 
 
 
