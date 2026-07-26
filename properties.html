@@ -480,7 +480,9 @@ MOBILE MAP + SHEETS
 
     <!-- FILTER POPUP SHEET -->
 
-    <div class="filter-sheet">
+    <!-- FILTER POPUP SHEET -->
+
+<div class="filter-sheet">
 
     <div class="sheet-handle"></div>
 
@@ -488,9 +490,50 @@ MOBILE MAP + SHEETS
         Filters
     </div>
 
+
     <div class="filter-content">
 
-        <!-- your filters here -->
+
+        <!-- SEARCH -->
+        <input 
+            id="property-search"
+            type="text"
+            placeholder="Search properties">
+
+
+        <!-- LOCATION -->
+        <select id="location-filter">
+
+            <option value="">
+                All Locations
+            </option>
+
+        </select>
+
+
+        <!-- SORT -->
+        <select id="property-sort">
+
+            <option value="">
+                Sort By
+            </option>
+
+            <option value="price-low">
+                Price Low → High
+            </option>
+
+            <option value="price-high">
+                Price High → Low
+            </option>
+
+            <option value="name">
+                Name
+            </option>
+
+        </select>
+
+
+        <!-- ADD MORE FILTERS HERE -->
 
     </div>
 
