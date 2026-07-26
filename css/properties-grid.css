@@ -574,3 +574,17 @@ HIDE MOBILE MAP/SHEET ON DESKTOP
     }
 
 }
+
+/* MOBILE REMOVE DESKTOP CARD COLUMN */
+
+@media(max-width:900px){
+
+    .properties-scroll,
+    .properties-layout,
+    .map-container{
+
+        display:none !important;
+
+    }
+
+}
