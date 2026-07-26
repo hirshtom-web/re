@@ -323,6 +323,24 @@ MAP VIEW
 
 
 
+@media(max-width:900px){
+
+.desktop-filters{
+    display:none;
+}
+
+}
+
+
+@media(min-width:901px){
+
+.mobile-map-layout{
+    display:none;
+}
+
+}
+
+
 /* =====================
 MOBILE LATOUT 
 ===================== */
