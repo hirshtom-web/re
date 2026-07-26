@@ -25,12 +25,10 @@ async function initMap(){
 
 
 
-    const mapElement =
+    const mapElement = 
     window.innerWidth <= 900
-    ?
-    document.getElementById("mobile-map")
-    :
-    document.getElementById("desktop-map");
+    ? document.getElementById("mobile-map")
+    : document.getElementById("desktop-map");
 
 
 
@@ -44,8 +42,8 @@ async function initMap(){
 
 
 
-    map =
-    new google.maps.Map(
+
+    map = new google.maps.Map(
 
         mapElement,
 
@@ -97,7 +95,9 @@ async function initMap(){
                     stylers:[
 
                         {
+
                             color:"#555555"
+
                         }
 
                     ]
@@ -112,7 +112,9 @@ async function initMap(){
                     stylers:[
 
                         {
+
                             visibility:"off"
+
                         }
 
                     ]
@@ -127,7 +129,9 @@ async function initMap(){
                     stylers:[
 
                         {
+
                             visibility:"off"
+
                         }
 
                     ]
@@ -144,7 +148,9 @@ async function initMap(){
                     stylers:[
 
                         {
+
                             color:"#eeeeee"
+
                         }
 
                     ]
@@ -161,7 +167,9 @@ async function initMap(){
                     stylers:[
 
                         {
+
                             color:"#dbe9f2"
+
                         }
 
                     ]
@@ -178,7 +186,9 @@ async function initMap(){
                     stylers:[
 
                         {
+
                             color:"#f7f6f2"
+
                         }
 
                     ]
@@ -212,6 +222,7 @@ async function initMap(){
 
 
 }
+
 
 
 
@@ -258,19 +269,18 @@ function loadPropertiesMap(){
 
         const position = {
 
+
             lat:Number(property.coordinates.lat),
 
+
             lng:Number(property.coordinates.lng)
+
 
         };
 
 
 
-
-
-        // ==========================
         // PRICE PILL
-        // ==========================
 
         const price =
         document.createElement("div");
@@ -312,9 +322,7 @@ function loadPropertiesMap(){
 
 
 
-        // ==========================
         // ADVANCED MARKER
-        // ==========================
 
         const marker =
         new AdvancedMarkerElement({
@@ -340,10 +348,6 @@ function loadPropertiesMap(){
 
 
 
-
-        // ==========================
-        // MARKER CLICK
-        // ==========================
 
         marker.addEventListener(
 
@@ -405,7 +409,6 @@ function loadPropertiesMap(){
 
 
 
-
     if(!bounds.isEmpty()){
 
 
@@ -450,7 +453,7 @@ function loadPropertiesMap(){
 
 
 // ======================================
-// CONNECT CARDS TO MAP
+// CARD -> MAP
 // ======================================
 
 function connectCardsToMap(){
@@ -487,9 +490,6 @@ function connectCardsToMap(){
 
 
 
-
-        // Card click
-
         card.addEventListener(
 
             "click",
@@ -513,10 +513,6 @@ function connectCardsToMap(){
 
 
 
-
-
-        // Hover
-
         card.addEventListener(
 
             "mouseenter",
@@ -538,6 +534,7 @@ function connectCardsToMap(){
 
 
     });
+
 
 
 }
