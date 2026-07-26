@@ -438,21 +438,31 @@ rel="stylesheet">
 
 </section>
 
+
+    
+
+    <!-- MOBILE LAYOUT -->
     
 <div class="mobile-map-layout">
 
-    <!-- FULL SCREEN MAP -->
+    <!-- MAP -->
     <div id="map"></div>
 
 
-    <!-- PROPERTY BOTTOM SHEET -->
+    <!-- FILTER BUTTON -->
+    <button class="mobile-filter-button" onclick="openFilters()">
+        ⚙ Filters
+    </button>
+
+
+    <!-- PROPERTY SHEET -->
     <div class="property-sheet">
 
         <div class="sheet-handle"></div>
 
         <div class="sheet-header">
             <span id="property-count">
-                Properties
+                248 Properties
             </span>
         </div>
 
@@ -466,24 +476,18 @@ rel="stylesheet">
     </div>
 
 
-   <!-- FILTER BUTTON (always visible) -->
-<button class="filter-button" onclick="openFilters()">
-    Filters
-</button>
+    <!-- FILTER SHEET -->
+    <div class="filter-sheet">
 
+        <div class="sheet-handle"></div>
 
-<!-- FILTER POPUP (hidden until opened) -->
-<div class="filter-sheet">
+        <h2>
+            Filters
+        </h2>
 
-    <div class="sheet-handle"></div>
+        <!-- filters here -->
 
-    <h2>
-        Filters
-    </h2>
-
-    <!-- your filter controls go here -->
-
-</div>
+    </div>
 
 </div>
     
