@@ -301,24 +301,27 @@ function openFilters(){
     if(!filterSheet || !propertySheet) return;
 
 
-    const isOpen =
     filterSheet.classList.toggle("open");
 
 
-    if(isOpen){
+    if(filterSheet.classList.contains("open")){
 
-        // move property sheet down
+
+        // move property sheet completely down
 
         propertySheet.style.transform =
         "translateY(calc(100vh - 80px))";
 
+
     }
     else{
 
-        // bring property sheet back
+
+        // return property sheet
 
         propertySheet.style.transform =
-        "translateY(calc(100vh - 180px))";
+        "translateY(75vh)";
+
 
     }
 
