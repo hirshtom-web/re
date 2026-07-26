@@ -439,13 +439,7 @@ MOBILE MAP + SHEETS
     </button>
 
 
-
-
-
-
-    <!-- PROPERTY BOTTOM SHEET -->
-
-    <div class="property-sheet">
+<div class="property-sheet">
 
     <div class="sheet-header">
 
@@ -455,94 +449,38 @@ MOBILE MAP + SHEETS
             248 Properties
         </span>
 
+        <button 
+            id="property-back"
+            style="display:none;">
+            ← Back
+        </button>
+
     </div>
 
 
-        <div class="sheet-content">
+    <div class="property-sheet-content">
 
 
-            <div 
+        <!-- PROPERTY CARDS -->
+
+        <div 
             id="mobile-properties-grid"
             class="properties-grid">
-            </div>
+        </div>
 
 
+        <!-- PROPERTY DETAIL LOADS HERE -->
+
+        <div 
+            id="property-detail"
+            style="display:none;">
         </div>
 
 
     </div>
 
 
-
-
-
-
-
-    <!-- FILTER POPUP SHEET -->
-
-    <!-- FILTER POPUP SHEET -->
-
-<div class="filter-sheet">
-
-    <div class="sheet-handle"></div>
-
-    <div class="sheet-header">
-        Filters
-    </div>
-
-
-    <div class="filter-content">
-
-
-        <!-- SEARCH -->
-        <input 
-id="mobile-property-search"
-type="text"
-placeholder="Search properties">
-
-
-        <!-- LOCATION -->
-        <select id="location-filter">
-
-            <option value="">
-                All Locations
-            </option>
-
-        </select>
-
-
-        <!-- SORT -->
-        <select id="property-sort">
-
-            <option value="">
-                Sort By
-            </option>
-
-            <option value="price-low">
-                Price Low → High
-            </option>
-
-            <option value="price-high">
-                Price High → Low
-            </option>
-
-            <option value="name">
-                Name
-            </option>
-
-        </select>
-
-
-        <!-- ADD MORE FILTERS HERE -->
-
-    </div>
-
 </div>
-
-
-    </div> <!-- CLOSE mobile-map-layout -->
-
-</section>
 
 
     
