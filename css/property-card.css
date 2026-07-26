@@ -304,3 +304,138 @@ Controls:
     margin-top:-30px;
 
 }
+
+
+
+
+/* ==========================================
+MOBILE PROPERTY CARD CONTROLS Everything here only affects screens <900px
+========================================== */
+
+@media (max-width:900px){
+
+    /* CARD SPACING */
+
+    .property-card{
+        margin-bottom:6px;
+    }
+
+
+    /* IMAGE */
+
+    .property-card-image{
+
+        border-radius:24px;      /* image corners */
+        aspect-ratio:4 / 3;      /* image height */
+        box-shadow:
+        0 12px 30px rgba(0,0,0,.12);
+
+    }
+
+
+    /* STATUS BADGE */
+
+    .property-badge{
+
+        top:16px;
+        left:16px;
+
+        padding:6px 12px;
+
+        font-size:11px;
+
+    }
+
+
+    /* PROPERTY TYPE */
+
+    .property-tag{
+
+        top:16px;
+        right:16px;
+
+        padding:6px 12px;
+
+        font-size:11px;
+
+    }
+
+
+    /* SPACE UNDER IMAGE */
+
+    .property-card-info{
+
+        padding:14px 2px 0;
+
+    }
+
+
+    /* TITLE + PRICE ROW */
+
+    .property-card-header{
+
+        gap:12px;
+
+    }
+
+
+    /* PROPERTY TITLE */
+
+    .property-card-header h3{
+
+        font-size:13px;
+        font-weight:600;
+        line-height:1.35;
+
+    }
+
+
+    /* PRICE */
+
+    .property-card-header strong{
+
+        font-size:13px;
+        font-weight:600;
+
+    }
+
+
+    /* LOCATION */
+
+    .property-card-info p{
+
+        margin-top:6px;
+
+        font-size:13px;
+
+        line-height:1.4;
+
+        color:#777;
+
+    }
+
+
+    /* STATS */
+
+    .property-stats{
+
+        margin-top:10px;
+
+        gap:14px;
+
+        font-size:13px;
+
+    }
+
+
+    /* GRID */
+
+    .sheet-content .properties-grid{
+
+        gap:24px;
+
+        padding:8px 20px 60px;
+
+    }
+
+}
