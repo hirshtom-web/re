@@ -463,12 +463,12 @@ MAP VIEW
 .sheet-header{
 
     text-align:center;
-
     font-size:18px;
-
     font-weight:600;
 
-    padding:5px 0 18px;
+    padding:0 0 10px;
+
+    margin-top:-5px;
 
 }
 
@@ -555,4 +555,22 @@ MAP VIEW
     background:#ddd;
     border-radius:20px;
     margin:12px auto;
+}
+
+
+/* =========================
+HIDE MOBILE MAP/SHEET ON DESKTOP
+========================= */
+
+@media(min-width:901px){
+
+    .mobile-map-layout,
+    .mobile-filter-button,
+    .property-sheet,
+    .filter-sheet{
+
+        display:none !important;
+
+    }
+
 }
