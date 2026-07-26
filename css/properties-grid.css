@@ -440,17 +440,23 @@ PROPERTY SHEET HEADER
 
 .sheet-handle{
 
-    width:100%;
+    position:absolute;
 
-    height:32px;
+    top:10px;
 
-    display:flex;
+    left:50%;
 
-    justify-content:center;
+    transform:translateX(-50%);
 
-    align-items:center;
+    width:45px;
 
-    touch-action:none;
+    height:5px;
+
+    background:#ddd;
+
+    border-radius:20px;
+
+    pointer-events:none;
 
 }
 
@@ -474,7 +480,9 @@ PROPERTY SHEET HEADER
 
 .sheet-header{
 
-    height:45px;
+    position:relative;
+
+    height:60px;
 
     display:flex;
 
@@ -486,19 +494,15 @@ PROPERTY SHEET HEADER
 
     font-weight:600;
 
-    padding:0;
-
-}
-
-    .sheet-header{
-
     touch-action:none;
+
     cursor:grab;
 
     -webkit-user-select:none;
     user-select:none;
 
 }
+
 
 
 /* CONTENT */
