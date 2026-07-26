@@ -291,7 +291,7 @@ if (rawPrice) {
 
 price.textContent = priceText;
 
-const marker = new google.maps.marker.AdvancedMarkerElement({
+new AdvancedMarkerElement({
 
     map,
     position,
