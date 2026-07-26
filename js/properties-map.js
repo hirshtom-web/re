@@ -294,10 +294,8 @@ function loadPropertiesMap(){
 
 
                 const card = document.querySelector(
-
-                    `[data-id="${property.id}"]`
-
-                );
+    `[data-property-id="${property.id}"]`
+);
 
 
 
@@ -408,7 +406,7 @@ function connectCardsToMap(){
     cards.forEach(card=>{
 
 
-        const id = card.dataset.id;
+        const id = card.dataset.propertyId;
 
 
 
