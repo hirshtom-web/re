@@ -142,109 +142,87 @@ const sheet =
 document.querySelector(".property-sheet");
 
 
-const dragArea =
-document.querySelector(".sheet-handle, .sheet-header");
+const handle =
+document.querySelector(".sheet-handle");
 
 
-if(!sheet || !dragArea) return;
+if(!sheet || !handle) return;
 
 
 
 let startY = 0;
-let startPosition = 0;
+let startTranslate = 0;
 
 
 
-function getTranslateY(){
+function getY(){
 
-    const transform =
-    window.getComputedStyle(sheet).transform;
+    const matrix =
+    new DOMMatrix(
+        getComputedStyle(sheet).transform
+    );
 
-
-    if(transform === "none"){
-        return 0;
-    }
-
-
-    return new DOMMatrix(transform).m42;
+    return matrix.m42;
 
 }
 
 
 
-
-dragArea.addEventListener(
-"pointerdown",
-(e)=>{
+handle.addEventListener("pointerdown",e=>{
 
 
     startY = e.clientY;
 
+    startTranslate = getY();
 
-    startPosition = getTranslateY();
 
-
-    dragArea.setPointerCapture(
+    handle.setPointerCapture(
         e.pointerId
     );
 
 
-    sheet.classList.add(
-        "dragging"
-    );
+    sheet.classList.add("dragging");
 
 
 });
 
 
 
-
-
-dragArea.addEventListener(
-"pointermove",
-(e)=>{
+handle.addEventListener("pointermove",e=>{
 
 
     if(!startY) return;
 
 
-    const diff =
+    let move =
     e.clientY - startY;
 
 
-    let position =
-    startPosition + diff;
+    let y =
+    startTranslate + move;
 
 
-
-    const closed =
-    window.innerHeight - 180;
-
-
-
-    position = Math.max(
+    y = Math.max(
         0,
         Math.min(
-            closed,
-            position
+            window.innerHeight * .75,
+            y
         )
     );
 
 
-
     sheet.style.transform =
-    `translateY(${position}px)`;
+    `translateY(${y}px)`;
 
 
 });
 
 
 
+handle.addEventListener("pointerup",()=>{
 
 
-dragArea.addEventListener(
-"pointerup",
-(e)=>{
+    const y = getY();
 
 
     sheet.classList.remove(
@@ -252,47 +230,31 @@ dragArea.addEventListener(
     );
 
 
-    const closed =
-    window.innerHeight - 180;
-
-
-
-    const position =
-    getTranslateY();
-
-
-
-    if(position < closed * 0.45){
-
+    if(y < window.innerHeight * .4){
 
         // OPEN
 
         sheet.style.transform =
         "translateY(0px)";
 
-
     }
     else{
 
-
-        // COLLAPSED
+        // CLOSED
 
         sheet.style.transform =
-        `translateY(${closed}px)`;
-
+        "translateY(75vh)";
 
     }
 
 
-
-    startY = 0;
-
-
-});
+    startY=0;
 
 
 });
 
+
+});
 
 /* =========================
 FILTER POPUP
