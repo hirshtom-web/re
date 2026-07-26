@@ -325,44 +325,24 @@ MAP VIEW
 
 @media(max-width:900px){
 
+
 .desktop-filters{
-    display:none;
+    display:none !important;
 }
 
-}
-
-
-@media(min-width:901px){
-
-.mobile-map-layout{
-    display:none;
-}
-
-}
-
-
-/* =====================
-MOBILE LATOUT 
-===================== */
-
-
-    @media(max-width:900px){
-
-
-/* REMOVE DESKTOP LAYOUT */
 
 .properties-layout,
 .properties-scroll,
 .map-container{
-
     display:none !important;
-
 }
 
 
 /* FULL SCREEN MAP */
 
 .mobile-map-layout{
+
+    display:block;
 
     position:fixed;
 
@@ -376,7 +356,8 @@ MOBILE LATOUT
 }
 
 
-#map{
+#map,
+#mobile-map{
 
     position:absolute;
 
@@ -386,6 +367,7 @@ MOBILE LATOUT
     height:100%;
 
 }
+
 
 
 /* FILTER BUTTON */
@@ -407,8 +389,6 @@ MOBILE LATOUT
 
     border-radius:30px;
 
-    font-size:15px;
-
     box-shadow:
     0 8px 25px rgba(0,0,0,.18);
 
@@ -426,24 +406,34 @@ MOBILE LATOUT
     right:0;
     bottom:0;
 
+
     height:90vh;
+
 
     background:white;
 
+
     border-radius:30px 30px 0 0;
 
-    transform:translateY(calc(100vh - 200px));
 
-    transition:transform .25s ease;
+    /* collapsed position */
+
+    transform:
+    translateY(calc(100vh - 180px));
+
+
+    transition:
+    transform .25s ease;
+
 
     z-index:20;
+
 
     box-shadow:
     0 -20px 50px rgba(0,0,0,.18);
 
-    touch-action:none;
-
 }
+
 
 
 .property-sheet.dragging{
@@ -453,15 +443,21 @@ MOBILE LATOUT
 }
 
 
-.sheet-content{
 
-    height:calc(90vh - 70px);
+/* ONLY DRAG AREA */
 
-    overflow-y:auto;
+.sheet-handle,
+.sheet-header{
+
+    touch-action:none;
+
+    cursor:grab;
 
 }
 
 
+
+/* HANDLE */
 
 .sheet-handle{
 
@@ -479,6 +475,7 @@ MOBILE LATOUT
 
 
 
+/* HEADER */
 
 .sheet-header{
 
@@ -493,6 +490,9 @@ MOBILE LATOUT
 }
 
 
+
+/* CONTENT */
+
 .sheet-content{
 
     height:calc(100% - 70px);
@@ -500,6 +500,7 @@ MOBILE LATOUT
     overflow-y:auto;
 
 }
+
 
 
 .sheet-content .properties-grid{
@@ -522,21 +523,25 @@ MOBILE LATOUT
 
     position:absolute;
 
+    left:0;
+    right:0;
     bottom:0;
 
-    left:0;
-
-    right:0;
 
     height:85vh;
 
+
     background:white;
+
 
     border-radius:30px 30px 0 0;
 
+
     transform:translateY(100%);
 
+
     transition:.3s;
+
 
     z-index:50;
 
@@ -551,44 +556,3 @@ MOBILE LATOUT
 
 
 }
-
-
-
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-    .properties-layout,
-    .desktop-filters{
-
-        display:none !important;
-
-    }
-
-
-    .mobile-map-layout{
-
-        display:block;
-
-        position:fixed;
-
-        inset:0;
-
-    }
-
-
-    #mobile-map{
-
-        position:absolute;
-
-        inset:0;
-
-        width:100%;
-        height:100%;
-
-    }
-
-}
-
-
