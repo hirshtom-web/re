@@ -590,9 +590,14 @@ transform:translateY(calc(100vh - 170px));
 }
 
 .property-sheet{
-    transform:translateY(78vh);
+
+    transform:translateY(calc(100vh - 170px));
+
 }
 
+
 .property-sheet.dragging{
+
     transition:none;
+
 }
