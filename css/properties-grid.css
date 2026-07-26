@@ -419,7 +419,7 @@ MAP VIEW
 
     .property-sheet{
 
-    transform:translateY(calc(100vh - 180px));
+    transform:translateY(calc(100vh - 200px));
 
     touch-action:none;
 
@@ -590,6 +590,16 @@ HIDE DESKTOP UI
     .properties-layout,
     .properties-scroll,
     .map-container{
+
+        display:none !important;
+
+    }
+
+}
+
+@media (max-width:900px){
+
+    .properties-scroll{
 
         display:none !important;
 
