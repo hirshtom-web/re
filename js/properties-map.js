@@ -342,6 +342,112 @@ function loadPropertiesMap(){
         markers[property.id] =
         marker;
 
+        // ===============================
+// MARKER INTERACTIONS
+// ===============================
+
+price.addEventListener(
+    "mouseenter",
+    ()=>{
+
+
+        price.classList.add("active");
+
+
+        const card =
+        document.querySelector(
+            `[data-property-id="${property.id}"]`
+        );
+
+
+        if(card){
+
+            card.classList.add(
+                "active-property"
+            );
+
+        }
+
+
+    }
+);
+
+
+
+price.addEventListener(
+    "mouseleave",
+    ()=>{
+
+
+        price.classList.remove(
+            "active"
+        );
+
+
+        const card =
+        document.querySelector(
+            `[data-property-id="${property.id}"]`
+        );
+
+
+        if(card){
+
+            card.classList.remove(
+                "active-property"
+            );
+
+        }
+
+
+    }
+);
+
+
+
+
+
+price.addEventListener(
+    "click",
+    ()=>{
+
+
+        const card =
+        document.querySelector(
+            `[data-property-id="${property.id}"]`
+        );
+
+
+        if(card){
+
+
+            card.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"center"
+
+            });
+
+
+            card.classList.add(
+                "active-property"
+            );
+
+
+            setTimeout(()=>{
+
+                card.classList.remove(
+                    "active-property"
+                );
+
+            },2000);
+
+
+        }
+
+
+    }
+);
 
 
         bounds.extend(position);
@@ -456,15 +562,16 @@ function loadPropertiesMap(){
 // CARD -> MAP
 // ======================================
 
-function connectCardsToMap(){
+// ======================================
+// CARD -> MAP
+// ======================================
 
+function connectCardsToMap(){
 
 
     const cards =
     document.querySelectorAll(
-
         ".property-card"
-
     );
 
 
@@ -490,6 +597,8 @@ function connectCardsToMap(){
 
 
 
+        // CARD CLICK -> MAP
+
         card.addEventListener(
 
             "click",
@@ -498,13 +607,25 @@ function connectCardsToMap(){
 
 
                 map.panTo(
-
                     marker.position
-
                 );
 
 
                 map.setZoom(15);
+
+
+                card.classList.add(
+                    "active-property"
+                );
+
+
+                setTimeout(()=>{
+
+                    card.classList.remove(
+                        "active-property"
+                    );
+
+                },2000);
 
 
             }
@@ -512,6 +633,8 @@ function connectCardsToMap(){
         );
 
 
+
+        // CARD HOVER -> MARKER
 
         card.addEventListener(
 
@@ -521,10 +644,21 @@ function connectCardsToMap(){
 
 
                 map.panTo(
-
                     marker.position
-
                 );
+
+
+                const markerContent =
+                marker.content;
+
+
+                if(markerContent){
+
+                    markerContent.classList.add(
+                        "active"
+                    );
+
+                }
 
 
             }
@@ -533,8 +667,32 @@ function connectCardsToMap(){
 
 
 
-    });
+        card.addEventListener(
 
+            "mouseleave",
+
+            ()=>{
+
+
+                const markerContent =
+                marker.content;
+
+
+                if(markerContent){
+
+                    markerContent.classList.remove(
+                        "active"
+                    );
+
+                }
+
+
+            }
+
+        );
+
+
+    });
 
 
 }
