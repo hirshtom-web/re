@@ -416,7 +416,6 @@ MAP VIEW
 
     transition:transform .25s ease;
 
-    z-index:20;
 
 }
 
@@ -524,8 +523,6 @@ FILTER SHEET
 
     transition:transform .25s ease;
 
-    z-index:50;
-
     box-shadow:
     0 -20px 50px rgba(0,0,0,.18);
 
@@ -603,4 +600,24 @@ HIDE MOBILE MAP/SHEET ON DESKTOP
 
     }
 
+}
+
+.property-sheet,
+.filter-sheet{
+
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+
+}
+
+
+.property-sheet{
+    z-index:20;
+}
+
+
+.filter-sheet{
+    z-index:30;
 }
