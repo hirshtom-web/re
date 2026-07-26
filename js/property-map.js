@@ -7,7 +7,6 @@ let propertyMap;
 
 // ======================================
 // CURRENT PROPERTY DATA
-// Replace dynamically from your database
 // ======================================
 
 const propertyData = {
@@ -19,7 +18,7 @@ const propertyData = {
         lng:-80.1918
     },
 
-    price:"$5M+"
+    price:"From $5M"
 
 };
 
@@ -118,17 +117,14 @@ function initMap(){
 
             center:propertyData.coordinates,
 
-            zoom:16,
+            zoom:17,
 
-            mapId:"YOUR_MAP_ID",
+            mapId:"d44ebce34f2241f5985860cf",
 
-
-            // Luxury dark style
             styles:[
 
                 {
                     elementType:"geometry",
-
                     stylers:[
                         {
                             color:"#1c1c1c"
@@ -138,7 +134,6 @@ function initMap(){
 
                 {
                     elementType:"labels.text.fill",
-
                     stylers:[
                         {
                             color:"#d8d8d8"
@@ -148,7 +143,6 @@ function initMap(){
 
                 {
                     featureType:"poi",
-
                     stylers:[
                         {
                             visibility:"off"
@@ -177,6 +171,49 @@ function initMap(){
 
 
 // ======================================
+// PRICE PILL CREATOR
+// ======================================
+
+function createPricePill(price){
+
+
+    const pill =
+    document.createElement("div");
+
+
+    pill.className =
+    "price-marker";
+
+
+    let text = price || "Price";
+
+
+    const isFrom =
+    /^from\s+/i.test(text);
+
+
+    text =
+    text.replace(/^from\s+/i,"");
+
+
+    if(isFrom){
+
+        text += "+";
+
+    }
+
+
+    pill.textContent = text;
+
+
+    return pill;
+
+
+}
+
+
+
+// ======================================
 // MAIN PROPERTY MARKER
 // ======================================
 
@@ -184,7 +221,7 @@ function addMainProperty(){
 
 
     const marker =
-    new google.maps.Marker({
+    new google.maps.marker.AdvancedMarkerElement({
 
         map:propertyMap,
 
@@ -192,16 +229,8 @@ function addMainProperty(){
 
         title:propertyData.title,
 
-
-        icon:{
-
-            url:"/icons/luxury-property.png",
-
-            scaledSize:
-            new google.maps.Size(55,55)
-
-        }
-
+        content:
+        createPricePill(propertyData.price)
 
     });
 
@@ -260,32 +289,19 @@ function addSoldProperties(){
     soldProperties.forEach(property=>{
 
 
-        new google.maps.Marker({
+        new google.maps.marker.AdvancedMarkerElement({
 
             map:propertyMap,
 
-
             position:{
-
                 lat:property.lat,
-
                 lng:property.lng
-
             },
-
 
             title:property.title,
 
-
-            icon:{
-
-                url:"/icons/sold.png",
-
-                scaledSize:
-                new google.maps.Size(40,40)
-
-            }
-
+            content:
+            createPricePill(property.price)
 
         });
 
@@ -309,32 +325,24 @@ function addNearbyProperties(){
 
 
         const marker =
-        new google.maps.Marker({
+        new google.maps.marker.AdvancedMarkerElement({
 
 
             map:propertyMap,
 
 
             position:{
-
                 lat:property.lat,
-
                 lng:property.lng
-
             },
 
 
             title:property.title,
 
 
-            icon:{
+            content:
+            createPricePill(property.price)
 
-                url:"/icons/building.png",
-
-                scaledSize:
-                new google.maps.Size(45,45)
-
-            }
 
         });
 
@@ -398,32 +406,22 @@ function addPointsOfInterest(){
     pointsOfInterest.forEach(place=>{
 
 
-        new google.maps.Marker({
+        new google.maps.marker.AdvancedMarkerElement({
 
             map:propertyMap,
 
 
             position:{
-
                 lat:place.lat,
-
                 lng:place.lng
-
             },
 
 
             title:place.name,
 
 
-            icon:{
-
-                url:
-                `/icons/${place.category}.png`,
-
-                scaledSize:
-                new google.maps.Size(35,35)
-
-            }
+            content:
+            createPricePill(place.name)
 
 
         });
