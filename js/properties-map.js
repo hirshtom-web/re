@@ -261,20 +261,43 @@ function loadPropertiesMap(){
 
 
 
-        const marker = new google.maps.Marker({
+       const price = document.createElement("div");
 
+price.className = "price-marker";
 
-            position:position,
+const rawPrice = property.price || "";
 
+let priceText = "Price";
 
-            map:map,
+if (rawPrice) {
 
+    if (/request pricing/i.test(rawPrice)) {
 
-            title:property.title
+        priceText = "Price";
 
+    } else {
 
-        });
+        const isFrom = /^from\s+/i.test(rawPrice);
 
+        priceText = rawPrice.replace(/^from\s+/i, "");
+
+        if (isFrom) {
+            priceText += "+";
+        }
+
+    }
+
+}
+
+price.textContent = priceText;
+
+const marker = new google.maps.marker.AdvancedMarkerElement({
+
+    map,
+    position,
+    content: price
+
+});
 
 
         markers[property.id] = marker;
