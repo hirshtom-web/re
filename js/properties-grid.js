@@ -134,88 +134,131 @@ window.addEventListener(
 
 
 /* =========================
-PROPERTY SHEET DRAG
+PROPERTY SHEET DRAG (MOBILE)
 ========================= */
 
 document.addEventListener("DOMContentLoaded",()=>{
 
 
-const sheet = document.querySelector(".property-sheet");
+const sheet =
+document.querySelector(".property-sheet");
 
-const dragArea = document.querySelector(
-    ".property-sheet .sheet-handle, .property-sheet .sheet-header"
+
+const dragArea =
+document.querySelector(
+".property-sheet .sheet-handle, .property-sheet .sheet-header"
 );
 
 
-if(!sheet || !dragArea){
-    console.log("Sheet drag elements missing");
-    return;
-}
+if(!sheet || !dragArea) return;
 
 
 
 let startY = 0;
-let currentY = 0;
+let startPosition = 0;
 
 
 
-dragArea.addEventListener("pointerdown", e=>{
+function getTranslateY(){
+
+    const matrix =
+    new DOMMatrix(
+        window.getComputedStyle(sheet).transform
+    );
+
+    return matrix.m42;
+
+}
 
 
-    startY = e.clientY;
+
+dragArea.addEventListener(
+"touchstart",
+(e)=>{
 
 
-    sheet.classList.add("dragging");
+    startY =
+    e.touches[0].clientY;
 
 
-    dragArea.setPointerCapture(
-        e.pointerId
+    startPosition =
+    getTranslateY();
+
+
+    sheet.classList.add(
+        "dragging"
     );
 
 
-});
+},
+{passive:true}
+);
 
 
 
-dragArea.addEventListener("pointermove", e=>{
+dragArea.addEventListener(
+"touchmove",
+(e)=>{
 
 
     if(!startY) return;
 
 
-    currentY = e.clientY - startY;
+    const currentY =
+    e.touches[0].clientY;
 
 
-    let translate =
-    window.innerHeight * 0.75 + currentY;
+    const diff =
+    currentY - startY;
 
 
-    translate = Math.max(
+
+    let position =
+    startPosition + diff;
+
+
+
+    const closed =
+    window.innerHeight * 0.75;
+
+
+
+    position = Math.max(
         0,
         Math.min(
-            window.innerHeight * 0.75,
-            translate
+            closed,
+            position
         )
     );
 
 
+
     sheet.style.transform =
-    `translateY(${translate}px)`;
+    `translateY(${position}px)`;
 
 
-});
+},
+{passive:true}
+);
 
 
 
-dragArea.addEventListener("pointerup",()=>{
+dragArea.addEventListener(
+"touchend",
+()=>{
 
 
-    sheet.classList.remove("dragging");
+    const closed =
+    window.innerHeight * 0.75;
 
 
-    if(currentY < -80){
 
-        // OPEN
+    const position =
+    getTranslateY();
+
+
+
+    if(position < closed / 2){
 
         sheet.style.transform =
         "translateY(0px)";
@@ -223,16 +266,19 @@ dragArea.addEventListener("pointerup",()=>{
     }
     else{
 
-        // CLOSED
-
         sheet.style.transform =
-        "translateY(75vh)";
+        `translateY(${closed}px)`;
 
     }
 
 
+
+    sheet.classList.remove(
+        "dragging"
+    );
+
+
     startY = 0;
-    currentY = 0;
 
 
 });
