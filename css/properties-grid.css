@@ -621,3 +621,33 @@ HIDE MOBILE MAP/SHEET ON DESKTOP
 .filter-sheet{
     z-index:30;
 }
+
+
+/* =========================
+DESKTOP HIDE MOBILE UI
+========================= */
+
+@media(min-width:901px){
+
+    .mobile-map-layout,
+    .property-sheet,
+    .filter-sheet,
+    .mobile-filter-button{
+        display:none !important;
+    }
+
+}
+
+
+/* =========================
+MOBILE ONLY
+========================= */
+
+@media(max-width:900px){
+
+    .desktop-filters,
+    .properties-layout{
+        display:none !important;
+    }
+
+}
