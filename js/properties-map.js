@@ -562,10 +562,6 @@ price.addEventListener(
 // CARD -> MAP
 // ======================================
 
-// ======================================
-// CARD -> MAP
-// ======================================
-
 function connectCardsToMap(){
 
 
@@ -597,14 +593,20 @@ function connectCardsToMap(){
 
 
 
-        // CARD CLICK -> MAP
+        // ===============================
+        // CARD CLICK
+        // ===============================
 
         card.addEventListener(
-
             "click",
+            (e)=>{
 
-            ()=>{
 
+                e.stopPropagation();
+
+
+
+                // Move map
 
                 map.panTo(
                     marker.position
@@ -614,18 +616,36 @@ function connectCardsToMap(){
                 map.setZoom(15);
 
 
-                card.classList.add(
-                    "active-property"
-                );
+
+                // Desktop modal
+
+                if(window.innerWidth > 900){
 
 
-                setTimeout(()=>{
-
-                    card.classList.remove(
-                        "active-property"
+                    openModal(
+                        "residence.html",
+                        id
                     );
 
-                },2000);
+
+                }
+
+
+
+                // Mobile sheet
+
+                else{
+
+
+                    if(typeof openPropertySheet === "function"){
+
+                        openPropertySheet(id);
+
+                    }
+
+
+                }
+
 
 
             }
@@ -634,12 +654,14 @@ function connectCardsToMap(){
 
 
 
-        // CARD HOVER -> MARKER
+
+
+        // ===============================
+        // CARD HOVER -> BIGGER PILL
+        // ===============================
 
         card.addEventListener(
-
             "mouseenter",
-
             ()=>{
 
 
@@ -648,17 +670,20 @@ function connectCardsToMap(){
                 );
 
 
-                const markerContent =
-                marker.content;
 
+                if(marker.content){
 
-                if(markerContent){
-
-                    markerContent.classList.add(
+                    marker.content.classList.add(
                         "active"
                     );
 
                 }
+
+
+
+                card.classList.add(
+                    "active-property"
+                );
 
 
             }
@@ -667,24 +692,26 @@ function connectCardsToMap(){
 
 
 
+
+
         card.addEventListener(
-
             "mouseleave",
-
             ()=>{
 
 
-                const markerContent =
-                marker.content;
+                if(marker.content){
 
-
-                if(markerContent){
-
-                    markerContent.classList.remove(
+                    marker.content.classList.remove(
                         "active"
                     );
 
                 }
+
+
+
+                card.classList.remove(
+                    "active-property"
+                );
 
 
             }
