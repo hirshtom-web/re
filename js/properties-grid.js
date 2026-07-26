@@ -296,10 +296,137 @@ function openFilters(){
     document.querySelector(".filter-sheet");
 
 
-    if(filterSheet){
+    if(!filterSheet) return;
 
-        filterSheet.classList.toggle("open");
+
+    filterSheet.style.transform =
+    "translateY(0px)";
+
+}
+
+/* =========================
+FILTER SHEET DRAG
+========================= */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+const sheet =
+document.querySelector(".filter-sheet");
+
+
+const handle =
+document.querySelector(".filter-sheet .sheet-handle");
+
+
+if(!sheet || !handle) return;
+
+
+
+let startY = 0;
+let startPosition = 0;
+
+
+
+function getY(){
+
+    const matrix =
+    new DOMMatrix(
+        getComputedStyle(sheet).transform
+    );
+
+    return matrix.m42;
+
+}
+
+
+
+handle.addEventListener("pointerdown",e=>{
+
+
+    startY = e.clientY;
+
+    startPosition = getY();
+
+
+    handle.setPointerCapture(
+        e.pointerId
+    );
+
+
+    sheet.classList.add("dragging");
+
+
+});
+
+
+
+
+handle.addEventListener("pointermove",e=>{
+
+
+    if(!startY) return;
+
+
+    let position =
+    startPosition + (e.clientY - startY);
+
+
+
+    const closed =
+    window.innerHeight - 180;
+
+
+
+    position =
+    Math.max(
+        0,
+        Math.min(
+            closed,
+            position
+        )
+    );
+
+
+    sheet.style.transform =
+    `translateY(${position}px)`;
+
+
+});
+
+
+
+
+handle.addEventListener("pointerup",()=>{
+
+
+    const closed =
+    window.innerHeight - 180;
+
+
+    if(getY() > closed/2){
+
+        sheet.style.transform =
+        `translateY(${closed}px)`;
+
+    }
+    else{
+
+        sheet.style.transform =
+        "translateY(0px)";
 
     }
 
-}
+
+    sheet.classList.remove(
+        "dragging"
+    );
+
+
+    startY=0;
+
+
+});
+
+
+});
