@@ -142,7 +142,11 @@ const sheet =
 document.querySelector(".property-sheet");
 
 
-if(!sheet) return;
+const dragArea =
+document.querySelector(".sheet-handle, .sheet-header");
+
+
+if(!sheet || !dragArea) return;
 
 
 
@@ -162,24 +166,16 @@ function getTranslateY(){
     }
 
 
-    const matrix =
-    new DOMMatrix(transform);
-
-
-    return matrix.m42;
+    return new DOMMatrix(transform).m42;
 
 }
 
 
 
 
-sheet.addEventListener(
+dragArea.addEventListener(
 "pointerdown",
 (e)=>{
-
-
-    // do not drag when touching property cards
-    if(e.target.closest(".sheet-content")) return;
 
 
     startY = e.clientY;
@@ -188,7 +184,7 @@ sheet.addEventListener(
     startPosition = getTranslateY();
 
 
-    sheet.setPointerCapture(
+    dragArea.setPointerCapture(
         e.pointerId
     );
 
@@ -204,7 +200,7 @@ sheet.addEventListener(
 
 
 
-sheet.addEventListener(
+dragArea.addEventListener(
 "pointermove",
 (e)=>{
 
@@ -212,18 +208,17 @@ sheet.addEventListener(
     if(!startY) return;
 
 
-    const difference =
+    const diff =
     e.clientY - startY;
 
 
-
     let position =
-    startPosition + difference;
+    startPosition + diff;
 
 
 
     const closed =
-    window.innerHeight - 170;
+    window.innerHeight - 180;
 
 
 
@@ -247,15 +242,9 @@ sheet.addEventListener(
 
 
 
-
-sheet.addEventListener(
+dragArea.addEventListener(
 "pointerup",
 (e)=>{
-
-
-    sheet.releasePointerCapture(
-        e.pointerId
-    );
 
 
     sheet.classList.remove(
@@ -263,9 +252,8 @@ sheet.addEventListener(
     );
 
 
-
     const closed =
-    window.innerHeight - 170;
+    window.innerHeight - 180;
 
 
 
@@ -277,7 +265,7 @@ sheet.addEventListener(
     if(position < closed * 0.45){
 
 
-        // fully open
+        // OPEN
 
         sheet.style.transform =
         "translateY(0px)";
@@ -287,7 +275,7 @@ sheet.addEventListener(
     else{
 
 
-        // collapsed
+        // COLLAPSED
 
         sheet.style.transform =
         `translateY(${closed}px)`;
@@ -298,7 +286,6 @@ sheet.addEventListener(
 
 
     startY = 0;
-    startPosition = 0;
 
 
 });
