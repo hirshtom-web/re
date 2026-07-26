@@ -431,8 +431,22 @@ MAP VIEW
 }
 
 
+.sheet-handle{
 
-/* ONLY DRAG AREA */
+    width:45px;
+    height:5px;
+
+    background:#ddd;
+
+    border-radius:20px;
+
+    margin:12px auto;
+
+    touch-action:none;
+
+}
+
+
 
 .sheet-handle,
 .sheet-header{
@@ -441,23 +455,7 @@ MAP VIEW
 
     cursor:grab;
 
-}
-
-
-
-/* HANDLE */
-
-.sheet-handle{
-
-    width:45px;
-
-    height:5px;
-
-    background:#ddd;
-
-    border-radius:20px;
-
-    margin:12px auto;
+    user-select:none;
 
 }
 
