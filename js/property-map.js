@@ -142,62 +142,34 @@ function createPricePill(value){
 
 function addMainProperty(){
 
+    const pin = document.createElement("div");
+
+    pin.style.background = "black";
+    pin.style.color = "white";
+    pin.style.padding = "10px 15px";
+    pin.style.borderRadius = "30px";
+    pin.style.fontSize = "14px";
+    pin.innerText = "$5M+";
+
 
     const marker =
     new AdvancedMarkerElement({
 
-        map:propertyMap,
+        map: propertyMap,
 
-        position:propertyData.coordinates,
+        position: {
+            lat:25.7617,
+            lng:-80.1918
+        },
 
-        title:propertyData.title,
-
-        content:createPricePill(propertyData.price)
-
-    });
-
-
-
-    const info =
-    new google.maps.InfoWindow({
-
-        content:`
-
-        <div class="map-card">
-
-            <h3>${propertyData.title}</h3>
-
-            <p>${propertyData.price}</p>
-
-        </div>
-
-        `
+        content:pin
 
     });
 
 
-
-    marker.addEventListener(
-
-        "gmp-click",
-
-        ()=>{
-
-            info.open({
-
-                map:propertyMap,
-
-                anchor:marker
-
-            });
-
-        }
-
-    );
-
+    console.log("MARKER CREATED", marker);
 
 }
-
 
 
 
