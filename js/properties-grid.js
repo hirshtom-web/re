@@ -210,3 +210,11 @@ sheet.addEventListener("pointerup",()=>{
 
 
 });
+
+function openFilters(){
+
+    document
+    .querySelector(".filter-sheet")
+    .classList.toggle("open");
+
+}
