@@ -295,14 +295,56 @@ function openFilters(){
     const filterSheet =
     document.querySelector(".filter-sheet");
 
+    const propertySheet =
+    document.querySelector(".property-sheet");
 
-    if(!filterSheet) return;
 
+    if(!filterSheet || !propertySheet) return;
+
+
+
+    // hide properties
+
+    propertySheet.style.transform =
+    `translateY(${window.innerHeight - 180}px)`;
+
+
+    // open filters
 
     filterSheet.style.transform =
     "translateY(0px)";
 
 }
+
+
+
+function closeFilters(){
+
+    const filterSheet =
+    document.querySelector(".filter-sheet");
+
+    const propertySheet =
+    document.querySelector(".property-sheet");
+
+
+    if(!filterSheet || !propertySheet) return;
+
+
+
+    // hide filters
+
+    filterSheet.style.transform =
+    `translateY(${window.innerHeight - 180}px)`;
+
+
+    // bring properties back
+
+    propertySheet.style.transform =
+    `translateY(${window.innerHeight - 180}px)`;
+
+}
+
+
 
 /* =========================
 FILTER SHEET DRAG
@@ -330,14 +372,20 @@ let startPosition = 0;
 
 function getY(){
 
-    const matrix =
-    new DOMMatrix(
-        getComputedStyle(sheet).transform
-    );
+    const transform =
+    getComputedStyle(sheet).transform;
 
-    return matrix.m42;
+
+    if(transform === "none"){
+        return 0;
+    }
+
+
+    return new DOMMatrix(transform).m42;
 
 }
+
+
 
 
 
@@ -362,19 +410,20 @@ handle.addEventListener("pointerdown",e=>{
 
 
 
+
 handle.addEventListener("pointermove",e=>{
 
 
     if(!startY) return;
 
 
-    let position =
-    startPosition + (e.clientY - startY);
-
-
-
     const closed =
     window.innerHeight - 180;
+
+
+
+    let position =
+    startPosition + (e.clientY - startY);
 
 
 
@@ -388,11 +437,14 @@ handle.addEventListener("pointermove",e=>{
     );
 
 
+
     sheet.style.transform =
     `translateY(${position}px)`;
 
 
 });
+
+
 
 
 
@@ -404,18 +456,32 @@ handle.addEventListener("pointerup",()=>{
     window.innerHeight - 180;
 
 
-    if(getY() > closed/2){
 
-        sheet.style.transform =
-        `translateY(${closed}px)`;
+    const position =
+    getY();
+
+
+
+    if(position > closed / 2){
+
+
+        // close filters
+
+        closeFilters();
+
 
     }
     else{
 
+
+        // keep open
+
         sheet.style.transform =
         "translateY(0px)";
 
+
     }
+
 
 
     sheet.classList.remove(
@@ -423,7 +489,7 @@ handle.addEventListener("pointerup",()=>{
     );
 
 
-    startY=0;
+    startY = 0;
 
 
 });
