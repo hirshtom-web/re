@@ -432,11 +432,9 @@ MOBILE LATOUT
 
     border-radius:30px 30px 0 0;
 
-    transform:
-    translateY(calc(90vh - 115px));
+    transform:translateY(78vh);
 
-    transition:
-    transform .25s ease;
+    transition:transform .25s ease;
 
     z-index:20;
 
@@ -446,12 +444,21 @@ MOBILE LATOUT
 }
 
 
-
 .property-sheet.dragging{
 
     transition:none;
 
 }
+
+
+.sheet-content{
+
+    height:calc(90vh - 70px);
+
+    overflow-y:auto;
+
+}
+
 
 
 .sheet-handle{
@@ -467,6 +474,8 @@ MOBILE LATOUT
     margin:12px auto;
 
 }
+
+
 
 
 .sheet-header{
