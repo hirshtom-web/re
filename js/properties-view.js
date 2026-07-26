@@ -11,29 +11,30 @@ document.querySelector(".properties-layout");
 
 
 
-gridBtn.onclick=()=>{
+if(gridBtn && mapBtn && layout){
 
 
-layout.classList.remove("map-only");
+    gridBtn.onclick=()=>{
 
-gridBtn.classList.add("active");
+        layout.classList.remove("map-only");
 
-mapBtn.classList.remove("active");
+        gridBtn.classList.add("active");
 
+        mapBtn.classList.remove("active");
 
-};
-
-
-
-mapBtn.onclick=()=>{
+    };
 
 
-layout.classList.add("map-only");
+
+    mapBtn.onclick=()=>{
+
+        layout.classList.add("map-only");
+
+        mapBtn.classList.add("active");
+
+        gridBtn.classList.remove("active");
+
+    };
 
 
-mapBtn.classList.add("active");
-
-gridBtn.classList.remove("active");
-
-
-};
+}
