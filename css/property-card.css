@@ -428,14 +428,13 @@ MOBILE PROPERTY CARD CONTROLS Everything here only affects screens <900px
     }
 
 
-    /* GRID */
 
-    .sheet-content .properties-grid{
+.sheet-header{
+    height:65px;
+}
 
-        gap:24px;
-
-        padding:8px 20px 60px;
-
-    }
+.sheet-content .properties-grid{
+    padding:15px 20px 50px;
+}
 
 }
