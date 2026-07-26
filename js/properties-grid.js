@@ -303,20 +303,41 @@ handle.addEventListener(
 /* =========================
 FILTER POPUP
 ========================= */
-/* =========================
-FILTER POPUP
-========================= */
-
 function openFilters(){
 
     const filterSheet =
     document.querySelector(".filter-sheet");
 
+    const propertySheet =
+    document.querySelector(".property-sheet");
 
-    if(!filterSheet) return;
+
+    if(!filterSheet || !propertySheet) return;
 
 
-    filterSheet.classList.add("open");
+    filterSheet.classList.toggle("open");
+
+
+    if(filterSheet.classList.contains("open")){
+
+
+        // move property sheet completely down
+
+        propertySheet.style.transform =
+        "translateY(calc(100vh - 80px))";
+
+
+    }
+    else{
+
+
+        // return property sheet
+
+        propertySheet.style.transform =
+        "translateY(75vh)";
+
+
+    }
 
 }
 
@@ -327,11 +348,24 @@ function closeFilters(){
     const filterSheet =
     document.querySelector(".filter-sheet");
 
+    const propertySheet =
+    document.querySelector(".property-sheet");
 
-    if(!filterSheet) return;
+
+    if(!filterSheet || !propertySheet) return;
 
 
-    filterSheet.classList.remove("open");
+
+    // hide filters
+
+    filterSheet.style.transform =
+    `translateY(${window.innerHeight - 180}px)`;
+
+
+    // bring properties back
+
+    propertySheet.style.transform =
+    `translateY(${window.innerHeight - 180}px)`;
 
 }
 
