@@ -380,7 +380,7 @@ document.querySelector(".filter-sheet");
 
 
 const handle =
-document.querySelector(".filter-sheet .sheet-handle");
+document.querySelector(".filter-sheet .filter-sheet-handle");
 
 
 if(!sheet || !handle) return;
