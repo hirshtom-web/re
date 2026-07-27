@@ -1,58 +1,6 @@
 /* =========================
-PRICE FILTER POPUP
+FILTER TOOLBAR CONTROLLER
 ========================= */
-
-const priceButton =
-document.getElementById("price-filter");
-
-
-const pricePopup =
-document.querySelector(".price-popup");
-
-
-
-if(priceButton && pricePopup){
-
-
-    priceButton.addEventListener("click", (e)=>{
-
-        e.stopPropagation();
-
-        pricePopup.classList.toggle("active");
-
-    });
-
-
-}
-
-
-
-document.addEventListener("click",(e)=>{
-
-
-    // page does not have price filter
-    if(!priceButton || !pricePopup){
-
-        return;
-
-    }
-
-
-
-    if(
-        !priceButton.contains(e.target) &&
-        !pricePopup.contains(e.target)
-    ){
-
-        pricePopup.classList.remove("active");
-
-    }
-
-
-});
-
-
-
 
 
 /* =========================
@@ -60,7 +8,8 @@ GENERAL FILTER DROPDOWNS
 ========================= */
 
 
-document.querySelectorAll(".filter-dropdown")
+document
+.querySelectorAll(".filter-dropdown")
 .forEach(dropdown=>{
 
 
@@ -94,6 +43,8 @@ document.querySelectorAll(".filter-dropdown")
 
 
 
+        // close other dropdowns
+
         document
         .querySelectorAll(".filter-popup.active")
         .forEach(activePopup=>{
@@ -107,7 +58,6 @@ document.querySelectorAll(".filter-dropdown")
 
 
         });
-
 
 
 
@@ -127,6 +77,7 @@ document.querySelectorAll(".filter-dropdown")
 
 
 
+
         popup.classList.toggle("active");
 
         button.classList.toggle("active");
@@ -140,83 +91,193 @@ document.querySelectorAll(".filter-dropdown")
 
 
 
-    dropdown.querySelectorAll(".popup-options button")
-.forEach(option => {
+
+    /*
+    FILTER OPTIONS
+    */
 
 
-    option.addEventListener("click", function(){
+    popup
+    .querySelectorAll(".popup-options button")
+    .forEach(option=>{
 
 
-        label.textContent =
-        this.textContent;
-
-
-
-        popup.classList.remove("active");
-
-        button.classList.remove("active");
+        option.addEventListener("click",function(){
 
 
 
-        const value =
-        this.dataset.value || "";
+            const value =
+            this.dataset.value || "";
+
+
+
+            if(label){
+
+                label.textContent =
+                this.textContent;
+
+            }
+
+
+
+
+            popup.classList.remove("active");
+
+            button.classList.remove("active");
 
 
 
 
 
-        /* =========================
-           CONNECT FILTERS
-        ========================= */
+
+
+            /*
+            CONNECT TO GLOBAL FILTER STATE
+            */
+
+
+            if(dropdown.id === "location-dropdown"){
+
+
+                propertyFilters.location =
+                value;
+
+
+            }
 
 
 
-        if(dropdown.id === "location-dropdown"){
-
-            propertyFilters.location =
-            value;
-
-        }
 
 
+            if(dropdown.id === "property-type-dropdown"){
 
-        if(dropdown.id === "property-type-dropdown"){
 
-            propertyFilters.propertyType =
-            value;
+                propertyFilters.propertyType =
+                value;
 
-        }
+
+            }
 
 
 
-        if(dropdown.id === "completion-dropdown"){
-
-            propertyFilters.completion =
-            value;
-
-        }
 
 
 
-        if(dropdown.id === "sort-dropdown"){
-
-            propertyFilters.sort =
-            value;
-
-        }
+            if(dropdown.id === "completion-dropdown"){
 
 
+                propertyFilters.completion =
+                value;
 
+
+            }
+
+
+
+
+
+
+            if(dropdown.id === "sort-dropdown"){
+
+
+                propertyFilters.sort =
+                value;
+
+
+            }
+
+
+
+
+
+            // update immediately
+
+            filterProperties();
+
+
+
+        });
+
+
+
+    });
+
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+PRICE DROPDOWN SPECIAL ACTIONS
+========================= */
+
+
+const priceApply =
+document.querySelector(".apply-filter");
+
+
+const priceReset =
+document.querySelector(".reset-filter");
+
+
+
+
+if(priceApply){
+
+
+    priceApply.addEventListener("click",()=>{
 
 
         filterProperties();
 
 
 
+        document
+        .querySelector(".price-popup")
+        ?.classList.remove("active");
+
+
     });
 
 
-});
+}
+
+
+
+
+
+
+if(priceReset){
+
+
+    priceReset.addEventListener("click",()=>{
+
+
+
+        if(window.initializePriceFilter){
+
+            initializePriceFilter();
+
+        }
+
+
+
+        filterProperties();
+
+
+    });
+
+
+}
+
+
 
 
 
@@ -225,31 +286,35 @@ document.querySelectorAll(".filter-dropdown")
 
 
 /* =========================
-CLOSE FILTER POPUPS
+CLOSE POPUPS OUTSIDE CLICK
 ========================= */
 
 
-document.addEventListener("click",()=>{
+document.addEventListener("click",(e)=>{
 
 
     document
-    .querySelectorAll(".filter-popup.active")
-    .forEach(popup=>{
+    .querySelectorAll(".filter-dropdown")
+    .forEach(dropdown=>{
 
 
-        popup.classList.remove("active");
-
-
-    });
+        if(!dropdown.contains(e.target)){
 
 
 
-    document
-    .querySelectorAll(".filter-button.active")
-    .forEach(button=>{
+            dropdown
+            .querySelector(".filter-popup")
+            ?.classList.remove("active");
 
 
-        button.classList.remove("active");
+
+            dropdown
+            .querySelector(".filter-button")
+            ?.classList.remove("active");
+
+
+        }
+
 
 
     });
@@ -263,8 +328,10 @@ document.addEventListener("click",()=>{
 
 
 
+
+
 /* =========================
-LOCATION SEARCH INSIDE POPUP
+LOCATION SEARCH
 ========================= */
 
 
@@ -279,8 +346,10 @@ if(locationSearch){
     locationSearch.addEventListener("input",function(){
 
 
+
         const search =
         this.value.toLowerCase();
+
 
 
 
@@ -289,6 +358,7 @@ if(locationSearch){
         "#location-dropdown .popup-options button"
         )
         .forEach(button=>{
+
 
 
             const text =
@@ -309,10 +379,135 @@ if(locationSearch){
             "none";
 
 
+
         });
+
 
 
     });
 
 
 }
+
+
+
+
+
+
+
+
+
+/* =========================
+MOBILE SEARCH SYNC
+========================= */
+
+
+const mobileSearch =
+document.getElementById(
+"mobile-property-search"
+);
+
+
+
+if(mobileSearch){
+
+
+    mobileSearch.addEventListener(
+    "input",
+    function(){
+
+
+
+        const desktopSearch =
+        document.getElementById(
+        "property-search"
+        );
+
+
+
+        if(desktopSearch){
+
+
+            desktopSearch.value =
+            this.value;
+
+
+        }
+
+
+
+        filterProperties();
+
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+PROPERTY SEARCH
+========================= */
+
+
+const propertySearch =
+document.getElementById(
+"property-search"
+);
+
+
+
+if(propertySearch){
+
+
+    propertySearch.addEventListener(
+    "input",
+    ()=>{
+
+
+        filterProperties();
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+LOAD AFTER DATA
+========================= */
+
+
+window.addEventListener(
+"propertiesLoaded",
+()=>{
+
+
+    if(window.initializePriceFilter){
+
+        initializePriceFilter();
+
+    }
+
+
+
+    filterProperties();
+
+
+});
