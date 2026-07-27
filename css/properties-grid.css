@@ -310,16 +310,11 @@ MAP VIEW
 
 
 .properties-layout.map-mode .properties-scroll{
-
     width:50%;
-
 }
 
-
 .properties-layout.map-mode .map-container{
-
     width:50%;
-
 }
 
     .properties-layout{
@@ -1070,4 +1065,9 @@ HIDE DESKTOP UI
     }
 
 
+}
+
+
+html, body{
+    overflow-x:hidden;
 }
