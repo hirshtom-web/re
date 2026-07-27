@@ -1012,3 +1012,62 @@ HIDE DESKTOP UI
 
 
 }
+
+
+
+
+
+/* ======================================
+   FINAL MOBILE SHEET FIX
+====================================== */
+
+@media (max-width:900px){
+
+
+    /* FILTER SHEET MUST STAY HIDDEN */
+
+    .filter-sheet{
+
+        z-index:1000;
+
+        transform:translateY(100%);
+
+    }
+
+
+    .filter-sheet.open{
+
+        transform:translateY(0);
+
+    }
+
+
+
+    /* REMOVE FILTER HEADER SPACE WHEN CLOSED */
+
+    .filter-sheet:not(.open){
+
+        pointer-events:none;
+
+    }
+
+
+
+    .filter-sheet-header{
+
+        height:70px;
+
+    }
+
+
+
+    /* MARKER PREVIEW ABOVE SHEETS */
+
+    .mobile-property-preview{
+
+        z-index:1200;
+
+    }
+
+
+}
