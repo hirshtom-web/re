@@ -718,35 +718,23 @@ price.addEventListener(
 
 
 
-    if(!bounds.isEmpty()){
+  if(!bounds.isEmpty()) {
 
+    google.maps.event.addListenerOnce(
+        map,
+        "bounds_changed",
+        () => {
 
-        map.fitBounds(bounds);
-
-
-
-        google.maps.event.addListenerOnce(
-
-            map,
-
-            "bounds_changed",
-
-            ()=>{
-
-
-                if(map.getZoom() > 14){
-
-                    map.setZoom(14);
-
-                }
-
-
+            if (map.getZoom() > 14) {
+                map.setZoom(14);
             }
 
-        );
+        }
+    );
 
+    map.fitBounds(bounds);
 
-    }
+}
 
 
 
