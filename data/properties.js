@@ -4534,11 +4534,11 @@ images:[
 
 "https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AOylmJwR7j3_jnOmREiDEmc/Bentley%20Interior%20Renderings/Penthouse%20Renderings/Bentley%20Residences%20Penthouse10.jpg?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=579jq647&raw=1",
 
-"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AAMxWu7yQvdnh2XfEcCMqy8/Bentley%20Interior%20Renderings/West%20Unit/P_WU_BALCONY1_B.png?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=ybzsk1nh&raw=1"
+"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AAMxWu7yQvdnh2XfEcCMqy8/Bentley%20Interior%20Renderings/West%20Unit/P_WU_BALCONY1_B.png?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=ybzsk1nh&raw=1",
 
-"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AIwxWN2zAW-o8tmMX1zgk1Y/Bentley%20Interior%20Renderings/West%20Unit/P_WU_BALCONY1_R1.png?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=7fo09shw&raw=1"
+"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AIwxWN2zAW-o8tmMX1zgk1Y/Bentley%20Interior%20Renderings/West%20Unit/P_WU_BALCONY1_R1.png?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=7fo09shw&raw=1",
 
-"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AId_bOmTYXLzkrb7kXr6Oqg/Bentley%20Interior%20Renderings/West%20Unit/P_WU_Kitchen_opened-4k.png?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=sn61nwc6&raw=1"
+"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AId_bOmTYXLzkrb7kXr6Oqg/Bentley%20Interior%20Renderings/West%20Unit/P_WU_Kitchen_opened-4k.png?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=sn61nwc6&raw=1",
 
 "https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AAiDh95e3gjYS17Lg_-XhCc/Bentley%20Interior%20Renderings/West%20Unit/WU_B_bedroom2_R1-4k.png?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=a12rb4bo&raw=1"
 
@@ -4855,8 +4855,7 @@ text:"Designed with timeless architecture, refined materials, and carefully cura
 architectureGallery:[
 
 {
-image:"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/ACz4G3cbt1gt5GCx0z09b-o/Bentley%20Residences%20Videos/HDYB%209_16.mp4?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=stgxn00t&raw=1",
-caption:"Signature coastal architecture"
+image:"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/ACz4G3cbt1gt5GCx0z09b-o/Bentley%20Residences%20Videos/HDYB%209_16.mp4?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=stgxn00t&raw=1"
 }
 
 ],
