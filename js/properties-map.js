@@ -456,61 +456,54 @@ price.addEventListener(
 
 
         marker.addEventListener(
-
-            "gmp-click",
-
-            ()=>{
+"gmp-click",
+()=>{
 
 
-                const card =
-                document.querySelector(
+    if(typeof closeFilters === "function"){
 
-                    `[data-property-id="${property.id}"]`
+        closeFilters();
 
-                );
+    }
 
 
 
-                if(card){
-
-
-                    card.scrollIntoView({
-
-                        behavior:"smooth",
-
-                        block:"center"
-
-                    });
+    const card =
+    document.querySelector(
+        `[data-property-id="${property.id}"]`
+    );
 
 
 
-                    card.classList.add(
-                        "active-property"
-                    );
+    if(card){
+
+        card.scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"center"
+
+        });
 
 
-
-                    setTimeout(()=>{
-
-
-                        card.classList.remove(
-                            "active-property"
-                        );
-
-
-                    },2000);
-
-
-                }
-
-
-            }
-
+        card.classList.add(
+            "active-property"
         );
 
 
+        setTimeout(()=>{
 
-    });
+            card.classList.remove(
+                "active-property"
+            );
+
+        },2000);
+
+
+    }
+
+
+});
 
 
 
