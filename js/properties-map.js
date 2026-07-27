@@ -226,6 +226,194 @@ async function initMap(){
 
 
 
+// ======================================
+// MOBILE PROPERTY PREVIEW
+// ======================================
+
+function showMobilePropertyPreview(property) {
+
+    if (window.innerWidth > 900) {
+        return;
+    }
+
+
+    const preview =
+        document.getElementById(
+            "mobile-property-preview"
+        );
+
+
+    if (!preview) {
+        console.warn(
+            "Mobile property preview missing"
+        );
+
+        return;
+    }
+
+
+    preview.innerHTML = `
+
+        <article
+            class="property-card"
+            data-property-id="${property.id}">
+
+
+            <div class="property-card-image">
+
+                <img
+                    src="${
+                        property.images?.[0]
+                        ||
+                        property.thumbnail
+                        ||
+                        "images/placeholder.jpg"
+                    }"
+                    alt="${property.title}">
+
+
+                <span class="property-badge">
+
+                    ${property.status || "Available"}
+
+                </span>
+
+
+                <button
+                    class="property-favorite"
+                    type="button">
+
+                    ♡
+
+                </button>
+
+            </div>
+
+
+            <div class="property-card-info">
+
+
+                <div class="property-card-header">
+
+                    <h3>
+                        ${property.title}
+                    </h3>
+
+
+                    <strong>
+                        ${property.price || "Request Pricing"}
+                    </strong>
+
+                </div>
+
+
+                <p>
+
+                    ${property.location || ""}
+
+                    ${
+                        property.neighborhood
+                        ? " · " + property.neighborhood
+                        : ""
+                    }
+
+                </p>
+
+
+            </div>
+
+        </article>
+
+    `;
+
+
+    preview.classList.add("show");
+
+
+    const card =
+        preview.querySelector(
+            ".property-card"
+        );
+
+
+    if (!card) {
+        return;
+    }
+
+
+    // ======================================
+    // CLICK PREVIEW → SINGLE PROPERTY PAGE
+    // ======================================
+
+    card.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+
+            openModal(
+                "residence.html",
+                property.id
+            );
+
+        }
+    );
+
+
+    // Don't let favorite button
+    // open the property
+
+    const favorite =
+        card.querySelector(
+            ".property-favorite"
+        );
+
+
+    if (favorite) {
+
+        favorite.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+            }
+        );
+
+    }
+
+}
+
+
+
+// ======================================
+// HIDE MOBILE PROPERTY PREVIEW
+// ======================================
+
+function hideMobilePropertyPreview() {
+
+    const preview =
+        document.getElementById(
+            "mobile-property-preview"
+        );
+
+
+    if (!preview) {
+        return;
+    }
+
+
+    preview.classList.remove("show");
+
+    preview.innerHTML = "";
+
+}
+
+
+
 
 // ======================================
 // LOAD PROPERTY MARKERS
@@ -408,23 +596,32 @@ price.addEventListener(
 
 price.addEventListener(
     "click",
-    ()=>{
+    () => {
+
+        if (window.innerWidth <= 900) {
+
+            showMobilePropertyPreview(
+                property
+            );
+
+            return;
+
+        }
 
 
         const card =
-        document.querySelector(
-            `[data-property-id="${property.id}"]`
-        );
+            document.querySelector(
+                `[data-property-id="${property.id}"]`
+            );
 
 
-        if(card){
-
+        if (card) {
 
             card.scrollIntoView({
 
-                behavior:"smooth",
+                behavior: "smooth",
 
-                block:"center"
+                block: "center"
 
             });
 
@@ -434,17 +631,15 @@ price.addEventListener(
             );
 
 
-            setTimeout(()=>{
+            setTimeout(() => {
 
                 card.classList.remove(
                     "active-property"
                 );
 
-            },2000);
-
+            }, 2000);
 
         }
-
 
     }
 );
@@ -456,62 +651,70 @@ price.addEventListener(
 
 
         marker.addEventListener(
+    "gmp-click",
+    () => {
 
-            "gmp-click",
+        // Mobile marker behavior
+        if (window.innerWidth <= 900) {
 
-            ()=>{
+            // Make sure the large property sheet
+            // stays collapsed.
+            if (
+                typeof collapsePropertySheet ===
+                "function"
+            ) {
 
-
-                const card =
-                document.querySelector(
-
-                    `[data-property-id="${property.id}"]`
-
-                );
-
-
-
-                if(card){
-
-
-                    card.scrollIntoView({
-
-                        behavior:"smooth",
-
-                        block:"center"
-
-                    });
-
-
-
-                    card.classList.add(
-                        "active-property"
-                    );
-
-
-
-                    setTimeout(()=>{
-
-
-                        card.classList.remove(
-                            "active-property"
-                        );
-
-
-                    },2000);
-
-
-                }
-
+                collapsePropertySheet();
 
             }
 
-        );
+
+            // Show only the selected property
+            showMobilePropertyPreview(
+                property
+            );
 
 
+            return;
 
-    });
+        }
 
+
+        // Desktop marker behavior
+        const card =
+            document.querySelector(
+                `[data-property-id="${property.id}"]`
+            );
+
+
+        if (card) {
+
+            card.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center"
+
+            });
+
+
+            card.classList.add(
+                "active-property"
+            );
+
+
+            setTimeout(() => {
+
+                card.classList.remove(
+                    "active-property"
+                );
+
+            }, 2000);
+
+        }
+
+    }
+);
 
 
 
