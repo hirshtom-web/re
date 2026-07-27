@@ -41,7 +41,7 @@ function renderPropertiesGrid(propertiesList = window.properties){
 
 
                 <img
-                    src="${property.images?.[0] || property.thumbnail || 'images/placeholder.jpg'}"
+                    src="${property.thumbnail || property.images?.[0] || 'images/placeholder.jpg'}"
                     alt="${property.title}">
 
 
