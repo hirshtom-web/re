@@ -4845,9 +4845,9 @@ residences:[
 
 architecture:{
 
-title:"A New Standard of Modern Coastal Living",
+title:"Own a residence in one of the world's most exclusive addresses",
 
-text:"Designed with timeless architecture, refined materials, and carefully curated interiors, every residence reflects a balance of elegance, comfort, and the lifestyle of its surrounding destination. Every detail has been thoughtfully considered to create lasting value for homeowners and investors alike."
+text:"Inspired by a legacy of craftsmanship and innovation, every residence reflects a dedication to precision, luxury, and timeless design. Sophisticated interiors, distinctive architectural details, and uncompromising quality create an environment where automotive heritage meets an extraordinary residential experience."
 
 },
 
