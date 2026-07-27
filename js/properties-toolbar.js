@@ -1,13 +1,13 @@
 /* =========================
-FILTER TOOLBAR CONTROLLER
+PROPERTY TOOLBAR + FILTER ENGINE
 ========================= */
 
 
 /* =========================
-CREATE GLOBAL FILTER STATE
+GLOBAL FILTER STATE
 ========================= */
 
-window.propertyFilters = window.propertyFilters || {
+window.propertyFilters = {
 
     location:"",
     propertyType:"",
@@ -22,7 +22,279 @@ window.propertyFilters = window.propertyFilters || {
 
 
 /* =========================
-GENERAL DROPDOWNS
+PRICE READER
+========================= */
+
+function getPropertyPrice(property){
+
+    if(property.priceValue){
+
+        return Number(property.priceValue);
+
+    }
+
+
+    const text = (
+
+        property.price ||
+        property.priceRange ||
+        ""
+
+    ).toLowerCase();
+
+
+
+    const match =
+    text.match(/[\d,.]+/);
+
+
+
+    if(!match){
+
+        return 999999999;
+
+    }
+
+
+
+    let value =
+    Number(
+        match[0].replace(",","")
+    );
+
+
+
+    if(text.includes("m")){
+
+        value *= 1000000;
+
+    }
+
+    else if(text.includes("k")){
+
+        value *= 1000;
+
+    }
+
+
+    return value;
+
+}
+
+
+
+
+
+/* =========================
+FILTER ENGINE
+========================= */
+
+
+window.filterProperties = function(){
+
+
+    if(!window.properties){
+
+        return;
+
+    }
+
+
+
+    const searchInput =
+    document.getElementById(
+        "property-search"
+    );
+
+
+    const search =
+    searchInput
+    ?
+    searchInput.value.toLowerCase()
+    :
+    "";
+
+
+
+
+
+    let filtered =
+
+    window.properties.filter(property=>{
+
+
+        const text =
+        JSON.stringify(property)
+        .toLowerCase();
+
+
+
+        const searchMatch =
+
+        !search ||
+
+        text.includes(search);
+
+
+
+
+        const locationMatch =
+
+        !propertyFilters.location ||
+
+        text.includes(
+            propertyFilters.location.toLowerCase()
+        );
+
+
+
+
+        const typeMatch =
+
+        !propertyFilters.propertyType ||
+
+        property.type ===
+        propertyFilters.propertyType;
+
+
+
+
+        const completionMatch =
+
+        !propertyFilters.completion ||
+
+        Number(property.delivery) <=
+        Number(propertyFilters.completion);
+
+
+
+
+        const price =
+        getPropertyPrice(property);
+
+
+
+        const priceMatch =
+
+        price >= propertyFilters.minPrice &&
+
+        price <= propertyFilters.maxPrice;
+
+
+
+        return (
+
+            searchMatch &&
+
+            locationMatch &&
+
+            typeMatch &&
+
+            completionMatch &&
+
+            priceMatch
+
+        );
+
+
+    });
+
+
+
+
+
+    switch(propertyFilters.sort){
+
+
+        case "price-low":
+
+            filtered.sort((a,b)=>
+
+                getPropertyPrice(a)
+                -
+                getPropertyPrice(b)
+
+            );
+
+        break;
+
+
+
+        case "price-high":
+
+            filtered.sort((a,b)=>
+
+                getPropertyPrice(b)
+                -
+                getPropertyPrice(a)
+
+            );
+
+        break;
+
+
+
+        case "name":
+
+            filtered.sort((a,b)=>
+
+                (a.title||"")
+                .localeCompare(
+                    b.title||""
+                )
+
+            );
+
+        break;
+
+
+
+        case "location":
+
+            filtered.sort((a,b)=>
+
+                (a.location||"")
+                .localeCompare(
+                    b.location||""
+                )
+
+            );
+
+        break;
+
+
+    }
+
+
+
+
+
+    if(window.renderPropertiesGrid){
+
+        renderPropertiesGrid(filtered);
+
+    }
+
+
+
+
+    if(window.updateMapMarkers){
+
+        updateMapMarkers(filtered);
+
+    }
+
+
+};
+
+
+
+
+
+
+
+/* =========================
+DROPDOWN CONTROLLER
 ========================= */
 
 
@@ -52,6 +324,8 @@ document
 
 
 
+
+
     button.addEventListener("click",(e)=>{
 
 
@@ -70,23 +344,6 @@ document
 
             }
 
-
-        });
-
-
-
-        document
-        .querySelectorAll(".filter-button.active")
-        .forEach(active=>{
-
-
-            if(active !== button){
-
-                active.classList.remove("active");
-
-            }
-
-
         });
 
 
@@ -97,6 +354,7 @@ document
 
 
     });
+
 
 
 
@@ -126,12 +384,12 @@ document
 
 
 
-
             if(dropdown.id==="location-dropdown"){
 
                 propertyFilters.location=value;
 
             }
+
 
 
             if(dropdown.id==="property-type-dropdown"){
@@ -141,11 +399,13 @@ document
             }
 
 
+
             if(dropdown.id==="completion-dropdown"){
 
                 propertyFilters.completion=value;
 
             }
+
 
 
             if(dropdown.id==="sort-dropdown"){
@@ -163,13 +423,7 @@ document
 
 
 
-
-
-            if(window.filterProperties){
-
-                filterProperties();
-
-            }
+            filterProperties();
 
 
         });
@@ -187,53 +441,94 @@ document
 
 
 
-
 /* =========================
-PRICE BUTTON
+PRICE APPLY / RESET
 ========================= */
 
 
-const priceDropdown =
-document.getElementById(
-"price-dropdown"
-);
+document
+.querySelector(".apply-filter")
+?.addEventListener("click",()=>{
 
 
-if(priceDropdown){
+    filterProperties();
 
 
-    const priceButton =
-    priceDropdown.querySelector(".filter-button");
+    document
+    .querySelector(".price-popup")
+    ?.classList.remove("active");
 
 
-    const pricePopup =
-    priceDropdown.querySelector(".filter-popup");
+});
 
 
 
-    if(priceButton && pricePopup){
+
+document
+.querySelector(".reset-filter")
+?.addEventListener("click",()=>{
 
 
-        priceButton.addEventListener("click",(e)=>{
+    propertyFilters.minPrice = 0;
+
+    propertyFilters.maxPrice = 999999999;
 
 
-            e.stopPropagation();
+    filterProperties();
 
 
-            pricePopup.classList.toggle("active");
-
-            priceButton.classList.toggle("active");
+});
 
 
-        });
 
 
-    }
 
 
-}
+
+/* =========================
+PRICE SLIDERS
+========================= */
 
 
+document
+.querySelectorAll(
+"#min-range,#max-range"
+)
+.forEach(slider=>{
+
+
+    slider.addEventListener(
+    "input",
+    ()=>{
+
+
+        propertyFilters.minPrice =
+
+        Number(
+            document.getElementById(
+                "min-range"
+            ).value
+        );
+
+
+
+        propertyFilters.maxPrice =
+
+        Number(
+            document.getElementById(
+                "max-range"
+            ).value
+        );
+
+
+
+        filterProperties();
+
+
+    });
+
+
+});
 
 
 
@@ -243,7 +538,7 @@ if(priceDropdown){
 
 
 /* =========================
-LOCATION SEARCH
+LOCATION SEARCH INSIDE MENU
 ========================= */
 
 
@@ -262,7 +557,7 @@ if(toolbarLocationSearch){
     function(){
 
 
-        const search =
+        const value =
         this.value.toLowerCase();
 
 
@@ -278,7 +573,7 @@ if(toolbarLocationSearch){
 
             button.textContent
             .toLowerCase()
-            .includes(search)
+            .includes(value)
 
             ?
 
@@ -305,7 +600,7 @@ if(toolbarLocationSearch){
 
 
 /* =========================
-CLOSE OUTSIDE
+CLOSE POPUPS
 ========================= */
 
 
@@ -340,6 +635,36 @@ document.addEventListener(
 
 
 
+
+
+
+/* =========================
+SEARCH EVENTS
+========================= */
+
+
+document
+.getElementById(
+"property-search"
+)
+?.addEventListener(
+"input",
+filterProperties
+);
+
+
+
+
+
+window.addEventListener(
+"propertiesLoaded",
+()=>{
+
+
+    filterProperties();
+
+
+});
 
 
 
