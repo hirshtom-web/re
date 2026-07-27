@@ -1,3 +1,7 @@
+/* =========================
+PRICE FILTER POPUP
+========================= */
+
 const priceButton =
 document.getElementById("price-filter");
 
@@ -12,12 +16,9 @@ if(priceButton && pricePopup){
 
     priceButton.addEventListener("click", (e)=>{
 
-
         e.stopPropagation();
 
-
         pricePopup.classList.toggle("active");
-
 
     });
 
@@ -26,11 +27,10 @@ if(priceButton && pricePopup){
 
 
 
-
-
 document.addEventListener("click",(e)=>{
 
 
+    // page does not have price filter
     if(!priceButton || !pricePopup){
 
         return;
@@ -55,15 +55,12 @@ document.addEventListener("click",(e)=>{
 
 
 
-
-
 /* =========================
-FILTER DROPDOWNS
+GENERAL FILTER DROPDOWNS
 ========================= */
 
 
-document
-.querySelectorAll(".filter-dropdown")
+document.querySelectorAll(".filter-dropdown")
 .forEach(dropdown=>{
 
 
@@ -80,7 +77,7 @@ document
 
 
 
-    if(!button || !popup || !label){
+    if(!button || !popup){
 
         return;
 
@@ -130,12 +127,9 @@ document
 
 
 
-
         popup.classList.toggle("active");
 
-
         button.classList.toggle("active");
-
 
 
     });
@@ -146,8 +140,7 @@ document
 
 
 
-
-    popup
+    dropdown
     .querySelectorAll(".popup-options button")
     .forEach(option=>{
 
@@ -155,35 +148,32 @@ document
         option.addEventListener("click",()=>{
 
 
-            label.textContent =
-            option.textContent;
+            if(label){
+
+                label.textContent =
+                option.textContent;
+
+            }
 
 
 
             popup.classList.remove("active");
-
 
             button.classList.remove("active");
 
 
 
             const value =
-            option.dataset.value;
+            option.dataset.value || "";
 
 
 
             /*
-            CONNECT FILTERS HERE
+            CONNECT FILTER ENGINE HERE
 
             Example:
 
-            if(dropdown.id === "location-dropdown"){
-
-                propertyFilters.location = value;
-
-            }
-
-
+            propertyFilters.location = value;
             filterProperties();
 
             */
@@ -204,9 +194,8 @@ document
 
 
 
-
 /* =========================
-CLOSE ALL FILTERS
+CLOSE FILTER POPUPS
 ========================= */
 
 
@@ -234,7 +223,6 @@ document.addEventListener("click",()=>{
 
 
     });
-
 
 
 });
@@ -268,7 +256,7 @@ if(locationSearch){
 
         document
         .querySelectorAll(
-            "#location-dropdown .popup-options button"
+        "#location-dropdown .popup-options button"
         )
         .forEach(button=>{
 
@@ -279,15 +267,19 @@ if(locationSearch){
 
 
             button.style.display =
+
             text.includes(search)
+
             ?
+
             "block"
+
             :
+
             "none";
 
 
         });
-
 
 
     });
