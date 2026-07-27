@@ -33,58 +33,157 @@ document.addEventListener("click",(e)=>{
 });
 
 
-const dropdown = document.getElementById("location-dropdown");
-const button = document.getElementById("location-button");
-const popup = dropdown.querySelector(".filter-popup");
-const label = dropdown.querySelector(".filter-label");
+document.querySelectorAll(".filter-dropdown").forEach(dropdown => {
 
-button.addEventListener("click", () => {
 
-    popup.classList.toggle("active");
-    button.classList.toggle("active");
+    const button = dropdown.querySelector(".filter-button");
+    const popup = dropdown.querySelector(".filter-popup");
+    const label = dropdown.querySelector(".filter-label");
 
-});
 
-popup.querySelectorAll("button").forEach(option => {
 
-    option.addEventListener("click", () => {
+    button.addEventListener("click", function(e){
 
-        label.textContent = option.textContent;
+        e.stopPropagation();
 
-        popup.classList.remove("active");
-        button.classList.remove("active");
 
-        // your filter function
-        filterProperties(option.dataset.value);
+        // close other dropdowns
+
+        document.querySelectorAll(".filter-popup.active")
+        .forEach(activePopup => {
+
+            if(activePopup !== popup){
+
+                activePopup.classList.remove("active");
+
+            }
+
+        });
+
+
+        document.querySelectorAll(".filter-button.active")
+        .forEach(activeButton => {
+
+            if(activeButton !== button){
+
+                activeButton.classList.remove("active");
+
+            }
+
+        });
+
+
+
+        popup.classList.toggle("active");
+
+        button.classList.toggle("active");
+
+
+    });
+
+
+
+
+
+    dropdown.querySelectorAll(".popup-options button")
+    .forEach(option => {
+
+
+        option.addEventListener("click", function(){
+
+
+            label.textContent = this.textContent;
+
+
+            popup.classList.remove("active");
+
+            button.classList.remove("active");
+
+
+
+            let value = this.dataset.value;
+
+
+
+            /*
+            Connect your filters here:
+
+            if(dropdown.id === "location-dropdown"){
+                filterProperties(value);
+            }
+
+            if(dropdown.id === "property-type-dropdown"){
+                filterProperties(value);
+            }
+
+            */
+
+
+        });
+
 
     });
 
+
 });
 
-document.addEventListener("click", e => {
 
-    if(!dropdown.contains(e.target)){
+
+
+
+// Close when clicking outside
+
+document.addEventListener("click", function(){
+
+
+    document.querySelectorAll(".filter-popup.active")
+    .forEach(popup => {
 
         popup.classList.remove("active");
+
+    });
+
+
+    document.querySelectorAll(".filter-button.active")
+    .forEach(button => {
+
         button.classList.remove("active");
 
-    }
+    });
+
 
 });
 
-const search = document.getElementById("location-search");
+const locationSearch =
+document.getElementById("location-search");
 
-search.addEventListener("input", () => {
 
-    const value = search.value.toLowerCase();
+locationSearch.addEventListener("input", function(){
 
-    popup.querySelectorAll(".popup-options button").forEach(btn => {
 
-        btn.style.display =
-            btn.textContent.toLowerCase().includes(value)
-                ? "block"
-                : "none";
+    let search =
+    this.value.toLowerCase();
+
+
+
+    document.querySelectorAll(
+    "#location-dropdown .popup-options button"
+    )
+    .forEach(button => {
+
+
+        let text =
+        button.textContent.toLowerCase();
+
+
+
+        button.style.display =
+        text.includes(search)
+        ? "block"
+        : "none";
+
 
     });
+
 
 });
