@@ -890,8 +890,12 @@ Back
 
 <script src="../data/properties.js"></script>
 
+
+<!-- Render cards -->
 <script src="../js/properties-grid.js"></script>
 
+
+<!-- Map must load before search updates markers -->
 <script src="../js/properties-map.js"></script>
 
 <script>
@@ -911,18 +915,17 @@ function loadGoogleMaps(){
 
 loadGoogleMaps();
 </script>
+    
+<!-- Search needs renderPropertiesGrid + updateMapMarkers -->
+<script src="../js/properties-search.js"></script>
 
 
-<!-- FILTER ENGINE FIRST -->
-<script src="../js/properties-filter-engine.js"></script>
-
-
-<!-- FILTER UI SECOND -->
+<!-- View toggle -->
+<script src="../js/properties-view.js"></script>
 <script src="../js/properties-toolbar.js"></script>
 
 
-<script src="../js/properties-view.js"></script>
-
+<!-- Modal and contacts -->
 <script src="../js/modal.js"></script>
 <script src="../js/contact.js"></script>
 
