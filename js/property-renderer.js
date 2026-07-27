@@ -226,7 +226,7 @@ if(main){
 
     main.loading = "eager";
 
-    main.src = images[0];
+    main.src = property.thumbnail || images[0];
 
     main.onerror = () => {
 
@@ -243,7 +243,6 @@ if(main){
     };
 
 }
-
 
     /*
         DESKTOP GRID
