@@ -351,7 +351,10 @@ MAP VIEW
 .map-container{
     display:none !important;
 }
+    
+}
 
+    @media(max-width:900px){
 
 /* FULL SCREEN MAP */
 
@@ -486,7 +489,7 @@ PROPERTY SHEET HEADER
 
     position:relative;
 
-    height:90px;
+    height:75px;
 
     display:flex;
 
