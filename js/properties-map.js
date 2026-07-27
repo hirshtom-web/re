@@ -455,63 +455,63 @@ price.addEventListener(
 
 
 
-        marker.addEventListener(
-"gmp-click",
-()=>{
+            marker.addEventListener(
+        "gmp-click",
+        ()=>{
+        
+
+            if(typeof closeFilters === "function"){
+
+                closeFilters();
+
+            }
 
 
-    if(typeof closeFilters === "function"){
-
-        closeFilters();
-
-    }
-
+            const card =
+            document.querySelector(
+                `[data-property-id="${property.id}"]`
+            );
 
 
-    const card =
-    document.querySelector(
-        `[data-property-id="${property.id}"]`
+            if(card){
+
+                card.scrollIntoView({
+
+                    behavior:"smooth",
+
+                    block:"center"
+
+                });
+
+
+                card.classList.add(
+                    "active-property"
+                );
+
+
+                setTimeout(()=>{
+
+                    card.classList.remove(
+                        "active-property"
+                    );
+
+                },2000);
+
+
+            }
+
+
+        }
     );
 
 
-
-    if(card){
-
-        card.scrollIntoView({
-
-            behavior:"smooth",
-
-            block:"center"
-
-        });
+}); 
 
 
-        card.classList.add(
-            "active-property"
-        );
+if(!bounds.isEmpty()){
 
 
-        setTimeout(()=>{
-
-            card.classList.remove(
-                "active-property"
-            );
-
-        },2000);
-
-
-    }
-
-
-});
-
-
-
-
-    if(!bounds.isEmpty()){
-
-
-        map.fitBounds(bounds);
+    map.fitBounds(bounds);
 
 
 
