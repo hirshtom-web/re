@@ -1185,38 +1185,6 @@ highlights:[
 
 
   {
-    id: "casa-bella-by-bb-italia",
-    title: "Casa Bella by B&B Italia",
-    subtitle: "Italian-Inspired Luxury Residences",
-    type: "Luxury Condominium",
-    status: "Pre-Construction",
-    location: "Miami, Florida",
-    coordinates: {
-      lat: 25.7896,
-      lng: -80.1895
-    },
-    neighborhood: "Art District",
-    address: "1444 Biscayne Blvd, Miami, FL",
-    price: "~$700K+",
-    priceRange: "~$700K+",
-    thumbnail: "",
-    images: [],
-    bedrooms: "Contact For Availability",
-    bathrooms: "Luxury Residences",
-    delivery: "2027",
-    developer: "Related Group / Alta Developers",
-    units: 306,
-    floors: 56,
-    ppsf: "TBD",
-    highlights: [
-      "Luxury residences with B&B Italia design influence",
-      "Prime Miami Art District location",
-      "Developed by Related Group and Alta Developers",
-      "Expected completion in 2027"
-    ]
-  },
-
-  {
     id: "tal-aventura",
     title: "TAL Aventura",
     subtitle: "Boutique Luxury Residences",
@@ -4995,14 +4963,15 @@ disclaimer:
 
    {
 
-id:"casa-bella-residences-miami",
 
+id: "casa-bella-by-bb-italia",
+      
 
 /* =========================
    BASIC INFO
 ========================= */
 
-title:"Casa Bella Residences Miami",
+title: "Casa Bella by B&B Italia",
 
 subtitle:"Italian Elegance Meets Modern Miami Living",
 
