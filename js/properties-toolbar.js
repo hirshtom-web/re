@@ -4,12 +4,10 @@ FILTER TOOLBAR CONTROLLER
 
 
 /* =========================
-GLOBAL FILTER STATE BRIDGE
+CREATE GLOBAL FILTER STATE
 ========================= */
 
-
-window.propertyFilters =
-window.propertyFilters || {
+window.propertyFilters = window.propertyFilters || {
 
     location:"",
     propertyType:"",
@@ -22,13 +20,9 @@ window.propertyFilters || {
 };
 
 
-const propertyFilters =
-window.propertyFilters;
-
-
 
 /* =========================
-GENERAL FILTER DROPDOWNS
+GENERAL DROPDOWNS
 ========================= */
 
 
@@ -58,8 +52,6 @@ document
 
 
 
-
-
     button.addEventListener("click",(e)=>{
 
 
@@ -69,12 +61,12 @@ document
 
         document
         .querySelectorAll(".filter-popup.active")
-        .forEach(activePopup=>{
+        .forEach(open=>{
 
 
-            if(activePopup !== popup){
+            if(open !== popup){
 
-                activePopup.classList.remove("active");
+                open.classList.remove("active");
 
             }
 
@@ -85,18 +77,17 @@ document
 
         document
         .querySelectorAll(".filter-button.active")
-        .forEach(activeButton=>{
+        .forEach(active=>{
 
 
-            if(activeButton !== button){
+            if(active !== button){
 
-                activeButton.classList.remove("active");
+                active.classList.remove("active");
 
             }
 
 
         });
-
 
 
 
@@ -112,31 +103,57 @@ document
 
 
 
-
-
     popup
     .querySelectorAll(".popup-options button")
     .forEach(option=>{
 
 
-        option.addEventListener("click",function(e){
-
-
-            e.stopPropagation();
-
+        option.addEventListener("click",()=>{
 
 
             const value =
-            this.dataset.value || "";
+            option.dataset.value || "";
 
 
 
             if(label){
 
                 label.textContent =
-                this.textContent;
+                option.textContent.trim();
 
             }
+
+
+
+
+
+            if(dropdown.id==="location-dropdown"){
+
+                propertyFilters.location=value;
+
+            }
+
+
+            if(dropdown.id==="property-type-dropdown"){
+
+                propertyFilters.propertyType=value;
+
+            }
+
+
+            if(dropdown.id==="completion-dropdown"){
+
+                propertyFilters.completion=value;
+
+            }
+
+
+            if(dropdown.id==="sort-dropdown"){
+
+                propertyFilters.sort=value;
+
+            }
+
 
 
 
@@ -148,60 +165,11 @@ document
 
 
 
-            /*
-            SAVE FILTER VALUES
-            */
-
-
-            if(dropdown.id === "location-dropdown"){
-
-                propertyFilters.location =
-                value;
-
-            }
-
-
-
-            if(dropdown.id === "property-type-dropdown"){
-
-                propertyFilters.propertyType =
-                value;
-
-            }
-
-
-
-            if(dropdown.id === "completion-dropdown"){
-
-                propertyFilters.completion =
-                value;
-
-            }
-
-
-
-            if(dropdown.id === "sort-dropdown"){
-
-                propertyFilters.sort =
-                value;
-
-            }
-
-
-
-
-
-            /*
-            UPDATE RESULTS
-            */
-
-
             if(window.filterProperties){
 
-                window.filterProperties();
+                filterProperties();
 
             }
-
 
 
         });
@@ -210,7 +178,6 @@ document
     });
 
 
-
 });
 
 
@@ -222,114 +189,50 @@ document
 
 
 /* =========================
-PRICE ACTIONS
+PRICE BUTTON
 ========================= */
 
 
-const priceApply =
-document.querySelector(".apply-filter");
+const priceDropdown =
+document.getElementById(
+"price-dropdown"
+);
 
 
-const priceReset =
-document.querySelector(".reset-filter");
+if(priceDropdown){
+
+
+    const priceButton =
+    priceDropdown.querySelector(".filter-button");
+
+
+    const pricePopup =
+    priceDropdown.querySelector(".filter-popup");
 
 
 
-
-if(priceApply){
-
-
-    priceApply.addEventListener("click",()=>{
+    if(priceButton && pricePopup){
 
 
-        if(window.filterProperties){
-
-            window.filterProperties();
-
-        }
+        priceButton.addEventListener("click",(e)=>{
 
 
-        document
-        .querySelector(".price-popup")
-        ?.classList.remove("active");
+            e.stopPropagation();
 
 
-    });
+            pricePopup.classList.toggle("active");
+
+            priceButton.classList.toggle("active");
+
+
+        });
+
+
+    }
 
 
 }
 
-
-
-
-
-if(priceReset){
-
-
-    priceReset.addEventListener("click",()=>{
-
-
-        if(window.initializePriceFilter){
-
-            window.initializePriceFilter();
-
-        }
-
-
-        if(window.filterProperties){
-
-            window.filterProperties();
-
-        }
-
-
-    });
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =========================
-CLOSE POPUPS
-========================= */
-
-
-document.addEventListener("click",(e)=>{
-
-
-    document
-    .querySelectorAll(".filter-dropdown")
-    .forEach(dropdown=>{
-
-
-        if(!dropdown.contains(e.target)){
-
-
-            dropdown
-            .querySelector(".filter-popup")
-            ?.classList.remove("active");
-
-
-
-            dropdown
-            .querySelector(".filter-button")
-            ?.classList.remove("active");
-
-
-        }
-
-
-    });
-
-
-});
 
 
 
@@ -344,24 +247,23 @@ LOCATION SEARCH
 ========================= */
 
 
-const locationSearch =
+const toolbarLocationSearch =
 document.getElementById(
 "location-search"
 );
 
 
 
-if(locationSearch){
+if(toolbarLocationSearch){
 
 
-    locationSearch.addEventListener(
+    toolbarLocationSearch.addEventListener(
     "input",
     function(){
 
 
         const search =
         this.value.toLowerCase();
-
 
 
 
@@ -372,14 +274,11 @@ if(locationSearch){
         .forEach(button=>{
 
 
-            const text =
-            button.textContent.toLowerCase();
-
-
-
             button.style.display =
 
-            text.includes(search)
+            button.textContent
+            .toLowerCase()
+            .includes(search)
 
             ?
 
@@ -393,7 +292,6 @@ if(locationSearch){
         });
 
 
-
     });
 
 
@@ -406,130 +304,36 @@ if(locationSearch){
 
 
 
-
 /* =========================
-MOBILE SEARCH SYNC
+CLOSE OUTSIDE
 ========================= */
 
 
-const mobileSearch =
-document.getElementById(
-"mobile-property-search"
-);
-
-
-
-if(mobileSearch){
-
-
-    mobileSearch.addEventListener(
-    "input",
-    function(){
-
-
-        const desktopSearch =
-        document.getElementById(
-        "property-search"
-        );
-
-
-
-        if(desktopSearch){
-
-
-            desktopSearch.value =
-            this.value;
-
-
-        }
-
-
-
-        if(window.filterProperties){
-
-            window.filterProperties();
-
-        }
-
-
-
-    });
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =========================
-DESKTOP SEARCH
-========================= */
-
-
-const propertySearch =
-document.getElementById(
-"property-search"
-);
-
-
-
-if(propertySearch){
-
-
-    propertySearch.addEventListener(
-    "input",
-    ()=>{
-
-
-        if(window.filterProperties){
-
-            window.filterProperties();
-
-        }
-
-
-    });
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =========================
-LOAD AFTER DATA
-========================= */
-
-
-window.addEventListener(
-"propertiesLoaded",
+document.addEventListener(
+"click",
 ()=>{
 
 
-    if(window.initializePriceFilter){
-
-        window.initializePriceFilter();
-
-    }
+    document
+    .querySelectorAll(".filter-popup.active")
+    .forEach(popup=>{
 
 
+        popup.classList.remove("active");
 
-    if(window.filterProperties){
 
-        window.filterProperties();
+    });
 
-    }
 
+    document
+    .querySelectorAll(".filter-button.active")
+    .forEach(button=>{
+
+
+        button.classList.remove("active");
+
+
+    });
 
 
 });
