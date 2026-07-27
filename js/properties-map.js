@@ -645,106 +645,125 @@ price.addEventListener(
 );
 
 
-        bounds.extend(position);
+               bounds.extend(position);
+
+
+        // ======================================
+        // MARKER CLICK
+        // ======================================
+
+        marker.addListener(
+            "gmp-click",
+            () => {
+
+                // Mobile behavior
+                if (window.innerWidth <= 900) {
+
+
+                    if (
+                        typeof collapsePropertySheet === "function"
+                    ) {
+
+                        collapsePropertySheet();
+
+                    }
+
+
+                    showMobilePropertyPreview(
+                        property
+                    );
+
+
+                    return;
+
+                }
 
 
 
+                // Desktop behavior
 
-        marker.addEventListener(
-    "gmp-click",
-    () => {
+                const card =
+                    document.querySelector(
+                        `[data-property-id="${property.id}"]`
+                    );
 
-        // Mobile marker behavior
-        if (window.innerWidth <= 900) {
 
-            // Make sure the large property sheet
-            // stays collapsed.
-            if (
-                typeof collapsePropertySheet ===
-                "function"
-            ) {
+                if (card) {
 
-                collapsePropertySheet();
+
+                    card.scrollIntoView({
+
+                        behavior: "smooth",
+
+                        block: "center"
+
+                    });
+
+
+                    card.classList.add(
+                        "active-property"
+                    );
+
+
+                    setTimeout(
+                        () => {
+
+                            card.classList.remove(
+                                "active-property"
+                            );
+
+                        },
+                        2000
+                    );
+
+
+                }
+
 
             }
+        );
 
 
-            // Show only the selected property
-            showMobilePropertyPreview(
-                property
-            );
+
+    }); // closes window.properties.forEach()
 
 
-            return;
 
-        }
+    // ======================================
+    // FIT MAP TO MARKERS
+    // ======================================
 
-
-        // Desktop marker behavior
-        const card =
-            document.querySelector(
-                `[data-property-id="${property.id}"]`
-            );
+    if (!bounds.isEmpty()) {
 
 
-        if (card) {
-
-            card.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "center"
-
-            });
+        map.fitBounds(bounds);
 
 
-            card.classList.add(
-                "active-property"
-            );
+        google.maps.event.addListenerOnce(
+            map,
+            "bounds_changed",
+            () => {
 
 
-            setTimeout(() => {
+                if (map.getZoom() > 14) {
 
-                card.classList.remove(
-                    "active-property"
-                );
+                    map.setZoom(14);
 
-            }, 2000);
+                }
 
-        }
+
+            }
+        );
+
 
     }
-);
-
-
-
-  if(!bounds.isEmpty()) {
-
-    google.maps.event.addListenerOnce(
-        map,
-        "bounds_changed",
-        () => {
-
-            if (map.getZoom() > 14) {
-                map.setZoom(14);
-            }
-
-        }
-    );
-
-    map.fitBounds(bounds);
-
-}
 
 
 
     connectCardsToMap();
 
 
-}
-
-
-
+} // closes loadPropertiesMap()
 
 
 
