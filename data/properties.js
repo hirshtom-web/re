@@ -4521,46 +4521,6 @@ tag:"Luxury"
 ],
 
 
-/* =========================
-   TIMELINE
-========================= */
-
-timeline:[
-
-{
-
-year:"2022",
-
-label:"Groundbreaking"
-
-},
-
-{
-
-year:"2024",
-
-label:"Vertical Construction"
-
-},
-
-{
-
-year:"2026",
-
-label:"Exterior Completion"
-
-},
-
-{
-
-year:"2028",
-
-label:"Residence Delivery"
-
-}
-
-],
-
 
 /* =========================
    GALLERY
