@@ -83,8 +83,9 @@ function renderPropertiesGrid(propertiesList = window.properties){
 
 
                 <p>
-                    ${property.location || ""}
-                </p>
+    ${property.location || ""}
+    ${property.neighborhood ? " · " + property.neighborhood : ""}
+</p>
 
 
             </div>
