@@ -304,37 +304,27 @@ FILTER POPUP
 MOBILE FILTER SHEET
 ========================= */
 
-
 function openFilters(){
 
     const filterSheet =
     document.querySelector(".filter-sheet");
 
-
     const propertySheet =
     document.querySelector(".property-sheet");
 
-
-
     if(!filterSheet) return;
 
-
-
-    // close property sheet
-
+    // Move the property sheet down while filters are open
     if(propertySheet){
 
         propertySheet.style.transform =
-        "translateY(calc(100vh - 180px))";
+        `translateY(${window.innerHeight - 180}px)`;
 
     }
-
-
 
     filterSheet.classList.add("open");
 
 }
-
 
 
 
@@ -343,176 +333,26 @@ function closeFilters(){
     const filterSheet =
     document.querySelector(".filter-sheet");
 
+    const propertySheet =
+    document.querySelector(".property-sheet");
 
     if(!filterSheet) return;
 
-
-
+    // Hide filter sheet
     filterSheet.classList.remove("open");
-
-
     filterSheet.style.transform = "";
 
-}
+    // Restore property sheet
+    if(propertySheet){
 
+        propertySheet.style.transform =
+        `translateY(${window.innerHeight - 180}px)`;
 
-
-window.openFilters =
-openFilters;
-
-
-window.closeFilters =
-closeFilters;
-
-
-
-/* =========================
-FILTER SHEET DRAG
-========================= */
-
-document.addEventListener("DOMContentLoaded",()=>{
-
-
-const sheet =
-document.querySelector(".filter-sheet");
-
-
-const handle =
-document.querySelector(".filter-sheet .filter-sheet-handle");
-
-
-if(!sheet || !handle) return;
-
-
-
-let startY = 0;
-let startPosition = 0;
-
-
-
-function getY(){
-
-    const transform =
-    getComputedStyle(sheet).transform;
-
-
-    if(transform === "none"){
-        return 0;
     }
-
-
-    return new DOMMatrix(transform).m42;
 
 }
 
 
 
-
-
-handle.addEventListener("pointerdown",e=>{
-
-
-    startY = e.clientY;
-
-    startPosition = getY();
-
-
-    handle.setPointerCapture(
-        e.pointerId
-    );
-
-
-    sheet.classList.add("dragging");
-
-
-});
-
-
-
-
-
-handle.addEventListener("pointermove",e=>{
-
-
-    if(!startY) return;
-
-
-    const closed =
-    window.innerHeight - 180;
-
-
-
-    let position =
-    startPosition + (e.clientY - startY);
-
-
-
-    position =
-    Math.max(
-        0,
-        Math.min(
-            closed,
-            position
-        )
-    );
-
-
-
-    sheet.style.transform =
-    `translateY(${position}px)`;
-
-
-});
-
-
-
-
-
-
-handle.addEventListener("pointerup",()=>{
-
-
-    const closed =
-    window.innerHeight - 180;
-
-
-
-    const position =
-    getY();
-
-
-
-    if(position > closed / 2){
-
-
-        // close filters
-
-        closeFilters();
-
-
-    }
-    else{
-
-
-        // keep open
-
-        sheet.style.transform =
-        "translateY(0px)";
-
-
-    }
-
-
-
-    sheet.classList.remove(
-        "dragging"
-    );
-
-
-    startY = 0;
-
-
-});
-
-
-});
+window.openFilters = openFilters;
+window.closeFilters = closeFilters;
