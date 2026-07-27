@@ -1,97 +1,38 @@
 /* =========================
-GLOBAL FILTER STATE
+PROPERTY TOOLBAR FILTERS
 ========================= */
-
-const propertyFilters = {
-
-    location:"",
-
-    propertyType:"",
-
-    completion:"",
-
-    status:"",
-
-    sort:"",
-
-    minPrice:0,
-
-    maxPrice:999999999
-
-};
-
-
-
 
 
 /* =========================
-PRICE CONVERTER
+PRICE BUTTON
 ========================= */
 
-function getPropertyPrice(property){
+const priceButton =
+document.getElementById("price-filter");
 
 
-    if(property.priceValue){
-
-        return Number(property.priceValue);
-
-    }
-
-
-
-    const text = (
-
-        property.price ||
-
-        property.priceRange ||
-
-        ""
-
-    ).toLowerCase();
+const pricePopup =
+document.querySelector(".price-popup");
 
 
 
-
-    const match =
-    text.match(/[\d,.]+/);
+if(priceButton && pricePopup){
 
 
-
-    if(!match){
-
-        return 999999999;
-
-    }
+    priceButton.addEventListener(
+    "click",
+    (e)=>{
 
 
+        e.stopPropagation();
 
 
-    let value =
-    Number(
-        match[0]
-        .replace(",","")
-    );
+        pricePopup.classList.toggle(
+            "active"
+        );
 
 
-
-
-    if(text.includes("m")){
-
-        value *= 1000000;
-
-    }
-
-
-
-    else if(text.includes("k")){
-
-        value *= 1000;
-
-    }
-
-
-
-    return value;
+    });
 
 
 }
@@ -103,36 +44,35 @@ function getPropertyPrice(property){
 
 
 /* =========================
-INITIALIZE PRICE FILTER
+ALL DROPDOWNS
 ========================= */
 
-function initializePriceFilter(){
+
+document
+.querySelectorAll(".filter-dropdown")
+.forEach(dropdown=>{
 
 
-    if(!window.properties){
-
-        return;
-
-    }
-
+    const button =
+    dropdown.querySelector(
+        ".filter-button"
+    );
 
 
-    const prices =
+    const popup =
+    dropdown.querySelector(
+        ".filter-popup"
+    );
 
-    window.properties
 
-    .map(property =>
-        getPropertyPrice(property)
-    )
-
-    .filter(price =>
-        price < 999999999
+    const label =
+    dropdown.querySelector(
+        ".filter-label"
     );
 
 
 
-
-    if(!prices.length){
+    if(!button || !popup){
 
         return;
 
@@ -142,431 +82,69 @@ function initializePriceFilter(){
 
 
 
-    const minPrice =
-    Math.min(...prices);
+    button.addEventListener(
+    "click",
+    function(e){
 
 
+        e.stopPropagation();
 
-    const maxPrice =
-    Math.max(...prices);
 
 
+        // close other dropdowns
 
+        document
+        .querySelectorAll(
+            ".filter-popup.active"
+        )
+        .forEach(active=>{
 
-    propertyFilters.minPrice =
-    minPrice;
 
+            if(active !== popup){
 
-    propertyFilters.maxPrice =
-    maxPrice;
+                active.classList.remove(
+                    "active"
+                );
 
+            }
 
 
+        });
 
 
-    const minInput =
-    document.getElementById("min-price");
 
 
+        document
+        .querySelectorAll(
+            ".filter-button.active"
+        )
+        .forEach(active=>{
 
-    const maxInput =
-    document.getElementById("max-price");
 
+            if(active !== button){
 
+                active.classList.remove(
+                    "active"
+                );
 
-    const minRange =
-    document.getElementById("min-range");
+            }
 
 
+        });
 
-    const maxRange =
-    document.getElementById("max-range");
 
 
 
 
-
-    if(minInput){
-
-        minInput.value =
-        minPrice;
-
-    }
-
-
-
-    if(maxInput){
-
-        maxInput.value =
-        maxPrice;
-
-    }
-
-
-
-
-
-
-    [minRange,maxRange]
-    .forEach(range=>{
-
-
-        if(!range) return;
-
-
-
-        range.min =
-        minPrice;
-
-
-        range.max =
-        maxPrice;
-
-
-    });
-
-
-
-
-
-    if(minRange){
-
-        minRange.value =
-        minPrice;
-
-    }
-
-
-
-
-    if(maxRange){
-
-        maxRange.value =
-        maxPrice;
-
-    }
-
-
-
-
-
-    createPriceChart(prices);
-
-
-}
-
-
-
-
-
-
-
-
-/* =========================
-PRICE GRAPH
-========================= */
-
-function createPriceChart(prices){
-
-
-    const chart =
-    document.querySelector(".price-chart");
-
-
-
-    if(!chart) return;
-
-
-
-    chart.innerHTML="";
-
-
-
-    const buckets = 8;
-
-
-
-    const min =
-    Math.min(...prices);
-
-
-
-    const max =
-    Math.max(...prices);
-
-
-
-    let values =
-    Array(buckets)
-    .fill(0);
-
-
-
-
-    prices.forEach(price=>{
-
-
-        let index =
-        max === min
-        ?
-        0
-        :
-        Math.floor(
-            ((price-min)/(max-min))
-            *
-            (buckets-1)
+        popup.classList.toggle(
+            "active"
         );
 
 
-
-        values[index]++;
-
-
-    });
-
-
-
-
-
-    const highest =
-    Math.max(...values);
-
-
-
-    values.forEach(value=>{
-
-
-        const bar =
-        document.createElement("div");
-
-
-
-        bar.style.height =
-        highest
-        ?
-        `${(value/highest)*100}%`
-        :
-        "0%";
-
-
-
-        chart.appendChild(bar);
-
-
-    });
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =========================
-FILTER ENGINE
-========================= */
-
-function filterProperties(){
-
-
-
-    const searchInput =
-    document.getElementById(
-        "property-search"
-    );
-
-
-
-    const search =
-    searchInput
-    ?
-    searchInput.value.toLowerCase()
-    :
-    "";
-
-
-
-
-
-    let filtered =
-
-    window.properties.filter(property=>{
-
-
-
-
-
-        /*
-        SEARCH EVERYTHING
-        */
-
-        const searchableText =
-
-        JSON.stringify(property)
-        .toLowerCase();
-
-
-
-
-        const searchMatch =
-
-        !search
-
-        ||
-
-        searchableText.includes(search);
-
-
-
-
-
-
-
-        /*
-        LOCATION
-        */
-
-        const locationMatch =
-
-        !propertyFilters.location
-
-        ||
-
-        searchableText.includes(
-            propertyFilters.location.toLowerCase()
+        button.classList.toggle(
+            "active"
         );
 
-
-
-
-
-
-        /*
-        PROPERTY TYPE
-        */
-
-        const typeMatch =
-
-        !propertyFilters.propertyType
-
-        ||
-
-        property.type ===
-        propertyFilters.propertyType;
-
-
-
-
-
-
-
-        /*
-        STATUS
-        */
-
-        const statusMatch =
-
-        !propertyFilters.status
-
-        ||
-
-        property.status ===
-        propertyFilters.status;
-
-
-
-
-
-
-
-        /*
-        COMPLETION
-        */
-
-        let completionMatch=true;
-
-
-
-        if(propertyFilters.completion){
-
-
-            const year =
-            Number(
-                property.delivery
-            );
-
-
-            completionMatch =
-            year <=
-            Number(propertyFilters.completion);
-
-
-        }
-
-
-
-
-
-
-
-        /*
-        PRICE
-        */
-
-
-        const price =
-
-        getPropertyPrice(property);
-
-
-
-
-        const priceMatch =
-
-        price >=
-        propertyFilters.minPrice
-
-        &&
-
-        price <=
-        propertyFilters.maxPrice;
-
-
-
-
-
-
-
-
-        return (
-
-            searchMatch
-
-            &&
-
-            locationMatch
-
-            &&
-
-            typeMatch
-
-            &&
-
-            statusMatch
-
-            &&
-
-            completionMatch
-
-            &&
-
-            priceMatch
-
-        );
 
 
     });
@@ -579,102 +157,304 @@ function filterProperties(){
 
 
     /* =========================
-       SORT
+       OPTION CLICK
     ========================= */
 
 
-    switch(propertyFilters.sort){
+    popup
+    .querySelectorAll(
+        ".popup-options button"
+    )
+    .forEach(option=>{
 
 
-        case "price-low":
+        option.addEventListener(
+        "click",
+        function(e){
 
 
-            filtered.sort((a,b)=>
 
-                getPropertyPrice(a)
-                -
-                getPropertyPrice(b)
+            e.stopPropagation();
 
+
+
+            const value =
+            this.dataset.value ||
+            this.textContent.trim();
+
+
+
+
+            /*
+            UPDATE BUTTON LABEL
+            */
+
+            if(label){
+
+                label.textContent =
+                this.textContent;
+
+            }
+
+
+
+
+
+
+
+            /*
+            SAVE FILTER VALUE
+            */
+
+
+            if(dropdown.id === "location-dropdown"){
+
+
+                propertyFilters.location =
+                value;
+
+
+            }
+
+
+
+
+
+            if(dropdown.id === "property-type-dropdown"){
+
+
+                propertyFilters.propertyType =
+                value;
+
+
+            }
+
+
+
+
+
+            if(dropdown.id === "completion-dropdown"){
+
+
+                propertyFilters.completion =
+                value;
+
+
+            }
+
+
+
+
+
+            if(dropdown.id === "status-dropdown"){
+
+
+                propertyFilters.status =
+                value;
+
+
+            }
+
+
+
+
+
+            if(dropdown.id === "sort-dropdown"){
+
+
+                propertyFilters.sort =
+                value;
+
+
+            }
+
+
+
+
+
+
+
+            /*
+            CLOSE MENU
+            */
+
+
+            popup.classList.remove(
+                "active"
             );
 
 
-        break;
-
-
-
-
-
-        case "price-high":
-
-
-            filtered.sort((a,b)=>
-
-                getPropertyPrice(b)
-                -
-                getPropertyPrice(a)
-
+            button.classList.remove(
+                "active"
             );
 
 
-        break;
+
+
+
+
+            /*
+            AUTO UPDATE RESULTS
+            */
+
+
+            if(window.filterProperties){
+
+                filterProperties();
+
+            }
+
+
+
+        });
+
+
+    });
+
+
+
+});
 
 
 
 
 
-        case "name":
-
-
-            filtered.sort((a,b)=>
-
-                a.title.localeCompare(
-                    b.title
-                )
-
-            );
-
-
-        break;
 
 
 
+/* =========================
+CLOSE EVERYTHING OUTSIDE
+========================= */
 
 
-        case "location":
+document.addEventListener(
+"click",
+function(e){
 
 
-            filtered.sort((a,b)=>
 
-                (a.location||"")
-                .localeCompare(
-                    b.location||""
-                )
-
-            );
+    document
+    .querySelectorAll(
+        ".filter-popup.active"
+    )
+    .forEach(popup=>{
 
 
-        break;
+        popup.classList.remove(
+            "active"
+        );
+
+
+    });
+
+
+
+    document
+    .querySelectorAll(
+        ".filter-button.active"
+    )
+    .forEach(button=>{
+
+
+        button.classList.remove(
+            "active"
+        );
+
+
+    });
+
+
+
+
+
+
+    if(
+        pricePopup &&
+        priceButton &&
+        !priceButton.contains(e.target) &&
+        !pricePopup.contains(e.target)
+    ){
+
+        pricePopup.classList.remove(
+            "active"
+        );
 
 
     }
 
 
 
+});
 
 
 
 
-    renderPropertiesGrid(filtered);
 
 
 
 
+/* =========================
+LOCATION SEARCH INSIDE MENU
+========================= */
 
-    if(window.updateMapMarkers){
 
-        updateMapMarkers(filtered);
+const locationSearch =
+document.getElementById(
+    "location-search"
+);
 
-    }
+
+
+if(locationSearch){
+
+
+
+    locationSearch.addEventListener(
+    "input",
+    function(){
+
+
+        const search =
+        this.value
+        .toLowerCase();
+
+
+
+
+        document
+        .querySelectorAll(
+            "#location-dropdown .popup-options button"
+        )
+        .forEach(button=>{
+
+
+            const text =
+            button.textContent
+            .toLowerCase();
+
+
+
+
+            button.style.display =
+
+            text.includes(search)
+
+            ?
+
+            "block"
+
+            :
+
+            "none";
+
+
+
+        });
+
+
+
+    });
+
 
 
 }
@@ -687,109 +467,10 @@ function filterProperties(){
 
 
 /* =========================
-SLIDER EVENTS
+DEBUG
 ========================= */
 
 
-document
-.querySelectorAll(
-    "#min-range,#max-range"
-)
-
-.forEach(slider=>{
-
-
-    slider.addEventListener(
-    "input",
-    ()=>{
-
-
-        propertyFilters.minPrice =
-
-        Number(
-            document.getElementById(
-                "min-range"
-            ).value
-        );
-
-
-
-        propertyFilters.maxPrice =
-
-        Number(
-            document.getElementById(
-                "max-range"
-            ).value
-        );
-
-
-
-
-
-        document.getElementById(
-            "min-price"
-        ).value =
-        propertyFilters.minPrice;
-
-
-
-
-        document.getElementById(
-            "max-price"
-        ).value =
-        propertyFilters.maxPrice;
-
-
-
-
-
-        filterProperties();
-
-
-    });
-
-
-});
-
-
-
-
-
-
-
-
-/* =========================
-SEARCH EVENTS
-========================= */
-
-
-document
-.getElementById(
-    "property-search"
-)
-?.addEventListener(
-    "input",
-    filterProperties
+console.log(
+"PROPERTY TOOLBAR FILTERS LOADED"
 );
-
-
-
-
-
-
-
-
-/* =========================
-LOAD
-========================= */
-
-
-window.addEventListener(
-"propertiesLoaded",
-()=>{
-
-    initializePriceFilter();
-
-    filterProperties();
-
-});
