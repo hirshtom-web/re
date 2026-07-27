@@ -1,12 +1,19 @@
-const priceButton = document.getElementById("price-filter");
+const priceButton =
+document.getElementById("price-filter");
 
-const pricePopup = document.querySelector(".price-popup");
+
+const pricePopup =
+document.querySelector(".price-popup");
+
 
 
 if(priceButton && pricePopup){
 
 
-    priceButton.addEventListener("click", ()=>{
+    priceButton.addEventListener("click", (e)=>{
+
+
+        e.stopPropagation();
 
 
         pricePopup.classList.toggle("active");
@@ -17,7 +24,19 @@ if(priceButton && pricePopup){
 
 }
 
+
+
+
+
 document.addEventListener("click",(e)=>{
+
+
+    if(!priceButton || !pricePopup){
+
+        return;
+
+    }
+
 
 
     if(
@@ -33,24 +52,55 @@ document.addEventListener("click",(e)=>{
 });
 
 
-document.querySelectorAll(".filter-dropdown").forEach(dropdown => {
-
-
-    const button = dropdown.querySelector(".filter-button");
-    const popup = dropdown.querySelector(".filter-popup");
-    const label = dropdown.querySelector(".filter-label");
 
 
 
-    button.addEventListener("click", function(e){
+
+
+/* =========================
+FILTER DROPDOWNS
+========================= */
+
+
+document
+.querySelectorAll(".filter-dropdown")
+.forEach(dropdown=>{
+
+
+    const button =
+    dropdown.querySelector(".filter-button");
+
+
+    const popup =
+    dropdown.querySelector(".filter-popup");
+
+
+    const label =
+    dropdown.querySelector(".filter-label");
+
+
+
+    if(!button || !popup || !label){
+
+        return;
+
+    }
+
+
+
+
+
+    button.addEventListener("click",(e)=>{
+
 
         e.stopPropagation();
 
 
-        // close other dropdowns
 
-        document.querySelectorAll(".filter-popup.active")
-        .forEach(activePopup => {
+        document
+        .querySelectorAll(".filter-popup.active")
+        .forEach(activePopup=>{
+
 
             if(activePopup !== popup){
 
@@ -58,11 +108,16 @@ document.querySelectorAll(".filter-dropdown").forEach(dropdown => {
 
             }
 
+
         });
 
 
-        document.querySelectorAll(".filter-button.active")
-        .forEach(activeButton => {
+
+
+        document
+        .querySelectorAll(".filter-button.active")
+        .forEach(activeButton=>{
+
 
             if(activeButton !== button){
 
@@ -70,13 +125,17 @@ document.querySelectorAll(".filter-dropdown").forEach(dropdown => {
 
             }
 
+
         });
+
 
 
 
         popup.classList.toggle("active");
 
+
         button.classList.toggle("active");
+
 
 
     });
@@ -85,36 +144,47 @@ document.querySelectorAll(".filter-dropdown").forEach(dropdown => {
 
 
 
-    dropdown.querySelectorAll(".popup-options button")
-    .forEach(option => {
 
 
-        option.addEventListener("click", function(){
+
+    popup
+    .querySelectorAll(".popup-options button")
+    .forEach(option=>{
 
 
-            label.textContent = this.textContent;
+        option.addEventListener("click",()=>{
+
+
+            label.textContent =
+            option.textContent;
+
 
 
             popup.classList.remove("active");
+
 
             button.classList.remove("active");
 
 
 
-            let value = this.dataset.value;
+            const value =
+            option.dataset.value;
 
 
 
             /*
-            Connect your filters here:
+            CONNECT FILTERS HERE
+
+            Example:
 
             if(dropdown.id === "location-dropdown"){
-                filterProperties(value);
+
+                propertyFilters.location = value;
+
             }
 
-            if(dropdown.id === "property-type-dropdown"){
-                filterProperties(value);
-            }
+
+            filterProperties();
 
             */
 
@@ -125,65 +195,102 @@ document.querySelectorAll(".filter-dropdown").forEach(dropdown => {
     });
 
 
+
 });
 
 
 
 
 
-// Close when clicking outside
-
-document.addEventListener("click", function(){
 
 
-    document.querySelectorAll(".filter-popup.active")
-    .forEach(popup => {
+
+/* =========================
+CLOSE ALL FILTERS
+========================= */
+
+
+document.addEventListener("click",()=>{
+
+
+    document
+    .querySelectorAll(".filter-popup.active")
+    .forEach(popup=>{
+
 
         popup.classList.remove("active");
 
+
     });
 
 
-    document.querySelectorAll(".filter-button.active")
-    .forEach(button => {
+
+    document
+    .querySelectorAll(".filter-button.active")
+    .forEach(button=>{
+
 
         button.classList.remove("active");
 
+
     });
 
 
+
 });
+
+
+
+
+
+
+
+/* =========================
+LOCATION SEARCH INSIDE POPUP
+========================= */
+
 
 const locationSearch =
 document.getElementById("location-search");
 
 
-locationSearch.addEventListener("input", function(){
+
+if(locationSearch){
 
 
-    let search =
-    this.value.toLowerCase();
+    locationSearch.addEventListener("input",function(){
 
 
-
-    document.querySelectorAll(
-    "#location-dropdown .popup-options button"
-    )
-    .forEach(button => {
-
-
-        let text =
-        button.textContent.toLowerCase();
+        const search =
+        this.value.toLowerCase();
 
 
 
-        button.style.display =
-        text.includes(search)
-        ? "block"
-        : "none";
+        document
+        .querySelectorAll(
+            "#location-dropdown .popup-options button"
+        )
+        .forEach(button=>{
+
+
+            const text =
+            button.textContent.toLowerCase();
+
+
+
+            button.style.display =
+            text.includes(search)
+            ?
+            "block"
+            :
+            "none";
+
+
+        });
+
 
 
     });
 
 
-});
+}
