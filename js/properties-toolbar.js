@@ -4,6 +4,30 @@ FILTER TOOLBAR CONTROLLER
 
 
 /* =========================
+GLOBAL FILTER STATE BRIDGE
+========================= */
+
+
+window.propertyFilters =
+window.propertyFilters || {
+
+    location:"",
+    propertyType:"",
+    completion:"",
+    status:"",
+    sort:"",
+    minPrice:0,
+    maxPrice:999999999
+
+};
+
+
+const propertyFilters =
+window.propertyFilters;
+
+
+
+/* =========================
 GENERAL FILTER DROPDOWNS
 ========================= */
 
@@ -42,8 +66,6 @@ document
         e.stopPropagation();
 
 
-
-        // close other dropdowns
 
         document
         .querySelectorAll(".filter-popup.active")
@@ -92,17 +114,15 @@ document
 
 
 
-    /*
-    FILTER OPTIONS
-    */
-
-
     popup
     .querySelectorAll(".popup-options button")
     .forEach(option=>{
 
 
-        option.addEventListener("click",function(){
+        option.addEventListener("click",function(e){
+
+
+            e.stopPropagation();
 
 
 
@@ -120,7 +140,6 @@ document
 
 
 
-
             popup.classList.remove("active");
 
             button.classList.remove("active");
@@ -129,60 +148,42 @@ document
 
 
 
-
-
             /*
-            CONNECT TO GLOBAL FILTER STATE
+            SAVE FILTER VALUES
             */
 
 
             if(dropdown.id === "location-dropdown"){
 
-
                 propertyFilters.location =
                 value;
 
-
             }
-
-
 
 
 
             if(dropdown.id === "property-type-dropdown"){
 
-
                 propertyFilters.propertyType =
                 value;
 
-
             }
-
-
-
 
 
 
             if(dropdown.id === "completion-dropdown"){
 
-
                 propertyFilters.completion =
                 value;
 
-
             }
-
-
-
 
 
 
             if(dropdown.id === "sort-dropdown"){
 
-
                 propertyFilters.sort =
                 value;
-
 
             }
 
@@ -190,14 +191,20 @@ document
 
 
 
-            // update immediately
+            /*
+            UPDATE RESULTS
+            */
 
-            filterProperties();
+
+            if(window.filterProperties){
+
+                window.filterProperties();
+
+            }
 
 
 
         });
-
 
 
     });
@@ -215,7 +222,7 @@ document
 
 
 /* =========================
-PRICE DROPDOWN SPECIAL ACTIONS
+PRICE ACTIONS
 ========================= */
 
 
@@ -235,8 +242,11 @@ if(priceApply){
     priceApply.addEventListener("click",()=>{
 
 
-        filterProperties();
+        if(window.filterProperties){
 
+            window.filterProperties();
+
+        }
 
 
         document
@@ -253,23 +263,24 @@ if(priceApply){
 
 
 
-
 if(priceReset){
 
 
     priceReset.addEventListener("click",()=>{
 
 
-
         if(window.initializePriceFilter){
 
-            initializePriceFilter();
+            window.initializePriceFilter();
 
         }
 
 
+        if(window.filterProperties){
 
-        filterProperties();
+            window.filterProperties();
+
+        }
 
 
     });
@@ -286,7 +297,7 @@ if(priceReset){
 
 
 /* =========================
-CLOSE POPUPS OUTSIDE CLICK
+CLOSE POPUPS
 ========================= */
 
 
@@ -301,7 +312,6 @@ document.addEventListener("click",(e)=>{
         if(!dropdown.contains(e.target)){
 
 
-
             dropdown
             .querySelector(".filter-popup")
             ?.classList.remove("active");
@@ -314,7 +324,6 @@ document.addEventListener("click",(e)=>{
 
 
         }
-
 
 
     });
@@ -336,15 +345,18 @@ LOCATION SEARCH
 
 
 const locationSearch =
-document.getElementById("location-search");
+document.getElementById(
+"location-search"
+);
 
 
 
 if(locationSearch){
 
 
-    locationSearch.addEventListener("input",function(){
-
+    locationSearch.addEventListener(
+    "input",
+    function(){
 
 
         const search =
@@ -358,7 +370,6 @@ if(locationSearch){
         "#location-dropdown .popup-options button"
         )
         .forEach(button=>{
-
 
 
             const text =
@@ -377,7 +388,6 @@ if(locationSearch){
             :
 
             "none";
-
 
 
         });
@@ -417,7 +427,6 @@ if(mobileSearch){
     function(){
 
 
-
         const desktopSearch =
         document.getElementById(
         "property-search"
@@ -436,7 +445,11 @@ if(mobileSearch){
 
 
 
-        filterProperties();
+        if(window.filterProperties){
+
+            window.filterProperties();
+
+        }
 
 
 
@@ -454,7 +467,7 @@ if(mobileSearch){
 
 
 /* =========================
-PROPERTY SEARCH
+DESKTOP SEARCH
 ========================= */
 
 
@@ -473,7 +486,11 @@ if(propertySearch){
     ()=>{
 
 
-        filterProperties();
+        if(window.filterProperties){
+
+            window.filterProperties();
+
+        }
 
 
     });
@@ -501,18 +518,27 @@ window.addEventListener(
 
     if(window.initializePriceFilter){
 
-        initializePriceFilter();
+        window.initializePriceFilter();
 
     }
 
 
 
-    filterProperties();
+    if(window.filterProperties){
+
+        window.filterProperties();
+
+    }
+
 
 
 });
 
 
-window.propertyFilters = propertyFilters;
-window.filterProperties = filterProperties;
-window.initializePriceFilter = initializePriceFilter;
+
+
+
+
+console.log(
+"PROPERTY TOOLBAR LOADED"
+);
