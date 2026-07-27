@@ -4126,7 +4126,919 @@ highlights:[
       "Premium Palm Beach market",
       "Exclusive residential opportunity"
     ]
-  }
+  },
+
+   {
+
+id:"oceanfront-miami-01",
+
+
+/* =========================
+   BASIC INFO
+========================= */
+
+{
+
+id:"bentley-residences-miami",
+
+
+/* =========================
+   BASIC INFO
+========================= */
+
+title:"Bentley Residences Miami",
+
+subtitle:"The World's First Bentley-Branded Luxury Tower",
+
+type:"Ultra-Luxury Branded Condominium",
+
+status:"Under Construction",
+
+location:"Sunny Isles Beach, Florida",
+
+address:"18401 Collins Avenue, Sunny Isles Beach, FL 33160",
+
+
+description:
+"Rising directly on 200 feet of pristine Atlantic shoreline, Bentley Residences Miami introduces a new era of branded luxury living. Developed by Dezer Development in collaboration with Bentley Motors and designed by Sieger Suarez Architects, the 62-story tower features just 216 expansive residences, each with private in-unit garages accessed through the revolutionary Dezervator™ vehicle elevator system. Every home showcases panoramic ocean and Intracoastal views, oversized terraces with private pools, refined Bentley Home interiors, and a level of craftsmanship rarely seen in residential real estate. Created for discerning owners seeking privacy, innovation, and timeless design, Bentley Residences stands among the most exclusive addresses in the world.",
+
+
+
+
+/* =========================
+   GRID IMAGE
+========================= */
+
+thumbnail:
+
+"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AACFQ_A1yma1MaSEdDwFxwI/Bentley%20Exterior%20Renderings/Dezer-Bentley-02-Tower_LookingUp-01.jpg?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=4p5rtgpy&raw=1",
+
+
+/* =========================
+   PRICING
+========================= */
+
+price:"$5.8M+",
+
+priceRange:"$5.8M – $35M+",
+
+pricePerSqft:"Starting Around $2,300/SF",
+
+hoa:"Available Upon Request",
+
+estimatedTaxes:"Miami-Dade Standard Assessment",
+
+
+
+/* =========================
+   MORTGAGE CALCULATOR
+========================= */
+
+mortgage:{
+
+price:5800000,
+
+downPayment:30,
+
+taxRate:1.7,
+
+insuranceRate:0.45,
+
+hoaSqft:2.15,
+
+size:3520,
+
+interestRate:6.5,
+
+loanYears:30
+
+},
+
+
+/* =========================
+   PROPERTY FACTS
+========================= */
+
+bedrooms:"3–5 Bedrooms",
+
+bathrooms:"3.5–7 Bathrooms",
+
+interiorSize:"3,500–10,500 SF",
+
+terraceSize:"Private Terraces with Pools",
+
+floors:"62 Stories",
+
+units:"216 Residences",
+
+delivery:"2028",
+
+yearBuilt:"2028",
+
+
+
+/* =========================
+   LOCATION
+========================= */
+
+neighborhood:"Sunny Isles Beach",
+
+city:"Sunny Isles Beach",
+
+state:"Florida",
+
+country:"USA",
+
+coordinates:{
+
+lat:25.9473,
+
+lng:-80.1202
+
+},
+
+
+nearby:[
+
+{
+
+title:"Bal Harbour Shops",
+
+distance:"10 minutes",
+
+icon:"shopping_bag",
+
+coordinates:{
+
+lat:25.8918,
+
+lng:-80.1256
+
+}
+
+},
+
+{
+
+title:"Aventura Mall",
+
+distance:"12 minutes",
+
+icon:"shopping_bag",
+
+coordinates:{
+
+lat:25.9565,
+
+lng:-80.1429
+
+}
+
+},
+
+{
+
+title:"Haulover Beach",
+
+distance:"8 minutes",
+
+icon:"beach_access",
+
+coordinates:{
+
+lat:25.9028,
+
+lng:-80.1220
+
+}
+
+},
+
+{
+
+title:"Oleta River State Park",
+
+distance:"9 minutes",
+
+icon:"park",
+
+coordinates:{
+
+lat:25.9132,
+
+lng:-80.1465
+
+}
+
+},
+
+{
+
+title:"Miami International Airport",
+
+distance:"30 minutes",
+
+icon:"flight",
+
+coordinates:{
+
+lat:25.7959,
+
+lng:-80.2870
+
+}
+
+},
+
+{
+
+title:"Fort Lauderdale Airport",
+
+distance:"25 minutes",
+
+icon:"flight",
+
+coordinates:{
+
+lat:26.0726,
+
+lng:-80.1527
+
+}
+
+}
+
+],
+
+   
+/* =========================
+   NEIGHBORHOOD LIFESTYLE
+========================= */
+
+lifestyleIntro:
+
+"From private yacht clubs and championship golf courses to Michelin-recognized restaurants and designer boutiques, Bentley Residences places owners at the center of South Florida's most prestigious coastal lifestyle. Every experience has been curated around elegance, privacy, and effortless luxury.",
+
+
+/* =========================
+   NEIGHBORHOOD LIFESTYLE HIGHLIGHTS
+========================= */
+
+lifestyleHighlights:[
+
+{
+icon:"directions_car",
+title:"Automotive Excellence",
+text:"Experience the world's first Bentley-branded residential tower where automotive innovation and luxury living become one seamless experience."
+},
+
+{
+icon:"waves",
+title:"Oceanfront Living",
+text:"Wake up to uninterrupted Atlantic Ocean sunrises with over 200 feet of pristine beachfront reserved exclusively for residents."
+},
+
+{
+icon:"restaurant",
+title:"Private Culinary Experiences",
+text:"Enjoy Todd English's exclusive residents-only restaurant, elegant private dining spaces, and personalized in-residence chef services."
+},
+
+{
+icon:"spa",
+title:"Wellness Reimagined",
+text:"From oceanfront yoga and luxury spa treatments to state-of-the-art fitness facilities, every amenity has been designed for complete wellbeing."
+},
+
+{
+icon:"shopping_bag",
+title:"Luxury Retail",
+text:"Minutes from Bal Harbour Shops and Aventura Mall, offering an unparalleled collection of designer boutiques and international luxury brands."
+},
+
+{
+icon:"flight",
+title:"Global Connectivity",
+text:"Conveniently positioned between Miami and Fort Lauderdale International Airports with easy access to private aviation and yacht marinas."
+}
+
+],
+
+
+/* =========================
+   LIFESTYLE EXPERIENCES
+========================= */
+
+lifestyleExperiences:[
+
+{
+
+title:"The Dezervator™ Experience",
+
+category:"Innovation",
+
+icon:"directions_car",
+
+image:"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AACFQ_A1yma1MaSEdDwFxwI/Bentley%20Exterior%20Renderings/Dezer-Bentley-02-Tower_LookingUp-01.jpg?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=4p5rtgpy&raw=1",
+
+text:"Drive directly into your private sky garage using Bentley's revolutionary vehicle elevator system—an experience found nowhere else in the world.",
+
+tag:"Exclusive"
+
+},
+
+{
+
+title:"Private Oceanfront Retreat",
+
+category:"Beachfront",
+
+icon:"beach_access",
+
+image:"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AACFQ_A1yma1MaSEdDwFxwI/Bentley%20Exterior%20Renderings/Dezer-Bentley-02-Tower_LookingUp-01.jpg?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=4p5rtgpy&raw=1",
+
+text:"Spend every morning overlooking the Atlantic from expansive terraces featuring private pools, outdoor kitchens, and panoramic views.",
+
+tag:"Ocean"
+
+},
+
+{
+
+title:"Bentley Home Interiors",
+
+category:"Design",
+
+icon:"chair",
+
+image:"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AACFQ_A1yma1MaSEdDwFxwI/Bentley%20Exterior%20Renderings/Dezer-Bentley-02-Tower_LookingUp-01.jpg?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=4p5rtgpy&raw=1",
+
+text:"Refined finishes inspired by Bentley's legendary craftsmanship combine rich materials, timeless proportions, and contemporary elegance.",
+
+tag:"Design"
+
+},
+
+{
+
+title:"Private Wellness",
+
+category:"Wellness",
+
+icon:"spa",
+
+image:"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AACFQ_A1yma1MaSEdDwFxwI/Bentley%20Exterior%20Renderings/Dezer-Bentley-02-Tower_LookingUp-01.jpg?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=4p5rtgpy&raw=1",
+
+text:"Recharge with a full-service wellness spa, steam rooms, private treatment suites, outdoor yoga decks, and oceanfront fitness spaces.",
+
+tag:"Wellness"
+
+},
+
+{
+
+title:"Private Club Lifestyle",
+
+category:"Hospitality",
+
+icon:"local_bar",
+
+image:"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AACFQ_A1yma1MaSEdDwFxwI/Bentley%20Exterior%20Renderings/Dezer-Bentley-02-Tower_LookingUp-01.jpg?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=4p5rtgpy&raw=1",
+
+text:"Relax in sophisticated lounges, the Macallan Lobby Bar, private cigar lounge, and beautifully designed social spaces reserved exclusively for residents.",
+
+tag:"Club"
+
+},
+
+{
+
+title:"South Florida Luxury",
+
+category:"Lifestyle",
+
+icon:"sailing",
+
+image:"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AACFQ_A1yma1MaSEdDwFxwI/Bentley%20Exterior%20Renderings/Dezer-Bentley-02-Tower_LookingUp-01.jpg?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=4p5rtgpy&raw=1",
+
+text:"From private yachts and championship golf to designer shopping and Michelin-level dining, Bentley Residences offers access to South Florida's most prestigious experiences.",
+
+tag:"Luxury"
+
+}
+],
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+timeline:[
+
+{
+
+year:"2022",
+
+label:"Groundbreaking"
+
+},
+
+{
+
+year:"2024",
+
+label:"Vertical Construction"
+
+},
+
+{
+
+year:"2026",
+
+label:"Exterior Completion"
+
+},
+
+{
+
+year:"2028",
+
+label:"Residence Delivery"
+
+}
+
+],
+
+
+/* =========================
+   GALLERY
+========================= */
+
+images:[
+
+"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AFYQLRDI_NIz0ZPbx_HtO4c/Bentley%20Interior%20Renderings/Penthouse%20Renderings/Bentley%20Residences%20Penthouse1.jpg?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=su8qrop9&raw=1",
+
+"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AJh5KiVpfG_kjQPY36kjOwA/Bentley%20Interior%20Renderings/Penthouse%20Renderings/Bentley%20Residences%20Penthouse3.jpg?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=4ws2kw57&raw=1",
+
+"https://www.dropbox.com/scl/fo/2cjfa9usqon7cedxvpnir/AOylmJwR7j3_jnOmREiDEmc/Bentley%20Interior%20Renderings/Penthouse%20Renderings/Bentley%20Residences%20Penthouse10.jpg?rlkey=pi0d2x1hie9m9aqu6ez8ywbc7&st=579jq647&raw=1",
+
+
+],
+
+   /* =========================
+   AMENITIES
+========================= */
+
+amenities:[
+
+{
+name:"Private Beach Access",
+icon:"beach_access"
+},
+
+{
+name:"Infinity Pool",
+icon:"pool"
+},
+
+{
+name:"Fitness & Wellness Center",
+icon:"fitness_center"
+},
+
+{
+name:"Luxury Spa",
+icon:"spa"
+},
+
+{
+name:"Private Dining",
+icon:"restaurant"
+},
+
+{
+name:"Wine Lounge",
+icon:"local_bar"
+},
+
+{
+name:"Residents Lounge",
+icon:"groups"
+},
+
+{
+name:"Business Lounge",
+icon:"meeting_room"
+},
+
+{
+name:"Private Event Space",
+icon:"celebration"
+},
+
+{
+name:"Valet Parking",
+icon:"directions_car"
+},
+
+{
+name:"24/7 Concierge",
+icon:"support_agent"
+},
+
+{
+name:"24/7 Security",
+icon:"security"
+},
+
+{
+name:"Pet Spa",
+icon:"pets"
+},
+
+{
+name:"Sky Garden",
+icon:"park"
+},
+
+{
+name:"Sun Terrace",
+icon:"deck"
+},
+
+{
+name:"Smart Home Technology",
+icon:"home"
+},
+
+{
+name:"EV Charging Stations",
+icon:"electric_bolt"
+},
+
+{
+name:"Marina Access",
+icon:"sailing"
+}
+
+],
+
+
+/* =========================
+   HIGHLIGHTS
+========================= */
+
+highlights:[
+
+{
+
+title:"Early Pricing Advantage",
+
+text:
+"Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases. Pre-construction buyers gain access before completion, allowing potential appreciation during development and delivery phases."
+
+},
+
+
+{
+
+title:"Strong Rental Demand",
+
+text:
+"Florida's population growth and tourism economy continue supporting long-term and seasonal rental demand."
+
+},
+
+
+{
+
+title:"Prime Location",
+
+text:
+"Positioned near beaches, dining, entertainment, and major employment centers."
+
+}
+
+],
+
+
+
+/* =========================
+   AI RATING
+========================= */
+
+aiRating:{
+
+overall:9.6,
+
+confidence:96,
+
+
+summary:
+"Strong luxury positioning with excellent location fundamentals, lifestyle appeal, and long-term market potential.",
+
+
+scores:[
+
+{
+
+label:"Investment Potential",
+
+value:9.8
+
+},
+
+{
+
+label:"Location Quality",
+
+value:9.9
+
+},
+
+{
+
+label:"Rental Demand",
+
+value:9.4
+
+},
+
+{
+
+label:"Lifestyle",
+
+value:9.8
+
+},
+
+{
+
+label:"Build Quality",
+
+value:9.6
+
+},
+
+{
+
+label:"Market Value",
+
+value:9.2
+
+}
+
+],
+
+
+strengths:[
+
+"Prime waterfront location",
+
+"Luxury amenities",
+
+"Limited inventory",
+
+"Strong rental appeal"
+
+],
+
+
+risks:[
+
+"Premium pricing",
+
+"Market conditions may change"
+
+]
+
+},
+
+
+
+/* =========================
+   FLOOR PLANS
+========================= */
+
+residences:[
+
+{
+    name:"Residence 01",
+    floor:"11",
+    view:"Ocean",
+    bedrooms:"3 Bed + Den",
+    bathrooms:"4 Bath",
+    interior:"2,131 SF",
+
+    preview:"https://static.wixstatic.com/media/1799ca_092aba17c08a4bd48d7630dad70bc7fd~mv2.jpg",
+
+    layout:"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AHqHFocqZGk7nsVFxIe1l2c/Floor%20Plans/Floor%20Plan%20-%20Single%20Sheets/Penthouse_01_ONEParkTower_Floorplans.pdf?rlkey=36scfwgty79z7yg8wngs9dk3p&raw=1"
+},
+
+{
+    name:"Residence 02",
+    floor:"11",
+    view:"Ocean",
+    bedrooms:"2 Bed + Den",
+    bathrooms:"3 Bath",
+    interior:"1,545 SF",
+
+    preview:"https://static.wixstatic.com/media/1799ca_092aba17c08a4bd48d7630dad70bc7fd~mv2.jpg",
+
+    layout:"YOUR_PDF_LINK_02"
+},
+
+{
+    name:"Residence 03",
+    floor:"12",
+    view:"Ocean",
+    bedrooms:"2 Bed + Den",
+    bathrooms:"3 Bath",
+    interior:"1,334 SF",
+
+    preview:"https://static.wixstatic.com/media/1799ca_092aba17c08a4bd48d7630dad70bc7fd~mv2.jpg",
+
+    layout:"YOUR_PDF_LINK_03"
+},
+
+{
+    name:"Residence 04",
+    floor:"12",
+    view:"Garden",
+    bedrooms:"1 Bed + Den",
+    bathrooms:"2 Bath",
+    interior:"1,081 SF",
+
+    preview:"https://static.wixstatic.com/media/1799ca_092aba17c08a4bd48d7630dad70bc7fd~mv2.jpg",
+
+    layout:"YOUR_PDF_LINK_04"
+}
+
+],
+
+   
+   
+/* =========================
+   ARCHITECTURE & DESIGN
+========================= */
+
+architecture:{
+
+title:"A New Standard of Modern Coastal Living",
+
+text:"Designed with timeless architecture, refined materials, and carefully curated interiors, every residence reflects a balance of elegance, comfort, and the lifestyle of its surrounding destination. Every detail has been thoughtfully considered to create lasting value for homeowners and investors alike."
+
+},
+
+
+architectureGallery:[
+
+{
+image:"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AMS6u6CWIZJ1kzyBVjRDJoI/Video/Reels/TURNBERRY_9x16_H264%20(3).mp4?rlkey=36scfwgty79z7yg8wngs9dk3p&st=v4qhf7x2&raw=1",
+caption:"Signature coastal architecture"
+},
+
+{
+image:"https://www.dropbox.com/scl/fo/34l3d5y89tdobrfi3acwp/AGYq9dvgL2QnQU7-Lk0BgVg/Video/Reels/TURNBERRY_ONE_PARK_TOWER_IG_VIEWS%20(1).mp4?rlkey=36scfwgty79z7yg8wngs9dk3p&st=7265izsh&raw=1#",
+caption:"Refined exterior details"
+}
+
+],
+
+
+designTeam:{
+
+architect:"Arquitectonica",
+
+interiors:"Bespoke Interiors Atelier",
+
+landscape:"EDSA"
+
+},
+
+/* =========================
+   DOCUMENTS
+========================= */
+
+documents:[
+
+{
+
+title:"Brochure",
+
+file:"#"
+
+},
+
+{
+
+title:"Floor Plans",
+
+file:"#"
+
+},
+
+{
+
+title:"Price Sheet",
+
+file:"#"
+
+}
+
+],
+
+   /* =========================
+   TIMELINE
+========================= */
+
+timeline:[
+
+{
+
+year:"2022",
+
+label:"Groundbreaking"
+
+},
+
+{
+
+year:"2024",
+
+label:"Vertical Construction"
+
+},
+
+{
+
+year:"2026",
+
+label:"Exterior Completion"
+
+},
+
+{
+
+year:"2028",
+
+label:"Residence Delivery"
+
+}
+
+],
+
+
+
+/* =========================
+   FAQ
+========================= */
+
+    faq:[
+
+        {
+            question:"Can foreign buyers purchase a residence?",
+            answer:"International buyers can purchase property in Florida, subject to applicable U.S. laws and closing requirements. Your advisor can guide you through the process."
+        },
+
+        {
+            question:"What is the reservation and payment schedule?",
+            answer:"Pre-construction residences typically follow a staged payment schedule with deposits made throughout construction and the remaining balance due at closing."
+        },
+
+        {
+            question:"Are rental opportunities available?",
+            answer:"Rental policies vary by development and condominium association. Your advisor can provide details regarding rental terms and restrictions."
+        },
+
+        {
+            question:"What is included in the purchase price?",
+            answer:"Pricing generally includes the residence, standard finishes, kitchen appliances, and applicable building features. Premium upgrades may be available."
+        },
+
+        {
+            question:"How are HOA fees calculated?",
+            answer:"HOA fees typically cover building maintenance, shared amenities, common areas, insurance for shared spaces, and property management services."
+        },
+
+        {
+            question:"How is the AI Investment Score calculated?",
+            answer:"The AI Investment Score analyzes pricing trends, rental demand, comparable sales, neighborhood growth, supply, and historical performance."
+        }
+
+    ],
+
+   
+/* =========================
+   LEGAL
+========================= */
+
+disclaimer:
+
+"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
+
+
+}
 ];
 
 
