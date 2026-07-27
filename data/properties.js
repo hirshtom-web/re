@@ -4859,12 +4859,10 @@ caption:"Refined exterior details"
 
 
 designTeam:{
+architect:"Sieger Suarez Architects",
+interiors:"Bentley Home",
+developer:"Dezer Development"
 
-architect:"Arquitectonica",
-
-interiors:"Bespoke Interiors Atelier",
-
-landscape:"EDSA"
 
 },
 
