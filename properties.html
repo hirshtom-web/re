@@ -676,8 +676,8 @@ MOBILE MAP + SHEETS
     <!-- FILTER BUTTON -->
 
     <button 
-    class="mobile-filter-button"
-    onclick="openFilters()">
+class="mobile-filter-button"
+onclick="event.stopPropagation(); openFilters();">
 
         ⚙ Filters
 
@@ -725,9 +725,9 @@ MOBILE MAP + SHEETS
 
 <div class="filter-sheet">
 
-    <div class="sheet-handle"></div>
+    <div class="filter-sheet-handle"></div>
 
-    <div class="sheet-header">
+    <div class="filter-sheet-header">
         Filters
     </div>
 
