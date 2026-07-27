@@ -4,17 +4,12 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const sheet =
-        document.querySelector(".filter-sheet");
+    const sheet = document.querySelector(".filter-sheet");
+    const button = document.querySelector(".mobile-filter-button");
+    const header = document.querySelector(".filter-sheet-header");
 
-    const handle =
-        document.querySelector(".filter-sheet-header");
-
-    const button =
-        document.querySelector(".mobile-filter-button");
-
-
-    if (!sheet || !handle || !button) {
+    if (!sheet || !button || !header) {
+        console.warn("Mobile filter sheet elements not found.");
         return;
     }
 
@@ -25,9 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function openFilters() {
 
+        console.log("OPEN FILTERS");
+
         sheet.classList.add("open");
 
-        // Reset any previous drag transform
         sheet.style.transform = "";
 
     }
@@ -39,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function closeFilters() {
 
+        console.log("CLOSE FILTERS");
+
         sheet.classList.remove("open");
 
         sheet.style.transform = "";
@@ -47,44 +45,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ======================================
-    // TOGGLE
-    // ======================================
-
-    function toggleFilters() {
-
-        if (sheet.classList.contains("open")) {
-
-            closeFilters();
-
-        } else {
-
-            openFilters();
-
-        }
-
-    }
-
-
-    // Make globally available
-    window.openFilters = openFilters;
-    window.closeFilters = closeFilters;
-
-
-    // ======================================
-    // FILTER BUTTON
+    // BUTTON
     // ======================================
 
     button.addEventListener("click", (event) => {
 
+        event.preventDefault();
         event.stopPropagation();
 
-        toggleFilters();
+        openFilters();
 
     });
 
 
     // ======================================
-    // DRAG
+    // GLOBAL FUNCTIONS
+    // ======================================
+
+    window.openFilters = openFilters;
+    window.closeFilters = closeFilters;
+
+
+    // ======================================
+    // DRAG FILTER SHEET
     // ======================================
 
     let startY = 0;
@@ -92,16 +75,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let dragging = false;
 
 
-    handle.addEventListener("touchstart", (event) => {
-
-        if (!sheet.classList.contains("open")) {
-            return;
-        }
+    header.addEventListener("touchstart", (event) => {
 
         dragging = true;
 
-        startY =
-            event.touches[0].clientY;
+        startY = event.touches[0].clientY;
 
         currentY = 0;
 
@@ -110,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
 
 
-    handle.addEventListener("touchmove", (event) => {
+    header.addEventListener("touchmove", (event) => {
 
         if (!dragging) {
             return;
@@ -120,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
             event.touches[0].clientY - startY;
 
 
-        // Only allow dragging downward
         if (currentY > 0) {
 
             sheet.style.transform =
@@ -131,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
 
 
-    handle.addEventListener("touchend", () => {
+    header.addEventListener("touchend", () => {
 
         if (!dragging) {
             return;
@@ -142,22 +119,18 @@ document.addEventListener("DOMContentLoaded", () => {
         sheet.classList.remove("dragging");
 
 
-        // Close if dragged far enough
         if (currentY > 120) {
 
             closeFilters();
 
         } else {
 
-            // Snap back open
             sheet.style.transform = "";
 
         }
 
-
         currentY = 0;
 
     });
-
 
 });
