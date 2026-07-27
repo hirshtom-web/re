@@ -170,11 +170,829 @@
   }
 }
 
+
+    /* =========================================
+ARTICLE
+========================================= */
+
+.article-page{
+
+    background:#fff;
+
+    color:#111;
+
+    font-family:"Inter",sans-serif;
+
+}
+
+
+
+/* =========================================
+HERO
+========================================= */
+
+.article-hero{
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    padding:80px 40px 60px;
+
+}
+
+
+.article-category{
+
+    display:inline-block;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:.12em;
+
+    color:#9a7b42;
+
+    margin-bottom:20px;
+
+}
+
+
+.article-hero h1{
+
+    font-size:64px;
+
+    line-height:1.08;
+
+    font-weight:700;
+
+    max-width:900px;
+
+    margin-bottom:24px;
+
+}
+
+
+.article-subtitle{
+
+    font-size:24px;
+
+    line-height:1.6;
+
+    color:#666;
+
+    max-width:760px;
+
+    margin-bottom:35px;
+
+}
+
+
+.article-meta{
+
+    display:flex;
+
+    gap:25px;
+
+    font-size:14px;
+
+    color:#777;
+
+    margin-bottom:45px;
+
+}
+
+
+.article-hero img{
+
+    width:100%;
+
+    border-radius:30px;
+
+    display:block;
+
+}
+
+
+
+/* =========================================
+LAYOUT
+========================================= */
+
+.article-container{
+
+    max-width:1200px;
+
+    margin:80px auto;
+
+    padding:0 40px;
+
+    display:grid;
+
+    grid-template-columns:minmax(0,760px) 320px;
+
+    gap:80px;
+
+    align-items:start;
+
+}
+
+
+
+/* =========================================
+CONTENT
+========================================= */
+
+.article-content{
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    color:#222;
+
+}
+
+
+.article-content p{
+
+    margin-bottom:32px;
+
+}
+
+
+.article-content .lead{
+
+    font-size:26px;
+
+    line-height:1.7;
+
+    color:#111;
+
+    font-weight:400;
+
+}
+
+
+.article-content h2{
+
+    font-size:42px;
+
+    line-height:1.2;
+
+    margin:80px 0 28px;
+
+}
+
+
+.article-content h3{
+
+    font-size:30px;
+
+    margin:60px 0 24px;
+
+}
+
+
+.article-content img{
+
+    width:100%;
+
+    border-radius:24px;
+
+    margin:45px 0;
+
+}
+
+
+.article-content figure{
+
+    margin:55px 0;
+
+}
+
+
+.article-content figcaption{
+
+    margin-top:14px;
+
+    font-size:14px;
+
+    color:#777;
+
+}
+
+
+
+/* =========================================
+BLOCKQUOTE
+========================================= */
+
+.article-content blockquote{
+
+    margin:60px 0;
+
+    padding:0 0 0 35px;
+
+    border-left:4px solid #c8a96a;
+
+    font-size:30px;
+
+    line-height:1.5;
+
+    color:#222;
+
+    font-weight:300;
+
+}
+
+
+
+/* =========================================
+HIGHLIGHT BOX
+========================================= */
+
+.article-highlight{
+
+    background:#fafafa;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    margin:60px 0;
+
+}
+
+
+.article-highlight h4{
+
+    font-size:20px;
+
+    margin-bottom:20px;
+
+}
+
+
+.article-highlight ul{
+
+    margin:0;
+
+    padding-left:20px;
+
+}
+
+
+.article-highlight li{
+
+    margin-bottom:14px;
+
+}
+
+
+
+/* =========================================
+SIDEBAR
+========================================= */
+
+.article-sidebar{
+
+    position:sticky;
+
+    top:40px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+
+.sidebar-card{
+
+    background:#fafafa;
+
+    border-radius:24px;
+
+    padding:28px;
+
+}
+
+
+.sidebar-card h4{
+
+    margin-bottom:20px;
+
+    font-size:18px;
+
+}
+
+
+.sidebar-card a{
+
+    display:block;
+
+    color:#111;
+
+    text-decoration:none;
+
+    margin-bottom:14px;
+
+    transition:.25s;
+
+}
+
+
+.sidebar-card a:hover{
+
+    color:#9a7b42;
+
+}
+
+
+.sidebar-card button{
+
+    width:100%;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#111;
+
+    color:#fff;
+
+    cursor:pointer;
+
+}
+
+
+
+/* =========================================
+AUTHOR
+========================================= */
+
+.article-author{
+
+    max-width:1200px;
+
+    margin:100px auto;
+
+    padding:50px 40px;
+
+    display:flex;
+
+    gap:30px;
+
+    align-items:center;
+
+    border-top:1px solid rgba(0,0,0,.08);
+
+}
+
+
+.article-author img{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+
+.article-author h3{
+
+    margin-bottom:10px;
+
+}
+
+
+
+/* =========================================
+RELATED
+========================================= */
+
+.related-articles{
+
+    max-width:1200px;
+
+    margin:100px auto;
+
+    padding:0 40px 80px;
+
+}
+
+
+.related-articles h2{
+
+    font-size:40px;
+
+    margin-bottom:40px;
+
+}
+
+
+.related-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+/* =========================================
+RESPONSIVE
+========================================= */
+
+@media(max-width:1000px){
+
+.article-container{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.article-sidebar{
+
+    position:static;
+
+}
+
+
+.related-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+
+@media(max-width:768px){
+
+.article-hero{
+
+    padding:50px 24px;
+
+}
+
+
+.article-container{
+
+    padding:0 24px;
+
+}
+
+
+.article-author{
+
+    padding:40px 24px;
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+
+.related-articles{
+
+    padding:0 24px 60px;
+
+}
+
+
+.article-hero h1{
+
+    font-size:42px;
+
+}
+
+
+.article-subtitle{
+
+    font-size:20px;
+
+}
+
+
+.article-content{
+
+    font-size:18px;
+
+}
+
+
+.article-content .lead{
+
+    font-size:22px;
+
+}
+
+
+.article-content h2{
+
+    font-size:32px;
+
+}
+
+
+.article-content h3{
+
+    font-size:26px;
+
+}
+
+}
+
+    
 </style>
 </head>
 <body>
 
+<article class="article-page">
 
+    <!-- HERO -->
+
+    <header class="article-hero">
+
+        <span class="article-category">
+            Market Insights
+        </span>
+
+        <h1>
+            The Future of Luxury Waterfront Living in South Florida
+        </h1>
+
+        <p class="article-subtitle">
+            Discover how branded residences, evolving buyer preferences, and world-class architecture are reshaping Florida's luxury real estate market.
+        </p>
+
+        <div class="article-meta">
+
+            <span>By Rility Editorial</span>
+
+            <span>July 28, 2026</span>
+
+            <span>12 min read</span>
+
+        </div>
+
+        <img
+            src="images/article-hero.jpg"
+            alt="Luxury Waterfront Residence">
+
+    </header>
+
+
+
+    <!-- ARTICLE -->
+
+    <div class="article-container">
+
+        <main class="article-content">
+
+            <p class="lead">
+                South Florida has become one of the world's most sought-after destinations for luxury real estate, attracting global buyers seeking exceptional design, waterfront living, and long-term investment opportunities.
+            </p>
+
+
+
+            <h2>
+                Why Luxury Real Estate Continues to Thrive
+            </h2>
+
+            <p>
+                Lorem ipsum...
+            </p>
+
+            <p>
+                Lorem ipsum...
+            </p>
+
+
+
+            <blockquote>
+
+                "Luxury real estate is no longer simply about location—it is about lifestyle, service, and timeless design."
+
+            </blockquote>
+
+
+
+            <h2>
+                The Rise of Branded Residences
+            </h2>
+
+            <p>
+                Lorem ipsum...
+            </p>
+
+
+
+            <figure>
+
+                <img
+                    src="images/project.jpg"
+                    alt="">
+
+                <figcaption>
+                    Bentley Residences introduces private sky garages through the Dezervator™ system.
+                </figcaption>
+
+            </figure>
+
+
+
+            <h3>
+                Design as a Competitive Advantage
+            </h3>
+
+            <p>
+                Lorem ipsum...
+            </p>
+
+            <p>
+                Lorem ipsum...
+            </p>
+
+
+
+            <div class="article-highlight">
+
+                <h4>
+                    Key Takeaways
+                </h4>
+
+                <ul>
+
+                    <li>Limited inventory supports pricing.</li>
+
+                    <li>Branded residences continue outperforming.</li>
+
+                    <li>International demand remains strong.</li>
+
+                    <li>Waterfront locations remain highly desirable.</li>
+
+                </ul>
+
+            </div>
+
+
+
+            <h2>
+                Investment Perspective
+            </h2>
+
+            <p>
+                Lorem ipsum...
+            </p>
+
+            <p>
+                Lorem ipsum...
+            </p>
+
+
+
+            <img
+                src="images/interior.jpg"
+                alt="">
+
+
+
+            <h2>
+                Final Thoughts
+            </h2>
+
+            <p>
+                Lorem ipsum...
+            </p>
+
+        </main>
+
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="article-sidebar">
+
+            <div class="sidebar-card">
+
+                <h4>
+                    Related Properties
+                </h4>
+
+                <a>Casa Bella Residences</a>
+
+                <a>Bentley Residences</a>
+
+                <a>St. Regis Miami</a>
+
+                <a>Edition Residences</a>
+
+            </div>
+
+
+
+            <div class="sidebar-card">
+
+                <h4>
+                    Popular Topics
+                </h4>
+
+                <a>Investment Guide</a>
+
+                <a>Pre-Construction</a>
+
+                <a>Luxury Living</a>
+
+                <a>Market Reports</a>
+
+            </div>
+
+
+
+            <div class="sidebar-card">
+
+                <h4>
+                    Newsletter
+                </h4>
+
+                <p>
+                    Weekly luxury market insights.
+                </p>
+
+                <button>
+                    Subscribe
+                </button>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+
+
+    <!-- AUTHOR -->
+
+    <section class="article-author">
+
+        <img
+            src="images/author.jpg"
+            alt="">
+
+        <div>
+
+            <h3>
+                Rility Editorial
+            </h3>
+
+            <p>
+                Market insights covering luxury real estate, branded residences, architecture, and investment opportunities throughout Florida.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- RELATED -->
+
+    <section class="related-articles">
+
+        <h2>
+            Continue Reading
+        </h2>
+
+        <div class="related-grid">
+
+            <!-- cards -->
+
+        </div>
+
+    </section>
+
+</article>
+
+  
 <div class="invest-section-wrapper">
   <h1 class="invest-section-title">Related articles</h1>
 
