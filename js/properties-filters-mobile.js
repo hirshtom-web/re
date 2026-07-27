@@ -5,35 +5,39 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const sheet =
-    document.querySelector(".filter-sheet");
+        document.querySelector(".filter-sheet");
 
     const handle =
-    document.querySelector(".filter-sheet-header");
+        document.querySelector(".filter-sheet-header");
 
     const button =
-    document.querySelector(".mobile-filter-button");
+        document.querySelector(".mobile-filter-button");
 
-    if(!sheet || !handle || !button){
 
+    if (!sheet || !handle || !button) {
         return;
-
     }
 
 
+    // ======================================
+    // OPEN
+    // ======================================
 
-    // =========================
-    // OPEN / CLOSE
-    // =========================
-
-    function openFilters(){
+    function openFilters() {
 
         sheet.classList.add("open");
 
+        // Reset any previous drag transform
+        sheet.style.transform = "";
+
     }
 
 
+    // ======================================
+    // CLOSE
+    // ======================================
 
-    function closeFilters(){
+    function closeFilters() {
 
         sheet.classList.remove("open");
 
@@ -42,16 +46,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    // ======================================
+    // TOGGLE
+    // ======================================
 
-    function toggleFilters(){
+    function toggleFilters() {
 
-        if(sheet.classList.contains("open")){
+        if (sheet.classList.contains("open")) {
 
             closeFilters();
 
-        }
-
-        else{
+        } else {
 
             openFilters();
 
@@ -60,77 +65,99 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
+    // Make globally available
     window.openFilters = openFilters;
     window.closeFilters = closeFilters;
 
 
+    // ======================================
+    // FILTER BUTTON
+    // ======================================
 
-    button.onclick = toggleFilters;
+    button.addEventListener("click", (event) => {
+
+        event.stopPropagation();
+
+        toggleFilters();
+
+    });
 
 
-
-    // =========================
-    // DRAG TO CLOSE
-    // =========================
+    // ======================================
+    // DRAG
+    // ======================================
 
     let startY = 0;
     let currentY = 0;
     let dragging = false;
 
 
+    handle.addEventListener("touchstart", (event) => {
 
-    handle.addEventListener("touchstart",(e)=>{
+        if (!sheet.classList.contains("open")) {
+            return;
+        }
 
         dragging = true;
 
         startY =
-        e.touches[0].clientY;
+            event.touches[0].clientY;
+
+        currentY = 0;
 
         sheet.classList.add("dragging");
 
-    },{passive:true});
+    }, { passive: true });
 
 
+    handle.addEventListener("touchmove", (event) => {
 
-    handle.addEventListener("touchmove",(e)=>{
-
-        if(!dragging) return;
+        if (!dragging) {
+            return;
+        }
 
         currentY =
-        e.touches[0].clientY - startY;
+            event.touches[0].clientY - startY;
 
-        if(currentY > 0){
+
+        // Only allow dragging downward
+        if (currentY > 0) {
 
             sheet.style.transform =
-            `translateY(${currentY}px)`;
+                `translateY(${currentY}px)`;
 
         }
 
-    },{passive:true});
+    }, { passive: true });
 
 
+    handle.addEventListener("touchend", () => {
 
-    handle.addEventListener("touchend",()=>{
+        if (!dragging) {
+            return;
+        }
 
         dragging = false;
 
         sheet.classList.remove("dragging");
 
-        if(currentY > 120){
+
+        // Close if dragged far enough
+        if (currentY > 120) {
 
             closeFilters();
 
-        }
+        } else {
 
-        else{
-
+            // Snap back open
             sheet.style.transform = "";
 
         }
 
+
         currentY = 0;
 
     });
+
 
 });
