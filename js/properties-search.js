@@ -1,10 +1,266 @@
 /* =========================
-PROPERTY SEARCH
+GLOBAL FILTER STATE
+========================= */
+
+window.propertyFilters = {
+
+    location:"",
+    propertyType:"",
+    completion:"",
+    sort:"",
+    search:""
+
+};
+
+
+
+
+/* =========================
+MAIN FILTER ENGINE
+========================= */
+
+function filterProperties(){
+
+
+    if(!window.properties){
+
+        return;
+
+    }
+
+
+
+    let filtered =
+
+    window.properties.filter(property=>{
+
+
+
+        let searchMatch = true;
+
+        let locationMatch = true;
+
+        let typeMatch = true;
+
+        let completionMatch = true;
+
+
+
+
+        /*
+        SEARCH
+        */
+
+        if(propertyFilters.search){
+
+
+            const text =
+
+            JSON.stringify(property)
+            .toLowerCase();
+
+
+
+            searchMatch =
+
+            text.includes(
+                propertyFilters.search
+            );
+
+
+        }
+
+
+
+
+
+        /*
+        LOCATION
+        */
+
+        if(propertyFilters.location){
+
+
+            locationMatch =
+
+            property.location ===
+            propertyFilters.location;
+
+
+        }
+
+
+
+
+
+        /*
+        PROPERTY TYPE
+        */
+
+        if(propertyFilters.propertyType){
+
+
+            typeMatch =
+
+            property.type ===
+            propertyFilters.propertyType;
+
+
+        }
+
+
+
+
+
+        /*
+        COMPLETION
+        */
+
+        if(propertyFilters.completion){
+
+
+            completionMatch =
+
+            property.status ===
+            propertyFilters.completion;
+
+
+        }
+
+
+
+
+
+        return (
+
+            searchMatch &&
+
+            locationMatch &&
+
+            typeMatch &&
+
+            completionMatch
+
+        );
+
+
+    });
+
+
+
+
+
+
+
+    /*
+    SORT
+    */
+
+    switch(propertyFilters.sort){
+
+
+        case "price-low":
+
+
+            filtered.sort((a,b)=>
+
+                (a.priceValue || 0)
+                -
+                (b.priceValue || 0)
+
+            );
+
+        break;
+
+
+
+
+        case "price-high":
+
+
+            filtered.sort((a,b)=>
+
+                (b.priceValue || 0)
+                -
+                (a.priceValue || 0)
+
+            );
+
+        break;
+
+
+
+
+        case "name":
+
+
+            filtered.sort((a,b)=>
+
+                a.title.localeCompare(
+                    b.title
+                )
+
+            );
+
+        break;
+
+
+    }
+
+
+
+
+
+    /*
+    UPDATE GRID
+    */
+
+    if(window.renderPropertiesGrid){
+
+        renderPropertiesGrid(filtered);
+
+    }
+
+
+
+
+
+    /*
+    UPDATE MAP
+    */
+
+    if(window.updateMapMarkers){
+
+        updateMapMarkers(filtered);
+
+    }
+
+
+
+}
+
+
+
+window.filterProperties =
+filterProperties;
+
+
+
+
+
+
+
+
+/* =========================
+DESKTOP SEARCH
 ========================= */
 
 
 const propertySearch =
-document.getElementById("property-search");
+
+document.getElementById(
+    "property-search"
+);
 
 
 
@@ -16,61 +272,15 @@ if(propertySearch){
     function(){
 
 
-        const search =
+        propertyFilters.search =
+
         this.value
         .toLowerCase()
         .trim();
 
 
 
-        const filtered =
-
-        window.properties.filter(property=>{
-
-
-            if(!search){
-
-                return true;
-
-            }
-
-
-
-            const searchable =
-
-            JSON.stringify(property)
-            .toLowerCase();
-
-
-
-            return searchable.includes(search);
-
-
-        });
-
-
-
-
-        // update cards
-
-        if(window.renderPropertiesGrid){
-
-            renderPropertiesGrid(filtered);
-
-        }
-
-
-
-
-
-        // update map
-
-        if(window.updateMapMarkers){
-
-            updateMapMarkers(filtered);
-
-        }
-
+        filterProperties();
 
 
     });
@@ -91,8 +301,9 @@ MOBILE SEARCH SYNC
 
 
 const mobileSearch =
+
 document.getElementById(
-"mobile-property-search"
+    "mobile-property-search"
 );
 
 
@@ -105,24 +316,30 @@ if(mobileSearch){
     function(){
 
 
+
         const desktopSearch =
+
         document.getElementById(
-        "property-search"
+            "property-search"
         );
+
 
 
         if(desktopSearch){
 
+
             desktopSearch.value =
+
             this.value;
+
+
+            desktopSearch.dispatchEvent(
+                new Event("input")
+            );
+
 
         }
 
-
-
-        desktopSearch?.dispatchEvent(
-            new Event("input")
-        );
 
 
     });
