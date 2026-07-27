@@ -25,7 +25,7 @@ async function initMap(){
 
 
 
-    const mapElement = 
+    const mapElement =
     window.innerWidth <= 900
     ? document.getElementById("mobile-map")
     : document.getElementById("desktop-map");
@@ -42,7 +42,6 @@ async function initMap(){
 
 
 
-
     map = new google.maps.Map(
 
         mapElement,
@@ -50,11 +49,8 @@ async function initMap(){
         {
 
             center:{
-
                 lat:25.7617,
-
                 lng:-80.1918
-
             },
 
 
@@ -65,143 +61,65 @@ async function initMap(){
 
 
             mapTypeControl:false,
-
             streetViewControl:false,
-
             fullscreenControl:false,
-
             rotateControl:false,
-
             scaleControl:false,
-
             clickableIcons:false,
-
             zoomControl:false,
 
 
             gestureHandling:"greedy",
 
 
-
             styles:[
 
-
                 {
-
-                    featureType:"all",
-
-                    elementType:"labels.text.fill",
-
-                    stylers:[
-
-                        {
-
-                            color:"#555555"
-
-                        }
-
-                    ]
-
-                },
-
-
-                {
-
                     featureType:"poi",
-
                     stylers:[
-
                         {
-
                             visibility:"off"
-
                         }
-
                     ]
-
                 },
 
-
                 {
-
                     featureType:"transit",
-
                     stylers:[
-
                         {
-
                             visibility:"off"
-
                         }
-
                     ]
-
-                },
-
-
-                {
-
-                    featureType:"road",
-
-                    elementType:"geometry",
-
-                    stylers:[
-
-                        {
-
-                            color:"#eeeeee"
-
-                        }
-
-                    ]
-
-                },
-
-
-                {
-
-                    featureType:"water",
-
-                    elementType:"geometry",
-
-                    stylers:[
-
-                        {
-
-                            color:"#dbe9f2"
-
-                        }
-
-                    ]
-
-                },
-
-
-                {
-
-                    featureType:"landscape",
-
-                    elementType:"geometry",
-
-                    stylers:[
-
-                        {
-
-                            color:"#f7f6f2"
-
-                        }
-
-                    ]
-
                 }
-
 
             ]
 
-
         }
 
+    );
 
+
+
+    // CLOSE MINI CARD WHEN USER MOVES MAP
+
+    map.addListener(
+        "dragstart",
+        ()=>{
+
+            hideMobilePropertyPreview();
+
+        }
+    );
+
+
+
+    map.addListener(
+        "zoom_changed",
+        ()=>{
+
+            hideMobilePropertyPreview();
+
+        }
     );
 
 
@@ -226,36 +144,183 @@ async function initMap(){
 
 
 
+
+
 // ======================================
-// FINISH MOBILE PROPERTY PREVIEW
+// MOBILE PROPERTY PREVIEW
 // ======================================
 
-// Don't let favorite button open property
+function showMobilePropertyPreview(property){
 
-const favorite =
+
+    if(window.innerWidth > 900){
+
+        return;
+
+    }
+
+
+
+    const preview =
+    document.getElementById(
+        "mobile-property-preview"
+    );
+
+
+
+    if(!preview){
+
+        console.warn(
+            "Mobile property preview missing"
+        );
+
+        return;
+
+    }
+
+
+
+    preview.innerHTML = `
+
+        <article
+            class="property-card"
+            data-property-id="${property.id}">
+
+
+            <div class="property-card-image">
+
+
+                <img
+                    src="${
+                        property.images?.[0]
+                        ||
+                        property.thumbnail
+                        ||
+                        "images/placeholder.jpg"
+                    }"
+                    alt="${property.title}">
+
+
+                <span class="property-badge">
+                    ${property.status || "Available"}
+                </span>
+
+
+                <button
+                    class="property-favorite"
+                    type="button">
+                    ♡
+                </button>
+
+
+            </div>
+
+
+
+            <div class="property-card-info">
+
+
+                <div class="property-card-header">
+
+                    <h3>
+                        ${property.title}
+                    </h3>
+
+
+                    <strong>
+                        ${property.price || "Request Pricing"}
+                    </strong>
+
+
+                </div>
+
+
+
+                <p>
+                    ${property.location || ""}
+                    ${
+                        property.neighborhood
+                        ?
+                        " · " + property.neighborhood
+                        :
+                        ""
+                    }
+                </p>
+
+
+            </div>
+
+
+        </article>
+
+    `;
+
+
+
+    preview.classList.add(
+        "show"
+    );
+
+
+
+    const card =
+    preview.querySelector(
+        ".property-card"
+    );
+
+
+
+    if(!card){
+
+        return;
+
+    }
+
+
+
+    card.addEventListener(
+        "click",
+        (event)=>{
+
+
+            event.stopPropagation();
+
+
+            openModal(
+                "residence.html",
+                property.id
+            );
+
+
+        }
+    );
+
+
+
+    const favorite =
     card.querySelector(
         ".property-favorite"
     );
 
 
-if (favorite) {
 
-    favorite.addEventListener(
-        "click",
-        (event) => {
+    if(favorite){
 
-            event.preventDefault();
+        favorite.addEventListener(
+            "click",
+            (event)=>{
 
-            event.stopPropagation();
+                event.preventDefault();
 
-        }
-    );
+                event.stopPropagation();
+
+            }
+        );
+
+    }
+
 
 }
-
-
-} // END showMobilePropertyPreview
-
 
 
 
@@ -264,20 +329,22 @@ if (favorite) {
 // HIDE MOBILE PROPERTY PREVIEW
 // ======================================
 
-function hideMobilePropertyPreview() {
+function hideMobilePropertyPreview(){
 
 
     const preview =
-        document.getElementById(
-            "mobile-property-preview"
-        );
+    document.getElementById(
+        "mobile-property-preview"
+    );
 
 
-    if (!preview) {
+
+    if(!preview){
 
         return;
 
     }
+
 
 
     preview.classList.remove(
@@ -285,97 +352,49 @@ function hideMobilePropertyPreview() {
     );
 
 
-    setTimeout(
-        () => {
 
-            if (
-                !preview.classList.contains("show")
-            ) {
-
-                preview.innerHTML = "";
-
-            }
-
-        },
-        300
-    );
+    preview.innerHTML = "";
 
 
 }
 
 
-        // ===============================
-// MARKER INTERACTIONS
-// ===============================
-
-price.addEventListener(
-    "mouseenter",
-    ()=>{
 
 
-        price.classList.add("active");
 
 
-        const card =
-        document.querySelector(
-            `[data-property-id="${property.id}"]`
+// ======================================
+// LOAD PROPERTY MARKERS
+// ======================================
+
+function loadPropertiesMap(){
+
+
+    if(!window.properties){
+
+        console.warn(
+            "No properties found"
         );
 
-
-        if(card){
-
-            card.classList.add(
-                "active-property"
-            );
-
-        }
-
+        return;
 
     }
-);
 
 
 
-price.addEventListener(
-    "mouseleave",
-    ()=>{
-
-
-        price.classList.remove(
-            "active"
-        );
-
-
-        const card =
-        document.querySelector(
-            `[data-property-id="${property.id}"]`
-        );
-
-
-        if(card){
-
-            card.classList.remove(
-                "active-property"
-            );
-
-        }
-
-
-    }
-);
+    const bounds =
+    new google.maps.LatLngBounds();
 
 
 
+    window.properties.forEach(property=>{
 
 
-price.addEventListener(
-    "click",
-    () => {
+        if(!property.coordinates){
 
-        if (window.innerWidth <= 900) {
-
-            showMobilePropertyPreview(
-                property
+            console.warn(
+                "Missing coordinates:",
+                property.title
             );
 
             return;
@@ -383,43 +402,184 @@ price.addEventListener(
         }
 
 
-        const card =
-            document.querySelector(
-                `[data-property-id="${property.id}"]`
-            );
+
+        const position = {
+
+            lat:Number(property.coordinates.lat),
+
+            lng:Number(property.coordinates.lng)
+
+        };
 
 
-        if (card) {
 
-            card.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "center"
-
-            });
+        const price =
+        document.createElement("div");
 
 
-            card.classList.add(
-                "active-property"
-            );
+
+        price.className =
+        "price-marker";
 
 
-            setTimeout(() => {
 
-                card.classList.remove(
-                    "active-property"
+        price.textContent =
+        property.price || "Price";
+
+
+
+        const marker =
+        new AdvancedMarkerElement({
+
+            map:map,
+
+            position:position,
+
+            content:price,
+
+            title:property.title
+
+        });
+
+
+
+        markers[property.id] =
+        marker;
+
+
+
+        bounds.extend(position);
+
+
+                                      // ======================================
+        // PRICE HOVER
+        // ======================================
+
+        price.addEventListener(
+            "mouseenter",
+            ()=>{
+
+
+                price.classList.add(
+                    "active"
                 );
 
-            }, 2000);
 
-        }
+                const card =
+                document.querySelector(
+                    `[data-property-id="${property.id}"]`
+                );
 
-    }
-);
+
+                if(card){
+
+                    card.classList.add(
+                        "active-property"
+                    );
+
+                }
 
 
-               bounds.extend(position);
+            }
+        );
+
+
+
+        price.addEventListener(
+            "mouseleave",
+            ()=>{
+
+
+                price.classList.remove(
+                    "active"
+                );
+
+
+                const card =
+                document.querySelector(
+                    `[data-property-id="${property.id}"]`
+                );
+
+
+                if(card){
+
+                    card.classList.remove(
+                        "active-property"
+                    );
+
+                }
+
+
+            }
+        );
+
+
+
+
+
+        // ======================================
+        // PRICE CLICK
+        // ======================================
+
+        price.addEventListener(
+            "click",
+            ()=>{
+
+
+                if(window.innerWidth <= 900){
+
+                    showMobilePropertyPreview(
+                        property
+                    );
+
+                    return;
+
+                }
+
+
+
+                const card =
+                document.querySelector(
+                    `[data-property-id="${property.id}"]`
+                );
+
+
+
+                if(card){
+
+                    card.scrollIntoView({
+
+                        behavior:"smooth",
+
+                        block:"center"
+
+                    });
+
+
+                    card.classList.add(
+                        "active-property"
+                    );
+
+
+                    setTimeout(
+                        ()=>{
+
+                            card.classList.remove(
+                                "active-property"
+                            );
+
+                        },
+                        2000
+                    );
+
+                }
+
+
+            }
+        );
+
+
+
 
 
         // ======================================
@@ -428,19 +588,20 @@ price.addEventListener(
 
         marker.addListener(
             "gmp-click",
-            () => {
-
-                // Mobile behavior
-                if (window.innerWidth <= 900) {
+            ()=>{
 
 
-                    if (
+                if(window.innerWidth <= 900){
+
+
+                    if(
                         typeof collapsePropertySheet === "function"
-                    ) {
+                    ){
 
                         collapsePropertySheet();
 
                     }
+
 
 
                     showMobilePropertyPreview(
@@ -454,24 +615,26 @@ price.addEventListener(
 
 
 
-                // Desktop behavior
+
 
                 const card =
-                    document.querySelector(
-                        `[data-property-id="${property.id}"]`
-                    );
+                document.querySelector(
+                    `[data-property-id="${property.id}"]`
+                );
 
 
-                if (card) {
+
+                if(card){
 
 
                     card.scrollIntoView({
 
-                        behavior: "smooth",
+                        behavior:"smooth",
 
-                        block: "center"
+                        block:"center"
 
                     });
+
 
 
                     card.classList.add(
@@ -479,8 +642,9 @@ price.addEventListener(
                     );
 
 
+
                     setTimeout(
-                        () => {
+                        ()=>{
 
                             card.classList.remove(
                                 "active-property"
@@ -499,7 +663,9 @@ price.addEventListener(
 
 
 
-    }); // closes window.properties.forEach()
+    }); // END properties.forEach
+
+
 
 
 
@@ -507,19 +673,22 @@ price.addEventListener(
     // FIT MAP TO MARKERS
     // ======================================
 
-    if (!bounds.isEmpty()) {
+    if(!bounds.isEmpty()){
 
 
-        map.fitBounds(bounds);
+        map.fitBounds(
+            bounds
+        );
+
 
 
         google.maps.event.addListenerOnce(
             map,
             "bounds_changed",
-            () => {
+            ()=>{
 
 
-                if (map.getZoom() > 14) {
+                if(map.getZoom() > 14){
 
                     map.setZoom(14);
 
@@ -537,7 +706,10 @@ price.addEventListener(
     connectCardsToMap();
 
 
-} // closes loadPropertiesMap()
+}
+
+
+
 
 
 
@@ -547,6 +719,7 @@ price.addEventListener(
 // ======================================
 
 function connectCardsToMap(){
+
 
 
     const cards =
@@ -577,31 +750,32 @@ function connectCardsToMap(){
 
 
 
-        // ===============================
+
+
+        // ======================================
         // CARD CLICK
-        // ===============================
+        // ======================================
 
         card.addEventListener(
             "click",
-            (e)=>{
+            (event)=>{
 
 
-                e.stopPropagation();
+                event.stopPropagation();
 
 
-
-                // Move map
 
                 map.panTo(
                     marker.position
                 );
 
 
-                map.setZoom(15);
+
+                map.setZoom(
+                    15
+                );
 
 
-
-                // Desktop modal
 
                 if(window.innerWidth > 900){
 
@@ -614,14 +788,12 @@ function connectCardsToMap(){
 
                 }
 
-
-
-                // Mobile sheet
-
                 else{
 
 
-                    if(typeof openPropertySheet === "function"){
+                    if(
+                        typeof openPropertySheet === "function"
+                    ){
 
                         openPropertySheet(id);
 
@@ -631,18 +803,17 @@ function connectCardsToMap(){
                 }
 
 
-
             }
-
         );
 
 
 
 
 
-        // ===============================
-        // CARD HOVER -> BIGGER PILL
-        // ===============================
+
+        // ======================================
+        // CARD HOVER
+        // ======================================
 
         card.addEventListener(
             "mouseenter",
@@ -671,7 +842,6 @@ function connectCardsToMap(){
 
 
             }
-
         );
 
 
@@ -699,8 +869,8 @@ function connectCardsToMap(){
 
 
             }
-
         );
+
 
 
     });
