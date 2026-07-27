@@ -5026,8 +5026,7 @@ description:
 
 thumbnail:
 
-"data/images/casa-bella/Casa-Bella-Building.webp",
-
+"data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp",
 
 
 /* =========================
