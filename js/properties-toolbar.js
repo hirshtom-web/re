@@ -140,50 +140,80 @@ document.querySelectorAll(".filter-dropdown")
 
 
 
-    dropdown
-    .querySelectorAll(".popup-options button")
-    .forEach(option=>{
+    dropdown.querySelectorAll(".popup-options button")
+.forEach(option => {
 
 
-        option.addEventListener("click",()=>{
+    option.addEventListener("click", function(){
 
 
-            if(label){
-
-                label.textContent =
-                option.textContent;
-
-            }
+        label.textContent =
+        this.textContent;
 
 
 
-            popup.classList.remove("active");
+        popup.classList.remove("active");
 
-            button.classList.remove("active");
-
-
-
-            const value =
-            option.dataset.value || "";
+        button.classList.remove("active");
 
 
 
-            /*
-            CONNECT FILTER ENGINE HERE
-
-            Example:
-
-            propertyFilters.location = value;
-            filterProperties();
-
-            */
+        const value =
+        this.dataset.value || "";
 
 
-        });
+
+
+
+        /* =========================
+           CONNECT FILTERS
+        ========================= */
+
+
+
+        if(dropdown.id === "location-dropdown"){
+
+            propertyFilters.location =
+            value;
+
+        }
+
+
+
+        if(dropdown.id === "property-type-dropdown"){
+
+            propertyFilters.propertyType =
+            value;
+
+        }
+
+
+
+        if(dropdown.id === "completion-dropdown"){
+
+            propertyFilters.completion =
+            value;
+
+        }
+
+
+
+        if(dropdown.id === "sort-dropdown"){
+
+            propertyFilters.sort =
+            value;
+
+        }
+
+
+
+
+
+        filterProperties();
+
 
 
     });
-
 
 
 });
