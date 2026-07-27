@@ -227,188 +227,38 @@ async function initMap(){
 
 
 // ======================================
-// MOBILE PROPERTY PREVIEW
+// FINISH MOBILE PROPERTY PREVIEW
 // ======================================
 
-function showMobilePropertyPreview(property) {
+// Don't let favorite button open property
 
-    if (window.innerWidth > 900) {
-        return;
-    }
-
-
-    const preview =
-        document.getElementById(
-            "mobile-property-preview"
-        );
+const favorite =
+    card.querySelector(
+        ".property-favorite"
+    );
 
 
-    if (!preview) {
-        console.warn(
-            "Mobile property preview missing"
-        );
+if (favorite) {
 
-        return;
-    }
-
-
-    preview.innerHTML = `
-
-        <article
-            class="property-card"
-            data-property-id="${property.id}">
-
-
-            <div class="property-card-image">
-
-                <img
-                    src="${
-                        property.images?.[0]
-                        ||
-                        property.thumbnail
-                        ||
-                        "images/placeholder.jpg"
-                    }"
-                    alt="${property.title}">
-
-
-                <span class="property-badge">
-
-                    ${property.status || "Available"}
-
-                </span>
-
-
-                <button
-                    class="property-favorite"
-                    type="button">
-
-                    ♡
-
-                </button>
-
-            </div>
-
-
-            <div class="property-card-info">
-
-
-                <div class="property-card-header">
-
-                    <h3>
-                        ${property.title}
-                    </h3>
-
-
-                    <strong>
-                        ${property.price || "Request Pricing"}
-                    </strong>
-
-                </div>
-
-
-                <p>
-
-                    ${property.location || ""}
-
-                    ${
-                        property.neighborhood
-                        ? " · " + property.neighborhood
-                        : ""
-                    }
-
-                </p>
-
-
-            </div>
-
-        </article>
-
-    `;
-
-
-    preview.classList.add("show");
-
-
-    const card =
-        preview.querySelector(
-            ".property-card"
-        );
-
-
-    if (!card) {
-        return;
-    }
-
-
-    // ======================================
-    // CLICK PREVIEW → SINGLE PROPERTY PAGE
-    // ======================================
-
-    card.addEventListener(
+    favorite.addEventListener(
         "click",
         (event) => {
 
+            event.preventDefault();
+
             event.stopPropagation();
-
-
-            openModal(
-                "residence.html",
-                property.id
-            );
 
         }
     );
 
-
-    // Don't let favorite button
-    // open the property
-
-    const favorite =
-        card.querySelector(
-            ".property-favorite"
-        );
-
-
-    if (favorite) {
-
-        favorite.addEventListener(
-            "click",
-            (event) => {
-
-                event.preventDefault();
-
-                event.stopPropagation();
-
-            }
-        );
-
-    }
-
 }
 
-// ======================================
-// HIDE PROPERTY PREVIEW ON MAP MOVEMENT
-// ======================================
 
-map.addListener(
-    "dragstart",
-    ()=>{
-
-        hideMobilePropertyPreview();
-
-    }
-);
+} // END showMobilePropertyPreview
 
 
-map.addListener(
-    "zoom_changed",
-    ()=>{
 
-        hideMobilePropertyPreview();
 
-    }
-);
 
 // ======================================
 // HIDE MOBILE PROPERTY PREVIEW
@@ -416,6 +266,7 @@ map.addListener(
 
 function hideMobilePropertyPreview() {
 
+
     const preview =
         document.getElementById(
             "mobile-property-preview"
@@ -423,133 +274,35 @@ function hideMobilePropertyPreview() {
 
 
     if (!preview) {
+
         return;
+
     }
 
 
-    preview.classList.remove("show");
+    preview.classList.remove(
+        "show"
+    );
 
-    preview.innerHTML = "";
+
+    setTimeout(
+        () => {
+
+            if (
+                !preview.classList.contains("show")
+            ) {
+
+                preview.innerHTML = "";
+
+            }
+
+        },
+        300
+    );
+
 
 }
 
-
-
-
-// ======================================
-// LOAD PROPERTY MARKERS
-// ======================================
-
-function loadPropertiesMap(){
-
-
-    if(!window.properties){
-
-        console.warn(
-            "No properties found"
-        );
-
-        return;
-
-    }
-
-
-
-    const bounds =
-    new google.maps.LatLngBounds();
-
-
-
-    window.properties.forEach(property=>{
-
-
-        if(!property.coordinates){
-
-            console.warn(
-                "Missing coordinates:",
-                property.title
-            );
-
-            return;
-
-        }
-
-
-
-        const position = {
-
-
-            lat:Number(property.coordinates.lat),
-
-
-            lng:Number(property.coordinates.lng)
-
-
-        };
-
-
-
-        // PRICE PILL
-
-        const price =
-        document.createElement("div");
-
-
-        price.className =
-        "price-marker";
-
-
-
-        let priceText =
-        property.price || "Price";
-
-
-
-        const isFrom =
-        /^from\s+/i.test(priceText);
-
-
-
-        priceText =
-        priceText.replace(
-            /^from\s+/i,
-            ""
-        );
-
-
-
-        if(isFrom){
-
-            priceText += "+";
-
-        }
-
-
-
-        price.textContent =
-        priceText;
-
-
-
-        // ADVANCED MARKER
-
-        const marker =
-        new AdvancedMarkerElement({
-
-            map:map,
-
-            position:position,
-
-            content:price,
-
-            title:property.title
-
-        });
-
-
-
-        markers[property.id] =
-        marker;
 
         // ===============================
 // MARKER INTERACTIONS
