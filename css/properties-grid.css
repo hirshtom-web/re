@@ -667,3 +667,39 @@ HIDE DESKTOP UI
 }
 
 
+.filter-sheet-handle{
+
+    position:absolute;
+
+    top:12px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:45px;
+
+    height:5px;
+
+    border-radius:10px;
+
+    background:#ddd;
+
+}
+
+
+.filter-sheet-header{
+
+    height:80px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
