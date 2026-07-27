@@ -300,43 +300,41 @@ handle.addEventListener(
 /* =========================
 FILTER POPUP
 ========================= */
+/* =========================
+MOBILE FILTER SHEET
+========================= */
+
+
 function openFilters(){
 
     const filterSheet =
     document.querySelector(".filter-sheet");
 
+
     const propertySheet =
     document.querySelector(".property-sheet");
 
 
-    if(!filterSheet || !propertySheet) return;
+
+    if(!filterSheet) return;
 
 
-    filterSheet.classList.toggle("open");
 
+    // close property sheet
 
-    if(filterSheet.classList.contains("open")){
-
-
-        // move property sheet completely down
+    if(propertySheet){
 
         propertySheet.style.transform =
-        "translateY(calc(100vh - 80px))";
-
-
-    }
-    else{
-
-
-        // return property sheet
-
-        propertySheet.style.transform =
-        "translateY(75vh)";
-
+        "translateY(calc(100vh - 180px))";
 
     }
+
+
+
+    filterSheet.classList.add("open");
 
 }
+
 
 
 
@@ -345,26 +343,26 @@ function closeFilters(){
     const filterSheet =
     document.querySelector(".filter-sheet");
 
-    const propertySheet =
-    document.querySelector(".property-sheet");
 
-
-    if(!filterSheet || !propertySheet) return;
+    if(!filterSheet) return;
 
 
 
-    // hide filters
-
-    filterSheet.style.transform =
-    `translateY(${window.innerHeight - 180}px)`;
+    filterSheet.classList.remove("open");
 
 
-    // bring properties back
-
-    propertySheet.style.transform =
-    `translateY(${window.innerHeight - 180}px)`;
+    filterSheet.style.transform = "";
 
 }
+
+
+
+window.openFilters =
+openFilters;
+
+
+window.closeFilters =
+closeFilters;
 
 
 
