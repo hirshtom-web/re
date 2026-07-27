@@ -387,7 +387,28 @@ function showMobilePropertyPreview(property) {
 
 }
 
+// ======================================
+// HIDE PROPERTY PREVIEW ON MAP MOVEMENT
+// ======================================
 
+map.addListener(
+    "dragstart",
+    ()=>{
+
+        hideMobilePropertyPreview();
+
+    }
+);
+
+
+map.addListener(
+    "zoom_changed",
+    ()=>{
+
+        hideMobilePropertyPreview();
+
+    }
+);
 
 // ======================================
 // HIDE MOBILE PROPERTY PREVIEW
