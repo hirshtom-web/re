@@ -782,3 +782,42 @@ FILTER DROPDOWN
     background:#faf7f2;
 
 }
+
+
+.mobile-filter-button{
+
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    height:48px;
+    padding:0 18px;
+
+    border:none;
+    border-radius:999px;
+
+    background:#fff;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.18);
+
+    font-family:inherit;
+    font-size:15px;
+    font-weight:500;
+
+    cursor:pointer;
+
+    z-index:100;
+
+}
+
+.mobile-filter-button .material-symbols-outlined{
+
+    font-size:20px;
+
+}
