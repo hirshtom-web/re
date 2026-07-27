@@ -588,6 +588,27 @@ FILTER SHEET
 
 }
 
+    .filter-sheet-header{
+
+    height:90px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:grab;
+
+    user-select:none;
+
+}
+    
+
 }
 
 
