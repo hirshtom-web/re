@@ -32,7 +32,7 @@ async function initMap(){
 
         {
 
-            center:propertyData.coordinates,
+            center:window.currentProperty.coordinates,
 
             zoom:17,
 
@@ -47,7 +47,6 @@ async function initMap(){
 
             rotateControl:false,
 
-            fullscreenControl:false,
 
 
             styles:[
