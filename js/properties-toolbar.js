@@ -511,3 +511,8 @@ window.addEventListener(
 
 
 });
+
+
+window.propertyFilters = propertyFilters;
+window.filterProperties = filterProperties;
+window.initializePriceFilter = initializePriceFilter;
