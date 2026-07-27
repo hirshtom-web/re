@@ -855,3 +855,117 @@ HIDE DESKTOP UI
     }
 
 }
+
+
+/* ======================================
+   MOBILE MARKER PROPERTY PREVIEW
+====================================== */
+
+@media (max-width: 900px) {
+
+    .mobile-property-preview {
+
+        position: fixed;
+
+        left: 20px;
+        right: 20px;
+
+        bottom: 20px;
+
+        z-index: 500;
+
+        display: none;
+
+        pointer-events: none;
+
+    }
+
+
+    .mobile-property-preview.show {
+
+        display: block;
+
+    }
+
+
+    .mobile-property-preview .property-card {
+
+        width: 100%;
+
+        margin: 0;
+
+        pointer-events: auto;
+
+        cursor: pointer;
+
+        background: transparent !important;
+
+    }
+
+
+    .mobile-property-preview .property-card-image {
+
+        border-radius: 28px;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 15px 35px rgba(0,0,0,.18);
+
+    }
+
+
+    .mobile-property-preview .property-card-image img {
+
+        width: 100%;
+
+        display: block;
+
+        aspect-ratio: 4 / 3;
+
+        object-fit: cover;
+
+    }
+
+
+    .mobile-property-preview .property-card-info {
+
+        padding-top: 10px;
+
+    }
+
+
+    .mobile-property-preview .property-card-header {
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .mobile-property-preview .property-card-header h3 {
+
+        margin: 0;
+
+    }
+
+
+    .mobile-property-preview .property-card-header strong {
+
+        white-space: nowrap;
+
+    }
+
+
+    .mobile-property-preview .property-favorite {
+
+        pointer-events: auto;
+
+    }
+
+}
