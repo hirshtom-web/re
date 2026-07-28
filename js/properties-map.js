@@ -737,16 +737,33 @@ function connectCardsToMap(){
 
 
 
-        const marker =
-        markers[id];
+        const marker = markers[id];
 
 
+// still allow card clicks even without a map marker
+if(!marker){
 
-        if(!marker){
+    card.addEventListener(
+        "click",
+        (event)=>{
 
-            return;
+            event.stopPropagation();
+
+            if(window.innerWidth > 900){
+
+                openModal(
+                    "residence.html",
+                    id
+                );
+
+            }
 
         }
+    );
+
+    return;
+
+}
 
 
 
