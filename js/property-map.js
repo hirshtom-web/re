@@ -1,3 +1,7 @@
+// ======================================
+// PROPERTY MAP CONTROLLER
+// ======================================
+
 let propertyMap;
 
 let AdvancedMarkerElement;
@@ -9,10 +13,13 @@ let AdvancedMarkerElement;
 
 async function initMap(){
 
+
     const { AdvancedMarkerElement: MarkerClass } =
     await google.maps.importLibrary("marker");
 
+
     AdvancedMarkerElement = MarkerClass;
+
 
 
     if(!window.currentProperty){
@@ -26,7 +33,13 @@ async function initMap(){
     }
 
 
-    if(!window.currentProperty.coordinates){
+
+    const coords =
+    window.currentProperty.coordinates;
+
+
+
+    if(!coords){
 
         console.error(
             "Property coordinates missing"
@@ -37,58 +50,69 @@ async function initMap(){
     }
 
 
-    const mapContainer =
-    document.getElementById("property-map");
 
+    const center = {
 
-    if(!mapContainer){
+        lat:Number(coords.lat),
 
-        console.error(
-            "Map container missing"
-        );
+        lng:Number(coords.lng)
 
-        return;
-
-    }
+    };
 
 
 
     propertyMap =
     new google.maps.Map(
 
-        mapContainer,
+        document.getElementById("property-map"),
 
         {
 
-            center:{
-                lat:Number(window.currentProperty.coordinates.lat),
-                lng:Number(window.currentProperty.coordinates.lng)
-            },
+            center:center,
 
-            zoom:17,
+            zoom:14,
+
 
             mapId:"d44ebce34f2241f5985860cf",
 
+
             mapTypeControl:false,
+
             streetViewControl:false,
+
             fullscreenControl:false,
-            rotateControl:false
+
+            rotateControl:false,
+
+
+            gestureHandling:"greedy"
 
         }
 
     );
 
 
+
     addMainProperty();
 
-    addSoldProperties();
+
 
     addNearbyProperties();
 
-    addPointsOfInterest();
-
 
 }
+
+
+
+
+// ======================================
+// EXPOSE GOOGLE CALLBACK
+// ======================================
+
+window.initMap = initMap;
+
+
+
 
 
 
@@ -107,31 +131,14 @@ function createPricePill(value){
     "price-marker";
 
 
-    let text =
+    pill.innerText =
     value || "Price";
-
-
-    const from =
-    /^from\s+/i.test(text);
-
-
-    text =
-    text.replace(/^from\s+/i,"");
-
-
-    if(from){
-
-        text += "+";
-
-    }
-
-
-    pill.innerText = text;
 
 
     return pill;
 
 }
+
 
 
 
@@ -142,99 +149,59 @@ function createPricePill(value){
 
 function addMainProperty(){
 
+
+    const coords =
+    window.currentProperty.coordinates;
+
+
+
     const pin =
     document.createElement("div");
 
 
-    pin.style.background = "black";
-    pin.style.color = "white";
-    pin.style.padding = "10px 15px";
-    pin.style.borderRadius = "30px";
-    pin.style.fontSize = "14px";
+    pin.style.background="#111";
+
+    pin.style.color="#fff";
+
+    pin.style.padding="10px 16px";
+
+    pin.style.borderRadius="30px";
+
+    pin.style.fontSize="14px";
+
+    pin.style.fontWeight="600";
 
 
     pin.innerText =
-    window.currentProperty.price || "$5M+";
+    window.currentProperty.price || "$";
 
 
 
-    const marker =
     new AdvancedMarkerElement({
 
         map:propertyMap,
 
-        position:{
-    lat:Number(
-        window.currentProperty.coordinates?.lat || 25.7617
-    ),
 
-    lng:Number(
-        window.currentProperty.coordinates?.lng || -80.1918
-    )
-},
+        position:{
+
+            lat:Number(coords.lat),
+
+            lng:Number(coords.lng)
+
+        },
+
 
         content:pin
 
+
     });
+
 
 
     console.log(
-        "MAIN PROPERTY MARKER CREATED",
-        marker
+        "MAIN PROPERTY MARKER CREATED"
     );
 
-}
-
-
-
-
-// ======================================
-// SOLD
-// ======================================
-
-function addSoldProperties(){
-
-
-    const soldProperties =
-    window.currentProperty.soldProperties;
-
-
-
-    if(!soldProperties){
-
-        console.warn(
-            "No sold properties found"
-        );
-
-        return;
-
-    }
-
-
-
-    soldProperties.forEach(property=>{
-
-
-        new AdvancedMarkerElement({
-
-            map:propertyMap,
-
-            position:{
-                lat:Number(property.lat),
-                lng:Number(property.lng)
-            },
-
-            title:property.title,
-
-            content:createPricePill(
-                property.price
-            )
-
-        });
-
-
-    });
-
 
 }
 
@@ -242,14 +209,18 @@ function addSoldProperties(){
 
 
 
+
+
 // ======================================
-// DEVELOPMENTS / NEARBY
+// NEARBY PROPERTIES
 // ======================================
 
 function addNearbyProperties(){
 
+
     const nearby =
-    window.currentProperty?.nearby;
+    window.currentProperty.nearby;
+
 
 
     if(!nearby){
@@ -261,6 +232,7 @@ function addNearbyProperties(){
         return;
 
     }
+
 
 
     nearby.forEach(property=>{
@@ -278,77 +250,30 @@ function addNearbyProperties(){
         }
 
 
+
         const marker =
         new AdvancedMarkerElement({
 
             map:propertyMap,
 
+
             position:{
+
                 lat:Number(property.coordinates.lat),
+
                 lng:Number(property.coordinates.lng)
+
             },
+
 
             title:property.title,
 
-            content:createPricePill(property.price)
-
-        });
-
-
-        const info =
-        new google.maps.InfoWindow({
-
-            content:`
-
-            <div>
-                <h4>${property.title}</h4>
-                <p>${property.status || ""}</p>
-                <strong>${property.price || ""}</strong>
-            </div>
-
-            `
-
-        });
-
-
-        marker.addListener(
-            "gmp-click",
-            ()=>{
-
-                info.open({
-
-                    map:propertyMap,
-
-                    anchor:marker
-
-                });
-
-            }
-
-        );
-
-
-    });
-
-}
-
-
-        const marker =
-        new AdvancedMarkerElement({
-
-            map:propertyMap,
-
-            position:{
-                lat:Number(property.lat),
-                lng:Number(property.lng)
-            },
-
-            title:property.title,
 
             content:createPricePill(
                 property.price
             )
 
+
         });
 
 
@@ -360,16 +285,12 @@ function addNearbyProperties(){
 
             <div>
 
-                <h4>
-                    ${property.title || ""}
-                </h4>
+                <h4>${property.title}</h4>
 
-                <p>
-                    ${property.status || ""}
-                </p>
+                <p>${property.status || ""}</p>
 
                 <strong>
-                    ${property.price || ""}
+                ${property.price || ""}
                 </strong>
 
             </div>
@@ -381,7 +302,9 @@ function addNearbyProperties(){
 
 
         marker.addListener(
+
             "gmp-click",
+
             ()=>{
 
 
@@ -395,61 +318,8 @@ function addNearbyProperties(){
 
 
             }
+
         );
-
-
-    });
-
-
-}
-
-
-
-
-
-// ======================================
-// POINTS OF INTEREST
-// ======================================
-
-function addPointsOfInterest(){
-
-
-    const pointsOfInterest =
-    window.currentProperty.pointsOfInterest;
-
-
-
-    if(!pointsOfInterest){
-
-        console.warn(
-            "No points of interest found"
-        );
-
-        return;
-
-    }
-
-
-
-    pointsOfInterest.forEach(place=>{
-
-
-        new AdvancedMarkerElement({
-
-            map:propertyMap,
-
-            position:{
-                lat:Number(place.lat),
-                lng:Number(place.lng)
-            },
-
-            title:place.name,
-
-            content:createPricePill(
-                place.name
-            )
-
-        });
 
 
     });
