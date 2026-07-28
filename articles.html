@@ -721,6 +721,57 @@ RESPONSIVE
 
 }
 
+    .article-breadcrumbs{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:24px;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
+
+}
+
+.article-breadcrumbs a{
+
+    color:#666;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.article-breadcrumbs a:hover{
+
+    color:#111;
+
+}
+
+.article-breadcrumbs span{
+
+    color:#999;
+
+}
+
+.article-breadcrumbs span[aria-current="page"]{
+
+    color:#111;
+
+    font-weight:600;
+
+}
     
 </style>
 </head>
@@ -729,12 +780,25 @@ RESPONSIVE
 <article class="article-page">
 
     <!-- HERO -->
+<nav class="article-breadcrumbs" aria-label="Breadcrumb">
 
+    <a href="/knowledge">Knowledge</a>
+
+    <span>›</span>
+
+    <a href="/knowledge/market-insights">
+        Market Insights
+    </a>
+
+    <span>›</span>
+
+    <span aria-current="page">
+        New Construction
+    </span>
+
+</nav>
+  
     <header class="article-hero">
-
-        <span class="article-category">
-            Market Insights
-        </span>
 
         <h1>
             The Future of Luxury Waterfront Living in South Florida
