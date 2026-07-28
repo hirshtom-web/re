@@ -713,3 +713,13 @@
     }
 
 }
+
+@media(min-width:901px){
+
+    .property-sheet,
+    .mobile-map-layout,
+    .mobile-filter-button{
+        display:none !important;
+    }
+
+}
