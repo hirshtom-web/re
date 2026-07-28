@@ -14,10 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ======================================
-    // OPEN
-    // ======================================
-
     function openFilters() {
 
         console.log("OPEN FILTERS");
@@ -28,10 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-    // ======================================
-    // CLOSE
-    // ======================================
 
     function closeFilters() {
 
@@ -44,10 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ======================================
-    // BUTTON
-    // ======================================
-
     button.addEventListener("click", (event) => {
 
         event.preventDefault();
@@ -58,17 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // ======================================
-    // GLOBAL FUNCTIONS
-    // ======================================
-
     window.openFilters = openFilters;
     window.closeFilters = closeFilters;
 
 
-    // ======================================
+
     // DRAG FILTER SHEET
-    // ======================================
 
     let startY = 0;
     let currentY = 0;
@@ -85,66 +68,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sheet.classList.add("dragging");
 
-    }, { passive: true });
+    }, { passive:true });
 
 
-    header.addEventListener("touchmove", (event) => {
 
-        if (!dragging) {
-            return;
-        }
+    header.addEventListener("touchmove", (event)=>{
+
+        if(!dragging) return;
 
         currentY =
-            event.touches[0].clientY - startY;
+        event.touches[0].clientY - startY;
 
 
-        if (currentY > 0) {
+        if(currentY > 0){
 
             sheet.style.transform =
-                `translateY(${currentY}px)`;
+            `translateY(${currentY}px)`;
 
         }
 
-    }, { passive: true });
+    }, {passive:true});
 
 
-    header.addEventListener("touchend", () => {
 
-        if (!dragging) {
-            return;
-        }
+    header.addEventListener("touchend", ()=>{
 
-        dragging = false;
+        if(!dragging) return;
+
+
+        dragging=false;
 
         sheet.classList.remove("dragging");
 
 
-        if (currentY > 120) {
+        if(currentY > 120){
 
             closeFilters();
 
-        } else {
+        }
+        else{
 
-            sheet.style.transform = "";
+            sheet.style.transform="";
 
         }
 
-        currentY = 0;
+
+        currentY=0;
 
     });
 
-});
 
 
-document.querySelectorAll(".mobile-filter-title")
-.forEach(button => {
+    // ======================================
+    // MOBILE FILTER ACCORDIONS
+    // ======================================
 
-    button.addEventListener("click", () => {
+    document
+    .querySelectorAll(".mobile-filter-section h3")
+    .forEach(title=>{
 
-        button
-        .closest(".mobile-filter-dropdown")
-        .classList.toggle("open");
+
+        title.addEventListener("click",()=>{
+
+
+            title
+            .parentElement
+            .classList
+            .toggle("open");
+
+
+        });
+
 
     });
+
+
 
 });
