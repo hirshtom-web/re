@@ -1097,14 +1097,7 @@ html, body{
 
 
 
-/* ======================================
-   MOBILE FILTER SHEET
-====================================== */
 
-
-.filter-sheet{
-    display:none;
-}
 
 
 /* ======================================
@@ -1446,4 +1439,58 @@ html, body{
 
 .filter-content{
     min-height:0;
+}
+
+
+/* ======================================
+   FINAL FILTER SHEET TOUCH FIX
+====================================== */
+
+@media(max-width:900px){
+
+    .filter-sheet{
+
+        display:flex !important;
+
+        flex-direction:column;
+
+        overflow:hidden;
+
+        touch-action:none;
+
+    }
+
+
+    .filter-sheet.open{
+
+        transform:translateY(0);
+
+    }
+
+
+    .filter-sheet-header{
+
+        flex:0 0 80px;
+
+        touch-action:none;
+
+    }
+
+
+    .filter-content{
+
+        flex:1;
+
+        overflow-y:auto;
+
+        -webkit-overflow-scrolling:touch;
+
+        touch-action:pan-y;
+
+        min-height:0;
+
+        padding-bottom:120px;
+
+    }
+
 }
