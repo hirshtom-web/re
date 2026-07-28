@@ -126,25 +126,9 @@ a{
 
 .article-width{
 
-    width:min(92%,1320px);
+    width:min(90%,1440px);
 
     margin:auto;
-
-}
-
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.article-hero{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:40px 0 70px;
 
 }
 
