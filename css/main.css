@@ -2513,12 +2513,10 @@ GROWTH LINE CHART
       
 
 
-#contact {
+#contact .container {
     position: relative;
     overflow: hidden;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
+    border-radius: 20px; /* optional */
 }
 
 .rility-hero__background {
@@ -2533,18 +2531,16 @@ GROWTH LINE CHART
     object-fit: cover;
 }
 
-.overlay {
+#contact .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0,0,0,0.45);
     z-index: 1;
 }
 
-#contact .container {
+#contact .cta {
     position: relative;
     z-index: 2;
-}
-
-.cta {
     color: white;
+    padding: 80px 40px; /* controls the height of the video area */
 }
