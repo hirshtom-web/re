@@ -6,27 +6,11 @@
 /* =========================
    VARIABLES
 ========================= */
+/* =========================
+GLOBAL ARTICLE SYSTEM
+========================= */
+
 :root{
-
-    --bg:#fafafa;
-    --surface:#ffffff;
-
-    --text:#111111;
-    --muted:#6b7280;
-
-    --accent:#b68a4c;
-
-    --border:1px solid rgba(0,0,0,.08);
-
-    --radius-xl:36px;
-    --radius-lg:28px;
-    --radius-md:20px;
-
-    --shadow:
-    0 24px 70px rgba(0,0,0,.06);
-
-
-    /* GLOBAL ARTICLE WIDTH */
 
     --article-width:1440px;
     --article-padding:5%;
@@ -34,67 +18,26 @@
 }
 
 
-
 /* =========================
-   RESET
+MASTER CONTAINER
 ========================= */
 
-*,
-*::before,
-*::after{
+.article-container-width{
 
-    box-sizing:border-box;
+    width:min(
+        calc(100% - (var(--article-padding) * 2)),
+        var(--article-width)
+    );
 
-}
-
-
-html{
-
-    scroll-behavior:smooth;
-
-}
-
-
-body{
-
-    margin:0;
-
-    background:var(--bg);
-
-    color:var(--text);
-
-    font-family:"Inter",sans-serif;
-
-    -webkit-font-smoothing:antialiased;
-
-    text-rendering:optimizeLegibility;
-
-    line-height:1.7;
-
-}
-
-
-img{
-
-    max-width:100%;
-
-    display:block;
-
-}
-
-
-a{
-
-    color:inherit;
-
-    text-decoration:none;
+    margin-left:auto;
+    margin-right:auto;
 
 }
 
 
 
 /* =========================
-   PAGE
+PAGE
 ========================= */
 
 .article-page{
@@ -130,27 +73,76 @@ a{
 
 
 /* =========================
-   GLOBAL CONTAINER
+HERO
 ========================= */
 
-
-.article-width,
-.article-hero,
-.article-container,
-.article-author,
-.related-articles,
-.continue-reading{
-
+.article-hero{
 
     width:min(
-        var(--article-width),
-        calc(100% - (var(--article-padding) * 2))
+        calc(100% - (var(--article-padding) * 2)),
+        var(--article-width)
     );
 
+    margin:auto;
 
-    margin-left:auto;
+}
 
-    margin-right:auto;
+
+
+/* =========================
+ARTICLE BODY
+========================= */
+
+.article-container{
+
+    width:min(
+        calc(100% - (var(--article-padding) * 2)),
+        var(--article-width)
+    );
+
+    margin:80px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    minmax(0,1fr)
+    320px;
+
+    gap:90px;
+
+}
+
+
+
+/* =========================
+AUTHOR
+========================= */
+
+.article-author{
+
+    width:min(
+        calc(100% - (var(--article-padding) * 2)),
+        var(--article-width)
+    );
+
+    margin:100px auto;
+
+}
+
+
+
+/* =========================
+CONTINUE READING
+========================= */
+
+.continue-reading{
+
+    width:min(
+        calc(100% - (var(--article-padding) * 2)),
+        var(--article-width)
+    );
+
+    margin:120px auto;
 
 }
 
