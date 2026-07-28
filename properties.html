@@ -663,6 +663,9 @@ DESKTOP MAP + GRID
 
 
 
+<!-- =========================
+MOBILE MAP + SHEETS
+========================= -->
 
 
 <!-- =========================
@@ -683,16 +686,8 @@ MOBILE MAP + SHEETS
     <!-- FILTER BUTTON -->
 
     <button class="mobile-filter-button" type="button">
-
-    <span class="material-symbols-outlined filter-icon">
-        tune
-    </span>
-
-    <span>
-        Filters
-    </span>
-
-</button>
+        ⚙ Filters
+    </button>
 
     <!-- PROPERTY BOTTOM SHEET -->
 
@@ -743,7 +738,7 @@ MOBILE MAP + SHEETS
 
                 <h3>Search</h3>
 
-                <div class="mobile-search-box">
+                <div class="search-box">
 
                     <span class="material-symbols-outlined">
                         search
@@ -805,12 +800,12 @@ MOBILE MAP + SHEETS
 
     <input
         id="mobile-min-price"
-        type="text"
+        type="number"
         value="500000">
 
     <input
         id="mobile-max-price"
-        type="text"
+        type="number"
         value="10000000">
 
 </div>
@@ -828,36 +823,22 @@ MOBILE MAP + SHEETS
 
             <div class="mobile-filter-section">
 
-              <div class="mobile-filter-dropdown">
+                <h3>Location</h3>
 
-    <button class="mobile-filter-title">
-        <span>Location</span>
+                <div class="popup-search">
 
-        <span class="material-symbols-outlined">
-            keyboard_arrow_down
-        </span>
-    </button>
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
 
+                    <input
+                        id="mobile-location-search"
+                        type="text"
+                        placeholder="Search locations...">
 
-    <div class="mobile-filter-panel">
+                </div>
 
-        <div class="popup-search">
-
-            <span class="material-symbols-outlined">
-                search
-            </span>
-
-            <input
-            id="mobile-location-search"
-            type="text"
-            placeholder="Search locations...">
-
-        </div>
-
-
-        <div class="popup-options">
-
-            <!-- your location buttons stay here -->
+                <div class="popup-options">
 
                     <button data-value="">All Locations</button>
 
@@ -890,11 +871,9 @@ MOBILE MAP + SHEETS
                     <button data-value="West Palm Beach">West Palm Beach</button>
                     <button data-value="Wynwood Miami">Wynwood Miami</button>
 
-        </div>
+                </div>
 
-    </div>
-
-</div>
+            </div>
 
 
 
@@ -998,21 +977,17 @@ MOBILE MAP + SHEETS
         STICKY FOOTER
         ========================= -->
 
-        <!-- =========================
-STICKY FOOTER
-========================= -->
+        <div class="filter-sheet-footer">
 
-<div class="filter-sheet-footer">
+            <button class="reset-filter">
+                Reset
+            </button>
 
-    <button class="reset-filter">
-        Reset
-    </button>
+            <button class="apply-filter">
+                Apply Filters
+            </button>
 
-    <button class="apply-filter">
-        Show Results
-    </button>
-
-</div>
+        </div>
 
     </div>
 
