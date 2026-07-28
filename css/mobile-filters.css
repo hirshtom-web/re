@@ -1176,3 +1176,52 @@ html, body{
     }
 
 }
+
+ /* =====================================
+   DESKTOP HIDE MOBILE FILTER BUTTON
+===================================== */
+
+@media (min-width:901px){
+
+    button.mobile-filter-button{
+
+        display:none !important;
+
+    }
+
+}
+
+
+@media(max-width:900px){
+
+    .results-count,
+    .properties-count,
+    .search-results-header,
+    .results-header,
+    .property-count{
+        display:none !important;
+    }
+
+}
+
+@media(min-width:901px){
+
+    .property-sheet,
+    .mobile-map-layout,
+    .mobile-filter-button{
+        display:none !important;
+    }
+
+}
+
+/* =====================================
+   HIDE MOBILE PROPERTY SHEET DESKTOP
+===================================== */
+
+@media (min-width:901px){
+
+    .property-sheet{
+        display:none !important;
+    }
+
+}
