@@ -132,6 +132,10 @@ a{
 
 }
 
+.article-hero{
+    width:min(90%,1440px);
+    margin:0 auto;
+}
 
 
 /* =========================
