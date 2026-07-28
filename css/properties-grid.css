@@ -1323,3 +1323,106 @@ html, body{
     line-height:1.3 !important;
 
 }
+
+/* ======================================
+   FILTER SHEET FOOTER
+====================================== */
+
+.filter-sheet-footer{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    right:0;
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+
+    padding:16px 20px;
+
+    padding-bottom:calc(16px + env(safe-area-inset-bottom));
+
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(12px);
+
+
+    border-top:1px solid #eee;
+
+    z-index:10;
+
+}
+
+
+/* Reset */
+
+.reset-filter{
+
+    flex:0 0 auto;
+
+
+    border:none;
+
+    background:none;
+
+
+    padding:12px 0;
+
+
+    color:#666;
+
+
+    font-size:15px;
+
+    font-weight:500;
+
+
+    text-decoration:underline;
+
+}
+
+
+/* Show Results */
+
+.apply-filter{
+
+    flex:1;
+
+
+    height:52px;
+
+
+    border-radius:26px;
+
+    border:none;
+
+
+    background:#111;
+
+    color:#fff;
+
+
+    font-size:15px;
+
+    font-weight:600;
+
+
+    transition:.25s ease;
+
+}
+
+
+.apply-filter:active{
+
+    transform:scale(.98);
+
+}
