@@ -140,10 +140,10 @@ function addMainProperty(){
 
         map: propertyMap,
 
-        position: {
-            lat:25.7617,
-            lng:-80.1918
-        },
+        position:{
+    lat:Number(window.currentProperty.coordinates.lat),
+    lng:Number(window.currentProperty.coordinates.lng)
+},
 
         content:pin
 
