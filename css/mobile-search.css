@@ -686,9 +686,14 @@
 }
 
 
-@media(min-width:901px){
 
-    .mobile-filter-button{
+   /* =====================================
+   DESKTOP HIDE MOBILE FILTER BUTTON
+===================================== */
+
+@media (min-width:901px){
+
+    button.mobile-filter-button{
 
         display:none !important;
 
