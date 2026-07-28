@@ -327,3 +327,21 @@ HEADER
     display:block;
 
 }
+
+
+
+/* =====================================
+   MOBILE FILTER SHEET DESKTOP LOCK
+===================================== */
+
+@media (min-width:901px){
+
+    .mobile-filter-button,
+    .filter-sheet,
+    .filter-sheet-header,
+    .filter-sheet-handle,
+    .mobile-filter-section{
+        display:none !important;
+    }
+
+}
