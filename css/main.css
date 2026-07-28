@@ -2511,3 +2511,40 @@ GROWTH LINE CHART
 
 }
       
+
+
+#contact {
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.rility-hero__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.rility-hero__background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+#contact .container {
+    position: relative;
+    z-index: 2;
+}
+
+.cta {
+    color: white;
+}
