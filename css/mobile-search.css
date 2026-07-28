@@ -1,16 +1,15 @@
 @media(max-width:900px){
 
+    .desktop-filters,
+    .properties-layout,
+    .properties-scroll,
+    .map-container{
+        display:none !important;
+    }
 
-.desktop-filters{
-    display:none !important;
 }
 
-
-.properties-layout,
-.properties-scroll,
-.map-container{
-    display:none !important;
-}
+@media(max-width:900px){
     
 
 /* FULL SCREEN MAP */
@@ -199,9 +198,6 @@ PROPERTY SHEET HEADER
 FILTER SHEET
 ========================= */
 
-/* =========================
-FILTER SHEET
-========================= */
 
 .filter-sheet{
 
@@ -983,78 +979,6 @@ FILTER SHEET
 }
 
 
-/* Scroll area */
-
-.filter-content{
-
-    overflow-y:auto;
-
-    -webkit-overflow-scrolling:touch;
-
-    padding:0 20px 120px;
-
-}
-
-.filter-sheet{
-    overflow:hidden;
-}
-
-.filter-content{
-    min-height:0;
-}
-
-
-/* ======================================
-   FINAL FILTER SHEET TOUCH FIX
-====================================== */
-
-
-    .filter-sheet{
-
-        display:flex !important;
-
-        flex-direction:column;
-
-        overflow:hidden;
-
-        touch-action:none;
-
-    }
-
-
-    .filter-sheet.open{
-
-        transform:translateY(0);
-
-    }
-
-
-    .filter-sheet-header{
-
-        flex:0 0 80px;
-
-        touch-action:none;
-
-    }
-
-
-    .filter-content{
-
-        flex:1;
-
-        overflow-y:auto;
-
-        -webkit-overflow-scrolling:touch;
-
-        touch-action:pan-y;
-
-        min-height:0;
-
-        padding-bottom:120px;
-
-    }
-
-
 .mobile-filter-button{
 
     display:flex;
@@ -1266,43 +1190,6 @@ FILTER SHEET
     background:transparent !important;
 
 }
-
-
-/* ==========================================
-   DESKTOP ONLY
-========================================== */
-
-@media (min-width:901px){
-
-    .filter-sheet,
-    .filter-sheet-footer,
-    .filter-content,
-    .mobile-property-preview,
-    .mobile-map-layout,
-    .mobile-filter-button{
-
-        display:none !important;
-
-    }
-
-}
-
-
-/* ==========================================
-   MOBILE ONLY
-========================================== */
-
-@media (max-width:900px){
-
-    .desktop-filters,
-    .properties-layout,
-    .properties-scroll,
-    .map-container{
-
-        display:none !important;
-
-    }
-
     .sheet-content .properties-grid{
 
         margin-top:0;
@@ -1316,5 +1203,57 @@ html,
 body{
 
     overflow-x:hidden;
+
+}
+
+
+.filter-sheet{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+
+    width:100%;
+    height:90vh;
+
+    display:flex;
+    flex-direction:column;
+
+    background:#fff;
+
+    border-radius:30px 30px 0 0;
+
+    transform:translateY(100%);
+
+    transition:transform .3s ease;
+
+    overflow:hidden;
+
+    z-index:1000;
+
+    touch-action:none;
+}
+
+.filter-sheet.open{
+    transform:translateY(0);
+}
+
+.filter-sheet.dragging{
+    transition:none;
+}
+
+.filter-content{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    -webkit-overflow-scrolling:touch;
+
+    touch-action:pan-y;
+
+    min-height:0;
+
+    padding:0 20px 120px;
 
 }
