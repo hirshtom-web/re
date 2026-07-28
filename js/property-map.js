@@ -248,13 +248,11 @@ function addSoldProperties(){
 
 function addNearbyProperties(){
 
-
-    const nearbyProperties =
-    window.currentProperty.nearby;
-
+    const nearby =
+    window.currentProperty?.nearby;
 
 
-    if(!nearbyProperties){
+    if(!nearby){
 
         console.warn(
             "No nearby properties found"
@@ -265,8 +263,74 @@ function addNearbyProperties(){
     }
 
 
+    nearby.forEach(property=>{
 
-    nearbyProperties.forEach(property=>{
+
+        if(!property.coordinates){
+
+            console.warn(
+                "Nearby property missing coordinates",
+                property
+            );
+
+            return;
+
+        }
+
+
+        const marker =
+        new AdvancedMarkerElement({
+
+            map:propertyMap,
+
+            position:{
+                lat:Number(property.coordinates.lat),
+                lng:Number(property.coordinates.lng)
+            },
+
+            title:property.title,
+
+            content:createPricePill(property.price)
+
+        });
+
+
+        const info =
+        new google.maps.InfoWindow({
+
+            content:`
+
+            <div>
+                <h4>${property.title}</h4>
+                <p>${property.status || ""}</p>
+                <strong>${property.price || ""}</strong>
+            </div>
+
+            `
+
+        });
+
+
+        marker.addListener(
+            "gmp-click",
+            ()=>{
+
+                info.open({
+
+                    map:propertyMap,
+
+                    anchor:marker
+
+                });
+
+            }
+
+        );
+
+
+    });
+
+}
 
 
         const marker =
