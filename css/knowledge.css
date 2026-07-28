@@ -6,7 +6,6 @@
 /* =========================
    VARIABLES
 ========================= */
-
 :root{
 
     --bg:#fafafa;
@@ -26,6 +25,12 @@
     --shadow:
     0 24px 70px rgba(0,0,0,.06);
 
+
+    /* GLOBAL ARTICLE WIDTH */
+
+    --article-width:1440px;
+    --article-padding:5%;
+
 }
 
 
@@ -42,11 +47,13 @@
 
 }
 
+
 html{
 
     scroll-behavior:smooth;
 
 }
+
 
 body{
 
@@ -66,6 +73,7 @@ body{
 
 }
 
+
 img{
 
     max-width:100%;
@@ -73,6 +81,7 @@ img{
     display:block;
 
 }
+
 
 a{
 
@@ -121,22 +130,29 @@ a{
 
 
 /* =========================
-   CONTAINER
+   GLOBAL CONTAINER
 ========================= */
 
-.article-width{
 
-    width:min(90%,1440px);
+.article-width,
+.article-hero,
+.article-container,
+.article-author,
+.related-articles,
+.continue-reading{
 
-    margin:auto;
+
+    width:min(
+        var(--article-width),
+        calc(100% - (var(--article-padding) * 2))
+    );
+
+
+    margin-left:auto;
+
+    margin-right:auto;
 
 }
-
-.article-hero{
-    width:min(90%,1440px);
-    margin:0 auto;
-}
-
 
 /* =========================
    BREADCRUMBS
