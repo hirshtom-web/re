@@ -1519,3 +1519,192 @@ html, body{
     line-height:1;
 
 }
+
+
+/* ======================================
+   MOBILE FILTER DROPDOWNS
+====================================== */
+
+
+.mobile-filter-dropdown{
+
+    border-bottom:1px solid rgba(0,0,0,.08);
+
+}
+
+
+.mobile-filter-title{
+
+    width:100%;
+
+    height:60px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    background:none;
+
+    border:none;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#111;
+
+}
+
+
+.mobile-filter-title .material-symbols-outlined{
+
+    font-size:20px;
+
+    transition:.25s ease;
+
+}
+
+
+
+.mobile-filter-panel{
+
+    display:none;
+
+    padding-bottom:20px;
+
+}
+
+
+
+.mobile-filter-dropdown.open 
+.mobile-filter-panel{
+
+    display:block;
+
+}
+
+
+.mobile-filter-dropdown.open 
+.mobile-filter-title .material-symbols-outlined{
+
+    transform:rotate(180deg);
+
+}
+
+.mobile-search-box,
+.popup-search{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+
+.mobile-search-box .material-symbols-outlined,
+.popup-search .material-symbols-outlined{
+
+    position:absolute;
+
+    left:16px;
+
+    font-size:20px;
+
+    color:#777;
+
+}
+
+
+.mobile-search-box input,
+.popup-search input{
+
+    width:100%;
+
+    height:52px;
+
+    padding-left:48px !important;
+
+    border-radius:14px;
+
+}
+
+.range-slider{
+
+    position:relative;
+
+    height:35px;
+
+}
+
+
+.range-slider input[type="range"]{
+
+    position:absolute;
+
+    width:100%;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    background:none;
+
+    pointer-events:none;
+
+}
+
+
+.range-slider input[type="range"]::-webkit-slider-thumb{
+
+    pointer-events:auto;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#111;
+
+    border:none;
+
+    -webkit-appearance:none;
+
+}
+
+
+
+.slider-track{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    height:3px;
+
+    width:100%;
+
+    background:#ddd;
+
+    border-radius:10px;
+
+}
+
+.range-slider input{
+
+    border:none !important;
+
+    padding:0 !important;
+
+    background:transparent !important;
+
+}
+
+
