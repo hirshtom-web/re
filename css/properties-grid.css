@@ -356,3 +356,18 @@ MAP VIEW
 
 
 
+/* DESKTOP RESET */
+@media(min-width:901px){
+
+    .filter-sheet,
+    .filter-sheet-footer,
+    .filter-content,
+    .mobile-property-preview,
+    .mobile-map-layout,
+    .mobile-filter-button{
+
+        display:none !important;
+
+    }
+
+}
