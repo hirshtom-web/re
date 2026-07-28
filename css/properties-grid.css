@@ -26,7 +26,30 @@ body{
 
 }
 
+/* =========================
+header for search
+========================= */
 
+.search-page .navbar {
+    width: 220px;
+    overflow: hidden;
+    transition: width .35s ease;
+}
+
+.search-page .header:hover .navbar {
+    width: min(1000px, calc(100% - 40px));
+}
+
+.search-page .nav-links {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+
+.search-page .header:hover .nav-links {
+    opacity: 1;
+    pointer-events: auto;
+}
 
 /* GRID */
 
