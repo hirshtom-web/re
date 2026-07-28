@@ -668,4 +668,30 @@
 
 
 
+.mobile-filter-button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+
+.filter-icon{
+
+    font-size:12px;
+
+}
+
+
+@media(min-width:901px){
+
+    .mobile-filter-button{
+
+        display:none !important;
+
+    }
+
 }
