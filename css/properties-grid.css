@@ -1101,6 +1101,19 @@ html, body{
    MOBILE FILTER SHEET
 ====================================== */
 
+/* ======================================
+   MOBILE FILTER SHEET - BASE
+====================================== */
+
+.filter-sheet{
+    display:none;
+}
+
+
+/* ======================================
+   MOBILE FILTER SHEET CONTENT
+====================================== */
+
 .filter-sheet input,
 .filter-sheet textarea,
 .filter-sheet select{
@@ -1134,6 +1147,10 @@ html, body{
 }
 
 
+/* ==========================
+   PRICE
+========================== */
+
 .filter-sheet .price-chart{
     margin-bottom:18px;
 }
@@ -1161,6 +1178,10 @@ html, body{
 }
 
 
+/* ==========================
+   FOOTER
+========================== */
+
 .filter-sheet-footer{
     position:sticky;
     bottom:0;
@@ -1175,9 +1196,10 @@ html, body{
     border-top:1px solid #eee;
 }
 
-.filter-sheet{
-    display:none;
-}
+
+/* ======================================
+   MOBILE ONLY
+====================================== */
 
 @media (max-width:900px){
 
