@@ -259,11 +259,9 @@ function addNearbyProperties(){
 
 
 
-        marker.addEventListener(
-
-            "gmp-click",
-
-            ()=>{
+        marker.addListener(
+    "gmp-click",
+    ()=>{
 
                 info.open({
 
