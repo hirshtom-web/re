@@ -12,9 +12,6 @@
     display:none !important;
 }
     
-}
-
-    @media(max-width:900px){
 
 /* FULL SCREEN MAP */
 
@@ -259,64 +256,7 @@ FILTER SHEET
     user-select:none;
 
 }
-    
 
-}
-
-
-/* =========================
-DESKTOP ONLY
-HIDE MOBILE UI
-========================= */
-
-@media(min-width:901px){
-
-    .mobile-map-layout,
-    .mobile-filter-button{
-
-        display:none !important;
-
-    }
-
-}
-
-
-/* =========================
-MOBILE ONLY
-HIDE DESKTOP UI
-========================= */
-
-@media(max-width:900px){
-
-    .desktop-filters,
-    .properties-layout,
-    .properties-scroll,
-    .map-container{
-
-        display:none !important;
-
-    }
-
-}
-
-@media (max-width:900px){
-
-    .properties-scroll{
-
-        display:none !important;
-
-    }
-
-    
-    .sheet-content .properties-grid{
-
-    margin-top:0;
-
-    padding-top:0px;
-
-}
-
-}
 
 
 .filter-sheet-handle{
@@ -360,7 +300,6 @@ HIDE DESKTOP UI
    MOBILE FILTER SHEET
 ========================================================= */
 
-@media (max-width: 900px) {
 
     .filter-sheet {
         position: fixed;
@@ -517,14 +456,11 @@ HIDE DESKTOP UI
         background: #fff;
     }
 
-}
 
 
 /* ======================================
    MOBILE MARKER PROPERTY PREVIEW
 ====================================== */
-
-@media (max-width: 900px) {
 
 
     .mobile-property-preview {
@@ -671,8 +607,6 @@ HIDE DESKTOP UI
     }
 
 
-}
-
 
 
 
@@ -681,7 +615,6 @@ HIDE DESKTOP UI
    FINAL MOBILE SHEET FIX
 ====================================== */
 
-@media (max-width:900px){
 
 
     /* FILTER SHEET MUST STAY HIDDEN */
@@ -728,16 +661,6 @@ HIDE DESKTOP UI
         z-index:1200;
 
     }
-
-
-}
-
-
-html, body{
-    overflow-x:hidden;
-}
-
-
 
 
 
@@ -929,15 +852,12 @@ html, body{
    MOBILE ONLY
 ====================================== */
 
-@media (max-width:900px){
-
     .filter-sheet{
 
         display:block;
 
     }
 
-}
 
 .mobile-search-box{
     width:100%;
@@ -1088,7 +1008,6 @@ html, body{
    FINAL FILTER SHEET TOUCH FIX
 ====================================== */
 
-@media(max-width:900px){
 
     .filter-sheet{
 
@@ -1135,7 +1054,6 @@ html, body{
 
     }
 
-}
 
 .mobile-filter-button{
 
@@ -1350,8 +1268,11 @@ html, body{
 }
 
 
-/* DESKTOP RESET */
-@media(min-width:901px){
+/* ==========================================
+   DESKTOP ONLY
+========================================== */
+
+@media (min-width:901px){
 
     .filter-sheet,
     .filter-sheet-footer,
@@ -1363,5 +1284,37 @@ html, body{
         display:none !important;
 
     }
+
+}
+
+
+/* ==========================================
+   MOBILE ONLY
+========================================== */
+
+@media (max-width:900px){
+
+    .desktop-filters,
+    .properties-layout,
+    .properties-scroll,
+    .map-container{
+
+        display:none !important;
+
+    }
+
+    .sheet-content .properties-grid{
+
+        margin-top:0;
+        padding-top:0;
+
+    }
+
+}
+
+html,
+body{
+
+    overflow-x:hidden;
 
 }
