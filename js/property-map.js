@@ -22,42 +22,44 @@ async function initMap(){
 
 
 
+    // WAIT FOR PROPERTY DATA
+
+    let attempts = 0;
+
+
+    while(!window.currentProperty && attempts < 50){
+
+        await new Promise(
+            resolve => setTimeout(resolve,100)
+        );
+
+        attempts++;
+
+    }
+
+
+
     if(!window.currentProperty){
 
         console.error(
-            "No current property loaded"
+            "Property never loaded"
         );
 
         return;
 
     }
+
+
+
+    console.log(
+        "MAP USING PROPERTY:",
+        window.currentProperty.id
+    );
 
 
 
     const coords =
     window.currentProperty.coordinates;
-
-
-
-    if(!coords){
-
-        console.error(
-            "Property coordinates missing"
-        );
-
-        return;
-
-    }
-
-
-
-    const center = {
-
-        lat:Number(coords.lat),
-
-        lng:Number(coords.lng)
-
-    };
 
 
 
@@ -68,34 +70,26 @@ async function initMap(){
 
         {
 
-            center:center,
+            center:{
+                lat:Number(coords.lat),
+                lng:Number(coords.lng)
+            },
 
-            zoom:14,
-
+            zoom:15,
 
             mapId:"d44ebce34f2241f5985860cf",
 
-
             mapTypeControl:false,
-
             streetViewControl:false,
-
             fullscreenControl:false,
-
-            rotateControl:false,
-
-
-            gestureHandling:"greedy"
+            rotateControl:false
 
         }
 
     );
 
 
-
     addMainProperty();
-
-
 
     addNearbyProperties();
 
