@@ -700,3 +700,16 @@
     }
 
 }
+
+
+@media(max-width:900px){
+
+    .results-count,
+    .properties-count,
+    .search-results-header,
+    .results-header,
+    .property-count{
+        display:none !important;
+    }
+
+}
