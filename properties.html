@@ -828,22 +828,36 @@ MOBILE MAP + SHEETS
 
             <div class="mobile-filter-section">
 
-                <h3>Location</h3>
+              <div class="mobile-filter-dropdown">
 
-                <div class="popup-search">
+    <button class="mobile-filter-title">
+        <span>Location</span>
 
-                    <span class="material-symbols-outlined">
-                        search
-                    </span>
+        <span class="material-symbols-outlined">
+            keyboard_arrow_down
+        </span>
+    </button>
 
-                    <input
-                        id="mobile-location-search"
-                        type="text"
-                        placeholder="Search locations...">
 
-                </div>
+    <div class="mobile-filter-panel">
 
-                <div class="popup-options">
+        <div class="popup-search">
+
+            <span class="material-symbols-outlined">
+                search
+            </span>
+
+            <input
+            id="mobile-location-search"
+            type="text"
+            placeholder="Search locations...">
+
+        </div>
+
+
+        <div class="popup-options">
+
+            <!-- your location buttons stay here -->
 
                     <button data-value="">All Locations</button>
 
@@ -876,9 +890,11 @@ MOBILE MAP + SHEETS
                     <button data-value="West Palm Beach">West Palm Beach</button>
                     <button data-value="Wynwood Miami">Wynwood Miami</button>
 
-                </div>
+        </div>
 
-            </div>
+    </div>
+
+</div>
 
 
 
