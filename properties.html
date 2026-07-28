@@ -665,31 +665,30 @@ DESKTOP MAP + GRID
 MOBILE MAP + SHEETS
 ========================= -->
 
+<div id="mobile-filters-root" class="mobile-map-layout">
 
-<!-- =========================
-MOBILE MAP + SHEETS
-========================= -->
-
-<div class="mobile-map-layout">
-
-    <!-- FULL SCREEN MOBILE MAP -->
 
     <div id="mobile-map"></div>
+
 
     <div
         id="mobile-property-preview"
         class="mobile-property-preview">
     </div>
 
-    <!-- FILTER BUTTON -->
 
-    <button class="mobile-filter-button" type="button">
+    <button 
+        class="mobile-filter-button"
+        type="button">
         ⚙ Filters
     </button>
 
-    <!-- PROPERTY BOTTOM SHEET -->
+
+
+    <!-- PROPERTY SHEET -->
 
     <div class="property-sheet">
+
 
         <div class="sheet-header">
 
@@ -701,6 +700,7 @@ MOBILE MAP + SHEETS
 
         </div>
 
+
         <div class="sheet-content">
 
             <div
@@ -710,37 +710,48 @@ MOBILE MAP + SHEETS
 
         </div>
 
+
     </div>
 
 
 
-    <!-- =========================
-    FILTER SHEET
-    ========================= -->
+
+
+    <!-- FILTER SHEET -->
 
     <div class="filter-sheet">
 
+
         <div class="filter-sheet-handle"></div>
+
 
         <div class="filter-sheet-header">
             Filters
         </div>
 
+
+
         <div class="filter-content">
 
-            <!-- =========================
-            SEARCH
-            ========================= -->
+
+
+            <!-- SEARCH -->
 
             <div class="mobile-filter-section">
 
-                <h3>Search</h3>
 
-                <div class="search-box">
+                <h3>
+                    Search
+                </h3>
+
+
+                <div class="mobile-search-box">
+
 
                     <span class="material-symbols-outlined">
                         search
                     </span>
+
 
                     <input
                         id="mobile-property-search"
@@ -749,248 +760,351 @@ MOBILE MAP + SHEETS
 
                 </div>
 
+
             </div>
 
 
 
-            <!-- =========================
-            PRICE
-            ========================= -->
-
-           <div class="mobile-filter-section">
-
-    <h3>Price</h3>
-
-    <div class="price-chart">
-
-        <div style="height:20%"></div>
-        <div style="height:45%"></div>
-        <div style="height:80%"></div>
-        <div style="height:100%"></div>
-        <div style="height:60%"></div>
-        <div style="height:30%"></div>
-
-    </div>
 
 
-    <div class="range-slider">
-
-    <div class="slider-track"></div>
-
-    <input
-        id="mobile-min-range"
-        type="range"
-        min="0"
-        max="20000000"
-        value="500000">
-
-    <input
-        id="mobile-max-range"
-        type="range"
-        min="0"
-        max="20000000"
-        value="10000000">
-
-</div>
-
-
-<div class="price-range-values">
-
-    <input
-        id="mobile-min-price"
-        type="number"
-        value="500000">
-
-    <input
-        id="mobile-max-price"
-        type="number"
-        value="10000000">
-
-</div>
-
-
-</div>
-            
-
-               
-
-
-            <!-- =========================
-            LOCATION
-            ========================= -->
+            <!-- PRICE -->
 
             <div class="mobile-filter-section">
 
-                <h3>Location</h3>
 
-                <div class="popup-search">
+                <h3>
+                    Price
+                </h3>
+
+
+                <div class="mobile-price-chart">
+
+                    <div style="height:20%"></div>
+                    <div style="height:45%"></div>
+                    <div style="height:80%"></div>
+                    <div style="height:100%"></div>
+                    <div style="height:60%"></div>
+                    <div style="height:30%"></div>
+
+                </div>
+
+
+
+                <div class="mobile-range-slider">
+
+
+                    <div class="mobile-slider-track"></div>
+
+
+                    <input
+                        id="mobile-min-range"
+                        type="range"
+                        min="0"
+                        max="20000000"
+                        value="500000">
+
+
+                    <input
+                        id="mobile-max-range"
+                        type="range"
+                        min="0"
+                        max="20000000"
+                        value="10000000">
+
+
+                </div>
+
+
+
+
+                <div class="mobile-price-range-values">
+
+
+                    <input
+                        id="mobile-min-price"
+                        type="number"
+                        value="500000">
+
+
+                    <input
+                        id="mobile-max-price"
+                        type="number"
+                        value="10000000">
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- LOCATION -->
+
+            <div class="mobile-filter-section">
+
+
+                <h3>
+                    Location
+                </h3>
+
+
+
+                <div class="mobile-popup-search">
+
 
                     <span class="material-symbols-outlined">
                         search
                     </span>
+
 
                     <input
                         id="mobile-location-search"
                         type="text"
                         placeholder="Search locations...">
 
-                </div>
-
-                <div class="popup-options">
-
-                    <button data-value="">All Locations</button>
-
-                    <button data-value="Aventura">Aventura</button>
-                    <button data-value="Bal Harbour">Bal Harbour</button>
-                    <button data-value="Bay Harbor Islands">Bay Harbor Islands</button>
-                    <button data-value="Boca Raton">Boca Raton</button>
-                    <button data-value="Brickell">Brickell</button>
-                    <button data-value="Brickell Key">Brickell Key</button>
-                    <button data-value="Coconut Grove">Coconut Grove</button>
-                    <button data-value="Coral Gables">Coral Gables</button>
-                    <button data-value="Downtown Miami">Downtown Miami</button>
-                    <button data-value="Edgewater">Edgewater</button>
-                    <button data-value="Fisher Island">Fisher Island</button>
-                    <button data-value="Fort Lauderdale">Fort Lauderdale</button>
-                    <button data-value="Hallandale Beach">Hallandale Beach</button>
-                    <button data-value="Hollywood">Hollywood</button>
-                    <button data-value="Miami Beach">Miami Beach</button>
-                    <button data-value="Miami River">Miami River</button>
-                    <button data-value="Midtown Miami">Midtown Miami</button>
-                    <button data-value="North Bay Village">North Bay Village</button>
-                    <button data-value="North Miami">North Miami</button>
-                    <button data-value="North Miami Beach">North Miami Beach</button>
-                    <button data-value="Palm Beach">Palm Beach</button>
-                    <button data-value="Palm Beach Gardens">Palm Beach Gardens</button>
-                    <button data-value="Pompano Beach">Pompano Beach</button>
-                    <button data-value="South Beach">South Beach</button>
-                    <button data-value="Sunny Isles Beach">Sunny Isles Beach</button>
-                    <button data-value="Surfside">Surfside</button>
-                    <button data-value="West Palm Beach">West Palm Beach</button>
-                    <button data-value="Wynwood Miami">Wynwood Miami</button>
 
                 </div>
+
+
+
+
+                <div class="mobile-popup-options">
+
+
+                    <button data-value="">
+                        All Locations
+                    </button>
+
+                    <button data-value="Aventura">
+                        Aventura
+                    </button>
+
+                    <button data-value="Bal Harbour">
+                        Bal Harbour
+                    </button>
+
+                    <button data-value="Brickell">
+                        Brickell
+                    </button>
+
+                    <button data-value="Brickell Key">
+                        Brickell Key
+                    </button>
+
+                    <button data-value="Coconut Grove">
+                        Coconut Grove
+                    </button>
+
+                    <button data-value="Coral Gables">
+                        Coral Gables
+                    </button>
+
+                    <button data-value="Downtown Miami">
+                        Downtown Miami
+                    </button>
+
+                    <button data-value="Miami Beach">
+                        Miami Beach
+                    </button>
+
+                    <button data-value="Sunny Isles Beach">
+                        Sunny Isles Beach
+                    </button>
+
+                    <button data-value="Wynwood Miami">
+                        Wynwood Miami
+                    </button>
+
+
+                </div>
+
 
             </div>
 
 
 
-            <!-- =========================
-            PROPERTY TYPE
-            ========================= -->
+
+
+
+
+            <!-- PROPERTY TYPE -->
 
             <div class="mobile-filter-section">
 
-                <h3>Property Type</h3>
 
-                <div class="popup-options">
+                <h3>
+                    Property Type
+                </h3>
+
+
+                <div class="mobile-popup-options">
+
 
                     <button data-value="">
                         All Property Types
                     </button>
 
+
                     <button data-value="New Construction">
                         New Construction
                     </button>
+
 
                     <button data-value="Pre-Construction">
                         Pre-Construction
                     </button>
 
+
                     <button data-value="Other">
                         Other
                     </button>
 
+
                 </div>
+
 
             </div>
 
 
 
-            <!-- =========================
-            COMPLETION
-            ========================= -->
+
+
+
+
+            <!-- COMPLETION -->
 
             <div class="mobile-filter-section">
 
-                <h3>Completed By</h3>
 
-                <div class="popup-options">
+                <h3>
+                    Completed By
+                </h3>
+
+
+                <div class="mobile-popup-options">
+
 
                     <button data-value="">
                         Any
                     </button>
 
-                    <button data-value="2026">2026</button>
-                    <button data-value="2027">2027</button>
-                    <button data-value="2028">2028</button>
-                    <button data-value="2029">2029</button>
-                    <button data-value="2030">2030+</button>
+
+                    <button data-value="2026">
+                        2026
+                    </button>
+
+
+                    <button data-value="2027">
+                        2027
+                    </button>
+
+
+                    <button data-value="2028">
+                        2028
+                    </button>
+
+
+                    <button data-value="2029">
+                        2029
+                    </button>
+
+
+                    <button data-value="2030">
+                        2030+
+                    </button>
+
 
                 </div>
+
 
             </div>
 
 
 
-            <!-- =========================
-            SORT
-            ========================= -->
+
+
+
+
+
+            <!-- SORT -->
 
             <div class="mobile-filter-section">
 
-                <h3>Sort By</h3>
 
-                <div class="popup-options">
+                <h3>
+                    Sort By
+                </h3>
+
+
+                <div class="mobile-popup-options">
+
 
                     <button data-value="">
                         Default
                     </button>
 
+
                     <button data-value="price-low">
                         Price: Low to High
                     </button>
+
 
                     <button data-value="price-high">
                         Price: High to Low
                     </button>
 
+
                     <button data-value="name">
-                        Name A–Z
+                        Name A-Z
                     </button>
+
 
                     <button data-value="location">
                         Location
                     </button>
 
+
                 </div>
+
 
             </div>
 
+
+
         </div>
 
 
 
-        <!-- =========================
-        STICKY FOOTER
-        ========================= -->
+
+
+
 
         <div class="filter-sheet-footer">
 
-            <button class="reset-filter">
+
+            <button class="mobile-reset-filter">
                 Reset
             </button>
 
-            <button class="apply-filter">
+
+            <button class="mobile-apply-filter">
                 Apply Filters
             </button>
 
+
         </div>
+
+
 
     </div>
 
-</div>
-    
+
+</div>    
     
 
     
