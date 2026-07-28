@@ -1303,3 +1303,23 @@ html, body{
     }
 
 }
+
+.mobile-search-box{
+    width:100%;
+}
+
+.mobile-search-box input{
+    font-size:16px !important;
+}
+
+/* iOS prevent zoom on mobile price inputs */
+
+#mobile-min-price,
+#mobile-max-price,
+#mobile-property-search,
+#mobile-location-search{
+
+    font-size:16px !important;
+    line-height:1.3 !important;
+
+}
