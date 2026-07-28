@@ -3,7 +3,6 @@ let propertyMap;
 let AdvancedMarkerElement;
 
 
-
 // ======================================
 // INIT MAP
 // ======================================
@@ -38,10 +37,26 @@ async function initMap(){
     }
 
 
+    const mapContainer =
+    document.getElementById("property-map");
+
+
+    if(!mapContainer){
+
+        console.error(
+            "Map container missing"
+        );
+
+        return;
+
+    }
+
+
+
     propertyMap =
     new google.maps.Map(
 
-        document.getElementById("property-map"),
+        mapContainer,
 
         {
 
@@ -72,7 +87,9 @@ async function initMap(){
 
     addPointsOfInterest();
 
+
 }
+
 
 
 // ======================================
@@ -125,34 +142,49 @@ function createPricePill(value){
 
 function addMainProperty(){
 
-    const pin = document.createElement("div");
+    const pin =
+    document.createElement("div");
+
 
     pin.style.background = "black";
     pin.style.color = "white";
     pin.style.padding = "10px 15px";
     pin.style.borderRadius = "30px";
     pin.style.fontSize = "14px";
-    pin.innerText = "$5M+";
+
+
+    pin.innerText =
+    window.currentProperty.price || "$5M+";
+
 
 
     const marker =
     new AdvancedMarkerElement({
 
-        map: propertyMap,
+        map:propertyMap,
 
         position:{
-    lat:Number(window.currentProperty.coordinates.lat),
-    lng:Number(window.currentProperty.coordinates.lng)
-},
+            lat:Number(
+                window.currentProperty.coordinates.lat
+            ),
+
+            lng:Number(
+                window.currentProperty.coordinates.lng
+            )
+        },
 
         content:pin
 
     });
 
 
-    console.log("MARKER CREATED", marker);
+    console.log(
+        "MAIN PROPERTY MARKER CREATED",
+        marker
+    );
 
 }
+
 
 
 
@@ -162,7 +194,13 @@ function addMainProperty(){
 
 function addSoldProperties(){
 
-    if(!window.soldProperties){
+
+    const soldProperties =
+    window.currentProperty.soldProperties;
+
+
+
+    if(!soldProperties){
 
         console.warn(
             "No sold properties found"
@@ -173,7 +211,8 @@ function addSoldProperties(){
     }
 
 
-    window.soldProperties.forEach(property=>{
+
+    soldProperties.forEach(property=>{
 
 
         new AdvancedMarkerElement({
@@ -181,13 +220,15 @@ function addSoldProperties(){
             map:propertyMap,
 
             position:{
-                lat:property.lat,
-                lng:property.lng
+                lat:Number(property.lat),
+                lng:Number(property.lng)
             },
 
             title:property.title,
 
-            content:createPricePill(property.price)
+            content:createPricePill(
+                property.price
+            )
 
         });
 
@@ -200,13 +241,20 @@ function addSoldProperties(){
 
 
 
+
 // ======================================
-// DEVELOPMENTS
+// DEVELOPMENTS / NEARBY
 // ======================================
 
 function addNearbyProperties(){
 
-    if(!window.nearbyProperties){
+
+    const nearbyProperties =
+    window.currentProperty.nearby;
+
+
+
+    if(!nearbyProperties){
 
         console.warn(
             "No nearby properties found"
@@ -217,7 +265,8 @@ function addNearbyProperties(){
     }
 
 
-    window.nearbyProperties.forEach(property=>{
+
+    nearbyProperties.forEach(property=>{
 
 
         const marker =
@@ -226,13 +275,15 @@ function addNearbyProperties(){
             map:propertyMap,
 
             position:{
-                lat:property.lat,
-                lng:property.lng
+                lat:Number(property.lat),
+                lng:Number(property.lng)
             },
 
             title:property.title,
 
-            content:createPricePill(property.price)
+            content:createPricePill(
+                property.price
+            )
 
         });
 
@@ -245,11 +296,17 @@ function addNearbyProperties(){
 
             <div>
 
-                <h4>${property.title}</h4>
+                <h4>
+                    ${property.title || ""}
+                </h4>
 
-                <p>${property.status}</p>
+                <p>
+                    ${property.status || ""}
+                </p>
 
-                <strong>${property.price}</strong>
+                <strong>
+                    ${property.price || ""}
+                </strong>
 
             </div>
 
@@ -260,8 +317,9 @@ function addNearbyProperties(){
 
 
         marker.addListener(
-    "gmp-click",
-    ()=>{
+            "gmp-click",
+            ()=>{
+
 
                 info.open({
 
@@ -271,8 +329,8 @@ function addNearbyProperties(){
 
                 });
 
-            }
 
+            }
         );
 
 
@@ -284,13 +342,20 @@ function addNearbyProperties(){
 
 
 
+
 // ======================================
-// POI
+// POINTS OF INTEREST
 // ======================================
 
 function addPointsOfInterest(){
 
-    if(!window.pointsOfInterest){
+
+    const pointsOfInterest =
+    window.currentProperty.pointsOfInterest;
+
+
+
+    if(!pointsOfInterest){
 
         console.warn(
             "No points of interest found"
@@ -301,7 +366,8 @@ function addPointsOfInterest(){
     }
 
 
-    window.pointsOfInterest.forEach(place=>{
+
+    pointsOfInterest.forEach(place=>{
 
 
         new AdvancedMarkerElement({
@@ -309,13 +375,15 @@ function addPointsOfInterest(){
             map:propertyMap,
 
             position:{
-                lat:place.lat,
-                lng:place.lng
+                lat:Number(place.lat),
+                lng:Number(place.lng)
             },
 
             title:place.name,
 
-            content:createPricePill(place.name)
+            content:createPricePill(
+                place.name
+            )
 
         });
 
