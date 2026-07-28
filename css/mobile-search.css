@@ -723,3 +723,15 @@
     }
 
 }
+
+/* =====================================
+   HIDE MOBILE PROPERTY SHEET DESKTOP
+===================================== */
+
+@media (min-width:901px){
+
+    .property-sheet{
+        display:none !important;
+    }
+
+}
