@@ -1098,14 +1098,9 @@ html, body{
 
 
 /* ======================================
-  MOBILE FILTERS
+   MOBILE FILTER SHEET
 ====================================== */
 
-/* ======================================
-  MOBILE FILTERS
-====================================== */
-
-/* Prevent iOS Safari zoom */
 .filter-sheet input,
 .filter-sheet textarea,
 .filter-sheet select{
@@ -1115,8 +1110,6 @@ html, body{
     appearance:none;
 }
 
-/* Search */
-
 .filter-sheet .search-box{
     width:100%;
 }
@@ -1125,7 +1118,6 @@ html, body{
     font-size:16px;
 }
 
-/* Sections */
 
 .mobile-filter-section{
     margin-top:32px;
@@ -1141,9 +1133,6 @@ html, body{
     margin-bottom:14px;
 }
 
-/* ==========================
-   PRICE
-========================== */
 
 .filter-sheet .price-chart{
     margin-bottom:18px;
@@ -1171,9 +1160,6 @@ html, body{
     background:#fff;
 }
 
-/* ==========================
-   FOOTER
-========================== */
 
 .filter-sheet-footer{
     position:sticky;
@@ -1187,4 +1173,16 @@ html, body{
     background:#fff;
 
     border-top:1px solid #eee;
+}
+
+.filter-sheet{
+    display:none;
+}
+
+@media (max-width:900px){
+
+    .filter-sheet{
+        display:block;
+    }
+
 }
