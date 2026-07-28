@@ -452,7 +452,6 @@
 }
 
 
-
 .mobile-popup-options button{
 
     width:100%;
@@ -474,10 +473,27 @@
 }
 
 
-
 .mobile-popup-options button:last-child{
 
     border-bottom:none;
+
+}
+
+
+/* COLLAPSED STATE */
+
+.mobile-filter-section .mobile-popup-options{
+
+    display:none;
+
+}
+
+
+/* OPEN STATE */
+
+.mobile-filter-section.open .mobile-popup-options{
+
+    display:block;
 
 }
 
