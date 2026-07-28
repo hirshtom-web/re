@@ -1,7 +1,3 @@
-// ======================================
-// PROPERTY MAP CONTROLLER
-// ======================================
-
 let propertyMap;
 
 let AdvancedMarkerElement;
@@ -14,15 +10,32 @@ let AdvancedMarkerElement;
 
 async function initMap(){
 
-
-    // Load marker library first
-
     const { AdvancedMarkerElement: MarkerClass } =
     await google.maps.importLibrary("marker");
 
-
     AdvancedMarkerElement = MarkerClass;
 
+
+    if(!window.currentProperty){
+
+        console.error(
+            "No current property loaded"
+        );
+
+        return;
+
+    }
+
+
+    if(!window.currentProperty.coordinates){
+
+        console.error(
+            "Property coordinates missing"
+        );
+
+        return;
+
+    }
 
 
     propertyMap =
@@ -32,46 +45,19 @@ async function initMap(){
 
         {
 
-            center:window.currentProperty.coordinates,
+            center:{
+                lat:Number(window.currentProperty.coordinates.lat),
+                lng:Number(window.currentProperty.coordinates.lng)
+            },
 
             zoom:17,
 
             mapId:"d44ebce34f2241f5985860cf",
 
-
             mapTypeControl:false,
-
             streetViewControl:false,
-
             fullscreenControl:false,
-
-            rotateControl:false,
-
-
-
-            styles:[
-
-                {
-                    featureType:"poi",
-
-                    stylers:[
-                        {
-                            visibility:"off"
-                        }
-                    ]
-                },
-
-                {
-                    featureType:"transit",
-
-                    stylers:[
-                        {
-                            visibility:"off"
-                        }
-                    ]
-                }
-
-            ]
+            rotateControl:false
 
         }
 
@@ -86,9 +72,7 @@ async function initMap(){
 
     addPointsOfInterest();
 
-
 }
-
 
 
 // ======================================
@@ -178,8 +162,18 @@ function addMainProperty(){
 
 function addSoldProperties(){
 
+    if(!window.soldProperties){
 
-    soldProperties.forEach(property=>{
+        console.warn(
+            "No sold properties found"
+        );
+
+        return;
+
+    }
+
+
+    window.soldProperties.forEach(property=>{
 
 
         new AdvancedMarkerElement({
@@ -212,8 +206,18 @@ function addSoldProperties(){
 
 function addNearbyProperties(){
 
+    if(!window.nearbyProperties){
 
-    nearbyProperties.forEach(property=>{
+        console.warn(
+            "No nearby properties found"
+        );
+
+        return;
+
+    }
+
+
+    window.nearbyProperties.forEach(property=>{
 
 
         const marker =
@@ -288,8 +292,18 @@ function addNearbyProperties(){
 
 function addPointsOfInterest(){
 
+    if(!window.pointsOfInterest){
 
-    pointsOfInterest.forEach(place=>{
+        console.warn(
+            "No points of interest found"
+        );
+
+        return;
+
+    }
+
+
+    window.pointsOfInterest.forEach(place=>{
 
 
         new AdvancedMarkerElement({
