@@ -164,14 +164,14 @@ function addMainProperty(){
         map:propertyMap,
 
         position:{
-            lat:Number(
-                window.currentProperty.coordinates.lat
-            ),
+    lat:Number(
+        window.currentProperty.coordinates?.lat || 25.7617
+    ),
 
-            lng:Number(
-                window.currentProperty.coordinates.lng
-            )
-        },
+    lng:Number(
+        window.currentProperty.coordinates?.lng || -80.1918
+    )
+},
 
         content:pin
 
