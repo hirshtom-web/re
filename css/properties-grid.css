@@ -1101,18 +1101,31 @@ html, body{
   MOBILE FILTERS
 ====================================== */
 
+/* ======================================
+  MOBILE FILTERS
+====================================== */
+
+/* Prevent iOS Safari zoom */
 .filter-sheet input,
-.filter-sheet select,
-.filter-sheet textarea {
-    font-size: 16px;
+.filter-sheet textarea,
+.filter-sheet select{
+    font-size:16px;
+    line-height:1.3;
+    -webkit-appearance:none;
+    appearance:none;
 }
 
+/* Search */
 
-
-.filter-sheet input {
-    font-size: 16px;
-    line-height: 1.3;
+.filter-sheet .search-box{
+    width:100%;
 }
+
+.filter-sheet .search-box input{
+    font-size:16px;
+}
+
+/* Sections */
 
 .mobile-filter-section{
     margin-top:32px;
@@ -1127,6 +1140,40 @@ html, body{
     font-weight:600;
     margin-bottom:14px;
 }
+
+/* ==========================
+   PRICE
+========================== */
+
+.filter-sheet .price-chart{
+    margin-bottom:18px;
+}
+
+.filter-sheet .range-slider{
+    margin-bottom:20px;
+}
+
+.filter-sheet .price-range-values{
+    display:flex;
+    gap:12px;
+}
+
+.filter-sheet .price-range-values input{
+    flex:1;
+    height:48px;
+    padding:0 14px;
+
+    font-size:16px;
+
+    border:1px solid #ddd;
+    border-radius:12px;
+
+    background:#fff;
+}
+
+/* ==========================
+   FOOTER
+========================== */
 
 .filter-sheet-footer{
     position:sticky;
