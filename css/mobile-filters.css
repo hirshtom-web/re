@@ -1,156 +1,65 @@
 /* =====================================
-   MOBILE FILTER SYSTEM
+   MOBILE FILTER EXPERIENCE
 ===================================== */
-
 
 @media (max-width:900px){
 
 
-/* =========================
-   HIDE DESKTOP
-========================= */
-
-
-.desktop-filters,
-.properties-layout{
-
-    display:none;
-
-}
-
-
-/* =========================
-   MOBILE MAP
-========================= */
-
+/* MAIN MOBILE LAYOUT */
 
 .mobile-map-layout{
 
-    display:block;
-
-    position:fixed;
-
-    inset:0;
-
+    position:relative;
+    width:100%;
+    height:100vh;
     overflow:hidden;
-
-    background:#f5f5f5;
 
 }
 
 
+
+/* MAP */
 
 #mobile-map{
 
     position:absolute;
-
     inset:0;
-
-    width:100%;
-
-    height:100%;
+    z-index:1;
 
 }
 
 
 
-/* =========================
-   FILTER BUTTON
-========================= */
-
+/* FILTER BUTTON */
 
 .mobile-filter-button{
 
     position:absolute;
 
     top:20px;
-
-    left:20px;
+    right:20px;
 
     z-index:20;
 
-    background:white;
+    background:#111;
+    color:white;
 
     border:none;
 
+    padding:12px 18px;
+
     border-radius:30px;
 
-    padding:14px 22px;
-
     font-size:15px;
-
-    font-weight:600;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
-
-}
-
-
-
-/* =========================
-   PROPERTY SHEET
-========================= */
-
-
-.property-sheet{
-
-    position:absolute;
-
-    bottom:0;
-
-    left:0;
-
-    right:0;
-
-    height:38vh;
-
-    background:white;
-
-    border-radius:28px 28px 0 0;
-
-    z-index:10;
-
-    overflow:hidden;
-
-}
-
-
-.sheet-header{
-
-    height:55px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
     font-weight:600;
 
 }
 
 
-.sheet-handle{
 
-    position:absolute;
-
-    top:10px;
-
-    width:45px;
-
-    height:5px;
-
-    background:#ddd;
-
-    border-radius:10px;
-
-}
-
-
-
-/* =========================
+/* =====================================
    FILTER SHEET
-========================= */
+===================================== */
 
 
 .filter-sheet{
@@ -158,7 +67,6 @@
     position:absolute;
 
     left:0;
-
     right:0;
 
     bottom:0;
@@ -167,20 +75,30 @@
 
     background:white;
 
+    z-index:30;
+
+
     border-radius:28px 28px 0 0;
 
-    z-index:50;
+
+    transform:translateY(100%);
+
+    transition:
+    transform .35s ease;
+
 
     display:flex;
 
     flex-direction:column;
 
-    transform:translateY(100%);
 
-    transition:.3s ease;
+    box-shadow:
+    0 -10px 30px rgba(0,0,0,.18);
 
 }
 
+
+/* OPEN STATE */
 
 .filter-sheet.active{
 
@@ -190,29 +108,32 @@
 
 
 
-.filter-sheet-handle{
+/* HANDLE */
+
+
+.filter-sheet-handle,
+.sheet-handle{
 
     width:45px;
 
     height:5px;
 
-    background:#ddd;
+    background:#ccc;
 
     border-radius:20px;
 
-    margin:12px auto;
+    margin:14px auto;
 
 }
 
 
 
+
 .filter-sheet-header{
 
-    padding:15px;
+    padding:0 20px 15px;
 
-    text-align:center;
-
-    font-size:18px;
+    font-size:20px;
 
     font-weight:700;
 
@@ -222,30 +143,103 @@
 
 
 
+/* SCROLL AREA */
+
+
 .filter-content{
 
     flex:1;
 
     overflow-y:auto;
 
-    padding-bottom:90px;
+    padding:20px;
+
+    padding-bottom:120px;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+
+
+/* FOOTER */
+
+
+.filter-sheet-footer{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    right:0;
+
+    height:80px;
+
+
+    background:white;
+
+
+    border-top:1px solid #eee;
+
+
+    display:flex;
+
+    gap:12px;
+
+    padding:15px 20px;
+
+
+}
+
+
+
+.filter-sheet-footer button{
+
+    flex:1;
+
+    height:48px;
+
+    border-radius:25px;
+
+    border:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+
+
+.mobile-reset-filter{
+
+    background:#eee;
+
+}
+
+
+
+.mobile-apply-filter{
+
+    background:#111;
+
+    color:white;
 
 }
 
 
 
 
-
-/* =========================
-   SECTIONS
-========================= */
+/* =====================================
+   FILTER SECTIONS
+===================================== */
 
 
 .mobile-filter-section{
 
-    padding:18px;
-
-    border-bottom:1px solid #eee;
+    margin-bottom:22px;
 
 }
 
@@ -257,18 +251,22 @@
 
     font-size:16px;
 
-    font-weight:600;
+    font-weight:700;
+
+    color:#111;
 
 }
 
 
 
-/* =========================
+
+/* =====================================
    SEARCH
-========================= */
+===================================== */
 
 
-.mobile-search-box{
+.mobile-search-box,
+.mobile-popup-search{
 
     display:flex;
 
@@ -276,38 +274,44 @@
 
     gap:10px;
 
-    background:white;
-
-    border:1px solid #ddd;
-
-    border-radius:16px;
-
-    padding:0 14px;
 
     height:52px;
+
+    padding:0 15px;
+
+
+    border:
+
+    1px solid rgba(0,0,0,.12);
+
+
+    border-radius:14px;
+
+
+    background:white;
 
 }
 
 
-.mobile-search-box input{
+.mobile-search-box input,
+.mobile-popup-search input{
+
+    flex:1;
 
     border:none;
 
     outline:none;
 
-    flex:1;
-
-    height:100%;
+    font-size:15px;
 
 }
 
 
 
 
-
-/* =========================
+/* =====================================
    PRICE
-========================= */
+===================================== */
 
 
 .mobile-price-chart{
@@ -316,9 +320,11 @@
 
     display:flex;
 
-    gap:5px;
-
     align-items:flex-end;
+
+    gap:6px;
+
+    margin-bottom:20px;
 
 }
 
@@ -328,7 +334,7 @@
 
     flex:1;
 
-    background:#ddd;
+    background:#111;
 
     border-radius:5px 5px 0 0;
 
@@ -340,7 +346,27 @@
 
     position:relative;
 
-    height:45px;
+    height:35px;
+
+}
+
+
+
+.mobile-slider-track{
+
+    position:absolute;
+
+    top:15px;
+
+    left:0;
+
+    right:0;
+
+    height:4px;
+
+    background:#ddd;
+
+    border-radius:10px;
 
 }
 
@@ -354,6 +380,10 @@
 
     pointer-events:none;
 
+    appearance:none;
+
+    background:none;
+
 }
 
 
@@ -362,25 +392,17 @@
 
     pointer-events:auto;
 
-}
+    width:20px;
 
+    height:20px;
 
-
-.mobile-slider-track{
-
-    position:absolute;
-
-    top:20px;
-
-    width:100%;
-
-    height:4px;
+    border-radius:50%;
 
     background:#111;
 
+    appearance:none;
+
 }
-
-
 
 
 
@@ -388,7 +410,9 @@
 
     display:flex;
 
-    gap:10px;
+    gap:12px;
+
+    margin-top:15px;
 
 }
 
@@ -400,9 +424,9 @@
 
     height:45px;
 
-    border:1px solid #ddd;
-
     border-radius:12px;
+
+    border:1px solid #ddd;
 
     padding:0 12px;
 
@@ -410,14 +434,16 @@
 
 
 
-/* =========================
-   OPTIONS
-========================= */
+
+
+/* =====================================
+   ACCORDION OPTIONS
+===================================== */
 
 
 .mobile-popup-options{
 
-    border:1px solid #ddd;
+    border:1px solid rgba(0,0,0,.12);
 
     border-radius:16px;
 
@@ -431,7 +457,7 @@
 
     width:100%;
 
-    height:52px;
+    height:50px;
 
     background:white;
 
@@ -439,9 +465,9 @@
 
     border-bottom:1px solid #eee;
 
-    text-align:left;
-
     padding:0 16px;
+
+    text-align:left;
 
     font-size:15px;
 
@@ -459,12 +485,10 @@
 
 
 
-/* =========================
-   FOOTER
-========================= */
+/* PROPERTY SHEET ABOVE MAP */
 
 
-.filter-sheet-footer{
+.property-sheet{
 
     position:absolute;
 
@@ -474,56 +498,26 @@
 
     right:0;
 
-    height:75px;
+    height:35vh;
 
     background:white;
 
-    border-top:1px solid #eee;
+    z-index:10;
 
-    display:flex;
-
-    gap:12px;
-
-    padding:12px;
+    border-radius:25px 25px 0 0;
 
 }
 
 
 
-.mobile-reset-filter,
-.mobile-apply-filter{
+.sheet-content{
 
-    flex:1;
+    overflow-y:auto;
 
-    border-radius:14px;
-
-    font-size:15px;
-
-    font-weight:600;
+    height:calc(100% - 50px);
 
 }
 
-
-
-.mobile-reset-filter{
-
-    background:white;
-
-    border:1px solid #ddd;
-
-}
-
-
-
-.mobile-apply-filter{
-
-    background:#111;
-
-    color:white;
-
-    border:none;
-
-}
 
 
 
