@@ -1096,6 +1096,19 @@ html, body{
 }
 
 
+
+/* ======================================
+  MOBILE FILTERS
+====================================== */
+
+.filter-sheet input,
+.filter-sheet select,
+.filter-sheet textarea {
+    font-size: 16px;
+}
+
+
+
 .filter-sheet input {
     font-size: 16px;
     line-height: 1.3;
