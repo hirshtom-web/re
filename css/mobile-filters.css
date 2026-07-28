@@ -1167,3 +1167,12 @@ html, body{
 }
 
 }
+
+
+@media(min-width:901px){
+
+    .mobile-filter-button{
+        display:none !important;
+    }
+
+}
