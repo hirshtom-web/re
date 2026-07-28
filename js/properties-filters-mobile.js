@@ -134,3 +134,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+document.querySelectorAll(".mobile-filter-title")
+.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        button
+        .closest(".mobile-filter-dropdown")
+        .classList.toggle("open");
+
+    });
+
+});
