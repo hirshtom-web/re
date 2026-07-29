@@ -1,9 +1,19 @@
+/* ==========================================================
+   RESIDENCE MOBILE
+   ========================================================== */
+
+/* ==========================================================
+   MOBILE (768px and below)
+   ========================================================== */
+
 @media (max-width:768px){
 
-    .residence-page{
+/* ==========================================================
+   PAGE
+   ========================================================== */
 
-        background:
-
+.residence-page{
+    background:
         linear-gradient(
             to bottom,
             #fff 0%,
@@ -11,549 +21,307 @@
             rgba(255,255,255,.9) 28%,
             rgba(255,255,255,0) 45%
         ),
-
         radial-gradient(
             circle at 10% 10%,
             rgba(139,92,246,.12),
             transparent 35%
         ),
-
         radial-gradient(
             circle at 90% 20%,
             rgba(59,130,246,.12),
             transparent 35%
         );
 
-        padding:20px 0;
+    padding:20px 0;
+}
 
-    }
+/* ==========================================================
+   GALLERY
+   ========================================================== */
 
-
-    .gallery-feature,
-    .gallery-grid{
-        display:none;
-    }
-
-    .mobile-gallery{
-        display:block;
-        position:relative;
-        overflow:hidden;
-        border-radius:0;
-    }
-
-    .property-gallery{
-        display:block;
-        height:auto;
-    }
-    
-
-.mobile-gallery{
+.gallery-feature,
+.gallery-grid{
     display:none;
 }
 
-
-    .property-gallery{
-
-        display:none;
-
-    }
-
-
-    .mobile-gallery{
-
-        display:block;
-
-        width:100vw;
-
-        margin-left:calc(50% - 50vw);
-
-        margin-top:0;
-
-    }
-
-
-
-    .mobile-slider{
-
-        display:flex;
-
-        overflow-x:auto;
-
-        scroll-snap-type:x mandatory;
-
-        scrollbar-width:none;
-
-    }
-
-
-    .mobile-slider::-webkit-scrollbar{
-
-        display:none;
-
-    }
-
-
-
-    .mobile-slider img{
-
-        flex:0 0 100%;
-
-        width:100%;
-
-        height:280px;
-
-        object-fit:cover;
-
-        scroll-snap-align:start;
-
-        display:block;
-
-    }
-
-
-
-/* =========================
-   MOBILE HERO
-========================= */
-
-
-    .residence-hero{
-
-        padding:0 0 10px;
-
-    }
-
-
-    .hero-content{
-
-        max-width:100%;
-
-    }
-
-
-    .title-row{
-
-        display:flex;
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:12px;
-
-    }
-
-
-    .title-row h1{
-
-        margin:0;
-
-        line-height:1.15;
-
-    }
-
-
-    h1{
-
-        font-size:32px;
-
-        letter-spacing:-1px;
-
-        margin-bottom:0;
-
-    }
-
-
-    h1 span{
-
-        margin-top:4px;
-
-    }
-
-
-    .property-tags{
-
-        margin-bottom:0;
-
-        order:-1;
-
-    }
-
-
-    .tag{
-
-        padding:7px 14px;
-
-        font-size:12px;
-
-    }
-
-
-    .hero-content p{
-
-        font-size:17px;
-
-        line-height:1.6;
-
-        max-width:100%;
-
-        margin-top:20px;
-
-    }
-
-
-    .property-address{
-
-        margin-top:18px;
-
-        font-size:16px;
-
-        line-height:1.5;
-
-    }
-
-
-
-/* ===== NEARBY DESTINATIONS ===== */
-
-
-    .nearby-grid{
-
-        display:flex;
-
-        overflow-x:auto;
-
-        gap:16px;
-
-        scroll-snap-type:x mandatory;
-
-        scrollbar-width:none;
-
-        padding-bottom:10px;
-
-    }
-
-
-    .nearby-grid::-webkit-scrollbar{
-
-        display:none;
-
-    }
-
-
-    .nearby-card{
-
-        flex:0 0 85%;
-
-        scroll-snap-align:start;
-
-    }
-
-
-
-/* =========================
-   MOBILE TEAM SLIDER
-========================= */
-
-    .team-grid{
-
-        display:flex;
-
-        overflow-x:auto;
-
-        overflow-y:hidden;
-
-        gap:18px;
-
-        scroll-snap-type:x mandatory;
-
-        scrollbar-width:none;
-
-        -webkit-overflow-scrolling:touch;
-
-        padding-bottom:10px;
-
-    }
-
-    .team-grid::-webkit-scrollbar{
-
-        display:none;
-
-    }
-
-    .team-card{
-
-        flex:0 0 85%;
-
-        scroll-snap-align:start;
-
-    }
-
-
-
-/* =========================
-      INFO CARDS
-========================= */
-
-    .card-grid{
-
-        display:flex;
-
-        gap:16px;
-
-        overflow-x:auto;
-
-        padding-bottom:10px;
-
-        scroll-snap-type:x mandatory;
-
-        -webkit-overflow-scrolling:touch;
-
-        scrollbar-width:none;
-
-    }
-
-    .card-grid::-webkit-scrollbar{
-
-        display:none;
-
-    }
-
-    .info-card{
-
-        flex:0 0 85%;
-
-        height:auto;
-
-        min-height:300px;
-
-        scroll-snap-align:start;
-
-    }
-   
-    .info-card{
-
-    box-shadow:0 12px 30px rgba(0,0,0,.05);
-
+.property-gallery{
+    display:none;
 }
 
-
-/* =========================
-      ARCHITECTURE & TEAM 
-========================= */
-
-
-    .architecture-feature{
-
-        grid-template-columns:1fr;
-
-        gap:24px;
-
-    }
-
-    .architecture-image{
-
-        height:300px;
-
-        border-radius:28px;
-
-    }
-
-    .architecture-content{
-
-        padding:0;
-
-    }
-
-
-/* =========================
-   MOBILE VERTICAL
-========================= */
-
-
-
-    .project-timeline{
-
-        display:flex;
-
-        flex-direction:column;
-
-        gap:35px;
-
-        padding-left:35px;
-
-    }
-
-
-
-    .project-timeline:before{
-
-        top:0;
-
-        bottom:0;
-
-        left:9px;
-
-        right:auto;
-
-        width:2px;
-
-        height:auto;
-
-    }
-
-
-
-    .timeline-step{
-
-        width:100%;
-
-    }
-
-
-
-    .timeline-dot{
-
-        position:absolute;
-
-        left:-35px;
-
-        top:3px;
-
-        margin:0;
-
-    }
-
-
-    .facts-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
-    }
-
-    .fact-card{
-        padding:22px;
-    }
-
-    .fact-card strong{
-        font-size:16px;
-    }
-
-
-@media(max-width:360px){
-
-    .facts-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
+.mobile-gallery{
+    display:block;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    position:relative;
+    overflow:hidden;
 }
-/* =========================
-   RESPONSIVE
-========================= */
 
-    @media (max-width:768px){
+.mobile-slider{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+}
 
+.mobile-slider::-webkit-scrollbar{
+    display:none;
+}
+
+.mobile-slider img{
+    flex:0 0 100%;
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    scroll-snap-align:start;
+}
 
 .gallery-main{
-
-    height:450px;
-
+    height:320px;
 }
-
-
-.residence-page{
-
-    padding:20px 0;
-
-}
-
 
 .gallery-card{
-
     padding:12px;
-
 }
-
-
-.gallery-main{
-
-    height:320px;
-
-}
-
-
 
 .gallery-thumbs img{
-
     height:90px;
-
 }
 
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+.residence-hero{
+    padding:0 0 10px;
+}
+
+.hero-content{
+    max-width:100%;
+}
+
+.title-row{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+}
+
+.title-row h1{
+    margin:0;
+    line-height:1.15;
+}
+
+h1{
+    font-size:32px;
+    letter-spacing:-1px;
+    margin-bottom:0;
+}
+
+h1 span{
+    margin-top:4px;
+}
 
 h2{
-
     font-size:30px;
+}
+
+.hero-content p{
+    font-size:17px;
+    line-height:1.6;
+    margin-top:20px;
+}
+
+.property-address{
+    margin-top:18px;
+    font-size:16px;
+    line-height:1.5;
+}
+
+.property-tags{
+    margin-bottom:0;
+    order:-1;
+}
+
+.tag{
+    font-size:12px;
+    padding:7px 14px;
+}
+
+/* ==========================================================
+   FACTS
+   ========================================================== */
+
+.facts-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.fact-card{
+    padding:22px;
+}
+
+.fact-card strong{
+    font-size:16px;
+}
+
+/* ==========================================================
+   INFO CARDS
+   ========================================================== */
+
+.card-grid{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    padding-bottom:10px;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+}
+
+.card-grid::-webkit-scrollbar{
+    display:none;
+}
+
+.info-card{
+    flex:0 0 85%;
+    min-height:300px;
+    box-shadow:0 12px 30px rgba(0,0,0,.05);
+    scroll-snap-align:start;
+}
+
+/* ==========================================================
+   ARCHITECTURE
+   ========================================================== */
+
+.architecture-feature{
+    grid-template-columns:1fr;
+    gap:24px;
+}
+
+.architecture-image{
+    height:300px;
+    border-radius:28px;
+}
+
+.architecture-content{
+    padding:0;
+}
+
+/* ==========================================================
+   TIMELINE
+   ========================================================== */
+
+.project-timeline{
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+    padding-left:35px;
+}
+
+.project-timeline:before{
+    top:0;
+    bottom:0;
+    left:9px;
+    right:auto;
+    width:2px;
+    height:auto;
+}
+
+.timeline-step{
+    width:100%;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:-35px;
+    top:3px;
+    margin:0;
+}
+
+/* ==========================================================
+   TEAM
+   ========================================================== */
+
+.team-grid{
+    display:flex;
+    gap:18px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+}
+
+.team-grid::-webkit-scrollbar{
+    display:none;
+}
+
+.team-card{
+    flex:0 0 85%;
+    scroll-snap-align:start;
+}
+
+/* ==========================================================
+   NEARBY
+   ========================================================== */
+
+.nearby-grid{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+}
+
+.nearby-grid::-webkit-scrollbar{
+    display:none;
+}
+
+.nearby-card{
+    flex:0 0 85%;
+    scroll-snap-align:start;
+}
+
+/* ==========================================================
+   MAP
+   ========================================================== */
+
+.location-map{
+    height:450px;
+    border-radius:25px;
+}
 
 }
 
+/* ==========================================================
+   TABLET
+   ========================================================== */
 
-        @media(max-width:900px){
+@media (max-width:1000px){
 
-    .lifestyle-grid{
-        grid-template-columns:1fr 1fr;
-    }
+.lifestyle-grid{
+    grid-template-columns:repeat(2,1fr);
+}
 
 }
 
+/* ==========================================================
+   SMALL MOBILE
+   ========================================================== */
 
-@media(max-width:600px){
+@media (max-width:600px){
 
-    .lifestyle-grid{
-        grid-template-columns:1fr;
-    }
+.lifestyle-grid{
+    grid-template-columns:1fr;
+}
 
 }
 
+/* ==========================================================
+   VERY SMALL DEVICES
+   ========================================================== */
 
-/* TABLET */
+@media (max-width:360px){
 
-@media(max-width:1000px){
-
-    .lifestyle-grid{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
+.facts-grid{
+    grid-template-columns:1fr;
 }
 
-
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-    .lifestyle-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
 }
-
-/* mobile */
-
-@media(max-width:768px){
-
-    .location-map{
-
-        height:450px;
-
-        border-radius:25px;
-
-    }
-
-}
-
-
