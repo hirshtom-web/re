@@ -1,12 +1,55 @@
-/* MOBILE GALLERY HIDDEN DESKTOP */
+@media (max-width:768px){
+
+    .residence-page{
+
+        background:
+
+        linear-gradient(
+            to bottom,
+            #fff 0%,
+            #fff 18%,
+            rgba(255,255,255,.9) 28%,
+            rgba(255,255,255,0) 45%
+        ),
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(139,92,246,.12),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(59,130,246,.12),
+            transparent 35%
+        );
+
+        padding:20px 0;
+
+    }
+
+
+    .gallery-feature,
+    .gallery-grid{
+        display:none;
+    }
+
+    .mobile-gallery{
+        display:block;
+        position:relative;
+        overflow:hidden;
+        border-radius:0;
+    }
+
+    .property-gallery{
+        display:block;
+        height:auto;
+    }
+    
 
 .mobile-gallery{
     display:none;
 }
-
-
-
-@media(max-width:768px){
 
 
     .property-gallery{
@@ -68,14 +111,10 @@
     }
 
 
-}
 
 /* =========================
    MOBILE HERO
 ========================= */
-
-
-@media(max-width:900px){
 
 
     .residence-hero{
@@ -174,12 +213,9 @@
     }
 
 
-}
 
 /* ===== NEARBY DESTINATIONS ===== */
 
-
-@media(max-width:768px){
 
     .nearby-grid{
 
@@ -213,14 +249,11 @@
 
     }
 
-}
 
 
 /* =========================
    MOBILE TEAM SLIDER
 ========================= */
-
-@media(max-width:768px){
 
     .team-grid{
 
@@ -256,15 +289,11 @@
 
     }
 
-}
 
 
 /* =========================
       INFO CARDS
 ========================= */
-
-
-@media(max-width:900px){
 
     .card-grid{
 
@@ -308,14 +337,11 @@
 
 }
 
-}
 
 /* =========================
       ARCHITECTURE & TEAM 
 ========================= */
 
-
-@media(max-width:900px){
 
     .architecture-feature{
 
@@ -339,4 +365,3 @@
 
     }
 
-}
