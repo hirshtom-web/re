@@ -647,8 +647,10 @@
 
 
 
-   /* ======================================
-   MOBILE MARKER PROPERTY PREVIEW
+
+
+ /* ======================================
+   MOBILE MAP PROPERTY PREVIEW SHEET
 ====================================== */
 
 
@@ -662,18 +664,25 @@
 
         z-index:700;
 
-        padding:16px 20px 20px;
+        background:#fff;
 
-        background:transparent;
+        border-radius:30px 30px 0 0;
+
+        padding:12px 20px 20px;
+
+        box-shadow:
+        0 -15px 40px rgba(0,0,0,.18);
+
 
         transform:translateY(120%);
 
-        transition:transform .3s ease;
+        transition:
+        transform .3s ease;
 
-        pointer-events:none;
+
+        touch-action:none;
 
     }
-
 
 
     .mobile-property-preview.show{
@@ -683,8 +692,33 @@
     }
 
 
+    .mobile-property-preview.dragging{
 
-    /* actual card */
+        transition:none;
+
+    }
+
+
+    /* drag handle */
+
+    .mobile-property-preview::before{
+
+        content:"";
+
+        display:block;
+
+        width:45px;
+
+        height:5px;
+
+        background:#ddd;
+
+        border-radius:10px;
+
+        margin:0 auto 12px;
+
+    }
+
 
     .mobile-property-preview .property-card{
 
@@ -692,112 +726,8 @@
 
         margin:0;
 
-        pointer-events:auto;
-
-        cursor:pointer;
-
-        background:#fff !important;
-
-        border:none !important;
-
-        border-radius:28px;
-
-        overflow:hidden;
-
-        box-shadow:
-        0 15px 40px rgba(0,0,0,.15);
-
     }
 
-
-
-    /* image */
-
-    .mobile-property-preview .property-card-image{
-
-        width:100%;
-
-        border-radius:28px 28px 0 0;
-
-        overflow:hidden;
-
-        box-shadow:none;
-
-    }
-
-
-
-    .mobile-property-preview .property-card-image img{
-
-        width:100%;
-
-        display:block;
-
-        aspect-ratio:4 / 3;
-
-        object-fit:cover;
-
-    }
-
-
-
-    /* text area */
-
-    .mobile-property-preview .property-card-info{
-
-        padding:16px;
-
-        background:#fff;
-
-    }
-
-
-
-    .mobile-property-preview .property-card-header{
-
-        display:flex;
-
-        justify-content:space-between;
-
-        align-items:flex-start;
-
-        gap:15px;
-
-    }
-
-
-
-    .mobile-property-preview .property-card-header h3{
-
-        margin:0;
-
-        font-size:17px;
-
-        font-weight:600;
-
-    }
-
-
-
-    .mobile-property-preview .property-card-header strong{
-
-        white-space:nowrap;
-
-        font-weight:600;
-
-    }
-
-
-
-    .mobile-property-preview .property-favorite{
-
-        pointer-events:auto;
-
-    }
-
-
-}
-   
 
 /* =====================================
    DESKTOP HIDE MOBILE ELEMENTS
