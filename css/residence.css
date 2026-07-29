@@ -1546,21 +1546,6 @@ footer{
 }
 
 
-
-/* mobile */
-
-@media(max-width:768px){
-
-    .location-map{
-
-        height:450px;
-
-        border-radius:25px;
-
-    }
-
-}
-
 /* =========================
    NEARBY
 ========================= */
@@ -1745,33 +1730,6 @@ footer{
 
 
 
-/* TABLET */
-
-@media(max-width:1000px){
-
-    .lifestyle-grid{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-}
-
-
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-    .lifestyle-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
-
 .lifestyle-slider{
 
     display:flex;
@@ -1886,22 +1844,6 @@ footer{
 }
 
 
-@media(max-width:900px){
-
-    .lifestyle-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-}
-
-
-@media(max-width:600px){
-
-    .lifestyle-grid{
-        grid-template-columns:1fr;
-    }
-
-}
 
 /* =========================
    AI POPUP
