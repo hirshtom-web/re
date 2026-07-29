@@ -289,3 +289,10 @@ MAP VIEW
 
 
 
+@media (min-width:901px){
+
+    .mobile-map-layout{
+        display:none !important;
+    }
+
+}
