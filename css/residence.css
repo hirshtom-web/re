@@ -805,68 +805,7 @@ body{
 
 
 
-/* =========================
-   MOBILE VERTICAL
-========================= */
 
-
-@media(max-width:768px){
-
-
-    .project-timeline{
-
-        display:flex;
-
-        flex-direction:column;
-
-        gap:35px;
-
-        padding-left:35px;
-
-    }
-
-
-
-    .project-timeline:before{
-
-        top:0;
-
-        bottom:0;
-
-        left:9px;
-
-        right:auto;
-
-        width:2px;
-
-        height:auto;
-
-    }
-
-
-
-    .timeline-step{
-
-        width:100%;
-
-    }
-
-
-
-    .timeline-dot{
-
-        position:absolute;
-
-        left:-35px;
-
-        top:3px;
-
-        margin:0;
-
-    }
-
-
-}
 
 /* =========================
    HERO
@@ -1203,33 +1142,6 @@ linear-gradient(
 }
 
 
-@media(max-width:768px){
-
-    .facts-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
-    }
-
-    .fact-card{
-        padding:22px;
-    }
-
-    .fact-card strong{
-        font-size:16px;
-    }
-
-}
-
-@media(max-width:360px){
-
-    .facts-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
 
 .fact-card{
     overflow:hidden;
@@ -1529,70 +1441,6 @@ footer{
 
 }
 
-
-
-
-
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-
-@media(max-width:1000px){
-
-
-.gallery-main{
-
-    height:450px;
-
-}
-}
-
-
-
-
-@media(max-width:600px){
-
-
-.residence-page{
-
-    padding:20px 0;
-
-}
-
-
-.gallery-card{
-
-    padding:12px;
-
-}
-
-
-.gallery-main{
-
-    height:320px;
-
-}
-
-
-
-.gallery-thumbs img{
-
-    height:90px;
-
-}
-
-
-h2{
-
-    font-size:30px;
-
-}
-
-
-}
 
 
 .snapshot-grid {
