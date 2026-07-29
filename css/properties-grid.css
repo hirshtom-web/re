@@ -78,22 +78,19 @@ MAP
 
     display:flex;
 
-    min-height:100vh;
+    gap:30px;
+
+    height:calc(100vh - 150px);
+
+    padding:30px 30px 60px;
 
     box-sizing:border-box;
-
-    padding:30px;
-
-    padding-bottom:60px;
-
-    gap:30px;
 
     overflow:hidden;
 
     align-items:flex-start;
 
 }
-
 
 
 /* MAP SIDE */
@@ -133,7 +130,7 @@ MAP
 
     flex:1;
 
-    height:calc(100vh - 140px);
+    height:calc(100vh - 60px);
 
     overflow-y:auto;
 
@@ -153,19 +150,6 @@ MAP
 
 }
 
-
-
-/* CARDS SIDE */
-
-.properties-scroll{
-
-    flex:1;
-
-    height:calc(100vh - 60px);
-
-    overflow-y:auto;
-
-}
 
 
 
@@ -284,14 +268,6 @@ PROPERTY IMAGE WRAPPER
 }
 
 
-/* DEFAULT MAP VIEW */
-
-.properties-layout{
-
-    display:flex;
-
-}
-
 
 /* =====================
 GRID ONLY VIEW
@@ -340,19 +316,6 @@ MAP VIEW
     width:50%;
 }
 
-    .properties-layout{
-
-    display:flex;
-
-    gap:30px;
-
-    padding:0 30px 30px;
-
-    height:calc(100vh - 150px);
-
-    align-items:flex-start;
-
-}
 
 
 
