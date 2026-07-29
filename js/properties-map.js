@@ -163,7 +163,7 @@ function showMobilePropertyPreview(property){
 
     const preview =
     document.getElementById(
-        "mobile-property-preview"
+        "map-property-preview"
     );
 
 
@@ -334,9 +334,8 @@ function hideMobilePropertyPreview(){
 
     const preview =
     document.getElementById(
-        "mobile-property-preview"
+        "map-property-preview"
     );
-
 
 
     if(!preview){
@@ -346,20 +345,15 @@ function hideMobilePropertyPreview(){
     }
 
 
-
     preview.classList.remove(
         "show"
     );
-
 
 
     preview.innerHTML = "";
 
 
 }
-
-
-
 
 
 
