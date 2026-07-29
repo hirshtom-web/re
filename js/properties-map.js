@@ -140,7 +140,7 @@ async function initMap(){
 
 );
 
-
+}
 
 
 
