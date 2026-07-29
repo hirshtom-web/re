@@ -11,13 +11,13 @@
 
 .residence-page{
 
-    --m-h1:32px;
-    --m-h2:28px;
-    --m-h3:22px;
+    --m-h1:28px;
+    --m-h2:22px;
+    --m-h3:16px;
 
-    --m-body-lg:17px;
-    --m-body:16px;
-    --m-small:14px;
+    --m-body-lg:15px;
+    --m-body:14px;
+    --m-small:12px;
     --m-caption:12px;
 
     --m-line:1.6;
