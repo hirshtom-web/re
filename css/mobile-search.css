@@ -684,6 +684,10 @@
 
     }
 
+.mobile-property-preview .property-card{
+    pointer-events:auto;
+}
+
 
     .mobile-property-preview.show{
 
@@ -692,11 +696,11 @@
     }
 
 
-    .mobile-property-preview.dragging{
+   .mobile-property-preview.dragging{
 
-        transition:none;
+    transition:none !important;
 
-    }
+}
 
 
     /* drag handle */
