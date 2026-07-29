@@ -93,23 +93,37 @@ MAP
 }
 
 
-/* MAP SIDE */
-
 .map-container{
 
     flex:1;
 
-    height:calc(100vh - 90px);
+    height:100%;
 
     position:sticky;
 
-    top:30px;
+    top:0;
 
     border-radius:30px;
 
     overflow:hidden;
 
 }
+
+
+.properties-scroll{
+
+    flex:1;
+
+    height:100%;
+
+    overflow-y:auto;
+
+    padding-top:0;
+
+    min-height:0;
+
+}
+
 
 .price-marker{
     background:#fff;
@@ -124,19 +138,6 @@ MAP
     transition:.2s ease;
 }
 
-
-
-.properties-scroll{
-
-    flex:1;
-
-    height:calc(100vh - 60px);
-
-    overflow-y:auto;
-
-    padding-top:0;
-
-}
 
 
 
