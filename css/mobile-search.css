@@ -733,6 +733,538 @@
     }
 
 
+/* =========================================================
+   MOBILE FILTER SHEET
+========================================================= */
+
+.filter-sheet{
+
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:90vh;
+
+    background:#fff;
+
+    border-radius:30px 30px 0 0;
+
+    z-index:1000;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    transform:translateY(100%);
+
+    transition:transform .3s ease;
+
+    box-shadow:
+    0 -20px 50px rgba(0,0,0,.18);
+
+    touch-action:none;
+
+}
+
+
+
+.filter-sheet.open{
+
+    transform:translateY(10px);
+
+}
+
+
+
+.filter-sheet.dragging{
+
+    transition:none;
+
+}
+
+
+
+/* HANDLE */
+
+.filter-sheet-handle{
+
+    position:absolute;
+
+    top:12px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:45px;
+
+    height:5px;
+
+    background:#ddd;
+
+    border-radius:20px;
+
+}
+
+
+
+/* HEADER */
+
+.filter-sheet-header{
+
+    height:80px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+
+
+/* CONTENT */
+
+.filter-content{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    padding:
+
+    10px 20px 120px;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+
+
+/* =========================================================
+   SEARCH BOX
+========================================================= */
+
+
+.mobile-search-box{
+
+    height:56px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:#f7f7f7;
+
+    border:1px solid rgba(0,0,0,.08);
+
+    border-radius:18px;
+
+    padding:0 16px;
+
+}
+
+
+.mobile-search-box span{
+
+    color:#777;
+
+    font-size:22px;
+
+}
+
+
+.mobile-search-box input{
+
+    border:none;
+
+    outline:none;
+
+    background:none;
+
+    flex:1;
+
+    font-size:16px;
+
+}
+
+
+
+/* =========================================================
+   FILTER SECTIONS
+========================================================= */
+
+
+.mobile-filter-section{
+
+    margin-bottom:24px;
+
+}
+
+
+.mobile-filter-section h3{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    margin:
+
+    0 0 12px;
+
+}
+
+
+
+/* =========================================================
+   IOS STYLE SELECT ROW
+========================================================= */
+
+
+.mobile-select-trigger{
+
+    width:100%;
+
+    height:56px;
+
+    background:#f7f7f7;
+
+    border:
+
+    1px solid rgba(0,0,0,.08);
+
+    border-radius:18px;
+
+    padding:0 16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    font-size:16px;
+
+    color:#111;
+
+}
+
+
+.mobile-select-trigger span:last-child{
+
+    color:#777;
+
+}
+
+
+
+/* DROPDOWN OPTIONS */
+
+
+.mobile-popup-options{
+
+    display:none;
+
+    margin-top:8px;
+
+    border:
+
+    1px solid rgba(0,0,0,.08);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+
+
+.mobile-filter-section.open 
+.mobile-popup-options{
+
+    display:block;
+
+}
+
+
+
+.mobile-popup-options button{
+
+    width:100%;
+
+    height:54px;
+
+    background:#fff;
+
+    border:none;
+
+    border-bottom:
+
+    1px solid rgba(0,0,0,.06);
+
+    text-align:left;
+
+    padding:0 16px;
+
+    font-size:16px;
+
+}
+
+
+.mobile-popup-options button:last-child{
+
+    border-bottom:none;
+
+}
+
+
+
+/* =========================================================
+   PRICE SECTION
+========================================================= */
+
+
+.mobile-price-chart{
+
+    height:80px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:5px;
+
+    margin-bottom:18px;
+
+}
+
+
+.mobile-price-chart div{
+
+    flex:1;
+
+    background:#111;
+
+    opacity:.15;
+
+    border-radius:
+
+    5px 5px 0 0;
+
+}
+
+
+
+/* SLIDER */
+
+.mobile-range-slider{
+
+    position:relative;
+
+    height:40px;
+
+}
+
+
+
+.mobile-slider-track{
+
+    position:absolute;
+
+    top:18px;
+
+    left:0;
+
+    right:0;
+
+    height:4px;
+
+    background:#ddd;
+
+    border-radius:10px;
+
+}
+
+
+
+.mobile-range-slider input[type="range"]{
+
+    position:absolute;
+
+    width:100%;
+
+    top:0;
+
+    left:0;
+
+    pointer-events:none;
+
+    appearance:none;
+
+    background:none;
+
+}
+
+
+
+.mobile-range-slider input[type="range"]::-webkit-slider-thumb{
+
+    appearance:none;
+
+    pointer-events:auto;
+
+    width:22px;
+
+    height:22px;
+
+    background:#111;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+}
+
+
+
+.mobile-range-slider input[type="range"]::-moz-range-thumb{
+
+    pointer-events:auto;
+
+    width:22px;
+
+    height:22px;
+
+    background:#111;
+
+    border:none;
+
+    border-radius:50%;
+
+}
+
+
+
+/* PRICE INPUTS */
+
+
+.mobile-price-range-values{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:10px;
+
+}
+
+
+
+.mobile-price-range-values input{
+
+    width:50%;
+
+    height:52px;
+
+    border:
+
+    1px solid rgba(0,0,0,.12);
+
+    border-radius:16px;
+
+    padding:0 14px;
+
+    font-size:16px;
+
+}
+
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+
+.filter-sheet-footer{
+
+    flex-shrink:0;
+
+    min-height:80px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:
+
+    16px 20px calc(16px + env(safe-area-inset-bottom));
+
+    background:#fff;
+
+    border-top:
+
+    1px solid #eee;
+
+}
+
+
+
+.reset-filter{
+
+    background:none;
+
+    border:none;
+
+    text-decoration:underline;
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+
+
+.apply-filter{
+
+    flex:1;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:26px;
+
+    background:#111;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+
+
+
 /* =====================================
    DESKTOP HIDE MOBILE ELEMENTS
 ===================================== */
