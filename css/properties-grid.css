@@ -78,11 +78,11 @@ MAP
 
     display:flex;
 
-    gap:30px;
-
     height:calc(100vh - 150px);
 
-    padding:30px 30px 60px;
+    padding:30px;
+
+    gap:30px;
 
     box-sizing:border-box;
 
@@ -156,31 +156,10 @@ MAP
 /* hide scrollbar */
 
 .properties-scroll::-webkit-scrollbar{
-
     display:none;
-
 }
 
 
-.properties-scroll{
-
-    scrollbar-width:none;
-
-}
-
-
-
-/* GRID */
-
-.properties-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:30px;
-
-}
 
 /* =====================
 PROPERTY CARD CLEAN FRAMELESS
@@ -258,16 +237,6 @@ PROPERTY IMAGE WRAPPER
 }
 
 
-.property-card:hover img{
-
-    transform:scale(1.04);
-
-    box-shadow:
-    0 20px 45px rgba(0,0,0,.18);
-
-}
-
-
 
 /* =====================
 GRID ONLY VIEW
@@ -319,12 +288,4 @@ MAP VIEW
 
 
 
-
-@media (min-width:901px){
-
-    .mobile-map-layout{
-        display:none !important;
-    }
-
-}
 
