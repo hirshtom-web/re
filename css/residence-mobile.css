@@ -1,42 +1,87 @@
 /* ==========================================================
    RESIDENCE MOBILE
-   ========================================================== */
-
-/* ==========================================================
-   MOBILE (768px and below)
-   ========================================================== */
-
+========================================================== */
 
 @media (max-width:768px){
 
+/* ==========================================================
+   DESIGN TOKENS
+========================================================== */
+
 .residence-page{
 
-    --m-h1:28px;
-    --m-h2:22px;
-    --m-h3:16px;
+    /* Typography */
 
-    --m-body-lg:15px;
-    --m-body:14px;
-    --m-small:12px;
-    --m-caption:12px;
+    --m-h1:30px;
+    --m-h2:26px;
+    --m-h3:20px;
 
-    --m-line:1.6;
-    --m-tight:1.15;
-    --m-letter:-0.03em;
+    --m-body-lg:16px;
+    --m-body:15px;
+    --m-small:13px;
+    --m-caption:11px;
 
-    --m-section:40px;
-    --m-gap:20px;
-    --m-gap-sm:12px;
+    --m-tight:1.1;
+    --m-line:1.55;
+    --m-letter:-0.035em;
+
+    /* Spacing */
+
+    --m-space-xs:8px;
+    --m-space-sm:12px;
+    --m-space:16px;
+    --m-space-lg:24px;
+    --m-space-xl:40px;
+
+    /* Radius */
 
     --m-radius:24px;
-
+    --m-radius-lg:28px;
 }
-   
+
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
+
+h1{
+    font-size:var(--m-h1);
+    line-height:var(--m-tight);
+    letter-spacing:var(--m-letter);
+    margin:0;
+}
+
+h2{
+    font-size:var(--m-h2);
+    line-height:1.15;
+    letter-spacing:var(--m-letter);
+}
+
+h3{
+    font-size:var(--m-h3);
+    line-height:1.25;
+}
+
+p,
+li{
+    font-size:var(--m-body);
+    line-height:var(--m-line);
+}
+
+small{
+    font-size:var(--m-small);
+}
+
+.tag{
+    font-size:var(--m-caption);
+    padding:7px 14px;
+}
+
 /* ==========================================================
    PAGE
-   ========================================================== */
+========================================================== */
 
 .residence-page{
+
     background:
         linear-gradient(
             to bottom,
@@ -61,7 +106,7 @@
 
 /* ==========================================================
    GALLERY
-   ========================================================== */
+========================================================== */
 
 .gallery-feature,
 .gallery-grid{
@@ -104,7 +149,7 @@
 }
 
 .gallery-card{
-    padding:12px;
+    padding:var(--m-space-sm);
 }
 
 .gallery-thumbs img{
@@ -113,75 +158,65 @@
 
 /* ==========================================================
    HERO
-   ========================================================== */
+========================================================== */
 
-.title-row h1{
-    margin:0;
-    line-height:var(--m-tight);
+.residence-hero{
+    padding:0 0 var(--m-space-sm);
 }
 
-h1{
-    font-size:var(--m-h1);
-    letter-spacing:var(--m-letter);
-    margin-bottom:0;
+.hero-content{
+    max-width:100%;
 }
 
-h2{
-    font-size:var(--m-h2);
-    line-height:var(--m-tight);
+.title-row{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:var(--m-space-sm);
 }
 
 .hero-content p{
+    margin-top:var(--m-space);
     font-size:var(--m-body-lg);
-    line-height:var(--m-line);
-    margin-top:20px;
 }
 
 .property-address{
     margin-top:18px;
-    font-size:var(--m-body);
-    line-height:var(--m-line);
 }
 
-.tag{
-    font-size:var(--m-caption);
-    padding:7px 14px;
+.property-tags{
+    order:-1;
+    margin-bottom:0;
 }
-   
-   
+
 /* ==========================================================
    FACTS
-   ========================================================== */
+========================================================== */
 
 .facts-grid{
     grid-template-columns:repeat(2,1fr);
-    gap:12px;
+    gap:var(--m-space-sm);
 }
 
 .fact-card{
     padding:22px;
 }
 
-.fact-card span{
-    font-size:var(--m-caption);
-}
-
 .fact-card strong{
-    font-size:var(--m-body);
+    font-weight:600;
 }
 
-   
 /* ==========================================================
    INFO CARDS
-   ========================================================== */
+========================================================== */
 
 .card-grid{
     display:flex;
-    gap:16px;
+    gap:var(--m-space);
     overflow-x:auto;
-    padding-bottom:10px;
     scroll-snap-type:x mandatory;
     scrollbar-width:none;
+    padding-bottom:10px;
 }
 
 .card-grid::-webkit-scrollbar{
@@ -191,31 +226,22 @@ h2{
 .info-card{
     flex:0 0 85%;
     min-height:300px;
-    box-shadow:0 12px 30px rgba(0,0,0,.05);
     scroll-snap-align:start;
+    box-shadow:0 12px 30px rgba(0,0,0,.05);
 }
 
-   .info-card h3{
-    font-size:var(--m-h3);
-}
-
-.info-card p{
-    font-size:var(--m-small);
-    line-height:var(--m-line);
-}
-   
 /* ==========================================================
    ARCHITECTURE
-   ========================================================== */
+========================================================== */
 
 .architecture-feature{
     grid-template-columns:1fr;
-    gap:24px;
+    gap:var(--m-space-lg);
 }
 
 .architecture-image{
     height:300px;
-    border-radius:28px;
+    border-radius:var(--m-radius-lg);
 }
 
 .architecture-content{
@@ -224,7 +250,7 @@ h2{
 
 /* ==========================================================
    TIMELINE
-   ========================================================== */
+========================================================== */
 
 .project-timeline{
     display:flex;
@@ -253,19 +279,9 @@ h2{
     margin:0;
 }
 
-   .timeline-step strong{
-    font-size:var(--m-body);
-}
-
-.timeline-step small,
-.timeline-step p{
-    font-size:var(--m-small);
-}
-   
-
 /* ==========================================================
    TEAM
-   ========================================================== */
+========================================================== */
 
 .team-grid{
     display:flex;
@@ -284,21 +300,13 @@ h2{
     scroll-snap-align:start;
 }
 
-   .team-card h3{
-    font-size:var(--m-body);
-}
-
-.team-card p{
-    font-size:var(--m-small);
-}
-   
 /* ==========================================================
    NEARBY
-   ========================================================== */
+========================================================== */
 
 .nearby-grid{
     display:flex;
-    gap:16px;
+    gap:var(--m-space);
     overflow-x:auto;
     scroll-snap-type:x mandatory;
     scrollbar-width:none;
@@ -313,28 +321,20 @@ h2{
     scroll-snap-align:start;
 }
 
-   .nearby-card h3{
-    font-size:var(--m-body);
-}
-
-.nearby-card p{
-    font-size:var(--m-small);
-}
-
 /* ==========================================================
    MAP
-   ========================================================== */
+========================================================== */
 
 .location-map{
     height:450px;
-    border-radius:25px;
+    border-radius:var(--m-radius);
 }
 
 }
 
 /* ==========================================================
    TABLET
-   ========================================================== */
+========================================================== */
 
 @media (max-width:1000px){
 
@@ -346,7 +346,7 @@ h2{
 
 /* ==========================================================
    SMALL MOBILE
-   ========================================================== */
+========================================================== */
 
 @media (max-width:600px){
 
@@ -358,7 +358,7 @@ h2{
 
 /* ==========================================================
    VERY SMALL DEVICES
-   ========================================================== */
+========================================================== */
 
 @media (max-width:360px){
 
