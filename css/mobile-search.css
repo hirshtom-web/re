@@ -107,23 +107,18 @@
     right:0;
     bottom:0;
 
-
     height:90vh;
-
 
     background:#fff;
 
-
-    border-radius:
-    30px 30px 0 0;
-
+    border-radius:30px 30px 0 0;
 
     z-index:500;
 
+    display:flex;
+    flex-direction:column;
 
-    transition:
-    transform .25s ease;
-
+    transition:transform .25s ease;
 
     touch-action:none;
 
@@ -169,8 +164,9 @@
 
 .sheet-header{
 
-    height:75px;
+    flex:0 0 75px;
 
+    height:75px;
 
     display:flex;
 
@@ -178,11 +174,9 @@
 
     align-items:center;
 
-
     font-size:17px;
 
     font-weight:600;
-
 
     cursor:grab;
 
@@ -190,8 +184,13 @@
 
     touch-action:none;
 
-}
+    position:relative;
 
+    z-index:2;
+
+    background:#fff;
+
+}
 
 
 /* CONTENT */
@@ -199,17 +198,20 @@
 
 .sheet-content{
 
-    height:
-    calc(100% - 75px);
+    flex:1;
 
+    height:auto;
 
     overflow-y:auto;
 
-    -webkit-overflow-scrolling:touch;
+    min-height:0;
+
+   -webkit-overflow-scrolling:touch;
 
 }
 
 
+   
 .sheet-content .properties-grid{
 
     display:grid;
@@ -219,7 +221,7 @@
     gap:20px;
 
     padding:
-    0 20px 50px;
+    10px 20px 50px;
 
 }
 
