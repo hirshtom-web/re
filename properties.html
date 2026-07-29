@@ -742,31 +742,26 @@ MOBILE MAP + SHEETS
 
             <!-- SEARCH -->
 
-            <div class="mobile-filter-section">
+<div class="mobile-filter-section">
 
+    <h3>
+        Search
+    </h3>
 
-                <h3>
-                    Search
-                </h3>
+    <div class="search-box mobile-search-box">
 
+        <span class="material-symbols-outlined">
+            search
+        </span>
 
-                <div class="search-box mobile-search-box">
+        <input
+            id="mobile-property-search"
+            type="text"
+            placeholder="Search residences, buildings, locations...">
 
+    </div>
 
-                    <span class="material-symbols-outlined">
-                        search
-                    </span>
-
-
-                    <input
-                        id="mobile-property-search"
-                        type="text"
-                        placeholder="Search residences, buildings, locations...">
-
-                </div>
-
-
-            </div>
+</div>
 
 
 
@@ -774,74 +769,101 @@ MOBILE MAP + SHEETS
 
             <!-- PRICE -->
 
-            <div class="mobile-filter-section">
+            <!-- PRICE -->
+
+<div class="mobile-filter-section">
 
 
-                <h3>
-                    Price
-                </h3>
-
-
-                <div class="mobile-price-chart">
-
-                    <div style="height:20%"></div>
-                    <div style="height:45%"></div>
-                    <div style="height:80%"></div>
-                    <div style="height:100%"></div>
-                    <div style="height:60%"></div>
-                    <div style="height:30%"></div>
-
-                </div>
+    <h3>
+        Price
+    </h3>
 
 
 
-                <div class="mobile-range-slider">
+    <!-- PRICE HISTOGRAM -->
 
+    <div class="mobile-price-chart">
 
-                    <div class="mobile-slider-track"></div>
+        <div style="height:15%"></div>
+        <div style="height:30%"></div>
+        <div style="height:55%"></div>
+        <div style="height:80%"></div>
+        <div style="height:100%"></div>
+        <div style="height:85%"></div>
+        <div style="height:60%"></div>
+        <div style="height:35%"></div>
+        <div style="height:20%"></div>
 
-
-                    <input
-                        id="mobile-min-range"
-                        type="range"
-                        min="0"
-                        max="20000000"
-                        value="500000">
-
-
-                    <input
-                        id="mobile-max-range"
-                        type="range"
-                        min="0"
-                        max="20000000"
-                        value="10000000">
-
-
-                </div>
+    </div>
 
 
 
+    <!-- DOUBLE RANGE SLIDER -->
 
-                <div class="mobile-price-range-values">
-
-
-                    <input
-                        id="mobile-min-price"
-                        type="number"
-                        value="500000">
+    <div class="mobile-range-slider">
 
 
-                    <input
-                        id="mobile-max-price"
-                        type="number"
-                        value="10000000">
+        <div class="mobile-slider-track"></div>
 
 
-                </div>
+        <input
+            id="mobile-min-range"
+            type="range"
+            min="0"
+            max="20000000"
+            value="500000">
 
 
-            </div>
+        <input
+            id="mobile-max-range"
+            type="range"
+            min="0"
+            max="20000000"
+            value="10000000">
 
+
+    </div>
+
+
+
+    <!-- PRICE INPUTS -->
+
+    <div class="mobile-price-range-values">
+
+
+        <div class="price-input-group">
+
+            <label>
+                Minimum
+            </label>
+
+            <input
+                id="mobile-min-price"
+                type="text"
+                value="$500,000">
+
+        </div>
+
+
+
+        <div class="price-input-group">
+
+            <label>
+                Maximum
+            </label>
+
+            <input
+                id="mobile-max-price"
+                type="text"
+                value="$10,000,000">
+
+        </div>
+
+
+    </div>
+
+
+</div>
 
 
 
@@ -850,32 +872,32 @@ MOBILE MAP + SHEETS
 
             <!-- LOCATION -->
 
-            <div class="mobile-filter-section">
+           <!-- LOCATION -->
+
+<div class="mobile-filter-section">
 
 
-                <h3>
-                    Location
-                </h3>
+    <h3>
+        Location
+    </h3>
 
 
 
-                <div class="mobile-popup-search">
+    <div class="mobile-search-box mobile-location-search">
 
 
-                    <span class="material-symbols-outlined">
-                        search
-                    </span>
+        <span class="material-symbols-outlined">
+            search
+        </span>
 
 
-                    <input
-                        id="mobile-location-search"
-                        type="text"
-                        placeholder="Search locations...">
+        <input
+            id="mobile-location-search"
+            type="text"
+            placeholder="Search city, neighborhood, building...">
 
 
-                </div>
-
-
+    </div>
 
 
                 <div class="mobile-popup-options">
@@ -939,42 +961,57 @@ MOBILE MAP + SHEETS
 
             <!-- PROPERTY TYPE -->
 
-            <div class="mobile-filter-section">
+           <!-- PROPERTY TYPE -->
+
+<div class="mobile-filter-section">
 
 
-                <h3>
-                    Property Type
-                </h3>
+    <h3>
+        Property Type
+    </h3>
 
 
-                <div class="mobile-popup-options">
+    <button class="mobile-select-trigger">
+
+        <span>
+            All Property Types
+        </span>
+
+        <span class="material-symbols-outlined">
+            keyboard_arrow_down
+        </span>
+
+    </button>
 
 
-                    <button data-value="">
-                        All Property Types
-                    </button>
+
+    <div class="mobile-popup-options">
 
 
-                    <button data-value="New Construction">
-                        New Construction
-                    </button>
+        <button data-value="">
+            All Property Types
+        </button>
 
 
-                    <button data-value="Pre-Construction">
-                        Pre-Construction
-                    </button>
+        <button data-value="New Construction">
+            New Construction
+        </button>
 
 
-                    <button data-value="Other">
-                        Other
-                    </button>
+        <button data-value="Pre-Construction">
+            Pre-Construction
+        </button>
 
 
-                </div>
+        <button data-value="Other">
+            Other
+        </button>
 
 
-            </div>
+    </div>
 
+
+</div>
 
 
 
@@ -983,53 +1020,67 @@ MOBILE MAP + SHEETS
 
             <!-- COMPLETION -->
 
-            <div class="mobile-filter-section">
+            <!-- COMPLETED BY -->
+
+<div class="mobile-filter-section">
 
 
-                <h3>
-                    Completed By
-                </h3>
+    <h3>
+        Completed By
+    </h3>
 
 
-                <div class="mobile-popup-options">
+    <button class="mobile-select-trigger">
+
+        <span>
+            Any
+        </span>
+
+        <span class="material-symbols-outlined">
+            keyboard_arrow_down
+        </span>
+
+    </button>
 
 
-                    <button data-value="">
-                        Any
-                    </button>
+
+    <div class="mobile-popup-options">
 
 
-                    <button data-value="2026">
-                        2026
-                    </button>
+        <button data-value="">
+            Any
+        </button>
 
 
-                    <button data-value="2027">
-                        2027
-                    </button>
+        <button data-value="2026">
+            2026
+        </button>
 
 
-                    <button data-value="2028">
-                        2028
-                    </button>
+        <button data-value="2027">
+            2027
+        </button>
 
 
-                    <button data-value="2029">
-                        2029
-                    </button>
+        <button data-value="2028">
+            2028
+        </button>
 
 
-                    <button data-value="2030">
-                        2030+
-                    </button>
+        <button data-value="2029">
+            2029
+        </button>
 
 
-                </div>
+        <button data-value="2030">
+            2030+
+        </button>
 
 
-            </div>
+    </div>
 
 
+</div>
 
 
 
@@ -1038,46 +1089,62 @@ MOBILE MAP + SHEETS
 
             <!-- SORT -->
 
-            <div class="mobile-filter-section">
+           <!-- SORT BY -->
+
+<div class="mobile-filter-section">
 
 
-                <h3>
-                    Sort By
-                </h3>
+    <h3>
+        Sort By
+    </h3>
 
 
-                <div class="mobile-popup-options">
+    <button class="mobile-select-trigger">
+
+        <span>
+            Default
+        </span>
+
+        <span class="material-symbols-outlined">
+            keyboard_arrow_down
+        </span>
+
+    </button>
 
 
-                    <button data-value="">
-                        Default
-                    </button>
+
+    <div class="mobile-popup-options">
 
 
-                    <button data-value="price-low">
-                        Price: Low to High
-                    </button>
+        <button data-value="">
+            Default
+        </button>
 
 
-                    <button data-value="price-high">
-                        Price: High to Low
-                    </button>
+        <button data-value="price-low">
+            Price: Low to High
+        </button>
 
 
-                    <button data-value="name">
-                        Name A-Z
-                    </button>
+        <button data-value="price-high">
+            Price: High to Low
+        </button>
 
 
-                    <button data-value="location">
-                        Location
-                    </button>
+        <button data-value="name">
+            Name A-Z
+        </button>
 
 
-                </div>
+        <button data-value="location">
+            Location
+        </button>
 
 
-            </div>
+    </div>
+
+
+</div>
 
 
 
