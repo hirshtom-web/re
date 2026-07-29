@@ -193,32 +193,25 @@
 .sheet-content{
 
     flex:1;
-
-    height:auto;
-
     overflow-y:auto;
-
     min-height:0;
+    padding-top:25px;
 
-   -webkit-overflow-scrolling:touch;
+    -webkit-overflow-scrolling:touch;
 
 }
 
 
-   
 .sheet-content .properties-grid{
 
     display:grid;
-
     grid-template-columns:1fr;
-
     gap:20px;
 
     padding:
-    25px 20px 50px;
+    0 20px 50px;
 
 }
-
 
 
 /* =========================================================
@@ -356,9 +349,7 @@
 
     flex:1;
 
-
     overflow-y:auto;
-
     overflow-x:hidden;
 
     min-height:0;
@@ -366,17 +357,13 @@
     padding:
     20px 20px 120px;
 
-
     -webkit-overflow-scrolling:touch;
 
-
     overscroll-behavior:contain;
-
 
     touch-action:pan-y;
 
 }
-
 
 
 /* =========================================================
@@ -551,7 +538,7 @@
 ========================================================= */
 
 
-.price-chart{
+.mobile-price-chart{
 
     height:80px;
 
@@ -568,7 +555,7 @@
 
 
 
-.price-chart div{
+.mobile-price-chart div{
 
     flex:1;
 
@@ -583,46 +570,32 @@
 
 /* FOOTER */
 
-
 .filter-sheet-footer{
 
-    position:absolute;
-
-
-    bottom:0;
-
-    left:0;
-
-    right:0;
-
+    flex-shrink:0;
 
     height:80px;
-
 
     display:flex;
 
     align-items:center;
 
-
     gap:20px;
 
-
-    padding:
-
-    16px 20px;
-
+    padding:16px 20px;
 
     background:#fff;
 
-
-    border-top:
-
-    1px solid #eee;
-
+    border-top:1px solid #eee;
 
 }
 
 
+   .filter-sheet{
+    position:fixed;
+    isolation:isolate;
+}
+   
 
 .reset-filter{
 
@@ -683,23 +656,9 @@
 }
 
 
-
    /* =====================================
    DESKTOP HIDE MOBILE FILTER BUTTON
 ===================================== */
-
-@media (min-width:901px){
-
-    button.mobile-filter-button{
-
-        display:none !important;
-
-    }
-
-}
-
-
-@media(max-width:900px){
 
     .results-count,
     .properties-count,
@@ -709,41 +668,18 @@
         display:none !important;
     }
 
-}
+
+
+/* =====================================
+   DESKTOP HIDE MOBILE ELEMENTS
+===================================== */
 
 @media(min-width:901px){
 
     .property-sheet,
     .mobile-map-layout,
+    #mobile-filters-root,
     .mobile-filter-button{
-        display:none !important;
-    }
-
-}
-
-/* =====================================
-   HIDE MOBILE PROPERTY SHEET DESKTOP
-===================================== */
-
-@media (min-width:901px){
-
-    .property-sheet{
-        display:none !important;
-    }
-
-}
-
-@media (min-width:901px){
-
-    #mobile-filters-root{
-        display:none !important;
-    }
-
-}
-
-@media (min-width:901px){
-
-    .mobile-map-layout{
         display:none !important;
     }
 
