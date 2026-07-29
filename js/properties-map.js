@@ -356,6 +356,109 @@ function hideMobilePropertyPreview(){
 }
 
 
+// ======================================
+// PREVIEW DRAG DOWN TO CLOSE
+// ======================================
+
+function enablePreviewDrag(){
+
+    const preview =
+    document.getElementById(
+        "map-property-preview"
+    );
+
+
+    if(!preview) return;
+
+
+    let startY = 0;
+    let currentY = 0;
+    let dragging = false;
+
+
+
+    preview.addEventListener(
+        "touchstart",
+        e=>{
+
+            startY =
+            e.touches[0].clientY;
+
+            dragging=true;
+
+            preview.classList.add(
+                "dragging"
+            );
+
+        },
+        {passive:true}
+    );
+
+
+
+    preview.addEventListener(
+        "touchmove",
+        e=>{
+
+            if(!dragging) return;
+
+
+            currentY =
+            e.touches[0].clientY;
+
+
+            let distance =
+            currentY-startY;
+
+
+            if(distance > 0){
+
+                preview.style.transform =
+                `translateY(${distance}px)`;
+
+            }
+
+        },
+        {passive:true}
+    );
+
+
+
+    preview.addEventListener(
+        "touchend",
+        ()=>{
+
+
+            dragging=false;
+
+
+            preview.classList.remove(
+                "dragging"
+            );
+
+
+            let moved =
+            currentY-startY;
+
+
+
+            if(moved > 100){
+
+                hideMobilePropertyPreview();
+
+            }
+            else{
+
+                preview.style.transform="";
+
+            }
+
+
+        }
+    );
+
+}
+
 
 // ======================================
 // LOAD PROPERTY MARKERS
