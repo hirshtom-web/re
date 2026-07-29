@@ -126,20 +126,19 @@ async function initMap(){
 
     google.maps.event.addListenerOnce(
 
-        map,
+    map,
 
-        "idle",
+    "idle",
 
-        ()=>{
+    ()=>{
 
-            loadPropertiesMap();
+        loadPropertiesMap();
 
-        }
+        enablePreviewDrag();
 
-    );
+    }
 
-
-}
+);
 
 
 
@@ -329,29 +328,22 @@ function showMobilePropertyPreview(property){
 // HIDE MOBILE PROPERTY PREVIEW
 // ======================================
 
-function hideMobilePropertyPreview(){
-
+    function hideMobilePropertyPreview(){
 
     const preview =
     document.getElementById(
         "map-property-preview"
     );
 
-
     if(!preview){
-
         return;
-
     }
 
+    preview.classList.remove("show");
 
-    preview.classList.remove(
-        "show"
-    );
-
+    preview.style.transform = "";
 
     preview.innerHTML = "";
-
 
 }
 
@@ -382,9 +374,11 @@ function enablePreviewDrag(){
         e=>{
 
             startY =
-            e.touches[0].clientY;
+e.touches[0].clientY;
 
-            dragging=true;
+currentY = startY;
+
+dragging = true;
 
             preview.classList.add(
                 "dragging"
