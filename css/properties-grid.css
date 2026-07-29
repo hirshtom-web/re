@@ -159,6 +159,10 @@ MAP
     display:none;
 }
 
+.properties-scroll{
+    scrollbar-width:none;
+}
+
 
 
 /* =====================
@@ -292,6 +296,15 @@ MAP VIEW
 @media (min-width:901px){
 
     .mobile-map-layout{
+        display:none !important;
+    }
+
+}
+
+@media (max-width:900px){
+
+    .properties-layout,
+    .desktop-filters{
         display:none !important;
     }
 
