@@ -6,8 +6,32 @@
    MOBILE (768px and below)
    ========================================================== */
 
+
 @media (max-width:768px){
 
+.residence-page{
+
+    --m-h1:32px;
+    --m-h2:28px;
+    --m-h3:22px;
+
+    --m-body-lg:17px;
+    --m-body:16px;
+    --m-small:14px;
+    --m-caption:12px;
+
+    --m-line:1.6;
+    --m-tight:1.15;
+    --m-letter:-0.03em;
+
+    --m-section:40px;
+    --m-gap:20px;
+    --m-gap-sm:12px;
+
+    --m-radius:24px;
+
+}
+   
 /* ==========================================================
    PAGE
    ========================================================== */
@@ -91,62 +115,40 @@
    HERO
    ========================================================== */
 
-.residence-hero{
-    padding:0 0 10px;
-}
-
-.hero-content{
-    max-width:100%;
-}
-
-.title-row{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:12px;
-}
-
 .title-row h1{
     margin:0;
-    line-height:1.15;
+    line-height:var(--m-tight);
 }
 
 h1{
-    font-size:32px;
-    letter-spacing:-1px;
+    font-size:var(--m-h1);
+    letter-spacing:var(--m-letter);
     margin-bottom:0;
 }
 
-h1 span{
-    margin-top:4px;
-}
-
 h2{
-    font-size:30px;
+    font-size:var(--m-h2);
+    line-height:var(--m-tight);
 }
 
 .hero-content p{
-    font-size:17px;
-    line-height:1.6;
+    font-size:var(--m-body-lg);
+    line-height:var(--m-line);
     margin-top:20px;
 }
 
 .property-address{
     margin-top:18px;
-    font-size:16px;
-    line-height:1.5;
-}
-
-.property-tags{
-    margin-bottom:0;
-    order:-1;
+    font-size:var(--m-body);
+    line-height:var(--m-line);
 }
 
 .tag{
-    font-size:12px;
+    font-size:var(--m-caption);
     padding:7px 14px;
 }
-
+   
+   
 /* ==========================================================
    FACTS
    ========================================================== */
@@ -160,10 +162,15 @@ h2{
     padding:22px;
 }
 
-.fact-card strong{
-    font-size:16px;
+.fact-card span{
+    font-size:var(--m-caption);
 }
 
+.fact-card strong{
+    font-size:var(--m-body);
+}
+
+   
 /* ==========================================================
    INFO CARDS
    ========================================================== */
@@ -188,6 +195,15 @@ h2{
     scroll-snap-align:start;
 }
 
+   .info-card h3{
+    font-size:var(--m-h3);
+}
+
+.info-card p{
+    font-size:var(--m-small);
+    line-height:var(--m-line);
+}
+   
 /* ==========================================================
    ARCHITECTURE
    ========================================================== */
@@ -237,6 +253,16 @@ h2{
     margin:0;
 }
 
+   .timeline-step strong{
+    font-size:var(--m-body);
+}
+
+.timeline-step small,
+.timeline-step p{
+    font-size:var(--m-small);
+}
+   
+
 /* ==========================================================
    TEAM
    ========================================================== */
@@ -258,6 +284,14 @@ h2{
     scroll-snap-align:start;
 }
 
+   .team-card h3{
+    font-size:var(--m-body);
+}
+
+.team-card p{
+    font-size:var(--m-small);
+}
+   
 /* ==========================================================
    NEARBY
    ========================================================== */
@@ -277,6 +311,14 @@ h2{
 .nearby-card{
     flex:0 0 85%;
     scroll-snap-align:start;
+}
+
+   .nearby-card h3{
+    font-size:var(--m-body);
+}
+
+.nearby-card p{
+    font-size:var(--m-small);
 }
 
 /* ==========================================================
