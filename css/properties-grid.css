@@ -126,16 +126,26 @@ MAP
 
 
 .price-marker{
+
     background:#fff;
     color:#111;
+
     padding:6px 10px;
+
     border-radius:999px;
+
     font-size:13px;
     font-weight:600;
-    box-shadow:0 6px 18px rgba(0,0,0,.15);
-    border:1px solid rgba(0,0,0,.08);
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.10);
+
+    border:1px solid rgba(0,0,0,.06);
+
     white-space:nowrap;
+
     transition:.2s ease;
+
 }
 
 
