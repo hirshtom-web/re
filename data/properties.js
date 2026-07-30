@@ -19,7 +19,7 @@ status:"Pre-Construction",
 
 location:"Miami Beach, Florida",
 
-address:"Coming Soon",
+address:"1234 Main Street",
 
 description:
 "A limited collection of luxury residences in one of Florida's most desirable markets. Secure early access before public release.",
