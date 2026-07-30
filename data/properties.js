@@ -32,9 +32,9 @@ description:
    GRID IMAGE
 ========================= */
 
-thumbnail:
-
-"data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp",
+thumbnail: 
+   
+"/data/images/casa-bella/Casa-Bella-Building.webp",
 
 
 /* =========================
