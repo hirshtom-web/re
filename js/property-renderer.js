@@ -226,19 +226,24 @@ if(main){
 
     main.loading = "eager";
 
-    main.src = property.thumbnail || images[0];
+    main.src = data.thumbnail || images[0];
 
     main.onerror = () => {
 
+        if(data.thumbnail && main.src !== images[0]){
+
+            main.src = images[0];
+            return;
+
+        }
+
         main.style.display = "none";
 
-        const placeholder = document.createElement("div");
+        if(placeholder){
 
-        placeholder.className = "image-placeholder";
+            placeholder.style.display = "flex";
 
-        placeholder.textContent = "Images Coming Soon";
-
-        main.parentElement.appendChild(placeholder);
+        }
 
     };
 
