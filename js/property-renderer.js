@@ -191,6 +191,7 @@ const images = (data.images || []).filter(img =>
 
 
 const main =
+document.getElementById("gallery-main") ||
 document.getElementById("property-main-image");
 
 
