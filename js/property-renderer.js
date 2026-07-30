@@ -230,17 +230,18 @@ if(main){
 
     main.onerror = () => {
 
-        main.style.display = "none";
+    // Try the first gallery image if the thumbnail fails
+    if (main.src !== images[0] && images.length) {
+        main.src = images[0];
+        return;
+    }
 
-        const placeholder = document.createElement("div");
+    // If that also fails, show the placeholder
+    main.style.display = "none";
 
-        placeholder.className = "image-placeholder";
+    placeholder.style.display = "flex";
 
-        placeholder.textContent = "Images Coming Soon";
-
-        main.parentElement.appendChild(placeholder);
-
-    };
+};
 
 }
 
