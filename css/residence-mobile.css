@@ -12,14 +12,14 @@
 
     /* Typography */
 
-    --m-h1:30px;
-    --m-h2:26px;
-    --m-h3:20px;
+    --m-h1:20px;
+    --m-h2:20px;
+    --m-h3:18px;
 
-    --m-body-lg:16px;
-    --m-body:15px;
-    --m-small:13px;
-    --m-caption:11px;
+    --m-body-lg:14px;
+    --m-body:12px;
+    --m-small:10px;
+    --m-caption:10px;
 
     --m-tight:1.1;
     --m-line:1.55;
