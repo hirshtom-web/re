@@ -388,8 +388,6 @@ images:[
 
 "data/images/casa-bella/Casa-Bella-Bathroom.webp",
 
-"data/images/casa-bella/Casa-Bella-Building.webp",
-
 "data/images/casa-bella/Casa-Bella-Kitchen.webp",
 
 "data/images/casa-bella/Casa-Bella-Living-Room.webp"
