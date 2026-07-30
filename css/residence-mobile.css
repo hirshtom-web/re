@@ -18,8 +18,8 @@
 
     --m-body-lg:14px;
     --m-body:12px;
-    --m-small:10px;
-    --m-caption:10px;
+    --m-small:12px;
+    --m-caption:12px;
 
     --m-tight:1.1;
     --m-line:1.55;
@@ -45,6 +45,7 @@
 
 h1{
     font-size:var(--m-h1);
+    font-weight:500;
     line-height:var(--m-tight);
     letter-spacing:var(--m-letter);
     margin:0;
@@ -52,27 +53,36 @@ h1{
 
 h2{
     font-size:var(--m-h2);
+    font-weight:500;
     line-height:1.15;
     letter-spacing:var(--m-letter);
 }
 
 h3{
     font-size:var(--m-h3);
+    font-weight:500;
     line-height:1.25;
 }
 
 p,
 li{
     font-size:var(--m-body);
+    font-weight:400;
     line-height:var(--m-line);
+}
+
+strong{
+    font-weight:600;
 }
 
 small{
     font-size:var(--m-small);
+    font-weight:400;
 }
 
 .tag{
     font-size:var(--m-caption);
+    font-weight:600;
     padding:7px 14px;
 }
 
