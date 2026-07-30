@@ -226,22 +226,24 @@ if(main){
 
     main.loading = "eager";
 
-    main.src = property.thumbnail || images[0];
+    main.src = data.thumbnail || images[0];
 
     main.onerror = () => {
 
-    // Try the first gallery image if the thumbnail fails
-    if (main.src !== images[0] && images.length) {
-        main.src = images[0];
-        return;
-    }
+        if(main.src !== images[0] && images.length){
 
-    // If that also fails, show the placeholder
-    main.style.display = "none";
+            main.src = images[0];
+            return;
 
-    placeholder.style.display = "flex";
+        }
 
-};
+        main.style.display = "none";
+
+        if(placeholder){
+            placeholder.style.display = "flex";
+        }
+
+    };
 
 }
 
