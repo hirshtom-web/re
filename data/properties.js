@@ -2,6 +2,815 @@ window.properties = [
    
 {
 
+
+id: "casa-bella-by-bb-italia",
+      
+
+/* =========================
+   BASIC INFO
+========================= */
+
+title: "Casa Bella by B&B Italia",
+
+subtitle:"Italian Elegance Meets Modern Miami Living",
+
+type:"Ultra-Luxury Branded Condominium",
+
+status:"Under Construction",
+
+location:"Miami, Florida",
+
+address:"Coming Soon",
+
+
+description:
+"Casa Bella Residences Miami introduces a new expression of Italian sophistication in the heart of Miami. Created in collaboration with B&B Italia, one of Italy's most celebrated names in contemporary design, the residences combine timeless craftsmanship, refined interiors, and an elevated lifestyle inspired by Mediterranean elegance. Designed for those who appreciate art, architecture, and exceptional living, Casa Bella offers light-filled residences, lush garden surroundings, expansive views, and thoughtfully curated amenities that redefine modern luxury living.",
+
+
+
+/* =========================
+   GRID IMAGE
+========================= */
+
+thumbnail:
+
+"data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp",
+
+
+/* =========================
+   PRICING
+========================= */
+
+price:"$1.5M+",
+
+priceRange:"Starting From $1.5M",
+
+pricePerSqft:"Available Upon Request",
+
+hoa:"Available Upon Request",
+
+estimatedTaxes:"Miami-Dade Standard Assessment",
+
+
+
+/* =========================
+   MORTGAGE CALCULATOR
+========================= */
+
+mortgage:{
+
+price:1500000,
+
+downPayment:30,
+
+taxRate:1.7,
+
+insuranceRate:0.45,
+
+hoaSqft:1.85,
+
+size:1500,
+
+interestRate:6.5,
+
+loanYears:30
+
+},
+
+
+
+/* =========================
+   PROPERTY FACTS
+========================= */
+
+bedrooms:"1–4 Bedrooms",
+
+bathrooms:"1.5–5 Bathrooms",
+
+interiorSize:"Approx. 1,000–4,000 SF",
+
+terraceSize:"Private Terraces",
+
+floors:"Luxury Residential Tower",
+
+units:"Limited Collection of Residences",
+
+delivery:"2028",
+
+yearBuilt:"2028",
+
+
+
+/* =========================
+   LOCATION
+========================= */
+
+neighborhood:"Miami",
+
+city:"Miami",
+
+state:"Florida",
+
+country:"USA",
+
+
+coordinates:{
+
+lat:25.7907,
+
+lng:-80.1870
+
+},
+
+
+nearby:[
+
+{
+title:"Miami Design District",
+distance:"5 minutes",
+icon:"palette",
+
+coordinates:{
+lat:25.8130,
+lng:-80.1936
+}
+
+},
+
+{
+title:"Wynwood Arts District",
+distance:"8 minutes",
+icon:"palette",
+
+coordinates:{
+lat:25.8012,
+lng:-80.1990
+}
+
+},
+
+{
+title:"Bayside Marketplace",
+distance:"10 minutes",
+icon:"shopping_bag",
+
+coordinates:{
+lat:25.7781,
+lng:-80.1869
+}
+
+},
+
+{
+title:"Brickell Financial District",
+distance:"12 minutes",
+icon:"business",
+
+coordinates:{
+lat:25.7617,
+lng:-80.1918
+}
+
+},
+
+{
+title:"Miami International Airport",
+distance:"15 minutes",
+icon:"flight",
+
+coordinates:{
+lat:25.7959,
+lng:-80.2870
+}
+
+}
+
+],
+
+      /* =========================
+   NEIGHBORHOOD LIFESTYLE
+========================= */
+
+lifestyleIntro:
+
+"Located in one of Miami's most dynamic cultural and lifestyle destinations, Casa Bella Residences connects owners with world-class dining, contemporary art, luxury shopping, and the energy of the city. Inspired by Italian design philosophy, every element celebrates beauty, comfort, and the art of living well.",
+
+
+
+/* =========================
+   NEIGHBORHOOD LIFESTYLE HIGHLIGHTS
+========================= */
+
+lifestyleHighlights:[
+
+{
+icon:"palette",
+
+title:"Italian Design Heritage",
+
+text:"Experience residences inspired by B&B Italia's legendary approach to modern furniture, architecture, and timeless Italian craftsmanship."
+},
+
+{
+icon:"restaurant",
+
+title:"Mediterranean Lifestyle",
+
+text:"Enjoy refined dining experiences, café culture, craft cocktails, and Miami's most celebrated culinary destinations nearby."
+},
+
+{
+icon:"spa",
+
+title:"Wellness & Relaxation",
+
+text:"Private wellness spaces, resort-inspired amenities, and tranquil garden environments create a daily retreat from the city."
+},
+
+{
+icon:"park",
+
+title:"Garden Living",
+
+text:"Lush landscaped grounds and thoughtfully designed outdoor spaces bring a sense of calm, nature, and Mediterranean elegance."
+},
+
+{
+icon:"shopping_bag",
+
+title:"Luxury Shopping",
+
+text:"Minutes from Miami's premier destinations including designer boutiques, galleries, and luxury retail experiences."
+},
+
+{
+icon:"location_city",
+
+title:"Cultural Connection",
+
+text:"Surrounded by Miami's most vibrant neighborhoods, galleries, architecture, and international creative community."
+}
+
+],
+
+
+
+/* =========================
+   LIFESTYLE EXPERIENCES
+========================= */
+
+lifestyleExperiences:[
+
+{
+
+title:"Italian Art of Living",
+
+category:"Design",
+
+icon:"chair",
+
+image:"data/images/casa-bella/Casa-Bella-Living-Room.webp",
+
+text:"Inspired by the elegance of Italian interiors, Casa Bella brings together refined materials, exceptional craftsmanship, and timeless B&B Italia design.",
+
+tag:"Italian Design"
+
+},
+
+
+{
+
+title:"Mediterranean Pool Lifestyle",
+
+category:"Resort",
+
+icon:"pool",
+
+image:"data/images/casa-bella/Casa-Bella-Balcony-Sunrise.webp",
+
+text:"Relax by the poolside lounge featuring Mediterranean-inspired surroundings, café experiences, and handcrafted cocktails.",
+
+tag:"Resort Living"
+
+},
+
+
+{
+
+title:"Light-Filled Residences",
+
+category:"Architecture",
+
+icon:"wb_sunny",
+
+image:"data/images/casa-bella/Casa-Bella-Living-Room.webp",
+
+text:"Soaring interiors, natural light, and expansive views create residences designed around comfort, beauty, and effortless sophistication.",
+
+tag:"Architecture"
+
+},
+
+
+{
+
+title:"Private Culinary Experiences",
+
+category:"Dining",
+
+icon:"restaurant",
+
+image:"data/images/casa-bella/Casa-Bella-Kitchen.webp",
+
+text:"Elegant kitchens and entertaining spaces designed for intimate dinners, celebrations, and the enjoyment of exceptional cuisine.",
+
+tag:"Gastronomy"
+
+},
+
+
+{
+
+title:"Miami Cultural Lifestyle",
+
+category:"Culture",
+
+icon:"palette",
+
+image:"data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp",
+
+text:"A location surrounded by Miami's finest galleries, museums, architecture, and creative destinations.",
+
+tag:"Culture"
+
+},
+
+
+{
+
+title:"Sunrise & Skyline Views",
+
+category:"Views",
+
+icon:"visibility",
+
+image:"data/images/casa-bella/Casa-Bella-Building.webp",
+
+text:"Wake up surrounded by breathtaking city views, natural light, and the vibrant energy of Miami.",
+
+tag:"Views"
+
+}
+
+],
+
+
+
+/* =========================
+   GALLERY
+========================= */
+
+images:[
+
+"data/images/casa-bella/Casa-Bella-01-Casa-Cielo_Unit-4C-03.webp",
+
+"data/images/casa-bella/Casa-Bella-02-Casa-Cielo_Unit-3-01.webp",
+
+"data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-1-02.webp",
+
+"data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-2-01.webp",
+
+"data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-4-01.webp",
+
+"data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp",
+
+"data/images/casa-bella/Casa-Bella-Balcony-Sunrise.webp",
+
+"data/images/casa-bella/Casa-Bella-Bathroom.webp",
+
+"data/images/casa-bella/Casa-Bella-Building.webp",
+
+"data/images/casa-bella/Casa-Bella-Kitchen.webp",
+
+"data/images/casa-bella/Casa-Bella-Living-Room.webp"
+
+],
+
+
+
+/* =========================
+   AMENITIES
+========================= */
+
+amenities:[
+
+{
+name:"Mediterranean Pool Lounge",
+icon:"pool"
+},
+
+{
+name:"Poolside Café & Bar",
+icon:"local_bar"
+},
+
+{
+name:"Luxury Spa",
+icon:"spa"
+},
+
+{
+name:"Fitness Center",
+icon:"fitness_center"
+},
+
+{
+name:"Private Dining",
+icon:"restaurant"
+},
+
+{
+name:"Residents Lounge",
+icon:"groups"
+},
+
+{
+name:"Outdoor Garden Spaces",
+icon:"park"
+},
+
+{
+name:"Business Lounge",
+icon:"meeting_room"
+},
+
+{
+name:"Private Event Space",
+icon:"celebration"
+},
+
+{
+name:"24/7 Concierge",
+icon:"support_agent"
+},
+
+{
+name:"Valet Parking",
+icon:"directions_car"
+},
+
+{
+name:"Smart Home Technology",
+icon:"home"
+},
+
+{
+name:"Pet Amenities",
+icon:"pets"
+},
+
+{
+name:"Yoga & Wellness Areas",
+icon:"self_improvement"
+},
+
+{
+name:"Rooftop Terrace",
+icon:"deck"
+},
+
+{
+name:"Controlled Access Security",
+icon:"security"
+}
+
+],
+
+
+
+/* =========================
+   HIGHLIGHTS
+========================= */
+
+highlights:[
+
+{
+
+title:"Italian Design Legacy",
+
+text:
+"Casa Bella brings the heritage of B&B Italia to Miami, combining world-renowned Italian furniture design, craftsmanship, and contemporary residential living."
+
+},
+
+
+{
+
+title:"Prime Miami Location",
+
+text:
+"Located near the Design District, Wynwood, Brickell, and Downtown Miami, residents enjoy immediate access to culture, dining, shopping, and entertainment."
+
+},
+
+
+{
+
+title:"Lifestyle-Focused Investment",
+
+text:
+"Strong demand for luxury Miami residences continues to be supported by international buyers, business migration, and the city's global appeal."
+
+}
+
+],
+
+
+
+/* =========================
+   AI RATING
+========================= */
+
+aiRating:{
+
+overall:9.2,
+
+confidence:93,
+
+
+summary:
+"Strong luxury positioning driven by Italian design identity, central Miami location, and lifestyle-focused amenities.",
+
+
+scores:[
+
+{
+
+label:"Investment Potential",
+
+value:9.1
+
+},
+
+{
+
+label:"Location Quality",
+
+value:9.5
+
+},
+
+{
+
+label:"Rental Demand",
+
+value:9.3
+
+},
+
+{
+
+label:"Lifestyle",
+
+value:9.5
+
+},
+
+{
+
+label:"Build Quality",
+
+value:9.2
+
+},
+
+{
+
+label:"Market Value",
+
+value:8.9
+
+}
+
+],
+
+
+strengths:[
+
+"Italian design partnership",
+
+"Prime Miami location",
+
+"Luxury amenities",
+
+"International buyer appeal"
+
+],
+
+
+risks:[
+
+"Premium pricing",
+
+"Competition from new Miami developments"
+
+]
+
+},
+
+
+
+/* =========================
+   ARCHITECTURE & DESIGN
+========================= */
+
+architecture:{
+
+title:"Italian Craftsmanship Meets Miami Lifestyle",
+
+text:
+"Designed around the principles of timeless Italian elegance, Casa Bella Residences combines sophisticated architecture, curated interiors, and natural light-filled spaces. In collaboration with B&B Italia, each residence reflects a dedication to refined materials, contemporary comfort, and a lifestyle inspired by Mediterranean beauty."
+
+},
+
+
+
+architectureGallery:[
+
+{
+
+image:"data/images/casa-bella/Casa-Bella-Building.webp",
+
+caption:"Signature architectural design"
+
+},
+
+{
+
+image:"data/images/casa-bella/Casa-Bella-Living-Room.webp",
+
+caption:"B&B Italia inspired interiors"
+
+},
+
+{
+
+image:"data/images/casa-bella/Casa-Bella-Kitchen.webp",
+
+caption:"Contemporary Italian kitchens"
+
+}
+
+],
+
+
+
+designTeam:{
+
+architect:"Revuelta Vega Leon",
+
+interiors:"B&B Italia",
+
+developer:"Terra"
+
+},
+
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+timeline:[
+
+{
+
+year:"2023",
+
+label:"Project Announcement"
+
+},
+
+{
+
+year:"2024",
+
+label:"Construction Begins"
+
+},
+
+{
+
+year:"2026",
+
+label:"Vertical Development"
+
+},
+
+{
+
+year:"2027",
+
+label:"Residence Delivery"
+
+}
+
+],
+
+
+
+/* =========================
+   FAQ
+========================= */
+
+faq:[
+
+{
+question:"Can international buyers purchase at Casa Bella?",
+answer:"International buyers can purchase Florida real estate subject to applicable regulations and closing requirements. Professional guidance is recommended throughout the purchase process."
+},
+
+
+{
+question:"What makes Casa Bella different from other Miami residences?",
+answer:"Casa Bella combines Miami living with Italian design heritage through its collaboration with B&B Italia, creating residences centered around craftsmanship, elegance, and lifestyle."
+},
+
+
+{
+question:"Are rental opportunities available?",
+answer:"Rental policies depend on condominium regulations. Buyers should review current association rules and rental restrictions before purchase."
+},
+
+
+{
+question:"What is included in the residence?",
+answer:"Residences include premium finishes, designer interiors, luxury appliances, and access to a full collection of building amenities."
+},
+
+
+{
+question:"How are HOA fees determined?",
+answer:"HOA fees typically cover building operations, amenities, shared spaces, insurance, maintenance, and management services."
+},
+
+
+{
+question:"How is the AI Investment Score calculated?",
+answer:"The AI score evaluates location quality, market trends, lifestyle appeal, comparable developments, demand factors, and long-term value potential."
+}
+
+],
+
+
+
+/* =========================
+   DOCUMENTS
+========================= */
+
+documents:[
+
+{
+
+title:"Brochure",
+
+file:"#"
+
+},
+
+{
+
+title:"Floor Plans",
+
+file:"#"
+
+},
+
+{
+
+title:"Price Sheet",
+
+file:"#"
+
+},
+
+
+],
+
+
+
+/* =========================
+   LEGAL
+========================= */
+
+disclaimer:
+
+"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
+
+},
+   
+   {
+
 id:"oceanfront-miami-01",
 
 
@@ -4958,815 +5767,6 @@ disclaimer:
 
 "Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
 
-
-},
-
-   {
-
-
-id: "casa-bella-by-bb-italia",
-      
-
-/* =========================
-   BASIC INFO
-========================= */
-
-title: "Casa Bella by B&B Italia",
-
-subtitle:"Italian Elegance Meets Modern Miami Living",
-
-type:"Ultra-Luxury Branded Condominium",
-
-status:"Under Construction",
-
-location:"Miami, Florida",
-
-address:"Coming Soon",
-
-
-description:
-"Casa Bella Residences Miami introduces a new expression of Italian sophistication in the heart of Miami. Created in collaboration with B&B Italia, one of Italy's most celebrated names in contemporary design, the residences combine timeless craftsmanship, refined interiors, and an elevated lifestyle inspired by Mediterranean elegance. Designed for those who appreciate art, architecture, and exceptional living, Casa Bella offers light-filled residences, lush garden surroundings, expansive views, and thoughtfully curated amenities that redefine modern luxury living.",
-
-
-
-/* =========================
-   GRID IMAGE
-========================= */
-
-thumbnail:
-
-"data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp",
-
-
-/* =========================
-   PRICING
-========================= */
-
-price:"$1.5M+",
-
-priceRange:"Starting From $1.5M",
-
-pricePerSqft:"Available Upon Request",
-
-hoa:"Available Upon Request",
-
-estimatedTaxes:"Miami-Dade Standard Assessment",
-
-
-
-/* =========================
-   MORTGAGE CALCULATOR
-========================= */
-
-mortgage:{
-
-price:1500000,
-
-downPayment:30,
-
-taxRate:1.7,
-
-insuranceRate:0.45,
-
-hoaSqft:1.85,
-
-size:1500,
-
-interestRate:6.5,
-
-loanYears:30
-
-},
-
-
-
-/* =========================
-   PROPERTY FACTS
-========================= */
-
-bedrooms:"1–4 Bedrooms",
-
-bathrooms:"1.5–5 Bathrooms",
-
-interiorSize:"Approx. 1,000–4,000 SF",
-
-terraceSize:"Private Terraces",
-
-floors:"Luxury Residential Tower",
-
-units:"Limited Collection of Residences",
-
-delivery:"2028",
-
-yearBuilt:"2028",
-
-
-
-/* =========================
-   LOCATION
-========================= */
-
-neighborhood:"Miami",
-
-city:"Miami",
-
-state:"Florida",
-
-country:"USA",
-
-
-coordinates:{
-
-lat:25.7907,
-
-lng:-80.1870
-
-},
-
-
-nearby:[
-
-{
-title:"Miami Design District",
-distance:"5 minutes",
-icon:"palette",
-
-coordinates:{
-lat:25.8130,
-lng:-80.1936
-}
-
-},
-
-{
-title:"Wynwood Arts District",
-distance:"8 minutes",
-icon:"palette",
-
-coordinates:{
-lat:25.8012,
-lng:-80.1990
-}
-
-},
-
-{
-title:"Bayside Marketplace",
-distance:"10 minutes",
-icon:"shopping_bag",
-
-coordinates:{
-lat:25.7781,
-lng:-80.1869
-}
-
-},
-
-{
-title:"Brickell Financial District",
-distance:"12 minutes",
-icon:"business",
-
-coordinates:{
-lat:25.7617,
-lng:-80.1918
-}
-
-},
-
-{
-title:"Miami International Airport",
-distance:"15 minutes",
-icon:"flight",
-
-coordinates:{
-lat:25.7959,
-lng:-80.2870
-}
-
-}
-
-],
-
-      /* =========================
-   NEIGHBORHOOD LIFESTYLE
-========================= */
-
-lifestyleIntro:
-
-"Located in one of Miami's most dynamic cultural and lifestyle destinations, Casa Bella Residences connects owners with world-class dining, contemporary art, luxury shopping, and the energy of the city. Inspired by Italian design philosophy, every element celebrates beauty, comfort, and the art of living well.",
-
-
-
-/* =========================
-   NEIGHBORHOOD LIFESTYLE HIGHLIGHTS
-========================= */
-
-lifestyleHighlights:[
-
-{
-icon:"palette",
-
-title:"Italian Design Heritage",
-
-text:"Experience residences inspired by B&B Italia's legendary approach to modern furniture, architecture, and timeless Italian craftsmanship."
-},
-
-{
-icon:"restaurant",
-
-title:"Mediterranean Lifestyle",
-
-text:"Enjoy refined dining experiences, café culture, craft cocktails, and Miami's most celebrated culinary destinations nearby."
-},
-
-{
-icon:"spa",
-
-title:"Wellness & Relaxation",
-
-text:"Private wellness spaces, resort-inspired amenities, and tranquil garden environments create a daily retreat from the city."
-},
-
-{
-icon:"park",
-
-title:"Garden Living",
-
-text:"Lush landscaped grounds and thoughtfully designed outdoor spaces bring a sense of calm, nature, and Mediterranean elegance."
-},
-
-{
-icon:"shopping_bag",
-
-title:"Luxury Shopping",
-
-text:"Minutes from Miami's premier destinations including designer boutiques, galleries, and luxury retail experiences."
-},
-
-{
-icon:"location_city",
-
-title:"Cultural Connection",
-
-text:"Surrounded by Miami's most vibrant neighborhoods, galleries, architecture, and international creative community."
-}
-
-],
-
-
-
-/* =========================
-   LIFESTYLE EXPERIENCES
-========================= */
-
-lifestyleExperiences:[
-
-{
-
-title:"Italian Art of Living",
-
-category:"Design",
-
-icon:"chair",
-
-image:"data/images/casa-bella/Casa-Bella-Living-Room.webp",
-
-text:"Inspired by the elegance of Italian interiors, Casa Bella brings together refined materials, exceptional craftsmanship, and timeless B&B Italia design.",
-
-tag:"Italian Design"
-
-},
-
-
-{
-
-title:"Mediterranean Pool Lifestyle",
-
-category:"Resort",
-
-icon:"pool",
-
-image:"data/images/casa-bella/Casa-Bella-Balcony-Sunrise.webp",
-
-text:"Relax by the poolside lounge featuring Mediterranean-inspired surroundings, café experiences, and handcrafted cocktails.",
-
-tag:"Resort Living"
-
-},
-
-
-{
-
-title:"Light-Filled Residences",
-
-category:"Architecture",
-
-icon:"wb_sunny",
-
-image:"data/images/casa-bella/Casa-Bella-Living-Room.webp",
-
-text:"Soaring interiors, natural light, and expansive views create residences designed around comfort, beauty, and effortless sophistication.",
-
-tag:"Architecture"
-
-},
-
-
-{
-
-title:"Private Culinary Experiences",
-
-category:"Dining",
-
-icon:"restaurant",
-
-image:"data/images/casa-bella/Casa-Bella-Kitchen.webp",
-
-text:"Elegant kitchens and entertaining spaces designed for intimate dinners, celebrations, and the enjoyment of exceptional cuisine.",
-
-tag:"Gastronomy"
-
-},
-
-
-{
-
-title:"Miami Cultural Lifestyle",
-
-category:"Culture",
-
-icon:"palette",
-
-image:"data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp",
-
-text:"A location surrounded by Miami's finest galleries, museums, architecture, and creative destinations.",
-
-tag:"Culture"
-
-},
-
-
-{
-
-title:"Sunrise & Skyline Views",
-
-category:"Views",
-
-icon:"visibility",
-
-image:"data/images/casa-bella/Casa-Bella-Building.webp",
-
-text:"Wake up surrounded by breathtaking city views, natural light, and the vibrant energy of Miami.",
-
-tag:"Views"
-
-}
-
-],
-
-
-
-/* =========================
-   GALLERY
-========================= */
-
-images:[
-
-"data/images/casa-bella/Casa-Bella-01-Casa-Cielo_Unit-4C-03.webp",
-
-"data/images/casa-bella/Casa-Bella-02-Casa-Cielo_Unit-3-01.webp",
-
-"data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-1-02.webp",
-
-"data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-2-01.webp",
-
-"data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-4-01.webp",
-
-"data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp",
-
-"data/images/casa-bella/Casa-Bella-Balcony-Sunrise.webp",
-
-"data/images/casa-bella/Casa-Bella-Bathroom.webp",
-
-"data/images/casa-bella/Casa-Bella-Building.webp",
-
-"data/images/casa-bella/Casa-Bella-Kitchen.webp",
-
-"data/images/casa-bella/Casa-Bella-Living-Room.webp"
-
-],
-
-
-
-/* =========================
-   AMENITIES
-========================= */
-
-amenities:[
-
-{
-name:"Mediterranean Pool Lounge",
-icon:"pool"
-},
-
-{
-name:"Poolside Café & Bar",
-icon:"local_bar"
-},
-
-{
-name:"Luxury Spa",
-icon:"spa"
-},
-
-{
-name:"Fitness Center",
-icon:"fitness_center"
-},
-
-{
-name:"Private Dining",
-icon:"restaurant"
-},
-
-{
-name:"Residents Lounge",
-icon:"groups"
-},
-
-{
-name:"Outdoor Garden Spaces",
-icon:"park"
-},
-
-{
-name:"Business Lounge",
-icon:"meeting_room"
-},
-
-{
-name:"Private Event Space",
-icon:"celebration"
-},
-
-{
-name:"24/7 Concierge",
-icon:"support_agent"
-},
-
-{
-name:"Valet Parking",
-icon:"directions_car"
-},
-
-{
-name:"Smart Home Technology",
-icon:"home"
-},
-
-{
-name:"Pet Amenities",
-icon:"pets"
-},
-
-{
-name:"Yoga & Wellness Areas",
-icon:"self_improvement"
-},
-
-{
-name:"Rooftop Terrace",
-icon:"deck"
-},
-
-{
-name:"Controlled Access Security",
-icon:"security"
-}
-
-],
-
-
-
-/* =========================
-   HIGHLIGHTS
-========================= */
-
-highlights:[
-
-{
-
-title:"Italian Design Legacy",
-
-text:
-"Casa Bella brings the heritage of B&B Italia to Miami, combining world-renowned Italian furniture design, craftsmanship, and contemporary residential living."
-
-},
-
-
-{
-
-title:"Prime Miami Location",
-
-text:
-"Located near the Design District, Wynwood, Brickell, and Downtown Miami, residents enjoy immediate access to culture, dining, shopping, and entertainment."
-
-},
-
-
-{
-
-title:"Lifestyle-Focused Investment",
-
-text:
-"Strong demand for luxury Miami residences continues to be supported by international buyers, business migration, and the city's global appeal."
-
-}
-
-],
-
-
-
-/* =========================
-   AI RATING
-========================= */
-
-aiRating:{
-
-overall:9.2,
-
-confidence:93,
-
-
-summary:
-"Strong luxury positioning driven by Italian design identity, central Miami location, and lifestyle-focused amenities.",
-
-
-scores:[
-
-{
-
-label:"Investment Potential",
-
-value:9.1
-
-},
-
-{
-
-label:"Location Quality",
-
-value:9.5
-
-},
-
-{
-
-label:"Rental Demand",
-
-value:9.3
-
-},
-
-{
-
-label:"Lifestyle",
-
-value:9.5
-
-},
-
-{
-
-label:"Build Quality",
-
-value:9.2
-
-},
-
-{
-
-label:"Market Value",
-
-value:8.9
-
-}
-
-],
-
-
-strengths:[
-
-"Italian design partnership",
-
-"Prime Miami location",
-
-"Luxury amenities",
-
-"International buyer appeal"
-
-],
-
-
-risks:[
-
-"Premium pricing",
-
-"Competition from new Miami developments"
-
-]
-
-},
-
-
-
-/* =========================
-   ARCHITECTURE & DESIGN
-========================= */
-
-architecture:{
-
-title:"Italian Craftsmanship Meets Miami Lifestyle",
-
-text:
-"Designed around the principles of timeless Italian elegance, Casa Bella Residences combines sophisticated architecture, curated interiors, and natural light-filled spaces. In collaboration with B&B Italia, each residence reflects a dedication to refined materials, contemporary comfort, and a lifestyle inspired by Mediterranean beauty."
-
-},
-
-
-
-architectureGallery:[
-
-{
-
-image:"data/images/casa-bella/Casa-Bella-Building.webp",
-
-caption:"Signature architectural design"
-
-},
-
-{
-
-image:"data/images/casa-bella/Casa-Bella-Living-Room.webp",
-
-caption:"B&B Italia inspired interiors"
-
-},
-
-{
-
-image:"data/images/casa-bella/Casa-Bella-Kitchen.webp",
-
-caption:"Contemporary Italian kitchens"
-
-}
-
-],
-
-
-
-designTeam:{
-
-architect:"Revuelta Vega Leon",
-
-interiors:"B&B Italia",
-
-developer:"Terra"
-
-},
-
-
-
-/* =========================
-   TIMELINE
-========================= */
-
-timeline:[
-
-{
-
-year:"2023",
-
-label:"Project Announcement"
-
-},
-
-{
-
-year:"2024",
-
-label:"Construction Begins"
-
-},
-
-{
-
-year:"2026",
-
-label:"Vertical Development"
-
-},
-
-{
-
-year:"2027",
-
-label:"Residence Delivery"
-
-}
-
-],
-
-
-
-/* =========================
-   FAQ
-========================= */
-
-faq:[
-
-{
-question:"Can international buyers purchase at Casa Bella?",
-answer:"International buyers can purchase Florida real estate subject to applicable regulations and closing requirements. Professional guidance is recommended throughout the purchase process."
-},
-
-
-{
-question:"What makes Casa Bella different from other Miami residences?",
-answer:"Casa Bella combines Miami living with Italian design heritage through its collaboration with B&B Italia, creating residences centered around craftsmanship, elegance, and lifestyle."
-},
-
-
-{
-question:"Are rental opportunities available?",
-answer:"Rental policies depend on condominium regulations. Buyers should review current association rules and rental restrictions before purchase."
-},
-
-
-{
-question:"What is included in the residence?",
-answer:"Residences include premium finishes, designer interiors, luxury appliances, and access to a full collection of building amenities."
-},
-
-
-{
-question:"How are HOA fees determined?",
-answer:"HOA fees typically cover building operations, amenities, shared spaces, insurance, maintenance, and management services."
-},
-
-
-{
-question:"How is the AI Investment Score calculated?",
-answer:"The AI score evaluates location quality, market trends, lifestyle appeal, comparable developments, demand factors, and long-term value potential."
-}
-
-],
-
-
-
-/* =========================
-   DOCUMENTS
-========================= */
-
-documents:[
-
-{
-
-title:"Brochure",
-
-file:"#"
-
-},
-
-{
-
-title:"Floor Plans",
-
-file:"#"
-
-},
-
-{
-
-title:"Price Sheet",
-
-file:"#"
-
-},
-
-
-],
-
-
-
-/* =========================
-   LEGAL
-========================= */
-
-disclaimer:
-
-"Information provided for illustrative purposes only. Pricing, availability, specifications, and features are subject to change without notice."
 
 }
       
