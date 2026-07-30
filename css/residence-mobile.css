@@ -383,3 +383,15 @@ small{
 }
 
 }
+
+@media (max-width:768px){
+
+.hero-content p{
+    margin:0 !important;
+}
+
+.property-address{
+    margin:8px 0 4px !important;
+}
+
+}
