@@ -191,7 +191,7 @@ const images = (data.images || []).filter(img =>
 
 
 const main =
-document.getElementById("property-main-image");
+document.getElementById("gallery-main");
 
 
 const desktopGrid =
@@ -226,22 +226,19 @@ if(main){
 
     main.loading = "eager";
 
-    main.src = data.thumbnail || images[0];
+    main.src = property.thumbnail || images[0];
 
     main.onerror = () => {
 
-        if(main.src !== images[0] && images.length){
-
-            main.src = images[0];
-            return;
-
-        }
-
         main.style.display = "none";
 
-        if(placeholder){
-            placeholder.style.display = "flex";
-        }
+        const placeholder = document.createElement("div");
+
+        placeholder.className = "image-placeholder";
+
+        placeholder.textContent = "Images Coming Soon";
+
+        main.parentElement.appendChild(placeholder);
 
     };
 
@@ -2100,4 +2097,3 @@ document.addEventListener("click",(e)=>{
 
 
 });
-
