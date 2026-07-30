@@ -13,8 +13,8 @@
     /* Typography */
 
     --m-h1:20px;
-    --m-h2:20px;
-    --m-h3:18px;
+    --m-h2:18px;
+    --m-h3:14px;
 
     --m-body-lg:14px;
     --m-body:12px;
@@ -53,7 +53,7 @@ h1{
 
 h2{
     font-size:var(--m-h2);
-    font-weight:500;
+    font-weight:400;
     line-height:1.15;
     letter-spacing:var(--m-letter);
 }
