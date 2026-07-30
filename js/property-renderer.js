@@ -229,24 +229,31 @@ if(main){
 
     main.src = data.thumbnail || images[0];
 
-    main.onerror = () => {
 
-        if(data.thumbnail && main.src !== images[0]){
+main.onerror = () => {
 
-            main.src = images[0];
-            return;
+    const fallback = images.find(img => img !== data.thumbnail);
 
-        }
 
-        main.style.display = "none";
+    if(fallback){
 
-        if(placeholder){
+        main.onerror = null;
+        main.src = fallback;
+        return;
 
-            placeholder.style.display = "flex";
+    }
 
-        }
 
-    };
+    main.style.display = "none";
+
+
+    if(placeholder){
+
+        placeholder.style.display = "flex";
+
+    }
+
+};
 
 }
 
