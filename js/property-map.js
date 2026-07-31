@@ -215,7 +215,7 @@ function addSoldProperties(){
 function addNearbyProperties(){
 
     const nearbyProperties =
-        window.currentProperty.nearby || [];
+    window.currentProperty?.nearby || [];
 
 
     nearbyProperties.forEach(property=>{
