@@ -1,4 +1,4 @@
-function renderLifestyle(data){
+function renderNeighborhoodLifestyle(data){
 
 
     const lifestyleGrid =
@@ -19,22 +19,53 @@ function renderLifestyle(data){
 
 
 
-    if(lifestyleGrid && data.lifestyleHighlights){
+    if(!lifestyleGrid || !data.lifestyleHighlights){
+        return;
+    }
 
 
-        lifestyleGrid.innerHTML="";
+
+    lifestyleGrid.innerHTML = "";
 
 
-        data.lifestyleHighlights.forEach(item=>{
+
+    data.lifestyleHighlights.forEach(item=>{
 
 
-            const card =
-            document.createElement("div");
+        const card =
+        document.createElement("div");
 
 
-            card.className =
-            "lifestyle-card";
+        card.className =
+        "lifestyle-card";
 
+
+        card.innerHTML = `
+
+            <span class="material-symbols-outlined">
+                ${item.icon || "location_on"}
+            </span>
+
+
+            <h3>
+                ${item.title}
+            </h3>
+
+
+            <p>
+                ${item.text}
+            </p>
+
+        `;
+
+
+        lifestyleGrid.appendChild(card);
+
+
+    });
+
+
+}
 
             card.innerHTML=`
 
