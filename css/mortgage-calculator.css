@@ -250,8 +250,9 @@
 
 
 
-/* BUTTON */
-
+/* =========================
+   BUTTON
+========================= */
 
 .mortgage-print{
 
@@ -260,6 +261,8 @@
     border:none;
 
     background:none;
+
+    padding:0;
 
     color:#6D5DFB;
 
@@ -270,12 +273,17 @@
 }
 
 
-
 .mortgage-print:hover{
 
     color:#4f46e5;
 
 }
+
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px){
 
@@ -313,6 +321,58 @@
 .payment-ring:after{
 
     inset:20px;
+
+}
+
+
+}
+
+
+
+/* =========================
+   MORTGAGE PRINT ONLY
+========================= */
+
+@media print {
+
+
+body.print-mortgage *{
+
+    visibility:hidden;
+
+}
+
+
+body.print-mortgage .mortgage-section,
+body.print-mortgage .mortgage-section *{
+
+    visibility:visible;
+
+}
+
+
+
+body.print-mortgage .mortgage-section{
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    background:white;
+
+    padding:40px;
+
+}
+
+
+
+body.print-mortgage .mortgage-print{
+
+    display:none;
 
 }
 
