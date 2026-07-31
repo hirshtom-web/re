@@ -44,8 +44,6 @@ images: [
 
 "/data/images/casa-bella/Casa-Bella-Building.webp",
 
-"/data/images/casa-bella/Casa-Bella-01-Casa-Cielo_Unit-4C-03.webp",
-
 "/data/images/casa-bella/Casa-Bella-02-Casa-Cielo_Unit-3-01.webp",
 
 "/data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-1-02.webp",
