@@ -111,31 +111,37 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     printButton.addEventListener("click",()=>{
 
-        document.body.classList.add(
-            "print-mortgage"
+    const calculator =
+        document.querySelector(".mortgage-section");
+
+
+    if(calculator){
+
+        calculator.classList.add(
+            "print-only"
         );
 
-
-        setTimeout(()=>{
-
-            window.print();
-
-        },100);
+    }
 
 
-    });
+    window.print();
 
 
-    window.addEventListener(
-        "afterprint",
-        ()=>{
+});
 
-            document.body.classList.remove(
-                "print-mortgage"
-            );
 
-        }
-    );
+    window.addEventListener("afterprint",()=>{
 
+    const calculator =
+        document.querySelector(".mortgage-section");
+
+
+    if(calculator){
+
+        calculator.classList.remove(
+            "print-only"
+        );
+
+    }
 
 });
