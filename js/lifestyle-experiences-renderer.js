@@ -1,9 +1,7 @@
 function renderLifestyleExperiences(data){
 
-
     const lifestyleSlider =
     document.getElementById("lifestyle-slider");
-
 
 
     if(!lifestyleSlider || !data.lifestyleExperiences){
@@ -11,9 +9,7 @@ function renderLifestyleExperiences(data){
     }
 
 
-
     lifestyleSlider.innerHTML = "";
-
 
 
     data.lifestyleExperiences.forEach(item=>{
@@ -34,19 +30,15 @@ function renderLifestyleExperiences(data){
                 alt="${item.title}"
             >
 
-
             <div class="slide-overlay">
-
 
                 <h3>
                     ${item.title}
                 </h3>
 
-
                 <p>
                     ${item.text}
                 </p>
-
 
             </div>
 
@@ -57,6 +49,5 @@ function renderLifestyleExperiences(data){
 
 
     });
-
 
 }
