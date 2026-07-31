@@ -92,8 +92,13 @@ function renderProperty(data){
     }
 
 
-    if(typeof renderLifestyle === "function"){
-        renderLifestyle(data);
+    if(typeof renderNeighborhoodLifestyle === "function"){
+    renderNeighborhoodLifestyle(data);
+    }
+
+
+    if(typeof renderLifestyleExperiences === "function"){
+    renderLifestyleExperiences(data);
     }
 
 
@@ -103,7 +108,17 @@ function renderProperty(data){
 
 
     if(typeof renderArchitecture === "function"){
-        renderArchitecture(data);
+    renderArchitecture(data);
+    }
+
+
+    if(typeof renderDesignTeam === "function"){
+    renderDesignTeam(data);
+    }
+
+    
+    if(typeof renderLocationMap === "function"){
+    renderLocationMap(data);
     }
 
 
@@ -132,32 +147,3 @@ function renderProperty(data){
 
 
 
-
-window.hideMapLoading = function(){
-
-
-    setTimeout(()=>{
-
-
-        const loader =
-        document.querySelector(".map-loading");
-
-
-        if(loader){
-
-            loader.style.opacity="0";
-
-
-            setTimeout(()=>{
-
-                loader.style.display="none";
-
-            },800);
-
-        }
-
-
-    },1500);
-
-
-};
