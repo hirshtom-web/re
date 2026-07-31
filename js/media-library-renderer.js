@@ -77,3 +77,77 @@ function openMediaLibrary(
     mediaLibrary.classList.add("active");
 
 }
+
+// ======================================
+// CLOSE MEDIA LIBRARY
+// ======================================
+
+function closeMediaLibrary(){
+
+    const mediaLibrary =
+        document.getElementById("mediaLibrary");
+
+    const mediaContent =
+        document.getElementById("mediaContent");
+
+
+    if(mediaLibrary){
+
+        mediaLibrary.classList.remove(
+            "active"
+        );
+
+    }
+
+
+    if(mediaContent){
+
+        mediaContent.innerHTML = "";
+
+    }
+
+}
+
+// CLOSE WITH ESC KEY
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+    if(e.key === "Escape"){
+
+        closeMediaLibrary();
+
+    }
+
+});
+
+document.addEventListener(
+"click",
+(e)=>{
+
+    const mediaLibrary =
+        document.getElementById("mediaLibrary");
+
+
+    if(
+        e.target === mediaLibrary
+    ){
+
+        closeMediaLibrary();
+
+    }
+
+});
+
+
+// ======================================
+// EXPOSE MEDIA FUNCTIONS
+// ======================================
+
+window.openMediaLibrary =
+    openMediaLibrary;
+
+
+window.closeMediaLibrary =
+    closeMediaLibrary;
