@@ -1,6 +1,8 @@
-/* =========================
-       PROPERTY HIGHLIGHTS
-    ========================= */
+// ======================================
+// PROPERTY HIGHLIGHTS RENDERER
+// ======================================
+
+function renderPropertyHighlights(data){
 
     const title =
         document.getElementById("property-title");
@@ -56,7 +58,7 @@
 
     if(rating){
 
-        if(data.aiRating && data.aiRating.overall){
+        if(data.aiRating?.overall){
 
             rating.textContent =
                 `${data.aiRating.overall} AI Rating`;
@@ -69,3 +71,5 @@
         }
 
     }
+
+}
