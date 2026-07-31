@@ -170,6 +170,13 @@ function renderProperty(data){
 
 
     
+    // Mortgage Calculator
+  
+    if(typeof loadPropertyMortgageCalculator === "function"){
+       loadPropertyMortgageCalculator(data);
+    }
+
+    
 
     
 
