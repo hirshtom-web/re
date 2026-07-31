@@ -707,7 +707,9 @@
 
 
 
-/* BUTTON */
+/* =========================
+   PRINT BUTTON
+========================= */
 
 .mortgage-print{
 
@@ -717,22 +719,86 @@
 
     border:none;
 
+    padding:0;
+
     color:#6D5DFB;
 
     font-weight:600;
 
+    font-size:14px;
+
     cursor:pointer;
 
-}
+    display:inline-flex;
 
+    align-items:center;
+
+    gap:6px;
+
+}
 
 
 .mortgage-print:hover{
 
     color:#4f46e5;
 
+    background:none;
+
+    transform:none;
+
 }
 
+
+
+/* =========================
+   PRINT MODE
+========================= */
+
+@media print {
+
+
+body.print-mortgage *{
+
+    visibility:hidden;
+
+}
+
+
+body.print-mortgage .mortgage-section,
+body.print-mortgage .mortgage-section *{
+
+    visibility:visible;
+
+}
+
+
+
+body.print-mortgage .mortgage-section{
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    background:white;
+
+    padding:40px;
+
+}
+
+
+
+body.print-mortgage .mortgage-print{
+
+    display:none;
+
+}
+
+
+}
 
 
 
@@ -1064,11 +1130,6 @@ body *{
 }
 
 
-.mortgage-print{
-    display:none;
-}
-
-
 .payment-ring{
 
     print-color-adjust:exact;
@@ -1076,41 +1137,6 @@ body *{
 
 }
 
-
-}
-
-.mortgage-print{
-
-    margin-top:25px;
-
-    width:100%;
-
-    padding:16px 24px;
-
-    border-radius:40px;
-
-    border:none;
-
-    background:#111;
-
-    color:white;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-
-.mortgage-print:hover{
-
-    transform:translateY(-2px);
-
-    background:#333;
 
 }
 
@@ -1167,57 +1193,4 @@ pointer-events:none;
 }
 
 
-@media print {
 
-
-body.print-mortgage *{
-
-    visibility:hidden;
-
-}
-
-
-body.print-mortgage .mortgage-section,
-body.print-mortgage .mortgage-section *{
-
-    visibility:visible;
-
-}
-
-
-
-body.print-mortgage .mortgage-section{
-
-    position:absolute;
-
-    left:0;
-    top:0;
-
-    width:100%;
-
-    background:white;
-
-    padding:40px;
-
-}
-
-
-
-body.print-mortgage .mortgage-print{
-
-    display:none;
-
-}
-
-
-}
-
-.mortgage-print:hover{
-
-    background:inherit;
-
-    color:inherit;
-
-    transform:none;
-
-}
