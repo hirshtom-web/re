@@ -86,10 +86,8 @@ function loadPropertyMortgageCalculator(data){
 
     // refresh calculator
 
-    if(typeof calculate === "function"){
-
-        calculate();
-
-    }
+    if(typeof window.calculate === "function"){
+    window.calculate();
+}
 
 }
