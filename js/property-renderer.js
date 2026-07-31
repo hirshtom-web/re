@@ -27,7 +27,6 @@ function startPropertyRenderer(){
 
     renderProperty(currentProperty);
 
-
 }
 
 
@@ -48,6 +47,7 @@ if(window.currentProperty){
 
 
 
+
 function renderProperty(data){
 
 
@@ -61,11 +61,14 @@ function renderProperty(data){
 
 
 
+    // Gallery
     if(typeof initGallery === "function"){
         initGallery(data);
     }
 
 
+
+    // Main sections
 
     if(typeof renderPropertyHighlights === "function"){
         renderPropertyHighlights(data);
@@ -82,8 +85,11 @@ function renderProperty(data){
     }
 
 
-    if(typeof renderResidenceCollection === "function"){
-        renderResidenceCollection(data);
+
+    // Location
+
+    if(typeof renderLocationMap === "function"){
+        renderLocationMap(data);
     }
 
 
@@ -92,45 +98,63 @@ function renderProperty(data){
     }
 
 
+
+    // Lifestyle
+
     if(typeof renderNeighborhoodLifestyle === "function"){
-    renderNeighborhoodLifestyle(data);
+        renderNeighborhoodLifestyle(data);
     }
 
 
     if(typeof renderLifestyleExperiences === "function"){
-    renderLifestyleExperiences(data);
+        renderLifestyleExperiences(data);
     }
 
+
+
+    // Building
 
     if(typeof renderAmenities === "function"){
         renderAmenities(data);
     }
 
 
+    if(typeof renderResidenceCollection === "function"){
+        renderResidenceCollection(data);
+    }
+
+
+
+    // Design
+
     if(typeof renderArchitecture === "function"){
-    renderArchitecture(data);
+        renderArchitecture(data);
     }
 
 
     if(typeof renderDesignTeam === "function"){
-    renderDesignTeam(data);
+        renderDesignTeam(data);
     }
 
-    
-    if(typeof renderLocationMap === "function"){
-    renderLocationMap(data);
-    }
 
+
+    // Development
 
     if(typeof renderTimeline === "function"){
         renderTimeline(data);
     }
 
 
+
+    // Financial
+
     if(typeof renderFinancial === "function"){
         renderFinancial(data);
     }
 
+
+
+    // FAQ
 
     if(typeof renderFAQ === "function"){
         renderFAQ(data);
@@ -144,6 +168,3 @@ function renderProperty(data){
 
 
 }
-
-
-
