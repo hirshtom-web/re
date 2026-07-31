@@ -12,7 +12,7 @@ let AdvancedMarkerElement;
 // INIT MAP
 // ======================================
 
-async function initMap(){
+async function initPropertyMap(){
 
     if(
     !window.currentProperty ||
@@ -337,3 +337,5 @@ function addPointsOfInterest(){
 
 
 }
+
+window.initPropertyMap = initPropertyMap;
