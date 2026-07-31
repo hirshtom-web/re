@@ -178,6 +178,12 @@ function renderProperty(data){
 
 
 
+    // AI Modal
+
+    if(typeof loadAIModal === "function"){
+       loadAIModal();
+    }
+
 
     
 
