@@ -72,32 +72,55 @@ async function initPropertyMap(){
 
 
 
-    propertyMap =
-    new google.maps.Map(
+propertyMap =
+new google.maps.Map(
 
-        document.getElementById("property-map"),
+    document.getElementById("property-map"),
 
-        {
+    {
 
-            center:{
-                lat:Number(property.coordinates.lat),
-                lng:Number(property.coordinates.lng)
-            },
-
-            zoom:17,
-
-            mapId:
-            "d44ebce34f2241f5985860cf",
+        center:{
+            lat:Number(property.coordinates.lat),
+            lng:Number(property.coordinates.lng)
+        },
 
 
-            mapTypeControl:false,
-            streetViewControl:false,
-            fullscreenControl:false,
-            rotateControl:false
+        zoom:16,
 
-        }
 
-    );
+        mapId:
+        "d44ebce34f2241f5985860cf",
+
+
+        // CLEAN LISTING VIEW
+
+        disableDefaultUI:true,
+
+        gestureHandling:"cooperative",
+
+        clickableIcons:false,
+
+        keyboardShortcuts:false,
+
+
+        // REMOVE CONTROLS
+
+        mapTypeControl:false,
+
+        streetViewControl:false,
+
+        fullscreenControl:false,
+
+        rotateControl:false,
+
+
+        // REMOVE EXTRA UI
+
+        zoomControl:false
+
+    }
+
+);
 
 
 
