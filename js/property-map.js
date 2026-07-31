@@ -65,30 +65,6 @@ async function initPropertyMap(){
 
 
 
-            styles:[
-
-                {
-                    featureType:"poi",
-
-                    stylers:[
-                        {
-                            visibility:"off"
-                        }
-                    ]
-                },
-
-                {
-                    featureType:"transit",
-
-                    stylers:[
-                        {
-                            visibility:"off"
-                        }
-                    ]
-                }
-
-            ]
-
         }
 
     );
@@ -96,10 +72,7 @@ async function initPropertyMap(){
 
     addMainProperty();
 
-// Temporary disabled until data files exist
-// addSoldProperties();
-// addNearbyProperties();
-// addPointsOfInterest();
+addNearbyProperties();
 
 
 }
@@ -236,6 +209,9 @@ function addSoldProperties(){
 // ======================================
 
 function addNearbyProperties(){
+
+    const nearbyProperties =
+        window.currentProperty.nearby || [];
 
 
     nearbyProperties.forEach(property=>{
