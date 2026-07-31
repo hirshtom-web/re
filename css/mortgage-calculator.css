@@ -1036,3 +1036,80 @@
     background:#E5E0D8;
 
 }
+
+
+
+@media print {
+
+
+body *{
+    visibility:hidden;
+}
+
+
+#mortgage-calculator,
+#mortgage-calculator *{
+    visibility:visible;
+}
+
+
+#mortgage-calculator{
+
+    position:absolute;
+    left:0;
+    top:0;
+
+    width:100%;
+
+}
+
+
+.mortgage-print{
+    display:none;
+}
+
+
+.payment-ring{
+
+    print-color-adjust:exact;
+    -webkit-print-color-adjust:exact;
+
+}
+
+
+}
+
+.mortgage-print{
+
+    margin-top:25px;
+
+    width:100%;
+
+    padding:16px 24px;
+
+    border-radius:40px;
+
+    border:none;
+
+    background:#111;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.mortgage-print:hover{
+
+    transform:translateY(-2px);
+
+    background:#333;
+
+}
