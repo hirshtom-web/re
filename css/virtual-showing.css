@@ -292,7 +292,57 @@
 
         padding:18px;
 
+        border-radius:24px;
+
     }
+
+
+
+    /* =========================
+       DATE HORIZONTAL SLIDER
+    ========================= */
+
+
+    .showing-dates{
+
+        display:flex;
+
+        overflow-x:auto;
+
+        gap:12px;
+
+        scroll-snap-type:x mandatory;
+
+        scrollbar-width:none;
+
+        padding-bottom:5px;
+
+    }
+
+
+    .showing-dates::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+
+
+    .date-card{
+
+        flex:0 0 85px;
+
+        height:85px;
+
+        scroll-snap-align:start;
+
+    }
+
+
+
+    /* =========================
+       TIME HORIZONTAL SLIDER
+    ========================= */
 
 
     .showing-times{
@@ -308,36 +358,63 @@
     }
 
 
-    .showing-dates{
-
-        grid-template-columns:repeat(3,1fr);
-
-    }
-
 
     .time-slots{
 
-        grid-template-columns:repeat(2,1fr);
+        display:flex;
+
+        overflow-x:auto;
+
+        gap:10px;
+
+        scroll-snap-type:x mandatory;
+
+        scrollbar-width:none;
+
+        padding-bottom:5px;
 
     }
+
+
+    .time-slots::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
 
 
     .time-slots button{
 
-        min-width:0;
+        flex:0 0 90px;
 
-        width:100%;
+        height:44px;
+
+        scroll-snap-align:start;
 
     }
+
+
+
+    /* =========================
+       BUTTON AREA
+    ========================= */
 
 
     .meeting-info{
 
         flex-direction:column;
 
-        align-items:flex-start;
+        align-items:stretch;
 
         gap:15px;
+
+    }
+
+
+    .schedule-button{
+
+        width:100%;
 
     }
 
