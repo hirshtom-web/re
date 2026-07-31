@@ -74,9 +74,7 @@ async function initPropertyMap(){
 
 propertyMap =
 new google.maps.Map(
-
     document.getElementById("property-map"),
-
     {
 
         center:{
@@ -84,42 +82,20 @@ new google.maps.Map(
             lng:Number(property.coordinates.lng)
         },
 
-
         zoom:16,
-
 
         mapId:
         "d44ebce34f2241f5985860cf",
 
-
-        // CLEAN LISTING VIEW
-
         disableDefaultUI:true,
 
-        gestureHandling:"cooperative",
+        gestureHandling:"none",
 
         clickableIcons:false,
 
-        keyboardShortcuts:false,
-
-
-        // REMOVE CONTROLS
-
-        mapTypeControl:false,
-
-        streetViewControl:false,
-
-        fullscreenControl:false,
-
-        rotateControl:false,
-
-
-        // REMOVE EXTRA UI
-
-        zoomControl:false
+        keyboardShortcuts:false
 
     }
-
 );
 
 
