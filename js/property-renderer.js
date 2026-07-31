@@ -146,14 +146,6 @@ function renderProperty(data){
 
 
 
-    // Financial
-
-    if(typeof renderFinancial === "function"){
-        renderFinancial(data);
-    }
-
-
-
     // FAQ
 
     if(typeof renderFAQ === "function"){
@@ -176,7 +168,16 @@ function renderProperty(data){
        loadPropertyMortgageCalculator(data);
     }
 
-    
+
+  
+    // Financial Overview
+
+    if(typeof loadFinancialOverview === "function"){
+       loadFinancialOverview();
+    }
+
+
+
 
     
 
