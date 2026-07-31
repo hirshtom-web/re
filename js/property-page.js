@@ -1,100 +1,73 @@
 function loadPropertyPage(){
 
-const params = new URLSearchParams(window.location.search);
 
-const id = params.get("id");
-
-
-if(!id){
-    console.error("No property ID found");
-    return;
-}
+    const params =
+    new URLSearchParams(
+        window.location.search
+    );
 
 
-const property = window.properties.find(
-    p => p.id === id
-);
+    const id =
+    params.get("id");
 
 
-if(!property){
+    if(!id){
 
-    console.error("Property not found:", id);
-    return;
+        console.error(
+            "No property ID found"
+        );
 
-}
+        return;
 
-
-console.log("LOADED PROPERTY:", property);
-    
-    window.currentProperty = property;
-
-window.dispatchEvent(
-    new Event("propertyLoaded")
-);
+    }
 
 
 
-/* MAIN IMAGE */
-
-const mainImage = document.getElementById("property-main-image");
-
-if(mainImage){
-
-    mainImage.src =
-    property.images?.[0] ||
-    property.thumbnail ||
-    "";
-
-}
+    const property =
+    window.properties.find(
+        p => p.id === id
+    );
 
 
 
-/* TITLE */
+    if(!property){
 
-const title =
-document.getElementById("property-title");
+        console.error(
+            "Property not found:",
+            id
+        );
 
-if(title){
+        return;
 
-    title.innerHTML =
-    property.title || "";
-
-}
-
-
-
-/* STATUS */
-
-const status =
-document.getElementById("property-status");
-
-if(status){
-
-    status.innerHTML =
-    property.status || "";
-
-}
+    }
 
 
 
-/* ADDRESS */
+    console.log(
+        "LOADED PROPERTY:",
+        property
+    );
 
-const address =
-document.getElementById("property-address");
 
-if(address){
 
-    address.innerHTML =
-    property.location || "";
+    window.currentProperty =
+    property;
 
-}
+
+
+    window.dispatchEvent(
+        new CustomEvent(
+            "propertyLoaded",
+            {
+                detail: property
+            }
+        )
+    );
 
 
 }
 
 
-
-/* RUN */
 
 document.addEventListener(
 "DOMContentLoaded",
