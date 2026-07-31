@@ -41,8 +41,9 @@ function renderPropertiesGrid(propertiesList = window.properties){
 
 
                 <img
-                    src="${property.thumbnail || property.images?.[0] || 'images/placeholder.jpg'}"
-                    alt="${property.title}">
+    src="${property.thumbnail || property.images?.[0] || ''}"
+    alt="${property.title}"
+    onerror="this.style.display='none'">
 
 
                 <span class="property-badge">
