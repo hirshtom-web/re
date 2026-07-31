@@ -1,11 +1,9 @@
 let currentProperty = null;
 
 
-/* ==========================================
-   START PROPERTY RENDERER
-========================================== */
 
 function startPropertyRenderer(){
+
 
     currentProperty = window.currentProperty;
 
@@ -29,13 +27,10 @@ function startPropertyRenderer(){
 
     renderProperty(currentProperty);
 
+
 }
 
 
-
-/* ==========================================
-   LISTEN FOR PROPERTY LOAD
-========================================== */
 
 window.addEventListener(
     "propertyLoaded",
@@ -44,7 +39,6 @@ window.addEventListener(
 
 
 
-// If property already loaded before this file ran
 if(window.currentProperty){
 
     startPropertyRenderer();
@@ -53,9 +47,6 @@ if(window.currentProperty){
 
 
 
-/* ==========================================
-   MAIN PROPERTY RENDER FUNCTION
-========================================== */
 
 function renderProperty(data){
 
@@ -70,77 +61,64 @@ function renderProperty(data){
 
 
 
-    /*
-        COMPONENT INITIALIZERS
-    */
-
-
     if(typeof initGallery === "function"){
-
         initGallery(data);
-
     }
 
 
 
-    /*
-        SECTION RENDERERS
-    */
-
-
     if(typeof renderPropertyHighlights === "function"){
-
         renderPropertyHighlights(data);
-
     }
 
 
     if(typeof renderFacts === "function"){
-
         renderFacts(data);
-
     }
 
 
     if(typeof renderPropertyIntelligence === "function"){
-
         renderPropertyIntelligence(data);
-
     }
 
 
     if(typeof renderResidenceCollection === "function"){
-
         renderResidenceCollection(data);
-
     }
 
 
     if(typeof renderNearby === "function"){
-
         renderNearby(data);
+    }
 
+
+    if(typeof renderLifestyle === "function"){
+        renderLifestyle(data);
+    }
+
+
+    if(typeof renderAmenities === "function"){
+        renderAmenities(data);
+    }
+
+
+    if(typeof renderArchitecture === "function"){
+        renderArchitecture(data);
     }
 
 
     if(typeof renderTimeline === "function"){
-
         renderTimeline(data);
-
     }
 
 
     if(typeof renderFinancial === "function"){
-
         renderFinancial(data);
-
     }
 
 
     if(typeof renderFAQ === "function"){
-
         renderFAQ(data);
-
     }
 
 
@@ -154,9 +132,6 @@ function renderProperty(data){
 
 
 
-/* ==========================================
-   MAP LOADING HELPER
-========================================== */
 
 window.hideMapLoading = function(){
 
@@ -165,25 +140,19 @@ window.hideMapLoading = function(){
 
 
         const loader =
-        document.querySelector(
-            ".map-loading"
-        );
+        document.querySelector(".map-loading");
 
 
         if(loader){
-
 
             loader.style.opacity="0";
 
 
             setTimeout(()=>{
 
-
                 loader.style.display="none";
 
-
             },800);
-
 
         }
 
@@ -192,11 +161,3 @@ window.hideMapLoading = function(){
 
 
 };
-
-
-
-
-
-
-
-
