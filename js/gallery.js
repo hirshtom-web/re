@@ -150,50 +150,36 @@ function initGallery(property){
 
 
 
-    // MOBILE SWIPE
+            // MOBILE COUNTER UPDATE
 
-    let startX = 0;
+    if(mobileSlider && mobileCounter){
+
+        const updateCounter = ()=>{
+
+            const index =
+                Math.round(
+                    mobileSlider.scrollLeft /
+                    mobileSlider.clientWidth
+                );
 
 
-    if(mobileSlider){
+            mobileCounter.textContent =
+                `${index + 1} / ${images.length}`;
+
+        };
+
 
         mobileSlider.addEventListener(
-            "touchstart",
-            e=>{
-
-                startX =
-                    e.touches[0].clientX;
-
-            }
+            "scroll",
+            updateCounter
         );
 
 
-        mobileSlider.addEventListener(
-            "touchend",
-            e=>{
+        // initial state
 
-                const endX =
-                    e.changedTouches[0].clientX;
-
-
-                if(startX - endX > 50){
-
-                    mobileSlider.scrollLeft +=
-                        mobileSlider.clientWidth;
-
-                }
-
-
-                if(endX - startX > 50){
-
-                    mobileSlider.scrollLeft -=
-                        mobileSlider.clientWidth;
-
-                }
-
-            }
-        );
+        updateCounter();
 
     }
 
-}
+
+} // <-- closes initGallery()
