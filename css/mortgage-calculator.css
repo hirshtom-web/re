@@ -254,105 +254,25 @@
    BUTTON
 ========================= */
 
-.mortgage-print{
-
-    margin-top:35px;
-
-    border:none;
-
-    background:none;
-
-    padding:0;
-
-    color:#6D5DFB;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-}
-
-
-.mortgage-print:hover{
-
-    color:#4f46e5;
-
-}
-
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:900px){
-
-
-.mortgage-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-
-.payment-header{
-
-    gap:20px;
-
-}
-
-
-.payment-header strong{
-
-    font-size:34px;
-
-}
-
-
-.payment-ring{
-
-    width:90px;
-
-    height:90px;
-
-}
-
-
-.payment-ring:after{
-
-    inset:20px;
-
-}
-
-
-}
-
-
-
-/* =========================
-   MORTGAGE PRINT ONLY
-========================= */
-
 @media print {
 
 
-body.print-mortgage *{
+body *{
 
     visibility:hidden;
 
 }
 
 
-body.print-mortgage .mortgage-section,
-body.print-mortgage .mortgage-section *{
+.mortgage-section.print-only,
+.mortgage-section.print-only *{
 
     visibility:visible;
 
 }
 
 
-
-body.print-mortgage .mortgage-section{
+.mortgage-section.print-only{
 
     position:absolute;
 
@@ -369,8 +289,7 @@ body.print-mortgage .mortgage-section{
 }
 
 
-
-body.print-mortgage .mortgage-print{
+.mortgage-section.print-only .mortgage-print{
 
     display:none;
 
@@ -378,6 +297,7 @@ body.print-mortgage .mortgage-print{
 
 
 }
+
 
 /* =========================
    MORTGAGE CALCULATOR
