@@ -212,12 +212,13 @@ function addSoldProperties(){
 // DEVELOPMENTS
 // ======================================
 
-function console.log(
-    "NEARBY RAW:",
-    window.currentProperty.nearby
-);
+function addNearbyProperties(){
 
-addNearbyProperties();
+    console.log(
+        "NEARBY RAW:",
+        window.currentProperty?.nearby
+    );
+
 
     const nearbyProperties =
         window.currentProperty?.nearby || [];
@@ -232,19 +233,46 @@ addNearbyProperties();
     nearbyProperties.forEach(property=>{
 
 
+        const lat =
+            Number(property.lat ?? property.coordinates?.lat);
+
+        const lng =
+            Number(property.lng ?? property.coordinates?.lng);
+
+
+        if(
+            Number.isNaN(lat) ||
+            Number.isNaN(lng)
+        ){
+
+            console.warn(
+                "Skipping nearby property:",
+                property
+            );
+
+            return;
+
+        }
+
+
+
         const marker =
         new AdvancedMarkerElement({
 
             map:propertyMap,
 
             position:{
-                lat:property.lat,
-                lng:property.lng
+                lat,
+                lng
             },
 
-            title:property.title,
+            title:
+                property.title || "Nearby",
 
-            content:createPricePill(property.price)
+            content:
+                createPricePill(
+                    property.price
+                )
 
         });
 
@@ -257,11 +285,11 @@ addNearbyProperties();
 
             <div>
 
-                <h4>${property.title}</h4>
+                <h4>${property.title || ""}</h4>
 
-                <p>${property.status}</p>
+                <p>${property.status || ""}</p>
 
-                <strong>${property.price}</strong>
+                <strong>${property.price || ""}</strong>
 
             </div>
 
@@ -271,10 +299,8 @@ addNearbyProperties();
 
 
 
-        marker.addEventListener(
-
+        marker.addListener(
             "gmp-click",
-
             ()=>{
 
                 info.open({
@@ -286,15 +312,12 @@ addNearbyProperties();
                 });
 
             }
-
         );
 
 
     });
 
-
 }
-
 
 
 
