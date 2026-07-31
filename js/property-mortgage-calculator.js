@@ -96,19 +96,31 @@ function loadPropertyMortgageCalculator(data){
 // PRINT MORTGAGE SUMMARY
 // ======================================
 
-const printButton =
-document.querySelector(".mortgage-print");
+document.addEventListener("DOMContentLoaded",()=>{
+
+    const printButton =
+        document.querySelector(".mortgage-print");
 
 
-if(printButton){
+    if(!printButton){
+        return;
+    }
 
-    printButton.addEventListener(
-        "click",
-        ()=>{
 
-            window.print();
+    printButton.addEventListener("click",()=>{
 
-        }
-    );
+        document.body.classList.add("print-mortgage");
 
-}
+        window.print();
+
+    });
+
+
+    window.addEventListener("afterprint",()=>{
+
+        document.body.classList.remove("print-mortgage");
+
+    });
+
+
+});
