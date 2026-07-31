@@ -215,7 +215,13 @@ function addSoldProperties(){
 function addNearbyProperties(){
 
     const nearbyProperties =
-    window.currentProperty?.nearby || [];
+        window.currentProperty?.nearby || [];
+
+
+    console.log(
+        "MAP NEARBY:",
+        nearbyProperties
+    );
 
 
     nearbyProperties.forEach(property=>{
