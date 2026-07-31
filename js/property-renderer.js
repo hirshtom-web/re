@@ -154,14 +154,6 @@ function renderProperty(data){
 
 
     
-    // Residence Table
-
-    if(typeof renderResidenceTable === "function"){
-       renderResidenceTable(data);
-    }
-
-
-    
     // Mortgage Calculator
   
     if(typeof loadPropertyMortgageCalculator === "function"){
@@ -186,7 +178,20 @@ function renderProperty(data){
 
 
     
+    // Floor Plans
 
+    if(typeof renderResidenceTable === "function"){
+    renderResidenceTable(data);
+    }
+
+    if(typeof initResidenceTable === "function"){
+    initResidenceTable();
+    }
+
+
+
+
+    
     console.log(
         "PROPERTY RENDER COMPLETE"
     );
