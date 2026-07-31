@@ -1,22 +1,46 @@
-// ======================================
-// CONSTRUCTION TIMELINE RENDERER
-// ======================================
-
 function renderTimeline(data){
 
+    const section =
+        document.getElementById(
+            "construction-section"
+        );
+
+
     const timeline =
-        document.getElementById("construction-timeline");
+        document.getElementById(
+            "construction-timeline"
+        );
 
 
-    if(!timeline || !data?.constructionTimeline){
+    if(
+        !section ||
+        !timeline
+    ){
         return;
     }
+
+
+    if(
+        !data?.constructionTimeline ||
+        !data.constructionTimeline.length
+    ){
+
+        section.style.display = "none";
+
+        return;
+
+    }
+
+
+
+    section.style.display = "";
 
 
     timeline.innerHTML = "";
 
 
     data.constructionTimeline.forEach(step=>{
+
 
         const card =
             document.createElement("div");
@@ -48,6 +72,7 @@ function renderTimeline(data){
 
 
         timeline.appendChild(card);
+
 
     });
 
