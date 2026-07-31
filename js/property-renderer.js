@@ -164,17 +164,13 @@ function renderProperty(data){
     
     // Residence Table
 
-    if(typeof renderFAQ === "function"){
-        renderResidenceTable(data);
+    if(typeof renderResidenceTable === "function"){
+       renderResidenceTable(data);
     }
 
 
     
-    // Construction Timeline
 
-    if(typeof renderFAQ === "function"){
-        renderResidenceTable(data);
-    }
     
 
     console.log(
