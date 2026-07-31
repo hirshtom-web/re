@@ -14,6 +14,19 @@ let AdvancedMarkerElement;
 
 async function initMap(){
 
+    if(
+    !window.currentProperty ||
+    !window.currentProperty.coordinates
+){
+
+    console.error(
+        "Property coordinates missing"
+    );
+
+    return;
+
+}
+
 
     // Load marker library first
 
@@ -32,7 +45,10 @@ async function initMap(){
 
         {
 
-            center:window.currentProperty.coordinates,
+            center:{
+    lat:Number(window.currentProperty.coordinates.lat),
+    lng:Number(window.currentProperty.coordinates.lng)
+},
 
             zoom:17,
 
@@ -80,11 +96,10 @@ async function initMap(){
 
     addMainProperty();
 
-    addSoldProperties();
-
-    addNearbyProperties();
-
-    addPointsOfInterest();
+// Temporary disabled until data files exist
+// addSoldProperties();
+// addNearbyProperties();
+// addPointsOfInterest();
 
 
 }
@@ -141,32 +156,42 @@ function createPricePill(value){
 
 function addMainProperty(){
 
+    const property = window.currentProperty;
+
+    if(!property?.coordinates){
+        console.warn("No property coordinates");
+        return;
+    }
+
+
     const pin = document.createElement("div");
 
-    pin.style.background = "black";
-    pin.style.color = "white";
-    pin.style.padding = "10px 15px";
-    pin.style.borderRadius = "30px";
-    pin.style.fontSize = "14px";
-    pin.innerText = "$5M+";
+    pin.className = "price-marker";
+
+    pin.innerText =
+        property.price || "Price";
 
 
-    const marker =
     new AdvancedMarkerElement({
 
         map: propertyMap,
 
-        position: {
-            lat:25.7617,
-            lng:-80.1918
+        position:{
+            lat:Number(property.coordinates.lat),
+            lng:Number(property.coordinates.lng)
         },
 
-        content:pin
+        content:pin,
+
+        title:property.title
 
     });
 
 
-    console.log("MARKER CREATED", marker);
+    console.log(
+        "MAIN PROPERTY MARKER:",
+        property.title
+    );
 
 }
 
