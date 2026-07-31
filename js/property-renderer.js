@@ -1,19 +1,40 @@
 let currentProperty = null;
 
-window.addEventListener("propertyLoaded", () => {
+
+function startPropertyRenderer(){
 
     currentProperty = window.currentProperty;
+
 
     if(!currentProperty){
         console.warn("No property data found.");
         return;
     }
 
-    console.log("PROPERTY RENDERER STARTED:", currentProperty);
+
+    console.log(
+        "PROPERTY RENDERER STARTED:",
+        currentProperty
+    );
+
 
     renderProperty(currentProperty);
 
-});
+}
+
+
+window.addEventListener(
+    "propertyLoaded",
+    startPropertyRenderer
+);
+
+
+// In case propertyLoaded already happened
+if(window.currentProperty){
+
+    startPropertyRenderer();
+
+}
 
 /* ==========================================
    MAP LOADER
