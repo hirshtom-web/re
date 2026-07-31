@@ -1113,3 +1113,111 @@ body *{
     background:#333;
 
 }
+
+
+.mortgage-field select{
+
+appearance:none;
+-webkit-appearance:none;
+-moz-appearance:none;
+
+background:white;
+
+border:1px solid #ddd;
+
+border-radius:16px;
+
+height:52px;
+
+padding:0 45px 0 18px;
+
+font-size:14px;
+
+font-family:inherit;
+
+cursor:pointer;
+
+position:relative;
+
+}
+
+.mortgage-field{
+
+position:relative;
+
+}
+
+
+.mortgage-field:has(select)::after{
+
+content:"⌄";
+
+position:absolute;
+
+right:18px;
+
+bottom:15px;
+
+font-size:18px;
+
+color:#777;
+
+pointer-events:none;
+
+}
+
+
+@media print {
+
+
+body.print-mortgage *{
+
+    visibility:hidden;
+
+}
+
+
+body.print-mortgage .mortgage-section,
+body.print-mortgage .mortgage-section *{
+
+    visibility:visible;
+
+}
+
+
+
+body.print-mortgage .mortgage-section{
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+
+    background:white;
+
+    padding:40px;
+
+}
+
+
+
+body.print-mortgage .mortgage-print{
+
+    display:none;
+
+}
+
+
+}
+
+.mortgage-print:hover{
+
+    background:inherit;
+
+    color:inherit;
+
+    transform:none;
+
+}
