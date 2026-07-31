@@ -1,25 +1,23 @@
-// ======================================
-// FACTS RENDERER
-// ======================================
-
 function renderFacts(data){
 
     const factsGrid =
-        document.getElementById("facts-grid");
-
-    if(!factsGrid) return;
+    document.getElementById("facts-grid");
 
 
-    const shorten = (value) => {
+    if(!factsGrid){
+        return;
+    }
+
+
+    const shorten = (value)=>{
 
         if(!value) return "Coming Soon";
 
         return value
-            .replace("Bedrooms","Beds")
-            .replace("Bathrooms","Baths")
-            .replace("Condominium","Condo")
-            .replace("Private Terraces","Terraces")
-            .replace("Residences","Units");
+        .replace("Bedrooms","Beds")
+        .replace("Bathrooms"," Baths")
+        .replace("Condominium","Condo")
+        .replace("Residences","Units");
 
     };
 
@@ -69,24 +67,30 @@ function renderFacts(data){
     ];
 
 
-    factsGrid.innerHTML = "";
+    factsGrid.innerHTML="";
 
 
     facts.forEach(fact=>{
 
-        const card =
-            document.createElement("div");
 
-        card.className = "fact-card";
+        const card=document.createElement("div");
 
-        card.innerHTML = `
+        card.className="fact-card";
+
+
+        card.innerHTML=`
+
             <span>${fact.label}</span>
-            <strong title="${fact.value}">
+
+            <strong>
                 ${fact.value}
             </strong>
+
         `;
 
+
         factsGrid.appendChild(card);
+
 
     });
 
