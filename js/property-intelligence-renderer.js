@@ -1,13 +1,16 @@
- /* =========================
-   PROPERTY INTELLIGENCE
-========================= */
+// ======================================
+// PROPERTY INTELLIGENCE RENDERER
+// ======================================
+
+function renderPropertyIntelligence(data){
+
+    const intelligence =
+        document.getElementById("property-intelligence");
 
 
-const intelligence =
-document.getElementById("property-intelligence");
-
-
-if(intelligence && data.highlights){
+    if(!intelligence || !data?.highlights){
+        return;
+    }
 
 
     intelligence.innerHTML = "";
@@ -15,9 +18,8 @@ if(intelligence && data.highlights){
 
     data.highlights.forEach(item=>{
 
-
         const card =
-        document.createElement("article");
+            document.createElement("article");
 
 
         card.className = "info-card";
@@ -29,11 +31,9 @@ if(intelligence && data.highlights){
                 ${item.title}
             </h3>
 
-
             <p class="card-text">
                 ${item.text}
             </p>
-
 
             <button class="read-more">
                 Read more →
@@ -44,8 +44,6 @@ if(intelligence && data.highlights){
 
         intelligence.appendChild(card);
 
-
     });
-
 
 }
