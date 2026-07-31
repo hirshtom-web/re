@@ -9,6 +9,7 @@ function renderFacts(data){
 
     if(!factsGrid) return;
 
+
     const shorten = (value) => {
 
         if(!value) return "Coming Soon";
