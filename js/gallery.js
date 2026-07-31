@@ -15,6 +15,7 @@ function initGallery(property){
         .filter(Boolean);
 
 
+
     const mainImage =
         document.getElementById(
             "property-main-image"
@@ -25,6 +26,19 @@ function initGallery(property){
         document.getElementById(
             "gallery-grid"
         );
+
+
+    const mobileSlider =
+        document.getElementById(
+            "mobile-slider"
+        );
+
+
+    const mobileCounter =
+        document.getElementById(
+            "mobile-counter"
+        );
+
 
 
     if(!images.length){
@@ -40,23 +54,18 @@ function initGallery(property){
 
 
 
+    // DESKTOP MAIN IMAGE
+
     if(mainImage){
 
-        mainImage.src = images[0];
-
-
-        mainImage.onerror = ()=>{
-
-            console.error(
-                "Failed loading:",
-                mainImage.src
-            );
-
-        };
+        mainImage.src =
+            images[0];
 
     }
 
 
+
+    // DESKTOP THUMBNAILS
 
     if(galleryGrid){
 
@@ -67,15 +76,15 @@ function initGallery(property){
 
 
             const img =
-            document.createElement("img");
+                document.createElement("img");
 
 
-            img.src = src;
+            img.src =
+                src;
 
 
             img.alt =
-            `${property.title} photo ${index + 2}`;
-
+                `${property.title} photo ${index + 2}`;
 
 
             img.addEventListener(
@@ -96,6 +105,94 @@ function initGallery(property){
 
 
         });
+
+    }
+
+
+
+    // MOBILE GALLERY
+
+    if(mobileSlider){
+
+        mobileSlider.innerHTML = "";
+
+
+        images.forEach((src,index)=>{
+
+
+            const img =
+                document.createElement("img");
+
+
+            img.src =
+                src;
+
+
+            img.alt =
+                `${property.title} photo ${index + 1}`;
+
+
+            mobileSlider.appendChild(img);
+
+
+        });
+
+    }
+
+
+
+    if(mobileCounter){
+
+        mobileCounter.textContent =
+            `1 / ${images.length}`;
+
+    }
+
+
+
+    // MOBILE SWIPE
+
+    let startX = 0;
+
+
+    if(mobileSlider){
+
+        mobileSlider.addEventListener(
+            "touchstart",
+            e=>{
+
+                startX =
+                    e.touches[0].clientX;
+
+            }
+        );
+
+
+        mobileSlider.addEventListener(
+            "touchend",
+            e=>{
+
+                const endX =
+                    e.changedTouches[0].clientX;
+
+
+                if(startX - endX > 50){
+
+                    mobileSlider.scrollLeft +=
+                        mobileSlider.clientWidth;
+
+                }
+
+
+                if(endX - startX > 50){
+
+                    mobileSlider.scrollLeft -=
+                        mobileSlider.clientWidth;
+
+                }
+
+            }
+        );
 
     }
 
