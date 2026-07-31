@@ -4,32 +4,35 @@
 
 function renderNearby(data){
 
+
     const nearbyGrid =
-        document.getElementById("nearby-grid");
+    document.getElementById(
+        "nearby-grid"
+    );
 
 
-    console.log("NEARBY DATA:", data?.nearby);
+    if(!nearbyGrid || !data.nearby){
 
-
-    if(!nearbyGrid || !data?.nearby){
         return;
+
     }
 
 
-    nearbyGrid.innerHTML = "";
+    nearbyGrid.innerHTML="";
 
 
     data.nearby.forEach(item=>{
 
+
         const card =
-            document.createElement("div");
+        document.createElement("div");
 
 
         card.className =
-            "nearby-card";
+        "nearby-card";
 
 
-        card.innerHTML = `
+        card.innerHTML=`
 
             <span class="material-symbols-outlined">
                 ${item.icon || "location_on"}
@@ -54,6 +57,8 @@ function renderNearby(data){
 
         nearbyGrid.appendChild(card);
 
+
     });
+
 
 }
