@@ -1,3 +1,14 @@
+.virtual-showing-section > *{
+    min-width:0;
+}
+
+
+.showing-dates,
+.time-slots{
+    min-width:0;
+    max-width:100%;
+}
+
 .virtual-showing-section{
 
     display:grid;
@@ -281,12 +292,15 @@
 }
 
 
-
 @media(max-width:900px){
 
     .virtual-showing-section{
 
         grid-template-columns:1fr;
+
+        width:100%;
+
+        overflow:hidden;
 
         gap:20px;
 
@@ -297,17 +311,15 @@
     }
 
 
-
-    /* =========================
-       DATE HORIZONTAL SLIDER
-    ========================= */
-
-
     .showing-dates{
 
         display:flex;
 
+        width:100%;
+
         overflow-x:auto;
+
+        overflow-y:hidden;
 
         gap:12px;
 
@@ -315,15 +327,11 @@
 
         scrollbar-width:none;
 
-        padding-bottom:5px;
-
     }
 
 
     .showing-dates::-webkit-scrollbar{
-
         display:none;
-
     }
 
 
@@ -331,6 +339,8 @@
     .date-card{
 
         flex:0 0 85px;
+
+        width:85px;
 
         height:85px;
 
@@ -340,12 +350,10 @@
 
 
 
-    /* =========================
-       TIME HORIZONTAL SLIDER
-    ========================= */
-
 
     .showing-times{
+
+        width:100%;
 
         border-left:none;
 
@@ -363,23 +371,21 @@
 
         display:flex;
 
+        width:100%;
+
         overflow-x:auto;
+
+        overflow-y:hidden;
 
         gap:10px;
 
-        scroll-snap-type:x mandatory;
-
         scrollbar-width:none;
-
-        padding-bottom:5px;
 
     }
 
 
     .time-slots::-webkit-scrollbar{
-
         display:none;
-
     }
 
 
@@ -388,20 +394,17 @@
 
         flex:0 0 90px;
 
-        height:44px;
+        width:90px;
 
-        scroll-snap-align:start;
+        height:44px;
 
     }
 
 
 
-    /* =========================
-       BUTTON AREA
-    ========================= */
-
-
     .meeting-info{
+
+        width:100%;
 
         flex-direction:column;
 
