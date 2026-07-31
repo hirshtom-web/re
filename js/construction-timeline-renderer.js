@@ -1,21 +1,30 @@
-/* =========================
-   CONSTRUCTION TIMELINE
-========================= */
+// ======================================
+// CONSTRUCTION TIMELINE RENDERER
+// ======================================
 
-const timeline =
-document.getElementById("construction-timeline");
+function renderTimeline(data){
 
-if(timeline && data.constructionTimeline){
+    const timeline =
+        document.getElementById("construction-timeline");
+
+
+    if(!timeline || !data?.constructionTimeline){
+        return;
+    }
+
 
     timeline.innerHTML = "";
+
 
     data.constructionTimeline.forEach(step=>{
 
         const card =
-        document.createElement("div");
+            document.createElement("div");
+
 
         card.className =
-        `timeline-step ${step.state || ""}`;
+            `timeline-step ${step.state || ""}`;
+
 
         card.innerHTML = `
 
@@ -27,11 +36,16 @@ if(timeline && data.constructionTimeline){
 
                 <strong>${step.title}</strong>
 
-                ${step.status ? `<p>${step.status}</p>` : ""}
+                ${
+                    step.status
+                    ? `<p>${step.status}</p>`
+                    : ""
+                }
 
             </div>
 
         `;
+
 
         timeline.appendChild(card);
 
