@@ -91,7 +91,7 @@ if(
 
 
 
-function calculate(){
+window.calculate = function(){
 
 
 let price =
