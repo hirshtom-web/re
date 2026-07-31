@@ -2,25 +2,50 @@
 // PROPERTY MAP CONTROLLER
 // ======================================
 
-let propertyMap = null;
-let AdvancedMarkerElement = null;
+let propertyMap;
+let AdvancedMarkerElement;
 
 
 // ======================================
-// INIT MAP
+// WAIT FOR PROPERTY THEN INIT MAP
 // ======================================
 
 async function initPropertyMap(){
 
 
     console.log(
-        "MAP PROPERTY:",
-        window.currentProperty
+        "MAP INIT WAITING..."
     );
+
+
+    let attempts = 0;
+
+
+    while(
+        !window.currentProperty &&
+        attempts < 50
+    ){
+
+        await new Promise(
+            resolve => setTimeout(resolve,100)
+        );
+
+        attempts++;
+
+    }
+
 
 
     const property =
         window.currentProperty;
+
+
+
+    console.log(
+        "MAP PROPERTY:",
+        property
+    );
+
 
 
     if(
@@ -38,12 +63,8 @@ async function initPropertyMap(){
 
 
 
-    // Load Advanced Marker library
-
-    const {
-        AdvancedMarkerElement: MarkerClass
-    } =
-    await google.maps.importLibrary("marker");
+    const { AdvancedMarkerElement: MarkerClass } =
+        await google.maps.importLibrary("marker");
 
 
     AdvancedMarkerElement =
@@ -51,41 +72,16 @@ async function initPropertyMap(){
 
 
 
-    const mapElement =
-        document.getElementById(
-            "property-map"
-        );
-
-
-    if(!mapElement){
-
-        console.error(
-            "Map container missing"
-        );
-
-        return;
-
-    }
-
-
-
     propertyMap =
     new google.maps.Map(
 
-        mapElement,
+        document.getElementById("property-map"),
 
         {
 
             center:{
-
-                lat:Number(
-                    property.coordinates.lat
-                ),
-
-                lng:Number(
-                    property.coordinates.lng
-                )
-
+                lat:Number(property.coordinates.lat),
+                lng:Number(property.coordinates.lng)
             },
 
             zoom:17,
@@ -95,13 +91,9 @@ async function initPropertyMap(){
 
 
             mapTypeControl:false,
-
             streetViewControl:false,
-
             fullscreenControl:false,
-
             rotateControl:false
-
 
         }
 
@@ -112,35 +104,10 @@ async function initPropertyMap(){
     addMainProperty();
 
 
-    addNearbyProperties();
 
-
-
-}
-
-
-
-// ======================================
-// PRICE PILL
-// ======================================
-
-function createPricePill(value){
-
-
-    const pill =
-        document.createElement("div");
-
-
-    pill.className =
-        "price-marker";
-
-
-    pill.innerText =
-        value || "Price";
-
-
-    return pill;
-
+    console.log(
+        "MAP READY"
+    );
 
 }
 
@@ -150,38 +117,12 @@ function createPricePill(value){
 // MAIN PROPERTY MARKER
 // ======================================
 
+
 function addMainProperty(){
 
 
     const property =
         window.currentProperty;
-
-
-    const lat =
-        Number(
-            property.coordinates.lat
-        );
-
-
-    const lng =
-        Number(
-            property.coordinates.lng
-        );
-
-
-
-    if(
-        Number.isNaN(lat) ||
-        Number.isNaN(lng)
-    ){
-
-        console.error(
-            "Invalid main property coordinates"
-        );
-
-        return;
-
-    }
 
 
 
@@ -194,8 +135,7 @@ function addMainProperty(){
 
 
     pin.innerText =
-        property.price ||
-        "Price";
+        property.price || "Price";
 
 
 
@@ -205,8 +145,15 @@ function addMainProperty(){
 
 
         position:{
-            lat,
-            lng
+
+            lat:Number(
+                property.coordinates.lat
+            ),
+
+            lng:Number(
+                property.coordinates.lng
+            )
+
         },
 
 
@@ -214,197 +161,37 @@ function addMainProperty(){
 
 
         title:
-            property.title
+        property.title
 
     });
 
 
 
     console.log(
-        "MAIN PROPERTY MARKER:",
+        "MAIN MARKER:",
         property.title
     );
 
-
 }
 
 
 
 // ======================================
-// NEARBY PROPERTIES
+// OPTIONAL NEARBY MARKERS
 // ======================================
+
 
 function addNearbyProperties(){
 
-
-    const nearby =
-        window.currentProperty?.nearby || [];
-
-
-
     console.log(
-        "MAP NEARBY:",
-        nearby
-    );
-
-
-
-    nearby.forEach(place=>{
-
-
-        const lat =
-            Number(
-                place.lat ??
-                place.coordinates?.lat
-            );
-
-
-        const lng =
-            Number(
-                place.lng ??
-                place.coordinates?.lng
-            );
-
-
-
-        if(
-            Number.isNaN(lat) ||
-            Number.isNaN(lng)
-        ){
-
-            console.warn(
-                "Skipping nearby place. Missing coordinates:",
-                place
-            );
-
-            return;
-
-        }
-
-
-
-        const marker =
-        new AdvancedMarkerElement({
-
-
-            map:propertyMap,
-
-
-            position:{
-                lat,
-                lng
-            },
-
-
-            title:
-                place.title ||
-                place.name ||
-                "Nearby",
-
-
-            content:
-                createPricePill(
-                    place.price ||
-                    place.name ||
-                    ""
-                )
-
-
-        });
-
-
-
-        if(place.title){
-
-
-            const info =
-            new google.maps.InfoWindow({
-
-
-                content:`
-
-                <div>
-
-                <h4>
-                ${place.title}
-                </h4>
-
-
-                <p>
-                ${place.status || ""}
-                </p>
-
-
-                <strong>
-                ${place.price || ""}
-                </strong>
-
-
-                </div>
-
-                `
-
-
-            });
-
-
-
-            marker.addListener(
-                "gmp-click",
-                ()=>{
-
-
-                    info.open({
-
-                        map:propertyMap,
-
-                        anchor:marker
-
-                    });
-
-
-                }
-            );
-
-
-        }
-
-
-
-    });
-
-
-}
-
-
-
-// ======================================
-// OPTIONAL FUTURE MARKERS
-// ======================================
-
-function addSoldProperties(){
-
-    console.log(
-        "Sold properties disabled"
+        "Nearby markers disabled until coordinates exist"
     );
 
 }
 
 
 
-function addPointsOfInterest(){
-
-    console.log(
-        "POI disabled"
-    );
-
-}
-
-
-
-// ======================================
-// GOOGLE CALLBACK
 // ======================================
 
 window.initPropertyMap =
-    initPropertyMap;
+initPropertyMap;
