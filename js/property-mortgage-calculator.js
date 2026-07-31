@@ -1,8 +1,8 @@
 // ======================================
-// MORTGAGE CALCULATOR LOADER
+// PROPERTY MORTGAGE CALCULATOR
 // ======================================
 
-function loadMortgageCalculator(data){
+function loadPropertyMortgageCalculator(data){
 
     if(!data?.mortgage){
         return;
@@ -83,6 +83,8 @@ function loadMortgageCalculator(data){
 
     }
 
+
+    // refresh calculator
 
     if(typeof calculate === "function"){
 
