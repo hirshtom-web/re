@@ -1,6 +1,6 @@
 window.hideMapLoading = function(){
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         const loader =
         document.querySelector(".map-loading");
@@ -8,12 +8,12 @@ window.hideMapLoading = function(){
 
         if(loader){
 
-            loader.style.opacity = "0";
+            loader.style.opacity="0";
 
 
             setTimeout(()=>{
 
-                loader.style.display = "none";
+                loader.style.display="none";
 
             },800);
 
