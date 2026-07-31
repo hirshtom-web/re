@@ -1,0 +1,151 @@
+/* =========================
+   MEDIA LIBRARY
+========================= */
+
+
+function openMediaLibrary(
+    planUrl = null,
+    title = null,
+    type = "photos"
+){
+
+
+    const mediaLibrary =
+    document.getElementById("mediaLibrary");
+
+
+    const mediaContent =
+    document.getElementById("mediaContent");
+
+
+    if(!mediaLibrary || !mediaContent){
+        return;
+    }
+
+
+    mediaContent.innerHTML = "";
+
+
+
+    if(type === "floorplans"){
+
+
+        const viewer =
+        document.createElement("iframe");
+
+
+        viewer.src = planUrl;
+
+
+        viewer.className =
+        "plan-viewer";
+
+
+        viewer.title =
+        title || "Floor Plan";
+
+
+        mediaContent.appendChild(viewer);
+
+
+    } else {
+
+
+        const galleryImages =
+        document.querySelectorAll(
+            ".gallery-feature img, .gallery-grid img"
+        );
+
+
+        galleryImages.forEach(img=>{
+
+
+            const newImg =
+            document.createElement("img");
+
+
+            newImg.src =
+            img.src;
+
+
+            newImg.alt =
+            img.alt;
+
+
+            mediaContent.appendChild(newImg);
+
+
+        });
+
+    }
+
+
+
+    mediaLibrary.classList.add("active");
+
+
+}
+
+
+
+
+
+
+/* =========================
+   FAVORITE BUTTONS
+========================= */
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+    document.querySelectorAll(
+        ".property-favorite"
+    )
+    .forEach(button=>{
+
+
+        button.addEventListener(
+            "click",
+            event=>{
+
+
+                event.stopPropagation();
+
+
+            }
+        );
+
+
+    });
+
+
+});
+
+
+
+
+
+/* =========================
+   FLOOR PLAN MEDIA PORTAL
+========================= */
+
+
+document.addEventListener("click",(e)=>{
+
+
+    const plan =
+    e.target.closest(".plan-link");
+
+
+    if(!plan) return;
+
+
+    openMediaLibrary(
+        plan.dataset.plan,
+        plan.dataset.title,
+        "floorplans"
+    );
+
+
+});
