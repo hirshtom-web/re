@@ -1,22 +1,29 @@
-/* =========================
-   AMENITIES
-========================= */
+function renderAmenities(data){
 
 
-const amenityGrid =
-document.getElementById("amenity-grid");
+    const amenityGrid =
+    document.getElementById("amenity-grid");
 
 
-if(amenityGrid && data.amenities){
+    if(!amenityGrid || !data.amenities){
+
+        return;
+
+    }
+
 
     amenityGrid.innerHTML = "";
 
+
     data.amenities.forEach(item=>{
+
 
         const box =
         document.createElement("div");
 
+
         box.className = "amenity";
+
 
         box.innerHTML = `
 
@@ -30,21 +37,31 @@ if(amenityGrid && data.amenities){
 
         `;
 
+
         amenityGrid.appendChild(box);
 
+
     });
 
 
-    // Only enable tooltip when text is actually cut off
-    document.querySelectorAll(".amenity-name").forEach(name=>{
+
+    // Enable tooltip only when text is actually cut off
+
+    document
+    .querySelectorAll(".amenity-name")
+    .forEach(name=>{
+
 
         if(name.scrollWidth > name.clientWidth){
-            name.classList.add("show-tooltip");
+
+            name.classList.add(
+                "show-tooltip"
+            );
+
         }
+
 
     });
 
+
 }
-    
- 
-    
