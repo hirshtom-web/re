@@ -1,15 +1,15 @@
 function renderArchitecture(data){
 
 
-    const title =
+    const architectureTitle =
     document.getElementById("architecture-title");
 
 
-    const text =
+    const architectureText =
     document.getElementById("architecture-text");
 
 
-    const gallery =
+    const architectureGallery =
     document.getElementById("architecture-gallery");
 
 
@@ -17,18 +17,18 @@ function renderArchitecture(data){
     if(data.architecture){
 
 
-        if(title){
+        if(architectureTitle){
 
-            title.textContent =
+            architectureTitle.textContent =
             data.architecture.title ||
             "Architecture & Design";
 
         }
 
 
-        if(text){
+        if(architectureText){
 
-            text.textContent =
+            architectureText.textContent =
             data.architecture.text || "";
 
         }
@@ -37,14 +37,13 @@ function renderArchitecture(data){
 
 
 
-
-    if(!gallery || !data.architectureGallery){
+    if(!architectureGallery || !data.architectureGallery){
         return;
     }
 
 
 
-    gallery.innerHTML="";
+    architectureGallery.innerHTML = "";
 
 
 
@@ -66,11 +65,18 @@ function renderArchitecture(data){
             card.classList.add("video-card");
 
 
-            card.innerHTML=`
+            card.innerHTML = `
 
-                <video autoplay muted loop playsinline>
+                <video
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                >
 
-                    <source src="${item.image}"
+                    <source 
+                    src="${item.image}" 
                     type="video/mp4">
 
                 </video>
@@ -80,15 +86,21 @@ function renderArchitecture(data){
                     ▶
                 </button>
 
+
+                <p>
+                    ${item.caption || ""}
+                </p>
+
             `;
 
 
         }else{
 
 
-            card.innerHTML=`
+            card.innerHTML = `
 
-                <img src="${item.image}"
+                <img
+                src="${item.image}"
                 alt="${item.caption || ""}">
 
             `;
@@ -96,7 +108,45 @@ function renderArchitecture(data){
         }
 
 
-        gallery.appendChild(card);
+        architectureGallery.appendChild(card);
+
+
+    });
+
+
+
+    architectureGallery
+    .querySelectorAll(".video-toggle")
+    .forEach(button=>{
+
+
+        button.addEventListener("click",()=>{
+
+
+            const video =
+            button
+            .closest(".video-card")
+            .querySelector("video");
+
+
+
+            if(video.paused){
+
+                video.play();
+
+                button.textContent="Ⅱ";
+
+
+            }else{
+
+                video.pause();
+
+                button.textContent="▶";
+
+            }
+
+
+        });
 
 
     });
