@@ -51,11 +51,25 @@ function renderProperty(data){
 
     window.currentProperty = data;
 
+    // Components with their own logic
     initGallery(data);
 
+    // Section renderers
+    renderPropertyHighlights(data);
+    renderFacts(data);
+    renderPropertyIntelligence(data);
+    renderNearby(data);
+    renderLifestyle(data);
+    renderAmenities(data);
+    renderResidenceCollection(data);
+    renderArchitecture(data);
+    renderTimeline(data);
+    renderFinancial(data);
+    renderFAQ(data);
 
+}
 
-
+    
     /* =========================
    PROPERTY INTELLIGENCE
 ========================= */
