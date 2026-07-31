@@ -181,15 +181,23 @@ function renderProperty(data){
     // Floor Plans
 
     if(typeof renderResidenceTable === "function"){
-    renderResidenceTable(data);
+       renderResidenceTable(data);
     }
 
     if(typeof initResidenceTable === "function"){
-    initResidenceTable();
+       initResidenceTable();
+    }
+
+
+    // Favorites
+    
+    if(typeof initFavorites === "function"){
+       initFavorites();
     }
 
 
 
+    
 
     
     console.log(
