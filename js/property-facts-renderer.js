@@ -1,4 +1,4 @@
-function renderFacts(data){
+window.renderFacts = function(data){
 
     const factsGrid =
     document.getElementById("facts-grid");
@@ -72,26 +72,20 @@ function renderFacts(data){
 
     facts.forEach(fact=>{
 
-
         const card=document.createElement("div");
 
         card.className="fact-card";
-
 
         card.innerHTML=`
 
             <span>${fact.label}</span>
 
-            <strong>
-                ${fact.value}
-            </strong>
+            <strong>${fact.value}</strong>
 
         `;
 
-
         factsGrid.appendChild(card);
-
 
     });
 
-}
+};
