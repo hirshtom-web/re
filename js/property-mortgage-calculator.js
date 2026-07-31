@@ -91,3 +91,24 @@ function loadPropertyMortgageCalculator(data){
 }
 
 }
+
+// ======================================
+// PRINT MORTGAGE SUMMARY
+// ======================================
+
+const printButton =
+document.querySelector(".mortgage-print");
+
+
+if(printButton){
+
+    printButton.addEventListener(
+        "click",
+        ()=>{
+
+            window.print();
+
+        }
+    );
+
+}
