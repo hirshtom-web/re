@@ -14,24 +14,28 @@ let AdvancedMarkerElement;
 
 async function initPropertyMap(){
 
-    if(
-    !window.currentProperty ||
-    !window.currentProperty.coordinates
-){
-
-    console.error(
-        "Property coordinates missing"
+    console.log(
+        "MAP PROPERTY:",
+        window.currentProperty
     );
 
-    return;
 
-}
+    if(
+        !window.currentProperty ||
+        !window.currentProperty.coordinates
+    ){
 
+        console.error(
+            "Property coordinates missing"
+        );
 
-    // Load marker library first
+        return;
+
+    }
+
 
     const { AdvancedMarkerElement: MarkerClass } =
-    await google.maps.importLibrary("marker");
+        await google.maps.importLibrary("marker");
 
 
     AdvancedMarkerElement = MarkerClass;
