@@ -212,7 +212,12 @@ function addSoldProperties(){
 // DEVELOPMENTS
 // ======================================
 
-function addNearbyProperties(){
+function console.log(
+    "NEARBY RAW:",
+    window.currentProperty.nearby
+);
+
+addNearbyProperties();
 
     const nearbyProperties =
         window.currentProperty?.nearby || [];
