@@ -294,34 +294,46 @@
 
 @media(max-width:900px){
 
-    .showing-dates,
-    .time-slots{
+    .virtual-showing-section{
+
+        grid-template-columns:1fr;
+
+        width:100%;
+
+        overflow:hidden;
+
+        gap:20px;
+
+        padding:18px;
+
+        border-radius:24px;
+
+    }
+
+
+    .showing-dates{
 
         display:flex;
 
         width:100%;
 
-        max-width:100%;
-
         overflow-x:auto;
 
         overflow-y:hidden;
 
-        flex-wrap:nowrap;
-
         gap:12px;
+
+        scroll-snap-type:x mandatory;
 
         scrollbar-width:none;
 
     }
 
 
-    .showing-dates::-webkit-scrollbar,
-    .time-slots::-webkit-scrollbar{
-
+    .showing-dates::-webkit-scrollbar{
         display:none;
-
     }
+
 
 
     .date-card{
@@ -330,9 +342,52 @@
 
         width:85px;
 
-        min-width:85px;
+        height:85px;
+
+        scroll-snap-align:start;
 
     }
+
+
+
+
+    .showing-times{
+
+        width:100%;
+
+        border-left:none;
+
+        border-top:1px solid #eee;
+
+        padding-left:0;
+
+        padding-top:20px;
+
+    }
+
+
+
+    .time-slots{
+
+        display:flex;
+
+        width:100%;
+
+        overflow-x:auto;
+
+        overflow-y:hidden;
+
+        gap:10px;
+
+        scrollbar-width:none;
+
+    }
+
+
+    .time-slots::-webkit-scrollbar{
+        display:none;
+    }
+
 
 
     .time-slots button{
@@ -341,7 +396,28 @@
 
         width:90px;
 
-        min-width:90px;
+        height:44px;
+
+    }
+
+
+
+    .meeting-info{
+
+        width:100%;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:15px;
+
+    }
+
+
+    .schedule-button{
+
+        width:100%;
 
     }
 
