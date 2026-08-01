@@ -16,9 +16,9 @@ AI MODAL
     justify-content:center;
 
     background:
-    rgba(0,0,0,.35);
+    rgba(0,0,0,.45);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(12px);
 
     z-index:9999;
 
@@ -40,18 +40,28 @@ CONTAINER
 
 .ai-modal{
 
-    width:min(520px,90%);
+    width:min(430px,90%);
 
-    background:#fff;
+    padding:35px;
 
-    border-radius:36px;
-
-    padding:40px;
-
-    box-shadow:
-    0 40px 100px rgba(0,0,0,.18);
+    border-radius:40px;
 
     position:relative;
+
+    color:white;
+
+
+    background:
+    linear-gradient(
+        145deg,
+        #8b5cf6,
+        #4f46e5
+    );
+
+
+    box-shadow:
+
+    0 40px 100px rgba(0,0,0,.35);
 
 }
 
@@ -64,23 +74,44 @@ CONTAINER
 
     position:absolute;
 
-    top:20px;
+    top:18px;
 
-    right:20px;
+    right:18px;
+
 
     width:38px;
 
     height:38px;
 
+
     border-radius:50%;
 
-    border:0;
+    border:none;
 
-    background:#f4f4f4;
 
-    font-size:22px;
+    background:
+    rgba(255,255,255,.18);
+
+
+    color:white;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
 
     cursor:pointer;
+
+}
+
+
+
+.ai-modal-close .material-symbols-outlined{
+
+    font-size:22px;
 
 }
 
@@ -93,13 +124,57 @@ CONTAINER
 
     text-align:center;
 
-    font-size:14px;
+
+    font-size:13px;
 
     font-weight:600;
 
-    color:#555;
 
-    letter-spacing:.2px;
+    letter-spacing:1px;
+
+
+    opacity:.85;
+
+}
+
+
+
+/* =========================
+AI ICON
+========================= */
+
+
+.ai-icon{
+
+    width:60px;
+
+    height:60px;
+
+
+    margin:25px auto;
+
+
+    border-radius:50%;
+
+
+    background:
+
+    rgba(255,255,255,.18);
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+
+.ai-icon .material-symbols-outlined{
+
+    font-size:32px;
 
 }
 
@@ -114,34 +189,34 @@ GAUGE
 
     width:180px;
 
-    height:90px;
-
-    margin:30px auto 10px;
-
-    overflow:hidden;
-
-    position:relative;
-
-}
-
-
-.ai-gauge:before{
-
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-
     height:180px;
+
+
+    margin:10px auto 20px;
+
 
     border-radius:50%;
 
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
     background:
+
     conic-gradient(
-        #111 0deg 310deg,
-        #e8e8e8 310deg 360deg
+
+        #22c55e 0deg,
+
+        #eab308 300deg,
+
+        rgba(255,255,255,.2) 300deg
+
     );
+
 
 }
 
@@ -149,27 +224,29 @@ GAUGE
 
 .ai-gauge-inner{
 
-    position:absolute;
-
-    bottom:0;
-
-    left:20px;
 
     width:140px;
 
-    height:70px;
+    height:140px;
 
-    background:white;
 
-    border-radius:140px 140px 0 0;
+    border-radius:50%;
+
+
+    background:
+
+    #6d28d9;
+
 
     display:flex;
 
-    align-items:flex-end;
+    flex-direction:column;
+
+
+    align-items:center;
 
     justify-content:center;
 
-    padding-bottom:5px;
 
 }
 
@@ -177,7 +254,7 @@ GAUGE
 
 .ai-gauge-inner strong{
 
-    font-size:48px;
+    font-size:52px;
 
     line-height:1;
 
@@ -189,45 +266,30 @@ GAUGE
 
 .ai-gauge-inner span{
 
-    font-size:16px;
+    font-size:15px;
 
-    color:#777;
-
-    margin-bottom:7px;
+    opacity:.75;
 
 }
 
 
 
-/* STARS */
-
-
-.ai-stars{
-
-    text-align:center;
-
-    font-size:18px;
-
-    letter-spacing:4px;
-
-    margin-top:12px;
-
-}
-
-
-
-/* STATUS */
+/* =========================
+STATUS
+========================= */
 
 
 .ai-status{
 
     text-align:center;
 
-    margin-top:14px;
 
-    font-size:17px;
+    font-size:22px;
 
-    font-weight:600;
+    font-weight:700;
+
+
+    margin-top:10px;
 
 }
 
@@ -235,85 +297,105 @@ GAUGE
 
 .ai-description{
 
+
     text-align:center;
 
-    margin:12px auto;
 
     max-width:300px;
 
-    color:#777;
 
-    font-size:13px;
+    margin:12px auto 25px;
+
+
+    font-size:14px;
+
 
     line-height:1.5;
 
-}
 
-
-
-/* DIVIDER */
-
-
-.ai-divider{
-
-    height:1px;
-
-    background:#eee;
-
-    margin:28px 0;
+    opacity:.8;
 
 }
 
 
 
 /* =========================
-2x2 METRICS
+INSIGHTS
 ========================= */
 
 
-.ai-metrics{
+.ai-insights{
 
     display:grid;
 
-    grid-template-columns:1fr 1fr;
-
-    gap:18px;
+    gap:10px;
 
 }
 
 
 
-.ai-metrics div{
+.ai-insights div{
 
-    background:#fafafa;
+
+    display:flex;
+
+    align-items:center;
+
+
+    gap:12px;
+
+
+    padding:14px;
+
 
     border-radius:18px;
 
-    padding:16px;
+
+    background:
+
+    rgba(255,255,255,.12);
+
 
 }
 
 
 
-.ai-metrics span{
+.ai-insights .material-symbols-outlined{
 
-    display:block;
 
-    font-size:12px;
+    font-size:24px;
 
-    color:#666;
-
-    margin-bottom:8px;
 
 }
 
 
 
-.ai-metrics b{
+.ai-insights span:last-child{
+
+
+    display:flex;
+
+    flex-direction:column;
+
 
     font-size:14px;
 
+
+}
+
+
+
+.ai-insights b{
+
+
+    margin-top:3px;
+
+
     letter-spacing:2px;
+
+
+    font-size:13px;
+
 
 }
 
@@ -326,7 +408,12 @@ CONFIDENCE
 
 .ai-confidence{
 
+
     text-align:center;
+
+
+    margin-top:28px;
+
 
 }
 
@@ -334,9 +421,11 @@ CONFIDENCE
 
 .ai-confidence small{
 
-    color:#777;
 
     font-size:13px;
+
+    opacity:.7;
+
 
 }
 
@@ -344,13 +433,18 @@ CONFIDENCE
 
 .ai-confidence strong{
 
+
     display:block;
 
-    font-size:42px;
+
+    font-size:48px;
+
 
     letter-spacing:-2px;
 
+
     margin-top:5px;
+
 
 }
 
@@ -358,10 +452,14 @@ CONFIDENCE
 
 .ai-confidence p{
 
-    margin-top:8px;
 
-    color:#777;
+    margin-top:6px;
+
 
     font-size:13px;
+
+
+    opacity:.75;
+
 
 }
