@@ -919,51 +919,69 @@ if(!marker){
 
 
 
-// ======================================
-// CARD HOVER
-// ======================================
+        // ======================================
+        // CARD HOVER
+        // ======================================
 
-card.addEventListener(
-    "mouseenter",
-    ()=>{
-
-        if(marker.content){
-
-            marker.content.classList.add(
-                "active"
-            );
-
-        }
+        card.addEventListener(
+            "mouseenter",
+            ()=>{
 
 
-        card.classList.add(
-            "active-property"
+                map.panTo(
+                    marker.position
+                );
+
+
+
+                if(marker.content){
+
+                    marker.content.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+
+                card.classList.add(
+                    "active-property"
+                );
+
+
+            }
         );
 
 
-    }
-);
 
 
 
-card.addEventListener(
-    "mouseleave",
-    ()=>{
+        card.addEventListener(
+            "mouseleave",
+            ()=>{
 
 
-        if(marker.content){
+                if(marker.content){
 
-            marker.content.classList.remove(
-                "active"
-            );
+                    marker.content.classList.remove(
+                        "active"
+                    );
 
-        }
+                }
 
 
-        card.classList.remove(
-            "active-property"
+
+                card.classList.remove(
+                    "active-property"
+                );
+
+
+            }
         );
 
 
-    }
-);
+
+    });
+
+
+}
