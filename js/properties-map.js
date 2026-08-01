@@ -919,14 +919,13 @@ if(!marker){
 
 
 
-        // ======================================
-        // CARD HOVER
-        // ======================================
+     // ======================================
+// CARD HOVER
+// ======================================
 
-        card.addEventListener(
+card.addEventListener(
     "mouseenter",
     ()=>{
-
 
         if(marker.content){
 
@@ -941,50 +940,29 @@ if(!marker){
             "active-property"
         );
 
-
     }
 );
 
 
 
-                card.classList.add(
-                    "active-property"
-                );
+card.addEventListener(
+    "mouseleave",
+    ()=>{
 
 
-            }
+        if(marker.content){
+
+            marker.content.classList.remove(
+                "active"
+            );
+
+        }
+
+
+        card.classList.remove(
+            "active-property"
         );
 
 
-
-
-
-        card.addEventListener(
-            "mouseleave",
-            ()=>{
-
-
-                if(marker.content){
-
-                    marker.content.classList.remove(
-                        "active"
-                    );
-
-                }
-
-
-
-                card.classList.remove(
-                    "active-property"
-                );
-
-
-            }
-        );
-
-
-
-    });
-
-
-}
+    }
+);
