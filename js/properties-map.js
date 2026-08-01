@@ -924,23 +924,26 @@ if(!marker){
         // ======================================
 
         card.addEventListener(
-            "mouseenter",
-            ()=>{
+    "mouseenter",
+    ()=>{
 
 
-                map.panTo(
-                    marker.position
-                );
+        if(marker.content){
+
+            marker.content.classList.add(
+                "active"
+            );
+
+        }
 
 
+        card.classList.add(
+            "active-property"
+        );
 
-                if(marker.content){
 
-                    marker.content.classList.add(
-                        "active"
-                    );
-
-                }
+    }
+);
 
 
 
