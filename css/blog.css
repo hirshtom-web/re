@@ -178,10 +178,10 @@ NAVBAR
 
 
 /*=========================================
-HERO
+BLOG FEATURE INTRO
 =========================================*/
 
-.hero{
+.blog-feature{
 
     position:relative;
 
@@ -194,9 +194,9 @@ HERO
 }
 
 
-/* Floating glow */
+/* Floating AI glow */
 
-.hero-glow{
+.feature-glow{
 
     position:absolute;
 
@@ -225,7 +225,8 @@ HERO
 }
 
 
-.hero>*{
+
+.blog-feature>*{
 
     position:relative;
 
@@ -234,7 +235,10 @@ HERO
 }
 
 
-.hero-badge{
+
+/* AI badge */
+
+.feature-badge{
 
     display:inline-flex;
 
@@ -262,7 +266,9 @@ HERO
 
 }
 
-.hero-badge .material-symbols-outlined{
+
+
+.feature-badge .material-symbols-outlined{
 
     font-size:18px;
 
@@ -271,7 +277,8 @@ HERO
 }
 
 
-.hero h1{
+
+.blog-feature h1{
 
     margin-top:35px;
 
@@ -285,7 +292,9 @@ HERO
 
 }
 
-.hero p{
+
+
+.blog-feature p{
 
     width:min(650px,90%);
 
