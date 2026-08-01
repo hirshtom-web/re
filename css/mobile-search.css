@@ -126,7 +126,7 @@
 
     overflow:hidden;
 
-    height:90vh;
+    height: calc(100dvh - 70px);
 
 
 }
@@ -226,8 +226,8 @@
     right:0;
     bottom:0;
 
-    height:90vh;
-
+    height: calc(100dvh - 70px);
+   
     background:#fff;
 
     border-radius:
