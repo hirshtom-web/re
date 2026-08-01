@@ -571,13 +571,13 @@ section{
 
 }
 
-.hero{
+.blog-feature{
 
-    padding-top:70px;
+    padding-top:40px;
 
 }
 
-.hero h1{
+.blog-feature{
 
     font-size:46px;
 
@@ -585,7 +585,7 @@ section{
 
 }
 
-.hero p{
+.blog-feature{
 
     font-size:17px;
 
