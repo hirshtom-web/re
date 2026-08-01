@@ -218,7 +218,11 @@ button:hover{
 
 
 
-
+.contact-card input,
+.contact-card textarea,
+.contact-card select {
+    font-size: 16px;
+}
 
 @media(max-width:1000px){
 
