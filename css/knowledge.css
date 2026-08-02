@@ -61,7 +61,7 @@ CONTAINER
 
 .article-width{
 
-    width:min(1280px,92%);
+    width:min(1440px,90%);
 
     margin:auto;
 
@@ -89,7 +89,9 @@ HERO
 
     position:absolute;
 
-    width:700px;
+    width:min(1440px,90%);
+
+    margin:auto;
 
     height:700px;
 
@@ -246,7 +248,7 @@ HERO IMAGE
 
 .article-hero-image{
 
-    width:min(1440px,100%);
+    width:min(1440px,90%);
 
     margin:auto;
 
@@ -265,7 +267,9 @@ HERO IMAGE
 
 .article-hero-image{
 
-    width:100%;
+    width:min(1440px,90%);
+
+    margin:auto;
     margin-top:60px;
 }
 
@@ -277,7 +281,9 @@ CONTENT LAYOUT
 
 .article-container{
 
-    width:min(1100px,92%);
+    width:min(1440px,90%);
+
+    margin:auto;
 
     margin:100px auto;
 
@@ -358,7 +364,9 @@ ARTICLE TEXT
 
 .article-content img{
 
-    width:100%;
+    width:min(1440px,90%);
+
+    margin:auto;
 
     border-radius:28px;
 
@@ -495,7 +503,9 @@ AUTHOR
 
 .article-author{
 
-    width:min(1100px,92%);
+    width:min(1440px,90%);
+
+    margin:auto;
 
     margin:100px auto;
 
@@ -538,7 +548,9 @@ RELATED ARTICLES
 
 .related-articles{
 
-    width:min(1280px,92%);
+    width:min(1440px,90%);
+
+    margin:auto;
 
     margin:120px auto;
 
