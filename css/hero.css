@@ -429,3 +429,48 @@
 
 
 
+.property-search {
+    margin-top: 35px;
+    width: 100%;
+    max-width: 430px;
+
+    background: #ffffff;
+    border-radius: 18px;
+
+    padding: 18px 22px;
+
+    display: flex;
+    align-items: center;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.12);
+}
+
+
+.search-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.search-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+
+.search-item small {
+    display: block;
+    color: #6b7280;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 4px;
+}
+
+
+.search-item strong {
+    color: #111827;
+    font-size: 18px;
+    font-weight: 600;
+}
