@@ -2350,134 +2350,117 @@ TESTIMONIALS
 
 
 .tm-testimonials{
-
-    padding:100px 0;
-
+padding:120px 0;
+overflow:hidden;
 }
 
 
-.testimonial-slider{
-
-    overflow:hidden;
-
-}
-
-
-.testimonial-track{
-
-    display:flex;
-
-    gap:30px;
-
-    transition:.5s ease;
-
+.tm-testimonials__container{
+position:relative;
 }
 
 
 
-.testimonial-card{
+.tm-testimonials-slider{
+overflow:hidden;
+margin-top:60px;
+}
 
-    flex:0 0 420px;
 
-    padding:45px;
 
-    border-radius:35px;
+.tm-testimonials-track{
 
-    background:white;
-
-    border:1px solid #ececec;
-
-    box-shadow:
-    0 25px 70px rgba(0,0,0,.06);
+display:flex;
+gap:30px;
+transition:transform .6s ease;
 
 }
 
 
 
-.testimonial-quote{
+.tm-testimonial-card{
 
-    font-size:20px;
+min-width:380px;
+background:white;
+border-radius:28px;
+padding:40px;
 
-    line-height:1.7;
-
-    color:#333;
-
-    margin-bottom:35px;
-
-}
-
-
-
-.testimonial-person{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
+box-shadow:
+0 25px 60px rgba(0,0,0,.08);
 
 }
 
 
 
-.testimonial-person img{
+.tm-testimonial-quote{
 
-    width:100px;
+font-size:18px;
+line-height:1.7;
+color:#444;
 
-    height:100px;
+margin-bottom:35px;
 
-    object-fit:cover;
-
-    border-radius:50%;
-
-}
-
-
-
-.testimonial-person strong{
-
-    display:block;
-
-    font-size:18px;
+font-style:italic;
 
 }
 
 
 
-.testimonial-person span{
+.tm-testimonial-person{
 
-    display:block;
-
-    margin-top:6px;
-
-    color:#777;
-
-    font-size:14px;
+display:flex;
+align-items:center;
+gap:20px;
 
 }
 
+
+
+.tm-testimonial-person img{
+
+width:95px;
+height:95px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+}
+
+
+
+.tm-testimonial-person strong{
+
+display:block;
+
+font-size:18px;
+
+color:#111;
+
+}
+
+
+
+.tm-testimonial-person span{
+
+display:block;
+
+margin-top:6px;
+
+font-size:14px;
+
+color:#777;
+
+}
 
 
 
 @media(max-width:768px){
 
+.tm-testimonial-card{
 
-.testimonial-card{
-
-    flex:0 0 85%;
-
-    padding:30px;
+min-width:85vw;
 
 }
-
-
-.testimonial-person img{
-
-    width:80px;
-
-    height:80px;
-
-}
-
 
 }
