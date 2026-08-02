@@ -508,3 +508,244 @@ card.addEventListener(
 console.log(
 "Blog experience initialized"
 );
+
+
+/* =================================================
+   CONTINUE READING SLIDER
+================================================= */
+
+
+const slider = document.getElementById('continue-slider');
+const container = document.getElementById('continue-slider-container');
+const prevBtn = document.getElementById('continue-prev');
+const nextBtn = document.getElementById('continue-next');
+
+
+let currentIndex = 0;
+
+
+
+function updateSlider(){
+
+
+    if(!slider)
+    return;
+
+
+    const card =
+    slider.querySelector('.continue-card');
+
+
+    if(!card)
+    return;
+
+
+
+    const gap = 28;
+
+
+    const cardWidth =
+    card.offsetWidth + gap;
+
+
+
+    slider.style.transform =
+    `translateX(${-currentIndex * cardWidth}px)`;
+
+}
+
+
+
+
+if(slider && prevBtn && nextBtn){
+
+
+
+    prevBtn.addEventListener(
+        "click",
+        ()=>{
+
+
+            if(currentIndex > 0){
+
+                currentIndex--;
+
+            }
+
+
+            updateSlider();
+
+
+        }
+    );
+
+
+
+
+
+    nextBtn.addEventListener(
+        "click",
+        ()=>{
+
+
+            const card =
+            slider.querySelector('.continue-card');
+
+
+            const visibleCards =
+            Math.floor(
+                slider.parentElement.offsetWidth /
+                card.offsetWidth
+            );
+
+
+
+            const maxIndex =
+            slider.children.length -
+            visibleCards;
+
+
+
+            if(currentIndex < maxIndex){
+
+                currentIndex++;
+
+            }
+
+
+            updateSlider();
+
+
+        }
+    );
+
+
+
+
+
+    /* TOUCH SWIPE */
+
+
+    let startX = 0;
+
+
+    let dragging = false;
+
+
+
+    container.addEventListener(
+        "touchstart",
+        e=>{
+
+
+            dragging=true;
+
+
+            startX =
+            e.touches[0].clientX;
+
+
+            slider.style.transition="none";
+
+
+        }
+    );
+
+
+
+
+    container.addEventListener(
+        "touchmove",
+        e=>{
+
+
+            if(!dragging)
+            return;
+
+
+
+            const moveX =
+            e.touches[0].clientX -
+            startX;
+
+
+
+            const card =
+            slider.querySelector('.continue-card');
+
+
+            const cardWidth =
+            card.offsetWidth + 28;
+
+
+
+            slider.style.transform =
+            `translateX(${
+                -currentIndex * cardWidth + moveX
+            }px)`;
+
+
+        }
+    );
+
+
+
+
+
+    container.addEventListener(
+        "touchend",
+        e=>{
+
+
+            dragging=false;
+
+
+
+            const endX =
+            e.changedTouches[0].clientX;
+
+
+
+            const diff =
+            endX - startX;
+
+
+
+            if(diff < -50){
+
+                nextBtn.click();
+
+            }
+
+
+            else if(diff > 50){
+
+                prevBtn.click();
+
+            }
+
+
+
+            slider.style.transition =
+            "transform .4s ease";
+
+
+            updateSlider();
+
+
+        }
+    );
+
+
+
+    window.addEventListener(
+        "resize",
+        updateSlider
+    );
+
+
+
+    updateSlider();
+
+
+}
