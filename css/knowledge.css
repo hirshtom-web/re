@@ -1557,3 +1557,50 @@ body{
     }
 
 }
+
+
+.ai-summary-card {
+  padding: 20px;
+}
+
+.ai-summary-card h4 {
+  margin-bottom: 10px;
+}
+
+.ai-summary-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.ai-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-tool {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: #f7f7f7;
+  color: #111;
+  transition: background 0.2s;
+}
+
+.ai-tool:hover {
+  background: #ececec;
+}
+
+.ai-tool img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.ai-tool span {
+  font-weight: 500;
+}
