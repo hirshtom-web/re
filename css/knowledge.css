@@ -25,6 +25,22 @@
 
 }
 
+:root{
+    --page-width:min(1440px,90%);
+}
+
+
+.article-container-width,
+.article-container,
+.article-author,
+.continue-reading{
+
+    width:var(--page-width);
+
+    margin-left:auto;
+    margin-right:auto;
+
+}
 
 
 /* =========================
@@ -66,20 +82,6 @@ body{
     width:100%;
 
     background:#fff;
-
-}
-
-
-
-/* =========================
-   GLOBAL WIDTH
-========================= */
-
-.article-width{
-
-    width:min(1440px,90%);
-
-    margin-inline:auto;
 
 }
 
@@ -276,11 +278,11 @@ body{
 
 .article-hero-image{
 
-    width:min(1440px,90%);
+    width:100%;
 
     height:620px;
 
-    margin:70px auto 0;
+    margin:70px 0 0;
 
     border-radius:36px;
 
@@ -289,6 +291,7 @@ body{
     box-shadow:var(--shadow);
 
 }
+
 
 .article-hero-image img{
 
@@ -303,6 +306,15 @@ body{
 }
 
 
+.article-hero h1,
+.article-subtitle,
+.article-meta,
+.article-breadcrumbs{
+
+    max-width:950px;
+
+}
+
 
 /* =========================
    MAIN GRID
@@ -310,7 +322,7 @@ body{
 
 .article-container{
 
-    width:min(1440px,90%);
+    width:var(--page-width);
 
     margin:100px auto;
 
