@@ -330,26 +330,24 @@ HEADER
 }
 
 
-.mobile-toggle {
-
-    display:block;
-
-}
-
 
 
 /* =====================================
    MOBILE FILTER SHEET DESKTOP LOCK
 ===================================== */
 
-@media (min-width:901px){
+@media (max-width:900px){
 
-    .mobile-filter-button,
-    .filter-sheet,
-    .filter-sheet-header,
-    .filter-sheet-handle,
-    .mobile-filter-section{
-        display:none !important;
+    .mobile-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .nav-links.active{
+        display:flex;
     }
 
 }
