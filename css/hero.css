@@ -430,23 +430,47 @@
 
 
 
-.hero{
+/* =====================
+HERO SHOWCASE
+===================== */
+
+.tm-hero-showcase{
+
     position:relative;
+
     overflow:hidden;
+
     min-height:100vh;
+
 }
 
-.hero-content{
+
+
+/* =====================
+HERO CONTENT
+===================== */
+
+.tm-hero-content{
+
     position:relative;
+
     z-index:10;
+
     max-width:760px;
-    margin:auto;
+
+    margin:0 auto;
+
     text-align:center;
+
 }
 
-/* Card */
 
-.hero-listing{
+
+/* =====================
+FLOATING LISTING CARD
+===================== */
+
+.tm-hero-listing{
 
     position:absolute;
 
@@ -458,15 +482,18 @@
 
     overflow:hidden;
 
-    box-shadow:0 25px 70px rgba(0,0,0,.15);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.15);
 
     z-index:1;
 
-    animation:float 8s ease-in-out infinite;
+    animation:tmHeroFloat 8s ease-in-out infinite;
 
 }
 
-.hero-listing img{
+
+
+.tm-hero-listing img{
 
     width:100%;
 
@@ -474,75 +501,109 @@
 
     object-fit:cover;
 
+    display:block;
+
 }
 
-.hero-listing__info{
+
+
+.tm-hero-listing__info{
 
     padding:20px;
 
 }
 
-.hero-listing h4{
+
+
+.tm-hero-listing__info h4{
 
     margin:0;
 
-    font-size:28px;
-
     font-family:"Cormorant Garamond",serif;
 
-}
+    font-size:30px;
 
-.hero-listing p{
-
-    margin-top:6px;
-
-    color:#666;
+    font-weight:500;
 
 }
 
-/* Positions */
 
-.hero-listing--tl{
+
+.tm-hero-listing__info p{
+
+    margin:8px 0 0;
+
+    color:#777;
+
+}
+
+
+
+/* =====================
+POSITIONS
+===================== */
+
+.tm-hero-listing--tl{
 
     top:80px;
 
     left:-120px;
 
+    transform:rotate(-6deg);
+
 }
 
-.hero-listing--bl{
+
+
+.tm-hero-listing--bl{
 
     bottom:70px;
 
     left:-70px;
 
+    transform:rotate(4deg);
+
     animation-delay:2s;
 
 }
 
-.hero-listing--tr{
 
-    top:90px;
+
+.tm-hero-listing--tr{
+
+    top:100px;
 
     right:-120px;
+
+    transform:rotate(5deg);
 
     animation-delay:1s;
 
 }
 
-.hero-listing--br{
+
+
+.tm-hero-listing--br{
 
     bottom:80px;
 
     right:-70px;
 
+    transform:rotate(-4deg);
+
     animation-delay:3s;
 
 }
 
-@keyframes float{
 
-    0%,100%{
+
+/* =====================
+FLOAT ANIMATION
+===================== */
+
+@keyframes tmHeroFloat{
+
+    0%{
         transform:translateY(0);
     }
 
@@ -550,12 +611,24 @@
         transform:translateY(-10px);
     }
 
+    100%{
+        transform:translateY(0);
+    }
+
 }
+
+
+
+/* =====================
+TABLET
+===================== */
 
 @media(max-width:1100px){
 
-    .hero-listing{
+    .tm-hero-listing{
+
         display:none;
+
     }
 
 }
