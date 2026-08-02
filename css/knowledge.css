@@ -89,17 +89,7 @@ HERO
 
     position:absolute;
 
-    width:min(1440px,90%);
-
     margin:auto;
-
-    height:700px;
-
-    top:-300px;
-
-    left:50%;
-
-    transform:translateX(-50%);
 
     border-radius:50%;
 
@@ -114,6 +104,14 @@ HERO
     filter:blur(30px);
 
     z-index:0;
+
+    width:900px;
+    height:900px;
+
+    left:50%;
+    top:-350px;
+
+    transform:translateX(-50%);
 
 }
 
@@ -756,11 +754,9 @@ CONTINUE READING
 
     justify-content:space-between;
 
-    align-items:center;
+    align-items:flex-end;
 
-    text-align:left;
 }
-
 
 .continue-header h2{
 
