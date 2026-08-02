@@ -354,7 +354,8 @@ HEADER
 
 
 
-.properties-header {
+.properties-page-header {
+
     display:grid;
     grid-template-columns:auto 1fr auto;
     align-items:center;
@@ -364,38 +365,48 @@ HEADER
 
     border-bottom:1px solid #eee;
     background:#fff;
+
 }
 
-.properties-header-left {
+
+.properties-page-header-left {
+
     display:flex;
     align-items:center;
+
 }
 
-.properties-header-logo {
+
+.properties-page-logo {
+
     display:flex;
     align-items:center;
+
 }
 
-.properties-header-logo img {
+
+.properties-page-logo img {
+
     display:block;
     width:60px;
     height:auto;
+
 }
 
-.properties-header-center {
+
+.properties-page-header-center {
+
     display:flex;
     justify-content:center;
     align-items:center;
-    min-width:0;
+
 }
 
-.properties-toolbar {
-    width:100%;
-    max-width:1100px;
-}
 
-.properties-header-right {
+.properties-page-header-right {
+
     display:flex;
     align-items:center;
     justify-content:flex-end;
+
 }
