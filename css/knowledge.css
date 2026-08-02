@@ -247,31 +247,21 @@ HERO IMAGE
 
 
 .article-hero-image{
-
     width:min(1440px,90%);
-
-    margin:auto;
-
-    border-radius:36px;
-
-    overflow:hidden;
-
-    box-shadow:var(--shadow);
-   
+    margin:60px auto 0;
     height:600px;
+    overflow:hidden;
+    border-radius:36px;
+    box-shadow:var(--shadow);
+}
 
+.article-hero-image img{
+    width:100%;
+    height:100%;
     object-fit:cover;
-
+    display:block;
 }
 
-
-.article-hero-image{
-
-    width:min(1440px,90%);
-
-    margin:auto;
-    margin-top:60px;
-}
 
 
 /* =========================
@@ -363,15 +353,10 @@ ARTICLE TEXT
 
 
 .article-content img{
-
-    width:min(1440px,90%);
-
-    margin:auto;
-
+    width:100%;
+    display:block;
     border-radius:28px;
-
     margin:50px 0;
-
 }
 
 
@@ -758,11 +743,8 @@ CONTINUE READING
 
 .continue-reading{
 
-    max-width:1200px;
-
+    width:min(1440px,90%);
     margin:120px auto;
-
-    padding:0 40px;
 
 }
 
