@@ -631,6 +631,84 @@ font-size:clamp(38px,5vw,58px);
 
 }
 
+
+/* =========================
+MOBILE MENU BUTTON
+========================= */
+
+.mobile-toggle{
+
+    display:none;
+
+    background:none;
+    border:none;
+
+    width:42px;
+    height:42px;
+
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:6px;
+
+    cursor:pointer;
+
+}
+
+
+.mobile-toggle span{
+
+    width:24px;
+    height:2px;
+
+    background:#111;
+
+    border-radius:20px;
+
+    transition:.3s;
+
+}
+
+
+
+/* MOBILE ONLY */
+
+@media(max-width:900px){
+
+    .mobile-toggle{
+
+        display:flex;
+
+    }
+
+
+    .nav-links{
+
+        position:absolute;
+
+        top:100%;
+        left:0;
+        width:100%;
+
+        display:none;
+
+        flex-direction:column;
+
+        padding:30px;
+
+        background:white;
+
+    }
+
+
+    .nav-links.active{
+
+        display:flex;
+
+    }
+
+}
 /* =====================
 SECTION TITLES
 ===================== */
