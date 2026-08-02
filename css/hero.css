@@ -430,292 +430,119 @@
 
 
 /* =====================
-HOME HERO
+FLOATING TITLE
 ===================== */
 
 
-.tm-home-hero{
+.floating-title{
 
     position:relative;
 
-    overflow:hidden;
-
-    padding:120px 0 100px;
-
-}
-
-
-
-
-/* =====================
-GRID
-===================== */
-
-
-.tm-home-hero__grid{
-
-    display:grid;
-
-    grid-template-columns:
-
-    1fr 1fr;
-
-    align-items:center;
-
-    gap:80px;
-
-}
-
-
-
-
-
-/* =====================
-CONTENT
-===================== */
-
-
-.tm-home-hero__content{
-
-    position:relative;
-
-    z-index:5;
-
-}
-
-
-
-.tm-home-hero__content h1{
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:72px;
-
-    line-height:1.05;
-
-    font-weight:500;
-
-    color:#111;
-
-    margin-bottom:30px;
-
-}
-
-
-
-.tm-home-hero__content h1 span{
-
-    display:block;
-
-    color:#111;
-
-}
-
-
-
-
-.tm-home-hero__content p{
-
-    max-width:560px;
-
-    font-size:18px;
-
-    line-height:1.7;
-
-    color:#666;
-
-    margin-bottom:40px;
-
-}
-
-
-
-
-
-/* =====================
-BUTTONS
-===================== */
-
-
-.hero-buttons{
+    padding:120px 20px 80px;
 
     display:flex;
 
-    gap:18px;
+    justify-content:center;
 
-    flex-wrap:wrap;
-
-}
-
-
-
-
-
-/* =====================
-RIGHT CARD AREA
-===================== */
-
-
-.tm-home-hero__card{
-
-    position:relative;
-
-    min-height:560px;
-
-    z-index:2;
-
-}
-
-
-
-
-/* =====================
-GALLERY
-===================== */
-
-
-.tm-home-hero__gallery{
-
-    position:relative;
-
-    width:100%;
-
-    height:560px;
-
-}
-
-
-
-
-.property-thumb{
-
-    position:absolute;
-
-    border-radius:28px;
+    text-align:center;
 
     overflow:hidden;
 
+}
+
+
+
+
+
+.floating-title__inner{
+
+
+    max-width:900px;
+
+
+    padding:60px 70px;
+
+
+    background:rgba(255,255,255,.75);
+
+
+    backdrop-filter:blur(20px);
+
+
+    border-radius:40px;
+
+
+    border:1px solid rgba(0,0,0,.06);
+
+
     box-shadow:
 
-    0 25px 80px rgba(0,0,0,.15);
+    0 30px 90px rgba(0,0,0,.08);
 
-    background:#fff;
+
+    position:relative;
+
+    z-index:2;
+
 
 }
 
 
 
 
-.property-thumb img{
+.floating-title__inner h1{
 
-    width:100%;
 
-    height:100%;
+    font-family:"Cormorant Garamond",serif;
 
-    object-fit:cover;
+
+    font-size:76px;
+
+
+    line-height:1.05;
+
+
+    font-weight:500;
+
+
+    color:#111;
+
+
+    margin:0 0 30px;
+
+
+}
+
+
+
+.floating-title__inner h1 span{
+
 
     display:block;
 
-}
-
-
-
-
-
-.location-pill{
-
-    position:absolute;
-
-    bottom:18px;
-
-    left:18px;
-
-    background:#fff;
-
-    padding:8px 16px;
-
-    border-radius:50px;
-
-    font-size:14px;
-
-    font-weight:600;
 
 }
 
 
 
 
-
-/* =====================
-THUMB POSITIONS
-===================== */
+.floating-title__inner p{
 
 
-.thumb-1{
-
-    width:330px;
-
-    height:430px;
-
-    top:20px;
-
-    right:70px;
-
-    z-index:3;
-
-}
+    max-width:650px;
 
 
-
-.thumb-2{
-
-    width:230px;
-
-    height:280px;
-
-    left:20px;
-
-    top:90px;
-
-    transform:rotate(-7deg);
-
-    z-index:2;
-
-}
+    margin:0 auto 40px;
 
 
-
-.thumb-3{
-
-    width:240px;
-
-    height:300px;
-
-    right:-10px;
-
-    bottom:30px;
-
-    transform:rotate(6deg);
-
-    z-index:1;
-
-}
+    font-size:18px;
 
 
+    line-height:1.7;
 
-.thumb-4{
 
-    width:200px;
+    color:#666;
 
-    height:240px;
-
-    left:90px;
-
-    bottom:20px;
-
-    transform:rotate(-4deg);
-
-    z-index:2;
 
 }
 
@@ -723,135 +550,95 @@ THUMB POSITIONS
 
 
 
-/* =====================
-FLOATING SIDE CARDS
-===================== */
+.floating-title__buttons{
 
 
-.tm-home-hero__card::before,
-.tm-home-hero__card::after{
+    display:flex;
+
+
+    justify-content:center;
+
+
+    gap:18px;
+
+
+    flex-wrap:wrap;
+
+
+}
+
+
+
+
+/* Decorative floating circles */
+
+
+.floating-title::before{
+
 
     content:"";
 
-    position:absolute;
-
-    width:220px;
-
-    height:280px;
-
-    background:#fff;
-
-    border-radius:28px;
-
-    box-shadow:
-
-    0 25px 70px rgba(0,0,0,.12);
-
-    opacity:.85;
-
-    z-index:-1;
-
-    animation:tmHeroFloat 8s ease-in-out infinite;
-
-}
-
-
-
-.tm-home-hero__card::before{
-
-    left:-150px;
-
-    top:40px;
-
-    transform:rotate(-10deg);
-
-}
-
-
-
-.tm-home-hero__card::after{
-
-    right:-150px;
-
-    bottom:40px;
-
-    transform:rotate(10deg);
-
-    animation-delay:2s;
-
-}
-
-
-
-
-
-@keyframes tmHeroFloat{
-
-
-    0%,
-    100%{
-
-        margin-top:0;
-
-    }
-
-
-    50%{
-
-        margin-top:-12px;
-
-    }
-
-}
-
-
-
-
-/* =====================
-BUBBLES
-===================== */
-
-
-.floating-bubble{
 
     position:absolute;
+
+
+    width:300px;
+
+
+    height:300px;
+
+
+    background:rgba(139,92,246,.18);
+
 
     border-radius:50%;
 
-    filter:blur(1px);
 
-}
+    filter:blur(60px);
 
 
-.bubble-a{
+    top:20px;
 
-    width:220px;
 
-    height:220px;
+    left:10%;
 
-    background:rgba(139,92,246,.15);
-
-    top:0;
-
-    right:80px;
 
 }
 
 
 
-.bubble-b{
+.floating-title::after{
 
-    width:160px;
 
-    height:160px;
+    content:"";
 
-    background:rgba(6,182,212,.12);
 
-    bottom:40px;
+    position:absolute;
 
-    left:40px;
+
+    width:260px;
+
+
+    height:260px;
+
+
+    background:rgba(6,182,212,.15);
+
+
+    border-radius:50%;
+
+
+    filter:blur(60px);
+
+
+    bottom:20px;
+
+
+    right:10%;
+
 
 }
+
 
 
 
@@ -861,30 +648,28 @@ TABLET
 ===================== */
 
 
-@media(max-width:1100px){
+@media(max-width:900px){
 
 
-    .tm-home-hero__grid{
+    .floating-title{
 
-        gap:40px;
-
-    }
-
-
-
-    .tm-home-hero__content h1{
-
-        font-size:58px;
+        padding:80px 20px 50px;
 
     }
 
 
 
-    .thumb-1{
+    .floating-title__inner{
 
-        width:280px;
+        padding:45px 30px;
 
-        height:380px;
+    }
+
+
+
+    .floating-title__inner h1{
+
+        font-size:52px;
 
     }
 
@@ -896,95 +681,27 @@ TABLET
 
 
 /* =====================
-MOBILE
+PHONE
 ===================== */
 
 
-@media(max-width:900px){
+@media(max-width:600px){
 
 
-    .tm-home-hero{
+    .floating-title__inner h1{
 
-        padding:80px 0;
-
-    }
-
-
-
-    .tm-home-hero__grid{
-
-        grid-template-columns:1fr;
-
-        text-align:center;
+        font-size:40px;
 
     }
 
 
 
-    .tm-home-hero__content p{
+    .floating-title__inner p{
 
-        margin-left:auto;
-
-        margin-right:auto;
+        font-size:16px;
 
     }
 
-
-
-    .hero-buttons{
-
-        justify-content:center;
-
-    }
-
-
-
-    .tm-home-hero__card{
-
-        min-height:450px;
-
-    }
-
-
-
-    .tm-home-hero__gallery{
-
-        height:450px;
-
-    }
-
-
-
-    .thumb-1{
-
-        width:240px;
-
-        height:320px;
-
-        right:50%;
-
-        transform:translateX(50%);
-
-    }
-
-
-
-    .thumb-2,
-    .thumb-3,
-    .thumb-4{
-
-        display:none;
-
-    }
-
-
-
-    .tm-home-hero__card::before,
-    .tm-home-hero__card::after{
-
-        display:none;
-
-    }
 
 
 }
