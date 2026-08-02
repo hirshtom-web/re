@@ -11,10 +11,18 @@
 :root{
 
     --primary:#6D5DFB;
-    --text:#111;
+
+    --text:#111111;
+
     --muted:#6b7280;
+
     --border:#ECECEC;
+
+    --surface:#FAFAFA;
+
     --shadow:0 30px 80px rgba(15,23,42,.08);
+
+    --radius:32px;
 
     --page-width:min(1440px,90%);
 
@@ -31,13 +39,6 @@
 *::after{
 
     box-sizing:border-box;
-
-}
-
-
-html{
-
-    scroll-behavior:smooth;
 
 }
 
@@ -61,20 +62,9 @@ body{
 
 
 /* =========================
-   MAIN PAGE
+   GLOBAL CONTAINERS
 ========================= */
 
-.article-page{
-
-    width:100%;
-
-}
-
-
-
-/* =========================
-   GLOBAL CONTAINER
-========================= */
 
 .article-width,
 .article-container,
@@ -92,20 +82,38 @@ body{
 
 
 /* =========================
-   HERO
+   PAGE
 ========================= */
 
-.article-hero{
 
-    padding:90px 0 70px;
+.article-page{
 
-    position:relative;
+    width:100%;
+
+    background:#fff;
 
 }
 
 
 
-/* glow */
+/* =========================
+   HERO
+========================= */
+
+
+.article-hero{
+
+    position:relative;
+
+    padding:90px 0 70px;
+
+    text-align:left;
+
+}
+
+
+
+/* Glow */
 
 .article-hero::before{
 
@@ -119,7 +127,7 @@ body{
 
     left:50%;
 
-    top:-450px;
+    top:-420px;
 
     transform:translateX(-50%);
 
@@ -132,12 +140,11 @@ body{
         transparent 70%
     );
 
-    filter:blur(50px);
+    filter:blur(40px);
 
-    pointer-events:none;
+    z-index:0;
 
 }
-
 
 
 .article-hero > *{
@@ -188,20 +195,51 @@ body{
 }
 
 
-
 .article-breadcrumbs a{
 
     color:inherit;
 
     text-decoration:none;
 
-}
+    transition:.25s;
 
+}
 
 
 .article-breadcrumbs a:hover{
 
     color:var(--primary);
+
+}
+
+
+
+/* =========================
+   TAG
+========================= */
+
+
+.article-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:rgba(109,93,251,.08);
+
+    color:var(--primary);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:28px;
 
 }
 
@@ -262,9 +300,9 @@ body{
 
     margin-top:35px;
 
-    font-size:14px;
-
     color:var(--muted);
+
+    font-size:14px;
 
 }
 
@@ -292,23 +330,22 @@ body{
 }
 
 
-
 .article-hero-image img{
 
     width:100%;
 
     height:100%;
 
-    object-fit:cover;
-
     display:block;
+
+    object-fit:cover;
 
 }
 
 
 
 /* =========================
-   ARTICLE GRID
+   MAIN ARTICLE GRID
 ========================= */
 
 
@@ -320,7 +357,11 @@ body{
 
     display:grid;
 
-    grid-template-columns:minmax(0,1fr) 320px;
+    grid-template-columns:
+
+    minmax(0,1fr)
+
+    320px;
 
     gap:90px;
 
@@ -331,7 +372,7 @@ body{
 
 
 /* =========================
-   ARTICLE CONTENT
+   CONTENT
 ========================= */
 
 
@@ -348,6 +389,12 @@ body{
 }
 
 
+.article-content>*:first-child{
+
+    margin-top:0;
+
+}
+
 
 .article-content p{
 
@@ -355,6 +402,22 @@ body{
 
 }
 
+
+.article-content .lead{
+
+    font-size:28px;
+
+    line-height:1.75;
+
+    color:#111;
+
+}
+
+
+
+/* =========================
+   HEADINGS
+========================= */
 
 
 .article-content h2{
@@ -372,7 +435,6 @@ body{
 }
 
 
-
 .article-content h3{
 
     margin:60px 0 20px;
@@ -386,8 +448,64 @@ body{
 }
 
 
+.article-content h4{
 
-/* images */
+    margin:40px 0 16px;
+
+    font-size:22px;
+
+}
+/* =========================
+   LINKS
+========================= */
+
+.article-content a{
+
+    color:#111;
+
+    text-decoration:none;
+
+    border-bottom:1px solid rgba(0,0,0,.12);
+
+    transition:.25s;
+
+}
+
+
+.article-content a:hover{
+
+    border-color:#111;
+
+}
+
+
+
+/* =========================
+   LISTS
+========================= */
+
+
+.article-content ul,
+.article-content ol{
+
+    margin:0 0 34px 24px;
+
+    line-height:1.9;
+
+}
+
+
+.article-content li{
+
+    margin-bottom:12px;
+
+}
+
+
+
+/* =========================
+   FIGURES
+========================= */
 
 
 .article-content figure{
@@ -397,8 +515,7 @@ body{
 }
 
 
-.article-content figure img,
-.article-content > img{
+.article-content figure img{
 
     width:100%;
 
@@ -409,16 +526,31 @@ body{
 }
 
 
-
 .article-content figcaption{
 
     margin-top:14px;
 
-    text-align:center;
-
     font-size:14px;
 
     color:#777;
+
+    text-align:center;
+
+}
+
+
+
+/* Standalone images */
+
+.article-content > img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:28px;
+
+    margin:60px 0;
 
 }
 
@@ -452,7 +584,7 @@ body{
 
 
 /* =========================
-   HIGHLIGHT
+   HIGHLIGHT BOX
 ========================= */
 
 
@@ -462,11 +594,25 @@ body{
 
     padding:36px;
 
-    border-radius:28px;
-
     background:#fafafa;
 
     border:1px solid var(--border);
+
+    border-radius:28px;
+
+}
+
+
+.article-highlight h4{
+
+    margin-top:0;
+
+}
+
+
+.article-highlight p:last-child{
+
+    margin-bottom:0;
 
 }
 
@@ -483,21 +629,22 @@ body{
 
     top:120px;
 
-}
+    align-self:start;
 
+}
 
 
 .sidebar-card{
 
-    padding:30px;
-
-    margin-bottom:24px;
-
-    border-radius:28px;
+    background:#fff;
 
     border:1px solid var(--border);
 
-    background:#fff;
+    border-radius:28px;
+
+    padding:30px;
+
+    margin-bottom:24px;
 
     box-shadow:0 15px 40px rgba(0,0,0,.05);
 
@@ -523,6 +670,8 @@ body{
 
     text-decoration:none;
 
+    transition:.25s;
+
 }
 
 
@@ -533,15 +682,40 @@ body{
 }
 
 
+.sidebar-card button{
+
+    width:100%;
+
+    height:54px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#111;
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.sidebar-card button:hover{
+
+    background:var(--primary);
+
+}
+
+
+
 /* ==========================================================
-   RILITY JOURNAL ARTICLE
-   FINAL CSS — PART 2
-========================================================== */
-
-
-/* =========================
    AUTHOR
-========================= */
+========================================================== */
 
 
 .article-author{
@@ -581,7 +755,6 @@ body{
 }
 
 
-
 .article-author h3{
 
     margin:0 0 10px;
@@ -589,7 +762,6 @@ body{
     font-size:26px;
 
 }
-
 
 
 .article-author p{
@@ -620,7 +792,6 @@ body{
 }
 
 
-
 .continue-header{
 
     display:flex;
@@ -634,7 +805,6 @@ body{
 }
 
 
-
 .continue-header h2{
 
     margin:0;
@@ -646,7 +816,6 @@ body{
 }
 
 
-
 .continue-header a{
 
     color:#555;
@@ -656,7 +825,6 @@ body{
     font-size:14px;
 
 }
-
 
 
 .continue-header a:hover{
@@ -679,7 +847,6 @@ body{
 }
 
 
-
 .continue-slider{
 
     display:flex;
@@ -698,18 +865,17 @@ body{
 
     flex:0 0 360px;
 
+    background:#fff;
+
     border-radius:30px;
 
     overflow:hidden;
 
     border:1px solid var(--border);
 
-    background:#fff;
-
     transition:.35s;
 
 }
-
 
 
 .continue-card:hover{
@@ -721,7 +887,6 @@ body{
 }
 
 
-
 .continue-image{
 
     height:240px;
@@ -729,7 +894,6 @@ body{
     overflow:hidden;
 
 }
-
 
 
 .continue-image img{
@@ -745,7 +909,6 @@ body{
 }
 
 
-
 .continue-card:hover img{
 
     transform:scale(1.05);
@@ -753,13 +916,11 @@ body{
 }
 
 
-
 .continue-content{
 
     padding:30px;
 
 }
-
 
 
 .continue-content span{
@@ -781,7 +942,6 @@ body{
 }
 
 
-
 .continue-content h3{
 
     margin:0 0 25px;
@@ -793,21 +953,21 @@ body{
 }
 
 
-
 .continue-content a{
 
     color:#111;
 
     text-decoration:none;
 
+    font-size:14px;
+
     font-weight:600;
 
 }
 
-
-
+ 
 /* =========================
-   CONTROLS
+   CONTINUE CONTROLS
 ========================= */
 
 
@@ -824,6 +984,18 @@ body{
 }
 
 
+.continue-controls > a{
+
+    color:#111;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
 
 .continue-controls div{
 
@@ -832,7 +1004,6 @@ body{
     gap:12px;
 
 }
-
 
 
 .continue-controls button{
@@ -845,14 +1016,15 @@ body{
 
     border:1px solid #ddd;
 
-    background:white;
+    background:#fff;
 
     cursor:pointer;
 
     font-size:20px;
 
-}
+    transition:.25s;
 
+}
 
 
 .continue-controls button:hover{
@@ -873,13 +1045,6 @@ body{
 @media(max-width:1200px){
 
 
-.article-hero h1{
-
-    font-size:60px;
-
-}
-
-
 .article-container{
 
     grid-template-columns:
@@ -893,8 +1058,15 @@ body{
 }
 
 
+
+.article-hero h1{
+
+    font-size:62px;
+
 }
 
+
+}
 
 
 
@@ -908,10 +1080,11 @@ body{
 }
 
 
-
 .article-sidebar{
 
     position:static;
+
+    order:2;
 
 }
 
@@ -924,9 +1097,7 @@ body{
 }
 
 
-
 }
-
 
 
 
@@ -978,6 +1149,8 @@ body{
 
     font-size:18px;
 
+    line-height:1.7;
+
 }
 
 
@@ -993,6 +1166,8 @@ body{
 .article-hero-image{
 
     height:300px;
+
+    margin-top:45px;
 
     border-radius:24px;
 
@@ -1018,9 +1193,19 @@ body{
 
 
 
+.article-content .lead{
+
+    font-size:22px;
+
+}
+
+
+
 .article-content h2{
 
     font-size:32px;
+
+    margin-top:65px;
 
 }
 
@@ -1054,11 +1239,23 @@ body{
 
 .article-author{
 
+    margin-top:70px;
+
     padding:30px;
 
     flex-direction:column;
 
     text-align:center;
+
+}
+
+
+
+.article-author img{
+
+    width:80px;
+
+    height:80px;
 
 }
 
@@ -1075,6 +1272,14 @@ body{
 .continue-card{
 
     flex:0 0 85%;
+
+}
+
+
+
+.continue-controls{
+
+    margin-top:30px;
 
 }
 
