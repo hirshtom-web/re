@@ -1974,43 +1974,49 @@ document.addEventListener("DOMContentLoaded", function(){
 
 const element = document.getElementById("typing-search");
 
-let phraseIndex = 0;
-let letterIndex = 0;
-let deleting = false;
+if(element){
 
-function type(){
+    let phraseIndex = 0;
+    let letterIndex = 0;
+    let deleting = false;
 
-    const current = phrases[phraseIndex];
+    function type(){
 
-    if(!deleting){
+        const current = phrases[phraseIndex];
 
-        element.textContent = current.substring(0, letterIndex++);
-        
-        if(letterIndex > current.length){
+        if(!deleting){
 
-            deleting = true;
+            element.textContent = current.substring(0, letterIndex++);
 
-            setTimeout(type,2000);
+            if(letterIndex > current.length){
 
-            return;
+                deleting = true;
+
+                setTimeout(type,2000);
+
+                return;
+            }
+
+        }else{
+
+            element.textContent = current.substring(0, letterIndex--);
+
+            if(letterIndex < 0){
+
+                deleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+
+            }
+
         }
 
-    }else{
+        setTimeout(type, deleting ? 35 : 70);
 
-        element.textContent = current.substring(0, letterIndex--);
-
-        if(letterIndex < 0){
-
-            deleting = false;
-
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-        }
     }
 
-    setTimeout(type, deleting ? 35 : 70);
-}
+    type();
 
-type();
+}
 
     
         
