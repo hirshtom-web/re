@@ -1,6 +1,4 @@
-<script>
-  
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================
@@ -715,5 +713,3 @@ if(element){
 }
 
     
-        
-  </script>
