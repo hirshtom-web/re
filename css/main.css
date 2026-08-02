@@ -2344,3 +2344,140 @@ GROWTH LINE CHART
 }
 
 
+/* =========================
+TESTIMONIALS
+========================= */
+
+
+.tm-testimonials{
+
+    padding:100px 0;
+
+}
+
+
+.testimonial-slider{
+
+    overflow:hidden;
+
+}
+
+
+.testimonial-track{
+
+    display:flex;
+
+    gap:30px;
+
+    transition:.5s ease;
+
+}
+
+
+
+.testimonial-card{
+
+    flex:0 0 420px;
+
+    padding:45px;
+
+    border-radius:35px;
+
+    background:white;
+
+    border:1px solid #ececec;
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,.06);
+
+}
+
+
+
+.testimonial-quote{
+
+    font-size:20px;
+
+    line-height:1.7;
+
+    color:#333;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.testimonial-person{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+
+
+.testimonial-person img{
+
+    width:100px;
+
+    height:100px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+}
+
+
+
+.testimonial-person strong{
+
+    display:block;
+
+    font-size:18px;
+
+}
+
+
+
+.testimonial-person span{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+
+
+
+@media(max-width:768px){
+
+
+.testimonial-card{
+
+    flex:0 0 85%;
+
+    padding:30px;
+
+}
+
+
+.testimonial-person img{
+
+    width:80px;
+
+    height:80px;
+
+}
+
+
+}
