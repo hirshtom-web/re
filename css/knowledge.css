@@ -49,7 +49,7 @@ body{
 
     background:#fff;
 
-    overflow-x:hidden;
+    overflow-x:clip;
 
     -webkit-font-smoothing:antialiased;
 
@@ -75,7 +75,7 @@ body{
    GLOBAL WIDTH
 ========================= */
 
-.article-container-width{
+.article-width{
 
     width:min(1440px,90%);
 
@@ -216,17 +216,13 @@ body{
 
 .article-hero h1{
 
-    max-width:950px;
+    max-width:850px;
 
-    margin:0;
+    font-size:68px;
 
-    font-size:72px;
-
-    line-height:1.05;
+    line-height:1.08;
 
     letter-spacing:-3px;
-
-    font-weight:800;
 
 }
 
@@ -280,11 +276,11 @@ body{
 
 .article-hero-image{
 
-    width:100%;
+    width:min(1440px,90%);
 
     height:620px;
 
-    margin-top:70px;
+    margin:70px auto 0;
 
     border-radius:36px;
 
