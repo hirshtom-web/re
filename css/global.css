@@ -411,15 +411,3 @@ HEADER
 
 }
 
-.properties-page-header {
-    margin:0;
-    padding:0 32px;
-    height:88px;
-}
-
-.properties-page-header-left,
-.properties-page-header-center,
-.properties-page-header-right {
-    display:flex;
-    align-items:center;
-}
