@@ -793,15 +793,11 @@ body{
 }
 
 
-
 .continue-slider{
-
     display:flex;
-
-    gap:30px;
-
+    gap:28px;
     transition:transform .4s ease;
-
+    will-change:transform;
 }
 
 
