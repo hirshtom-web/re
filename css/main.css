@@ -2325,6 +2325,22 @@ GROWTH LINE CHART
     }
 
 }
-      
+
+
+    .mobile-toggle {
+    display: none !important;
+}
+
+
+@media (max-width: 900px) {
+
+    .mobile-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+    }
+
+}
 
 
