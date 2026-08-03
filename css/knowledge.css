@@ -1592,18 +1592,22 @@ body{
 }
 
 .ai-tool{
-    display:flex;
+    display:flex !important;
     align-items:center;
+    justify-content:flex-start;
     gap:8px;
-    flex:1 1 calc(50% - 5px);   /* two per row */
+
+    flex:1 1 calc(50% - 5px);
     min-width:130px;
+
     padding:10px 12px;
     border:1px solid #e7e7e7;
     border-radius:12px;
     background:#fff;
-    text-decoration:none;
     color:#111;
-    transition:background .2s ease, border-color .2s ease;
+    text-decoration:none;
+
+    margin:0 !important;
 }
 
 .ai-tool:hover{
