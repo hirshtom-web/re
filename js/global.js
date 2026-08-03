@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     MOBILE MENU
     ===================== */
 
-    const toggle = document.querySelector(".mobile-toggle");
+    const toggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".nav-links");
 
 if(toggle && nav){
@@ -109,7 +109,7 @@ if(toggle && nav){
     NAVBAR EFFECT
     ===================== */
 
-const header = document.querySelector(".header");
+const header = document.querySelector(".site-header");
 
 let lastScroll = 0;
 
@@ -121,7 +121,7 @@ window.addEventListener("scroll", () => {
     // Shrink header
     if(currentScroll > 40){
 
-        header.style.padding = "12px 0";
+        header.style.padding = "0 32px";
 
     } else {
 
