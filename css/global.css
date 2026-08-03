@@ -71,23 +71,3 @@ a {
 
 }
 
-
-/* =====================================
-   MOBILE FILTER SHEET DESKTOP LOCK
-===================================== */
-
-@media (max-width:900px){
-
-    .mobile-toggle{
-        display:block;
-    }
-
-    .nav-links{
-        display:none;
-    }
-
-    .nav-links.active{
-        display:flex;
-    }
-
-}
