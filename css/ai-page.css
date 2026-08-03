@@ -4,29 +4,14 @@ AI SEARCH PAGE
 
 .ai-search-page{
 
-    min-height:100vh;
+    width:100%;
+    height:100vh;
 
     overflow:hidden;
 
-    position:relative;
+    background:#f8f7f4;
 
-    background:
-    radial-gradient(
-        circle at 15% 20%,
-        rgba(231,212,173,.45),
-        transparent 35%
-    ),
-    radial-gradient(
-        circle at 85% 70%,
-        rgba(215,236,255,.55),
-        transparent 35%
-    ),
-    radial-gradient(
-        circle at 55% 5%,
-        rgba(234,220,255,.45),
-        transparent 30%
-    ),
-    #faf9f6;
+    position:relative;
 
 }
 
@@ -36,8 +21,10 @@ AI SEARCH PAGE
 HERO
 ========================= */
 
+
 .ai-search-hero{
 
+    width:100%;
     height:100vh;
 
     display:flex;
@@ -55,65 +42,9 @@ HERO
 
 
 /* =========================
-BOTTOM FADE
+CONTENT
 ========================= */
 
-.ai-search-page::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    right:0;
-
-    bottom:0;
-
-    height:220px;
-
-    background:linear-gradient(
-        to bottom,
-        rgba(250,249,246,0),
-        #faf9f6
-    );
-
-    pointer-events:none;
-
-    z-index:5;
-
-}
-
-
-.ai-search-page::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:0;
-
-    right:0;
-
-    height:180px;
-
-    background:linear-gradient(
-        to bottom,
-        rgba(250,249,246,.95),
-        rgba(250,249,246,0)
-    );
-
-    z-index:2;
-
-    pointer-events:none;
-
-}
-
-/* =========================
-AI CONTENT
-========================= */
 
 .ai-search-content{
 
@@ -132,6 +63,7 @@ AI CONTENT
 /* =========================
 BADGE
 ========================= */
+
 
 .ai-badge{
 
@@ -152,8 +84,6 @@ BADGE
 
     font-size:14px;
 
-    color:#333;
-
 }
 
 
@@ -161,6 +91,7 @@ BADGE
 /* =========================
 TITLE
 ========================= */
+
 
 .ai-search-content h1{
 
@@ -188,8 +119,9 @@ TITLE
 
 
 /* =========================
-CHANGING AI LINE
+CHANGING LINE
 ========================= */
+
 
 #ai-changing-line{
 
@@ -199,8 +131,6 @@ CHANGING AI LINE
 
     font-size:18px;
 
-    transition:opacity .35s ease;
-
 }
 
 
@@ -208,6 +138,7 @@ CHANGING AI LINE
 /* =========================
 SEARCH BOX
 ========================= */
+
 
 .ai-search-box{
 
@@ -247,8 +178,6 @@ SEARCH BOX
 
     font-size:16px;
 
-    font-family:inherit;
-
     padding:0 15px;
 
 }
@@ -269,24 +198,14 @@ SEARCH BOX
 
     color:white;
 
-    cursor:pointer;
-
-    transition:.25s ease;
-
-}
-
-
-.ai-search-box button:hover{
-
-    transform:translateY(-2px);
-
 }
 
 
 
 /* =========================
-AI GLOW BULBS
+GLOW BULBS
 ========================= */
+
 
 .ai-glow{
 
@@ -294,9 +213,9 @@ AI GLOW BULBS
 
     border-radius:50%;
 
-    filter:blur(130px);
+    filter:blur(120px);
 
-    opacity:.45;
+    opacity:.55;
 
     pointer-events:none;
 
@@ -305,7 +224,6 @@ AI GLOW BULBS
 }
 
 
-/* GOLD */
 
 .glow-one{
 
@@ -323,8 +241,6 @@ AI GLOW BULBS
 
 
 
-/* BLUE */
-
 .glow-two{
 
     width:380px;
@@ -335,13 +251,11 @@ AI GLOW BULBS
 
     right:5%;
 
-    bottom:-50px;
+    bottom:-80px;
 
 }
 
 
-
-/* PURPLE */
 
 .glow-three{
 
@@ -353,23 +267,49 @@ AI GLOW BULBS
 
     right:30%;
 
-    top:-80px;
+    top:-100px;
 
 }
 
 
 
 /* =========================
-DESKTOP LARGE
+HEADER OVERLAY
 ========================= */
+
+
+.site-header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:88px;
+
+    background:transparent;
+
+    z-index:1000;
+
+}
+
+
+
+/* =========================
+DESKTOP
+========================= */
+
 
 @media(min-width:1400px){
 
-    .ai-search-content{
+.ai-search-content{
 
-        transform:translateY(-20px);
+    transform:translateY(-20px);
 
-    }
+}
 
 }
 
@@ -379,20 +319,20 @@ DESKTOP LARGE
 MOBILE
 ========================= */
 
+
 @media(max-width:900px){
 
 
-.ai-search-hero{
+.ai-search-page{
 
     height:100svh;
 
 }
 
 
+.ai-search-hero{
 
-.ai-search-page::before{
-
-    height:140px;
+    height:100svh;
 
 }
 
@@ -406,11 +346,9 @@ MOBILE
 
 
 
-.ai-glow{
+.ai-search-content h1{
 
-    filter:blur(100px);
-
-    opacity:.40;
+    font-size:44px;
 
 }
 
@@ -438,6 +376,16 @@ MOBILE
 
 
 
+.ai-glow{
+
+    filter:blur(90px);
+
+    opacity:.45;
+
+}
+
+
+
 .glow-one{
 
     width:260px;
@@ -452,9 +400,9 @@ MOBILE
 
 .glow-two{
 
-    width:250px;
+    width:240px;
 
-    height:250px;
+    height:240px;
 
     right:-80px;
 
@@ -464,9 +412,9 @@ MOBILE
 
 .glow-three{
 
-    width:200px;
+    width:180px;
 
-    height:200px;
+    height:180px;
 
 }
 
