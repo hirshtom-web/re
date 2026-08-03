@@ -16,16 +16,12 @@ SITE HEADER
 
     justify-content:space-between;
 
-    position:fixed;
-
-    top:0;
-    left:0;
+    position:relative;
 
     z-index:1000;
 
     box-sizing:border-box;
 
-    background:transparent;
 }
 
 
