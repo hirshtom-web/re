@@ -28,35 +28,52 @@ PRICE READER
 function getPropertyPrice(property){
 
     if(property.priceValue){
+
         return Number(property.priceValue);
+
     }
 
 
     const text = (
+
         property.price ||
         property.priceRange ||
         ""
+
     ).toLowerCase();
 
 
-    const match = text.match(/[\d,.]+/);
+
+    const match =
+    text.match(/[\d,.]+/);
+
 
 
     if(!match){
+
         return 999999999;
+
     }
 
 
-    let value = Number(
+
+    let value =
+    Number(
         match[0].replace(",","")
     );
 
 
+
     if(text.includes("m")){
+
         value *= 1000000;
+
     }
+
     else if(text.includes("k")){
+
         value *= 1000;
+
     }
 
 
@@ -72,11 +89,14 @@ function getPropertyPrice(property){
 FILTER ENGINE
 ========================= */
 
+
 window.filterProperties = function(){
 
 
     if(!window.properties){
+
         return;
+
     }
 
 
@@ -96,7 +116,10 @@ window.filterProperties = function(){
 
 
 
-    const filtered =
+
+
+    let filtered =
+
     window.properties.filter(property=>{
 
 
@@ -107,29 +130,42 @@ window.filterProperties = function(){
 
 
         const searchMatch =
+
         !search ||
+
         text.includes(search);
 
 
 
+
         const locationMatch =
+
         !propertyFilters.location ||
+
         text.includes(
             propertyFilters.location.toLowerCase()
         );
 
 
 
+
         const typeMatch =
+
         !propertyFilters.propertyType ||
-        property.type === propertyFilters.propertyType;
+
+        property.type ===
+        propertyFilters.propertyType;
+
 
 
 
         const completionMatch =
+
         !propertyFilters.completion ||
+
         Number(property.delivery) <=
         Number(propertyFilters.completion);
+
 
 
 
@@ -139,17 +175,25 @@ window.filterProperties = function(){
 
 
         const priceMatch =
+
         price >= propertyFilters.minPrice &&
+
         price <= propertyFilters.maxPrice;
 
 
 
         return (
+
             searchMatch &&
+
             locationMatch &&
+
             typeMatch &&
+
             completionMatch &&
+
             priceMatch
+
         );
 
 
@@ -158,51 +202,85 @@ window.filterProperties = function(){
 
 
 
-    if(propertyFilters.sort==="price-low"){
 
-        filtered.sort((a,b)=>
-            getPropertyPrice(a) -
-            getPropertyPrice(b)
-        );
+    switch(propertyFilters.sort){
+
+
+        case "price-low":
+
+            filtered.sort((a,b)=>
+
+                getPropertyPrice(a)
+                -
+                getPropertyPrice(b)
+
+            );
+
+        break;
+
+
+
+        case "price-high":
+
+            filtered.sort((a,b)=>
+
+                getPropertyPrice(b)
+                -
+                getPropertyPrice(a)
+
+            );
+
+        break;
+
+
+
+        case "name":
+
+            filtered.sort((a,b)=>
+
+                (a.title||"")
+                .localeCompare(
+                    b.title||""
+                )
+
+            );
+
+        break;
+
+
+
+        case "location":
+
+            filtered.sort((a,b)=>
+
+                (a.location||"")
+                .localeCompare(
+                    b.location||""
+                )
+
+            );
+
+        break;
+
 
     }
 
-
-
-    if(propertyFilters.sort==="price-high"){
-
-        filtered.sort((a,b)=>
-            getPropertyPrice(b) -
-            getPropertyPrice(a)
-        );
-
-    }
-
-
-
-    if(propertyFilters.sort==="name"){
-
-        filtered.sort((a,b)=>
-            (a.title||"")
-            .localeCompare(b.title||"")
-        );
-
-    }
 
 
 
 
     if(window.renderPropertiesGrid){
 
-        window.renderPropertiesGrid(filtered);
+        renderPropertiesGrid(filtered);
 
     }
 
 
 
+
     if(window.updateMapMarkers){
 
-        window.updateMapMarkers(filtered);
+        updateMapMarkers(filtered);
 
     }
 
@@ -214,14 +292,10 @@ window.filterProperties = function(){
 
 
 
+
 /* =========================
-DESKTOP DROPDOWNS
+DROPDOWN CONTROLLER
 ========================= */
-
-
-document.addEventListener(
-"DOMContentLoaded",
-()=>{
 
 
 document
@@ -230,32 +304,29 @@ document
 
 
     const button =
-    dropdown.querySelector(
-        ".filter-button"
-    );
+    dropdown.querySelector(".filter-button");
 
 
     const popup =
-    dropdown.querySelector(
-        ".filter-popup"
-    );
+    dropdown.querySelector(".filter-popup");
 
 
     const label =
-    dropdown.querySelector(
-        ".filter-label"
-    );
+    dropdown.querySelector(".filter-label");
+
 
 
     if(!button || !popup){
+
         return;
+
     }
 
 
 
-    button.addEventListener(
-    "click",
-    e=>{
+
+
+    button.addEventListener("click",(e)=>{
 
 
         e.stopPropagation();
@@ -263,16 +334,13 @@ document
 
 
         document
-        .querySelectorAll(
-            ".filter-popup.active"
-        )
-        .forEach(item=>{
+        .querySelectorAll(".filter-popup.active")
+        .forEach(open=>{
 
-            if(item!==popup){
 
-                item.classList.remove(
-                    "active"
-                );
+            if(open !== popup){
+
+                open.classList.remove("active");
 
             }
 
@@ -280,14 +348,9 @@ document
 
 
 
-        popup.classList.toggle(
-            "active"
-        );
+        popup.classList.toggle("active");
 
-
-        button.classList.toggle(
-            "active"
-        );
+        button.classList.toggle("active");
 
 
     });
@@ -296,16 +359,14 @@ document
 
 
 
+
+
     popup
-    .querySelectorAll(
-        ".popup-options button"
-    )
+    .querySelectorAll(".popup-options button")
     .forEach(option=>{
 
 
-        option.addEventListener(
-        "click",
-        ()=>{
+        option.addEventListener("click",()=>{
 
 
             const value =
@@ -319,6 +380,7 @@ document
                 option.textContent.trim();
 
             }
+
 
 
 
@@ -354,14 +416,10 @@ document
 
 
 
-            popup.classList.remove(
-                "active"
-            );
 
+            popup.classList.remove("active");
 
-            button.classList.remove(
-                "active"
-            );
+            button.classList.remove("active");
 
 
 
@@ -381,8 +439,207 @@ document
 
 
 
+
+
 /* =========================
-SEARCH
+PRICE APPLY / RESET
+========================= */
+
+
+document
+.querySelector(".apply-filter")
+?.addEventListener("click",()=>{
+
+
+    filterProperties();
+
+
+    document
+    .querySelector(".price-popup")
+    ?.classList.remove("active");
+
+
+});
+
+
+
+
+document
+.querySelector(".reset-filter")
+?.addEventListener("click",()=>{
+
+
+    propertyFilters.minPrice = 0;
+
+    propertyFilters.maxPrice = 999999999;
+
+
+    filterProperties();
+
+
+});
+
+
+
+
+
+
+
+/* =========================
+PRICE SLIDERS
+========================= */
+
+
+document
+.querySelectorAll(
+"#min-range,#max-range"
+)
+.forEach(slider=>{
+
+
+    slider.addEventListener(
+    "input",
+    ()=>{
+
+
+        propertyFilters.minPrice =
+
+        Number(
+            document.getElementById(
+                "min-range"
+            ).value
+        );
+
+
+
+        propertyFilters.maxPrice =
+
+        Number(
+            document.getElementById(
+                "max-range"
+            ).value
+        );
+
+
+
+        filterProperties();
+
+
+    });
+
+
+});
+
+
+
+
+
+
+
+
+/* =========================
+LOCATION SEARCH INSIDE MENU
+========================= */
+
+
+const toolbarLocationSearch =
+document.getElementById(
+"location-search"
+);
+
+
+
+if(toolbarLocationSearch){
+
+
+    toolbarLocationSearch.addEventListener(
+    "input",
+    function(){
+
+
+        const value =
+        this.value.toLowerCase();
+
+
+
+        document
+        .querySelectorAll(
+        "#location-dropdown .popup-options button"
+        )
+        .forEach(button=>{
+
+
+            button.style.display =
+
+            button.textContent
+            .toLowerCase()
+            .includes(value)
+
+            ?
+
+            "block"
+
+            :
+
+            "none";
+
+
+        });
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+CLOSE POPUPS
+========================= */
+
+
+document.addEventListener(
+"click",
+()=>{
+
+
+    document
+    .querySelectorAll(".filter-popup.active")
+    .forEach(popup=>{
+
+
+        popup.classList.remove("active");
+
+
+    });
+
+
+    document
+    .querySelectorAll(".filter-button.active")
+    .forEach(button=>{
+
+
+        button.classList.remove("active");
+
+
+    });
+
+
+});
+
+
+
+
+
+
+/* =========================
+SEARCH EVENTS
 ========================= */
 
 
@@ -399,59 +656,18 @@ filterProperties
 
 
 
-
-/* =========================
-CLOSE POPUPS
-========================= */
-
-
-document.addEventListener(
-"click",
-()=>{
-    document
-    .querySelectorAll(
-        ".filter-popup.active"
-    )
-    .forEach(popup=>{
-
-        popup.classList.remove(
-            "active"
-        );
-
-    });
-
-
-    document
-    .querySelectorAll(
-        ".filter-button.active"
-    )
-    .forEach(button=>{
-
-        button.classList.remove(
-            "active"
-        );
-
-    });
-
-
-});
-
-
-console.log(
-"DESKTOP PROPERTY TOOLBAR READY"
-);
-
-
-});
-
-
-
-
-
 window.addEventListener(
 "propertiesLoaded",
 ()=>{
 
+
     filterProperties();
 
+
 });
+
+
+
+console.log(
+"PROPERTY TOOLBAR LOADED"
+);
