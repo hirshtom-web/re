@@ -8,13 +8,25 @@ AI SEARCH PAGE
 
     overflow:hidden;
 
-    background:#faf9f6;
-
     position:relative;
 
-    padding-top:88px;
-
-    box-sizing:border-box;
+    background:
+    radial-gradient(
+        circle at 15% 20%,
+        rgba(231,212,173,.45),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at 85% 70%,
+        rgba(215,236,255,.55),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at 55% 5%,
+        rgba(234,220,255,.45),
+        transparent 30%
+    ),
+    #faf9f6;
 
 }
 
@@ -26,7 +38,7 @@ HERO
 
 .ai-search-hero{
 
-    height:calc(100vh - 88px);
+    height:100vh;
 
     display:flex;
 
@@ -73,6 +85,31 @@ BOTTOM FADE
 }
 
 
+.ai-search-page::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    height:180px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(250,249,246,.95),
+        rgba(250,249,246,0)
+    );
+
+    z-index:2;
+
+    pointer-events:none;
+
+}
 
 /* =========================
 AI CONTENT
@@ -257,16 +294,15 @@ AI GLOW BULBS
 
     border-radius:50%;
 
-    filter:blur(100px);
+    filter:blur(130px);
 
-    opacity:.65;
+    opacity:.45;
 
     pointer-events:none;
 
     z-index:1;
 
 }
-
 
 
 /* GOLD */
@@ -346,17 +382,17 @@ MOBILE
 @media(max-width:900px){
 
 
-.ai-search-page{
+.ai-search-hero{
 
-    padding-top:82px;
+    height:100svh;
 
 }
 
 
 
-.ai-search-hero{
+.ai-search-page::before{
 
-    height:calc(100svh - 82px);
+    height:140px;
 
 }
 
@@ -365,6 +401,16 @@ MOBILE
 .ai-search-content{
 
     width:90%;
+
+}
+
+
+
+.ai-glow{
+
+    filter:blur(100px);
+
+    opacity:.40;
 
 }
 
@@ -387,16 +433,6 @@ MOBILE
     height:46px;
 
     padding:0 22px;
-
-}
-
-
-
-.ai-glow{
-
-    filter:blur(80px);
-
-    opacity:.55;
 
 }
 
