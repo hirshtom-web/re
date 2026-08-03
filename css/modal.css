@@ -12,7 +12,7 @@
 
     align-items:center;
 
-    z-index:5000;
+    z-index:20000;
 
 }
 
@@ -352,7 +352,7 @@ body.modal-open{
 
     display:none;
 
-    z-index:5000;
+    z-index:21000;
 
 }
 
