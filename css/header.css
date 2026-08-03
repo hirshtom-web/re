@@ -270,3 +270,75 @@ MOBILE
     }
 
 }
+
+/* =========================
+HEADER MENU BUTTON
+========================= */
+
+
+.header-menu-btn,
+.mobile-menu-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    background:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    color:#171717;
+
+}
+
+
+.header-menu-btn:hover,
+.mobile-menu-btn:hover{
+
+    background:#f5f5f5;
+
+}
+
+
+
+/* DESKTOP DROPDOWN */
+
+
+.header-dropdown{
+
+    top:52px;
+
+    width:220px;
+
+}
+
+
+
+.desktop-menu{
+
+    display:flex;
+
+    position:relative;
+
+}
+
+
+
+/* MOBILE BUTTON HIDDEN DESKTOP */
+
+
+.mobile-menu-btn{
+
+    display:none;
+
+}
