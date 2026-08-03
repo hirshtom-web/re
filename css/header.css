@@ -4,8 +4,10 @@ SITE HEADER
 
 .site-header{
 
-    width:min(1200px, calc(100% - 48px));
-
+    width:100%;
+    
+    padding:0 32px;
+    
     height:88px;
 
     margin:0 auto;
