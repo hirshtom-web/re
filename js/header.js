@@ -9,21 +9,19 @@ async function loadHeader(){
         html
     );
 
-
     initHeader();
 
 }
 
 
-
 function initHeader(){
 
     const desktopBtn =
-    document.querySelector(".desktop-toggle");
+    document.querySelector(".header-menu-btn");
 
 
     const mobileBtn =
-    document.querySelector(".mobile-toggle");
+    document.querySelector(".mobile-menu-btn");
 
 
     if(desktopBtn){
@@ -48,10 +46,3 @@ function initHeader(){
     }
 
 }
-
-
-
-document.addEventListener(
-    "DOMContentLoaded",
-    loadHeader
-);
