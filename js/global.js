@@ -105,9 +105,9 @@ if(toggle && nav){
 
 
 
-    /* =====================
-    NAVBAR EFFECT
-    ===================== */
+   /* =====================
+NAVBAR EFFECT
+===================== */
 
 const header = document.querySelector(".site-header");
 
@@ -117,41 +117,20 @@ window.addEventListener("scroll", () => {
 
     const currentScroll = window.scrollY;
 
-
-    // Shrink header
-    if(currentScroll > 40){
-
-        header.style.padding = "0 32px";
-
-    } else {
-
-        header.style.padding = "25px 0";
-
-    }
-
-
     // Hide when scrolling down
-    if(currentScroll > lastScroll && currentScroll > 100){
+    if (currentScroll > lastScroll && currentScroll > 100) {
 
         header.classList.add("header-hidden");
 
-    }
-
-    // Show when scrolling up
-    else {
+    } else {
 
         header.classList.remove("header-hidden");
 
     }
 
-
     lastScroll = currentScroll;
 
 });
-
-
-
-
 
 
 
