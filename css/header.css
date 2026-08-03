@@ -5,49 +5,59 @@ SITE HEADER
 .site-header{
 
     width:100%;
-    
-    padding:0 32px;
-    
+
     height:88px;
 
-    margin:0 auto;
+    padding:0 32px;
 
-    display:grid;
-
-    grid-template-columns: 1fr auto 1fr;
+    display:flex;
 
     align-items:center;
+
+    justify-content:space-between;
 
     position:relative;
 
     z-index:1000;
 
+    box-sizing:border-box;
+
 }
 
 
 
 /* =========================
-LEFT
+LEFT AREA
 ========================= */
 
 .site-header-left{
 
-    justify-content:flex-start;
+    display:flex;
+
+    align-items:center;
+
+    flex-shrink:0;
 
 }
 
 
+
 /* =========================
-CENTER
+CENTER NAV
 ========================= */
 
 .site-header-center{
 
     display:flex;
 
-    justify-content:center;
+    align-items:center;
+
+    margin-left:50px;
+
+    flex:1;
 
 }
+
 
 
 .nav-links{
@@ -56,9 +66,10 @@ CENTER
 
     align-items:center;
 
-    gap:36px;
+    gap:34px;
 
 }
+
 
 
 .nav-links a{
@@ -70,6 +81,8 @@ CENTER
     font-size:14px;
 
     font-weight:500;
+
+    white-space:nowrap;
 
     transition:.25s ease;
 
@@ -87,6 +100,7 @@ CENTER
 /* =========================
 LOGO
 ========================= */
+
 
 .site-logo{
 
@@ -112,8 +126,9 @@ LOGO
 
 
 /* =========================
-BUTTON
+CTA BUTTON
 ========================= */
+
 
 .nav-button{
 
@@ -130,158 +145,33 @@ BUTTON
 
 
 /* =========================
-RIGHT
+RIGHT MENU AREA
 ========================= */
+
 
 .site-header-right{
 
     display:flex;
 
-    justify-content:flex-end;
-
-}
-
-
-.desktop-toggle{
-
-    display:flex;
-
     align-items:center;
-    justify-content:center;
 
-    width:44px;
-    height:44px;
-
-    border:none;
-    background:none;
-
-    cursor:pointer;
-
-}
-
-.mobile-toggle{
-
-    display:none;
+    margin-left:auto;
 
 }
 
 
 
 /* =========================
-MOBILE
-========================= */
-
-@media(max-width:900px){
-
-
-.site-header{
-
-    width:calc(100% - 40px);
-
-    height:82px;
-
-}
-
-
-.site-header-center{
-
-    display:none;
-
-}
-
-
-.menu-toggle{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-}
-
-
-.site-logo{
-
-    width:58px;
-
-    height:58px;
-
-}
-
-
-.nav-links{
-
-    position:absolute;
-
-    top:75px;
-
-    left:0;
-
-    right:0;
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:25px;
-
-    display:none;
-
-    flex-direction:column;
-
-    gap:22px;
-
-    box-shadow:0 20px 50px rgba(0,0,0,.12);
-
-}
-
-
-.nav-links.active{
-
-    display:flex;
-
-}
-
-}
-@media (max-width:900px){
-
-    .desktop-toggle{
-
-        display:none;
-
-    }
-
-    .mobile-toggle{
-
-        display:flex;
-
-        align-items:center;
-        justify-content:center;
-
-        width:44px;
-        height:44px;
-
-        border:none;
-        background:none;
-
-        cursor:pointer;
-
-    }
-
-}
-
-/* =========================
-HEADER MENU BUTTON
+MENU BUTTON STYLE
 ========================= */
 
 
 .header-menu-btn,
 .mobile-menu-btn{
 
-    width:42px;
+    width:44px;
 
-    height:42px;
+    height:44px;
 
     border:none;
 
@@ -302,6 +192,7 @@ HEADER MENU BUTTON
 }
 
 
+
 .header-menu-btn:hover,
 .mobile-menu-btn:hover{
 
@@ -311,34 +202,183 @@ HEADER MENU BUTTON
 
 
 
-/* DESKTOP DROPDOWN */
+/* =========================
+DESKTOP DROPDOWN
+========================= */
+
+
+.desktop-menu{
+
+    position:relative;
+
+    display:flex;
+
+}
+
 
 
 .header-dropdown{
+
+    position:absolute;
+
+    right:0;
 
     top:52px;
 
     width:220px;
 
+    background:white;
+
+    border-radius:18px;
+
+    padding:10px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.15);
+
+    display:none;
+
 }
 
 
 
-.desktop-menu{
+.header-dropdown.active{
 
-    display:flex;
-
-    position:relative;
+    display:block;
 
 }
 
 
 
-/* MOBILE BUTTON HIDDEN DESKTOP */
+.header-dropdown button{
+
+    width:100%;
+
+    border:none;
+
+    background:none;
+
+    padding:12px;
+
+    text-align:left;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+}
+
+
+.header-dropdown button:hover{
+
+    background:#f5f5f5;
+
+}
+
+
+
+/* =========================
+MOBILE
+========================= */
 
 
 .mobile-menu-btn{
 
     display:none;
+
+}
+
+
+
+@media(max-width:900px){
+
+
+.site-header{
+
+    height:82px;
+
+    padding:0 20px;
+
+}
+
+
+
+.site-header-center{
+
+    display:none;
+
+}
+
+
+
+.site-logo{
+
+    width:58px;
+
+    height:58px;
+
+}
+
+
+
+/* hide desktop menu */
+
+.desktop-menu{
+
+    display:none;
+
+}
+
+
+
+/* show mobile */
+
+.mobile-menu-btn{
+
+    display:flex;
+
+}
+
+
+
+/* mobile dropdown/nav */
+
+.nav-links{
+
+    position:absolute;
+
+    top:75px;
+
+    left:20px;
+
+    right:20px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:22px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.12);
+
+}
+
+
+
+.nav-links.active{
+
+    display:flex;
+
+}
+
 
 }
