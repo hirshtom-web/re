@@ -314,19 +314,13 @@ body{
 
 
 .article-hero-image{
-
     width:100%;
-
+    max-width:850px;   /* same as your content */
     height:620px;
-
     margin-top:70px;
-
     border-radius:36px;
-
     overflow:hidden;
-
     box-shadow:var(--shadow);
-
 }
 
 
