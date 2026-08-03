@@ -1,11 +1,24 @@
+/* =========================
+AI SEARCH PAGE
+========================= */
+
 .ai-search-page{
 
     height:100vh;
+
     overflow:hidden;
+
     background:#faf9f6;
+
+    position:relative;
 
 }
 
+
+
+/* =========================
+HERO
+========================= */
 
 .ai-search-hero{
 
@@ -25,6 +38,42 @@
 
 
 
+/* =========================
+BOTTOM FADE
+========================= */
+
+.ai-search-page::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    height:220px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(250,249,246,0),
+        #faf9f6
+    );
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+
+
+/* =========================
+CONTENT
+========================= */
+
 .ai-search-content{
 
     width:min(700px,90%);
@@ -33,11 +82,15 @@
 
     position:relative;
 
-    z-index:2;
+    z-index:3;
 
 }
 
 
+
+/* =========================
+BADGE
+========================= */
 
 .ai-badge{
 
@@ -58,9 +111,15 @@
 
     font-size:14px;
 
+    color:#333;
+
 }
 
 
+
+/* =========================
+TITLE
+========================= */
 
 .ai-search-content h1{
 
@@ -68,10 +127,13 @@
 
     line-height:1.05;
 
+    letter-spacing:-2px;
+
     margin:30px 0 20px;
 
-}
+    font-weight:600;
 
+}
 
 
 .ai-search-content h1 span{
@@ -84,18 +146,30 @@
 
 
 
+/* =========================
+AI CHANGING LINE
+========================= */
+
 #ai-changing-line{
 
     color:#777;
 
     height:30px;
 
-    transition:.3s;
+    opacity:1;
+
+    transition:
+    opacity .35s ease;
+
+    font-size:18px;
 
 }
 
 
 
+/* =========================
+SEARCH BOX
+========================= */
 
 .ai-search-box{
 
@@ -111,11 +185,17 @@
 
     align-items:center;
 
-    padding:0 12px 0 25px;
+    padding:
+
+    0 12px 0 25px;
 
     box-shadow:
 
     0 25px 80px rgba(0,0,0,.12);
+
+    position:relative;
+
+    z-index:4;
 
 }
 
@@ -130,6 +210,8 @@
     outline:none;
 
     font-size:16px;
+
+    font-family:inherit;
 
     padding:0 15px;
 
@@ -151,12 +233,24 @@
 
     color:white;
 
+    cursor:pointer;
+
+    transition:.25s ease;
+
+}
+
+
+.ai-search-box button:hover{
+
+    transform:translateY(-2px);
+
 }
 
 
 
-/* AI BULBS */
-
+/* =========================
+AI GLOW BULBS
+========================= */
 
 .ai-glow{
 
@@ -164,48 +258,171 @@
 
     border-radius:50%;
 
-    filter:blur(80px);
+    filter:blur(100px);
+
+    opacity:.65;
+
+    z-index:0;
 
 }
 
+
+
+/* GOLD */
+
+.glow-one{
+
+    width:420px;
+
+    height:420px;
+
+    background:#e7d4ad;
+
+    left:5%;
+
+    top:15%;
+
+}
+
+
+
+/* BLUE */
+
+.glow-two{
+
+    width:380px;
+
+    height:380px;
+
+    background:#d7ecff;
+
+    right:5%;
+
+    bottom:-50px;
+
+}
+
+
+
+/* PURPLE */
+
+.glow-three{
+
+    width:280px;
+
+    height:280px;
+
+    background:#eadcff;
+
+    right:30%;
+
+    top:-80px;
+
+}
+
+
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:900px){
+
+
+.ai-search-page{
+
+    height:100svh;
+
+}
+
+
+
+.ai-search-hero{
+
+    height:calc(100svh - 82px);
+
+}
+
+
+
+.ai-search-content{
+
+    width:90%;
+
+}
+
+
+
+.ai-search-content h1{
+
+    font-size:44px;
+
+    letter-spacing:-1px;
+
+}
+
+
+
+.ai-search-box{
+
+    height:62px;
+
+    border-radius:32px;
+
+    padding-left:18px;
+
+}
+
+
+
+.ai-search-box button{
+
+    height:46px;
+
+    padding:0 22px;
+
+}
+
+
+
+.ai-glow{
+
+    filter:blur(80px);
+
+    opacity:.55;
+
+}
 
 
 .glow-one{
 
-    width:300px;
-    height:300px;
+    width:260px;
 
-    background:#d8c19a;
+    height:260px;
 
-    left:10%;
-    top:20%;
+    left:-80px;
 
 }
-
 
 
 .glow-two{
 
     width:250px;
+
     height:250px;
 
-    background:#c7e6ff;
-
-    right:15%;
-    bottom:15%;
+    right:-80px;
 
 }
 
 
-
 .glow-three{
 
-    width:180px;
-    height:180px;
+    width:200px;
 
-    background:#eadcff;
+    height:200px;
 
-    right:35%;
-    top:10%;
+}
+
 
 }
