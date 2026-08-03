@@ -1,6 +1,7 @@
 /* =========================
-SITE HEADER
+FLOATING SITE HEADER
 ========================= */
+
 
 .site-header{
 
@@ -16,11 +17,17 @@ SITE HEADER
 
     justify-content:space-between;
 
-    position:relative;
+    box-sizing:border-box;
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
 
     z-index:1000;
 
-    box-sizing:border-box;
+    background:transparent;
 
 }
 
@@ -29,6 +36,7 @@ SITE HEADER
 /* =========================
 LEFT AREA
 ========================= */
+
 
 .site-header-left{
 
@@ -45,6 +53,7 @@ LEFT AREA
 /* =========================
 CENTER NAV
 ========================= */
+
 
 .site-header-center{
 
@@ -89,6 +98,7 @@ CENTER NAV
 }
 
 
+
 .nav-links a:hover{
 
     color:#b99b62;
@@ -113,6 +123,7 @@ LOGO
 }
 
 
+
 .site-logo img{
 
     width:100%;
@@ -120,6 +131,23 @@ LOGO
     height:100%;
 
     object-fit:contain;
+
+}
+
+
+
+/* =========================
+RIGHT AREA
+========================= */
+
+
+.site-header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    margin-left:auto;
 
 }
 
@@ -145,24 +173,7 @@ CTA BUTTON
 
 
 /* =========================
-RIGHT MENU AREA
-========================= */
-
-
-.site-header-right{
-
-    display:flex;
-
-    align-items:center;
-
-    margin-left:auto;
-
-}
-
-
-
-/* =========================
-MENU BUTTON STYLE
+MENU BUTTON
 ========================= */
 
 
@@ -202,8 +213,17 @@ MENU BUTTON STYLE
 
 
 
+.header-menu-btn .material-symbols-outlined,
+.mobile-menu-btn .material-symbols-outlined{
+
+    font-size:26px;
+
+}
+
+
+
 /* =========================
-DESKTOP DROPDOWN
+DROPDOWN
 ========================= */
 
 
@@ -271,6 +291,7 @@ DESKTOP DROPDOWN
 }
 
 
+
 .header-dropdown button:hover{
 
     background:#f5f5f5;
@@ -323,8 +344,6 @@ MOBILE
 
 
 
-/* hide desktop menu */
-
 .desktop-menu{
 
     display:none;
@@ -332,8 +351,6 @@ MOBILE
 }
 
 
-
-/* show mobile */
 
 .mobile-menu-btn{
 
@@ -343,7 +360,7 @@ MOBILE
 
 
 
-/* mobile dropdown/nav */
+/* mobile nav */
 
 .nav-links{
 
@@ -380,12 +397,5 @@ MOBILE
 
 }
 
-
-}
-
-.header-menu-btn .material-symbols-outlined,
-.mobile-menu-btn .material-symbols-outlined{
-
-    font-size:26px;
 
 }
