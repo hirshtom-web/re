@@ -408,32 +408,30 @@ CLOSE POPUPS
 document.addEventListener(
 "click",
 ()=>{
+    document
+    .querySelectorAll(
+        ".filter-popup.active"
+    )
+    .forEach(popup=>{
+
+        popup.classList.remove(
+            "active"
+        );
+
+    });
 
 
-document
-.querySelectorAll(
-".filter-popup.active"
-)
-.forEach(popup=>{
+    document
+    .querySelectorAll(
+        ".filter-button.active"
+    )
+    .forEach(button=>{
 
-    popup.classList.remove(
-        "active"
-    );
+        button.classList.remove(
+            "active"
+        );
 
-});
-
-
-document
-.querySelectorAll(
-".filter-button.active"
-)
-.forEach(button=>{
-
-    button.classList.remove(
-        "active"
-    );
-
-});
+    });
 
 
 });
