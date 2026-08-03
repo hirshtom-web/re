@@ -352,3 +352,38 @@ MOBILE
 
 
 }
+
+
+.site-logo{
+    display:flex;
+    align-items:center;
+}
+
+.site-logo img{
+    width:46px;
+    height:46px;
+    object-fit:contain;
+    display:block;
+}
+
+
+.desktop-toggle{
+    display:flex;
+}
+
+.mobile-toggle{
+    display:none;
+}
+
+@media (max-width:900px){
+
+    .desktop-toggle{
+        display:none;
+    }
+
+    .mobile-toggle{
+        display:flex;
+    }
+
+}
+
