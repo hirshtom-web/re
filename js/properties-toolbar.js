@@ -298,132 +298,117 @@ DROPDOWN CONTROLLER
 ========================= */
 
 
-document
-.querySelectorAll(".filter-dropdown")
-.forEach(dropdown=>{
+document.addEventListener("DOMContentLoaded", ()=>{
 
 
-    const button =
-    dropdown.querySelector(".filter-button");
+    document
+    .querySelectorAll(".filter-dropdown")
+    .forEach(dropdown=>{
 
 
-    const popup =
-    dropdown.querySelector(".filter-popup");
+        const button =
+        dropdown.querySelector(".filter-button");
 
 
-    const label =
-    dropdown.querySelector(".filter-label");
+        const popup =
+        dropdown.querySelector(".filter-popup");
 
 
-
-    if(!button || !popup){
-
-        return;
-
-    }
+        const label =
+        dropdown.querySelector(".filter-label");
 
 
+        if(!button || !popup){
+            return;
+        }
 
 
-
-    button.addEventListener("click",(e)=>{
-
-
-        e.stopPropagation();
+        button.addEventListener("click",(e)=>{
 
 
-
-        document
-        .querySelectorAll(".filter-popup.active")
-        .forEach(open=>{
+            e.stopPropagation();
 
 
-            if(open !== popup){
+            document
+            .querySelectorAll(".filter-popup.active")
+            .forEach(open=>{
 
-                open.classList.remove("active");
 
-            }
+                if(open !== popup){
+
+                    open.classList.remove("active");
+
+                }
+
+            });
+
+
+            popup.classList.toggle("active");
+
+            button.classList.toggle("active");
+
 
         });
 
 
 
-        popup.classList.toggle("active");
-
-        button.classList.toggle("active");
-
-
-    });
+        popup
+        .querySelectorAll(".popup-options button")
+        .forEach(option=>{
 
 
+            option.addEventListener("click",()=>{
 
 
+                const value =
+                option.dataset.value || "";
 
 
+                if(label){
 
-    popup
-    .querySelectorAll(".popup-options button")
-    .forEach(option=>{
+                    label.textContent =
+                    option.textContent.trim();
 
-
-        option.addEventListener("click",()=>{
-
-
-            const value =
-            option.dataset.value || "";
+                }
 
 
+                if(dropdown.id==="location-dropdown"){
 
-            if(label){
+                    propertyFilters.location=value;
 
-                label.textContent =
-                option.textContent.trim();
-
-            }
+                }
 
 
+                if(dropdown.id==="property-type-dropdown"){
+
+                    propertyFilters.propertyType=value;
+
+                }
 
 
-            if(dropdown.id==="location-dropdown"){
+                if(dropdown.id==="completion-dropdown"){
 
-                propertyFilters.location=value;
+                    propertyFilters.completion=value;
 
-            }
-
-
-
-            if(dropdown.id==="property-type-dropdown"){
-
-                propertyFilters.propertyType=value;
-
-            }
+                }
 
 
+                if(dropdown.id==="sort-dropdown"){
 
-            if(dropdown.id==="completion-dropdown"){
+                    propertyFilters.sort=value;
 
-                propertyFilters.completion=value;
-
-            }
-
+                }
 
 
-            if(dropdown.id==="sort-dropdown"){
+                popup.classList.remove("active");
 
-                propertyFilters.sort=value;
-
-            }
+                button.classList.remove("active");
 
 
+                filterProperties();
 
 
-            popup.classList.remove("active");
-
-            button.classList.remove("active");
-
-
-
-            filterProperties();
+            });
 
 
         });
@@ -433,9 +418,6 @@ document
 
 
 });
-
-
-
 
 
 
