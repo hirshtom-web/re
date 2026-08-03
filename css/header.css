@@ -382,3 +382,10 @@ MOBILE
 
 
 }
+
+.header-menu-btn .material-symbols-outlined,
+.mobile-menu-btn .material-symbols-outlined{
+
+    font-size:26px;
+
+}
