@@ -25,6 +25,7 @@ rel="stylesheet">
     <link rel="stylesheet" href="../css/properties-toolbar.css">
     <link rel="stylesheet" href="../css/properties-layout.css">
     <link rel="stylesheet" href="../css/mobile-search.css">
+    <link rel="stylesheet" href="../css/header.css">
 
 
 </head>
@@ -33,23 +34,20 @@ rel="stylesheet">
 
 <body class="search-page">
 
-    
 
-<section class="properties-section">
+<header class="site-header">
 
-
-<!-- =========================
-DESKTOP FILTERS
-========================= -->
-
-<!-- =========================
-DESKTOP FILTERS
-========================= -->
-
-<div class="desktop-filters">
+    <div class="site-header-left">
+        <a href="/" class="site-logo">
+            <img src="../assets/logo.svg" alt="Logo">
+        </a>
+    </div>
 
 
-<div class="properties-toolbar">
+    <div class="site-header-center">
+
+        <!-- MOVE ONLY THIS -->
+        <div class="properties-toolbar">
 
 
     <!-- SEARCH -->
@@ -618,15 +616,27 @@ DESKTOP FILTERS
     <!-- CLOSE FILTER GROUP -->
 
 
-</div>
-<!-- CLOSE PROPERTIES TOOLBAR -->
+        </div>
+
+    </div>
 
 
-</div>
-<!-- CLOSE DESKTOP FILTERS -->
+    <div class="site-header-right">
+
+        <button class="menu-toggle">
+            <span class="material-symbols-outlined">
+                menu
+            </span>
+        </button>
+
+    </div>
+
+</header>
+    
 
 
-
+    
+<section class="properties-section">
 
 <!-- =========================
 DESKTOP MAP + GRID
