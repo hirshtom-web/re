@@ -15,34 +15,6 @@ AI SEARCH PAGE
 }
 
 
-
-/* =========================
-AI HERO
-========================= */
-
-
-.ai-search-hero{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    position:relative;
-
-    overflow:hidden;
-
-    box-sizing:border-box;
-
-    padding:88px 20px 40px;
-
-}
-
-
-
 /* =========================
 CONTENT
 ========================= */
@@ -285,12 +257,6 @@ HEADER COMPATIBILITY
     height:88px;
 
     z-index:1000;
-
-    background:rgba(250,249,246,.65);
-
-    backdrop-filter:blur(15px);
-
-    -webkit-backdrop-filter:blur(15px);
 
 }
 
