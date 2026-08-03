@@ -1597,7 +1597,7 @@ body{
     justify-content:flex-start;
     gap:8px;
 
-    flex:1 1 calc(50% - 5px);
+    flex: 0 0 auto;
     min-width:130px;
 
     padding:10px 12px;
