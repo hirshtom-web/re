@@ -1585,31 +1585,43 @@ body{
   gap: 10px;
 }
 
-.ai-tool {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 14px;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #111;
-  background: #fff;
-  transition: all 0.2s ease;
+.ai-tools{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
-.ai-tool:hover {
-  border-color: #bdbdbd;
-  background: #fafafa;
+.ai-tool{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex:1 1 calc(50% - 5px);   /* two per row */
+    min-width:130px;
+    padding:10px 12px;
+    border:1px solid #e7e7e7;
+    border-radius:12px;
+    background:#fff;
+    text-decoration:none;
+    color:#111;
+    transition:background .2s ease, border-color .2s ease;
 }
 
-.ai-tool img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
+.ai-tool:hover{
+    background:#f5f5f5;
+    border-color:#e7e7e7;
+    color:#111;
 }
 
-.ai-tool span {
-  font-size: 14px;
-  font-weight: 500;
+.ai-tool img{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.ai-tool span{
+    font-size:14px;
+    font-weight:500;
+    line-height:1;
+    color:#111;
 }
