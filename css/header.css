@@ -5,22 +5,20 @@ SITE HEADER
 .site-header{
 
     width:100%;
+
     height:88px;
 
     padding:0 32px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
-    position:fixed;
+    position:relative;
 
-    top:0;
-    left:0;
-
-    background:transparent;
-
-    z-index:9999;
+    z-index:1000;
 
     box-sizing:border-box;
 
@@ -172,16 +170,17 @@ MENU BUTTON STYLE
 .mobile-menu-btn{
 
     width:44px;
+
     height:44px;
 
     border:none;
 
-    background:rgba(255,255,255,0.15);
-
-    backdrop-filter:blur(10px);
+    background:white;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     border-radius:50%;
@@ -197,7 +196,7 @@ MENU BUTTON STYLE
 .header-menu-btn:hover,
 .mobile-menu-btn:hover{
 
-    background:rgba(255,255,255,0.35);
+    background:#f5f5f5;
 
 }
 
@@ -390,5 +389,3 @@ MOBILE
     font-size:26px;
 
 }
-
-
