@@ -420,3 +420,84 @@ MOBILE
 
 
 }
+
+
+
+
+/* =========================
+CHAT
+========================= */
+
+
+.ai-chat{
+    display:none;
+    width:min(800px,90%);
+    margin:auto;
+}
+
+
+.ai-chat.active{
+    display:block;
+}
+
+
+.ai-search-hero.chat-mode .ai-badge,
+.ai-search-hero.chat-mode h1,
+.ai-search-hero.chat-mode p,
+.ai-search-hero.chat-mode .ai-search-box{
+    display:none;
+}
+
+
+.ai-messages{
+    background:white;
+    border-radius:24px;
+    padding:25px;
+    min-height:400px;
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+}
+
+
+.message{
+    margin-bottom:18px;
+    padding:14px 18px;
+    border-radius:18px;
+    max-width:80%;
+}
+
+
+.user-message{
+    background:#111;
+    color:white;
+    margin-left:auto;
+}
+
+
+.ai-message{
+    background:#f4f4f4;
+}
+
+
+.ai-chat-input{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+}
+
+
+.ai-chat-input input{
+    flex:1;
+    height:52px;
+    border-radius:26px;
+    border:1px solid #ddd;
+    padding:0 20px;
+}
+
+
+.ai-chat-input button{
+    border:none;
+    background:#111;
+    color:white;
+    padding:0 25px;
+    border-radius:26px;
+}
