@@ -20,7 +20,7 @@ SITE HEADER
 
     background:transparent;
 
-    z-index:1000;
+    z-index:9999;
 
     box-sizing:border-box;
 
