@@ -237,28 +237,16 @@ DROPDOWNS
 
 
 .filter-popup{
-
     position:absolute;
-
     top:58px;
-
     left:0;
-
     width:260px;
-
     background:white;
-
     border-radius:20px;
-
     padding:16px;
-
-    box-shadow:
-    0 25px 70px rgba(0,0,0,.15);
-
+    box-shadow:0 25px 70px rgba(0,0,0,.15);
     display:none;
-
-    z-index:9000;
-
+    z-index:10001;
 }
 
 
