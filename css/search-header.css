@@ -367,3 +367,12 @@ MOBILE
     left:50%;
     transform:translateX(-50%);
 }
+
+
+@media (max-width:900px){
+
+    .search-header{
+        display:none;
+    }
+
+}
