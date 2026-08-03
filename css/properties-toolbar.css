@@ -3,19 +3,21 @@ PROPERTIES TOOLBAR
 ========================= */
 
 
+/* =========================
+HEADER CENTER TOOLBAR
+========================= */
+
 .properties-toolbar{
 
     display:flex;
-
     align-items:center;
+    justify-content:center;
 
-    justify-content:space-between;
+    gap:12px;
 
-    gap:30px;
+    width:auto;
 
-    padding:30px;
-
-    width:100%;
+    padding:0;
 
     box-sizing:border-box;
 
@@ -31,10 +33,11 @@ SEARCH
 .search-box{
 
     display:flex;
-
     align-items:center;
 
-    height:52px;
+    height:46px;
+
+    width:360px;
 
     background:#fff;
 
@@ -42,13 +45,7 @@ SEARCH
 
     border-radius:14px;
 
-    padding:0 18px;
-
-    flex:1;
-
-    max-width:520px;
-
-    transition:.25s ease;
+    padding:0 16px;
 
 }
 
@@ -621,11 +618,11 @@ FILTER DROPDOWN
 
 .filter-button{
 
-    height:52px;
+    height:46px;
 
-    min-width:210px;
+    min-width:140px;
 
-    padding:0 18px;
+    padding:0 14px;
 
     border:1px solid rgba(0,0,0,.08);
 
@@ -647,9 +644,11 @@ FILTER DROPDOWN
 
     font-family:inherit;
 
-    font-size:14px;
+    font-size:13px;
 
 }
+
+
 
 .filter-button:hover{
 
@@ -819,5 +818,22 @@ FILTER DROPDOWN
 .mobile-filter-button .material-symbols-outlined{
 
     font-size:20px;
+
+}
+
+.site-header-center{
+    position:relative;
+    z-index:1000;
+}
+
+.filter-popup{
+    top:55px;
+}
+
+@media(max-width:900px){
+
+    .properties-toolbar{
+        display:none;
+    }
 
 }
