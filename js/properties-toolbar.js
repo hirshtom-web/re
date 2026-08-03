@@ -21,8 +21,6 @@ window.propertyFilters = {
 
 
 
-
-
 /* =========================
 PRICE READER
 ========================= */
@@ -30,32 +28,23 @@ PRICE READER
 function getPropertyPrice(property){
 
     if(property.priceValue){
-
         return Number(property.priceValue);
-
     }
 
 
     const text = (
-
         property.price ||
         property.priceRange ||
         ""
-
     ).toLowerCase();
-
 
 
     const match = text.match(/[\d,.]+/);
 
 
-
     if(!match){
-
         return 999999999;
-
     }
-
 
 
     let value = Number(
@@ -63,16 +52,11 @@ function getPropertyPrice(property){
     );
 
 
-
     if(text.includes("m")){
-
         value *= 1000000;
-
     }
     else if(text.includes("k")){
-
         value *= 1000;
-
     }
 
 
@@ -92,40 +76,28 @@ window.filterProperties = function(){
 
 
     if(!window.properties){
-
         return;
-
     }
 
 
 
-    const desktopSearch =
+    const searchInput =
     document.getElementById(
         "property-search"
     );
 
 
-    const mobileSearch =
-    document.getElementById(
-        "mobile-property-search"
-    );
+    const search =
+    searchInput
+    ?
+    searchInput.value.toLowerCase()
+    :
+    "";
 
 
 
-    const search = (
-
-        desktopSearch?.value ||
-        mobileSearch?.value ||
-        ""
-
-    )
-    .toLowerCase();
-
-
-
-
-
-    let filtered = window.properties.filter(property=>{
+    const filtered =
+    window.properties.filter(property=>{
 
 
         const text =
@@ -134,48 +106,30 @@ window.filterProperties = function(){
 
 
 
-
         const searchMatch =
-
         !search ||
-
         text.includes(search);
 
 
 
-
-
         const locationMatch =
-
         !propertyFilters.location ||
-
         text.includes(
             propertyFilters.location.toLowerCase()
         );
 
 
 
-
-
         const typeMatch =
-
         !propertyFilters.propertyType ||
-
-        property.type ===
-        propertyFilters.propertyType;
-
-
+        property.type === propertyFilters.propertyType;
 
 
 
         const completionMatch =
-
         !propertyFilters.completion ||
-
         Number(property.delivery) <=
         Number(propertyFilters.completion);
-
-
 
 
 
@@ -184,24 +138,18 @@ window.filterProperties = function(){
 
 
 
-
         const priceMatch =
-
         price >= propertyFilters.minPrice &&
-
         price <= propertyFilters.maxPrice;
 
 
 
-
         return (
-
             searchMatch &&
             locationMatch &&
             typeMatch &&
             completionMatch &&
             priceMatch
-
         );
 
 
@@ -210,69 +158,36 @@ window.filterProperties = function(){
 
 
 
+    if(propertyFilters.sort==="price-low"){
 
-    switch(propertyFilters.sort){
-
-
-        case "price-low":
-
-            filtered.sort((a,b)=>
-
-                getPropertyPrice(a)
-                -
-                getPropertyPrice(b)
-
-            );
-
-        break;
-
-
-
-        case "price-high":
-
-            filtered.sort((a,b)=>
-
-                getPropertyPrice(b)
-                -
-                getPropertyPrice(a)
-
-            );
-
-        break;
-
-
-
-        case "name":
-
-            filtered.sort((a,b)=>
-
-                (a.title || "")
-                .localeCompare(
-                    b.title || ""
-                )
-
-            );
-
-        break;
-
-
-
-        case "location":
-
-            filtered.sort((a,b)=>
-
-                (a.location || "")
-                .localeCompare(
-                    b.location || ""
-                )
-
-            );
-
-        break;
-
+        filtered.sort((a,b)=>
+            getPropertyPrice(a) -
+            getPropertyPrice(b)
+        );
 
     }
 
+
+
+    if(propertyFilters.sort==="price-high"){
+
+        filtered.sort((a,b)=>
+            getPropertyPrice(b) -
+            getPropertyPrice(a)
+        );
+
+    }
+
+
+
+    if(propertyFilters.sort==="name"){
+
+        filtered.sort((a,b)=>
+            (a.title||"")
+            .localeCompare(b.title||"")
+        );
+
+    }
 
 
 
@@ -299,52 +214,48 @@ window.filterProperties = function(){
 
 
 
-
 /* =========================
-INITIALIZE TOOLBAR
+DESKTOP DROPDOWNS
 ========================= */
+
 
 document.addEventListener(
 "DOMContentLoaded",
 ()=>{
 
 
-
-
-
-/* =========================
-MOBILE DROPDOWNS
-========================= */
-
-
 document
-.querySelectorAll(".mobile-filter-section")
-.forEach(section=>{
+.querySelectorAll(".filter-dropdown")
+.forEach(dropdown=>{
 
 
     const button =
-    section.querySelector(
-        ".mobile-select-trigger"
+    dropdown.querySelector(
+        ".filter-button"
     );
 
 
     const popup =
-    section.querySelector(
-        ".mobile-popup-options"
+    dropdown.querySelector(
+        ".filter-popup"
+    );
+
+
+    const label =
+    dropdown.querySelector(
+        ".filter-label"
     );
 
 
     if(!button || !popup){
-
         return;
-
     }
 
 
 
     button.addEventListener(
     "click",
-    (e)=>{
+    e=>{
 
 
         e.stopPropagation();
@@ -353,19 +264,17 @@ document
 
         document
         .querySelectorAll(
-            ".mobile-popup-options.active"
+            ".filter-popup.active"
         )
-        .forEach(open=>{
+        .forEach(item=>{
 
+            if(item!==popup){
 
-            if(open !== popup){
-
-                open.classList.remove(
+                item.classList.remove(
                     "active"
                 );
 
             }
-
 
         });
 
@@ -376,8 +285,12 @@ document
         );
 
 
-    });
+        button.classList.toggle(
+            "active"
+        );
 
+
+    });
 
 
 
@@ -385,7 +298,7 @@ document
 
     popup
     .querySelectorAll(
-        "button"
+        ".popup-options button"
     )
     .forEach(option=>{
 
@@ -400,25 +313,16 @@ document
 
 
 
-            button
-            .querySelector("span")
-            .textContent =
-            option.textContent.trim();
+            if(label){
+
+                label.textContent =
+                option.textContent.trim();
+
+            }
 
 
 
-
-
-            const title =
-            section
-            .querySelector("h3")
-            ?.textContent.trim();
-
-
-
-
-
-            if(title === "Location"){
+            if(dropdown.id==="location-dropdown"){
 
                 propertyFilters.location=value;
 
@@ -426,7 +330,7 @@ document
 
 
 
-            if(title === "Property Type"){
+            if(dropdown.id==="property-type-dropdown"){
 
                 propertyFilters.propertyType=value;
 
@@ -434,7 +338,7 @@ document
 
 
 
-            if(title === "Completed By"){
+            if(dropdown.id==="completion-dropdown"){
 
                 propertyFilters.completion=value;
 
@@ -442,12 +346,11 @@ document
 
 
 
-            if(title === "Sort By"){
+            if(dropdown.id==="sort-dropdown"){
 
                 propertyFilters.sort=value;
 
             }
-
 
 
 
@@ -456,8 +359,13 @@ document
             );
 
 
-            filterProperties();
+            button.classList.remove(
+                "active"
+            );
 
+
+
+            filterProperties();
 
 
         });
@@ -466,11 +374,7 @@ document
     });
 
 
-
 });
-
-
-
 
 
 
@@ -484,80 +388,12 @@ SEARCH
 
 document
 .getElementById(
-    "property-search"
-)
-?.addEventListener(
-    "input",
-    filterProperties
-);
-
-
-
-document
-.getElementById(
-    "mobile-property-search"
-)
-?.addEventListener(
-    "input",
-    filterProperties
-);
-
-
-
-
-
-
-
-
-
-/* =========================
-LOCATION SEARCH
-========================= */
-
-
-document
-.getElementById(
-    "location-search"
+"property-search"
 )
 ?.addEventListener(
 "input",
-function(){
-
-
-    const value =
-    this.value.toLowerCase();
-
-
-
-    document
-    .querySelectorAll(
-        "#location-dropdown .popup-options button"
-    )
-    .forEach(button=>{
-
-
-        button.style.display =
-
-        button.textContent
-        .toLowerCase()
-        .includes(value)
-
-        ?
-
-        "block"
-
-        :
-
-        "none";
-
-
-    });
-
-
-});
-
-
-
+filterProperties
+);
 
 
 
@@ -565,108 +401,7 @@ function(){
 
 
 /* =========================
-PRICE
-========================= */
-
-
-document
-.querySelector(
-    ".apply-filter"
-)
-?.addEventListener(
-"click",
-()=>{
-
-
-    filterProperties();
-
-
-});
-
-
-
-
-document
-.querySelector(
-    ".reset-filter"
-)
-?.addEventListener(
-"click",
-()=>{
-
-
-    propertyFilters.minPrice = 0;
-
-    propertyFilters.maxPrice = 999999999;
-
-
-    filterProperties();
-
-
-});
-
-
-
-
-
-
-
-
-
-/* =========================
-PRICE SLIDERS
-========================= */
-
-
-document
-.querySelectorAll(
-"#min-range,#max-range"
-)
-.forEach(slider=>{
-
-
-    slider.addEventListener(
-    "input",
-    ()=>{
-
-
-        propertyFilters.minPrice =
-
-        Number(
-            document.getElementById(
-                "min-range"
-            ).value
-        );
-
-
-
-        propertyFilters.maxPrice =
-
-        Number(
-            document.getElementById(
-                "max-range"
-            ).value
-        );
-
-
-
-        filterProperties();
-
-
-    });
-
-
-});
-
-
-
-
-
-
-
-
-/* =========================
-CLOSE DROPDOWNS
+CLOSE POPUPS
 ========================= */
 
 
@@ -675,60 +410,44 @@ document.addEventListener(
 ()=>{
 
 
-    document
-    .querySelectorAll(
-        ".filter-popup.active"
-    )
-    .forEach(popup=>{
+document
+.querySelectorAll(
+".filter-popup.active"
+)
+.forEach(popup=>{
 
-
-        popup.classList.remove(
-            "active"
-        );
-
-
-    });
-
-
-    document
-    .querySelectorAll(
-        ".filter-button.active"
-    )
-    .forEach(button=>{
-
-
-        button.classList.remove(
-            "active"
-        );
-
-
-    });
-
+    popup.classList.remove(
+        "active"
+    );
 
 });
 
 
+document
+.querySelectorAll(
+".filter-button.active"
+)
+.forEach(button=>{
+
+    button.classList.remove(
+        "active"
+    );
+
+});
 
 
+});
 
 
 console.log(
-"PROPERTY TOOLBAR READY"
+"DESKTOP PROPERTY TOOLBAR READY"
 );
-
 
 
 });
 
 
 
-
-
-
-
-/* =========================
-AFTER DATA LOAD
-========================= */
 
 
 window.addEventListener(
