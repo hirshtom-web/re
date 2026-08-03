@@ -671,44 +671,6 @@ MOBILE MENU BUTTON
 }
 
 
-
-/* MOBILE ONLY */
-
-@media(max-width:900px){
-
-    .mobile-toggle{
-
-        display:flex;
-
-    }
-
-
-    .nav-links{
-
-        position:absolute;
-
-        top:100%;
-        left:0;
-        width:100%;
-
-        display:none;
-
-        flex-direction:column;
-
-        padding:30px;
-
-        background:white;
-
-    }
-
-
-    .nav-links.active{
-
-        display:flex;
-
-    }
-
-}
 /* =====================
 SECTION TITLES
 ===================== */
@@ -1604,18 +1566,3 @@ display:none;
 }
 
 
-@media(max-width:900px){
-
-.mobile-toggle{
-display:flex;
-}
-
-.nav-links{
-display:none;
-}
-
-.nav-links.active{
-display:flex;
-}
-
-}
