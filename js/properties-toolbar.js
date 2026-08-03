@@ -21,6 +21,8 @@ window.propertyFilters = {
 
 
 
+
+
 /* =========================
 PRICE READER
 ========================= */
@@ -44,8 +46,7 @@ function getPropertyPrice(property){
 
 
 
-    const match =
-    text.match(/[\d,.]+/);
+    const match = text.match(/[\d,.]+/);
 
 
 
@@ -57,8 +58,7 @@ function getPropertyPrice(property){
 
 
 
-    let value =
-    Number(
+    let value = Number(
         match[0].replace(",","")
     );
 
@@ -69,7 +69,6 @@ function getPropertyPrice(property){
         value *= 1000000;
 
     }
-
     else if(text.includes("k")){
 
         value *= 1000;
@@ -89,7 +88,6 @@ function getPropertyPrice(property){
 FILTER ENGINE
 ========================= */
 
-
 window.filterProperties = function(){
 
 
@@ -101,26 +99,33 @@ window.filterProperties = function(){
 
 
 
-    const searchInput =
+    const desktopSearch =
     document.getElementById(
         "property-search"
     );
 
 
-    const search =
-    searchInput
-    ?
-    searchInput.value.toLowerCase()
-    :
-    "";
+    const mobileSearch =
+    document.getElementById(
+        "mobile-property-search"
+    );
+
+
+
+    const search = (
+
+        desktopSearch?.value ||
+        mobileSearch?.value ||
+        ""
+
+    )
+    .toLowerCase();
 
 
 
 
 
-    let filtered =
-
-    window.properties.filter(property=>{
+    let filtered = window.properties.filter(property=>{
 
 
         const text =
@@ -129,11 +134,13 @@ window.filterProperties = function(){
 
 
 
+
         const searchMatch =
 
         !search ||
 
         text.includes(search);
+
 
 
 
@@ -149,12 +156,14 @@ window.filterProperties = function(){
 
 
 
+
         const typeMatch =
 
         !propertyFilters.propertyType ||
 
         property.type ===
         propertyFilters.propertyType;
+
 
 
 
@@ -169,8 +178,10 @@ window.filterProperties = function(){
 
 
 
+
         const price =
         getPropertyPrice(property);
+
 
 
 
@@ -182,16 +193,13 @@ window.filterProperties = function(){
 
 
 
+
         return (
 
             searchMatch &&
-
             locationMatch &&
-
             typeMatch &&
-
             completionMatch &&
-
             priceMatch
 
         );
@@ -238,9 +246,9 @@ window.filterProperties = function(){
 
             filtered.sort((a,b)=>
 
-                (a.title||"")
+                (a.title || "")
                 .localeCompare(
-                    b.title||""
+                    b.title || ""
                 )
 
             );
@@ -253,9 +261,9 @@ window.filterProperties = function(){
 
             filtered.sort((a,b)=>
 
-                (a.location||"")
+                (a.location || "")
                 .localeCompare(
-                    b.location||""
+                    b.location || ""
                 )
 
             );
@@ -271,16 +279,15 @@ window.filterProperties = function(){
 
     if(window.renderPropertiesGrid){
 
-        renderPropertiesGrid(filtered);
+        window.renderPropertiesGrid(filtered);
 
     }
 
 
 
-
     if(window.updateMapMarkers){
 
-        updateMapMarkers(filtered);
+        window.updateMapMarkers(filtered);
 
     }
 
@@ -294,124 +301,264 @@ window.filterProperties = function(){
 
 
 /* =========================
-DROPDOWN CONTROLLER
+INITIALIZE TOOLBAR
+========================= */
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+
+
+
+
+/* =========================
+DROPDOWNS
 ========================= */
 
 
-document.addEventListener("DOMContentLoaded", ()=>{
+document
+.querySelectorAll(".filter-dropdown")
+.forEach(dropdown=>{
+
+
+    const button =
+    dropdown.querySelector(
+        ".filter-button"
+    );
+
+
+    const popup =
+    dropdown.querySelector(
+        ".filter-popup"
+    );
+
+
+    const label =
+    dropdown.querySelector(
+        ".filter-label"
+    );
+
+
+
+    if(!button || !popup){
+
+        return;
+
+    }
+
+
+
+
+
+    button.addEventListener(
+    "click",
+    (e)=>{
+
+
+        e.stopPropagation();
+
+
+
+        document
+        .querySelectorAll(
+            ".filter-popup.active"
+        )
+        .forEach(open=>{
+
+
+            if(open !== popup){
+
+                open.classList.remove(
+                    "active"
+                );
+
+            }
+
+
+        });
+
+
+
+        popup.classList.toggle(
+            "active"
+        );
+
+
+        button.classList.toggle(
+            "active"
+        );
+
+
+    });
+
+
+
+
+
+
+
+    popup
+    .querySelectorAll(
+        ".popup-options button"
+    )
+    .forEach(option=>{
+
+
+        option.addEventListener(
+        "click",
+        ()=>{
+
+
+            const value =
+            option.dataset.value || "";
+
+
+
+            if(label){
+
+                label.textContent =
+                option.textContent.trim();
+
+            }
+
+
+
+
+
+            if(dropdown.id === "location-dropdown"){
+
+                propertyFilters.location=value;
+
+            }
+
+
+            if(dropdown.id === "property-type-dropdown"){
+
+                propertyFilters.propertyType=value;
+
+            }
+
+
+            if(dropdown.id === "completion-dropdown"){
+
+                propertyFilters.completion=value;
+
+            }
+
+
+            if(dropdown.id === "sort-dropdown"){
+
+                propertyFilters.sort=value;
+
+            }
+
+
+
+            popup.classList.remove(
+                "active"
+            );
+
+
+            button.classList.remove(
+                "active"
+            );
+
+
+
+            filterProperties();
+
+
+
+        });
+
+
+    });
+
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+SEARCH
+========================= */
+
+
+document
+.getElementById(
+    "property-search"
+)
+?.addEventListener(
+    "input",
+    filterProperties
+);
+
+
+
+document
+.getElementById(
+    "mobile-property-search"
+)
+?.addEventListener(
+    "input",
+    filterProperties
+);
+
+
+
+
+
+
+
+
+
+/* =========================
+LOCATION SEARCH
+========================= */
+
+
+document
+.getElementById(
+    "location-search"
+)
+?.addEventListener(
+"input",
+function(){
+
+
+    const value =
+    this.value.toLowerCase();
+
 
 
     document
-    .querySelectorAll(".filter-dropdown")
-    .forEach(dropdown=>{
+    .querySelectorAll(
+        "#location-dropdown .popup-options button"
+    )
+    .forEach(button=>{
 
 
-        const button =
-        dropdown.querySelector(".filter-button");
+        button.style.display =
 
+        button.textContent
+        .toLowerCase()
+        .includes(value)
 
-        const popup =
-        dropdown.querySelector(".filter-popup");
+        ?
 
+        "block"
 
-        const label =
-        dropdown.querySelector(".filter-label");
+        :
 
-
-        if(!button || !popup){
-            return;
-        }
-
-
-        button.addEventListener("click",(e)=>{
-
-
-            e.stopPropagation();
-
-
-            document
-            .querySelectorAll(".filter-popup.active")
-            .forEach(open=>{
-
-
-                if(open !== popup){
-
-                    open.classList.remove("active");
-
-                }
-
-            });
-
-
-            popup.classList.toggle("active");
-
-            button.classList.toggle("active");
-
-
-        });
-
-
-
-        popup
-        .querySelectorAll(".popup-options button")
-        .forEach(option=>{
-
-
-            option.addEventListener("click",()=>{
-
-
-                const value =
-                option.dataset.value || "";
-
-
-                if(label){
-
-                    label.textContent =
-                    option.textContent.trim();
-
-                }
-
-
-                if(dropdown.id==="location-dropdown"){
-
-                    propertyFilters.location=value;
-
-                }
-
-
-                if(dropdown.id==="property-type-dropdown"){
-
-                    propertyFilters.propertyType=value;
-
-                }
-
-
-                if(dropdown.id==="completion-dropdown"){
-
-                    propertyFilters.completion=value;
-
-                }
-
-
-                if(dropdown.id==="sort-dropdown"){
-
-                    propertyFilters.sort=value;
-
-                }
-
-
-                popup.classList.remove("active");
-
-                button.classList.remove("active");
-
-
-                filterProperties();
-
-
-            });
-
-
-        });
+        "none";
 
 
     });
@@ -423,22 +570,25 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
 
+
+
+
+
 /* =========================
-PRICE APPLY / RESET
+PRICE
 ========================= */
 
 
 document
-.querySelector(".apply-filter")
-?.addEventListener("click",()=>{
+.querySelector(
+    ".apply-filter"
+)
+?.addEventListener(
+"click",
+()=>{
 
 
     filterProperties();
-
-
-    document
-    .querySelector(".price-popup")
-    ?.classList.remove("active");
 
 
 });
@@ -447,8 +597,12 @@ document
 
 
 document
-.querySelector(".reset-filter")
-?.addEventListener("click",()=>{
+.querySelector(
+    ".reset-filter"
+)
+?.addEventListener(
+"click",
+()=>{
 
 
     propertyFilters.minPrice = 0;
@@ -460,6 +614,8 @@ document
 
 
 });
+
+
 
 
 
@@ -520,69 +676,7 @@ document
 
 
 /* =========================
-LOCATION SEARCH INSIDE MENU
-========================= */
-
-
-const toolbarLocationSearch =
-document.getElementById(
-"location-search"
-);
-
-
-
-if(toolbarLocationSearch){
-
-
-    toolbarLocationSearch.addEventListener(
-    "input",
-    function(){
-
-
-        const value =
-        this.value.toLowerCase();
-
-
-
-        document
-        .querySelectorAll(
-        "#location-dropdown .popup-options button"
-        )
-        .forEach(button=>{
-
-
-            button.style.display =
-
-            button.textContent
-            .toLowerCase()
-            .includes(value)
-
-            ?
-
-            "block"
-
-            :
-
-            "none";
-
-
-        });
-
-
-    });
-
-
-}
-
-
-
-
-
-
-
-
-/* =========================
-CLOSE POPUPS
+CLOSE DROPDOWNS
 ========================= */
 
 
@@ -592,28 +686,50 @@ document.addEventListener(
 
 
     document
-    .querySelectorAll(".filter-popup.active")
+    .querySelectorAll(
+        ".filter-popup.active"
+    )
     .forEach(popup=>{
 
 
-        popup.classList.remove("active");
+        popup.classList.remove(
+            "active"
+        );
 
 
     });
 
 
     document
-    .querySelectorAll(".filter-button.active")
+    .querySelectorAll(
+        ".filter-button.active"
+    )
     .forEach(button=>{
 
 
-        button.classList.remove("active");
+        button.classList.remove(
+            "active"
+        );
 
 
     });
 
 
 });
+
+
+
+
+
+
+console.log(
+"PROPERTY TOOLBAR READY"
+);
+
+
+
+});
+
 
 
 
@@ -621,35 +737,14 @@ document.addEventListener(
 
 
 /* =========================
-SEARCH EVENTS
+AFTER DATA LOAD
 ========================= */
-
-
-document
-.getElementById(
-"property-search"
-)
-?.addEventListener(
-"input",
-filterProperties
-);
-
-
-
 
 
 window.addEventListener(
 "propertiesLoaded",
 ()=>{
 
-
     filterProperties();
 
-
 });
-
-
-
-console.log(
-"PROPERTY TOOLBAR LOADED"
-);
