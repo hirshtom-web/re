@@ -2,7 +2,7 @@
 
     display:grid;
 
-    grid-template-columns: 47% 53%;
+    grid-template-columns: 48% 52%;
 
     height:calc(100vh - 88px);
 
