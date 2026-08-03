@@ -309,3 +309,37 @@ MOBILE
 
 }
 
+@media(max-width:900px){
+
+    .site-logo{
+
+        width:64px;
+        height:64px;
+
+    }
+
+
+    .site-header{
+
+        height:82px;
+
+        padding:0 20px;
+
+    }
+
+
+    .menu-toggle{
+
+        width:48px;
+        height:48px;
+
+    }
+
+
+    .menu-toggle .material-symbols-outlined{
+
+        font-size:30px;
+
+    }
+
+}
