@@ -1384,6 +1384,7 @@ RESPONSIVE
     font-size:21px;
 
 }
+}
 
 /* =====================
 ACCESSIBILITY
@@ -1558,11 +1559,10 @@ min-width:85vw;
 
 }
 
-}
 
 
 .mobile-toggle{
 display:none;
 }
 
-
+}
