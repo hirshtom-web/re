@@ -1,24 +1,18 @@
-async function loadHeader(centerContent=""){
+async function loadHeader(centerFile = "") {
 
-    const header =
-    await fetch("/components/header.html")
-    .then(res=>res.text());
+    const header = await fetch("/components/header.html")
+        .then(r => r.text());
 
+    document.body.insertAdjacentHTML("afterbegin", header);
 
-    document.body.insertAdjacentHTML(
-        "afterbegin",
-        header
-    );
+    if (!centerFile) return;
 
+    const center = document.getElementById("site-header-center");
 
-    const center =
-    document.getElementById(
-        "site-header-center"
-    );
+    if (!center) return;
 
+    const html = await fetch(`/components/centers/${centerFile}`)
+        .then(r => r.text());
 
-    if(center){
-        center.innerHTML = centerContent;
-    }
-
+    center.innerHTML = html;
 }
