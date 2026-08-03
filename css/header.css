@@ -142,19 +142,26 @@ RIGHT
 }
 
 
-.menu-toggle{
+.desktop-toggle{
 
-    display:none;
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
 
     width:44px;
-
     height:44px;
 
     border:none;
-
     background:none;
 
     cursor:pointer;
+
+}
+
+.mobile-toggle{
+
+    display:none;
 
 }
 
@@ -237,4 +244,29 @@ MOBILE
 }
 
 }
+@media (max-width:900px){
 
+    .desktop-toggle{
+
+        display:none;
+
+    }
+
+    .mobile-toggle{
+
+        display:flex;
+
+        align-items:center;
+        justify-content:center;
+
+        width:44px;
+        height:44px;
+
+        border:none;
+        background:none;
+
+        cursor:pointer;
+
+    }
+
+}
