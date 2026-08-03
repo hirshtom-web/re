@@ -1,91 +1,95 @@
 /* =========================
-AI SEARCH PAGE
+SITE HEADER
 ========================= */
 
-.ai-search-page{
+.site-header{
 
-    min-height:100vh;
+    width:100%;
 
-    overflow:hidden;
+    height:88px;
 
-    background:#faf9f6;
+    padding:0 32px;
 
-    position:relative;
-
-}
-
-
-/* =========================
-CONTENT
-========================= */
-
-
-.ai-search-content{
-
-    width:min(700px,90%);
-
-    text-align:center;
-
-    position:relative;
-
-    z-index:2;
-
-    padding:40px 0;
-
-}
-
-
-
-/* =========================
-BADGE
-========================= */
-
-
-.ai-badge{
-
-    display:inline-flex;
+    display:flex;
 
     align-items:center;
 
-    gap:8px;
+    justify-content:space-between;
 
-    padding:10px 18px;
+    position:relative;
 
-    background:white;
+    z-index:1000;
 
-    border-radius:999px;
-
-    box-shadow:
-
-    0 10px 40px rgba(0,0,0,.08);
-
-    font-size:14px;
+    box-sizing:border-box;
 
 }
 
 
 
 /* =========================
-TITLE
+LEFT AREA
 ========================= */
 
+.site-header-left{
 
-.ai-search-content h1{
+    display:flex;
 
-    font-size:clamp(42px,5vw,72px);
+    align-items:center;
 
-    line-height:1.05;
-
-    margin:30px 0 20px;
-
-    font-weight:600;
+    flex-shrink:0;
 
 }
 
 
-.ai-search-content h1 span{
 
-    display:block;
+/* =========================
+CENTER NAV
+========================= */
+
+.site-header-center{
+
+    display:flex;
+
+    align-items:center;
+
+    margin-left:50px;
+
+    flex:1;
+
+}
+
+
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:34px;
+
+}
+
+
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    white-space:nowrap;
+
+    transition:.25s ease;
+
+}
+
+
+.nav-links a:hover{
 
     color:#b99b62;
 
@@ -93,220 +97,183 @@ TITLE
 
 
 
-#ai-changing-line{
+/* =========================
+LOGO
+========================= */
 
-    color:#777;
 
-    height:34px;
+.site-logo{
 
-    transition:.3s ease;
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+}
+
+
+.site-logo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
 
 }
 
 
 
 /* =========================
-SEARCH BOX
+CTA BUTTON
 ========================= */
 
 
-.ai-search-box{
+.nav-button{
 
-    margin-top:35px;
+    padding:12px 22px;
 
-    height:70px;
+    border-radius:999px;
 
-    background:white;
+    background:#111;
 
-    border-radius:35px;
+    color:white!important;
+
+}
+
+
+
+/* =========================
+RIGHT MENU AREA
+========================= */
+
+
+.site-header-right{
 
     display:flex;
 
     align-items:center;
 
-    padding:0 12px 0 25px;
-
-    box-shadow:
-
-    0 25px 80px rgba(0,0,0,.12);
-
-}
-
-
-
-.ai-search-box input{
-
-    flex:1;
-
-    border:none;
-
-    outline:none;
-
-    font-size:16px;
-
-    padding:0 15px;
-
-}
-
-
-
-.ai-search-box button{
-
-    height:50px;
-
-    padding:0 30px;
-
-    border:none;
-
-    border-radius:30px;
-
-    background:#111;
-
-    color:white;
-
-    cursor:pointer;
+    margin-left:auto;
 
 }
 
 
 
 /* =========================
-AI GLOW BULBS
+MENU BUTTON STYLE
 ========================= */
 
 
-.ai-glow{
+.header-menu-btn,
+.mobile-menu-btn{
 
-    position:absolute;
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    background:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     border-radius:50%;
 
-    filter:blur(90px);
+    cursor:pointer;
 
-    pointer-events:none;
-
-    z-index:0;
+    color:#171717;
 
 }
 
 
 
-.glow-one{
+.header-menu-btn:hover,
+.mobile-menu-btn:hover{
 
-    width:340px;
-
-    height:340px;
-
-    background:#d8c19a;
-
-    left:5%;
-
-    top:20%;
-
-}
-
-
-
-.glow-two{
-
-    width:320px;
-
-    height:320px;
-
-    background:#c7e6ff;
-
-    right:8%;
-
-    bottom:10%;
-
-}
-
-
-
-.glow-three{
-
-    width:240px;
-
-    height:240px;
-
-    background:#eadcff;
-
-    right:35%;
-
-    top:5%;
+    background:#f5f5f5;
 
 }
 
 
 
 /* =========================
-HEADER COMPATIBILITY
+DESKTOP DROPDOWN
 ========================= */
 
 
-.site-header{
+.desktop-menu{
 
-    position:fixed;
+    position:relative;
 
-    top:0;
+    display:flex;
 
-    left:0;
+}
+
+
+
+.header-dropdown{
+
+    position:absolute;
+
+    right:0;
+
+    top:52px;
+
+    width:220px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:10px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.15);
+
+    display:none;
+
+}
+
+
+
+.header-dropdown.active{
+
+    display:block;
+
+}
+
+
+
+.header-dropdown button{
 
     width:100%;
 
-    height:88px;
+    border:none;
 
-    z-index:1000;
+    background:none;
 
-}
+    padding:12px;
 
+    text-align:left;
 
+    border-radius:12px;
 
-/* =========================
-LARGE SCREENS
-========================= */
+    cursor:pointer;
 
-
-@media(min-width:1400px){
-
-    .ai-search-content{
-
-        transform:translateY(-20px);
-
-    }
+    font-size:14px;
 
 }
 
 
+.header-dropdown button:hover{
 
-/* =========================
-TABLET
-========================= */
-
-
-@media(max-width:900px){
-
-
-.ai-search-hero{
-
-    padding-top:82px;
-
-}
-
-
-.ai-search-box{
-
-    height:62px;
-
-}
-
-
-.ai-search-box button{
-
-    padding:0 22px;
-
-}
-
+    background:#f5f5f5;
 
 }
 
@@ -317,84 +284,108 @@ MOBILE
 ========================= */
 
 
-@media(max-width:600px){
+.mobile-menu-btn{
 
-
-.ai-search-content{
-
-    width:95%;
+    display:none;
 
 }
 
 
-.ai-search-content h1{
 
-    font-size:42px;
+@media(max-width:900px){
+
+
+.site-header{
+
+    height:82px;
+
+    padding:0 20px;
 
 }
 
 
-.ai-search-box{
+
+.site-header-center{
+
+    display:none;
+
+}
+
+
+
+.site-logo{
+
+    width:58px;
+
+    height:58px;
+
+}
+
+
+
+/* hide desktop menu */
+
+.desktop-menu{
+
+    display:none;
+
+}
+
+
+
+/* show mobile */
+
+.mobile-menu-btn{
+
+    display:flex;
+
+}
+
+
+
+/* mobile dropdown/nav */
+
+.nav-links{
+
+    position:absolute;
+
+    top:75px;
+
+    left:20px;
+
+    right:20px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    display:none;
 
     flex-direction:column;
 
-    height:auto;
+    gap:22px;
 
-    padding:15px;
-
-    gap:12px;
-
-    border-radius:25px;
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.12);
 
 }
 
 
-.ai-search-box input{
 
-    width:100%;
+.nav-links.active{
 
-}
-
-
-.ai-search-box button{
-
-    width:100%;
+    display:flex;
 
 }
 
 
-.ai-glow{
-
-    filter:blur(70px);
-
 }
 
+.header-menu-btn .material-symbols-outlined,
+.mobile-menu-btn .material-symbols-outlined{
 
-.glow-one{
-
-    width:220px;
-
-    height:220px;
-
-}
-
-
-.glow-two{
-
-    width:200px;
-
-    height:200px;
-
-}
-
-
-.glow-three{
-
-    width:160px;
-
-    height:160px;
-
-}
-
+    font-size:26px;
 
 }
