@@ -16,9 +16,7 @@ SITE HEADER
 
     padding:0 32px;
 
-    background:#fff;
-
-    border-bottom:1px solid rgba(0,0,0,.08);
+    border-bottom:0.3px solid rgba(0,0,0,.08);
 
     box-sizing:border-box;
 
