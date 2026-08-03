@@ -343,3 +343,32 @@ MOBILE
     }
 
 }
+
+
+@media(max-width:900px){
+
+.nav-links{
+
+    position:absolute;
+    top:82px;
+    left:20px;
+    right:20px;
+
+    background:white;
+    border-radius:24px;
+    padding:25px;
+
+    display:none;
+    flex-direction:column;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+
+}
+
+.nav-links.active{
+
+    display:flex;
+
+}
+
+}
