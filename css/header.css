@@ -304,118 +304,43 @@ DROPDOWN
 MOBILE
 ========================= */
 
-
-.mobile-menu-btn{
-
+.mobile-toggle{
     display:none;
-
+    width:44px;
+    height:44px;
+    border:none;
+    background:#fff;
+    border-radius:50%;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
 }
 
-
-
-@media(max-width:900px){
-
-
-.site-header{
-
-    height:82px;
-
-    padding:0 20px;
-
+.mobile-toggle .material-symbols-outlined{
+    font-size:26px;
 }
-
-
-
-.site-header-center{
-
-    display:none;
-
-}
-
-
-
-.site-logo{
-
-    width:58px;
-
-    height:58px;
-
-}
-
-
-
-.desktop-menu{
-
-    display:none;
-
-}
-
-
-
-.mobile-menu-btn{
-
-    display:flex;
-
-}
-
-
-
-/* mobile nav */
-
-.nav-links{
-
-    position:absolute;
-
-    top:75px;
-
-    left:20px;
-
-    right:20px;
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:25px;
-
-    display:none;
-
-    flex-direction:column;
-
-    gap:22px;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.12);
-
-}
-
-
-
-.nav-links.active{
-
-    display:flex;
-
-}
-
-
-}
-
-
-/* =====================================
-   MOBILE FILTER SHEET DESKTOP LOCK
-===================================== */
 
 @media (max-width:900px){
 
-    .mobile-toggle{
-        display:block;
+    .search-header{
+        height:82px;
+        padding:0 20px;
     }
 
-    .nav-links{
+    .search-header-center{
         display:none;
     }
 
-    .nav-links.active{
+    .site-logo{
+        width:58px;
+        height:58px;
+    }
+
+    .desktop-toggle{
+        display:none;
+    }
+
+    .mobile-toggle{
         display:flex;
     }
 
