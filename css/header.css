@@ -300,9 +300,22 @@ DROPDOWN
 
 
 
-/* =========================
-MOBILE
-========================= */
+/* Desktop */
+.desktop-toggle{
+    display:flex;
+    width:44px;
+    height:44px;
+    border:none;
+    background:#fff;
+    border-radius:50%;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+.desktop-toggle .material-symbols-outlined{
+    font-size:26px;
+}
 
 .mobile-toggle{
     display:none;
@@ -320,14 +333,16 @@ MOBILE
     font-size:26px;
 }
 
+/* Mobile */
+
 @media (max-width:900px){
 
-    .search-header{
+    .site-header{
         height:82px;
         padding:0 20px;
     }
 
-    .search-header-center{
+    .site-header-center{
         display:none;
     }
 
