@@ -313,32 +313,25 @@ document.addEventListener(
 
 
 /* =========================
-DROPDOWNS
+MOBILE DROPDOWNS
 ========================= */
 
 
 document
-.querySelectorAll(".filter-dropdown")
-.forEach(dropdown=>{
+.querySelectorAll(".mobile-filter-section")
+.forEach(section=>{
 
 
     const button =
-    dropdown.querySelector(
-        ".filter-button"
+    section.querySelector(
+        ".mobile-select-trigger"
     );
 
 
     const popup =
-    dropdown.querySelector(
-        ".filter-popup"
+    section.querySelector(
+        ".mobile-popup-options"
     );
-
-
-    const label =
-    dropdown.querySelector(
-        ".filter-label"
-    );
-
 
 
     if(!button || !popup){
@@ -346,8 +339,6 @@ document
         return;
 
     }
-
-
 
 
 
@@ -362,7 +353,7 @@ document
 
         document
         .querySelectorAll(
-            ".filter-popup.active"
+            ".mobile-popup-options.active"
         )
         .forEach(open=>{
 
@@ -385,13 +376,7 @@ document
         );
 
 
-        button.classList.toggle(
-            "active"
-        );
-
-
     });
-
 
 
 
@@ -400,7 +385,7 @@ document
 
     popup
     .querySelectorAll(
-        ".popup-options button"
+        "button"
     )
     .forEach(option=>{
 
@@ -415,39 +400,49 @@ document
 
 
 
-            if(label){
-
-                label.textContent =
-                option.textContent.trim();
-
-            }
+            button
+            .querySelector("span")
+            .textContent =
+            option.textContent.trim();
 
 
 
 
 
-            if(dropdown.id === "location-dropdown"){
+            const title =
+            section
+            .querySelector("h3")
+            ?.textContent.trim();
+
+
+
+
+
+            if(title === "Location"){
 
                 propertyFilters.location=value;
 
             }
 
 
-            if(dropdown.id === "property-type-dropdown"){
+
+            if(title === "Property Type"){
 
                 propertyFilters.propertyType=value;
 
             }
 
 
-            if(dropdown.id === "completion-dropdown"){
+
+            if(title === "Completed By"){
 
                 propertyFilters.completion=value;
 
             }
 
 
-            if(dropdown.id === "sort-dropdown"){
+
+            if(title === "Sort By"){
 
                 propertyFilters.sort=value;
 
@@ -455,15 +450,10 @@ document
 
 
 
+
             popup.classList.remove(
                 "active"
             );
-
-
-            button.classList.remove(
-                "active"
-            );
-
 
 
             filterProperties();
