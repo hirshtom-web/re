@@ -362,10 +362,4 @@ DROPDOWN
 }
 
 
-.desktop-toggle{
-    display:flex !important;
-}
 
-.mobile-toggle{
-    display:none !important;
-}
