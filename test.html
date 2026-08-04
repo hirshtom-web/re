@@ -1,27 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>Listings Test</title>
-
-<style>
-
-body{
-    font-family: Arial;
-    padding:40px;
-}
-
-.card{
-    border:1px solid #ddd;
-    padding:20px;
-    border-radius:12px;
-    margin:15px 0;
-}
-
-</style>
-
+<title>Properties</title>
 </head>
-
 
 <body>
 
@@ -29,28 +10,27 @@ body{
 
 <div id="listings"></div>
 
-
 <script>
-
 fetch("http://127.0.0.1:8000/listings")
-.then(response => {
-    console.log("response received");
-    return response.json();
-})
+.then(response => response.json())
 .then(data => {
 
-    console.log(data);
+    let html = "";
 
-    document.getElementById("listings").innerHTML =
-        JSON.stringify(data);
+    data.forEach(property => {
+        html += `
+        <h2>${property.address}</h2>
+        <p>Price: $${property.price}</p>
+        <p>Beds: ${property.beds}</p>
+        <p>Baths: ${property.baths}</p>
+        <hr>
+        `;
+    });
+
+    document.getElementById("listings").innerHTML = html;
 
 })
-.catch(error => {
-
-    console.log("ERROR:", error);
-
-});
-
+.catch(error => console.log(error));
 </script>
 
 </body>
