@@ -336,43 +336,74 @@ DROPDOWN
 /* Mobile */
 
 /* =========================
-APPLE STYLE MOBILE MENU
+   MOBILE MENU MODAL STYLE
 ========================= */
 
 
-.mobile-menu {
+.mobile-menu-overlay{
 
     position:fixed;
 
-    top:92px;
-    left:16px;
-    right:16px;
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    display:none;
+
+    z-index:20000;
+
+}
+
+
+.mobile-menu-overlay.active{
+
+    display:block;
+
+}
+
+
+
+/* MAIN MENU PANEL */
+
+.mobile-menu{
+
+    position:fixed;
+
+    left:50%;
+
+    top:50%;
+
+    transform:
+    translate(-50%,-45%)
+    scale(.96);
+
+    width:95vw;
+
+    height:90vh;
+
+    background:white;
+
+    border-radius:28px;
+
+    overflow:hidden;
 
     display:flex;
+
     flex-direction:column;
 
-    padding:12px;
+    padding:0;
 
-    background:rgba(255,255,255,.86);
-
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-
-    border-radius:26px;
-
-    box-shadow:
-    0 20px 60px rgba(0,0,0,.18),
-    inset 0 0 0 1px rgba(255,255,255,.5);
-
-    z-index:2000;
+    z-index:20001;
 
     opacity:0;
 
-    transform:
-    translateY(-15px)
-    scale(.96);
-
     pointer-events:none;
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.25);
 
     transition:
     opacity .25s ease,
@@ -382,31 +413,107 @@ APPLE STYLE MOBILE MENU
 
 
 
-/* OPEN STATE */
-
-.mobile-menu.active {
+.mobile-menu.active{
 
     opacity:1;
 
-    transform:
-    translateY(0)
-    scale(1);
-
     pointer-events:auto;
+
+    transform:
+    translate(-50%,-50%)
+    scale(1);
 
 }
 
 
 
-/* MENU ITEMS */
+/* MENU HEADER */
 
-.mobile-menu a {
+.mobile-menu-header{
+
+    height:72px;
 
     display:flex;
 
     align-items:center;
 
-    height:52px;
+    justify-content:space-between;
+
+    padding:0 24px;
+
+    border-bottom:1px solid #dedbd3;
+
+    flex-shrink:0;
+
+}
+
+
+
+.mobile-menu-title{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#171717;
+
+}
+
+
+
+.mobile-menu-close{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f5f5f5;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+}
+
+
+
+.mobile-menu-close .material-symbols-outlined{
+
+    font-size:26px;
+
+}
+
+
+
+/* LINKS AREA */
+
+.mobile-menu-links{
+
+    padding:20px;
+
+    overflow:auto;
+
+}
+
+
+
+.mobile-menu a{
+
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
 
     padding:0 18px;
 
@@ -414,13 +521,13 @@ APPLE STYLE MOBILE MENU
 
     text-decoration:none;
 
-    color:#111;
+    color:#171717;
 
-    font-size:16px;
+    font-size:17px;
 
-    font-weight:550;
+    font-weight:500;
 
-    letter-spacing:-0.2px;
+    letter-spacing:-.2px;
 
     transition:.2s ease;
 
@@ -428,22 +535,17 @@ APPLE STYLE MOBILE MENU
 
 
 
-.mobile-menu a:hover,
-.mobile-menu a:active {
+.mobile-menu a:hover{
 
-    background:#f2f2f7;
+    background:#f5f5f7;
 
 }
 
 
 
-/* ICONS INSIDE MENU */
+.mobile-menu a .material-symbols-outlined{
 
-.mobile-menu .material-symbols-outlined {
-
-    margin-right:14px;
-
-    font-size:22px;
+    font-size:24px;
 
     color:#555;
 
@@ -451,69 +553,74 @@ APPLE STYLE MOBILE MENU
 
 
 
-/* MENU DIVIDER */
+/* DIVIDER */
 
-.mobile-menu .divider {
+.mobile-menu-divider{
 
     height:1px;
 
-    background:#e5e5ea;
+    background:#e5e5e5;
 
-    margin:8px 12px;
-
-}
-
-
-
-/* DARK CTA BUTTON */
-
-.mobile-menu .nav-button {
-
-    justify-content:center;
-
-    margin-top:8px;
-
-    background:#111;
-
-    color:white!important;
-
-    border-radius:18px;
+    margin:15px 18px;
 
 }
 
 
 
-/* MOBILE BACKDROP */
+/* OPEN ANIMATION */
 
-.mobile-menu-overlay {
+@keyframes mobileMenuOpen{
 
-    position:fixed;
+    from{
 
-    inset:0;
+        transform:
+        translate(-50%,20px)
+        scale(.96);
 
-    background:rgba(0,0,0,.12);
+        opacity:.5;
 
-    backdrop-filter:blur(3px);
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.25s ease;
-
-    z-index:1500;
-
-}
+    }
 
 
-.mobile-menu-overlay.active {
+    to{
 
-    opacity:1;
+        transform:
+        translate(-50%,-50%)
+        scale(1);
 
-    pointer-events:auto;
+        opacity:1;
+
+    }
 
 }
 
+
+
+/* MOBILE FULLSCREEN */
+
+@media(max-width:600px){
+
+    .mobile-menu{
+
+        width:100vw;
+
+        height:100vh;
+
+        border-radius:0;
+
+    }
+
+
+    .mobile-menu-header{
+
+        height:60px;
+
+        padding:0 16px;
+
+    }
+
+
+}
 
 
 /* MOBILE ONLY */
