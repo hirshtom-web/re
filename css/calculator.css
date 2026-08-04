@@ -2,16 +2,10 @@
 /* BASE STYLES           */
 /* ===================== */
 html, body {
-    margin: 0;
-    padding: 0;
     color: #1e0949;
     touch-action: manipulation; /* prevents unintended zooming/panning */
     overscroll-behavior: none;  /* prevents jumping on mobile */
     -webkit-text-size-adjust: 100%; /* disable font zoom on iOS */
-}
-
-body {
-    padding: 40px;
 }
 
 h1 {
