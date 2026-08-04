@@ -684,61 +684,214 @@ SECTION TITLES
 SERVICE CARDS
 ===================== */
 
+/* =====================
+SERVICE GRID
+===================== */
+
 .cards-grid {
 
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:repeat(6,1fr);
+
     gap:25px;
 
 }
 
-.service-card,
-.feature-card {
+
+/* first row - two 50% cards */
+
+.service-card:nth-child(1),
+.service-card:nth-child(2){
+
+    grid-column:span 3;
+
+}
+
+
+/* second row - three equal cards */
+
+.service-card:nth-child(3),
+.service-card:nth-child(4),
+.service-card:nth-child(5){
+
+    grid-column:span 2;
+
+}
+
+.service-card {
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:420px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
 
     background:
-    rgba(255,255,255,.6);
+    linear-gradient(
+        135deg,
+        rgba(124,92,255,.18),
+        rgba(0,230,255,.12),
+        rgba(255,255,255,.7)
+    );
+
 
     backdrop-filter:blur(20px);
-    border:1px solid var(--border);
-    border-radius:var(--radius-md);
+
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,.5);
+
     padding:35px;
-    transition:.45s ease;
+
+
+    transition:
+    transform .45s ease,
+    box-shadow .45s ease;
 
 }
 
-.service-card:hover,
-.feature-card:hover {
 
-    transform:
-    translateY(-10px);
+/* AI glow */
 
-    box-shadow:
-    0 25px 60px rgba(0,0,0,.12);
+.service-card::before{
 
-    border-color:
-    rgba(124,92,255,.3);
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at top right,
+        rgba(0,255,255,.35),
+        transparent 45%
+    );
+
+
+    opacity:.7;
+
+    pointer-events:none;
 
 }
 
-.service-card h3,
-.feature-card h3 {
 
-    font-size:25px;
+/* content above effects */
+
+.card-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.service-card h3{
+
+    font-size:26px;
+
     margin-bottom:18px;
-    letter-spacing:0px;
 
 }
 
-.service-card p,
-.feature-card p {
 
-    color:var(--muted);
+.service-card p{
+
+    color:#555;
+
     line-height:1.7;
 
 }
 
+.service-card img{
+
+    width:calc(100% + 70px);
+
+    height:180px;
+
+    object-fit:cover;
+
+
+    margin-left:-35px;
+
+    margin-bottom:-35px;
+
+
+    transition:
+    transform .6s ease;
+
+}
+
+
+/* hover gradient stroke */
+
+.service-card:hover{
+
+    transform:translateY(-10px);
+
+
+    border:3px solid transparent;
+
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.8),
+        rgba(255,255,255,.8)
+    ) padding-box,
+
+
+    linear-gradient(
+        135deg,
+        #00ffff,
+        #7c5cff,
+        #ff4fd8
+    ) border-box;
+
+
+    box-shadow:
+
+    0 30px 80px rgba(124,92,255,.25);
+
+}
+
+
+/* image only zoom */
+
+.service-card:hover img{
+
+    transform:scale(1.05);
+
+}
+
+@media(max-width:900px){
+
+    .cards-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .service-card:nth-child(n){
+
+        grid-column:auto;
+
+    }
+
+}
 /* =====================
-WHY HAIYAM
+WHY FLORIDA
 ===================== */
 
 .tm-heal100{
