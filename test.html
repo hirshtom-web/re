@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Listings Test</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    padding:40px;
+}
+
+.card{
+    border:1px solid #ddd;
+    padding:20px;
+    border-radius:12px;
+    margin:15px 0;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<h1>Properties</h1>
+
+<div id="listings"></div>
+
+
+<script>
+
+fetch("http://127.0.0.1:8000/listings")
+
+.then(response => response.json())
+
+.then(data => {
+
+
+    let container = document.getElementById("listings");
+
+
+    data.forEach(property => {
+
+
+        container.innerHTML += `
+
+        <div class="card">
+
+            <h2>${property.address}</h2>
+
+            <p>
+            Price: $${property.price}
+            </p>
+
+            <p>
+            Beds: ${property.beds}
+            |
+            Baths: ${property.baths}
+            </p>
+
+        </div>
+
+        `;
+
+
+    });
+
+
+});
+
+
+</script>
+
+
+</body>
+</html>
