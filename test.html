@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Properties</h1>
+
+<div id="listings">Loading...</div>
+
+<script>
+fetch("http://127.0.0.1:8000/listings")
+.then(response => response.json())
+.then(data => {
+    document.getElementById("listings").innerHTML = JSON.stringify(data);
+})
+.catch(error => {
+    document.getElementById("listings").innerHTML = error;
+});
+</script>
+
+</body>
+</html>

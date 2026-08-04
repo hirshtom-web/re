@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Properties</title>
+</head>
+
+<body>
+
+<h1>Properties</h1>
+
+<div id="listings"></div>
+
+<script>
+fetch("http://127.0.0.1:8000/listings")
+.then(response => response.json())
+.then(data => {
+
+    let html = "";
+
+    data.forEach(property => {
+        html += `
+        <h2>${property.address}</h2>
+        <p>Price: $${property.price}</p>
+        <p>Beds: ${property.beds}</p>
+        <p>Baths: ${property.baths}</p>
+        <hr>
+        `;
+    });
+
+    document.getElementById("listings").innerHTML = html;
+
+})
+.catch(error => console.log(error));
+</script>
+
+</body>
+</html>
