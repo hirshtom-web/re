@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Real Estate</title>
+
+<link rel="stylesheet" href="css/property.css">
+
+<style>
+
+    
+    .secondary-btn{
+    background:none;
+    cursor:pointer;
+}
+    
+.ai-nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:35px 0;
+}
+
+
+.logo,
+.footer-logo{
+    height:28px;
+}
+
+
+
+.ai-hero{
+    position:relative;
+    text-align:center;
+    padding:130px 0 120px;
+    overflow:hidden;
+}
+
+
+.ai-glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(
+        circle,
+        rgba(154,128,80,.25),
+        transparent 70%
+    );
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    filter:blur(40px);
+}
+
+
+.ai-hero .eyebrow{
+    position:relative;
+}
+
+
+.ai-hero h1{
+    position:relative;
+    margin-top:25px;
+    font-size:76px;
+    line-height:1;
+    letter-spacing:-4px;
+    font-weight:600;
+}
+
+
+.ai-hero p{
+    position:relative;
+    max-width:620px;
+    margin:35px auto;
+    color:var(--muted);
+    font-size:19px;
+    line-height:1.7
+}
+
+
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:40px;
+}
+
+
+.primary-btn,
+.secondary-btn{
+
+    padding:15px 30px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:13px;
+    letter-spacing:.5px;
+
+}
+
+
+.primary-btn{
+    background:#161616;
+    color:white;
+}
+
+
+.secondary-btn{
+    border:1px solid var(--line);
+    color:var(--text);
+}
+
+
+
+.ai-message{
+    padding:140px 0;
+    text-align:center;
+}
+
+
+.ai-message h2{
+    font-size:48px;
+    max-width:800px;
+    margin:auto;
+}
+
+
+    .login-overlay{
+
+position:fixed;
+inset:0;
+
+background:rgba(22,22,22,.45);
+
+backdrop-filter:blur(12px);
+
+display:none;
+
+align-items:center;
+justify-content:center;
+
+z-index:1000;
+
+}
+
+
+.login-overlay.active{
+display:flex;
+}
+
+
+.login-modal{
+
+width:90%;
+max-width:420px;
+
+background:white;
+
+border:1px solid var(--line);
+
+border-radius:20px;
+
+padding:40px;
+
+position:relative;
+
+box-shadow:0 30px 80px rgba(0,0,0,.15);
+
+}
+
+
+.login-modal h2{
+
+margin:20px 0 10px;
+
+}
+
+
+.login-modal p{
+
+color:var(--muted);
+
+font-size:14px;
+
+margin-bottom:25px;
+
+}
+
+
+.login-modal input{
+
+width:100%;
+
+padding:15px;
+
+margin-bottom:12px;
+
+border-radius:10px;
+
+border:1px solid var(--line);
+
+font-size:16px;
+
+}
+
+
+.login-btn{
+
+width:100%;
+
+padding:15px;
+
+border-radius:50px;
+
+border:none;
+
+background:#161616;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+
+.close-login{
+
+position:absolute;
+
+right:20px;
+top:15px;
+
+border:none;
+background:none;
+
+font-size:25px;
+
+cursor:pointer;
+
+}
+
+
+#error{
+
+display:block;
+
+margin-top:15px;
+
+color:#9a8050;
+
+font-size:13px;
+
+}
+    
+
+@media(max-width:700px){
+
+.ai-hero h1{
+    font-size:42px;
+    letter-spacing:-2px;
+}
+
+.hero-buttons{
+    flex-direction:column;
+    max-width:70%;
+    margin-left:auto;
+    margin-right:auto;
+    align-items:center;
+}
+
+.logo{
+    margin-bottom:15px;
+
+}
+
+}
+    @media(max-width:700px){
+
+    html, body{
+        height:100%;
+        overflow:hidden;
+    }
+
+    .page{
+        height:100vh;
+        overflow:hidden;
+    }
+
+    .ai-hero{
+        height:100vh;
+        padding:0 20px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        box-sizing:border-box;
+    }
+
+    .ai-glow{
+        width:350px;
+        height:350px;
+    }
+
+    .ai-hero h1{
+        font-size:42px;
+        letter-spacing:-2px;
+        margin-top:20px;
+    }
+
+    .ai-hero p{
+        font-size:16px;
+        line-height:1.5;
+        margin:25px auto;
+    }
+
+    .hero-buttons{
+        margin-top:25px;
+    }
+
+}
+    
+    
+</style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+<section class="ai-hero">
+
+<div class="ai-glow"></div>
+
+<img 
+class="logo"
+src="https://static.wixstatic.com/shapes/1799ca_7155831ea6c34da28a5a12b76fe72255.svg"
+alt="Logo">
+
+
+<div class="eyebrow">
+NEXT GENERATION REAL ESTATE
+</div>
+
+
+<h1>
+Invest<br>
+in what’s next.
+</h1>
+
+
+<p>
+Access carefully selected real estate investments focused on quality assets, strong fundamentals, and long-term wealth creation.
+</p>
+
+
+<div class="hero-buttons">
+
+<button class="secondary-btn" onclick="openLogin()">
+Investor Login
+</button>
+
+</div>
+
+
+</section>
+
+</div>
+
+
+<div class="login-overlay" id="loginModal">
+
+    <div class="login-modal">
+
+        <button class="close-login" onclick="closeLogin()">
+            ×
+        </button>
+
+        <div class="eyebrow">
+            PRIVATE ACCESS
+        </div>
+
+        <h2>
+            Investor Portal
+        </h2>
+
+        <p>
+            Enter your credentials to continue.
+        </p>
+
+
+        <input 
+        id="username"
+        type="text"
+        placeholder="Username">
+
+
+        <input
+        id="password"
+        type="password"
+        placeholder="Password">
+
+
+        <button onclick="login()" class="login-btn">
+            Access Portal
+        </button>
+
+
+        <span id="error"></span>
+
+
+    </div>
+
+</div>
+
+  <script>
+
+const investors = [
+
+{
+    username:"investor",
+    password:"welcome2026",
+    name:"Investor"
+},
+
+
+{
+    username:"tom",
+    password:"12345",
+    name:"Tom"
+}
+
+];
+
+
+
+function openLogin(){
+
+    document
+    .getElementById("loginModal")
+    .classList.add("active");
+
+}
+
+
+
+function closeLogin(){
+
+    document
+    .getElementById("loginModal")
+    .classList.remove("active");
+
+}
+
+
+
+function login(){
+
+
+let user =
+document.getElementById("username").value.trim();
+
+
+let pass =
+document.getElementById("password").value.trim();
+
+
+
+let found =
+investors.find(x =>
+
+    x.username.toLowerCase() === user.toLowerCase()
+    &&
+    x.password === pass
+
+);
+
+
+
+if(found){
+
+
+localStorage.setItem(
+"investorName",
+found.name
+);
+
+
+window.location.href="../opportunities/";
+
+
+}
+
+else{
+
+
+document.getElementById("error").innerHTML =
+"Access denied";
+
+
+}
+
+
+}
+
+
+
+
+document.getElementById("loginModal").onclick = function(e){
+
+    if(e.target === this){
+
+        closeLogin();
+
+    }
+
+}
+
+
+</script>
+</body>
+</html>

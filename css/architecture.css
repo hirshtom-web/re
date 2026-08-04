@@ -1,0 +1,1249 @@
+/* =========================
+   LEGAL COMPLIANCE FOOTER
+========================= */
+
+
+.legal-section{
+
+    margin-top:80px;
+
+    padding:50px 0;
+
+    border-top:1px solid #eee;
+
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+
+
+.legal-inner{
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+
+
+.legal-logos{
+
+    display:flex;
+
+    gap:25px;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+
+.legal-logo{
+
+    width:90px;
+
+    height:55px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+}
+
+
+.legal-logo img{
+
+    max-width:100%;
+
+    max-height:45px;
+
+    object-fit:contain;
+
+    object-position:left center;
+
+    opacity:.75;
+
+}
+
+
+
+.legal-copy{
+
+    max-width:1000px;
+
+}
+
+
+
+.legal-copy p{
+
+    margin-bottom:15px;
+
+}
+
+
+
+.legal-copy strong{
+
+    color:#333;
+
+    font-weight:600;
+
+}
+
+
+
+.legal-bottom{
+
+    margin-top:35px;
+
+    padding-top:25px;
+
+    border-top:1px solid #eee;
+
+    color:#999;
+
+}
+
+
+
+@media(max-width:700px){
+
+
+.legal-logos{
+
+    flex-wrap:wrap;
+
+}
+
+
+}
+
+/* =========================
+   ARCHITECTURE & DESIGN
+========================= */
+
+.architecture-feature{
+
+    display:grid;
+
+    grid-template-columns:40% 60%;
+
+    align-items:stretch;
+
+    gap:40px;
+
+}
+
+
+/* =========================
+   MEDIA SLIDER
+========================= */
+
+.architecture-gallery{
+
+    display:flex;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    scroll-snap-type:x mandatory;
+
+    -webkit-overflow-scrolling:touch;
+
+    height:520px;
+
+    border-radius:35px;
+
+}
+
+
+.architecture-gallery::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+.architecture-card{
+
+    flex:0 0 100%;
+
+    height:100%;
+
+    scroll-snap-align:start;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:35px;
+
+}
+
+
+.architecture-card img,
+.architecture-card video{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.architecture-content{
+
+    padding:20px;
+
+    max-width:560px;
+
+    height:520px;
+
+    box-sizing:border-box;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+
+/* BIG CENTER PLAY */
+
+.video-play{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+   
+    background:transparent;
+
+    border:none;
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    z-index:5;
+
+}
+
+.video-play:hover{
+
+    background:transparent;
+
+}
+
+
+
+/* SMALL PLAY / PAUSE */
+
+.video-toggle{
+
+    position:absolute;
+
+    right:18px;
+
+    bottom:18px;
+
+    width:auto;
+
+    height:auto;
+
+    border:none;
+
+    border-radius:0;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    z-index:6;
+
+}
+
+.video-toggle:hover{
+
+    background:transparent;
+
+    color:white;
+
+}
+
+
+
+/* CAPTION */
+
+
+.architecture-card p{
+
+    display:none;
+
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+
+
+.architecture-content h3{
+
+    font-size:clamp(28px,3vw,42px);
+
+    line-height:1.2;
+
+    margin:20px 0;
+
+}
+
+
+
+.architecture-content p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    max-width:580px;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:4;
+
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
+
+}
+
+
+
+.design-details{
+
+    margin-top:35px;
+
+    display:grid;
+
+    gap:18px;
+
+}
+
+
+
+.design-details div{
+
+    padding:14px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+.design-details strong{
+
+    display:block;
+
+    font-size:14px;
+
+    color:#999;
+
+    text-transform:uppercase;
+
+    letter-spacing:.08em;
+
+}
+
+
+
+.design-details span{
+
+    font-size:18px;
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:768px){
+
+    .architecture-feature{
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+
+    }
+
+
+   .architecture-gallery{
+
+    height:320px;
+
+    border-radius:24px;
+
+}
+
+
+    .architecture-content{
+
+        height:auto;
+
+        padding:0;
+
+    }
+
+}
+
+/* =========================
+   FINANCIAL OVERVIEW
+========================= */
+
+
+.financial-overview{
+
+    margin:60px 0 0;
+
+}
+
+
+.financial-overview h2{
+
+    margin-bottom:40px;
+
+}
+
+
+
+
+
+/* =========================
+   FINANCIAL GRID
+========================= */
+
+
+.financial-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:24px;
+
+}
+
+@media(max-width:1100px){
+
+    .financial-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+/* =========================
+   FINANCIAL CARD
+========================= */
+
+
+.financial-card{
+
+    position:relative;
+
+    background:#fff;
+
+    border:1px solid #ededed;
+
+    border-radius:30px;
+
+    padding:32px;
+
+    min-height:260px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+}
+
+
+
+.financial-card-label{
+
+    color:#999;
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.12em;
+
+}
+
+
+
+
+
+.financial-card strong{
+
+    display:block;
+
+    margin-top:15px;
+
+    font-size:38px;
+
+    font-weight:500;
+
+    letter-spacing:-.04em;
+
+    color:#111;
+
+}
+
+
+
+
+
+.financial-card p{
+
+    color:#777;
+
+    font-size:14px;
+
+    margin-top:8px;
+
+}
+
+
+
+
+.financial-more{
+
+    position:absolute;
+
+    top:34px;
+
+    right:32px;
+
+    border:none;
+
+    background:none;
+
+    padding:0;
+
+    color:#6D5DFB;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    line-height:1;
+
+}
+
+
+.financial-more:hover{
+
+    transform:translateX(4px);
+
+    color:#4f46e5;
+
+}
+
+.financial-more,
+.financial-more:hover,
+.financial-more:focus,
+.financial-more:active{
+
+    background:none !important;
+
+    background-color:transparent !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+}
+
+
+@media(max-width:900px){
+
+    .financial-more{
+
+        top:26px;
+
+        right:26px;
+
+    }
+
+}
+
+/* =========================
+   PURPLE CHART AREA
+========================= */
+
+
+.financial-visual{
+
+    height:80px;
+
+    margin-top:30px;
+
+}
+
+
+
+
+
+/* LINE CHART */
+
+.line-chart{
+
+    position:relative;
+
+    height:100%;
+
+}
+
+
+
+.line-chart svg{
+
+    width:100%;
+
+    height:100%;
+
+}
+
+
+
+
+.line-chart path{
+
+    fill:none;
+
+    stroke:#6D5DFB;
+
+    stroke-width:3;
+
+    stroke-linecap:round;
+
+}
+
+
+
+
+
+
+
+/* AREA CHART */
+
+
+.area-chart{
+
+    height:60px;
+
+    border-radius:16px;
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #EDEBFF,
+        transparent
+    );
+
+    position:relative;
+
+}
+
+
+
+.area-chart:after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:15px;
+
+    height:3px;
+
+    background:#6D5DFB;
+
+    border-radius:10px;
+
+    transform:skewY(-8deg);
+
+}
+
+
+
+
+
+/* =========================
+   RING CHART
+========================= */
+
+
+.ring-chart{
+
+    width:80px;
+
+    height:80px;
+
+    border-radius:50%;
+
+    background:
+
+    conic-gradient(
+        #6D5DFB 0 65%,
+        #EDEBFF 65% 100%
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+
+.ring-chart::after{
+
+    content:"";
+
+    width:58px;
+
+    height:58px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+}
+
+
+
+
+
+/* =========================
+   BAR CHART
+========================= */
+
+
+.bar-chart{
+
+    display:flex;
+
+    gap:8px;
+
+    align-items:flex-end;
+
+    height:70px;
+
+}
+
+
+
+.bar-chart span{
+
+    flex:1;
+
+    background:#EDEBFF;
+
+    border-radius:8px 8px 0 0;
+
+}
+
+
+
+.bar-chart span:nth-child(1){
+
+    height:35%;
+
+}
+
+
+.bar-chart span:nth-child(2){
+
+    height:55%;
+
+}
+
+
+.bar-chart span:nth-child(3){
+
+    height:75%;
+
+    background:#6D5DFB;
+
+}
+
+
+.bar-chart span:nth-child(4){
+
+    height:90%;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   AI SCORE
+========================= */
+
+
+.ai-score{
+
+    color:#6D5DFB;
+
+}
+
+
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:900px){
+
+    .financial-grid{
+
+        display:flex;
+
+        overflow-x:auto;
+
+        scroll-snap-type:x mandatory;
+
+        gap:16px;
+
+        scrollbar-width:none;
+
+        scroll-behavior:smooth;
+
+
+    }
+
+
+    .financial-grid::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+
+    .financial-card{
+
+        flex:0 0 88%;
+
+        scroll-snap-align:start;
+
+        padding:26px;
+
+        min-height:240px;
+
+        border-radius:28px;
+
+
+    }
+
+
+    .financial-card strong{
+
+        font-size:32px;
+
+    }
+
+}
+
+/* =========================
+   FAQ SECTION
+========================= */
+
+
+.faq-section{
+
+    margin-top:80px;
+
+}
+
+
+.faq-section h2{
+
+    margin-bottom:40px;
+
+}
+
+
+
+
+/* =========================
+   FAQ LIST
+========================= */
+
+
+.faq-list{
+
+    display:grid;
+
+    gap:16px;
+
+    width:100%;
+
+}
+
+
+
+
+/* =========================
+   FAQ ITEM
+========================= */
+
+
+.faq-item{
+
+    background:#fff;
+
+    border:1px solid #ededed;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    transition:.3s ease;
+
+}
+
+
+
+.faq-item:hover{
+
+    border-color:#d8d0ff;
+
+}
+
+
+
+
+/* =========================
+   QUESTION
+========================= */
+
+
+.faq-question{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:18px 32px;
+
+    min-height:0;
+
+    line-height:1.2;
+
+    border:none;
+
+    background:transparent;
+
+    font-family:inherit;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    color:#111;
+
+    text-align:left;
+
+    cursor:pointer;
+
+}
+
+
+.faq-question span{
+
+    color:#6D5DFB;
+
+    font-size:24px;
+
+    font-weight:400;
+
+    line-height:1;
+
+    margin-top:2px;
+
+    transition:.3s ease;
+
+}
+
+.faq-question{
+    margin:10px;
+}
+
+.faq-question span{
+    margin:10px;
+}
+
+
+/* =========================
+   ANSWER
+========================= */
+
+
+.faq-answer{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height .35s ease;
+
+}
+
+
+
+.faq-answer p{
+
+    padding:0 32px 28px;
+
+    margin:0;
+
+    color:#777;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+}
+
+
+
+
+/* =========================
+   ACTIVE STATE
+========================= */
+
+
+.faq-item.active{
+
+    border-color:#d8d0ff;
+
+}
+
+
+
+.faq-item.active .faq-answer{
+
+    max-height:200px;
+
+}
+
+
+
+.faq-item.active .faq-question span{
+
+    transform:rotate(45deg);
+
+}
+
+.faq-question,
+.faq-question:hover,
+.faq-question:focus,
+.faq-question:active{
+
+    background:transparent !important;
+    background-color:transparent !important;
+
+    color:#111 !important;
+
+    border:none !important;
+    outline:none !important;
+    box-shadow:none !important;
+
+}
+
+.faq-question span,
+.faq-question:hover span{
+
+    background:transparent !important;
+    color:#6D5DFB !important;
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:768px){
+
+
+    .faq-section{
+
+        margin-top:60px;
+
+    }
+
+
+    .faq-question{
+
+        padding:18px 24px 20px;
+
+        font-size:16px;
+
+}
+
+
+    .faq-answer p{
+
+        padding:0 24px 24px;
+
+    }
+
+
+}
+
+.faq-wrapper{
+
+    position:relative;
+
+    max-height:520px;
+
+    overflow:hidden;
+
+    transition:max-height .5s ease;
+
+    -webkit-mask-image:linear-gradient(
+        to bottom,
+        black 75%,
+        transparent 100%
+    );
+
+    mask-image:linear-gradient(
+        to bottom,
+        black 75%,
+        transparent 100%
+    );
+
+}
+
+
+.faq-wrapper.expanded{
+
+    max-height:2000px;
+
+    -webkit-mask-image:none;
+
+    mask-image:none;
+
+}
+
+
+.faq-toggle{
+
+    display:block;
+
+    margin:25px auto 0;
+
+    background:none;
+
+    border:none;
+
+    color:#4f46e5;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.faq-toggle:hover{
+
+    color:#6d5dfb;
+
+}
+
+.faq-toggle,
+.faq-toggle:hover,
+.faq-toggle:focus,
+.faq-toggle:active{
+
+    background:transparent !important;
+    background-color:transparent !important;
+
+    border:none;
+
+    box-shadow:none;
+
+    outline:none;
+
+}

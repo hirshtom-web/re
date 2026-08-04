@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Real Estate Opportunities</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/deals.css">
+<link rel="stylesheet" href="../css/modal.css">
+<link rel="stylesheet" href="../css/contact.css">
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+
+<header>
+
+
+<div class="eyebrow">
+REAL ESTATE
+</div>
+
+
+<h1>
+Investment Opportunities
+</h1>
+
+
+<p class="subtitle">
+Exclusive commercial real estate acquisitions available to qualified investors.
+</p>
+
+
+
+<div class="stats">
+
+<div class="stat">
+
+<span>
+Strategy
+</span>
+
+<strong>
+Income + Growth
+</strong>
+
+</div>
+
+
+</div>
+
+
+</header>
+
+
+
+
+
+<section class="deal-grid" id="deal-grid"></section>
+
+  <footer>
+
+PRIVATE & CONFIDENTIAL  
+
+</footer>
+
+
+
+</div>
+  
+
+<div class="modal" id="dealModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div class="modal-left">
+
+                <button class="modal-btn" onclick="closeDeal()">
+
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M15 18L9 12L15 6"/>
+</svg>
+
+Back
+
+</button>
+
+            </div>
+
+            <div class="modal-center">
+
+                <img
+                    class="modal-logo"
+                    src="https://static.wixstatic.com/shapes/1799ca_7155831ea6c34da28a5a12b76fe72255.svg"
+                    alt="Logo">
+
+            </div>
+
+           <div class="modal-right">
+
+<button class="icon-btn" onclick="downloadPDF()">
+<span class="material-symbols-rounded">picture_as_pdf</span>
+</button>
+
+<div class="menu-wrapper">
+
+<button class="icon-btn" onclick="toggleMenu()">
+<span class="material-symbols-rounded">more_vert</span>
+</button>
+
+<div id="moreMenu" class="more-menu">
+
+<button onclick="whatsappBroker()">
+<span class="material-symbols-rounded">chat</span>
+WhatsApp
+</button>
+
+<button onclick="callBroker()">
+<span class="material-symbols-rounded">call</span>
+Call
+</button>
+
+<button onclick="emailBroker()">
+<span class="material-symbols-rounded">mail</span>
+Email
+</button>
+
+<hr>
+
+<button onclick="shareDeal()">
+<span class="material-symbols-rounded">share</span>
+Share
+</button>
+
+<button onclick="copyLink()">
+<span class="material-symbols-rounded">content_copy</span>
+Copy Link
+</button>
+
+<button onclick="visitWebsite()">
+<span class="material-symbols-rounded">language</span>
+Website
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<iframe id="dealFrame"></iframe>
+
+</div>
+
+</div>
+
+<script src="../js/props.js"></script>
+<script src="../js/listings.js"></script>
+
+<script src="../js/modal.js"></script>
+<script src="../js/contact.js"></script>
+
+
+</body>
+
+</html>

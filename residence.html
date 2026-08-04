@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Private Residence Opportunity</title>
+
+<link 
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" 
+rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+rel="stylesheet">
+
+<link rel="stylesheet" href="../css/residence.css">
+<link rel="stylesheet" href="../css/residence-mobile.css">
+<link rel="stylesheet" href="../css/sticky-form.css">
+<link rel="stylesheet" href="../css/architecture.css">
+<link rel="stylesheet" href="../css/ai-modal.css">
+<link rel="stylesheet" href="../css/mortgage-calculator.css">
+<link rel="stylesheet" href="../css/virtual-showing.css">
+<link rel="stylesheet" href="../css/property-map.css">
+
+
+  
+</head>
+
+
+<body>
+
+
+<div class="residence-page">
+
+
+<!-- IMAGE GALLERY -->
+
+<div class="mobile-gallery">
+
+    <div 
+    class="mobile-slider"
+    id="mobile-slider">
+    </div>
+
+
+    <div 
+    class="gallery-counter"
+    id="mobile-counter">
+    </div>
+
+</div>
+
+
+<main class="property-container">
+
+<!-- DESKTOP GALLERY -->
+
+
+<section class="property-gallery">
+
+
+<div class="gallery-feature">
+
+    <img 
+id="property-main-image"
+src=""
+alt="Property main image">
+
+
+    <div 
+    class="image-placeholder"
+    id="image-placeholder">
+
+        Images Coming Soon
+
+    </div>
+
+</div>
+
+
+<div 
+class="gallery-grid"
+id="gallery-grid">
+</div>
+
+
+<button 
+class="gallery-counter" 
+onclick="openMediaLibrary()">
+
+<span class="material-symbols-outlined">
+photo_library
+</span>
+
+<span id="photo-count">
+View all photos
+</span>
+
+</button>
+
+
+</section>
+
+
+
+
+<!-- MEDIA LIBRARY POPUP -->
+
+<div class="media-library" id="mediaLibrary">
+
+    <div class="media-header">
+
+        <div class="media-tabs">
+
+            <button class="media-tab active" data-type="photos">
+                Photos
+            </button>
+
+            <button class="media-tab" data-type="videos">
+                Videos
+            </button>
+
+            <button class="media-tab" data-type="tour">
+                360 Tour
+            </button>
+
+            <button class="media-tab" data-type="floorplans">
+                Floor Plans
+            </button>
+
+        </div>
+
+
+        <button onclick="closeMediaLibrary()">
+            ✕
+        </button>
+
+
+    </div>
+
+
+    <div 
+    class="media-content" 
+    id="mediaContent">
+    </div>
+
+
+</div>
+  
+  
+  
+<!-- GALLERY ABOVE THIS -->
+
+
+<section class="residence-layout">
+
+
+<!-- LEFT CONTENT -->
+
+<div class="residence-content">
+
+
+<!-- HERO CONTENT -->
+
+<section class="residence-hero">
+
+<div class="hero-content">
+
+
+<div class="title-row">
+
+    <h1 id="property-title"></h1>
+
+    <div class="property-tags">
+
+        <span 
+        class="tag tag-green" 
+        id="property-status">
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<p 
+class="property-address" 
+id="property-address">
+</p>
+
+
+
+<div class="property-meta">
+
+    <span 
+    class="last-update" 
+    id="last-update">
+    </span>
+
+
+    <button 
+    class="ai-rating" 
+    id="ai-rating">
+    </button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+<!-- FACTS -->
+
+<section class="facts-grid" id="facts-grid">
+
+
+<div class="fact-card">
+
+<span>
+Building Type
+</span>
+
+<strong>
+</strong>
+
+</div>
+
+
+
+<div class="fact-card">
+
+<span>
+Starting From
+</span>
+
+<strong>
+</strong>
+
+</div>
+
+
+
+<div class="fact-card">
+
+<span>
+Residence Types
+</span>
+
+<strong>
+</strong>
+
+</div>
+
+
+
+<div class="fact-card">
+
+<span>
+Delivery
+</span>
+
+<strong>
+</strong>
+
+</div>
+
+
+
+<div class="fact-card">
+
+<span>
+Developer
+</span>
+
+<strong>
+</strong>
+
+</div>
+
+
+
+<div class="fact-card">
+
+<span>
+Architect
+</span>
+
+<strong>
+</strong>
+
+</div>
+
+
+
+<div class="fact-card">
+
+<span>
+Stories
+</span>
+
+<strong>
+</strong>
+
+</div>
+
+
+
+<div class="fact-card">
+
+<span>
+HOA
+</span>
+
+<strong>
+</strong>
+
+</div>
+
+
+</section>
+
+
+
+<!-- PROPERTY INTELLIGENCE -->
+
+<section class="content-section">
+
+<h2>
+Property Intelligence
+</h2>
+
+
+<div class="card-grid" id="property-intelligence">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- LOCATION OVERVIEW -->
+
+<h2>
+Location Overview
+</h2>
+
+
+<section class="location-map">
+
+    <div id="property-map"></div>
+
+</section>
+
+
+  
+  <!-- NEARBY DESTINATIONS -->
+
+<section class="content-section">
+
+<h2>
+Nearby Destinations
+</h2>
+
+
+<div class="nearby-grid" id="nearby-grid">
+
+</div>
+
+
+</section>
+
+
+  
+
+<!-- NEIGHBORHOOD LIFESTYLE -->
+
+<!-- LIFESTYLE EXPERIENCE HERO -->
+
+<section class="content-section">
+
+<h2>
+Signature Miami Living
+</h2>
+
+<div class="lifestyle-slider" id="lifestyle-slider">
+
+</div>
+
+<div class="lifestyle-tags" id="lifestyle-tags">
+
+</div>
+
+</section>
+
+
+
+<!-- LIFESTYLE HIGHLIGHTS -->
+
+<section class="content-section">
+
+<h2>
+Lifestyle Highlights
+</h2>
+
+
+<p class="section-intro" id="lifestyle-intro">
+</p>
+
+
+<div class="lifestyle-grid" id="lifestyle-grid">
+
+</div>
+
+</section>
+  
+
+
+
+  <!-- VIRTUAL-SHOWING -->
+  
+    <h2>
+Showing Time
+</h2>
+  
+<section class="virtual-showing-section">
+
+
+<div class="showing-dates">
+
+    <div class="date-card active">
+        <span>TODAY</span>
+        <strong>23</strong>
+        <small>JUL</small>
+    </div>
+
+    <div class="date-card">
+        <span>THU</span>
+        <strong>24</strong>
+        <small>JUL</small>
+    </div>
+
+    <div class="date-card">
+        <span>FRI</span>
+        <strong>25</strong>
+        <small>JUL</small>
+    </div>
+
+    <div class="date-card">
+        <span>SAT</span>
+        <strong>26</strong>
+        <small>JUL</small>
+    </div>
+
+    <div class="date-card">
+        <span>SUN</span>
+        <strong>27</strong>
+        <small>JUL</small>
+    </div>
+
+</div>
+
+
+
+<div class="showing-times">
+
+<h3>
+Available Times
+</h3>
+
+
+<div class="time-slots">
+
+<button>10:00</button>
+<button>10:30</button>
+<button class="unavailable">11:00</button>
+<button>11:30</button>
+<button>12:00</button>
+<button>14:00</button>
+
+</div>
+
+
+</div>
+
+
+<div class="meeting-info">
+
+<span>
+Google Meet · Private 25 minute meeting
+</span>
+
+<button class="schedule-button" disabled>
+Request Showing
+</button>
+
+</div>
+
+
+</section>
+
+
+  
+
+<!-- AMENITIES -->
+
+
+<section class="content-section">
+
+<h2>
+World-Class Amenities
+</h2>
+
+
+<div class="amenity-grid" id="amenity-grid">
+
+</div>
+
+
+</section>
+  
+
+
+  <!-- RESIDENCE COLLECTION -->
+<section class="content-section">
+
+<h2>Residence Collection</h2>
+
+<div class="units-wrapper">
+
+<div class="units-table">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Residence</th>
+<th>Bedrooms</th>
+<th>Bathrooms</th>
+<th>Interior</th>
+<th>Floor Plan</th>
+</tr>
+
+</thead>
+
+<tbody id="residence-table-body"></tbody>
+
+</table>
+
+</div>
+
+<button class="table-toggle" id="view-all-residences">
+View All Floor Plans
+</button>
+
+</div>
+
+</section>
+
+
+
+
+<!-- ARCHITECTURE & DESIGN -->
+
+<section class="content-section">
+
+<h2>
+Architecture & Design
+</h2>
+
+
+<div class="architecture-feature">
+
+
+    <!-- Dynamic Architecture Gallery -->
+
+    <div 
+        class="architecture-gallery" 
+        id="architecture-gallery">
+    </div>
+
+
+
+    <!-- Dynamic Architecture Content -->
+
+    <div class="architecture-content">
+
+
+        <h3 id="architecture-title">
+        </h3>
+
+
+        <p id="architecture-text">
+        </p>
+
+
+        <button class="architecture-read-more read-more">
+            Read more →
+        </button>
+
+
+
+        <!-- Dynamic Design Team -->
+
+        <div class="design-details" id="design-team">
+
+
+            <div>
+
+                <strong>
+                Architect
+                </strong>
+
+                <span id="team-architect">
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                <strong>
+                Designer
+                </strong>
+
+                <span id="team-designer">
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                <strong>
+                Interior Designer
+                </strong>
+
+                <span id="team-interior">
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+  
+  
+  
+<!-- CONSTRUCTION TIMELINE -->
+
+<section 
+class="content-section"
+id="construction-section">
+
+    <h2>
+        Construction Timeline
+    </h2>
+
+    <div
+        class="project-timeline"
+        id="construction-timeline">
+    </div>
+
+</section>
+
+
+<!-- MORTGAGE CALCULATOR -->
+
+<section id="mortgage-calculator" class="mortgage-section">
+
+
+<!-- PROPERTY DATA SOURCE -->
+
+<div class="property-data"></div>
+
+
+
+<h2>
+Mortgage Calculator
+</h2>
+
+
+<p class="mortgage-intro">
+Estimate your monthly residence payment
+</p>
+
+
+
+
+<div class="mortgage-grid">
+
+
+
+<!-- SETTINGS -->
+
+<div class="mortgage-inputs">
+
+
+<div class="mortgage-field slider-field">
+
+<label>
+Purchase Price
+</label>
+
+<strong id="price-display">
+$0
+</strong>
+
+
+<input
+id="home-price"
+type="range"
+min="500000"
+max="5000000"
+step="25000"
+value="0"
+>
+
+</div>
+
+
+
+
+
+<div class="mortgage-field slider-field">
+
+<label>
+Down Payment
+</label>
+
+
+<strong id="down-display">
+0%
+</strong>
+
+
+<input
+id="down-payment"
+type="range"
+min="10"
+max="80"
+step="1"
+value="0"
+>
+
+
+</div>
+
+
+
+
+
+<div class="mortgage-input-row">
+
+
+<div class="mortgage-field">
+
+<label>
+Mortgage Period
+</label>
+
+<select id="loan-years">
+
+
+<option value="15">
+15 Year Fixed
+</option>
+
+
+<option value="20">
+20 Year Fixed
+</option>
+
+
+<option value="25">
+25 Year Fixed
+</option>
+
+
+<option value="30">
+30 Year Fixed
+</option>
+
+
+</select>
+
+</div>
+
+
+
+
+
+<div class="mortgage-field">
+
+<label>
+Interest Rate
+</label>
+
+
+<input
+id="interest-rate"
+type="number"
+value="0"
+step="0.05"
+>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- RESULT -->
+
+<div class="mortgage-result">
+
+
+<div class="payment-header">
+
+
+<div>
+
+<span>
+Estimated Monthly Payment
+</span>
+
+
+<strong id="monthly-payment">
+$0
+</strong>
+
+
+<small>
+PER MONTH
+</small>
+
+
+</div>
+
+
+
+<div 
+class="payment-ring"
+id="payment-ring">
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="mortgage-breakdown">
+
+
+
+<div>
+
+<span>
+<i class="dot purple"></i>
+Principal & Interest
+</span>
+
+<strong id="principal-interest">
+$0
+</strong>
+
+</div>
+
+
+
+
+<div>
+
+<span>
+<i class="dot gold"></i>
+Property Tax
+</span>
+
+<strong id="property-tax-result">
+$0
+</strong>
+
+</div>
+
+
+
+
+<div>
+
+<span>
+<i class="dot green"></i>
+Home Insurance
+</span>
+
+<strong id="insurance-result">
+$0
+</strong>
+
+</div>
+
+
+
+
+<div>
+
+<span>
+<i class="dot gray"></i>
+HOA
+</span>
+
+<strong id="hoa-result">
+$0
+</strong>
+
+</div>
+
+
+
+
+<div>
+
+<span>
+<i class="dot stone"></i>
+PMI
+</span>
+
+<strong id="pmi-result">
+$0
+</strong>
+
+</div>
+
+
+
+</div>
+
+
+
+<button class="mortgage-print">
+
+Print / Save PDF →
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+  
+
+  <!-- FINANCIAL OVERVIEW -->
+<div id="financial-overview"></div>
+
+
+
+  <!-- FAQ SECTION -->
+
+<section class="faq-section">
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+<div class="faq-wrapper">
+
+    <div
+    class="faq-list"
+    id="faq-list">
+    </div>
+
+</div>
+
+<button class="faq-toggle">
+    Show More
+</button>
+
+</section>
+
+  
+<!-- END investment-box -->
+
+</div>
+
+  <!-- RIGHT STICKY CONTACT -->
+
+<aside class="contact-sidebar">
+
+
+<div class="contact-card">
+
+
+<img 
+class="agent-photo"
+src="https://static.wixstatic.com/media/1799ca_f57e1f5ab78e44b6adeb96aec4a3cd99~mv2.avif"
+alt="Real estate advisor"
+>
+
+
+
+
+<div class="agent-rating">
+
+★★★★★
+
+<span>
+5.0 Client Rating
+</span>
+
+</div>
+
+
+
+
+
+<h3>
+Private Residence Advisor
+</h3>
+
+
+
+<p class="license">
+
+Licensed Real Estate Professional
+
+<br>
+
+Florida License #XXXXXX
+
+</p>
+
+
+
+
+
+
+<form>
+
+
+<input 
+type="text"
+placeholder="Full Name"
+>
+
+
+<input 
+type="email"
+placeholder="Email Address"
+>
+
+
+<input 
+type="tel"
+placeholder="Phone Number"
+>
+
+
+
+<button type="button">
+Request Private Access →
+</button>
+
+
+
+</form>
+
+
+
+
+
+<p class="privacy">
+
+Your information is kept confidential.
+
+</p>
+
+
+
+</div>
+
+
+</aside>
+
+
+  
+</section>
+
+
+
+
+
+<!-- CTA -->
+
+
+<section class="cta-card">
+
+
+<h2>
+Receive Private Availability
+</h2>
+
+
+<p>
+Get pricing, floor plans, incentives, and current inventory.
+</p>
+
+
+
+<button>
+Request Information →
+</button>
+
+
+</section>
+
+
+<!-- =========================
+     LEGAL & COMPLIANCE
+========================= -->
+
+<section class="legal-section">
+
+
+<div class="legal-inner">
+
+
+<div class="legal-logos">
+
+
+<div class="legal-logo">
+
+<img src="../assets/equal-housing-opportunity-logo-svg-vector.svg" alt="Equal Housing Opportunity">
+
+</div>
+
+
+<div class="legal-logo">
+
+<img src="images/realtor-logo.svg" alt="REALTOR" style="visibility:hidden;">
+
+</div>
+
+
+<div class="legal-logo">
+
+<img src="images/broker-logo.svg" alt="Licensed Real Estate" style="visibility:hidden;">
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="legal-copy">
+
+
+<p>
+
+<strong>
+Equal Housing Opportunity
+</strong>
+
+</p>
+
+
+<p>
+
+Rility and its affiliates are committed to providing equal housing opportunities and comply with all applicable federal, state, and local fair housing laws. We do not discriminate based on race, color, religion, sex, disability, familial status, national origin, or any other protected classification.
+
+</p>
+
+
+
+<p>
+
+All information provided on this website is for informational and marketing purposes only and is subject to change without notice. Prices, availability, specifications, dimensions, features, amenities, estimated costs, rental projections, and completion timelines are not guaranteed and may change at any time.
+
+</p>
+
+
+
+<p>
+
+Renderings, photographs, virtual tours, illustrations, floor plans, and other visual materials are artistic representations and may not reflect final construction, finishes, views, landscaping, or amenities.
+
+</p>
+
+
+
+<p>
+
+Rility, rility.com, and its affiliates provide marketing, technology, and real estate-related services and do not guarantee investment performance, rental income, appreciation, financing terms, or future market conditions. Prospective buyers should independently verify all information and consult qualified legal, financial, tax, and real estate professionals before making any decisions.
+
+</p>
+
+
+
+<p>
+
+Nothing contained on this website constitutes an offer, contract, guarantee, or financial advice. All purchases and transactions are subject to executed agreements, disclosures, approvals, and applicable laws.
+
+</p>
+
+
+
+</div>
+
+
+<div class="legal-bottom">
+
+
+© Rility. All rights reserved.
+
+<br>
+
+Equal Housing Opportunity | Privacy Policy | Terms of Use
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<footer>
+
+© 2026 Rility.
+
+</footer>
+
+
+
+</main>
+
+
+</div>
+
+<div class="popup-overlay" id="popup">
+
+    <div class="popup-box">
+
+        <button class="popup-close">
+            ×
+        </button>
+
+        <h2 id="popup-title"></h2>
+
+        <p id="popup-content"></p>
+
+    </div>
+
+</div>
+
+<script src="../data/properties.js"></script>
+
+<script src="../js/property-page.js"></script>
+
+<script src="../js/map-loader.js"></script>
+
+<script src="../js/property-map.js"></script>
+
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApjRl527xXbpu2WN_c2E-mVvJhJAzkAC8&libraries=marker&callback=initPropertyMap"
+async>
+</script>
+
+
+<div id="ai-modal-container"></div>
+
+
+<!-- SECTION RENDERERS FIRST -->
+
+<script src="../js/property-highlights-renderer.js"></script>
+
+<script src="../js/residence-table-renderer.js"></script>
+
+<script src="../js/property-facts-renderer.js"></script>
+
+<script src="../js/property-intelligence-renderer.js"></script>
+
+<script src="../js/construction-timeline-renderer.js"></script>
+
+<script src="../js/nearby-destinations-renderer.js"></script>
+
+<script src="../js/amenities-renderer.js"></script>
+
+<script src="../js/architecture-renderer.js"></script>
+
+<script src="../js/design-team-renderer.js"></script>
+
+<script src="../js/architecture-popup.js"></script>  
+
+<script src="../js/residence-table-renderer.js"></script>
+
+<script src="../js/floor-plan-toggle.js"></script>
+
+<script src="../js/lifestyle-experiences-renderer.js"></script>
+
+<script src="../js/neighborhood-lifestyle-renderer.js"></script>
+
+<script src="../js/faq-renderer.js"></script>
+
+
+
+  
+<!-- MAIN CONTROLLER LAST -->
+
+<script src="../js/property-renderer.js"></script>
+
+
+<script src="../js/gallery.js"></script>
+
+<script src="../js/mortgage-calculator.js"></script>
+<script src="../js/property-mortgage-calculator.js"></script>
+
+<script src="../js/virtual-showing.js"></script>
+<script src="../js/info-card-popups.js"></script>
+<script src="../js/ai-modal.js"></script>
+<script src="../js/media-library-renderer.js"></script>
+<script src="../js/favorites.js"></script>
+
+
+  
+
+</body>
+
+</html>

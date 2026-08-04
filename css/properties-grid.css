@@ -1,0 +1,330 @@
+:root{
+
+    --bg:#fafafa;
+    --text:#111;
+    --muted:#666;
+
+    --card:#fff;
+
+    --radius-xl:40px;
+    --radius-lg:28px;
+
+    --shadow:
+    0 30px 80px rgba(0,0,0,.06);
+
+    --border:
+    1px solid rgba(0,0,0,.06);
+
+}
+
+
+body{
+
+    background:var(--bg);
+    font-family:"Inter",sans-serif;
+    color:var(--text);
+
+}
+
+/* =========================
+header for search
+========================= */
+
+.search-page .navbar {
+    width: 220px;
+    overflow: hidden;
+    transition: width .35s ease;
+}
+
+.search-page .header:hover .navbar {
+    width: min(1000px, calc(100% - 40px));
+}
+
+.search-page .nav-links {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+
+.search-page .header:hover .nav-links {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* GRID */
+
+/* =========================
+PROPERTY GRID
+========================= */
+
+.properties-grid{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+}
+
+
+/* =====================
+MAP
+===================== */
+
+.properties-layout{
+
+    display:flex;
+
+    height:calc(100vh - 150px);
+
+    padding:30px;
+
+    gap:30px;
+
+    box-sizing:border-box;
+
+    overflow:hidden;
+
+    align-items:flex-start;
+
+}
+
+
+.map-container{
+
+    flex:1;
+
+    height:100%;
+
+    position:sticky;
+
+    top:0;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+
+.properties-scroll{
+
+    flex:1;
+
+    height:100%;
+
+    overflow-y:auto;
+
+    padding-top:0;
+
+    min-height:0;
+
+}
+
+
+    .properties-scroll{
+
+        margin-bottom:-30px;
+
+    }
+
+
+
+.price-marker{
+
+    background:#fff;
+    color:#111;
+
+    padding:6px 10px;
+
+    border-radius:999px;
+
+    font-size:13px;
+    font-weight:600;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.10);
+
+    border:1px solid rgba(0,0,0,.06);
+
+    white-space:nowrap;
+
+    transition:.2s ease;
+
+}
+
+
+
+
+#desktop-map{
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:30px;
+
+}
+
+
+
+
+/* hide scrollbar */
+
+.properties-scroll::-webkit-scrollbar{
+    display:none;
+}
+
+.properties-scroll{
+    scrollbar-width:none;
+}
+
+
+
+/* =====================
+PROPERTY CARD CLEAN FRAMELESS
+===================== */
+
+.property-card{
+
+    background:transparent !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+    padding:0;
+
+}
+
+
+/* keep previous text styling */
+
+.property-card-content{
+
+    background:transparent !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+}
+
+
+/* image only gets the effect */
+
+/* =====================
+PROPERTY IMAGE WRAPPER
+===================== */
+
+.property-card-image{
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.12);
+
+}
+
+
+
+/* IMAGE */
+
+.property-card-image img{
+
+    width:100%;
+
+    display:block;
+
+    aspect-ratio:4 / 3;
+
+    object-fit:cover;
+
+    transition:transform .45s ease;
+
+}
+
+
+
+/* HOVER ZOOM */
+
+.property-card:hover .property-card-image img{
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* =====================
+GRID ONLY VIEW
+===================== */
+
+
+.properties-layout.grid-mode .map-container{
+
+    display:none;
+
+}
+
+
+.properties-layout.grid-mode .properties-scroll{
+
+    width:100%;
+
+}
+
+
+.properties-layout.grid-mode .properties-grid{
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+
+
+/* =====================
+MAP VIEW
+===================== */
+
+
+.properties-layout.map-mode .map-container{
+
+    display:block;
+
+}
+
+
+.properties-layout.map-mode .properties-scroll{
+    width:50%;
+}
+
+.properties-layout.map-mode .map-container{
+    width:50%;
+}
+
+
+
+
+
+@media (min-width:901px){
+
+    .mobile-map-layout{
+        display:none !important;
+    }
+
+}
+
+@media (max-width:900px){
+
+    .properties-layout,
+    .desktop-filters{
+        display:none !important;
+    }
+
+}

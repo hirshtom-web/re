@@ -1,0 +1,358 @@
+/* =========================
+PROFORMA COMPONENT
+========================= */
+.proforma-widget{
+    margin-top:80px;
+    width:100%;
+    max-width:100%;
+    overflow:visible;
+    min-width:0;
+}
+.proforma-widget h2{
+    font-size:28px;
+    margin-bottom:15px;
+}
+/* =========================
+PROFORMA TABS
+========================= */
+.proforma-tabs{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    border-bottom:1px solid #e5e5e5;
+    margin-bottom:15px;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+}
+.proforma-tabs::-webkit-scrollbar{
+    display:none;
+}
+.proforma-tabs button{
+    position:relative;
+    flex:0 0 auto;
+    background:transparent;
+    border:none;
+    padding:8px 2px 10px;
+    color:#777;
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+    white-space:nowrap;
+}
+.proforma-tabs button:hover{
+    color:#111;
+}
+.proforma-tabs button.active{
+    color:#111;
+    font-weight:700;
+}
+.proforma-tabs button.active::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-1px;
+    height:2px;
+    background:#111;
+    border-radius:2px;
+}
+/* =========================
+PANEL
+========================= */
+.proforma-panel{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:25px;
+    padding:30px;
+    width:100%;
+    box-sizing:border-box;
+    min-width:0;
+}
+/* =========================
+CONTENT
+========================= */
+.tab-content{
+    display:none;
+    min-width:0;
+}
+.tab-content.active{
+    display:block;
+}
+.fields-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+/* =========================
+INPUTS
+========================= */
+.proforma-field{
+    width:100%;
+}
+.proforma-field label{
+    display:block;
+    font-size:11px;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-bottom:6px;
+}
+.proforma-field input{
+    width:100%;
+    box-sizing:border-box;
+    padding:14px;
+    border:1px solid var(--line);
+    border-radius:25px;
+    font-size:16px;
+}
+/* =========================
+BUTTON
+========================= */
+.run-button{
+    margin-top:25px;
+    width:100%;
+    padding:15px;
+    border-radius:25px;
+    border:none;
+    background:#111;
+    color:white;
+    cursor:pointer;
+}
+/* =========================
+RESULTS
+========================= */
+.proforma-results{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    background:white;
+    border:1px solid var(--line);
+    border-radius:25px;
+    overflow:hidden;
+}
+.proforma-results div{
+    padding: 20px;
+    border-right:1px solid var(--line);
+    border-bottom:none;
+}
+.proforma-results div:nth-child(n+6){
+    border-top:1px solid var(--line);
+}
+.proforma-results div:last-child{
+    border-right:none;
+}
+.proforma-results span{
+    display:block;
+    font-size:12px;
+    color:var(--muted);
+}
+.proforma-results strong{
+    display:block;
+    margin-top:8px;
+    font-size:20px;
+}
+@media(max-width:600px){
+    .proforma-results{
+        grid-template-columns:repeat(2,1fr);
+    }
+    .proforma-results div{
+        padding:14px 10px;
+        border-right:1px solid var(--line);
+        border-bottom:1px solid var(--line);
+    }
+    .proforma-results div:nth-child(2n){
+        border-right:none;
+    }
+    .proforma-results div:nth-last-child(-n+2){
+        border-bottom:none;
+    }
+}
+/* =========================
+DISCLAIMER
+========================= */
+.proforma-disclaimer{
+    margin-top:30px;
+    padding:20px;
+    background:#f8f8f8;
+    border:1px solid var(--line);
+    border-radius:25px;
+    font-size:12px;
+    line-height:1.6;
+    color:var(--muted);
+}
+/* =========================
+MOBILE
+========================= */
+@media(max-width:600px){
+    .proforma-widget{
+        margin-top:30px;
+    }
+    .proforma-widget h2{
+        font-size:22px;
+        margin-bottom:12px;
+    }
+    .proforma-tabs{
+        gap:0;
+        width:100%;
+        margin-bottom:12px;
+        scroll-snap-type:x mandatory;
+    }
+    .proforma-tabs button{
+        flex:0 0 auto;
+        min-width:95px;
+        max-width:120px;
+        text-align:center;
+        padding:8px 8px 10px;
+        font-size:12px;
+        scroll-snap-align:start;
+    }
+    .proforma-panel{
+        padding:14px;
+        border-radius:25px;
+    }
+    .fields-grid{
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+    .proforma-field label{
+        font-size:10px;
+    }
+    .proforma-field input{
+        padding:11px;
+        font-size:16px;
+    }
+    .run-button{
+        padding:12px;
+        margin-top:18px;
+        font-size:14px;
+    }
+ 
+}
+
+.proforma-growth {
+
+margin-top:35px;
+padding:30px;
+
+background:#fff;
+
+border-radius:25px;
+
+border:1px solid #e5e7eb;
+
+}
+
+
+.proforma-growth h3 {
+
+font-size:20px;
+
+margin-bottom:20px;
+
+color:#111827;
+
+}
+
+
+
+.growth-summary {
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:15px;
+
+margin-bottom:25px;
+
+}
+
+
+
+.growth-summary div {
+
+background:#f8faf8;
+
+padding:18px;
+
+border-radius:14px;
+
+}
+
+
+
+.growth-summary span {
+
+display:block;
+
+font-size:12px;
+
+color:#6b7280;
+
+margin-bottom:8px;
+
+}
+
+
+
+.growth-summary strong {
+
+font-size:22px;
+
+color:#166534;
+
+}
+
+
+
+.growth-chart-container {
+
+height:350px;
+
+width:100%;
+
+}
+
+
+
+@media(max-width:900px){
+
+.growth-summary{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+@media(max-width:500px){
+
+.growth-summary{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+.advanced-fields{
+    display:none;
+    margin-top:25px;
+}
+
+.advanced-fields.active{
+    display:block;
+}
+
+
+.tab-content{
+    display:none;
+}
+
+.tab-content.active{
+    display:block;
+}

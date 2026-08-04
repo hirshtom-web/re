@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Real Estate Calculators</title>
+
+  <!-- MATERIAL ICONS OUTLINED -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+<link 
+href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,1,0" 
+rel="stylesheet">
+
+<link 
+href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,0" 
+rel="stylesheet">
+
+  
+
+   <!-- css styles -->
+
+   <!-- Main website styles -->
+    <link rel="stylesheet" href="../css/main.css">
+
+     <!-- Global website styles -->
+    <link rel="stylesheet" href="../css/global.css">
+
+    <!-- Header styles -->
+    <link rel="stylesheet" href="../css/header.css">
+
+     <!-- Calculator styles -->
+    <link rel="stylesheet" href="../css/calculator.css">
+ 
+
+ 
+  
+</head>
+<body>
+
+<!-- SCREEN 2: CALCULATOR VIEW -->
+<div id="screenCalculator" style="display:none;">
+
+  <!-- Page Title: Centered at the top of the page -->
+  <h1 id="pageTitle" style="text-align:center;">Page Title</h1>
+
+    <div class="calculator-selector">
+    <label>Select Calculator</label>
+    <select id="calculatorDropdown"></select>
+</div>
+
+
+  <!-- Main Container: inputs + results -->
+  <div class="container">
+
+    <!-- Inputs Section -->
+    <div class="inputs-container">
+      
+      <!-- Calculator Title: h2 top-left -->
+      <h2 id="calculatorTitle">Calculator Title</h2>
+      
+      <!-- Subtitle: h3 under calculatorTitle -->
+      <h3 id="subtitle">Subtitle goes here</h3>
+      
+      <!-- Form -->
+      <form id="calculatorForm">
+        <!-- Input fields will go here -->
+      </form>
+    </div>
+
+    <!-- Results Section -->
+<div class="results-container">
+  <!-- Results Header -->
+  <h3>Results</h3>
+
+  <!-- Main Result Display -->
+  <div class="total-roi-display">
+    <span id="mainResult">$0</span>
+  </div>
+
+  <!-- Stats Section -->
+  <div id="resultStats" class="stats-grid"></div>
+</div>
+
+ 
+
+  </div>
+</div>
+
+
+<script>
+
+  
+  /* --------- CALCULATOR DEFINITIONS ----------- */
+
+ const calculators = {
+  cashFlow: {
+    CalculatorName: "Cash Flow Calculator",
+    gridName: "Cash Flow",
+    pageTitle: "Cash Flow Calculator",
+    calculatorTitle: "Visualize your property’s cash flow instantly.",
+    subtitle: "See monthly income and expenses to understand your net cash position.",
+    tabs: { "Income": { inputs: ["Income"] }, "Expenses": { inputs: ["Expenses"] }, "Financing": { inputs: ["Mortgage Payment"] } },
+    cat: "analysis",
+    icon: "payments",
+    tooltip: "Calculates monthly or annual cash flow after all expenses.",
+    calculate: (Income, Expenses, MortgagePayment) => Income - Expenses - MortgagePayment
+  },
+  cashOnCash: {
+    CalculatorName: "Cash-on-Cash ROI Calculator",
+    gridName: "Cash-on-Cash",
+    pageTitle: "Cash-on-Cash ROI Calculator",
+    calculatorTitle: "Measure your cash-on-cash returns with ease.",
+    subtitle: "Compare your investment vs. actual cash profit to make informed decisions.",
+    tabs: { "Key Details": { inputs: ["Annual Cash Flow", "Total Cash Invested"] } },
+    cat: "returns",
+    icon: "percent",
+    tooltip: "Shows annual ROI on actual cash invested.",
+    calculate: (CF, Invested) => ((CF / Invested) * 100).toFixed(2) + "%"
+  },
+  capRate: {
+    CalculatorName: "Cap Rate Calculator",
+    gridName: "Cap Rate",
+    pageTitle: "Cap Rate Calculator",
+    calculatorTitle: "Assess the profitability of your property quickly.",
+    subtitle: "Evaluate annual returns relative to property value for smarter investing.",
+    tabs: { "Key Details": { inputs: ["Net Operating Income", "Property Value"] } },
+    cat: "valuation",
+    icon: "speed",
+    tooltip: "Valuation measure ignoring financing—NOI ÷ property value.",
+    calculate: (NOI, PV) => ((NOI / PV) * 100).toFixed(2) + "%"
+  },
+  grm: {
+    CalculatorName: "Gross Rent Multiplier Calculator",
+    gridName: "GRM",
+    pageTitle: "Gross Rent Multiplier Calculator",
+    calculatorTitle: "Understand your property’s rent potential at a glance.",
+    subtitle: "Estimate Gross Rent Multiplier to compare multiple investment opportunities.",
+    tabs: { "Key Details": { inputs: ["Property Price", "Annual Rent"] } },
+    cat: "valuation",
+    icon: "calculate",
+    tooltip: "Price divided by annual rent. Lower GRM is better.",
+    calculate: (Price, Rent) => (Price / Rent).toFixed(2)
+  },
+  mortgage: {
+    CalculatorName: "Mortgage Payment Calculator",
+    gridName: "Mortgage",
+    pageTitle: "Mortgage Payment Calculator",
+    calculatorTitle: "Calculate your mortgage payments effortlessly.",
+    subtitle: "Determine monthly principal and interest to plan your financing strategy.",
+    tabs: { "Financing": { inputs: ["Loan Amount", "Interest Rate (%)", "Loan Term (years)"] } },
+    cat: "financing",
+    icon: "account_balance",
+    tooltip: "Monthly loan payment based on rate & term.",
+    calculate: (Loan, Rate, Term) => {
+      const r = Rate / 100 / 12;
+      const n = Term * 12;
+      return (Loan * r / (1 - Math.pow(1 + r, -n))).toFixed(2);
+    }
+  },
+  breakEven: {
+    CalculatorName: "Break-even Analysis Calculator",
+    gridName: "Break-even",
+    pageTitle: "Break-even Analysis Calculator",
+    calculatorTitle: "Find your break-even point quickly.",
+    subtitle: "Discover how many units or revenue you need to cover all costs.",
+    tabs: { "Expenses": { inputs: ["Fixed Costs", "Variable Costs per Unit"] }, "Income": { inputs: ["Revenue per Unit"] } },
+    cat: "analysis",
+    icon: "bar_chart",
+    tooltip: "Units needed to cover all expenses.",
+    calculate: (Fixed, Variable, Revenue) => (Fixed / (Revenue - Variable)).toFixed(2)
+  },
+  roi: {
+    CalculatorName: "ROI Calculator",
+    gridName: "ROI",
+    pageTitle: "Return on Investment Calculator",
+    calculatorTitle: "Calculate your overall return on investment.",
+    subtitle: "Combine purchase, financing, income, and expenses for a complete ROI picture.",
+    tabs: {
+      "Key Details": {
+        inputs: [
+          "Purchase Price ($)",
+          "Appreciation Rate (%)",
+          "Years to Hold",
+          "Property Type",
+          "Market (City & State)"
+        ]
+      },
+      "Financing": {
+        inputs: [
+          "Down Payment (%)",
+          "Cash Investment ($)",
+          "Financed Amount ($)",
+          "Mortgage Rate (%)",
+          "Mortgage Term (Years)"
+        ]
+      },
+      "Income": {
+        inputs: ["Monthly Rent ($)"]
+      },
+      "Expenses": {
+        inputs: [
+          "Property Taxes ($/yr)",
+          "Homeowner’s Insurance ($/yr)",
+          "HOA ($/mo)",
+          "Management Fees (%)",
+          "Vacancy Rate (%)"
+        ]
+      }
+    },
+    cat: "returns",
+    icon: "trending_up",
+    tooltip: "ROI calculation including purchase, financing, income, and expenses.",
+    calculate: function(values) {
+      const investment = parseFloat(values["Cash Investment ($)"] || 0);
+      const netProfit = parseFloat(values["Monthly Rent ($)"] || 0) * 12 * parseFloat(values["Years to Hold"] || 1) 
+                        - parseFloat(values["Property Taxes ($/yr)"] || 0)
+                        - parseFloat(values["Homeowner’s Insurance ($/yr)"] || 0)
+                        - parseFloat(values["HOA ($/mo)"] || 0) * 12;
+      return investment ? ((netProfit / investment) * 100).toFixed(2) + "%" : "N/A";
+    }
+  },
+  noi: {
+    CalculatorName: "Net Operating Income Calculator",
+    gridName: "NOI",
+    pageTitle: "Net Operating Income Calculator",
+    calculatorTitle: "Determine Net Operating Income for your property.",
+    subtitle: "Subtract operating expenses from income to see what the property really earns.",
+    tabs: { "Income": { inputs: ["Gross Income"] }, "Expenses": { inputs: ["Operating Expenses"] } },
+    cat: "analysis",
+    icon: "account_balance_wallet",
+    tooltip: "Income minus operating expenses.",
+    calculate: (GI, OE) => GI - OE
+  },
+  dscr: {
+    CalculatorName: "Debt Service Coverage Ratio Calculator",
+    gridName: "DSCR",
+    pageTitle: "Debt Service Coverage Ratio Calculator",
+    calculatorTitle: "Check your debt service coverage ratio.",
+    subtitle: "Measure your property’s ability to cover debt with its net operating income.",
+    tabs: { "Income": { inputs: ["NOI"] }, "Financing": { inputs: ["Debt Service"] } },
+    cat: "financing",
+    icon: "shield",
+    tooltip: "NOI ÷ debt service — lenders want 1.2+.",
+    calculate: (NOI, Debt) => (NOI / Debt).toFixed(2)
+  },
+  priceToRent: {
+    CalculatorName: "Price-to-Rent Ratio Calculator",
+    gridName: "Price-to-Rent",
+    pageTitle: "Price-to-Rent Ratio Calculator",
+    calculatorTitle: "Analyze the price-to-rent ratio of your property.",
+    subtitle: "Compare property value to rental income to spot lucrative deals.",
+    tabs: { "Key Details": { inputs: ["Property Price", "Annual Rent"] } },
+    cat: "valuation",
+    icon: "home",
+    tooltip: "Home price compared to rental income.",
+    calculate: (Price, Rent) => (Price / Rent).toFixed(2)
+  },
+  vacancy: {
+    CalculatorName: "Vacancy Rate Calculator",
+    gridName: "Vacancy",
+    pageTitle: "Vacancy Rate Calculator",
+    calculatorTitle: "Estimate losses from vacancy periods.",
+    subtitle: "Understand potential revenue gaps to make more realistic forecasts.",
+    tabs: { "Income": { inputs: ["Vacant Units", "Total Units"] } },
+    cat: "analysis",
+    icon: "hotel",
+    tooltip: "Vacant units ÷ total units.",
+    calculate: (Vacant, Total) => ((Vacant / Total) * 100).toFixed(2) + "%"
+  },
+  expenseRatio: {
+    CalculatorName: "Operating Expense Ratio Calculator",
+    gridName: "Expense Ratio",
+    pageTitle: "Operating Expense Ratio Calculator",
+    calculatorTitle: "Track your operating expense ratio accurately.",
+    subtitle: "See how much of your income goes toward expenses for better planning.",
+    tabs: { "Income": { inputs: ["Gross Income"] }, "Expenses": { inputs: ["Operating Expenses"] } },
+    cat: "analysis",
+    icon: "receipt_long",
+    tooltip: "Expenses ÷ income — lower is better.",
+    calculate: (Income, Expenses) => ((Expenses / Income) * 100).toFixed(2) + "%"
+  },
+  longTermROI: {
+    CalculatorName: "Long-Term ROI Calculator",
+    gridName: "Long-Term ROI",
+    pageTitle: "Long-Term ROI Calculator",
+    calculatorTitle: "Forecast your long-term returns from rent and appreciation.",
+    subtitle: "Combine cash flow and property value growth for a complete investment outlook.",
+    tabs: { "Income": { inputs: ["Rental Income", "Property Appreciation"] }, "Key Details": { inputs: ["Investment Cost"] } },
+    cat: "returns",
+    icon: "timeline",
+    tooltip: "Total rent + appreciation returns.",
+    calculate: (Rent, App, Cost) => (((Rent + App) / Cost) * 100).toFixed(2) + "%"
+  },
+  flip: {
+    CalculatorName: "Fix & Flip Profit Calculator",
+    gridName: "Fix & Flip",
+    pageTitle: "Fix & Flip Profit Calculator",
+    calculatorTitle: "Project profits from your fix & flip projects.",
+    subtitle: "Calculate renovation costs, resale value, and potential ROI in one view.",
+    tabs: { "Key Details": { inputs: ["Sale Price", "Purchase Price", "Renovation Costs"] } },
+    cat: "returns",
+    icon: "construction",
+    tooltip: "Sale price minus purchase & renovation costs.",
+    calculate: (Sale, Purchase, Reno) => Sale - Purchase - Reno
+  },
+  renovationROI: {
+    CalculatorName: "Renovation ROI Calculator",
+    gridName: "Renovation ROI",
+    pageTitle: "Renovation ROI Calculator",
+    calculatorTitle: "Measure ROI from property improvements.",
+    subtitle: "See how each renovation affects your investment’s profitability.",
+    tabs: { "Key Details": { inputs: ["Profit from Renovation", "Renovation Cost"] } },
+    cat: "returns",
+    icon: "build",
+    tooltip: "Return generated from renovation expenditures.",
+    calculate: (Profit, Cost) => ((Profit / Cost) * 100).toFixed(2) + "%"
+  },
+  taxDepreciation: {
+    CalculatorName: "Tax / Depreciation Impact Calculator",
+    gridName: "Tax / Depreciation",
+    pageTitle: "Tax / Depreciation Impact Calculator",
+    calculatorTitle: "Estimate tax impacts and depreciation benefits.",
+    subtitle: "Plan for deductions and understand their effect on net returns.",
+    tabs: { "Income": { inputs: ["Taxable Income"] }, "Expenses": { inputs: ["Depreciation"] } },
+    cat: "analysis",
+    icon: "receipt",
+    tooltip: "Taxable income minus depreciation benefits.",
+    calculate: (Inc, Dep) => Inc - Dep
+  },
+  cma: {
+    CalculatorName: "Comparative Market Analysis Calculator",
+    gridName: "CMA",
+    pageTitle: "Comparative Market Analysis Calculator",
+    calculatorTitle: "Perform a comparative market analysis easily.",
+    subtitle: "Compare properties to determine fair market value and pricing strategy.",
+    tabs: { "Key Details": { inputs: ["Market Value", "Property Value"] } },
+    cat: "valuation",
+    icon: "analytics",
+    tooltip: "Property value vs market value.",
+    calculate: (M, P) => ((M / P) * 100).toFixed(2) + "%"
+  },
+  leverageROI: {
+    CalculatorName: "Leverage ROI Calculator",
+    gridName: "Leverage ROI",
+    pageTitle: "Leverage ROI Calculator",
+    calculatorTitle: "Evaluate leveraged returns with financing.",
+    subtitle: "See how loans amplify your ROI and understand associated risks.",
+    tabs: { "Income": { inputs: ["Cash Flow"] }, "Key Details": { inputs: ["Equity Invested"] } },
+    cat: "returns",
+    icon: "trending_up",
+    tooltip: "Return based on leveraged equity invested.",
+    calculate: (CF, EQ) => ((CF / EQ) * 100).toFixed(2) + "%"
+  }
+};
+
+/* ------------------ GET COMMON ELEMENTS ------------------ */
+
+const allTiles = document.getElementsByClassName("tile");
+const titleEl = document.getElementById("calculatorTitle");
+const form = document.getElementById("calculatorForm");
+const resultEl = document.getElementById("mainResult");
+const dropdown = document.getElementById("calculatorDropdown");
+
+
+
+/* ------------------ BUILD DROPDOWN ------------------ */
+
+if (dropdown) {
+
+    Object.entries(calculators).forEach(([key, calc]) => {
+
+        const option = document.createElement("option");
+
+        option.value = key;
+        option.textContent = calc.CalculatorName;
+
+        dropdown.appendChild(option);
+
+    });
+
+}
+
+
+
+/* ------------------ LOAD CALCULATOR ------------------ */
+
+function loadCalculator(key) {
+
+    if (!calculators[key]) return;
+
+    const calc = calculators[key];
+
+
+    // dropdown sync
+    if (dropdown) {
+        dropdown.value = key;
+    }
+
+
+    // screen
+    const calculatorScreen = document.getElementById("screenCalculator");
+
+    if (calculatorScreen) {
+        calculatorScreen.style.display = "block";
+    }
+
+
+
+    // tile highlight
+    [...allTiles].forEach((tile, i)=>{
+
+        tile.classList.toggle(
+            "active",
+            Object.keys(calculators)[i] === key
+        );
+
+    });
+
+
+
+    // titles
+    const pageTitle = document.getElementById("pageTitle");
+    const subtitle = document.getElementById("subtitle");
+
+
+    if(pageTitle)
+        pageTitle.textContent = calc.pageTitle;
+
+
+    if(titleEl)
+        titleEl.textContent = calc.calculatorTitle;
+
+
+    if(subtitle)
+        subtitle.textContent = calc.subtitle;
+
+
+
+    if(!form) return;
+
+
+    form.innerHTML = "";
+
+    if(resultEl)
+        resultEl.textContent = "$0";
+
+
+
+    const inputValues = {};
+
+
+
+    /* ---------------- TABS ---------------- */
+
+    const tabContainer = document.createElement("div");
+    tabContainer.className = "tab-container";
+
+
+    const tabContents = document.createElement("div");
+    tabContents.className = "tab-contents";
+
+
+    form.appendChild(tabContainer);
+    form.appendChild(tabContents);
+
+
+
+    const preferredOrder = [
+        "Key Details",
+        "Financing",
+        "Income",
+        "Expenses"
+    ];
+
+
+    const tabNames = preferredOrder
+        .filter(t => calc.tabs[t])
+        .concat(
+            Object.keys(calc.tabs)
+            .filter(t => !preferredOrder.includes(t))
+        );
+
+
+
+    let activeTab = tabNames[0];
+
+
+
+    function renderTabInputs(tab){
+
+
+        tabContents.innerHTML = "";
+
+
+        calc.tabs[tab].inputs.forEach(name=>{
+
+
+            const group = document.createElement("div");
+
+            group.className="input-group";
+
+
+
+            const label=document.createElement("label");
+
+            label.textContent=name;
+
+
+
+            const input=document.createElement("input");
+
+
+
+            if(
+                name.includes("Property Type") ||
+                name.includes("Market")
+            ){
+
+                input.type="text";
+
+            }
+            else{
+
+                input.type="number";
+
+            }
+
+
+
+            input.placeholder=name;
+
+
+
+            input.value=inputValues[name] || "";
+
+
+
+            input.oninput=()=>{
+
+                inputValues[name]=input.value;
+
+            };
+
+
+
+            group.appendChild(label);
+
+            group.appendChild(input);
+
+            tabContents.appendChild(group);
+
+
+        });
+
+    }
+
+
+
+    tabNames.forEach(tab=>{
+
+
+        const button=document.createElement("div");
+
+        button.className="tab";
+
+        button.textContent=tab;
+
+
+
+        if(tab===activeTab)
+            button.classList.add("active");
+
+
+
+        button.onclick=()=>{
+
+
+            [...tabContainer.children]
+            .forEach(t=>t.classList.remove("active"));
+
+            button.classList.add("active");
+
+
+            activeTab=tab;
+
+            renderTabInputs(tab);
+
+
+        };
+
+
+        tabContainer.appendChild(button);
+
+
+    });
+
+
+
+    renderTabInputs(activeTab);
+
+
+
+    /* ---------------- CALCULATE ---------------- */
+
+
+    const calcButton=document.createElement("button");
+
+    calcButton.type="button";
+
+    calcButton.className="calc-btn";
+
+    calcButton.textContent="Calculate";
+
+
+
+    calcButton.onclick=()=>{
+
+
+        try{
+
+
+            let result;
+
+
+
+            // ROI uses object input
+            if(key==="roi"){
+
+
+                const values={};
+
+
+                Object.values(calc.tabs)
+                .flatMap(tab=>tab.inputs)
+                .forEach(name=>{
+
+                    values[name]=inputValues[name] || 0;
+
+                });
+
+
+                result=calc.calculate(values);
+
+
+            }
+
+
+            else{
+
+
+                const values =
+                calc.tabs[activeTab].inputs.map(name=>{
+
+
+                    if(
+                        inputValues[name] === undefined ||
+                        inputValues[name] === ""
+                    ){
+
+                        throw new Error(
+                            "Please complete all fields"
+                        );
+
+                    }
+
+
+                    return Number(inputValues[name]);
+
+
+                });
+
+
+
+                result=calc.calculate(...values);
+
+
+            }
+
+
+
+            resultEl.textContent =
+            `Result: ${result}`;
+
+
+        }
+
+
+        catch(err){
+
+
+            console.error(err);
+
+
+            resultEl.textContent =
+            err.message || "Calculation error";
+
+
+        }
+
+
+    };
+
+
+
+    form.appendChild(calcButton);
+
+}
+
+
+
+
+
+/* ---------------- DROPDOWN ---------------- */
+
+
+if(dropdown){
+
+    dropdown.onchange=function(){
+
+        loadCalculator(this.value);
+
+        window.location.hash=this.value;
+
+    };
+
+}
+
+
+
+/* ---------------- BACK BUTTON ---------------- */
+
+
+const backBtn=document.getElementById("backBtn");
+
+
+if(backBtn){
+
+    backBtn.onclick=()=>{
+
+
+        const calculatorScreen =
+        document.getElementById("screenCalculator");
+
+
+        if(calculatorScreen)
+            calculatorScreen.style.display="none";
+
+
+        if(resultEl)
+            resultEl.textContent="$0";
+
+
+        window.location.hash="";
+
+
+    };
+
+}
+
+
+
+/* ---------------- HASH LOAD ---------------- */
+
+
+function tryLoadFromHash(){
+
+    const key =
+    window.location.hash.replace("#","");
+
+
+    if(key && calculators[key]){
+
+        loadCalculator(key);
+
+    }
+
+}
+
+
+
+window.addEventListener(
+    "hashchange",
+    tryLoadFromHash
+);
+
+
+
+/* ---------------- INITIAL LOAD ---------------- */
+
+
+window.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+
+    const key =
+    window.location.hash.replace("#","");
+
+
+
+    if(key && calculators[key]){
+
+        loadCalculator(key);
+
+    }
+
+    else{
+
+        loadCalculator(
+            Object.keys(calculators)[0]
+        );
+
+    }
+
+
+});
+  
+  </script>
+
+  
+  <script src="../js/header.js"></script>
+<script>
+loadHeader();
+</script>
+
+  
+</body>
+</html>

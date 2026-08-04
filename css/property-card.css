@@ -1,0 +1,440 @@
+/* =========================
+PROPERTY CARD
+Controls:
+- Entire card container
+========================= */
+
+.property-card {
+
+    background:transparent;
+
+    border:none;
+
+    border-radius:0;
+
+    overflow:visible;
+
+    box-shadow:none;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
+}
+
+
+/* =========================
+IMAGE
+Controls:
+- Main property image
+- Image size
+- Rounded corners
+- Image hover zoom
+========================= */
+
+.property-card-image {
+
+    position:relative;
+
+    aspect-ratio:4 / 3;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.12);
+
+}
+
+
+.property-card-image img {
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.5s ease;
+
+}
+
+
+.property-card:hover img {
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* =========================
+STATUS BADGE
+Controls:
+- Pre-Construction
+- Completed
+- Available
+(top left on image)
+========================= */
+
+.property-badge {
+
+    position:absolute;
+
+    top:20px;
+
+    left:20px;
+
+    background:white;
+
+    padding:5px 10px;
+
+    border-radius:50px;
+
+    font-size:12px;
+
+    color:#000;
+
+}
+
+
+
+/* =========================
+PROPERTY TYPE TAG
+Controls:
+- Condominium
+- Luxury
+- Residence
+(top right on image)
+========================= */
+
+.property-tag {
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    padding:6px 12px;
+
+    background:rgba(255,255,255,.92);
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    color:#000;
+
+}
+
+
+
+/* =========================
+TEXT AREA BELOW IMAGE
+Controls:
+- Space between image and text
+- Left/right padding
+========================= */
+
+.property-card-info {
+
+    padding:18px 5px 0;
+
+}
+
+
+
+/* =========================
+NAME + PRICE ROW
+Controls:
+- Condo name LEFT
+- Price RIGHT
+========================= */
+
+.property-card-header {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    width:100%;
+
+    gap:10px;
+
+}
+
+
+
+/* =========================
+CONDO NAME / TITLE
+Controls:
+property.title
+
+Example:
+"St. Regis Residences Miami"
+========================= */
+
+.property-card-header h3 {
+
+    margin:0;
+
+    flex:1;
+
+    color:#000;
+
+    font-size:12px;
+
+    font-weight:550;
+
+    letter-spacing:0;
+
+    line-height:1.2;
+
+    text-align:left;
+
+}
+
+
+
+/* =========================
+PRICE
+Controls:
+property.price
+
+Example:
+"$5M+"
+========================= */
+
+.property-card-header strong {
+
+    margin:0;
+
+    color:#000;
+
+    font-size:12px;
+
+    font-weight:550;
+
+    letter-spacing:0;
+
+    line-height:1.2;
+
+    white-space:nowrap;
+
+    text-align:right;
+
+}
+
+
+
+/* =========================
+ADDRESS / LOCATION
+Controls:
+property.location
+or
+property.address
+
+Example:
+"Miami, Florida"
+or
+"1809 Brickell Ave, Miami, FL"
+========================= */
+
+.property-card-info p {
+
+    margin:5px 0 0;
+
+    color:#999;
+
+    font-size:12px;
+
+    font-weight:450;
+
+    letter-spacing:0;
+
+    line-height:1.2;
+
+}
+
+
+
+/* =========================
+PROPERTY STATS
+Controls:
+- Bedrooms
+- Bathrooms
+- Units
+- Floors
+========================= */
+
+.property-stats {
+
+    display:flex;
+
+    gap:16px;
+
+    margin-top:10px;
+
+    color:#000;
+
+    font-size:12px;
+
+    font-weight:500;
+
+    letter-spacing:0;
+
+}
+
+
+
+/* =========================
+GRID POSITION
+Controls:
+- Distance from toolbar/map
+========================= */
+
+.properties-grid {
+
+    margin-top:-30px;
+
+}
+
+
+
+
+/* ==========================================
+MOBILE PROPERTY CARD CONTROLS Everything here only affects screens <900px
+========================================== */
+
+@media (max-width:900px){
+
+    /* CARD SPACING */
+
+    .property-card{
+        margin-bottom:6px;
+    }
+
+
+    /* IMAGE */
+
+    .property-card-image{
+
+        border-radius:24px;      /* image corners */
+        aspect-ratio:4 / 3;      /* image height */
+        box-shadow:
+        0 12px 30px rgba(0,0,0,.12);
+
+    }
+
+
+    /* STATUS BADGE */
+
+    .property-badge{
+
+        top:16px;
+        left:16px;
+
+        padding:6px 12px;
+
+        font-size:11px;
+
+    }
+
+
+    /* PROPERTY TYPE */
+
+    .property-tag{
+
+        top:16px;
+        right:16px;
+
+        padding:6px 12px;
+
+        font-size:11px;
+
+    }
+
+
+    /* SPACE UNDER IMAGE */
+
+    .property-card-info{
+
+        padding:14px 8px 0;
+
+    }
+
+
+    /* TITLE + PRICE ROW */
+
+    .property-card-header{
+
+        gap:12px;
+
+    }
+
+
+    /* PROPERTY TITLE */
+
+    .property-card-header h3{
+
+        font-size:13px;
+        font-weight:600;
+        line-height:1.35;
+
+    }
+
+
+    /* PRICE */
+
+    .property-card-header strong{
+
+        font-size:13px;
+        font-weight:600;
+
+    }
+
+
+    /* LOCATION */
+
+    .property-card-info p{
+
+        margin-top:6px;
+
+        font-size:13px;
+
+        line-height:1.4;
+
+        color:#777;
+
+    }
+
+
+    /* STATS */
+
+    .property-stats{
+
+        margin-top:10px;
+
+        gap:14px;
+
+        font-size:13px;
+
+    }
+
+
+
+.sheet-header{
+    height:65px;
+}
+
+.sheet-content .properties-grid{
+    padding:15px 20px 50px;
+}
+
+}

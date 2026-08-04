@@ -1,0 +1,193 @@
+<section class="proforma-widget">
+
+<h2>Investment Proforma</h2>
+
+<div class="proforma-tabs">
+
+<button type="button" class="active" data-tab="deal">
+Deal Structure
+</button>
+
+<button type="button" data-tab="advanced">
+Advanced Assumptions
+</button>
+
+</div>
+
+
+
+<div class="proforma-panel">
+
+
+<!-- DEAL TAB -->
+
+<div class="tab-content active" id="deal">
+
+<div class="fields-grid">
+
+<div class="proforma-field">
+<label>Purchase Price</label>
+<input id="purchasePrice" type="number">
+</div>
+
+
+<div class="proforma-field">
+<label>Annual NOI</label>
+<input id="noi" type="number">
+</div>
+
+
+<div class="proforma-field">
+<label>Equity Contribution %</label>
+<input id="downPayment" type="number" value="35">
+</div>
+
+
+<div class="proforma-field">
+<label>Interest Rate %</label>
+<input id="interestRate" type="number" step="0.1" value="6.5">
+</div>
+
+
+<div class="proforma-field">
+<label>Amortization Years</label>
+<input id="amortization" type="number" value="25">
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<!-- ADVANCED TAB -->
+
+<div class="tab-content" id="advanced">
+
+
+<div class="fields-grid">
+
+
+<div class="proforma-field">
+<label>NOI Growth %</label>
+<input id="noiGrowth" type="number" value="3">
+</div>
+
+
+<div class="proforma-field">
+<label>Vacancy %</label>
+<input id="vacancy" type="number" value="5">
+</div>
+
+
+<div class="proforma-field">
+<label>Market Appreciation %</label>
+<input id="appreciation" type="number" value="3">
+</div>
+
+
+<div class="proforma-field">
+<label>Hold Period (Years)</label>
+<input id="holdPeriod" type="number" value="10">
+</div>
+
+
+<div class="proforma-field">
+<label>Exit Cap Rate %</label>
+<input id="exitCap" type="number" value="7">
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<div class="proforma-results-wrapper">
+
+
+<div class="results-card">
+
+<div class="proforma-results">
+
+<div>
+<span>Equity Investment</span>
+<strong id="resultEquity">$0</strong>
+</div>
+
+<div>
+<span>Debt Financing</span>
+<strong id="resultDebt">$0</strong>
+</div>
+
+<div>
+<span>Annual Cash Flow</span>
+<strong id="resultCashFlow">$0</strong>
+</div>
+
+<div>
+<span>Cash-on-Cash</span>
+<strong id="resultCoc">0%</strong>
+</div>
+
+<div>
+<span>Debt Service</span>
+<strong id="resultDebtService">$0</strong>
+</div>
+
+<div>
+<span>DSCR</span>
+<strong id="resultDSCR">0x</strong>
+</div>
+
+<div>
+<span>Exit Value</span>
+<strong id="resultSale">$0</strong>
+</div>
+
+<div>
+<span>Equity Gain</span>
+<strong id="resultProfit">$0</strong>
+</div>
+
+<div>
+<span>IRR</span>
+<strong id="resultIRR">0%</strong>
+</div>
+
+<div>
+<span>Equity Multiple</span>
+<strong id="resultMultiple">0x</strong>
+</div>
+
+    
+
+</div>
+
+</div>
+
+
+</div>
+    
+
+    
+    <div class="proforma-disclaimer">
+
+<strong>Disclaimer:</strong>
+
+This investment proforma is provided for informational and illustrative purposes only.
+The projections, assumptions, and estimated returns shown are not guarantees of future
+performance. Actual results may vary based on market conditions, financing terms,
+operating performance, tenant conditions, expenses, taxes, and other factors.
+Investors should conduct their own independent due diligence and consult with qualified
+financial, legal, and tax advisors before making any investment decision.
+
+</div>
+    
+</section>

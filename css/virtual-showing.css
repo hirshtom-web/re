@@ -1,0 +1,424 @@
+.virtual-showing-section > *{
+    min-width:0;
+}
+
+
+.showing-dates,
+.time-slots{
+    min-width:0;
+    max-width:100%;
+}
+
+.virtual-showing-section{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+    background:#fff;
+
+    border:1px solid #ededed;
+
+    border-radius:30px;
+
+    padding:25px;
+
+}
+
+
+
+/* LEFT - DATES */
+
+.showing-dates{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+
+}
+
+
+
+.date-card{
+
+    height:75px;
+
+    border:1px solid #e5e5e5;
+
+    border-radius:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+.date-card span{
+
+    font-size:10px;
+
+    color:#777;
+
+}
+
+
+.date-card strong{
+
+    font-size:25px;
+
+    line-height:1;
+
+}
+
+
+.date-card small{
+
+    font-size:10px;
+
+    color:#777;
+
+}
+
+
+.date-card.active{
+
+    background:#f0edff;
+
+    border-color:#6D5DFB;
+
+    color:#6D5DFB;
+
+}
+
+
+.date-card.active::after{
+
+    content:"✓";
+
+    position:absolute;
+
+    top:8px;
+
+    right:8px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#6D5DFB;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+/* RIGHT - TIMES */
+
+.showing-times{
+
+    border-left:1px solid #eee;
+
+    padding-left:30px;
+
+}
+
+
+
+.showing-times h3{
+
+    margin:0 0 15px;
+
+    font-size:16px;
+
+}
+
+
+
+.time-slots{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+
+}
+
+
+
+.time-slots button{
+
+    height:42px;
+
+    min-width:75px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
+
+    border:1px solid #ddd;
+
+    background:#fff;
+
+    color:#333;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+}
+
+
+
+.time-slots button:hover{
+
+    border-color:#6D5DFB;
+
+    color:#6D5DFB;
+
+}
+
+
+
+.time-slots .unavailable{
+
+    background:#f5f5f5;
+
+    color:#aaa;
+
+    text-decoration:line-through;
+
+}
+
+.time-slots button.selected{
+
+    background:#f0edff;
+
+    border-color:#6D5DFB;
+
+    color:#6D5DFB;
+
+    font-weight:600;
+
+}
+
+
+.time-slots button.selected::before{
+
+    content:"✓";
+
+    margin-right:6px;
+
+    font-weight:700;
+
+}
+
+
+
+/* BOTTOM INFO */
+
+.meeting-info{
+
+    grid-column:1 / -1;
+
+    border-top:1px solid #eee;
+
+    padding-top:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.schedule-button{
+
+    background:#ddd;
+
+    color:#999;
+
+    cursor:not-allowed;
+
+    opacity:.7;
+
+}
+
+.schedule-button.ready{
+
+    background:#6D5DFB;
+
+    color:#fff;
+
+    border:none;
+
+}
+
+.schedule-button.ready:hover{
+
+    background:#5b4be8;
+
+}
+
+
+@media(max-width:900px){
+
+    .virtual-showing-section{
+
+        grid-template-columns:1fr;
+
+        width:100%;
+
+        overflow:hidden;
+
+        gap:20px;
+
+        padding:18px;
+
+        border-radius:24px;
+
+    }
+
+
+    .showing-dates{
+
+        display:flex;
+
+        width:100%;
+
+        overflow-x:auto;
+
+        overflow-y:hidden;
+
+        gap:12px;
+
+        scroll-snap-type:x mandatory;
+
+        scrollbar-width:none;
+
+    }
+
+
+    .showing-dates::-webkit-scrollbar{
+        display:none;
+    }
+
+
+
+    .date-card{
+
+        flex:0 0 85px;
+
+        width:85px;
+
+        height:85px;
+
+        scroll-snap-align:start;
+
+    }
+
+
+
+
+    .showing-times{
+
+        width:100%;
+
+        border-left:none;
+
+        border-top:1px solid #eee;
+
+        padding-left:0;
+
+        padding-top:20px;
+
+    }
+
+
+
+    .time-slots{
+
+        display:flex;
+
+        width:100%;
+
+        overflow-x:auto;
+
+        overflow-y:hidden;
+
+        gap:10px;
+
+        scrollbar-width:none;
+
+    }
+
+
+    .time-slots::-webkit-scrollbar{
+        display:none;
+    }
+
+
+
+    .time-slots button{
+
+        flex:0 0 90px;
+
+        width:90px;
+
+        height:44px;
+
+    }
+
+
+
+    .meeting-info{
+
+        width:100%;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:15px;
+
+    }
+
+
+    .schedule-button{
+
+        width:100%;
+
+    }
+
+}

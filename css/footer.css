@@ -1,0 +1,236 @@
+    /* =====================
+FOOTER
+===================== */
+
+
+.location-footer{
+
+    background:#071a33;
+
+    color:white;
+
+    padding:80px 5%;
+
+}
+
+
+
+.location-footer__container{
+
+    max-width:1440px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:80px;
+
+}
+
+
+
+/* TOP MARKETS */
+
+
+.top-markets h4,
+.city-column h4{
+
+    font-size:15px;
+
+    font-weight:700;
+
+    margin-bottom:24px;
+
+}
+
+
+.top-city-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:12px;
+
+}
+
+
+
+.location-footer a{
+
+    color:rgba(255,255,255,.75);
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    transition:.25s;
+
+}
+
+
+.location-footer a:hover{
+
+    color:white;
+
+}
+
+
+
+/* DIRECTORY */
+
+
+.city-directory{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:35px;
+
+}
+
+
+
+.city-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+.city-column h4{
+
+    color:white;
+
+}
+
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:900px){
+
+
+.location-footer{
+
+    padding:50px 25px;
+
+}
+
+
+
+.location-footer__container{
+
+    display:block;
+
+}
+
+
+
+.city-directory{
+
+    display:none;
+
+}
+
+
+
+.top-city-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+
+.top-markets h4{
+
+    margin-bottom:25px;
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+    /* =====================
+LOWER FOOTER
+===================== */
+
+
+
+.lower-footer{
+
+    background:#051426;
+
+    color:white;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding:25px 5%;
+
+}
+
+
+.lower-footer-inner{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+.lower-footer p{
+
+    margin:0;
+
+    font-size:13px;
+
+    color:rgba(255,255,255,.6);
+
+}
+
+.lower-footer .logo-img {
+    filter: brightness(0) invert(1);
+}
+
+
+
+@media(max-width:900px){
+
+    .lower-footer-inner{
+
+        flex-direction:column;
+
+        gap:18px;
+
+        text-align:center;
+
+    }
+
+}
+
+
+
+
+

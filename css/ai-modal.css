@@ -1,0 +1,587 @@
+/* =========================
+AI MODAL - APPLE / STRIPE STYLE
+========================= */
+
+
+.ai-modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+    rgba(0,0,0,.25);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    z-index:9999;
+
+}
+
+
+.ai-modal-overlay.active{
+
+    display:flex;
+
+}
+
+
+
+/* =========================
+CONTAINER
+========================= */
+
+
+.ai-modal{
+
+    width:min(390px,92vw);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+
+    padding:32px;
+
+
+    border-radius:32px;
+
+
+    background:
+
+    rgba(255,255,255,.88);
+
+
+    backdrop-filter:blur(30px);
+
+    -webkit-backdrop-filter:blur(30px);
+
+
+    color:#111;
+
+
+    border:
+
+    1px solid rgba(255,255,255,.7);
+
+
+    box-shadow:
+
+    0 30px 80px rgba(0,0,0,.18);
+
+
+    position:relative;
+
+}
+
+
+
+/* =========================
+CLOSE
+========================= */
+
+
+.ai-modal-close{
+
+    position:absolute;
+
+
+    top:18px;
+
+    right:18px;
+
+
+    width:36px;
+
+    height:36px;
+
+
+    border-radius:50%;
+
+
+    border:none;
+
+
+    background:#f5f5f7;
+
+
+    color:#111;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    cursor:pointer;
+
+
+}
+
+
+.ai-modal-close .material-symbols-outlined{
+
+    font-size:20px;
+
+}
+
+
+
+/* =========================
+TITLE
+========================= */
+
+
+.ai-title{
+
+    text-align:center;
+
+
+    font-size:11px;
+
+
+    font-weight:600;
+
+
+    letter-spacing:1.5px;
+
+
+    color:#777;
+
+
+}
+
+
+
+/* =========================
+ICON
+========================= */
+
+
+.ai-icon{
+
+    width:44px;
+
+    height:44px;
+
+
+    margin:18px auto;
+
+
+    border-radius:50%;
+
+
+    background:#f5f5f7;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    color:#111;
+
+
+}
+
+
+.ai-icon .material-symbols-outlined{
+
+    font-size:23px;
+
+}
+
+
+
+/* =========================
+GAUGE
+========================= */
+
+
+.ai-gauge{
+
+    width:150px;
+
+    height:150px;
+
+
+    margin:8px auto 20px;
+
+
+    border-radius:50%;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    background:
+
+    conic-gradient(
+
+        #34c759 0deg,
+
+        #ffd60a 300deg,
+
+        #e5e5ea 300deg
+
+    );
+
+
+}
+
+
+
+.ai-gauge-inner{
+
+
+    width:124px;
+
+    height:124px;
+
+
+    border-radius:50%;
+
+
+    background:#fff;
+
+
+    display:flex;
+
+    flex-direction:column;
+
+
+    align-items:center;
+
+    justify-content:center;
+
+
+}
+
+
+
+.ai-gauge-inner strong{
+
+
+    font-size:48px;
+
+
+    font-weight:600;
+
+
+    line-height:1;
+
+
+    letter-spacing:-3px;
+
+
+}
+
+
+
+.ai-gauge-inner span{
+
+
+    font-size:14px;
+
+
+    color:#8e8e93;
+
+
+}
+
+
+
+/* =========================
+STATUS
+========================= */
+
+
+.ai-status{
+
+
+    text-align:center;
+
+
+    font-size:21px;
+
+
+    font-weight:600;
+
+
+    letter-spacing:-.5px;
+
+
+    margin-top:5px;
+
+
+}
+
+
+
+.ai-description{
+
+
+    max-width:280px;
+
+
+    margin:10px auto 25px;
+
+
+    text-align:center;
+
+
+    font-size:14px;
+
+
+    line-height:1.5;
+
+
+    color:#666;
+
+
+}
+
+
+
+/* =========================
+INSIGHTS
+========================= */
+
+
+.ai-insights{
+
+
+    display:grid;
+
+
+    grid-template-columns:1fr 1fr;
+
+
+    gap:12px;
+
+
+}
+
+
+
+.ai-insights div{
+
+
+    background:#f7f7f8;
+
+
+    border-radius:18px;
+
+
+    padding:14px;
+
+
+}
+
+
+
+.ai-insights .material-symbols-outlined{
+
+
+    font-size:20px;
+
+
+    color:#555;
+
+
+    margin-bottom:8px;
+
+
+}
+
+
+
+.ai-insights span:last-child{
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:4px;
+
+
+    font-size:12px;
+
+
+    color:#777;
+
+
+}
+
+
+
+.ai-insights b{
+
+
+    font-size:16px;
+
+
+    color:#111;
+
+
+    letter-spacing:1px;
+
+
+}
+
+
+
+/* =========================
+CONFIDENCE
+========================= */
+
+
+.ai-confidence{
+
+
+    margin-top:25px;
+
+
+    padding-top:22px;
+
+
+    border-top:
+
+    1px solid #eee;
+
+
+    text-align:center;
+
+
+}
+
+
+
+.ai-confidence small{
+
+
+    color:#777;
+
+
+    font-size:12px;
+
+
+}
+
+
+
+.ai-confidence strong{
+
+
+    display:block;
+
+
+    margin-top:5px;
+
+
+    font-size:40px;
+
+
+    font-weight:600;
+
+
+    letter-spacing:-2px;
+
+
+}
+
+
+
+.ai-confidence p{
+
+
+    margin-top:5px;
+
+
+    color:#777;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+/* =========================
+MOBILE
+========================= */
+
+
+@media(max-width:480px){
+
+
+    .ai-modal{
+
+        width:calc(100vw - 32px);
+
+        padding:26px 20px;
+
+        border-radius:28px;
+
+    }
+
+
+
+    .ai-gauge{
+
+        width:135px;
+
+        height:135px;
+
+    }
+
+
+
+    .ai-gauge-inner{
+
+        width:112px;
+
+        height:112px;
+
+    }
+
+
+
+    .ai-gauge-inner strong{
+
+        font-size:42px;
+
+    }
+
+
+
+    .ai-status{
+
+        font-size:19px;
+
+    }
+
+
+}

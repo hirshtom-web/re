@@ -1,0 +1,635 @@
+/* =========================
+FLOATING SITE HEADER
+========================= */
+
+
+.site-header{
+
+    width:100%;
+
+    height:88px;
+
+    padding:0 32px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    box-sizing:border-box;
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    z-index:1000;
+
+    background:transparent;
+
+}
+
+
+
+/* =========================
+LEFT AREA
+========================= */
+
+
+.site-header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+
+
+/* =========================
+CENTER NAV
+========================= */
+
+
+.site-header-center{
+
+    display:flex;
+
+    align-items:center;
+
+    margin-left:50px;
+
+    flex:1;
+
+}
+
+
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:34px;
+
+}
+
+
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    white-space:nowrap;
+
+    transition:.25s ease;
+
+}
+
+
+
+.nav-links a:hover{
+
+    color:#b99b62;
+
+}
+
+
+
+/* =========================
+LOGO
+========================= */
+
+
+.site-logo{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+}
+
+
+
+.site-logo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+
+
+/* =========================
+RIGHT AREA
+========================= */
+
+
+.site-header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    margin-left:auto;
+
+}
+
+
+
+/* =========================
+CTA BUTTON
+========================= */
+
+
+.nav-button{
+
+    padding:12px 22px;
+
+    border-radius:999px;
+
+    background:#111;
+
+    color:white!important;
+
+}
+
+
+
+/* =========================
+MENU BUTTON
+========================= */
+
+
+.header-menu-btn,
+.mobile-menu-btn{
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    background:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    color:#171717;
+
+}
+
+
+
+.header-menu-btn:hover,
+.mobile-menu-btn:hover{
+
+    background:#f5f5f5;
+
+}
+
+
+
+.header-menu-btn .material-symbols-outlined,
+.mobile-menu-btn .material-symbols-outlined{
+
+    font-size:26px;
+
+}
+
+
+
+/* =========================
+DROPDOWN
+========================= */
+
+
+.desktop-menu{
+
+    position:relative;
+
+    display:flex;
+
+}
+
+
+
+.header-dropdown{
+
+    position:absolute;
+
+    right:0;
+
+    top:52px;
+
+    width:220px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:10px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.15);
+
+    display:none;
+
+}
+
+
+
+.header-dropdown.active{
+
+    display:block;
+
+}
+
+
+
+.header-dropdown button{
+
+    width:100%;
+
+    border:none;
+
+    background:none;
+
+    padding:12px;
+
+    text-align:left;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+}
+
+
+
+.header-dropdown button:hover{
+
+    background:#f5f5f5;
+
+}
+
+
+
+/* Desktop */
+.desktop-toggle{
+    display:flex;
+    width:44px;
+    height:44px;
+    border:none;
+    background:#fff;
+    border-radius:50%;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+.desktop-toggle .material-symbols-outlined{
+    font-size:26px;
+}
+
+.mobile-toggle{
+    display:none;
+    width:44px;
+    height:44px;
+    border:none;
+    background:#fff;
+    border-radius:50%;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+.mobile-toggle .material-symbols-outlined{
+    font-size:26px;
+}
+
+/* Mobile */
+
+/* =========================
+   MOBILE MENU MODAL STYLE
+========================= */
+
+
+/* =========================
+   MOBILE MENU OVERLAY
+========================= */
+
+.mobile-menu-overlay {
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:opacity .25s ease;
+
+    z-index:20000;
+}
+
+
+.mobile-menu-overlay.active {
+
+    opacity:1;
+    pointer-events:auto;
+
+}
+
+
+/* =========================
+   MOBILE SHEET
+========================= */
+
+
+.mobile-menu {
+
+    position:fixed;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+
+    height:90vh;
+
+    background:#fff;
+
+    border-radius:32px 32px 0 0;
+
+    z-index:20001;
+
+
+    display:flex;
+    flex-direction:column;
+
+
+    transform:translateY(100%);
+
+
+    transition:
+    transform .35s cubic-bezier(.22,1,.36,1);
+
+
+    box-shadow:
+    0 -20px 60px rgba(0,0,0,.25);
+
+
+    overflow:hidden;
+
+}
+
+
+
+.mobile-menu.active {
+
+    transform:translateY(0);
+
+}
+
+
+
+/* =========================
+   TOP HANDLE
+========================= */
+
+
+.mobile-menu::before {
+
+    content:"";
+
+    width:42px;
+
+    height:5px;
+
+    background:#d1d1d6;
+
+    border-radius:20px;
+
+    margin:12px auto 0;
+
+}
+
+
+
+/* =========================
+   MOBILE HEADER
+========================= */
+
+
+.mobile-menu-header {
+
+    height:70px;
+
+    padding:0 22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border-bottom:1px solid #ededed;
+
+}
+
+
+
+.mobile-menu-title img {
+
+    height:34px;
+
+    width:auto;
+
+}
+
+
+
+/* CLOSE BUTTON */
+
+
+.mobile-menu-close {
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f2f2f7;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+}
+
+
+
+.mobile-menu-close .material-symbols-outlined {
+
+    font-size:24px;
+
+}
+
+
+
+/* =========================
+   LINKS
+========================= */
+
+
+.mobile-menu-links {
+
+    padding:18px;
+
+    overflow-y:auto;
+
+}
+
+
+
+.mobile-menu a {
+
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:0 18px;
+
+    border-radius:16px;
+
+
+    text-decoration:none;
+
+    color:#111;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    letter-spacing:-.25px;
+
+
+    transition:.2s ease;
+
+}
+
+
+
+.mobile-menu a:hover,
+.mobile-menu a:active {
+
+    background:#f2f2f7;
+
+}
+
+
+
+.mobile-menu a .material-symbols-outlined {
+
+    font-size:24px;
+
+    color:#555;
+
+}
+
+
+
+/* =========================
+   MOBILE HEADER SWITCH
+========================= */
+
+
+@media(max-width:900px){
+
+    .site-header {
+
+        height:82px;
+
+        padding:0 20px;
+
+    }
+
+
+    .site-header-center {
+
+        display:none;
+
+    }
+
+
+    .desktop-toggle {
+
+        display:none;
+
+    }
+
+
+    .mobile-toggle {
+
+        display:flex;
+
+    }
+
+}
+
+
+
+@media(min-width:901px){
+
+    .mobile-menu,
+    .mobile-menu-overlay {
+
+        display:none!important;
+
+    }
+
+}
+
+
+

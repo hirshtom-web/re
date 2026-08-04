@@ -1,0 +1,1291 @@
+/* =========================================================
+   MOBILE SEARCH EXPERIENCE
+========================================================= */
+
+
+@media(max-width:900px){
+
+
+/* =========================
+   HIDE DESKTOP
+========================= */
+
+.desktop-filters,
+.properties-layout,
+.properties-scroll,
+.map-container{
+
+    display:none !important;
+
+}
+
+
+
+/* =========================
+   MOBILE MAP
+========================= */
+
+
+.mobile-map-layout{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+
+#map,
+#mobile-map{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+}
+
+   .price-marker{
+    transition:transform .2s ease, box-shadow .2s ease;
+}
+
+
+.price-marker.active{
+    transform:scale(1.15);
+    z-index:10;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+
+/* =========================
+   FILTER BUTTON
+========================= */
+
+
+.mobile-filter-button{
+
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    z-index:100;
+
+    background:#fff;
+
+    color:#111;
+
+    border:none;
+
+    padding:12px 18px;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.18);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+
+
+/* =========================================================
+   PROPERTY SHEET
+========================================================= */
+
+
+.property-sheet{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    background:#fff;
+
+    border-radius:30px 30px 0 0;
+
+    z-index:500;
+
+    display:flex;
+    flex-direction:column;
+
+    box-shadow:
+    0 -20px 50px rgba(0,0,0,.12);
+
+    transition:transform .25s ease;
+
+    touch-action:none;
+
+    overflow:hidden;
+
+    height:90vh;
+
+
+}
+
+
+.property-sheet.dragging{
+
+    transition:none;
+
+}
+
+
+
+/* HANDLE */
+
+
+.sheet-handle{
+
+    position:absolute;
+
+    top:12px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+
+    width:45px;
+
+    height:5px;
+
+    border-radius:20px;
+
+    background:#ddd;
+
+}
+
+
+
+/* HEADER */
+
+
+.sheet-header{
+
+    flex:0 0 80px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:17px;
+    font-weight:600;
+
+    background:#fff;
+
+    border-radius:30px 30px 0 0;
+
+}
+
+/* CONTENT */
+
+
+.sheet-content{
+
+    flex:1;
+    overflow-y:auto;
+    min-height:0;
+    padding-top:25px;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+
+.sheet-content .properties-grid{
+
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+
+    padding:
+    0 20px 50px;
+
+}
+
+
+/* =========================================================
+   FILTER SHEET
+========================================================= */
+
+
+.filter-sheet{
+
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:90vh;
+   
+    background:#fff;
+
+    border-radius:
+    30px 30px 0 0;
+
+    z-index:1000;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    transform:
+    translateY(100%);
+
+    transition:
+    transform .3s ease;
+
+    box-shadow:
+
+    0 -20px 50px rgba(0,0,0,.18);
+
+
+    touch-action:none;
+
+}
+
+
+
+.filter-sheet.open{
+
+    transform:translateY(10px);
+
+}
+
+
+.filter-sheet.dragging{
+
+    transition:none;
+
+}
+
+
+
+/* HANDLE */
+
+
+.filter-sheet-handle{
+
+    position:absolute;
+
+    top:12px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+
+    width:45px;
+
+    height:5px;
+
+    border-radius:10px;
+
+    background:#ddd;
+
+}
+
+
+
+/* HEADER */
+
+
+.filter-sheet-header{
+
+    height:80px;
+
+    flex-shrink:0;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    font-size:18px;
+
+    font-weight:600;
+
+
+    cursor:grab;
+
+    user-select:none;
+
+    touch-action:none;
+
+}
+
+
+
+/* CONTENT */
+
+
+.filter-content{
+
+    flex:1;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    min-height:0;
+
+    padding:
+    20px 20px 120px;
+
+    -webkit-overflow-scrolling:touch;
+
+    overscroll-behavior:contain;
+
+    touch-action:pan-y;
+
+}
+
+
+/* =========================================================
+   MOBILE FILTER SECTIONS
+========================================================= */
+
+
+.mobile-filter-section{
+
+    margin-bottom:20px;
+
+}
+
+
+.mobile-filter-section h3{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    margin:0 0 12px;
+
+
+    font-size:15px;
+
+    font-weight:600;
+
+
+    cursor:pointer;
+
+}
+
+
+
+.mobile-filter-section h3::after{
+
+    content:"keyboard_arrow_down";
+
+    font-family:
+    "Material Symbols Outlined";
+
+    color:#777;
+
+    font-size:20px;
+
+}
+
+
+
+.mobile-filter-section.open h3::after{
+
+    transform:rotate(180deg);
+
+}
+
+
+
+/* OPTIONS */
+
+
+.mobile-popup-options{
+
+    display:none;
+
+
+    border:
+
+    1px solid rgba(0,0,0,.12);
+
+
+    border-radius:16px;
+
+
+    overflow:hidden;
+
+}
+
+
+.mobile-filter-section.open 
+.mobile-popup-options{
+
+    display:block;
+
+}
+
+
+.mobile-popup-options button{
+
+    width:100%;
+
+
+    height:54px;
+
+
+    padding:0 18px;
+
+
+    background:#fff;
+
+
+    border:none;
+
+
+    border-bottom:
+
+    1px solid rgba(0,0,0,.06);
+
+
+    text-align:left;
+
+
+    font-size:16px;
+
+}
+
+
+.mobile-popup-options button:last-child{
+
+    border-bottom:none;
+
+}
+
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+
+.filter-content input,
+.filter-content select{
+
+
+    width:100%;
+
+
+    height:52px;
+
+
+    box-sizing:border-box;
+
+
+    padding:0 16px;
+
+
+    margin-bottom:14px;
+
+
+    border:
+
+    1px solid rgba(0,0,0,.12);
+
+
+    border-radius:14px;
+
+
+    background:#fafafa;
+
+
+    font-size:16px;
+
+
+}
+
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+
+.mobile-price-chart{
+
+    height:80px;
+
+
+    display:flex;
+
+
+    align-items:flex-end;
+
+
+    gap:6px;
+
+}
+
+
+
+.mobile-price-chart div{
+
+    flex:1;
+
+    background:#111;
+
+    border-radius:
+    5px 5px 0 0;
+
+}
+
+
+
+/* FOOTER */
+
+.filter-sheet-footer{
+
+    flex-shrink:0;
+
+    height:80px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:16px 20px;
+
+    background:#fff;
+
+    border-top:1px solid #eee;
+
+}
+
+
+   .filter-sheet{
+    position:fixed;
+    isolation:isolate;
+}
+   
+
+.reset-filter{
+
+    background:none;
+
+    border:none;
+
+    text-decoration:underline;
+
+    color:#666;
+
+}
+
+
+
+.apply-filter{
+
+    flex:1;
+
+
+    height:52px;
+
+
+    border:none;
+
+
+    border-radius:26px;
+
+
+    background:#111;
+
+
+    color:white;
+
+
+    font-weight:600;
+
+}
+
+   
+
+.filter-icon{
+
+    font-size:12px;
+
+}
+
+
+   /* =====================================
+   DESKTOP HIDE MOBILE FILTER BUTTON
+===================================== */
+
+    .results-count,
+    .properties-count,
+    .search-results-header,
+    .results-header,
+    .property-count{
+        display:none !important;
+    }
+
+
+
+
+
+ /* ======================================
+   MOBILE MAP PROPERTY PREVIEW SHEET
+====================================== */
+
+
+    .mobile-property-preview{
+
+        position:fixed;
+
+        left:0;
+        right:0;
+        bottom:0;
+
+        z-index:700;
+
+        background:#fff;
+
+        border-radius:30px 30px 0 0;
+
+        padding:12px 20px 20px;
+
+        box-shadow:
+        0 -15px 40px rgba(0,0,0,.18);
+
+
+        transform:translateY(120%);
+
+        transition:
+        transform .3s ease;
+
+
+        touch-action:none;
+
+    }
+
+.mobile-property-preview .property-card{
+    pointer-events:auto;
+}
+
+
+    .mobile-property-preview.show{
+
+        transform:translateY(0);
+
+    }
+
+
+   .mobile-property-preview.dragging{
+
+    transition:none !important;
+
+}
+
+
+    /* drag handle */
+
+    .mobile-property-preview::before{
+
+        content:"";
+
+        display:block;
+
+        width:45px;
+
+        height:5px;
+
+        background:#ddd;
+
+        border-radius:10px;
+
+        margin:0 auto 12px;
+
+    }
+
+
+    .mobile-property-preview .property-card{
+
+        width:100%;
+
+        margin:0;
+
+    }
+
+
+/* =========================================================
+   MOBILE FILTER SHEET
+========================================================= */
+
+.filter-sheet{
+
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:90vh;
+
+    background:#fff;
+
+    border-radius:30px 30px 0 0;
+
+    z-index:1000;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    transform:translateY(100%);
+
+    transition:transform .3s ease;
+
+    box-shadow:
+    0 -20px 50px rgba(0,0,0,.18);
+
+    touch-action:none;
+
+}
+
+
+
+.filter-sheet.open{
+
+    transform:translateY(10px);
+
+}
+
+
+
+.filter-sheet.dragging{
+
+    transition:none;
+
+}
+
+
+
+/* HANDLE */
+
+.filter-sheet-handle{
+
+    position:absolute;
+
+    top:12px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:45px;
+
+    height:5px;
+
+    background:#ddd;
+
+    border-radius:20px;
+
+}
+
+
+
+/* HEADER */
+
+.filter-sheet-header{
+
+    height:80px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+
+
+/* CONTENT */
+
+.filter-content{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    padding:
+
+    10px 20px 120px;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+
+
+/* =========================================================
+   SEARCH BOX
+========================================================= */
+
+
+.mobile-search-box{
+
+    height:56px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:#f7f7f7;
+
+    border:1px solid rgba(0,0,0,.08);
+
+    border-radius:18px;
+
+    padding:0 16px;
+
+}
+
+
+.mobile-search-box span{
+
+    color:#777;
+
+    font-size:22px;
+
+}
+
+
+.mobile-search-box input{
+
+    border:none;
+
+    outline:none;
+
+    background:none;
+
+    flex:1;
+
+    font-size:16px;
+
+}
+
+
+
+/* =========================================================
+   FILTER SECTIONS
+========================================================= */
+
+
+.mobile-filter-section{
+
+    margin-bottom:24px;
+
+}
+
+
+.mobile-filter-section h3{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    margin:
+
+    0 0 12px;
+
+}
+
+
+
+/* =========================================================
+   IOS STYLE SELECT ROW
+========================================================= */
+
+
+.mobile-select-trigger{
+
+    width:100%;
+
+    height:56px;
+
+    background:#f7f7f7;
+
+    border:
+
+    1px solid rgba(0,0,0,.08);
+
+    border-radius:18px;
+
+    padding:0 16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    font-size:16px;
+
+    color:#111;
+
+}
+
+
+.mobile-select-trigger span:last-child{
+
+    color:#777;
+
+}
+
+
+
+/* DROPDOWN OPTIONS */
+
+
+.mobile-popup-options{
+
+    display:none;
+
+    margin-top:8px;
+
+    border:
+
+    1px solid rgba(0,0,0,.08);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+
+
+.mobile-filter-section.open 
+.mobile-popup-options{
+
+    display:block;
+
+}
+
+
+
+.mobile-popup-options button{
+
+    width:100%;
+
+    height:54px;
+
+    background:#fff;
+
+    border:none;
+
+    border-bottom:
+
+    1px solid rgba(0,0,0,.06);
+
+    text-align:left;
+
+    padding:0 16px;
+
+    font-size:16px;
+
+}
+
+
+.mobile-popup-options button:last-child{
+
+    border-bottom:none;
+
+}
+
+
+
+/* =========================================================
+   PRICE SECTION
+========================================================= */
+
+
+.mobile-price-chart{
+
+    height:80px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:5px;
+
+    margin-bottom:18px;
+
+}
+
+
+.mobile-price-chart div{
+
+    flex:1;
+
+    background:#111;
+
+    opacity:.15;
+
+    border-radius:
+
+    5px 5px 0 0;
+
+}
+
+
+
+/* SLIDER */
+
+.mobile-range-slider{
+
+    position:relative;
+
+    height:40px;
+
+}
+
+
+
+.mobile-slider-track{
+
+    position:absolute;
+
+    top:18px;
+
+    left:0;
+
+    right:0;
+
+    height:4px;
+
+    background:#ddd;
+
+    border-radius:10px;
+
+}
+
+
+
+.mobile-range-slider input[type="range"]{
+
+    position:absolute;
+
+    width:100%;
+
+    top:0;
+
+    left:0;
+
+    pointer-events:none;
+
+    appearance:none;
+
+    background:none;
+
+}
+
+
+
+.mobile-range-slider input[type="range"]::-webkit-slider-thumb{
+
+    appearance:none;
+
+    pointer-events:auto;
+
+    width:22px;
+
+    height:22px;
+
+    background:#111;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+}
+
+
+
+.mobile-range-slider input[type="range"]::-moz-range-thumb{
+
+    pointer-events:auto;
+
+    width:22px;
+
+    height:22px;
+
+    background:#111;
+
+    border:none;
+
+    border-radius:50%;
+
+}
+
+
+
+/* PRICE INPUTS */
+
+
+.mobile-price-range-values{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:10px;
+
+}
+
+
+
+.mobile-price-range-values input{
+
+    width:50%;
+
+    height:52px;
+
+    border:
+
+    1px solid rgba(0,0,0,.12);
+
+    border-radius:16px;
+
+    padding:0 14px;
+
+    font-size:16px;
+
+}
+
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+
+.filter-sheet-footer{
+
+    flex-shrink:0;
+
+    min-height:80px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:
+
+    16px 20px calc(16px + env(safe-area-inset-bottom));
+
+    background:#fff;
+
+    border-top:
+
+    1px solid #eee;
+
+}
+
+
+
+.reset-filter{
+
+    background:none;
+
+    border:none;
+
+    text-decoration:underline;
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+
+
+.apply-filter{
+
+    flex:1;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:26px;
+
+    background:#111;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+
+
+
+/* =====================================
+   DESKTOP HIDE MOBILE ELEMENTS
+===================================== */
+
+@media(min-width:901px){
+
+    .property-sheet,
+    .mobile-map-layout,
+    #mobile-filters-root,
+    .mobile-filter-button{
+        display:none !important;
+    }
+
+}
