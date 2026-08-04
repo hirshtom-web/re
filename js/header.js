@@ -25,3 +25,11 @@ function initHeader() {
     }
 
 }
+
+
+const mobileBtn = document.querySelector(".mobile-toggle");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+mobileBtn?.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+});
