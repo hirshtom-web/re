@@ -7,45 +7,68 @@ async function loadHeader() {
     initHeader();
 }
 
+
 function initHeader() {
 
     const desktopBtn = document.querySelector(".desktop-toggle");
     const mobileBtn = document.querySelector(".mobile-toggle");
 
-    const desktopMenu = document.querySelector(".desktop-menu");
     const mobileMenu = document.querySelector(".mobile-menu");
+    const desktopMenu = document.querySelector(".desktop-menu");
 
-    // Desktop menu
-    if (desktopBtn && desktopMenu) {
-        desktopBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            desktopMenu.classList.toggle("active");
-        });
-    }
 
-    // Mobile menu
+    console.log("Mobile button:", mobileBtn);
+    console.log("Mobile menu:", mobileMenu);
+
+
+    // Mobile menu toggle
     if (mobileBtn && mobileMenu) {
-        mobileBtn.addEventListener("click", (e) => {
+
+        mobileBtn.addEventListener("click", function(e) {
+
+            e.preventDefault();
             e.stopPropagation();
+
             mobileMenu.classList.toggle("active");
+
+            console.log("Mobile menu opened");
+
         });
+
     }
 
-    // Close menus when clicking outside
-    document.addEventListener("click", () => {
-        desktopMenu?.classList.remove("active");
+
+    // Desktop menu toggle
+    if (desktopBtn && desktopMenu) {
+
+        desktopBtn.addEventListener("click", function(e) {
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            desktopMenu.classList.toggle("active");
+
+        });
+
+    }
+
+
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", function(){
+
         mobileMenu?.classList.remove("active");
+
     });
 
-    // Prevent closing when clicking inside the menu
-    desktopMenu?.addEventListener("click", (e) => {
-        e.stopPropagation();
-    });
 
-    mobileMenu?.addEventListener("click", (e) => {
+    // Prevent closing when clicking inside menu
+    mobileMenu?.addEventListener("click", function(e){
+
         e.stopPropagation();
+
     });
 
 }
+
 
 loadHeader();
