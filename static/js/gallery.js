@@ -2,7 +2,13 @@
 // PROPERTY GALLERY
 // ======================================
 
-function initGallery(property){
+window.initGallery = function(property){
+
+    console.log(
+        "GALLERY CALLED:",
+        property
+    );
+
 
     if(!property){
         console.warn("No property for gallery");
@@ -14,6 +20,11 @@ function initGallery(property){
         (property.images || [])
         .filter(Boolean);
 
+
+    console.log(
+        "GALLERY IMAGES:",
+        images
+    );
 
 
     const mainImage =
@@ -39,6 +50,15 @@ function initGallery(property){
             "mobile-counter"
         );
 
+
+    console.log(
+        "GALLERY ELEMENTS:",
+        {
+            mainImage,
+            galleryGrid,
+            mobileSlider
+        }
+    );
 
 
     if(!images.length){
@@ -183,3 +203,19 @@ function initGallery(property){
 
 
 } // <-- closes initGallery()
+
+window.addEventListener(
+"propertyLoaded",
+function(event){
+
+    console.log(
+        "GALLERY RECEIVED PROPERTY:",
+        event.detail
+    );
+
+
+    initGallery(
+        event.detail
+    );
+
+});

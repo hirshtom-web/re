@@ -38,13 +38,6 @@ window.addEventListener(
 
 
 
-if(window.currentProperty){
-
-    startPropertyRenderer();
-
-}
-
-
 
 
 

@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link 
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" 
+rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    
+    <title>Properties</title>
+
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/property-card.css">
+    <link rel="stylesheet" href="/static/css/properties-grid.css">
+    <link rel="stylesheet" href="/static/css/modal.css">
+    <link rel="stylesheet" href="/static/css/properties-toolbar.css">
+    <link rel="stylesheet" href="/static/css/properties-layout.css">
+    <link rel="stylesheet" href="/static/css/mobile-search.css">
+    <link rel="stylesheet" href="/static/css/search-header.css">
+
+
+</head>
+
+
+
+<body class="search-page">
+
+
+<header class="search-header">
+
+    <div class="search-header-left">
+        <a href="/" class="site-logo">
+            <img src="/static/assets/logo.svg" alt="Logo">
+        </a>
+    </div>
+
+
+    <div class="search-header-center">
+
+        <!-- MOVE ONLY THIS -->
+        <div class="properties-toolbar">
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <span class="material-symbols-outlined">
+            search
+        </span>
+
+        <input
+        id="property-search"
+        type="text"
+        placeholder="Search residences, buildings, locations..."
+        >
+
+    </div>
+
+
+
+    <!-- FILTER GROUP -->
+
+    <div class="filter-group">
+
+
+
+        <!-- =========================
+        LOCATION
+        ========================= -->
+
+
+       <div class="filter-dropdown" id="location-dropdown">
+
+
+            <button 
+            class="filter-button"
+            id="location-button">
+
+
+                <span class="filter-label">
+                    All Locations
+                </span>
+
+
+                <span class="material-symbols-outlined arrow">
+                    keyboard_arrow_down
+                </span>
+
+
+            </button>
+
+
+
+            <div class="filter-popup">
+
+
+
+                <div class="popup-search">
+
+
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+
+
+                    <input
+                    type="text"
+                    id="location-search"
+                    placeholder="Search locations..."
+                    >
+
+
+                </div>
+
+
+
+
+                <div class="popup-options">
+
+
+
+                    <button data-value="">
+                        All Locations
+                    </button>
+
+
+                    <button data-value="Aventura">
+                        Aventura
+                    </button>
+
+
+                    <button data-value="Bal Harbour">
+                        Bal Harbour
+                    </button>
+
+
+                    <button data-value="Bay Harbor Islands">
+                        Bay Harbor Islands
+                    </button>
+
+
+                    <button data-value="Boca Raton">
+                        Boca Raton
+                    </button>
+
+
+                    <button data-value="Brickell">
+                        Brickell
+                    </button>
+
+
+                    <button data-value="Brickell Key">
+                        Brickell Key
+                    </button>
+
+
+                    <button data-value="Coconut Grove">
+                        Coconut Grove
+                    </button>
+
+
+                    <button data-value="Coral Gables">
+                        Coral Gables
+                    </button>
+
+
+                    <button data-value="Downtown Miami">
+                        Downtown Miami
+                    </button>
+
+
+                    <button data-value="Edgewater">
+                        Edgewater
+                    </button>
+
+
+                    <button data-value="Fisher Island">
+                        Fisher Island
+                    </button>
+
+
+                    <button data-value="Fort Lauderdale">
+                        Fort Lauderdale
+                    </button>
+
+
+                    <button data-value="Hallandale Beach">
+                        Hallandale Beach
+                    </button>
+
+
+                    <button data-value="Hollywood">
+                        Hollywood
+                    </button>
+
+
+                    <button data-value="Miami Beach">
+                        Miami Beach
+                    </button>
+
+
+                    <button data-value="Miami River">
+                        Miami River
+                    </button>
+
+
+                    <button data-value="Midtown Miami">
+                        Midtown Miami
+                    </button>
+
+
+                    <button data-value="North Bay Village">
+                        North Bay Village
+                    </button>
+
+
+                    <button data-value="North Miami">
+                        North Miami
+                    </button>
+
+
+                    <button data-value="North Miami Beach">
+                        North Miami Beach
+                    </button>
+
+
+                    <button data-value="Palm Beach">
+                        Palm Beach
+                    </button>
+
+
+                    <button data-value="Palm Beach Gardens">
+                        Palm Beach Gardens
+                    </button>
+
+
+                    <button data-value="Pompano Beach">
+                        Pompano Beach
+                    </button>
+
+
+                    <button data-value="South Beach">
+                        South Beach
+                    </button>
+
+
+                    <button data-value="Sunny Isles Beach">
+                        Sunny Isles Beach
+                    </button>
+
+
+                    <button data-value="Surfside">
+                        Surfside
+                    </button>
+
+
+                    <button data-value="West Palm Beach">
+                        West Palm Beach
+                    </button>
+
+
+                    <button data-value="Wynwood Miami">
+                        Wynwood Miami
+                    </button>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+        <!-- =========================
+        PRICE
+        ========================= -->
+
+
+        <div class="filter-dropdown" id="price-dropdown">
+
+
+            <button 
+            class="filter-button"
+            id="price-button">
+
+
+                <span class="filter-label">
+                    Price
+                </span>
+
+
+                <span class="material-symbols-outlined arrow">
+                    keyboard_arrow_down
+                </span>
+
+
+            </button>
+
+
+
+            <div class="filter-popup price-popup">
+
+
+
+                <div class="price-range-values">
+
+
+                    <input 
+                    id="min-price"
+                    type="number"
+                    value="500000">
+
+
+                    <input 
+                    id="max-price"
+                    type="number"
+                    value="10000000">
+
+
+                </div>
+
+
+
+
+                <div class="range-slider">
+
+
+                    <div class="slider-track"></div>
+
+
+                    <input
+                    id="min-range"
+                    type="range"
+                    min="0"
+                    max="20000000"
+                    value="500000">
+
+
+                    <input
+                    id="max-range"
+                    type="range"
+                    min="0"
+                    max="20000000"
+                    value="10000000">
+
+
+                </div>
+
+
+
+
+                <div class="price-chart">
+
+
+                    <div style="height:20%"></div>
+                    <div style="height:45%"></div>
+                    <div style="height:80%"></div>
+                    <div style="height:100%"></div>
+                    <div style="height:60%"></div>
+                    <div style="height:30%"></div>
+
+
+                </div>
+
+
+
+
+                <div class="popup-footer">
+
+
+                    <button class="reset-filter">
+                        Reset
+                    </button>
+
+
+                    <button class="apply-filter">
+                        Apply
+                    </button>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+        <!-- =========================
+        PROPERTY TYPE
+        ========================= -->
+
+
+        <div class="filter-dropdown" id="property-type-dropdown">
+
+
+            <button 
+            class="filter-button"
+            id="property-type-button">
+
+
+                <span class="filter-label">
+                    All Property Types
+                </span>
+
+
+                <span class="material-symbols-outlined arrow">
+                    keyboard_arrow_down
+                </span>
+
+
+            </button>
+
+
+
+
+            <div class="filter-popup">
+
+
+                <div class="popup-options">
+
+
+                    <button data-value="">
+                        All Property Types
+                    </button>
+
+
+                    <button data-value="New Construction">
+                        New Construction
+                    </button>
+
+
+                    <button data-value="Pre-Construction">
+                        Pre-Construction
+                    </button>
+
+
+                    <button data-value="Other">
+                        Other
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- =========================
+        COMPLETION
+        ========================= -->
+
+
+        <div class="filter-dropdown" id="completion-dropdown">
+
+
+            <button 
+            class="filter-button"
+            id="completion-button">
+
+
+                <span class="filter-label">
+                    Completed By
+                </span>
+
+
+                <span class="material-symbols-outlined arrow">
+                    keyboard_arrow_down
+                </span>
+
+
+            </button>
+
+
+
+
+            <div class="filter-popup">
+
+
+                <div class="popup-options">
+
+
+                    <button data-value="">
+                        Completed By
+                    </button>
+
+
+                    <button data-value="2026">
+                        2026
+                    </button>
+
+
+                    <button data-value="2027">
+                        2027
+                    </button>
+
+
+                    <button data-value="2028">
+                        2028
+                    </button>
+
+
+                    <button data-value="2029">
+                        2029
+                    </button>
+
+
+                    <button data-value="2030">
+                        2030+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>        
+        
+        <!-- =========================
+        SORT
+        ========================= -->
+
+
+        <div class="filter-dropdown" id="sort-dropdown">
+
+
+            <button 
+            class="filter-button"
+            id="sort-button">
+
+
+                <span class="filter-label">
+                    Sort By
+                </span>
+
+
+                <span class="material-symbols-outlined arrow">
+                    keyboard_arrow_down
+                </span>
+
+
+            </button>
+
+
+
+
+            <div class="filter-popup">
+
+
+                <div class="popup-options">
+
+
+                    <button data-value="">
+                        Sort By
+                    </button>
+
+
+                    <button data-value="price-low">
+                        Price: Low to High
+                    </button>
+
+
+                    <button data-value="price-high">
+                        Price: High to Low
+                    </button>
+
+
+                    <button data-value="name">
+                        Name A-Z
+                    </button>
+
+
+                    <button data-value="location">
+                        Location
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+    <!-- CLOSE FILTER GROUP -->
+
+
+        </div>
+
+    </div>
+
+
+    <div class="search-header-right">
+
+    <!-- Desktop -->
+    <button class="desktop-toggle">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+
+    <!-- Mobile -->
+    <button class="mobile-toggle">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+
+</div>
+
+</header>
+    
+
+
+    
+<section class="properties-section">
+
+<!-- =========================
+DESKTOP MAP + GRID
+========================= -->
+
+
+<div class="properties-layout">
+
+
+    <div class="map-container">
+
+        <div id="desktop-map"></div>
+
+    </div>
+
+
+
+    <div class="properties-scroll">
+
+
+        <div 
+        id="properties-grid"
+        class="properties-grid">
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- =========================
+MOBILE MAP + SHEETS
+========================= -->
+
+<div id="mobile-filters-root" class="mobile-map-layout">
+
+
+    <div id="mobile-map"></div>
+
+
+   <div id="map-property-preview" class="mobile-property-preview"></div>
+
+    <button 
+    class="mobile-filter-button"
+    type="button">
+
+    <span class="material-symbols-outlined filter-icon">
+        tune
+    </span>
+
+    Filters
+
+</button>
+
+
+
+    <!-- PROPERTY SHEET -->
+
+    <div class="property-sheet">
+
+
+        <div class="sheet-header">
+
+            <div class="sheet-handle"></div>
+
+            <span id="property-count">
+                248 Properties
+            </span>
+
+        </div>
+
+
+        <div class="sheet-content">
+
+            <div
+                id="mobile-properties-grid"
+                class="properties-grid">
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- FILTER SHEET -->
+
+    <div class="filter-sheet mobile-filter-sheet">
+
+
+        <div class="filter-sheet-handle"></div>
+
+
+        <div class="filter-sheet-header">
+            Filters
+        </div>
+
+
+
+        <div class="filter-content">
+
+
+
+            <!-- SEARCH -->
+
+<div class="mobile-filter-section">
+
+    <h3>
+        Search
+    </h3>
+
+    <div class="search-box mobile-search-box">
+
+        <span class="material-symbols-outlined">
+            search
+        </span>
+
+        <input
+            id="mobile-property-search"
+            type="text"
+            placeholder="Search residences, buildings, locations...">
+
+    </div>
+
+</div>
+
+
+
+
+
+            <!-- PRICE -->
+
+            <!-- PRICE -->
+
+<div class="mobile-filter-section">
+
+
+    <h3>
+        Price
+    </h3>
+
+
+
+    <!-- PRICE HISTOGRAM -->
+
+    <div class="mobile-price-chart">
+
+        <div style="height:15%"></div>
+        <div style="height:30%"></div>
+        <div style="height:55%"></div>
+        <div style="height:80%"></div>
+        <div style="height:100%"></div>
+        <div style="height:85%"></div>
+        <div style="height:60%"></div>
+        <div style="height:35%"></div>
+        <div style="height:20%"></div>
+
+    </div>
+
+
+
+    <!-- DOUBLE RANGE SLIDER -->
+
+    <div class="mobile-range-slider">
+
+
+        <div class="mobile-slider-track"></div>
+
+
+        <input
+            id="mobile-min-range"
+            type="range"
+            min="0"
+            max="20000000"
+            value="500000">
+
+
+        <input
+            id="mobile-max-range"
+            type="range"
+            min="0"
+            max="20000000"
+            value="10000000">
+
+
+    </div>
+
+
+
+    <!-- PRICE INPUTS -->
+
+    <div class="mobile-price-range-values">
+
+
+        <div class="price-input-group">
+
+            <label>
+                Minimum
+            </label>
+
+            <input
+                id="mobile-min-price"
+                type="text"
+                value="$500,000">
+
+        </div>
+
+
+
+        <div class="price-input-group">
+
+            <label>
+                Maximum
+            </label>
+
+            <input
+                id="mobile-max-price"
+                type="text"
+                value="$10,000,000">
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+            <!-- LOCATION -->
+
+           <!-- LOCATION -->
+
+<div class="mobile-filter-section">
+
+
+    <h3>
+        Location
+    </h3>
+
+
+
+    <div class="mobile-search-box mobile-location-search">
+
+
+        <span class="material-symbols-outlined">
+            search
+        </span>
+
+
+        <input
+            id="mobile-location-search"
+            type="text"
+            placeholder="Search city, neighborhood, building...">
+
+
+    </div>
+
+
+                <div class="mobile-popup-options">
+
+
+                    <button data-value="">
+                        All Locations
+                    </button>
+
+                    <button data-value="Aventura">
+                        Aventura
+                    </button>
+
+                    <button data-value="Bal Harbour">
+                        Bal Harbour
+                    </button>
+
+                    <button data-value="Brickell">
+                        Brickell
+                    </button>
+
+                    <button data-value="Brickell Key">
+                        Brickell Key
+                    </button>
+
+                    <button data-value="Coconut Grove">
+                        Coconut Grove
+                    </button>
+
+                    <button data-value="Coral Gables">
+                        Coral Gables
+                    </button>
+
+                    <button data-value="Downtown Miami">
+                        Downtown Miami
+                    </button>
+
+                    <button data-value="Miami Beach">
+                        Miami Beach
+                    </button>
+
+                    <button data-value="Sunny Isles Beach">
+                        Sunny Isles Beach
+                    </button>
+
+                    <button data-value="Wynwood Miami">
+                        Wynwood Miami
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- PROPERTY TYPE -->
+
+           <!-- PROPERTY TYPE -->
+
+<div class="mobile-filter-section">
+
+
+    <h3>
+        Property Type
+    </h3>
+
+
+    <button class="mobile-select-trigger">
+
+        <span>
+            All Property Types
+        </span>
+
+        <span class="material-symbols-outlined">
+            keyboard_arrow_down
+        </span>
+
+    </button>
+
+
+
+    <div class="mobile-popup-options">
+
+
+        <button data-value="">
+            All Property Types
+        </button>
+
+
+        <button data-value="New Construction">
+            New Construction
+        </button>
+
+
+        <button data-value="Pre-Construction">
+            Pre-Construction
+        </button>
+
+
+        <button data-value="Other">
+            Other
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+            <!-- COMPLETION -->
+
+            <!-- COMPLETED BY -->
+
+<div class="mobile-filter-section">
+
+
+    <h3>
+        Completed By
+    </h3>
+
+
+    <button class="mobile-select-trigger">
+
+        <span>
+            Any
+        </span>
+
+        <span class="material-symbols-outlined">
+            keyboard_arrow_down
+        </span>
+
+    </button>
+
+
+
+    <div class="mobile-popup-options">
+
+
+        <button data-value="">
+            Any
+        </button>
+
+
+        <button data-value="2026">
+            2026
+        </button>
+
+
+        <button data-value="2027">
+            2027
+        </button>
+
+
+        <button data-value="2028">
+            2028
+        </button>
+
+
+        <button data-value="2029">
+            2029
+        </button>
+
+
+        <button data-value="2030">
+            2030+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+            <!-- SORT -->
+
+           <!-- SORT BY -->
+
+<div class="mobile-filter-section">
+
+
+    <h3>
+        Sort By
+    </h3>
+
+
+    <button class="mobile-select-trigger">
+
+        <span>
+            Default
+        </span>
+
+        <span class="material-symbols-outlined">
+            keyboard_arrow_down
+        </span>
+
+    </button>
+
+
+
+    <div class="mobile-popup-options">
+
+
+        <button data-value="">
+            Default
+        </button>
+
+
+        <button data-value="price-low">
+            Price: Low to High
+        </button>
+
+
+        <button data-value="price-high">
+            Price: High to Low
+        </button>
+
+
+        <button data-value="name">
+            Name A-Z
+        </button>
+
+
+        <button data-value="location">
+            Location
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="filter-sheet-footer">
+
+
+            <button class="reset-filter mobile-reset-filter">
+    Reset
+</button>
+
+
+<button class="apply-filter mobile-apply-filter">
+    Apply Filters
+</button>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>    
+    
+
+    
+    <div class="modal" id="dealModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div class="modal-left">
+
+                <button class="modal-btn" onclick="closeDeal()">
+
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M15 18L9 12L15 6"/>
+</svg>
+
+Back
+
+</button>
+
+            </div>
+
+            <div class="modal-center">
+
+                <img
+                    class="modal-logo"
+                    src="https://static.wixstatic.com/shapes/1799ca_7155831ea6c34da28a5a12b76fe72255.svg"
+                    alt="Logo">
+
+            </div>
+
+           <div class="modal-right">
+
+<button class="icon-btn" onclick="downloadPDF()">
+    <span class="material-symbols-outlined">picture_as_pdf</span>
+</button>
+
+
+<div class="menu-wrapper">
+
+    <button class="icon-btn" onclick="toggleMenu()">
+        <span class="material-symbols-outlined">more_vert</span>
+    </button>
+
+
+    <div id="moreMenu" class="more-menu">
+
+
+        <button onclick="whatsappBroker()">
+            <span class="material-symbols-outlined">chat</span>
+            WhatsApp
+        </button>
+
+
+        <button onclick="callBroker()">
+            <span class="material-symbols-outlined">call</span>
+            Call
+        </button>
+
+
+        <button onclick="emailBroker()">
+            <span class="material-symbols-outlined">mail</span>
+            Email
+        </button>
+
+
+        <hr>
+
+
+        <button onclick="shareDeal()">
+            <span class="material-symbols-outlined">share</span>
+            Share
+        </button>
+
+
+        <button onclick="copyLink()">
+            <span class="material-symbols-outlined">content_copy</span>
+            Copy Link
+        </button>
+
+
+        <button onclick="visitWebsite()">
+            <span class="material-symbols-outlined">language</span>
+            Website
+        </button>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<iframe id="dealFrame"></iframe>
+
+</div>
+
+</div> 
+
+
+
+
+<!-- Render cards -->
+<script src="/static/js/modal.js"></script>
+<script src="/static/js/properties-grid.js"></script>
+<script src="/static/js/listings.js"></script>
+
+<!-- Map must load before search updates markers -->
+<script src="/static/js/properties-map.js"></script>
+
+
+<script>
+function loadGoogleMaps(){
+
+    const script=document.createElement("script");
+
+    script.src =
+    "https://maps.googleapis.com/maps/api/js?key=AIzaSyApjRl527xXbpu2WN_c2E-mVvJhJAzkAC8&callback=initMap&loading=async&v=weekly";
+
+    script.async=true;
+    script.defer=true;
+
+    document.head.appendChild(script);
+
+}
+
+loadGoogleMaps();
+</script>
+    
+<!-- Search needs renderPropertiesGrid + updateMapMarkers -->
+<script src="/static/js/properties-search.js"></script>
+
+
+<!-- View toggle -->
+<script src="/static/js/properties-filters-mobile.js"></script>
+<script src="/static/js/properties-toolbar.js"></script>
+<script src="/static/js/properties-view.js"></script>
+
+
+<!-- Modal and contacts -->
+<script src="/static/js/contact.js"></script>
+
+
+    
+</body>
+
+</html>

@@ -102,8 +102,7 @@ function filterProperties(){
 
             typeMatch =
 
-            property.type ===
-            propertyFilters.propertyType;
+property.propertyType === propertyFilters.propertyType
 
 
         }
@@ -344,5 +343,55 @@ if(mobileSearch){
 
     });
 
+
+}
+
+function buildDynamicFilters(){
+
+    const citySelect = document.getElementById("city-filter");
+    const typeSelect = document.getElementById("type-filter");
+
+    if(citySelect){
+
+        const cities = [
+            ...new Set(
+                window.properties.map(p=>p.city)
+            )
+        ].sort();
+
+
+        cities.forEach(city=>{
+
+            citySelect.innerHTML += `
+                <option value="${city}">
+                    ${city}
+                </option>
+            `;
+
+        });
+
+    }
+
+
+    if(typeSelect){
+
+        const types = [
+            ...new Set(
+                window.properties.map(p=>p.propertyType)
+            )
+        ].sort();
+
+
+        types.forEach(type=>{
+
+            typeSelect.innerHTML += `
+                <option value="${type}">
+                    ${type}
+                </option>
+            `;
+
+        });
+
+    }
 
 }
