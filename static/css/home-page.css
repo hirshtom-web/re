@@ -1,0 +1,200 @@
+/* ==========================================
+   SERVICES — CARDS
+========================================== */
+
+.services-cards-grid {
+    width: 100%;
+    max-width: none;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 25px;
+}
+
+
+/* ==========================================
+   CARD WIDTHS
+========================================== */
+
+/* First row — 2 large cards */
+
+.services-cards-grid .service-card:nth-child(1),
+.services-cards-grid .service-card:nth-child(2) {
+    grid-column: span 3;
+}
+
+
+/* Second row — 3 equal cards */
+
+.services-cards-grid .service-card:nth-child(3),
+.services-cards-grid .service-card:nth-child(4),
+.services-cards-grid .service-card:nth-child(5) {
+    grid-column: span 2;
+}
+
+
+/* ==========================================
+   SERVICE CARD
+========================================== */
+
+.services-cards-grid .service-card {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 420px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124,92,255,.18),
+            rgba(0,230,255,.12),
+            rgba(255,255,255,.7)
+        );
+
+    backdrop-filter: blur(20px);
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255,255,255,.5);
+
+    padding: 35px;
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease;
+}
+
+
+/* ==========================================
+   CARD GLOW
+========================================== */
+
+.services-cards-grid .service-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(0,255,255,.35),
+            transparent 45%
+        );
+
+    opacity: .7;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   CARD CONTENT
+========================================== */
+
+.services-cards-grid .card-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+.services-cards-grid .service-card h3 {
+    font-size: 26px;
+    margin-bottom: 18px;
+}
+
+
+.services-cards-grid .service-card p {
+    color: #555;
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   CARD IMAGE
+========================================== */
+
+.services-cards-grid .service-card img {
+    width: calc(100% + 70px);
+    height: 180px;
+
+    object-fit: cover;
+
+    margin-left: -35px;
+    margin-bottom: -35px;
+
+    transition: transform .6s ease;
+}
+
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.services-cards-grid .service-card:hover {
+    transform: translateY(-10px);
+
+    border: 3px solid transparent;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.8),
+            rgba(255,255,255,.8)
+        ) padding-box,
+
+        linear-gradient(
+            135deg,
+            #00ffff,
+            #7c5cff,
+            #ff4fd8
+        ) border-box;
+
+    box-shadow:
+        0 30px 80px rgba(124,92,255,.25);
+}
+
+
+.services-cards-grid .service-card:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .services-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-cards-grid .service-card:nth-child(n) {
+        grid-column: auto;
+    }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 760px) {
+
+    .services-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .services-cards-grid .service-card:nth-child(n) {
+        grid-column: auto;
+    }
+
+}
