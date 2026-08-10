@@ -1,74 +1,152 @@
-async function loadHeader() {
-    const response = await fetch("/components/header.html");
-    const html = await response.text();
+async function loadRilityHeader() {
 
-    document.body.insertAdjacentHTML("afterbegin", html);
+    try {
 
-    initHeader();
-}
+        const response = await fetch("../components/rility-header.html");
 
+        if (!response.ok) {
 
-function initHeader() {
+            throw new Error(
+                `Header failed to load: ${response.status}`
+            );
 
-    const desktopBtn = document.querySelector(".desktop-toggle");
-    const mobileBtn = document.querySelector(".mobile-toggle");
+        }
 
-    const mobileMenu = document.querySelector(".mobile-menu");
-    const desktopMenu = document.querySelector(".desktop-menu");
+        const html = await response.text();
 
+        document.body.insertAdjacentHTML(
+            "afterbegin",
+            html
+        );
 
-    console.log("Mobile button:", mobileBtn);
-    console.log("Mobile menu:", mobileMenu);
+        initRilityHeader();
 
+    } catch (error) {
 
-    // Mobile menu toggle
-    if (mobileBtn && mobileMenu) {
-
-        mobileBtn.addEventListener("click", function(e) {
-
-            e.preventDefault();
-            e.stopPropagation();
-
-            mobileMenu.classList.toggle("active");
-
-            console.log("Mobile menu opened");
-
-        });
+        console.error(
+            "Rility header error:",
+            error
+        );
 
     }
-
-
-    // Desktop menu toggle
-    if (desktopBtn && desktopMenu) {
-
-        desktopBtn.addEventListener("click", function(e) {
-
-            e.preventDefault();
-            e.stopPropagation();
-
-            desktopMenu.classList.toggle("active");
-
-        });
-
-    }
-
-
-    // Close mobile menu when clicking outside
-    document.addEventListener("click", function(){
-
-        mobileMenu?.classList.remove("active");
-
-    });
-
-
-    // Prevent closing when clicking inside menu
-    mobileMenu?.addEventListener("click", function(e){
-
-        e.stopPropagation();
-
-    });
 
 }
 
 
-loadHeader();
+function initRilityHeader() {
+
+    const header =
+        document.querySelector(".rility-header");
+
+    const toggle =
+        document.querySelector(".rility-header__mobile-toggle");
+
+    const mobileMenu =
+        document.querySelector(".rility-header__mobile-menu");
+
+
+    if (!header) return;
+
+
+    /* ==========================================
+       MOBILE MENU
+    ========================================== */
+
+    if (toggle && mobileMenu) {
+
+        toggle.addEventListener("click", function(e) {
+
+            e.stopPropagation();
+
+            const isOpen =
+                mobileMenu.classList.toggle("is-open");
+
+            toggle.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+        });
+
+
+        mobileMenu.addEventListener(
+            "click",
+            function(e) {
+
+                e.stopPropagation();
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            function() {
+
+                mobileMenu.classList.remove("is-open");
+
+                toggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+        );
+
+
+        mobileMenu
+            .querySelectorAll("a")
+            .forEach(function(link) {
+
+                link.addEventListener(
+                    "click",
+                    function() {
+
+                        mobileMenu.classList.remove(
+                            "is-open"
+                        );
+
+                        toggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    /* ==========================================
+       SCROLL EFFECT
+    ========================================== */
+
+    function updateHeader() {
+
+        if (window.scrollY > 30) {
+
+            header.classList.add("is-scrolled");
+
+        } else {
+
+            header.classList.remove("is-scrolled");
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        { passive: true }
+    );
+
+    updateHeader();
+
+}
+
+
+loadRilityHeader();
