@@ -337,6 +337,7 @@
     border-radius: 28px 28px 0 0;
 
     line-height: 0;
+
 }
 
 
@@ -350,35 +351,6 @@
 
     object-fit: cover;
 
-}
-
-
-/* ==========================================
-   CTA IMAGE - MOBILE
-========================================== */
-
-@media (max-width: 768px) {
-
-    .cta-image-wrap {
-
-        width: 100%;
-
-        margin-top: 40px;
-
-        border-radius: 22px 22px 0 0;
-
-    }
-
-    .cta-image {
-
-        height: 240px;
-
-    }
+    border-radius: 0;
 
 }
-
-
-
-
-
-
