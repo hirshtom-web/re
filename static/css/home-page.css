@@ -1,34 +1,124 @@
 /* ==========================================
-   SERVICES — CARDS
+   RILITY SERVICES SECTION
 ========================================== */
 
-.services-cards-grid {
+.rility-services {
+    width: 100%;
+    padding: 60px 0;
+    position: relative;
+}
+
+
+/* ==========================================
+   SERVICES CONTAINER
+========================================== */
+
+.rility-services-container {
+    width: 90%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ==========================================
+   SERVICES TITLE
+========================================== */
+
+.rility-services-title {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 70px;
+    position: relative;
+}
+
+
+.rility-services-title h2 {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(38px, 5vw, 58px);
+    font-weight: 450;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+}
+
+
+.rility-services-title p {
+    max-width: 900px;
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #666;
+}
+
+
+/* ==========================================
+   TITLE BUBBLE
+========================================== */
+
+.rility-services-bubble {
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c5cff,
+            #4fd1c5
+        );
+
+    filter: blur(18px);
+
+    opacity: .45;
+
+    top: -25px;
+    left: -25px;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   SERVICES GRID
+========================================== */
+
+.rility-services-grid {
     width: 100%;
     max-width: none;
 
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
     gap: 25px;
 }
 
 
 /* ==========================================
-   CARD WIDTHS
+   FIRST ROW
+   2 LARGE CARDS
 ========================================== */
 
-/* First row — 2 large cards */
-
-.services-cards-grid .service-card:nth-child(1),
-.services-cards-grid .service-card:nth-child(2) {
+.rility-services-grid .rility-service-card:nth-child(1),
+.rility-services-grid .rility-service-card:nth-child(2) {
     grid-column: span 3;
 }
 
 
-/* Second row — 3 equal cards */
+/* ==========================================
+   SECOND ROW
+   3 EQUAL CARDS
+========================================== */
 
-.services-cards-grid .service-card:nth-child(3),
-.services-cards-grid .service-card:nth-child(4),
-.services-cards-grid .service-card:nth-child(5) {
+.rility-services-grid .rility-service-card:nth-child(3),
+.rility-services-grid .rility-service-card:nth-child(4),
+.rility-services-grid .rility-service-card:nth-child(5) {
     grid-column: span 2;
 }
 
@@ -37,16 +127,23 @@
    SERVICE CARD
 ========================================== */
 
-.services-cards-grid .service-card {
+.rility-service-card {
     position: relative;
 
-    overflow: hidden;
-
+    min-width: 0;
     min-height: 420px;
+
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    padding: 35px;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255,255,255,.5);
 
     background:
         linear-gradient(
@@ -58,12 +155,6 @@
 
     backdrop-filter: blur(20px);
 
-    border-radius: 28px;
-
-    border: 1px solid rgba(255,255,255,.5);
-
-    padding: 35px;
-
     transition:
         transform .45s ease,
         box-shadow .45s ease;
@@ -74,10 +165,11 @@
    CARD GLOW
 ========================================== */
 
-.services-cards-grid .service-card::before {
+.rility-service-card::before {
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     background:
@@ -97,20 +189,27 @@
    CARD CONTENT
 ========================================== */
 
-.services-cards-grid .card-content {
+.rility-service-content {
     position: relative;
     z-index: 2;
 }
 
 
-.services-cards-grid .service-card h3 {
+.rility-service-content h3 {
+    font-family: "Inter", sans-serif;
+
     font-size: 26px;
-    margin-bottom: 18px;
+    font-weight: 450;
+
+    margin: 0 0 18px 0;
 }
 
 
-.services-cards-grid .service-card p {
+.rility-service-content p {
+    margin: 0;
+
     color: #555;
+
     line-height: 1.7;
 }
 
@@ -119,7 +218,9 @@
    CARD IMAGE
 ========================================== */
 
-.services-cards-grid .service-card img {
+.rility-service-card img {
+    display: block;
+
     width: calc(100% + 70px);
     height: 180px;
 
@@ -136,7 +237,7 @@
    HOVER
 ========================================== */
 
-.services-cards-grid .service-card:hover {
+.rility-service-card:hover {
     transform: translateY(-10px);
 
     border: 3px solid transparent;
@@ -160,7 +261,7 @@
 }
 
 
-.services-cards-grid .service-card:hover img {
+.rility-service-card:hover img {
     transform: scale(1.05);
 }
 
@@ -171,11 +272,15 @@
 
 @media (max-width: 1000px) {
 
-    .services-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .rility-services-container {
+        width: 90%;
     }
 
-    .services-cards-grid .service-card:nth-child(n) {
+    .rility-services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .rility-services-grid .rility-service-card:nth-child(n) {
         grid-column: auto;
     }
 
@@ -188,13 +293,25 @@
 
 @media (max-width: 760px) {
 
-    .services-cards-grid {
+    .rility-services {
+        padding: 80px 0;
+    }
+
+    .rility-services-container {
+        width: 90%;
+    }
+
+    .rility-services-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .services-cards-grid .service-card:nth-child(n) {
+    .rility-services-grid .rility-service-card:nth-child(n) {
         grid-column: auto;
+    }
+
+    .rility-service-card {
+        min-height: 420px;
     }
 
 }
