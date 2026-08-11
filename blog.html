@@ -38,7 +38,90 @@
 <!-- ==================================================
 RILITY — JOURNAL HERO
 ================================================== -->
+<section style="padding:40px; font-family:Arial,sans-serif;">
+  <h2>Image Path Test</h2>
 
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;">
+
+
+<!-- TEST 1 -->
+<div>
+  <strong>Test 1 — Absolute /data/</strong>
+  <img
+    src="/data/images/casa-bella/Casa-Bella-Building.webp"
+    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
+    onload="this.nextElementSibling.textContent='✓ LOADED'"
+    onerror="this.nextElementSibling.textContent='✕ FAILED'"
+  >
+  <p>Checking...</p>
+</div>
+
+<!-- TEST 2 -->
+<div>
+  <strong>Test 2 — Relative data/</strong>
+  <img
+    src="data/images/casa-bella/Casa-Bella-Building.webp"
+    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
+    onload="this.nextElementSibling.textContent='✓ LOADED'"
+    onerror="this.nextElementSibling.textContent='✕ FAILED'"
+  >
+  <p>Checking...</p>
+</div>
+
+<!-- TEST 3 -->
+<div>
+  <strong>Test 3 — ./data/</strong>
+  <img
+    src="./data/images/casa-bella/Casa-Bella-Building.webp"
+    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
+    onload="this.nextElementSibling.textContent='✓ LOADED'"
+    onerror="this.nextElementSibling.textContent='✕ FAILED'"
+  >
+  <p>Checking...</p>
+</div>
+
+<!-- TEST 4 -->
+<div>
+  <strong>Test 4 — /static/data/</strong>
+  <img
+    src="/static/data/images/casa-bella/Casa-Bella-Building.webp"
+    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
+    onload="this.nextElementSibling.textContent='✓ LOADED'"
+    onerror="this.nextElementSibling.textContent='✕ FAILED'"
+  >
+  <p>Checking...</p>
+</div>
+
+<!-- TEST 5 -->
+<div>
+  <strong>Test 5 — static/data/</strong>
+  <img
+    src="static/data/images/casa-bella/Casa-Bella-Building.webp"
+    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
+    onload="this.nextElementSibling.textContent='✓ LOADED'"
+    onerror="this.nextElementSibling.textContent='✕ FAILED'"
+  >
+  <p>Checking...</p>
+</div>
+
+<!-- TEST 6 -->
+<div>
+  <strong>Test 6 — /images/</strong>
+  <img
+    src="/images/casa-bella/Casa-Bella-Building.webp"
+    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
+    onload="this.nextElementSibling.textContent='✓ LOADED'"
+    onerror="this.nextElementSibling.textContent='✕ FAILED'"
+  >
+  <p>Checking...</p>
+</div>
+
+
+  </div>
+</section>
+
+
+  
 <section class="rility-journal-hero">
 
   <div class="rility-journal-hero__glow"></div>
