@@ -1828,3 +1828,107 @@ RESPONSIVE TYPOGRAPHY
   }
 
 }
+
+@media (max-width: 768px) {
+
+  .article-width,
+  .article-container,
+  .article-author,
+  .continue-reading {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  /* Prevent text/content from creating overflow */
+  .article-content,
+  .article-hero,
+  .article-sidebar,
+  .article-author,
+  .continue-reading {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Hero elements must stay inside the viewport */
+  .article-breadcrumbs,
+  .article-hero h1,
+  .article-subtitle,
+  .article-meta,
+  .article-hero-image {
+    max-width: 100%;
+  }
+
+  /* Images can never exceed their container */
+  img {
+    max-width: 100%;
+  }
+
+  /* Main article becomes one column */
+  .article-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  /* Sidebar returns below article */
+  .article-sidebar {
+    width: 100%;
+    min-width: 0;
+    position: static;
+  }
+
+  /* Prevent the slider itself from causing page overflow */
+  .continue-reading {
+    overflow: hidden;
+  }
+
+  .continue-slider-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+}
+
+/* ==========================================================
+PURPLE LINE
+========================================================== */
+
+
+.article-content blockquote {
+  position: relative;
+  margin: 42px 0;
+  padding: 0 0 0 24px;
+
+  background: none;
+  border: 0;
+  border-left: 3px solid #6D5DFB;
+
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 500;
+  color: #333;
+}
+
+
+.article-quote {
+  margin: 42px 0;
+  padding: 0 0 0 24px;
+
+  border-left: 3px solid var(--primary);
+
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 500;
+  color: #333;
+}
+
+.article-quote p {
+  margin: 0;
+}
+
