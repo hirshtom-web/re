@@ -35,854 +35,762 @@
 
 <main class="journal-page">
 
-<!-- ==================================================
-RILITY — JOURNAL HERO
-================================================== -->
-<section style="padding:40px; font-family:Arial,sans-serif;">
-  <h2>Image Path Test</h2>
+  <!-- ==================================================
+  RILITY — JOURNAL HERO
+  ================================================== -->
 
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;">
+  <section class="rility-journal-hero">
 
 
-<!-- TEST 1 -->
-<div>
-  <strong>Test 1 — Absolute /data/</strong>
-  <img
-    src="/data/images/casa-bella/Casa-Bella-Building.webp"
-    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
-    onload="this.nextElementSibling.textContent='✓ LOADED'"
-    onerror="this.nextElementSibling.textContent='✕ FAILED'"
-  >
-  <p>Checking...</p>
-</div>
+<div class="rility-journal-hero__glow"></div>
 
-<!-- TEST 2 -->
-<div>
-  <strong>Test 2 — Relative data/</strong>
+<!-- Floating property card — LEFT -->
+
+<div class="rility-journal-hero-card rility-journal-hero-card--left">
+
   <img
     src="data/images/casa-bella/Casa-Bella-Building.webp"
-    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
-    onload="this.nextElementSibling.textContent='✓ LOADED'"
-    onerror="this.nextElementSibling.textContent='✕ FAILED'"
+    alt="Casa Bella building"
+    loading="eager"
   >
-  <p>Checking...</p>
+
+  <div class="rility-journal-hero-card__content">
+    <strong>Casa Bella</strong>
+    <span>Miami Luxury</span>
+  </div>
+
 </div>
 
-<!-- TEST 3 -->
-<div>
-  <strong>Test 3 — ./data/</strong>
+
+<!-- Floating property card — RIGHT -->
+
+<div class="rility-journal-hero-card rility-journal-hero-card--right">
+
   <img
-    src="./data/images/casa-bella/Casa-Bella-Building.webp"
-    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
-    onload="this.nextElementSibling.textContent='✓ LOADED'"
-    onerror="this.nextElementSibling.textContent='✕ FAILED'"
+    src="data/images/casa-bella/Casa-Bella-Balcony-Sunrise.webp"
+    alt="Casa Bella balcony at sunrise"
+    loading="eager"
   >
-  <p>Checking...</p>
-</div>
 
-<!-- TEST 4 -->
-<div>
-  <strong>Test 4 — /static/data/</strong>
-  <img
-    src="/static/data/images/casa-bella/Casa-Bella-Building.webp"
-    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
-    onload="this.nextElementSibling.textContent='✓ LOADED'"
-    onerror="this.nextElementSibling.textContent='✕ FAILED'"
-  >
-  <p>Checking...</p>
-</div>
-
-<!-- TEST 5 -->
-<div>
-  <strong>Test 5 — static/data/</strong>
-  <img
-    src="static/data/images/casa-bella/Casa-Bella-Building.webp"
-    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
-    onload="this.nextElementSibling.textContent='✓ LOADED'"
-    onerror="this.nextElementSibling.textContent='✕ FAILED'"
-  >
-  <p>Checking...</p>
-</div>
-
-<!-- TEST 6 -->
-<div>
-  <strong>Test 6 — /images/</strong>
-  <img
-    src="/images/casa-bella/Casa-Bella-Building.webp"
-    style="width:100%;height:250px;object-fit:cover;margin-top:10px;"
-    onload="this.nextElementSibling.textContent='✓ LOADED'"
-    onerror="this.nextElementSibling.textContent='✕ FAILED'"
-  >
-  <p>Checking...</p>
-</div>
-
-
-  </div>
-</section>
-
-
-  
-<section class="rility-journal-hero">
-
-  <div class="rility-journal-hero__glow"></div>
-
-  <!-- Floating property card — LEFT -->
-
-  <div class="rility-journal-hero-card rility-journal-hero-card--left">
-
-
-<img
-  src="/data/images/casa-bella/Casa-Bella-Building.webp"
-  alt="Casa Bella building"
-  loading="eager"
->
-
-<div class="rility-journal-hero-card__content">
-
-  <strong>Casa Bella</strong>
-
-  <span>Miami Luxury</span>
-
-</div>
-
-
+  <div class="rility-journal-hero-card__content">
+    <strong>Waterfront Living</strong>
+    <span>Exceptional Residences</span>
   </div>
 
-  <!-- Floating property card — RIGHT -->
-
-  <div class="rility-journal-hero-card rility-journal-hero-card--right">
-
-
-<img
-  src="/data/images/casa-bella/Casa-Bella-Balcony-Sunrise.webp"
-  alt="Casa Bella balcony at sunrise"
-  loading="eager"
->
-
-<div class="rility-journal-hero-card__content">
-
-  <strong>Waterfront Living</strong>
-
-  <span>Exceptional Residences</span>
-
 </div>
 
 
-  </div>
+<!-- Hero content -->
 
-  <!-- Hero content -->
+<div class="rility-journal-hero__content">
 
-  <div class="rility-journal-hero__content">
+  <div class="rility-journal-hero__badge">
 
-
-<div class="rility-journal-hero__badge">
-
-  <span class="material-symbols-outlined">
-    auto_awesome
-  </span>
-
-  AI Real Estate Journal
-
-</div>
-
-
-<h1 class="rility-journal-hero__title">
-
-  Insights shaping the
-
-  <span>
-    future of property
-  </span>
-
-</h1>
-
-
-<p class="rility-journal-hero__text">
-
-  Explore ideas, strategies, and technology
-  transforming how people discover, build,
-  and experience real estate.
-
-</p>
-
-
-  </div>
-
-</section>
-
-<!-- ==================================================
-RILITY — FEATURED ARTICLE
-================================================== -->
-
-<section class="rility-feature">
-
-  <div class="rility-feature__container">
-
-
-<article class="rility-feature__card">
-
-  <!-- IMAGE -->
-
-  <div class="rility-feature__image">
-
-    <img
-      src="/data/images/casa-bella/Casa-Bella-02-Casa-Cielo_Unit-3-01.webp"
-      alt="Casa Bella luxury residence"
-      loading="lazy"
-    >
-
-  </div>
-
-
-  <!-- CONTENT -->
-
-  <div class="rility-feature__content">
-
-    <span class="rility-feature__tag">
-      Featured
+    <span class="material-symbols-outlined">
+      auto_awesome
     </span>
 
-
-    <h2 class="rility-feature__title">
-      How AI is redefining
-      the real estate experience
-    </h2>
-
-
-    <p class="rility-feature__text">
-      From smarter searches to predictive
-      insights, artificial intelligence is
-      changing how people interact with
-      property.
-    </p>
-
-
-    <a
-      href="/knowledge"
-      class="rility-feature__link"
-    >
-      Read article
-      <span>→</span>
-    </a>
+    AI Real Estate Journal
 
   </div>
 
-</article>
+
+  <h1 class="rility-journal-hero__title">
+
+    Insights shaping the
+
+    <span>
+      future of property
+    </span>
+
+  </h1>
 
 
-  </div>
+  <p class="rility-journal-hero__text">
 
-</section>
+    Explore ideas, strategies, and technology
+    transforming how people discover, build,
+    and experience real estate.
 
-<!-- ==================================================
-RILITY — INSIGHTS GRID
-================================================== -->
-
-<section class="rility-insights">
-
-  <div class="rility-insights__container">
-
-
-<!-- HEADER -->
-
-<div class="rility-insights__header">
-
-  <div class="rility-insights__heading">
-
-    <h2 class="rility-insights__title">
-      Latest insights
-    </h2>
-
-    <p class="rility-insights__intro">
-      Ideas, technology and strategies
-      from the evolving property world.
-    </p>
-
-  </div>
+  </p>
 
 </div>
 
 
-<!-- GRID -->
+  </section>
 
-<div class="rility-insights__grid">
+  <!-- ==================================================
+  RILITY — FEATURED ARTICLE
+  ================================================== -->
+
+  <section class="rility-feature">
 
 
-  <!-- CARD 01 -->
+<div class="rility-feature__container">
 
-  <article class="rility-insights-card">
+  <article class="rility-feature__card">
 
-    <div class="rility-insights-card__image">
+    <!-- IMAGE -->
+
+    <div class="rility-feature__image">
 
       <img
-        src="/data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-1-02.webp"
-        alt="Casa Bella interior"
+        src="data/images/casa-bella/Casa-Bella-02-Casa-Cielo_Unit-3-01.webp"
+        alt="Casa Bella luxury residence"
         loading="lazy"
       >
 
     </div>
 
-    <div class="rility-insights-card__body">
 
-      <span class="rility-insights-card__category">
-        Technology
+    <!-- CONTENT -->
+
+    <div class="rility-feature__content">
+
+      <span class="rility-feature__tag">
+        Featured
       </span>
 
-      <h3 class="rility-insights-card__title">
-        The rise of intelligent property platforms
-      </h3>
 
-      <p class="rility-insights-card__text">
-        How automation is changing
-        real estate decisions.
+      <h2 class="rility-feature__title">
+        How AI is redefining
+        the real estate experience
+      </h2>
+
+
+      <p class="rility-feature__text">
+        From smarter searches to predictive
+        insights, artificial intelligence is
+        changing how people interact with
+        property.
       </p>
 
+
       <a
-        href="#"
-        class="rility-insights-card__link"
+        href="/knowledge"
+        class="rility-feature__link"
       >
-        Explore →
+        Read article
+        <span>→</span>
       </a>
 
     </div>
 
   </article>
-
-
-  <!-- CARD 02 -->
-
-  <article class="rility-insights-card">
-
-    <div class="rility-insights-card__image">
-
-      <img
-        src="/data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-2-01.webp"
-        alt="Casa Bella residence"
-        loading="lazy"
-      >
-
-    </div>
-
-    <div class="rility-insights-card__body">
-
-      <span class="rility-insights-card__category">
-        Market
-      </span>
-
-      <h3 class="rility-insights-card__title">
-        Understanding tomorrow's buyers
-      </h3>
-
-      <p class="rility-insights-card__text">
-        New expectations are shaping
-        the property journey.
-      </p>
-
-      <a
-        href="#"
-        class="rility-insights-card__link"
-      >
-        Explore →
-      </a>
-
-    </div>
-
-  </article>
-
-
-  <!-- CARD 03 -->
-
-  <article class="rility-insights-card">
-
-    <div class="rility-insights-card__image">
-
-      <img
-        src="/data/images/casa-bella/Casa-Bella-Kitchen.webp"
-        alt="Casa Bella kitchen"
-        loading="lazy"
-      >
-
-    </div>
-
-    <div class="rility-insights-card__body">
-
-      <span class="rility-insights-card__category">
-        Design
-      </span>
-
-      <h3 class="rility-insights-card__title">
-        Creating spaces people love
-      </h3>
-
-      <p class="rility-insights-card__text">
-        The future of meaningful
-        environments.
-      </p>
-
-      <a
-        href="#"
-        class="rility-insights-card__link"
-      >
-        Explore →
-      </a>
-
-    </div>
-
-  </article>
-
-
-  <!-- CARD 04 -->
-
-  <article class="rility-insights-card">
-
-    <div class="rility-insights-card__image">
-
-      <img
-        src="/data/images/casa-bella/Casa-Bella-Living-Room.webp"
-        alt="Casa Bella living room"
-        loading="lazy"
-      >
-
-    </div>
-
-    <div class="rility-insights-card__body">
-
-      <span class="rility-insights-card__category">
-        Innovation
-      </span>
-
-      <h3 class="rility-insights-card__title">
-        Where property meets intelligent technology
-      </h3>
-
-      <p class="rility-insights-card__text">
-        Exploring the tools reshaping
-        the modern property experience.
-      </p>
-
-      <a
-        href="#"
-        class="rility-insights-card__link"
-      >
-        Explore →
-      </a>
-
-    </div>
-
-  </article>
-
-
-  <!-- CARD 05 -->
-
-  <article class="rility-insights-card">
-
-    <div class="rility-insights-card__image">
-
-      <img
-        src="/data/images/casa-bella/Casa-Bella-Bathroom.webp"
-        alt="Casa Bella bathroom"
-        loading="lazy"
-      >
-
-    </div>
-
-    <div class="rility-insights-card__body">
-
-      <span class="rility-insights-card__category">
-        Living
-      </span>
-
-      <h3 class="rility-insights-card__title">
-        What makes a home feel like home
-      </h3>
-
-      <p class="rility-insights-card__text">
-        The details and experiences
-        that influence modern living.
-      </p>
-
-      <a
-        href="#"
-        class="rility-insights-card__link"
-      >
-        Explore →
-      </a>
-
-    </div>
-
-  </article>
-
-
-  <!-- CARD 06 -->
-
-  <article class="rility-insights-card">
-
-    <div class="rility-insights-card__image">
-
-      <img
-        src="/data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp"
-        alt="Casa Bella tower"
-        loading="lazy"
-      >
-
-    </div>
-
-    <div class="rility-insights-card__body">
-
-      <span class="rility-insights-card__category">
-        Future
-      </span>
-
-      <h3 class="rility-insights-card__title">
-        The next chapter of real estate
-      </h3>
-
-      <p class="rility-insights-card__text">
-        New ideas are transforming
-        how we discover and experience property.
-      </p>
-
-      <a
-        href="#"
-        class="rility-insights-card__link"
-      >
-        Explore →
-      </a>
-
-    </div>
-
-  </article>
-
 
 </div>
 
+
+  </section>
+
+  <!-- ==================================================
+  RILITY — INSIGHTS GRID
+  ================================================== -->
+
+  <section class="rility-insights">
+
+
+<div class="rility-insights__container">
+
+  <!-- HEADER -->
+
+  <div class="rility-insights__header">
+
+    <div class="rility-insights__heading">
+
+      <h2 class="rility-insights__title">
+        Latest insights
+      </h2>
+
+      <p class="rility-insights__intro">
+        Ideas, technology and strategies
+        from the evolving property world.
+      </p>
+
+    </div>
 
   </div>
 
-</section>
 
-<!-- ==================================================
-RILITY JOURNAL — LATEST ARTICLES SLIDER
-================================================== -->
+  <!-- GRID -->
 
-<section class="journal-slider-section">
-
-  <div class="journal-slider-header">
+  <div class="rility-insights__grid">
 
 
-<div class="journal-slider-heading">
+    <!-- CARD 01 -->
 
-  <h2>
-    Latest insights
-  </h2>
+    <article class="rility-insights-card">
 
-</div>
-
-
-<div class="journal-slider-controls">
-
-  <button
-    class="journal-slider-arrow journal-slider-arrow--prev"
-    aria-label="Previous articles"
-    type="button"
-  >
-    ←
-  </button>
-
-  <button
-    class="journal-slider-arrow journal-slider-arrow--next"
-    aria-label="Next articles"
-    type="button"
-  >
-    →
-  </button>
-
-</div>
-
-
-  </div>
-
-  <!-- SLIDER -->
-
-  <div class="journal-slider">
-
-
-<div class="journal-slider__track">
-
-
-  <!-- CARD 01 -->
-
-  <article class="journal-slider-card">
-
-    <a href="#">
-
-      <div class="journal-slider-card__image">
+      <div class="rility-insights-card__image">
 
         <img
-          src="/data/images/casa-bella/Casa-Bella-Building.webp"
-          alt="Casa Bella building"
+          src="data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-1-02.webp"
+          alt="Casa Bella interior"
           loading="lazy"
         >
 
       </div>
 
-      <div class="journal-slider-card__content">
+      <div class="rility-insights-card__body">
 
-        <h3>
-          The future of smarter living
+        <span class="rility-insights-card__category">
+          Technology
+        </span>
+
+        <h3 class="rility-insights-card__title">
+          The rise of intelligent property platforms
         </h3>
 
-        <div class="journal-slider-card__meta">
-          <span>August 11, 2026</span>
-        </div>
+        <p class="rility-insights-card__text">
+          How automation is changing
+          real estate decisions.
+        </p>
+
+        <a
+          href="#"
+          class="rility-insights-card__link"
+        >
+          Explore →
+        </a>
 
       </div>
 
-    </a>
-
-  </article>
+    </article>
 
 
-  <!-- CARD 02 -->
+    <!-- CARD 02 -->
 
-  <article class="journal-slider-card">
+    <article class="rility-insights-card">
 
-    <a href="#">
-
-      <div class="journal-slider-card__image">
+      <div class="rility-insights-card__image">
 
         <img
-          src="/data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-3-01.webp"
+          src="data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-2-01.webp"
           alt="Casa Bella residence"
           loading="lazy"
         >
 
       </div>
 
-      <div class="journal-slider-card__content">
+      <div class="rility-insights-card__body">
 
-        <h3>
-          How technology is changing property
+        <span class="rility-insights-card__category">
+          Market
+        </span>
+
+        <h3 class="rility-insights-card__title">
+          Understanding tomorrow's buyers
         </h3>
 
-        <div class="journal-slider-card__meta">
-          <span>August 8, 2026</span>
-        </div>
+        <p class="rility-insights-card__text">
+          New expectations are shaping
+          the property journey.
+        </p>
 
-      </div>
-
-    </a>
-
-  </article>
-
-
-  <!-- CARD 03 -->
-
-  <article class="journal-slider-card">
-
-    <a href="#">
-
-      <div class="journal-slider-card__image">
-
-        <img
-          src="/data/images/casa-bella/Casa-Bella-Balcony-Sunrise.webp"
-          alt="Casa Bella balcony at sunrise"
-          loading="lazy"
+        <a
+          href="#"
+          class="rility-insights-card__link"
         >
+          Explore →
+        </a>
 
       </div>
 
-      <div class="journal-slider-card__content">
-
-        <h3>
-          Designing spaces people actually love
-        </h3>
-
-        <div class="journal-slider-card__meta">
-          <span>August 4, 2026</span>
-        </div>
-
-      </div>
-
-    </a>
-
-  </article>
+    </article>
 
 
-  <!-- CARD 04 -->
+    <!-- CARD 03 -->
 
-  <article class="journal-slider-card">
+    <article class="rility-insights-card">
 
-    <a href="#">
-
-      <div class="journal-slider-card__image">
+      <div class="rility-insights-card__image">
 
         <img
-          src="/data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-4-01.webp"
-          alt="Casa Bella residence"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="journal-slider-card__content">
-
-        <h3>
-          What makes a great home today?
-        </h3>
-
-        <div class="journal-slider-card__meta">
-          <span>July 30, 2026</span>
-        </div>
-
-      </div>
-
-    </a>
-
-  </article>
-
-
-  <!-- CARD 05 -->
-
-  <article class="journal-slider-card">
-
-    <a href="#">
-
-      <div class="journal-slider-card__image">
-
-        <img
-          src="/data/images/casa-bella/Casa-Bella-Living-Room.webp"
-          alt="Casa Bella living room"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="journal-slider-card__content">
-
-        <h3>
-          The details that make a difference
-        </h3>
-
-        <div class="journal-slider-card__meta">
-          <span>July 26, 2026</span>
-        </div>
-
-      </div>
-
-    </a>
-
-  </article>
-
-
-  <!-- CARD 06 -->
-
-  <article class="journal-slider-card">
-
-    <a href="#">
-
-      <div class="journal-slider-card__image">
-
-        <img
-          src="/data/images/casa-bella/Casa-Bella-Kitchen.webp"
+          src="data/images/casa-bella/Casa-Bella-Kitchen.webp"
           alt="Casa Bella kitchen"
           loading="lazy"
         >
 
       </div>
 
-      <div class="journal-slider-card__content">
+      <div class="rility-insights-card__body">
 
-        <h3>
-          The new language of luxury interior design
+        <span class="rility-insights-card__category">
+          Design
+        </span>
+
+        <h3 class="rility-insights-card__title">
+          Creating spaces people love
         </h3>
 
-        <div class="journal-slider-card__meta">
-          <span>July 22, 2026</span>
-        </div>
+        <p class="rility-insights-card__text">
+          The future of meaningful
+          environments.
+        </p>
+
+        <a
+          href="#"
+          class="rility-insights-card__link"
+        >
+          Explore →
+        </a>
 
       </div>
 
-    </a>
-
-  </article>
+    </article>
 
 
-  <!-- CARD 07 -->
+    <!-- CARD 04 -->
 
-  <article class="journal-slider-card">
+    <article class="rility-insights-card">
 
-    <a href="#">
-
-      <div class="journal-slider-card__image">
+      <div class="rility-insights-card__image">
 
         <img
-          src="/data/images/casa-bella/Casa-Bella-Bathroom.webp"
+          src="data/images/casa-bella/Casa-Bella-Living-Room.webp"
+          alt="Casa Bella living room"
+          loading="lazy"
+        >
+
+      </div>
+
+      <div class="rility-insights-card__body">
+
+        <span class="rility-insights-card__category">
+          Innovation
+        </span>
+
+        <h3 class="rility-insights-card__title">
+          Where property meets intelligent technology
+        </h3>
+
+        <p class="rility-insights-card__text">
+          Exploring the tools reshaping
+          the modern property experience.
+        </p>
+
+        <a
+          href="#"
+          class="rility-insights-card__link"
+        >
+          Explore →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- CARD 05 -->
+
+    <article class="rility-insights-card">
+
+      <div class="rility-insights-card__image">
+
+        <img
+          src="data/images/casa-bella/Casa-Bella-Bathroom.webp"
           alt="Casa Bella bathroom"
           loading="lazy"
         >
 
       </div>
 
-      <div class="journal-slider-card__content">
+      <div class="rility-insights-card__body">
 
-        <h3>
-          What modern buyers expect from a luxury home
+        <span class="rility-insights-card__category">
+          Living
+        </span>
+
+        <h3 class="rility-insights-card__title">
+          What makes a home feel like home
         </h3>
 
-        <div class="journal-slider-card__meta">
-          <span>July 18, 2026</span>
-        </div>
+        <p class="rility-insights-card__text">
+          The details and experiences
+          that influence modern living.
+        </p>
+
+        <a
+          href="#"
+          class="rility-insights-card__link"
+        >
+          Explore →
+        </a>
 
       </div>
 
-    </a>
-
-  </article>
+    </article>
 
 
-  <!-- CARD 08 -->
+    <!-- CARD 06 -->
 
-  <article class="journal-slider-card">
+    <article class="rility-insights-card">
 
-    <a href="#">
-
-      <div class="journal-slider-card__image">
+      <div class="rility-insights-card__image">
 
         <img
-          src="/data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp"
+          src="data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp"
           alt="Casa Bella tower"
           loading="lazy"
         >
 
       </div>
 
-      <div class="journal-slider-card__content">
+      <div class="rility-insights-card__body">
 
-        <h3>
-          The future of waterfront living in Miami
+        <span class="rility-insights-card__category">
+          Future
+        </span>
+
+        <h3 class="rility-insights-card__title">
+          The next chapter of real estate
         </h3>
 
-        <div class="journal-slider-card__meta">
-          <span>July 14, 2026</span>
-        </div>
+        <p class="rility-insights-card__text">
+          New ideas are transforming
+          how we discover and experience property.
+        </p>
+
+        <a
+          href="#"
+          class="rility-insights-card__link"
+        >
+          Explore →
+        </a>
 
       </div>
 
-    </a>
+    </article>
 
-  </article>
-
+  </div>
 
 </div>
 
 
+  </section>
+
+  <!-- ==================================================
+  RILITY JOURNAL — LATEST ARTICLES SLIDER
+  ================================================== -->
+
+  <section class="journal-slider-section">
+
+
+<div class="journal-slider-header">
+
+  <div class="journal-slider-heading">
+
+    <h2>
+      Latest insights
+    </h2>
+
   </div>
 
-</section>
+
+  <div class="journal-slider-controls">
+
+    <button
+      class="journal-slider-arrow journal-slider-arrow--prev"
+      aria-label="Previous articles"
+      type="button"
+    >
+      ←
+    </button>
+
+    <button
+      class="journal-slider-arrow journal-slider-arrow--next"
+      aria-label="Next articles"
+      type="button"
+    >
+      →
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- SLIDER -->
+
+<div class="journal-slider">
+
+  <div class="journal-slider__track">
+
+
+    <!-- CARD 01 -->
+
+    <article class="journal-slider-card">
+
+      <a href="#">
+
+        <div class="journal-slider-card__image">
+
+          <img
+            src="data/images/casa-bella/Casa-Bella-Building.webp"
+            alt="Casa Bella building"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="journal-slider-card__content">
+
+          <h3>
+            The future of smarter living
+          </h3>
+
+          <div class="journal-slider-card__meta">
+            <span>August 11, 2026</span>
+          </div>
+
+        </div>
+
+      </a>
+
+    </article>
+
+
+    <!-- CARD 02 -->
+
+    <article class="journal-slider-card">
+
+      <a href="#">
+
+        <div class="journal-slider-card__image">
+
+          <img
+            src="data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-3-01.webp"
+            alt="Casa Bella residence"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="journal-slider-card__content">
+
+          <h3>
+            How technology is changing property
+          </h3>
+
+          <div class="journal-slider-card__meta">
+            <span>August 8, 2026</span>
+          </div>
+
+        </div>
+
+      </a>
+
+    </article>
+
+
+    <!-- CARD 03 -->
+
+    <article class="journal-slider-card">
+
+      <a href="#">
+
+        <div class="journal-slider-card__image">
+
+          <img
+            src="data/images/casa-bella/Casa-Bella-Balcony-Sunrise.webp"
+            alt="Casa Bella balcony at sunrise"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="journal-slider-card__content">
+
+          <h3>
+            Designing spaces people actually love
+          </h3>
+
+          <div class="journal-slider-card__meta">
+            <span>August 4, 2026</span>
+          </div>
+
+        </div>
+
+      </a>
+
+    </article>
+
+
+    <!-- CARD 04 -->
+
+    <article class="journal-slider-card">
+
+      <a href="#">
+
+        <div class="journal-slider-card__image">
+
+          <img
+            src="data/images/casa-bella/Casa-Bella-03-Casa-Cielo_Unit-4-01.webp"
+            alt="Casa Bella residence"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="journal-slider-card__content">
+
+          <h3>
+            What makes a great home today?
+          </h3>
+
+          <div class="journal-slider-card__meta">
+            <span>July 30, 2026</span>
+          </div>
+
+        </div>
+
+      </a>
+
+    </article>
+
+
+    <!-- CARD 05 -->
+
+    <article class="journal-slider-card">
+
+      <a href="#">
+
+        <div class="journal-slider-card__image">
+
+          <img
+            src="data/images/casa-bella/Casa-Bella-Living-Room.webp"
+            alt="Casa Bella living room"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="journal-slider-card__content">
+
+          <h3>
+            The details that make a difference
+          </h3>
+
+          <div class="journal-slider-card__meta">
+            <span>July 26, 2026</span>
+          </div>
+
+        </div>
+
+      </a>
+
+    </article>
+
+
+    <!-- CARD 06 -->
+
+    <article class="journal-slider-card">
+
+      <a href="#">
+
+        <div class="journal-slider-card__image">
+
+          <img
+            src="data/images/casa-bella/Casa-Bella-Kitchen.webp"
+            alt="Casa Bella kitchen"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="journal-slider-card__content">
+
+          <h3>
+            The new language of luxury interior design
+          </h3>
+
+          <div class="journal-slider-card__meta">
+            <span>July 22, 2026</span>
+          </div>
+
+        </div>
+
+      </a>
+
+    </article>
+
+
+    <!-- CARD 07 -->
+
+    <article class="journal-slider-card">
+
+      <a href="#">
+
+        <div class="journal-slider-card__image">
+
+          <img
+            src="data/images/casa-bella/Casa-Bella-Bathroom.webp"
+            alt="Casa Bella bathroom"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="journal-slider-card__content">
+
+          <h3>
+            What modern buyers expect from a luxury home
+          </h3>
+
+          <div class="journal-slider-card__meta">
+            <span>July 18, 2026</span>
+          </div>
+
+        </div>
+
+      </a>
+
+    </article>
+
+
+    <!-- CARD 08 -->
+
+    <article class="journal-slider-card">
+
+      <a href="#">
+
+        <div class="journal-slider-card__image">
+
+          <img
+            src="data/images/casa-bella/Casa-Bella-1400Biscayne-Nuseum_Tower.webp"
+            alt="Casa Bella tower"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="journal-slider-card__content">
+
+          <h3>
+            The future of waterfront living in Miami
+          </h3>
+
+          <div class="journal-slider-card__meta">
+            <span>July 14, 2026</span>
+          </div>
+
+        </div>
+
+      </a>
+
+    </article>
+
+
+  </div>
+
+</div>
+
+
+  </section>
 
 </main>
 
+  
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
