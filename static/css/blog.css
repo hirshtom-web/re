@@ -88,7 +88,7 @@ HERO
 
 .journal-hero {
   position: relative;
-  width: min(1280px, 92%);
+  width: min(1440px, 90%);
   margin: auto;
   padding: 90px 0 120px;
   text-align: center;
