@@ -809,11 +809,17 @@ body{
 
     margin:0;
 
-    font-size:44px;
+    font-size:40px;
 
-    letter-spacing:-1px;
+    letter-spacing:-1.4px;
 
+  line-height: 1.4;
+
+  font-weight: 600;
+
+  color: #111;
 }
+
 
 
 .continue-header a{
@@ -1203,7 +1209,7 @@ body{
 
 .article-content h2{
 
-    font-size:32px;
+    font-size:40px;
 
     margin-top:65px;
 
@@ -1263,7 +1269,7 @@ body{
 
 .continue-header h2{
 
-    font-size:32px;
+    font-size:40px;
 
 }
 
