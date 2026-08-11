@@ -1626,51 +1626,373 @@ body{
 
 
 
-/* Typography & spacing overrides */ 
 
 
-h1 {
-  font-size: 42px;
-  font-weight: 500;
-  letter-spacing: -1.5px;
-}
 
-h2 {
-  font-size: 36px;
-}
 
-h3 {
-  font-size: 22px;
-}
+/* ==========================================================
+RILITY ARTICLE — FINAL TYPOGRAPHY SYSTEM
+========================================================== */
 
-body {
+/* =========================
+ARTICLE BODY
+========================= */
+
+.article-content {
+  min-width: 0;
+  max-width: 850px;
+  width: 100%;
+
   font-size: 18px;
+  line-height: 1.72;
+
+  color: #333;
 }
 
-/* Subtitle */
-.subtitle {
+
+/* =========================
+PARAGRAPHS
+Tighter / cleaner reading
+========================= */
+
+.article-content p {
+  margin: 0 0 26px;
+
+  font-size: 18px;
+  line-height: 1.72;
+
+  font-weight: 400;
+  color: #333;
+}
+
+
+/* Remove extra spacing from final paragraph */
+
+.article-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+MAIN TITLE — H1
+========================= */
+
+.article-hero h1 {
+  margin: 0;
+
+  max-width: 850px;
+
+  font-size: 64px;
+  line-height: 1.08;
+
+  letter-spacing: -2.8px;
+
+  font-weight: 600;
+
+  color: #111;
+}
+
+
+/* =========================
+SECTION TITLE — H2
+========================= */
+
+.article-content h2 {
+  margin: 72px 0 22px;
+
+  font-size: 38px;
+  line-height: 1.16;
+
+  letter-spacing: -1.4px;
+
+  font-weight: 500;
+
+  color: #111;
+}
+
+
+/* =========================
+SUBSECTION TITLE — H3
+========================= */
+
+.article-content h3 {
+  margin: 48px 0 16px;
+
+  font-size: 26px;
+  line-height: 1.25;
+
+  letter-spacing: -0.5px;
+
+  font-weight: 500;
+
+  color: #111;
+}
+
+
+/* =========================
+SMALL HEADING — H4
+========================= */
+
+.article-content h4 {
+  margin: 36px 0 14px;
+
+  font-size: 19px;
+  line-height: 1.35;
+
+  font-weight: 600;
+
+  color: #111;
+}
+
+
+/* =========================
+HERO SUBTITLE / INTRO
+========================= */
+
+.article-subtitle {
+  margin: 28px 0 0;
+
+  max-width: 760px;
+
   font-size: 20px;
+  line-height: 1.55;
+
+  font-weight: 400;
+
+  color: var(--muted);
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  body {
-    font-size: 17px;
+
+/* =========================
+BREADCRUMBS
+========================= */
+
+.article-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-bottom: 24px;
+
+  font-size: 12px;
+  line-height: 1.4;
+
+  font-weight: 500;
+
+  color: var(--muted);
+}
+
+.article-breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.article-breadcrumbs a:hover {
+  color: var(--primary);
+}
+
+
+/* =========================
+META
+DATE / AUTHOR / READ TIME
+========================= */
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 22px;
+
+  margin-top: 26px;
+
+  font-size: 12px;
+  line-height: 1.4;
+
+  font-weight: 500;
+
+  color: var(--muted);
+}
+
+
+/* =========================
+LISTS
+========================= */
+
+.article-content ul,
+.article-content ol {
+  margin: 0 0 28px 24px;
+
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.article-content li {
+  margin-bottom: 8px;
+}
+
+
+/* =========================
+BLOCKQUOTE
+Simple bullet-style quote
+========================= */
+
+.article-content blockquote {
+  position: relative;
+
+  margin: 42px 0;
+
+  padding: 0 0 0 24px;
+
+  background: none;
+
+  border: 0;
+
+  border-left: 3px solid var(--primary);
+
+  border-radius: 0;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+
+  font-size: 18px;
+  line-height: 1.7;
+
+  font-weight: 500;
+
+  color: #333;
+}
+
+.article-content blockquote::before {
+  display: none;
+}
+
+
+/* =========================
+LEAD
+Only use when you intentionally
+want a stronger opening paragraph
+========================= */
+
+.article-content .lead {
+  margin-bottom: 30px;
+
+  font-size: 21px;
+  line-height: 1.65;
+
+  color: #111;
+}
+
+
+/* ==========================================================
+RESPONSIVE TYPOGRAPHY
+========================================================== */
+
+@media (max-width: 1200px) {
+
+  .article-hero h1 {
+    font-size: 58px;
   }
 
-  h1 {
-    font-size: 42px;
-  }
-
-  h2 {
+  .article-content h2 {
     font-size: 36px;
   }
 
-  h3 {
+}
+
+
+@media (max-width: 768px) {
+
+  .article-content {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .article-content p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 23px;
+  }
+
+  .article-hero h1 {
+    font-size: 42px;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+  }
+
+  .article-subtitle {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .article-content h2 {
+    margin-top: 58px;
+    margin-bottom: 18px;
+
+    font-size: 31px;
+    line-height: 1.18;
+
+    letter-spacing: -1px;
+  }
+
+  .article-content h3 {
+    margin-top: 42px;
+    margin-bottom: 14px;
+
+    font-size: 23px;
+    line-height: 1.25;
+  }
+
+  .article-content h4 {
+    font-size: 18px;
+  }
+
+  .article-content blockquote {
+    margin: 36px 0;
+
+    padding-left: 20px;
+
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .article-content ul,
+  .article-content ol {
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .article-breadcrumbs {
+    font-size: 11px;
+  }
+
+  .article-meta {
+    gap: 14px;
+    font-size: 11px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .article-hero h1 {
+    font-size: 34px;
+    letter-spacing: -1px;
+  }
+
+  .article-subtitle {
+    font-size: 17px;
+  }
+
+  .article-content h2 {
+    font-size: 28px;
+  }
+
+  .article-content h3 {
     font-size: 22px;
   }
 
-  .subtitle {
-    font-size: 20px;
-  }
 }
