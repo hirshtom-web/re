@@ -377,9 +377,309 @@ rel="stylesheet">
 
 
 
+
+<!--==================================================*
+* RILITY JOURNAL — LATEST ARTICLES SLIDER
+*==================================================-->
+
+<section class="journal-slider-section">
+
+  <div class="journal-slider-header">
+
+    <div class="journal-slider-heading">
+      <span class="journal-slider-eyebrow">FROM THE JOURNAL</span>
+
+      <h2>Latest insights</h2>
+    </div>
+
+
+    <div class="journal-slider-controls">
+
+      <button
+        class="journal-slider-arrow journal-slider-arrow--prev"
+        aria-label="Previous articles"
+        type="button"
+      >
+        ←
+      </button>
+
+      <button
+        class="journal-slider-arrow journal-slider-arrow--next"
+        aria-label="Next articles"
+        type="button"
+      >
+        →
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- SLIDER -->
+
+  <div class="journal-slider">
+
+    <div class="journal-slider__track">
+
+
+      <!-- CARD 01 -->
+
+      <article class="journal-slider-card">
+
+        <a href="#">
+
+          <div class="journal-slider-card__image">
+            <img
+              src="YOUR-IMAGE-1.jpg"
+              alt="Article image"
+            >
+          </div>
+
+          <div class="journal-slider-card__content">
+
+            <h3>
+              The future of smarter living
+            </h3>
+
+            <div class="journal-slider-card__meta">
+              <span>August 11, 2026</span>
+            </div>
+
+          </div>
+
+        </a>
+
+      </article>
+
+
+      <!-- CARD 02 -->
+
+      <article class="journal-slider-card">
+
+        <a href="#">
+
+          <div class="journal-slider-card__image">
+            <img
+              src="YOUR-IMAGE-2.jpg"
+              alt="Article image"
+            >
+          </div>
+
+          <div class="journal-slider-card__content">
+
+            <h3>
+              How technology is changing property
+            </h3>
+
+            <div class="journal-slider-card__meta">
+              <span>August 8, 2026</span>
+            </div>
+
+          </div>
+
+        </a>
+
+      </article>
+
+
+      <!-- CARD 03 -->
+
+      <article class="journal-slider-card">
+
+        <a href="#">
+
+          <div class="journal-slider-card__image">
+            <img
+              src="YOUR-IMAGE-3.jpg"
+              alt="Article image"
+            >
+          </div>
+
+          <div class="journal-slider-card__content">
+
+            <h3>
+              Designing spaces people actually love
+            </h3>
+
+            <div class="journal-slider-card__meta">
+              <span>August 4, 2026</span>
+            </div>
+
+          </div>
+
+        </a>
+
+      </article>
+
+
+      <!-- CARD 04 -->
+
+      <article class="journal-slider-card">
+
+        <a href="#">
+
+          <div class="journal-slider-card__image">
+            <img
+              src="YOUR-IMAGE-4.jpg"
+              alt="Article image"
+            >
+          </div>
+
+          <div class="journal-slider-card__content">
+
+            <h3>
+              What makes a great home today?
+            </h3>
+
+            <div class="journal-slider-card__meta">
+              <span>July 30, 2026</span>
+            </div>
+
+          </div>
+
+        </a>
+
+      </article>
+
+
+      <!-- CARD 05 -->
+
+      <article class="journal-slider-card">
+
+        <a href="#">
+
+          <div class="journal-slider-card__image">
+            <img
+              src="YOUR-IMAGE-5.jpg"
+              alt="Article image"
+            >
+          </div>
+
+          <div class="journal-slider-card__content">
+
+            <h3>
+              The details that make a difference
+            </h3>
+
+            <div class="journal-slider-card__meta">
+              <span>July 26, 2026</span>
+            </div>
+
+          </div>
+
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+  
+
 </main>
 
-    
+
+  <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const slider = document.querySelector(".journal-slider");
+  const track = document.querySelector(".journal-slider__track");
+
+  const prevButton = document.querySelector(
+    ".journal-slider-arrow--prev"
+  );
+
+  const nextButton = document.querySelector(
+    ".journal-slider-arrow--next"
+  );
+
+  if (!slider || !track || !prevButton || !nextButton) {
+    return;
+  }
+
+
+  let position = 0;
+
+
+  function getStep() {
+
+    const card =
+      track.querySelector(".journal-slider-card");
+
+    if (!card) return 324;
+
+    const gap = 24;
+
+    return card.offsetWidth + gap;
+  }
+
+
+  function getMaxPosition() {
+
+    return Math.max(
+      0,
+      track.scrollWidth - slider.clientWidth
+    );
+  }
+
+
+  function updateSlider() {
+
+    const maxPosition = getMaxPosition();
+
+    position = Math.max(
+      0,
+      Math.min(position, maxPosition)
+    );
+
+    track.style.transform =
+      `translateX(-${position}px)`;
+
+    prevButton.disabled =
+      position <= 0;
+
+    nextButton.disabled =
+      position >= maxPosition;
+  }
+
+
+  nextButton.addEventListener("click", function () {
+
+    position += getStep();
+
+    updateSlider();
+
+  });
+
+
+  prevButton.addEventListener("click", function () {
+
+    position -= getStep();
+
+    updateSlider();
+
+  });
+
+
+  window.addEventListener(
+    "resize",
+    updateSlider
+  );
+
+
+  updateSlider();
+
+});
+
+</script>
+
+  
 
     
 </body>
