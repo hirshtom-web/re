@@ -83,6 +83,24 @@ GLOBAL TYPOGRAPHY
 
 
 
+/* =========================================
+   RILITY — SHARED CONTENT CONTAINER
+   Matches site header width
+   ========================================= */
+
+.rility-journal-hero,
+.rility-feature__container,
+.rility-insights__container,
+.journal-slider-header {
+    width: 100%;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 32px;
+    padding-right: 32px;
+    box-sizing: border-box;
+}
+
 
 /* ==================================================
 RILITY — JOURNAL HERO
@@ -92,13 +110,12 @@ RILITY — JOURNAL HERO
 
   position: relative;
 
-  width: min(1440px, 90%);
-
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 90px 32px 120px;
+  
   min-height: 620px;
-
-  margin: 0 auto;
-
-  padding: 90px 0 120px;
 
   display: flex;
 
@@ -443,23 +460,11 @@ MOBILE
 RILITY — FEATURED ARTICLE
 ================================================== */
 
-.rility-feature {
-
-  width: 100%;
-
-  padding: 70px 0;
-}
-
-
-/* =========================
-CONTAINER
-========================= */
-
 .rility-feature__container {
-
-  width: min(1440px, 90%);
-
-  margin: 0 auto;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 32px;
 }
 
 
@@ -744,8 +749,6 @@ SECTION
 
   width: 100%;
 
-  background: #fafafa;
-
   padding: 90px 0 100px;
 }
 
@@ -756,10 +759,10 @@ CONTAINER
 ========================= */
 
 .rility-insights__container {
-
-  width: min(1440px, 90%);
-
-  margin: 0 auto;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 32px;
 }
 
 
@@ -1086,8 +1089,6 @@ MOBILE
 
   padding: 90px 0 100px;
 
-  background: #fafafa;
-
   overflow: hidden;
 }
 
@@ -1097,10 +1098,11 @@ MOBILE
 *==================================================*/
 
 .journal-slider-header {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto 45px;
+    padding: 0 32px;
 
-  width: min(1440px, 90%);
-
-  margin: 0 auto 45px;
 
   display: flex;
 
