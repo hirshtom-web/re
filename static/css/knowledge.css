@@ -1,20 +1,25 @@
+```css
 /* ==========================================================
    RILITY JOURNAL ARTICLE
    CLEAN FINAL CSS
-   ========================================================== */
+========================================================== */
 
 
 /* ==========================================================
    VARIABLES
-   ========================================================== */
+========================================================== */
 
 :root {
     --primary: #6D5DFB;
     --text: #111111;
+    --body-text: #6b7280;
     --muted: #6b7280;
     --border: #ECECEC;
     --surface: #FAFAFA;
-    --shadow: 0 30px 80px rgba(15, 23, 42, .08);
+
+    --shadow:
+        0 30px 80px rgba(15, 23, 42, .08);
+
     --radius: 32px;
 
     --page-width: min(1440px, 90%);
@@ -22,8 +27,8 @@
 
 
 /* ==========================================================
-   RESET / BASE
-   ========================================================== */
+   RESET / GLOBAL WIDTH FIX
+========================================================== */
 
 *,
 *::before,
@@ -31,21 +36,20 @@
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
     width: 100%;
     max-width: 100%;
+    margin: 0;
+    padding: 0;
+
     overflow-x: hidden;
 }
 
 body {
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
     font-family: "Inter", sans-serif;
     color: var(--text);
     background: #fff;
-
-    overflow-x: hidden;
 
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -63,7 +67,7 @@ a {
 
 /* ==========================================================
    GLOBAL CONTAINERS
-   ========================================================== */
+========================================================== */
 
 .article-width,
 .article-container,
@@ -71,31 +75,40 @@ a {
 .continue-reading {
     width: var(--page-width);
     max-width: 100%;
+
     margin-left: auto;
     margin-right: auto;
+
+    min-width: 0;
 }
 
 
 /* ==========================================================
    PAGE
-   ========================================================== */
+========================================================== */
 
 .article-page {
     width: 100%;
     max-width: 100%;
+
     background: #fff;
-    overflow: hidden;
+
+    overflow-x: clip;
 }
 
 
 /* ==========================================================
    HERO
-   ========================================================== */
+========================================================== */
 
 .article-hero {
     position: relative;
+
     padding: 90px 0 70px;
+
     text-align: left;
+
+    overflow: visible;
 }
 
 
@@ -133,25 +146,27 @@ a {
 .article-hero > * {
     position: relative;
     z-index: 2;
+
+    min-width: 0;
 }
 
 
 /* ==========================================================
    HERO TEXT WIDTH
-   ========================================================== */
+========================================================== */
 
 .article-breadcrumbs,
 .article-hero h1,
 .article-subtitle,
 .article-meta {
-    max-width: 850px;
     width: 100%;
+    max-width: 850px;
 }
 
 
 /* ==========================================================
    BREADCRUMBS
-   ========================================================== */
+========================================================== */
 
 .article-breadcrumbs {
     display: flex;
@@ -172,7 +187,8 @@ a {
 .article-breadcrumbs a {
     color: inherit;
     text-decoration: none;
-    transition: .25s;
+
+    transition: color .25s ease;
 }
 
 .article-breadcrumbs a:hover {
@@ -181,8 +197,8 @@ a {
 
 
 /* ==========================================================
-   TAG
-   ========================================================== */
+   OPTIONAL TAG
+========================================================== */
 
 .article-tag {
     display: inline-flex;
@@ -206,7 +222,7 @@ a {
 
 /* ==========================================================
    HERO TITLE
-   ========================================================== */
+========================================================== */
 
 .article-hero h1 {
     margin: 0;
@@ -226,7 +242,7 @@ a {
 
 /* ==========================================================
    HERO SUBTITLE
-   ========================================================== */
+========================================================== */
 
 .article-subtitle {
     margin: 28px 0 0;
@@ -243,8 +259,8 @@ a {
 
 
 /* ==========================================================
-   META
-   ========================================================== */
+   ARTICLE META
+========================================================== */
 
 .article-meta {
     display: flex;
@@ -265,7 +281,7 @@ a {
 
 /* ==========================================================
    HERO IMAGE
-   ========================================================== */
+========================================================== */
 
 .article-hero-image {
     width: 100%;
@@ -294,7 +310,7 @@ a {
 
 /* ==========================================================
    MAIN ARTICLE GRID
-   ========================================================== */
+========================================================== */
 
 .article-container {
     margin-top: 100px;
@@ -313,13 +329,14 @@ a {
 
 
 /* ==========================================================
-   ARTICLE CONTENT
-   ========================================================== */
+   MAIN CONTENT
+========================================================== */
 
 .article-content {
-    min-width: 0;
     width: 100%;
     max-width: 850px;
+
+    min-width: 0;
 
     font-size: 18px;
     line-height: 1.72;
@@ -329,12 +346,22 @@ a {
     overflow-wrap: break-word;
 }
 
+
+/* Make sure children cannot create horizontal overflow */
+
+.article-content > * {
+    max-width: 100%;
+    min-width: 0;
+}
+
 .article-content > *:first-child {
     margin-top: 0;
 }
 
 
-/* Paragraphs */
+/* ==========================================================
+   PARAGRAPHS
+========================================================== */
 
 .article-content p {
     margin: 0 0 26px;
@@ -352,29 +379,16 @@ a {
 }
 
 
-/* Lead paragraph */
-
-.article-content .lead {
-    margin-bottom: 30px;
-
-    font-size: 21px;
-    line-height: 1.65;
-
-    color: #111;
-}
-
-
 /* ==========================================================
-   HEADINGS
-   ========================================================== */
+   H2 — SECTION TITLES
+========================================================== */
 
-/* H2 — Main Section Titles */
-
-.article-content h2 {
+.article-content h2,
+.continue-header h2 {
     margin: 72px 0 22px;
 
     font-size: 40px;
-    line-height: 1.18;
+    line-height: 1.2;
 
     letter-spacing: -1.4px;
 
@@ -386,7 +400,18 @@ a {
 }
 
 
-/* H3 — Subsection */
+/* Continue Reading should NOT inherit the article spacing */
+
+.continue-header h2 {
+    margin: 0;
+
+    font-size: 40px;
+}
+
+
+/* ==========================================================
+   H3
+========================================================== */
 
 .article-content h3 {
     margin: 48px 0 16px;
@@ -399,12 +424,12 @@ a {
     font-weight: 500;
 
     color: #111;
-
-    overflow-wrap: break-word;
 }
 
 
-/* H4 — Small Heading */
+/* ==========================================================
+   H4
+========================================================== */
 
 .article-content h4 {
     margin: 36px 0 14px;
@@ -419,19 +444,14 @@ a {
 
 
 /* ==========================================================
-   CONTINUE READING TITLE
-   Same visual system as article H2
-   ========================================================== */
+   LEAD
+========================================================== */
 
-.continue-header h2 {
-    margin: 0;
+.article-content .lead {
+    margin-bottom: 30px;
 
-    font-size: 40px;
-    line-height: 1.18;
-
-    letter-spacing: -1.4px;
-
-    font-weight: 600;
+    font-size: 21px;
+    line-height: 1.65;
 
     color: #111;
 }
@@ -439,7 +459,7 @@ a {
 
 /* ==========================================================
    LINKS
-   ========================================================== */
+========================================================== */
 
 .article-content a {
     color: #111;
@@ -448,7 +468,9 @@ a {
 
     border-bottom: 1px solid rgba(0, 0, 0, .12);
 
-    transition: .25s;
+    transition:
+        color .25s ease,
+        border-color .25s ease;
 }
 
 .article-content a:hover {
@@ -457,78 +479,127 @@ a {
 
 
 /* ==========================================================
-   STANDARD LISTS
-   ========================================================== */
+   CHECKMARK LISTS
+   Clean purple checkmarks aligned with text
+========================================================== */
 
-.article-content ul,
-.article-content ol {
-    margin: 0 0 28px 24px;
-
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-.article-content li {
-    margin-bottom: 8px;
-}
-
-
-/* ==========================================================
-   ARTICLE HIGHLIGHT / CHECKMARK LIST
-   ========================================================== */
-
-/*
-   This removes the default bullets and replaces them
-   with Google Material Symbols checkmarks.
-*/
-
-.article-highlight ul,
-.article-highlight ol {
+.article-content ul {
     list-style: none;
 
     margin: 0 0 28px;
     padding: 0;
 }
 
-.article-highlight li {
-    display: flex;
-    align-items: flex-start;
+.article-content ul li {
+    position: relative;
 
-    gap: 10px;
+    margin: 0 0 12px;
 
-    margin: 0 0 14px;
+    padding-left: 28px;
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    color: #6b7280;
+}
+
+
+/* Purple checkmark */
+
+.article-content ul li::before {
+    content: "✓";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 18px;
+
+    color: var(--primary);
+
+    font-size: 17px;
+    line-height: 1.7;
+
+    font-weight: 700;
+
+    text-align: left;
+}
+
+
+/* Remove excess spacing from last item */
+
+.article-content ul li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Ordered lists keep normal numbering */
+
+.article-content ol {
+    margin: 0 0 28px 24px;
+
     padding: 0;
 
     font-size: 18px;
-    line-height: 1.65;
+    line-height: 1.7;
 
-    color: #333;
+    color: #6b7280;
 }
 
-/* Google Material Symbol */
-
-.article-highlight li::before {
-    content: "check";
-
-    font-family: "Material Symbols Outlined";
-
-    font-size: 19px;
-    line-height: 1.65;
-
-    color: #9a7b42;
-
-    flex: 0 0 auto;
-
-    margin-top: 0;
+.article-content ol li {
+    margin-bottom: 8px;
 }
 
 
 /* ==========================================================
-   BLOCKQUOTE / ARTICLE QUOTE
-   ========================================================== */
+   HIGHLIGHT / KEY TAKEAWAYS
+========================================================== */
 
-.article-content blockquote,
-.article-quote {
+.article-highlight {
+    position: relative;
+
+    margin: 45px 0;
+
+    padding: 32px;
+
+    border-radius: 28px;
+
+    background: #FAFAFA;
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+}
+
+.article-highlight h3 {
+    margin: 0 0 22px;
+
+    font-size: 24px;
+    line-height: 1.25;
+
+    font-weight: 600;
+
+    color: #111;
+}
+
+.article-highlight ul {
+    margin: 0;
+}
+
+.article-highlight ul li {
+    padding-left: 28px;
+
+    color: #6b7280;
+}
+
+
+/* ==========================================================
+   BLOCKQUOTE
+   Purple vertical line
+========================================================== */
+
+.article-content blockquote {
     position: relative;
 
     margin: 42px 0;
@@ -538,6 +609,7 @@ a {
     background: none;
 
     border: 0;
+
     border-left: 3px solid var(--primary);
 
     border-radius: 0;
@@ -554,22 +626,33 @@ a {
     color: #333;
 }
 
-.article-content blockquote::before,
-.article-quote::before {
+.article-content blockquote p {
+    margin: 0;
+
+    color: #333;
+
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.article-content blockquote::before {
     display: none;
 }
 
 
 /* ==========================================================
    FIGURES
-   ========================================================== */
+========================================================== */
 
 .article-content figure {
+    width: 100%;
+
     margin: 60px 0;
 }
 
 .article-content figure img {
     width: 100%;
+    max-width: 100%;
 
     display: block;
 
@@ -591,6 +674,7 @@ a {
 
 .article-content > img {
     width: 100%;
+    max-width: 100%;
 
     display: block;
 
@@ -601,20 +685,29 @@ a {
 
 
 /* ==========================================================
-   SIDEBAR
-   ========================================================== */
+   STICKY SIDEBAR
+========================================================== */
 
 .article-sidebar {
+    width: 100%;
+    min-width: 0;
+
     position: sticky;
 
     top: 120px;
 
     align-self: start;
-
-    min-width: 0;
 }
 
+
+/* ==========================================================
+   SIDEBAR CARDS
+========================================================== */
+
 .sidebar-card {
+    width: 100%;
+    min-width: 0;
+
     background: #fff;
 
     border: 1px solid var(--border);
@@ -625,9 +718,8 @@ a {
 
     margin-bottom: 24px;
 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, .05);
-
-    min-width: 0;
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .05);
 }
 
 .sidebar-card h4 {
@@ -645,7 +737,7 @@ a {
 
     text-decoration: none;
 
-    transition: .25s;
+    transition: color .25s ease;
 }
 
 .sidebar-card a:hover {
@@ -668,7 +760,7 @@ a {
 
     cursor: pointer;
 
-    transition: .25s;
+    transition: background .25s ease;
 }
 
 .sidebar-card button:hover {
@@ -678,7 +770,7 @@ a {
 
 /* ==========================================================
    AI SUMMARY
-   ========================================================== */
+========================================================== */
 
 .ai-summary-card {
     padding: 20px;
@@ -701,8 +793,6 @@ a {
     flex-wrap: wrap;
 
     gap: 10px;
-
-    min-width: 0;
 }
 
 .ai-tool {
@@ -732,6 +822,10 @@ a {
     margin: 0 !important;
 }
 
+.ai-tool:hover {
+    border-color: #dcdcdc;
+}
+
 .ai-tool img {
     width: 22px;
     height: 22px;
@@ -752,7 +846,7 @@ a {
 
 /* ==========================================================
    AUTHOR
-   ========================================================== */
+========================================================== */
 
 .article-author {
     position: relative;
@@ -763,7 +857,6 @@ a {
     padding: 55px;
 
     display: flex;
-
     align-items: center;
 
     gap: 30px;
@@ -821,11 +914,11 @@ a {
     width: 90px;
     height: 90px;
 
+    flex-shrink: 0;
+
     border-radius: 50%;
 
     object-fit: cover;
-
-    flex-shrink: 0;
 }
 
 .article-author h3 {
@@ -847,35 +940,45 @@ a {
 
 /* ==========================================================
    CONTINUE READING
-   ========================================================== */
+========================================================== */
 
 .continue-reading {
     margin-top: 120px;
     margin-bottom: 120px;
-
-    min-width: 0;
 }
 
 .continue-header {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 
-    gap: 20px;
+    gap: 30px;
 
     margin-bottom: 45px;
 }
 
+.continue-header h2 {
+    margin: 0;
+
+    font-size: 40px;
+    line-height: 1.2;
+
+    letter-spacing: -1.4px;
+
+    font-weight: 600;
+
+    color: #111;
+}
+
 .continue-header a {
+    flex-shrink: 0;
+
     color: #555;
 
     text-decoration: none;
 
     font-size: 14px;
-
-    white-space: nowrap;
 }
 
 .continue-header a:hover {
@@ -885,15 +988,13 @@ a {
 
 /* ==========================================================
    SLIDER
-   ========================================================== */
+========================================================== */
 
 .continue-slider-container {
     width: 100%;
     max-width: 100%;
 
     overflow: hidden;
-
-    min-width: 0;
 }
 
 .continue-slider {
@@ -901,8 +1002,7 @@ a {
 
     gap: 28px;
 
-    width: max-content;
-    max-width: none;
+    min-width: 0;
 
     transition: transform .4s ease;
 
@@ -912,7 +1012,7 @@ a {
 .continue-card {
     flex: 0 0 360px;
 
-    width: 360px;
+    min-width: 0;
 
     background: #fff;
 
@@ -922,7 +1022,9 @@ a {
 
     border: 1px solid var(--border);
 
-    transition: .35s;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
 }
 
 .continue-card:hover {
@@ -932,6 +1034,7 @@ a {
 }
 
 .continue-image {
+    width: 100%;
     height: 240px;
 
     overflow: hidden;
@@ -945,7 +1048,7 @@ a {
 
     object-fit: cover;
 
-    transition: .5s;
+    transition: transform .5s ease;
 }
 
 .continue-card:hover img {
@@ -962,7 +1065,6 @@ a {
     margin-bottom: 15px;
 
     font-size: 11px;
-
     font-weight: 700;
 
     letter-spacing: .12em;
@@ -976,7 +1078,6 @@ a {
     margin: 0 0 25px;
 
     font-size: 24px;
-
     line-height: 1.35;
 }
 
@@ -986,20 +1087,18 @@ a {
     text-decoration: none;
 
     font-size: 14px;
-
     font-weight: 600;
 }
 
 
 /* ==========================================================
    CONTINUE CONTROLS
-   ========================================================== */
+========================================================== */
 
 .continue-controls {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 
     gap: 20px;
@@ -1013,7 +1112,6 @@ a {
     text-decoration: none;
 
     font-size: 14px;
-
     font-weight: 600;
 }
 
@@ -1037,7 +1135,9 @@ a {
 
     font-size: 20px;
 
-    transition: .25s;
+    transition:
+        background .25s ease,
+        color .25s ease;
 }
 
 .continue-controls button:hover {
@@ -1048,8 +1148,8 @@ a {
 
 
 /* ==========================================================
-   TABLET
-   ========================================================== */
+   RESPONSIVE — TABLET
+========================================================== */
 
 @media (max-width: 1200px) {
 
@@ -1073,19 +1173,15 @@ a {
 
 
 /* ==========================================================
-   TABLET / SMALL DESKTOP
-   ========================================================== */
+   RESPONSIVE — STACK SIDEBAR
+========================================================== */
 
 @media (max-width: 980px) {
 
     .article-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
 
         gap: 50px;
-    }
-
-    .article-content {
-        max-width: 850px;
     }
 
     .article-sidebar {
@@ -1103,89 +1199,53 @@ a {
 
 
 /* ==========================================================
-   MOBILE
-   ========================================================== */
+   RESPONSIVE — MOBILE
+========================================================== */
 
 @media (max-width: 768px) {
 
-    /* Prevent mobile width expansion */
-
-    html,
-    body,
-    .article-page {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
+    :root {
+        --page-width: calc(100% - 44px);
     }
 
     .article-width,
     .article-container,
     .article-author,
     .continue-reading {
-        width: calc(100% - 44px);
+        width: var(--page-width);
         max-width: calc(100% - 44px);
-
-        margin-left: auto;
-        margin-right: auto;
     }
 
 
-    /* Hero */
+    /* HERO */
 
     .article-hero {
         padding: 60px 0 40px;
     }
 
-
-    /* Breadcrumbs */
-
     .article-breadcrumbs {
         font-size: 11px;
-
         gap: 8px;
-
-        margin-bottom: 20px;
     }
 
-
-    /* Hero title */
-
     .article-hero h1 {
-        width: 100%;
-
         font-size: 42px;
-
         line-height: 1.1;
-
         letter-spacing: -1.5px;
     }
 
-
-    /* Hero subtitle */
-
     .article-subtitle {
-        width: 100%;
-
         font-size: 18px;
-
         line-height: 1.55;
     }
 
-
-    /* Meta */
-
     .article-meta {
         gap: 14px;
-
         font-size: 11px;
     }
 
-
-    /* Hero image */
-
     .article-hero-image {
         width: 100%;
-
         height: 300px;
 
         margin-top: 45px;
@@ -1194,139 +1254,117 @@ a {
     }
 
 
-    /* Main grid */
+    /* ARTICLE */
 
     .article-container {
+        width: var(--page-width);
+        max-width: calc(100% - 44px);
+
         margin-top: 60px;
-        margin-bottom: 70px;
-
-        display: block;
     }
-
-
-    /* Article body */
 
     .article-content {
         width: 100%;
         max-width: 100%;
 
         font-size: 17px;
-
         line-height: 1.7;
     }
 
     .article-content p {
         font-size: 17px;
-
         line-height: 1.7;
 
         margin-bottom: 23px;
     }
 
-
-    /* H2 */
-
     .article-content h2 {
         margin-top: 58px;
         margin-bottom: 18px;
 
-        font-size: 31px;
-
+        font-size: 32px;
         line-height: 1.18;
 
         letter-spacing: -1px;
     }
-
-
-    /* Continue Reading H2 */
-
-    .continue-header h2 {
-        font-size: 31px;
-
-        line-height: 1.18;
-
-        letter-spacing: -1px;
-    }
-
-
-    /* H3 */
 
     .article-content h3 {
         margin-top: 42px;
         margin-bottom: 14px;
 
         font-size: 23px;
-
         line-height: 1.25;
     }
-
-
-    /* H4 */
 
     .article-content h4 {
         font-size: 18px;
     }
 
 
-    /* Blockquote */
+    /* MOBILE CHECKLIST */
 
-    .article-content blockquote,
-    .article-quote {
-        margin: 36px 0;
+    .article-content ul {
+        margin-bottom: 26px;
+    }
 
-        padding-left: 20px;
+    .article-content ul li {
+        padding-left: 27px;
 
         font-size: 17px;
+        line-height: 1.65;
 
+        margin-bottom: 10px;
+    }
+
+    .article-content ul li::before {
+        width: 17px;
+
+        font-size: 16px;
         line-height: 1.65;
     }
 
 
-    /* Highlight */
+    /* HIGHLIGHT */
 
     .article-highlight {
-        width: 100%;
-        max-width: 100%;
-
         margin: 45px 0;
 
         padding: 26px;
 
         border-radius: 24px;
-
-        overflow: hidden;
     }
 
-    .article-highlight ul,
-    .article-highlight ol {
-        margin: 0;
-        padding: 0;
-    }
-
-    .article-highlight li {
-        gap: 9px;
-
-        margin-bottom: 13px;
-
-        font-size: 17px;
-
-        line-height: 1.65;
-
-        color: #333;
-    }
-
-    .article-highlight li::before {
-        font-size: 18px;
-
-        line-height: 1.65;
-
+    .article-highlight h3 {
         margin-top: 0;
     }
 
 
-    /* Author */
+    /* QUOTE */
+
+    .article-content blockquote {
+        margin: 36px 0;
+
+        padding-left: 20px;
+
+        font-size: 17px;
+        line-height: 1.65;
+    }
+
+
+    /* SIDEBAR */
+
+    .article-sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* AUTHOR */
 
     .article-author {
+        width: var(--page-width);
+        max-width: calc(100% - 44px);
+
         margin-top: 70px;
 
         padding: 30px 24px;
@@ -1336,8 +1374,6 @@ a {
         text-align: center;
 
         border-radius: 28px;
-
-        overflow: hidden;
     }
 
     .article-author img {
@@ -1347,87 +1383,38 @@ a {
 
     .article-author p {
         font-size: 15px;
-
         line-height: 1.7;
     }
 
-    .article-author::before {
-        width: 180px;
-        height: 180px;
-    }
 
-
-    /* Continue Reading */
-
-    .continue-reading {
-        margin-top: 80px;
-        margin-bottom: 80px;
-    }
+    /* CONTINUE READING */
 
     .continue-header {
         align-items: flex-start;
-
-        margin-bottom: 30px;
     }
 
-    .continue-header a {
-        font-size: 13px;
+    .continue-header h2 {
+        font-size: 32px;
     }
 
     .continue-card {
-        flex: 0 0 85vw;
-
-        width: 85vw;
-
-        max-width: 360px;
-    }
-
-    .continue-content {
-        padding: 24px;
-    }
-
-    .continue-content h3 {
-        font-size: 21px;
+        flex: 0 0 85%;
     }
 
     .continue-controls {
         margin-top: 30px;
     }
-
-
-    /* AI buttons */
-
-    .ai-tools {
-        width: 100%;
-    }
-
-    .ai-tool {
-        min-width: 0;
-
-        max-width: 100%;
-    }
 }
 
 
 /* ==========================================================
-   SMALL MOBILE
-   ========================================================== */
+   RESPONSIVE — SMALL MOBILE
+========================================================== */
 
 @media (max-width: 480px) {
 
-    .article-width,
-    .article-container,
-    .article-author,
-    .continue-reading {
-        width: calc(100% - 32px);
-        max-width: calc(100% - 32px);
-    }
-
-
     .article-hero h1 {
         font-size: 34px;
-
-        line-height: 1.1;
 
         letter-spacing: -1px;
     }
@@ -1436,46 +1423,20 @@ a {
         font-size: 17px;
     }
 
-    .article-content h2,
-    .continue-header h2 {
+    .article-content h2 {
         font-size: 28px;
-
-        line-height: 1.2;
     }
 
     .article-content h3 {
         font-size: 22px;
     }
 
-
-    .article-highlight {
-        padding: 22px;
-    }
-
-    .article-highlight li {
-        font-size: 16px;
-
-        gap: 8px;
-    }
-
-    .article-highlight li::before {
-        font-size: 17px;
-    }
-
-
-    .continue-header {
-        flex-direction: column;
-
-        gap: 12px;
+    .continue-header h2 {
+        font-size: 28px;
     }
 
     .continue-header a {
-        white-space: normal;
-    }
-
-    .continue-card {
-        flex-basis: 85vw;
-
-        width: 85vw;
+        font-size: 12px;
     }
 }
+```
