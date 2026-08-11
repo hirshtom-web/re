@@ -1490,11 +1490,11 @@ Tighter / cleaner reading
 .article-content p {
   margin: 0 0 26px;
 
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.72;
 
   font-weight: 400;
-  color: #333;
+  color: #6b7280;
 }
 
 
@@ -1532,12 +1532,12 @@ SECTION TITLE — H2
 .article-content h2 {
   margin: 72px 0 22px;
 
-  font-size: 38px;
-  line-height: 1.16;
+  font-size: 40px;
+  line-height: 1.8;
 
-  letter-spacing: -1.4px;
+  letter-spacing: -1.8px;
 
-  font-weight: 500;
+  font-weight: 600;
 
   color: #111;
 }
