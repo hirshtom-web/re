@@ -93,7 +93,7 @@ GLOBAL TYPOGRAPHY
 .rility-insights__container,
 .journal-slider-header {
     width: 100%;
-    max-width: 1800px;
+    max-width: 2200px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 32px;
@@ -111,7 +111,7 @@ RILITY — JOURNAL HERO
   position: relative;
 
     width: 100%;
-    max-width: 1800px;
+    max-width: 2200px;
     margin: 0 auto;
     padding: 90px 32px 120px;
   
@@ -462,7 +462,7 @@ RILITY — FEATURED ARTICLE
 
 .rility-feature__container {
     width: 100%;
-    max-width: 1800px;
+    max-width: 2200px;
     margin: 0 auto;
     padding: 0 32px;
 }
@@ -760,7 +760,7 @@ CONTAINER
 
 .rility-insights__container {
     width: 100%;
-    max-width: 1800px;
+    max-width: 2200px;
     margin: 0 auto;
     padding: 0 32px;
 }
@@ -1099,7 +1099,7 @@ MOBILE
 
 .journal-slider-header {
     width: 100%;
-    max-width: 1800px;
+    max-width: 2200px;
     margin: 0 auto 45px;
     padding: 0 32px;
 
