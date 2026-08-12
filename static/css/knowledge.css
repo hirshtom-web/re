@@ -1012,3 +1012,464 @@ body {
 
 
 
+/* ==========================================================
+   RILITY JOURNAL ARTICLE
+   MOBILE ONLY
+   Background = 100%
+   Content shell = 90%
+   No horizontal page overflow
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+  /* ========================================================
+     PAGE / BACKGROUND
+     ======================================================== */
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+  }
+
+  .article-page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow-x: hidden;
+  }
+
+  /*
+     IMPORTANT:
+     Hero remains 100% width.
+     This prevents the purple glow/background
+     from being squeezed or cut off.
+  */
+
+  .article-hero {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+
+    padding: 60px 0 40px;
+  }
+
+
+  /* ========================================================
+     CONTENT SHELL
+     90% WIDTH
+     ======================================================== */
+
+  .article-width,
+  .article-container,
+  .article-author,
+  .continue-reading {
+    width: 90%;
+    max-width: 90%;
+    min-width: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* ========================================================
+     HERO CONTENT
+     ======================================================== */
+
+  .article-breadcrumbs,
+  .article-hero h1,
+  .article-subtitle,
+  .article-meta,
+  .article-hero-image {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .article-breadcrumbs {
+    font-size: 11px;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+  }
+
+  .article-hero h1 {
+    font-size: 42px;
+
+    line-height: 1.1;
+
+    letter-spacing: -1.5px;
+  }
+
+  .article-subtitle {
+    font-size: 18px;
+
+    line-height: 1.55;
+
+    margin-top: 22px;
+  }
+
+  .article-meta {
+    gap: 14px;
+
+    font-size: 11px;
+  }
+
+
+  /* ========================================================
+     HERO IMAGE
+     ======================================================== */
+
+  .article-hero-image {
+    height: 300px;
+
+    margin-top: 45px;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+  }
+
+
+  /* ========================================================
+     MAIN ARTICLE
+     ======================================================== */
+
+  .article-container {
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 40px;
+
+    margin-top: 60px;
+    margin-bottom: 70px;
+  }
+
+  .article-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+  }
+
+
+  /* ========================================================
+     PARAGRAPHS
+     ======================================================== */
+
+  .article-content p {
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 23px;
+  }
+
+
+  /* ========================================================
+     HEADINGS
+     ======================================================== */
+
+  .article-content h2 {
+    margin-top: 58px;
+    margin-bottom: 18px;
+
+    font-size: 31px;
+
+    line-height: 1.18;
+
+    letter-spacing: -1px;
+  }
+
+  .article-content h3 {
+    margin-top: 42px;
+    margin-bottom: 14px;
+
+    font-size: 23px;
+
+    line-height: 1.25;
+  }
+
+  .article-content h4 {
+    font-size: 18px;
+  }
+
+
+  /* ========================================================
+     LISTS
+     ======================================================== */
+
+  .article-content ul,
+  .article-content ol {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 0 28px;
+    padding: 0;
+
+    list-style: none;
+
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .article-content li {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    /*
+       Space reserved for the check.
+       Text starts AFTER the icon.
+    */
+    padding-left: 28px;
+
+    margin-bottom: 10px;
+
+    font-size: 17px;
+
+    line-height: 1.65;
+
+    overflow-wrap: anywhere;
+  }
+
+  /*
+     Google Material checkmark
+     vertically centered with the text
+  */
+
+  .article-content ul li::before {
+    content: "check";
+
+    font-family: "Material Symbols Outlined";
+
+    position: absolute;
+
+    left: 0;
+    top: 0.55em;
+
+    transform: translateY(-50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    color: var(--primary);
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    font-weight: normal;
+  }
+
+
+  /* ========================================================
+     BLOCKQUOTE / PURPLE LINE
+     ======================================================== */
+
+  .article-content blockquote {
+    margin: 36px 0;
+
+    padding: 0 0 0 20px;
+
+    border-left: 3px solid var(--primary);
+
+    font-size: 17px;
+
+    line-height: 1.65;
+  }
+
+  .article-quote {
+    margin: 36px 0;
+
+    padding-left: 20px;
+
+    border-left: 3px solid var(--primary);
+
+    font-size: 17px;
+
+    line-height: 1.65;
+  }
+
+
+  /* ========================================================
+     IMAGES
+     ======================================================== */
+
+  .article-content img,
+  .article-content figure,
+  .article-content video,
+  .article-hero-image img {
+    max-width: 100%;
+  }
+
+  .article-content figure {
+    width: 100%;
+    max-width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
+  /* ========================================================
+     SIDEBAR
+     Mobile = normal flow.
+     Desktop sticky rule remains untouched.
+     ======================================================== */
+
+  .article-sidebar {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    position: static;
+
+    order: 2;
+  }
+
+
+  /* ========================================================
+     AUTHOR
+     ======================================================== */
+
+  .article-author {
+    margin-top: 70px;
+
+    padding: 30px 24px;
+
+    border-radius: 28px;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    overflow: hidden;
+  }
+
+  .article-author img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .article-author p {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .article-author::before {
+    width: 180px;
+    height: 180px;
+  }
+
+
+  /* ========================================================
+     CONTINUE READING
+     SHELL = 90%
+     SLIDER VIEWPORT = 100% OF SHELL
+     ======================================================== */
+
+  .continue-reading {
+    overflow: hidden;
+  }
+
+  .continue-slider-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+  }
+
+  .continue-slider {
+    display: flex;
+
+    width: max-content;
+    max-width: none;
+
+    gap: 20px;
+  }
+
+  .continue-card {
+    flex: 0 0 85vw;
+
+    max-width: 85vw;
+  }
+
+  .continue-header h2 {
+    font-size: 32px;
+  }
+
+  .continue-controls {
+    margin-top: 30px;
+  }
+
+
+  /* ========================================================
+     PREVENT LONG CONTENT FROM BREAKING PAGE WIDTH
+     ======================================================== */
+
+  .article-content,
+  .article-content p,
+  .article-content li,
+  .article-content h2,
+  .article-content h3,
+  .article-content h4,
+  .article-subtitle {
+    overflow-wrap: anywhere;
+
+    word-break: normal;
+  }
+
+
+  /* ========================================================
+     MOBILE SMALL
+     ======================================================== */
+
+  @media (max-width: 480px) {
+
+    .article-hero h1 {
+      font-size: 34px;
+
+      letter-spacing: -1px;
+    }
+
+    .article-subtitle {
+      font-size: 17px;
+    }
+
+    .article-content h2 {
+      font-size: 28px;
+    }
+
+    .article-content h3 {
+      font-size: 22px;
+    }
+
+    .continue-content h3 {
+      font-size: 21px;
+    }
+  }
+
+}
