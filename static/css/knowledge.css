@@ -236,7 +236,7 @@ CONTENT
 
     font-size: 20px;
     line-height: 1.95;
-    color: #333;
+    color:var(--muted);
 }
 
 .article-content > *:first-child {
@@ -737,29 +737,18 @@ BLOCKQUOTE
 
 .article-content blockquote {
   position: relative;
-
   margin: 42px 0;
-
   padding: 0 0 0 24px;
-
   background: none;
-
   border: 0;
-
   border-left: 3px solid var(--primary);
-
   border-radius: 0;
-
   box-shadow: none;
-
   backdrop-filter: none;
-
   font-size: 18px;
   line-height: 1.7;
-
   font-weight: 500;
-
-  color: #333;
+  color:var(--muted);
 }
 
 .article-content blockquote::before {
@@ -789,7 +778,7 @@ PURPLE LINE
   font-size: 18px;
   line-height: 1.7;
   font-weight: 500;
-  color: #333;
+  color:var(--muted);
 }
 
 
@@ -802,7 +791,7 @@ PURPLE LINE
   font-size: 18px;
   line-height: 1.7;
   font-weight: 500;
-  color: #333;
+  color:var(--muted);
 }
 
 .article-quote p {
@@ -858,6 +847,8 @@ PURPLE LINE
   align-items: center;
   justify-content: center;
 }
+
+
 
 
 
