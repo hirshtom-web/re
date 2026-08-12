@@ -1101,9 +1101,9 @@ SIDEBAR BUTTON
         margin-top: 58px;
         margin-bottom: 18px;
 
-        font-size: 31px;
+        font-size: 30px;
         line-height: 1.25;
-        letter-spacing: -1px;
+        letter-spacing: -0.5px;
     }
 
     .article-content h3 {
@@ -1131,7 +1131,7 @@ SIDEBAR BUTTON
         padding-left: 0;
 
         font-size: 17px;
-        line-height: 1.65;
+        line-height: 1.7;
     }
 
     .article-content li {
@@ -1149,7 +1149,7 @@ SIDEBAR BUTTON
         top: 0.55em;
         transform: translateY(-50%);
 
-        font-size: 18px;
+        font-size: 17px;
     }
 
 
@@ -1163,7 +1163,7 @@ SIDEBAR BUTTON
         padding-left: 20px;
 
         font-size: 17px;
-        line-height: 1.65;
+        line-height: 1.7;
     }
 
 
@@ -1248,29 +1248,6 @@ SIDEBAR BUTTON
     }
 
 
-    /* ==========================================
-       AUTHOR
-       ========================================== */
-
-    .article-author {
-        margin-top: 70px;
-        padding: 30px;
-        flex-direction: column;
-        text-align: center;
-
-        border-radius: 28px;
-        overflow: hidden;
-    }
-
-    .article-author img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .article-author p {
-        font-size: 18px;
-        line-height: 1.7;
-    }
 
 
     /* ==========================================
@@ -1307,7 +1284,9 @@ SIDEBAR BUTTON
        ========================================== */
 
     .continue-header h2 {
-        font-size: 40px;
+              font-size: 28px;
+        line-height: 1.25;
+        letter-spacing: -0.5px;
     }
 
 }
@@ -1330,7 +1309,9 @@ SIDEBAR BUTTON
     }
 
     .article-content h2 {
-        font-size: 28px;
+              font-size: 28px;
+        line-height: 1.25;
+        letter-spacing: -0.5px;
     }
 
     .article-content h3 {
