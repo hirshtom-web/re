@@ -115,8 +115,6 @@ body{
   display:flex;
   align-items:center;
   gap:12px;
-  margin-bottom:28px
-  font-size:13px;
   color:var(--muted);
   flex-wrap: wrap;
   gap: 10px;
@@ -124,7 +122,6 @@ body{
   font-size: 12px;
   line-height: 1.4;
   font-weight: 500;
-  color: var(--muted);
   max-width:850px;
 }
 
@@ -211,6 +208,7 @@ HEADINGS
 .article-content h4 {
     margin: 40px 0 16px;
     font-size: 22px;
+    color: #111;
 }
 
 /* =========================
@@ -219,8 +217,8 @@ SUBTITLE
 
 .article-subtitle {
     margin: 34px 0;
-    font-size: 18px;
-  line-height: 1.7;
+    font-size: 20px;
+  line-height: 1.8;
   font-weight: 500;
   color:var(--muted);
     max-width: 850px;
@@ -235,8 +233,8 @@ CONTENT
     max-width: 850px;
     width: 100%;
 
-  font-size: 18px;
-  line-height: 1.7;
+  font-size: 20px;
+  line-height: 1.8;
   font-weight: 500;
   color:var(--muted);
 }
