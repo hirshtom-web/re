@@ -7,68 +7,121 @@
    Desktop is untouched.
    ========================================================== */
 
+/* ==========================================================
+   MOBILE — SIMPLE FINAL WIDTH
+   Full-width background + 20px content spacing
+   ========================================================== */
+
 @media (max-width: 768px) {
 
   html,
   body {
     width: 100%;
     max-width: 100%;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
   }
 
-  .article-page {
+  /* ==========================================
+     FULL-WIDTH PAGE / BACKGROUND
+     ========================================== */
+
+  .article-page,
+  .article-hero {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    overflow-x: hidden;
+    margin: 0;
   }
 
-  /* Keep your existing 90% mobile content width */
+  /* ==========================================
+     CONTENT — 20px EACH SIDE
+     ========================================== */
+
   .article-width,
   .article-container,
   .article-author,
   .continue-reading {
-    width: calc(100% - 44px);
-    max-width: calc(100% - 44px);
-    min-width: 0;
-  }
-
-  /* Prevent grid/flex children from forcing the page wider */
-  .article-container,
-  .article-content,
-  .article-sidebar,
-  .article-author,
-  .continue-reading {
-    min-width: 0;
-  }
-
-  .article-content {
     width: 100%;
     max-width: 100%;
+    min-width: 0;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
+  /* ==========================================
+     ARTICLE CONTENT
+     ========================================== */
+
+  .article-content,
   .article-sidebar {
     width: 100%;
     max-width: 100%;
+    min-width: 0;
   }
 
-  /* Hero glow/image cannot create horizontal overflow */
-  .article-hero {
+  /* ==========================================
+     MAIN ARTICLE → ONE COLUMN
+     ========================================== */
+
+  .article-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  /* ==========================================
+     MOBILE SIDEBAR
+     ========================================== */
+
+  .article-sidebar {
+    position: static;
     width: 100%;
-    max-width: 100%;
-    overflow: hidden;
   }
 
-  .article-hero::before {
-    max-width: none;
-  }
+  /* ==========================================
+     HERO CONTENT
+     ========================================== */
 
+  .article-breadcrumbs,
+  .article-hero h1,
+  .article-subtitle,
+  .article-meta,
   .article-hero-image {
     width: 100%;
     max-width: 100%;
+    min-width: 0;
   }
 
-  /* Slider stays inside its existing content shell */
+  /* ==========================================
+     IMAGES
+     ========================================== */
+
+  .article-content img,
+  .article-content figure,
+  .article-content video,
+  .article-hero-image img {
+    max-width: 100%;
+  }
+
+  .article-content figure {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* ==========================================
+     CONTINUE READING
+     ========================================== */
+
+  .continue-reading {
+    overflow: hidden;
+  }
+
   .continue-slider-container {
     width: 100%;
     max-width: 100%;
@@ -77,11 +130,31 @@
   }
 
   .continue-slider {
-    min-width: 0;
+    width: max-content;
+    max-width: none;
+  }
+
+  .continue-card {
+    flex: 0 0 85vw;
+    max-width: 85vw;
+  }
+
+  /* ==========================================
+     PREVENT LONG CONTENT FROM BREAKING WIDTH
+     ========================================== */
+
+  .article-content,
+  .article-content p,
+  .article-content li,
+  .article-content h2,
+  .article-content h3,
+  .article-content h4,
+  .article-subtitle {
+    overflow-wrap: anywhere;
+    word-break: normal;
   }
 
 }
-
 
 /* =========================
    VARIABLES
