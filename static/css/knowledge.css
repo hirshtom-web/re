@@ -745,8 +745,8 @@ BLOCKQUOTE
   border-radius: 0;
   box-shadow: none;
   backdrop-filter: none;
-  font-size: 18px;
-  line-height: 1.7;
+font-size: 20px;
+  line-height: 1.8;
   font-weight: 500;
   color:var(--muted);
 }
@@ -775,8 +775,8 @@ PURPLE LINE
   box-shadow: none;
   backdrop-filter: none;
 
-  font-size: 18px;
-  line-height: 1.7;
+font-size: 20px;
+  line-height: 1.8;
   font-weight: 500;
   color:var(--muted);
 }
@@ -788,8 +788,8 @@ PURPLE LINE
 
   border-left: 3px solid var(--primary);
 
-  font-size: 18px;
-  line-height: 1.7;
+font-size: 20px;
+  line-height: 1.8;
   font-weight: 500;
   color:var(--muted);
 }
@@ -818,8 +818,8 @@ PURPLE LINE
 
   margin-bottom: 12px;
 
-  font-size: 20px;
-  line-height: 1.72;
+font-size: 20px;
+  line-height: 1.8;
   font-weight: 400;
   color: #6b7280;
 }
@@ -839,7 +839,7 @@ PURPLE LINE
 
   color: var(--primary);
 
-  font-size: 20px;
+font-size: 20px;
   line-height: 1;
 
   /* Keeps the Material icon visually centered */
