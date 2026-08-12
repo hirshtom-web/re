@@ -1941,22 +1941,26 @@ PURPLE LINE
 
 
 /* ==========================================================
-   ARTICLE LISTS — CLEAN CHECKMARKS
+   ARTICLE LISTS — PURPLE CHECKMARKS
    ========================================================== */
 
 .article-content ul,
 .article-content ol {
   list-style: none;
-  margin: 0 0 26px;
+  margin: 0 0 28px;
   padding: 0;
 }
 
 .article-content li {
   position: relative;
 
+  /* Creates space between checkmark and text */
+  padding-left: 30px;
+
+  margin-bottom: 12px;
+
   font-size: 20px;
   line-height: 1.72;
-
   font-weight: 400;
   color: #6b7280;
 }
@@ -1967,7 +1971,7 @@ PURPLE LINE
 
   position: absolute;
   left: 0;
-  top: 0.1em;
+  top: 0.12em;
 
   color: var(--primary);
 
@@ -1976,6 +1980,10 @@ PURPLE LINE
   line-height: 1;
 }
 
+
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 768px) {
 
@@ -1986,7 +1994,8 @@ PURPLE LINE
   }
 
   .article-content li {
-    padding-left: 26px;
+    padding-left: 27px;
+
     margin-bottom: 10px;
 
     font-size: 17px;
@@ -1995,22 +2004,7 @@ PURPLE LINE
 
   .article-content ul li::before {
     font-size: 15px;
-    top: 0.08em;
+    top: 0.1em;
   }
 
 }
-
-
-.article-content ul li::before {
-  content: "arrow_forward";
-  font-family: "Material Symbols Outlined";
-
-  position: absolute;
-  left: 0;
-  top: 0.08em;
-
-  color: var(--primary);
-  font-size: 18px;
-  line-height: 1;
-}
-
