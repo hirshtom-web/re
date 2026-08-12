@@ -2,7 +2,62 @@
    RILITY JOURNAL ARTICLE
    FINAL CSS — PART 1
 ========================================================== */
+/* ==========================================================
+   ARTICLE PAGE — MOBILE OVERFLOW FIX
+   ========================================================== */
 
+.article-page {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.article-width,
+.article-container,
+.article-content,
+.article-sidebar,
+.article-author,
+.continue-reading {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.article-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.continue-slider-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+
+@media (max-width: 768px) {
+
+  .article-width,
+  .article-container,
+  .article-author,
+  .continue-reading {
+    width: calc(100% - 44px);
+    max-width: calc(100% - 44px);
+    min-width: 0;
+  }
+
+  .article-content,
+  .article-sidebar {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .article-hero {
+    overflow: hidden;
+  }
+
+}
 
 /* =========================
    VARIABLES
