@@ -1941,7 +1941,7 @@ PURPLE LINE
 
 
 /* ==========================================================
-   ARTICLE LISTS — PURPLE CHECKMARKS
+   ARTICLE LISTS — GOOGLE MATERIAL CHECK ICON
    ========================================================== */
 
 .article-content ul,
@@ -1954,8 +1954,7 @@ PURPLE LINE
 .article-content li {
   position: relative;
 
-  /* Creates space between checkmark and text */
-  padding-left: 30px;
+  padding-left: 32px;
 
   margin-bottom: 12px;
 
@@ -1965,19 +1964,28 @@ PURPLE LINE
   color: #6b7280;
 }
 
-/* Purple checkmark */
+/* Google Material check icon */
 .article-content ul li::before {
-  content: "✓";
+  content: "check";
+
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
 
   position: absolute;
   left: 0;
-  top: 0.12em;
+  top: 50%;
+  transform: translateY(-50%);
 
   color: var(--primary);
 
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 20px;
   line-height: 1;
+
+  /* Keeps the Material icon visually centered */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -1987,15 +1995,8 @@ PURPLE LINE
 
 @media (max-width: 768px) {
 
-  .article-content ul,
-  .article-content ol {
-    margin: 0 0 26px;
-    padding: 0;
-  }
-
   .article-content li {
-    padding-left: 27px;
-
+    padding-left: 28px;
     margin-bottom: 10px;
 
     font-size: 17px;
@@ -2003,8 +2004,7 @@ PURPLE LINE
   }
 
   .article-content ul li::before {
-    font-size: 15px;
-    top: 0.1em;
+    font-size: 18px;
   }
 
 }
