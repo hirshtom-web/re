@@ -1,160 +1,6 @@
 /* ==========================================================
    RILITY JOURNAL ARTICLE
-   FINAL CSS — PART 1
 ========================================================== */
-/* ==========================================================
-   MOBILE ONLY — PREVENT HORIZONTAL OVERFLOW
-   Desktop is untouched.
-   ========================================================== */
-
-/* ==========================================================
-   MOBILE — SIMPLE FINAL WIDTH
-   Full-width background + 20px content spacing
-   ========================================================== */
-
-@media (max-width: 768px) {
-
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-
-  /* ==========================================
-     FULL-WIDTH PAGE / BACKGROUND
-     ========================================== */
-
-  .article-page,
-  .article-hero {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    margin: 0;
-  }
-
-  /* ==========================================
-     CONTENT — 20px EACH SIDE
-     ========================================== */
-
-  .article-width,
-  .article-container,
-  .article-author,
-  .continue-reading {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-
-    margin-left: 0;
-    margin-right: 0;
-
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  /* ==========================================
-     ARTICLE CONTENT
-     ========================================== */
-
-  .article-content,
-  .article-sidebar {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  /* ==========================================
-     MAIN ARTICLE → ONE COLUMN
-     ========================================== */
-
-  .article-container {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
-  }
-
-  /* ==========================================
-     MOBILE SIDEBAR
-     ========================================== */
-
-  .article-sidebar {
-    position: static;
-    width: 100%;
-  }
-
-  /* ==========================================
-     HERO CONTENT
-     ========================================== */
-
-  .article-breadcrumbs,
-  .article-hero h1,
-  .article-subtitle,
-  .article-meta,
-  .article-hero-image {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  /* ==========================================
-     IMAGES
-     ========================================== */
-
-  .article-content img,
-  .article-content figure,
-  .article-content video,
-  .article-hero-image img {
-    max-width: 100%;
-  }
-
-  .article-content figure {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  /* ==========================================
-     CONTINUE READING
-     ========================================== */
-
-  .continue-reading {
-    overflow: hidden;
-  }
-
-  .continue-slider-container {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow: hidden;
-  }
-
-  .continue-slider {
-    width: max-content;
-    max-width: none;
-  }
-
-  .continue-card {
-    flex: 0 0 85vw;
-    max-width: 85vw;
-  }
-
-  /* ==========================================
-     PREVENT LONG CONTENT FROM BREAKING WIDTH
-     ========================================== */
-
-  .article-content,
-  .article-content p,
-  .article-content li,
-  .article-content h2,
-  .article-content h3,
-  .article-content h4,
-  .article-subtitle {
-    overflow-wrap: anywhere;
-    word-break: normal;
-  }
-
-}
 
 /* =========================
    VARIABLES
@@ -248,63 +94,59 @@ body{
 
 
 
-/* =========================
-   HERO
-========================= */
+/* ==========================================================
+PAGE
+Full-width background
+========================================================== */
 
-
-.article-hero{
-
-    position:relative;
-
-    padding:90px 0 70px;
-
-    text-align:left;
-
+.article-page {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
 }
 
+/* ==========================================================
+FULL-WIDTH PURPLE BACKGROUND
+Independent of hero/content width
+========================================================== */
 
+.article-page::before {
+    content: "";
+    position: absolute;
 
-/* Glow */
+    width: 100%;
+    height: 900px;
 
-.article-hero::before{
+    left: 0;
+    top: 0;
 
-    content:"";
-
-    position:absolute;
-
-    width:900px;
-
-    height:900px;
-
-    left:50%;
-
-    top:-420px;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(109,93,251,.15),
+    background: radial-gradient(
+        ellipse at 50% 0%,
+        rgba(109, 93, 251, 0.15),
         transparent 70%
     );
 
-    filter:blur(40px);
+    filter: blur(40px);
 
-    z-index:0;
-
+    pointer-events: none;
+    z-index: 0;
 }
 
+/* ==========================================================
+HERO
+========================================================== */
 
-.article-hero > *{
+.article-hero {
+    position: relative;
 
-    position:relative;
+    width: 100%;
 
-    z-index:2;
+    padding: 90px 0 70px;
 
+    text-align: left;
+
+    z-index: 1;
 }
 
 
@@ -705,6 +547,9 @@ body{
     margin:60px 0;
 
 }
+
+
+
 
 
 /* =========================
@@ -2332,6 +2177,150 @@ PURPLE LINE
     left: 0;
     top: 0.55em;
     transform: translateY(-50%);
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* ==========================================
+     FULL-WIDTH PAGE / BACKGROUND
+     ========================================== */
+
+  .article-page,
+  .article-hero {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  /* ==========================================
+     CONTENT — 20px EACH SIDE
+     ========================================== */
+
+  .article-width,
+  .article-container,
+  .article-author,
+  .continue-reading {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* ==========================================
+     ARTICLE CONTENT
+     ========================================== */
+
+  .article-content,
+  .article-sidebar {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* ==========================================
+     MAIN ARTICLE → ONE COLUMN
+     ========================================== */
+
+  .article-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  /* ==========================================
+     MOBILE SIDEBAR
+     ========================================== */
+
+  .article-sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  /* ==========================================
+     HERO CONTENT
+     ========================================== */
+
+  .article-breadcrumbs,
+  .article-hero h1,
+  .article-subtitle,
+  .article-meta,
+  .article-hero-image {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* ==========================================
+     IMAGES
+     ========================================== */
+
+  .article-content img,
+  .article-content figure,
+  .article-content video,
+  .article-hero-image img {
+    max-width: 100%;
+  }
+
+  .article-content figure {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* ==========================================
+     CONTINUE READING
+     ========================================== */
+
+  .continue-reading {
+    overflow: hidden;
+  }
+
+  .continue-slider-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .continue-slider {
+    width: max-content;
+    max-width: none;
+  }
+
+  .continue-card {
+    flex: 0 0 85vw;
+    max-width: 85vw;
+  }
+
+  /* ==========================================
+     PREVENT LONG CONTENT FROM BREAKING WIDTH
+     ========================================== */
+
+  .article-content,
+  .article-content p,
+  .article-content li,
+  .article-content h2,
+  .article-content h3,
+  .article-content h4,
+  .article-subtitle {
+    overflow-wrap: anywhere;
+    word-break: normal;
   }
 
 }
