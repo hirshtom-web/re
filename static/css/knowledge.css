@@ -3,126 +3,85 @@
    FINAL CSS — PART 1
 ========================================================== */
 /* ==========================================================
-   ARTICLE PAGE — WIDTH + MOBILE OVERFLOW
-   ========================================================== */
-
-.article-page {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-}
-
-
-/* ==========================================================
-   FULL-WIDTH SECTIONS
-   ========================================================== */
-
-.article-width,
-.article-container,
-.article-author,
-.continue-reading {
-  width: var(--page-width);
-  max-width: 100%;
-  min-width: 0;
-
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-/* ==========================================================
-   HERO
-   ========================================================== */
-
-.article-hero {
-  position: relative;
-  overflow: hidden;
-}
-
-
-/* ==========================================================
-   CONTENT
-   ========================================================== */
-
-.article-content,
-.article-sidebar {
-  min-width: 0;
-  max-width: 100%;
-}
-
-
-/* ==========================================================
-   STICKY SIDEBAR
-   ========================================================== */
-
-.article-sidebar {
-  position: sticky;
-  top: 120px;
-  align-self: start;
-}
-
-
-/* ==========================================================
-   CONTINUE READING — FULL WIDTH SHELL
-   ========================================================== */
-
-.continue-reading {
-  width: 100%;
-  max-width: 100%;
-}
-
-.continue-header,
-.continue-slider-container,
-.continue-controls {
-  width: var(--page-width);
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.continue-slider-container {
-  overflow: hidden;
-}
-
-
-/* ==========================================================
-   MOBILE
+   MOBILE ONLY — PREVENT HORIZONTAL OVERFLOW
+   Desktop is untouched.
    ========================================================== */
 
 @media (max-width: 768px) {
 
-  /* Full-width page sections */
-  .article-page,
-  .article-hero,
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .article-page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  /* Keep your existing 90% mobile content width */
+  .article-width,
+  .article-container,
+  .article-author,
   .continue-reading {
+    width: calc(100% - 44px);
+    max-width: calc(100% - 44px);
+    min-width: 0;
+  }
+
+  /* Prevent grid/flex children from forcing the page wider */
+  .article-container,
+  .article-content,
+  .article-sidebar,
+  .article-author,
+  .continue-reading {
+    min-width: 0;
+  }
+
+  .article-content {
     width: 100%;
     max-width: 100%;
   }
 
-  /* Actual article content gets the 22px side margins */
-  .article-width,
-  .article-container,
-  .article-author {
-    width: calc(100% - 44px);
-    max-width: calc(100% - 44px);
-  }
-
-  /* Continue Reading stays full width */
-  .continue-header,
-  .continue-slider-container,
-  .continue-controls {
-    width: calc(100% - 44px);
-    max-width: calc(100% - 44px);
-  }
-
-  .article-content,
   .article-sidebar {
     width: 100%;
     max-width: 100%;
+  }
+
+  /* Hero glow/image cannot create horizontal overflow */
+  .article-hero {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .article-hero::before {
+    max-width: none;
+  }
+
+  .article-hero-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Slider stays inside its existing content shell */
+  .continue-slider-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .continue-slider {
     min-width: 0;
   }
 
 }
+
 
 /* =========================
    VARIABLES
