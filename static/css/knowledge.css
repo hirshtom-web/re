@@ -655,12 +655,12 @@ font-size: 20px;
 }
 
 
-.continue-header h2{
-    margin: 0;
-    font-size:44px;
-    letter-spacing:-1.5px;
-  line-height: 1.4;
+.article-content h2,
+.continue-header h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 44px;
   font-weight: 600;
+  letter-spacing: -1.5px;
   color: #111;
 }
 
