@@ -282,11 +282,8 @@ body{
 .article-content{
 
     min-width:0;
-
     font-size:20px;
-
     line-height:1.95;
-
     color:#333;
 
 }
@@ -315,9 +312,7 @@ body{
 .article-content .lead{
 
     font-size:28px;
-
     line-height:1.75;
-
     color:#111;
 
 }
@@ -332,13 +327,9 @@ body{
 .article-content h2{
 
     margin:90px 0 26px;
-
     font-size:44px;
-
     line-height:1.15;
-
     letter-spacing:-1.5px;
-
     color:#111;
 
 }
@@ -347,11 +338,8 @@ body{
 .article-content h3{
 
     margin:60px 0 20px;
-
     font-size:30px;
-
     line-height:1.25;
-
     color:#111;
 
 }
@@ -360,7 +348,6 @@ body{
 .article-content h4{
 
     margin:40px 0 16px;
-
     font-size:22px;
 
 }
@@ -371,11 +358,8 @@ body{
 .article-content a{
 
     color:#111;
-
     text-decoration:none;
-
     border-bottom:1px solid rgba(0,0,0,.12);
-
     transition:.25s;
 
 }
@@ -398,7 +382,6 @@ body{
 .article-content ol{
 
     margin:0 0 34px 24px;
-
     line-height:1.9;
 
 }
@@ -427,9 +410,7 @@ body{
 .article-content figure img{
 
     width:100%;
-
     display:block;
-
     border-radius:28px;
 
 }
@@ -438,11 +419,8 @@ body{
 .article-content figcaption{
 
     margin-top:14px;
-
     font-size:14px;
-
     color:#777;
-
     text-align:center;
 
 }
@@ -454,11 +432,8 @@ body{
 .article-content > img{
 
     width:100%;
-
     display:block;
-
     border-radius:28px;
-
     margin:60px 0;
 
 }
@@ -472,9 +447,7 @@ body{
 .article-sidebar{
 
     position:sticky;
-
     top:120px;
-
     align-self:start;
 
 }
@@ -483,15 +456,10 @@ body{
 .sidebar-card{
 
     background:#fff;
-
     border:1px solid var(--border);
-
     border-radius:28px;
-
     padding:30px;
-
     margin-bottom:24px;
-
     box-shadow:0 15px 40px rgba(0,0,0,.05);
 
 }
@@ -500,7 +468,6 @@ body{
 .sidebar-card h4{
 
     margin:0 0 18px;
-
     font-size:20px;
 
 }
@@ -509,13 +476,9 @@ body{
 .sidebar-card a{
 
     display:block;
-
     margin-bottom:14px;
-
     color:#666;
-
     text-decoration:none;
-
     transition:.25s;
 
 }
@@ -531,21 +494,13 @@ body{
 .sidebar-card button{
 
     width:100%;
-
     height:54px;
-
     border:none;
-
     border-radius:999px;
-
     background:#111;
-
     color:#fff;
-
     font-weight:600;
-
     cursor:pointer;
-
     transition:.25s;
 
 }
@@ -560,134 +515,6 @@ body{
 
 
 /* ==========================================================
-   AUTHOR
-========================================================== */
-
-
-.article-author{
-
-    margin-top:100px;
-
-    margin-bottom:100px;
-
-    padding:55px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:30px;
-
-    border-radius:36px;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        rgba(109,93,251,.08),
-        rgba(255,255,255,.95)
-    );
-
-
-    border:1px solid rgba(109,93,251,.12);
-
-
-    box-shadow:
-
-    0 30px 90px rgba(15,23,42,.08),
-
-    inset 0 1px 0 rgba(255,255,255,.9);
-
-
-    backdrop-filter:blur(25px);
-
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-
-
-.article-author::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:350px;
-
-    height:350px;
-
-    left:-150px;
-
-    top:-150px;
-
-
-    background:
-
-    radial-gradient(
-        circle,
-        rgba(109,93,251,.18),
-        transparent 70%
-    );
-
-
-    filter:blur(40px);
-
-}
-
-
-
-.article-author > *{
-
-    position:relative;
-
-    z-index:2;
-
-}
-
-
-
-.article-author img{
-
-    width:90px;
-
-    height:90px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-}
-
-
-.article-author h3{
-
-    margin:0 0 10px;
-
-    font-size:26px;
-
-}
-
-
-.article-author p{
-
-    margin:0;
-
-    max-width:700px;
-
-    color:var(--muted);
-
-    line-height:1.7;
-
-}
-
-
-
-/* ==========================================================
    CONTINUE READING
 ========================================================== */
 
@@ -695,7 +522,6 @@ body{
 .continue-reading{
 
     margin-top:120px;
-
     margin-bottom:120px;
 
 }
@@ -704,11 +530,8 @@ body{
 .continue-header{
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:45px;
 
 }
@@ -717,15 +540,10 @@ body{
 .continue-header h2{
 
     margin:0;
-
     font-size:40px;
-
     letter-spacing:-1.4px;
-
   line-height: 1.4;
-
   font-weight: 600;
-
   color: #111;
 }
 
@@ -734,9 +552,7 @@ body{
 .continue-header a{
 
     color:#555;
-
     text-decoration:none;
-
     font-size:14px;
 
 }
@@ -765,11 +581,8 @@ body{
 .continue-slider{
 
     display:flex;
-
     gap:28px;
-
     transition:transform .4s ease;
-
     will-change:transform;
 
 }
@@ -779,15 +592,10 @@ body{
 .continue-card{
 
     flex:0 0 360px;
-
     background:#fff;
-
     border-radius:30px;
-
     overflow:hidden;
-
     border:1px solid var(--border);
-
     transition:.35s;
 
 }
@@ -796,16 +604,14 @@ body{
 .continue-card:hover{
 
     transform:translateY(-8px);
-
     box-shadow:var(--shadow);
 
 }
 
 
 .continue-image{
-
+   
     height:240px;
-
     overflow:hidden;
 
 }
@@ -814,11 +620,8 @@ body{
 .continue-image img{
 
     width:100%;
-
     height:100%;
-
     object-fit:cover;
-
     transition:.5s;
 
 }
@@ -841,17 +644,11 @@ body{
 .continue-content span{
 
     display:block;
-
     margin-bottom:15px;
-
     font-size:11px;
-
     font-weight:700;
-
     letter-spacing:.12em;
-
     text-transform:uppercase;
-
     color:#9a7b42;
 
 }
@@ -860,9 +657,7 @@ body{
 .continue-content h3{
 
     margin:0 0 25px;
-
     font-size:24px;
-
     line-height:1.35;
 
 }
@@ -871,11 +666,8 @@ body{
 .continue-content a{
 
     color:#111;
-
     text-decoration:none;
-
     font-size:14px;
-
     font-weight:600;
 
 }
@@ -889,11 +681,8 @@ body{
 .continue-controls{
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-top:40px;
 
 }
@@ -902,11 +691,8 @@ body{
 .continue-controls > a{
 
     color:#111;
-
     text-decoration:none;
-
     font-size:14px;
-
     font-weight:600;
 
 }
@@ -915,7 +701,6 @@ body{
 .continue-controls div{
 
     display:flex;
-
     gap:12px;
 
 }
@@ -924,19 +709,12 @@ body{
 .continue-controls button{
 
     width:42px;
-
     height:42px;
-
     border-radius:50%;
-
     border:1px solid #ddd;
-
     background:#fff;
-
     cursor:pointer;
-
     font-size:20px;
-
     transition:.25s;
 
 }
@@ -945,10 +723,457 @@ body{
 .continue-controls button:hover{
 
     background:#111;
-
     color:#fff;
 
 }
+
+
+
+
+
+
+
+.ai-summary-card {
+  padding: 20px;
+}
+
+.ai-summary-card h4 {
+  margin-bottom: 10px;
+}
+
+.ai-summary-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.ai-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-tools{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.ai-tool{
+    display:flex !important;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+
+    flex: 0 0 auto;
+    min-width:130px;
+
+    padding:10px 12px;
+    border:1px solid #e7e7e7;
+    border-radius:12px;
+    background:#fff;
+    color:#111;
+    text-decoration:none;
+
+    margin:0 !important;
+}
+
+.ai-tool:hover{
+    background:#f5f5f5;
+    border-color:#e7e7e7;
+    color:#111;
+}
+
+.ai-tool img{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.ai-tool span{
+    font-size:14px;
+    font-weight:500;
+    line-height:1;
+    color:#111;
+}
+
+
+/* =========================
+ARTICLE BODY
+========================= */
+
+.article-content {
+  min-width: 0;
+  max-width: 850px;
+  width: 100%;
+
+  font-size: 18px;
+  line-height: 1.72;
+
+  color: #333;
+}
+
+
+/* =========================
+PARAGRAPHS
+Tighter / cleaner reading
+========================= */
+
+.article-content p {
+  margin: 0 0 26px;
+
+  font-size: 20px;
+  line-height: 1.72;
+
+  font-weight: 400;
+  color: #6b7280;
+}
+
+
+/* Remove extra spacing from final paragraph */
+
+.article-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+MAIN TITLE — H1
+========================= */
+
+.article-hero h1 {
+  margin: 0;
+
+  max-width: 850px;
+
+  font-size: 64px;
+  line-height: 1.08;
+
+  letter-spacing: -2.8px;
+
+  font-weight: 600;
+
+  color: #111;
+}
+
+
+/* =========================
+SECTION TITLE — H2
+========================= */
+
+.article-content h2 {
+  margin: 72px 0 22px;
+
+  font-size: 40px;
+  line-height: 1.4;
+
+  letter-spacing: -1.4px;
+
+  font-weight: 600;
+
+  color: #111;
+}
+
+
+/* =========================
+SUBSECTION TITLE — H3
+========================= */
+
+.article-content h3 {
+  margin: 48px 0 16px;
+
+  font-size: 26px;
+  line-height: 1.25;
+
+  letter-spacing: -0.5px;
+
+  font-weight: 500;
+
+  color: #111;
+}
+
+
+/* =========================
+SMALL HEADING — H4
+========================= */
+
+.article-content h4 {
+  margin: 36px 0 14px;
+
+  font-size: 19px;
+  line-height: 1.35;
+
+  font-weight: 600;
+
+  color: #111;
+}
+
+
+/* =========================
+HERO SUBTITLE / INTRO
+========================= */
+
+.article-subtitle {
+  margin: 28px 0 0;
+
+  max-width: 760px;
+
+  font-size: 20px;
+  line-height: 1.55;
+
+  font-weight: 400;
+
+  color: var(--muted);
+}
+
+
+/* =========================
+BREADCRUMBS
+========================= */
+
+.article-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-bottom: 24px;
+
+  font-size: 12px;
+  line-height: 1.4;
+
+  font-weight: 500;
+
+  color: var(--muted);
+}
+
+.article-breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.article-breadcrumbs a:hover {
+  color: var(--primary);
+}
+
+
+/* =========================
+META
+DATE / AUTHOR / READ TIME
+========================= */
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 22px;
+
+  margin-top: 26px;
+
+  font-size: 12px;
+  line-height: 1.4;
+
+  font-weight: 500;
+
+  color: var(--muted);
+}
+
+
+/* =========================
+LISTS
+========================= */
+
+.article-content ul,
+.article-content ol {
+  margin: 0 0 28px 24px;
+
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.article-content li {
+  margin-bottom: 8px;
+}
+
+
+/* =========================
+BLOCKQUOTE
+Simple bullet-style quote
+========================= */
+
+.article-content blockquote {
+  position: relative;
+
+  margin: 42px 0;
+
+  padding: 0 0 0 24px;
+
+  background: none;
+
+  border: 0;
+
+  border-left: 3px solid var(--primary);
+
+  border-radius: 0;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+
+  font-size: 18px;
+  line-height: 1.7;
+
+  font-weight: 500;
+
+  color: #333;
+}
+
+.article-content blockquote::before {
+  display: none;
+}
+
+
+/* =========================
+LEAD
+Only use when you intentionally
+want a stronger opening paragraph
+========================= */
+
+.article-content .lead {
+  margin-bottom: 30px;
+
+  font-size: 21px;
+  line-height: 1.65;
+
+  color: #111;
+}
+
+
+/* ==========================================================
+PURPLE LINE
+========================================================== */
+
+
+.article-content blockquote {
+  position: relative;
+  margin: 42px 0;
+  padding: 0 0 0 24px;
+
+  background: none;
+  border: 0;
+  border-left: 3px solid #6D5DFB;
+
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 500;
+  color: #333;
+}
+
+
+.article-quote {
+  margin: 42px 0;
+  padding: 0 0 0 24px;
+
+  border-left: 3px solid var(--primary);
+
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 500;
+  color: #333;
+}
+
+.article-quote p {
+  margin: 0;
+}
+
+
+
+/* ==========================================================
+   ARTICLE LISTS — GOOGLE MATERIAL CHECK ICON
+   ========================================================== */
+
+.article-content ul,
+.article-content ol {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+}
+
+.article-content li {
+  position: relative;
+
+  padding-left: 32px;
+
+  margin-bottom: 12px;
+
+  font-size: 20px;
+  line-height: 1.72;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+/* Google Material check icon */
+.article-content ul li::before {
+  content: "check";
+
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  color: var(--primary);
+
+  font-size: 20px;
+  line-height: 1;
+
+  /* Keeps the Material icon visually centered */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1306,332 +1531,6 @@ body{
 }
 
 
-.ai-summary-card {
-  padding: 20px;
-}
-
-.ai-summary-card h4 {
-  margin-bottom: 10px;
-}
-
-.ai-summary-card p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.ai-tools {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.ai-tools{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.ai-tool{
-    display:flex !important;
-    align-items:center;
-    justify-content:flex-start;
-    gap:8px;
-
-    flex: 0 0 auto;
-    min-width:130px;
-
-    padding:10px 12px;
-    border:1px solid #e7e7e7;
-    border-radius:12px;
-    background:#fff;
-    color:#111;
-    text-decoration:none;
-
-    margin:0 !important;
-}
-
-.ai-tool:hover{
-    background:#f5f5f5;
-    border-color:#e7e7e7;
-    color:#111;
-}
-
-.ai-tool img{
-    width:22px;
-    height:22px;
-    object-fit:contain;
-    flex-shrink:0;
-}
-
-.ai-tool span{
-    font-size:14px;
-    font-weight:500;
-    line-height:1;
-    color:#111;
-}
-
-
-
-
-
-
-
-/* ==========================================================
-RILITY ARTICLE — FINAL TYPOGRAPHY SYSTEM
-========================================================== */
-
-/* =========================
-ARTICLE BODY
-========================= */
-
-.article-content {
-  min-width: 0;
-  max-width: 850px;
-  width: 100%;
-
-  font-size: 18px;
-  line-height: 1.72;
-
-  color: #333;
-}
-
-
-/* =========================
-PARAGRAPHS
-Tighter / cleaner reading
-========================= */
-
-.article-content p {
-  margin: 0 0 26px;
-
-  font-size: 20px;
-  line-height: 1.72;
-
-  font-weight: 400;
-  color: #6b7280;
-}
-
-
-/* Remove extra spacing from final paragraph */
-
-.article-content p:last-child {
-  margin-bottom: 0;
-}
-
-
-/* =========================
-MAIN TITLE — H1
-========================= */
-
-.article-hero h1 {
-  margin: 0;
-
-  max-width: 850px;
-
-  font-size: 64px;
-  line-height: 1.08;
-
-  letter-spacing: -2.8px;
-
-  font-weight: 600;
-
-  color: #111;
-}
-
-
-/* =========================
-SECTION TITLE — H2
-========================= */
-
-.article-content h2 {
-  margin: 72px 0 22px;
-
-  font-size: 40px;
-  line-height: 1.4;
-
-  letter-spacing: -1.4px;
-
-  font-weight: 600;
-
-  color: #111;
-}
-
-
-/* =========================
-SUBSECTION TITLE — H3
-========================= */
-
-.article-content h3 {
-  margin: 48px 0 16px;
-
-  font-size: 26px;
-  line-height: 1.25;
-
-  letter-spacing: -0.5px;
-
-  font-weight: 500;
-
-  color: #111;
-}
-
-
-/* =========================
-SMALL HEADING — H4
-========================= */
-
-.article-content h4 {
-  margin: 36px 0 14px;
-
-  font-size: 19px;
-  line-height: 1.35;
-
-  font-weight: 600;
-
-  color: #111;
-}
-
-
-/* =========================
-HERO SUBTITLE / INTRO
-========================= */
-
-.article-subtitle {
-  margin: 28px 0 0;
-
-  max-width: 760px;
-
-  font-size: 20px;
-  line-height: 1.55;
-
-  font-weight: 400;
-
-  color: var(--muted);
-}
-
-
-/* =========================
-BREADCRUMBS
-========================= */
-
-.article-breadcrumbs {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-
-  gap: 10px;
-
-  margin-bottom: 24px;
-
-  font-size: 12px;
-  line-height: 1.4;
-
-  font-weight: 500;
-
-  color: var(--muted);
-}
-
-.article-breadcrumbs a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.article-breadcrumbs a:hover {
-  color: var(--primary);
-}
-
-
-/* =========================
-META
-DATE / AUTHOR / READ TIME
-========================= */
-
-.article-meta {
-  display: flex;
-  flex-wrap: wrap;
-
-  gap: 22px;
-
-  margin-top: 26px;
-
-  font-size: 12px;
-  line-height: 1.4;
-
-  font-weight: 500;
-
-  color: var(--muted);
-}
-
-
-/* =========================
-LISTS
-========================= */
-
-.article-content ul,
-.article-content ol {
-  margin: 0 0 28px 24px;
-
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-.article-content li {
-  margin-bottom: 8px;
-}
-
-
-/* =========================
-BLOCKQUOTE
-Simple bullet-style quote
-========================= */
-
-.article-content blockquote {
-  position: relative;
-
-  margin: 42px 0;
-
-  padding: 0 0 0 24px;
-
-  background: none;
-
-  border: 0;
-
-  border-left: 3px solid var(--primary);
-
-  border-radius: 0;
-
-  box-shadow: none;
-
-  backdrop-filter: none;
-
-  font-size: 18px;
-  line-height: 1.7;
-
-  font-weight: 500;
-
-  color: #333;
-}
-
-.article-content blockquote::before {
-  display: none;
-}
-
-
-/* =========================
-LEAD
-Only use when you intentionally
-want a stronger opening paragraph
-========================= */
-
-.article-content .lead {
-  margin-bottom: 30px;
-
-  font-size: 21px;
-  line-height: 1.65;
-
-  color: #111;
-}
-
 
 /* ==========================================================
 RESPONSIVE TYPOGRAPHY
@@ -1806,101 +1705,8 @@ RESPONSIVE TYPOGRAPHY
 
 }
 
-/* ==========================================================
-PURPLE LINE
-========================================================== */
 
 
-.article-content blockquote {
-  position: relative;
-  margin: 42px 0;
-  padding: 0 0 0 24px;
-
-  background: none;
-  border: 0;
-  border-left: 3px solid #6D5DFB;
-
-  border-radius: 0;
-  box-shadow: none;
-  backdrop-filter: none;
-
-  font-size: 18px;
-  line-height: 1.7;
-  font-weight: 500;
-  color: #333;
-}
-
-
-.article-quote {
-  margin: 42px 0;
-  padding: 0 0 0 24px;
-
-  border-left: 3px solid var(--primary);
-
-  font-size: 18px;
-  line-height: 1.7;
-  font-weight: 500;
-  color: #333;
-}
-
-.article-quote p {
-  margin: 0;
-}
-
-
-
-/* ==========================================================
-   ARTICLE LISTS — GOOGLE MATERIAL CHECK ICON
-   ========================================================== */
-
-.article-content ul,
-.article-content ol {
-  list-style: none;
-  margin: 0 0 28px;
-  padding: 0;
-}
-
-.article-content li {
-  position: relative;
-
-  padding-left: 32px;
-
-  margin-bottom: 12px;
-
-  font-size: 20px;
-  line-height: 1.72;
-  font-weight: 400;
-  color: #6b7280;
-}
-
-/* Google Material check icon */
-.article-content ul li::before {
-  content: "check";
-
-  font-family: "Material Symbols Outlined";
-  font-weight: normal;
-  font-style: normal;
-
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-
-  color: var(--primary);
-
-  font-size: 20px;
-  line-height: 1;
-
-  /* Keeps the Material icon visually centered */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-/* =========================
-   MOBILE
-   ========================= */
 
 @media (max-width: 768px) {
 
@@ -1919,12 +1725,6 @@ PURPLE LINE
 }
 
 
-/* ==========================================================
-   MOBILE — FINAL WIDTH / OVERFLOW FIX
-   Desktop remains untouched.
-   Background = 100%
-   Content = 90%
-   ========================================================== */
 
 @media (max-width: 768px) {
 
