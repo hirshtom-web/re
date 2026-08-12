@@ -3,7 +3,7 @@
    FINAL CSS — PART 1
 ========================================================== */
 /* ==========================================================
-   ARTICLE PAGE — MOBILE OVERFLOW FIX
+   ARTICLE PAGE — WIDTH + MOBILE OVERFLOW
    ========================================================== */
 
 .article-page {
@@ -12,15 +12,21 @@
   min-width: 0;
 }
 
-/* Prevent grid children from creating page overflow */
+
+/* ==========================================================
+   FULL-WIDTH SECTIONS
+   ========================================================== */
+
 .article-width,
 .article-container,
-.article-content,
-.article-sidebar,
 .article-author,
 .continue-reading {
-  min-width: 0;
+  width: var(--page-width);
   max-width: 100%;
+  min-width: 0;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -28,10 +34,20 @@
    HERO
    ========================================================== */
 
-/* Only clip the oversized purple glow */
 .article-hero {
   position: relative;
   overflow: hidden;
+}
+
+
+/* ==========================================================
+   CONTENT
+   ========================================================== */
+
+.article-content,
+.article-sidebar {
+  min-width: 0;
+  max-width: 100%;
 }
 
 
@@ -47,12 +63,24 @@
 
 
 /* ==========================================================
-   CONTINUE READING SLIDER
+   CONTINUE READING — FULL WIDTH SHELL
    ========================================================== */
 
-.continue-slider-container {
+.continue-reading {
   width: 100%;
   max-width: 100%;
+}
+
+.continue-header,
+.continue-slider-container,
+.continue-controls {
+  width: var(--page-width);
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.continue-slider-container {
   overflow: hidden;
 }
 
@@ -63,13 +91,28 @@
 
 @media (max-width: 768px) {
 
+  /* Full-width page sections */
+  .article-page,
+  .article-hero,
+  .continue-reading {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Actual article content gets the 22px side margins */
   .article-width,
   .article-container,
-  .article-author,
-  .continue-reading {
+  .article-author {
     width: calc(100% - 44px);
     max-width: calc(100% - 44px);
-    min-width: 0;
+  }
+
+  /* Continue Reading stays full width */
+  .continue-header,
+  .continue-slider-container,
+  .continue-controls {
+    width: calc(100% - 44px);
+    max-width: calc(100% - 44px);
   }
 
   .article-content,
