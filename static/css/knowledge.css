@@ -589,16 +589,20 @@ SIDEBAR LINKS
 AI SUMMARY CARD
 ========================= */
 
-.ai-summary-card {
+.sidebar-card {
   padding: 30px;
 }
 
-.ai-summary-card h4 {
-  margin: 0 0 16px;
+.sidebar-card h4 {
+  margin: 0 0 20px;
 }
 
 .ai-summary-card p {
   margin: 0 0 20px;
+}
+
+.sidebar-card button {
+  margin-top: 20px;
 }
 
 
