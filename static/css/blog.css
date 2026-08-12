@@ -1,1492 +1,2056 @@
-/*==================================================*
-- RILITY JOURNAL PAGE
-- CLEAN TYPOGRAPHY SYSTEM
-*==================================================*/
+/* =========================================================
+   RILITY JOURNAL / BLOG
+   Complete Desktop + Mobile CSS
+   ========================================================= */
 
-/* =========================
-GLOBAL
-========================= */
 
-.journal-page {
-  --primary: #6D5DFB;
-  --text: #111;
-  --muted: #666;
-  --border: #ececec;
-  --surface: #fafafa;
+/* =========================================================
+   VARIABLES
+   ========================================================= */
 
-  color: var(--text);
-  overflow: hidden;
+:root {
 
-  font-size: 18px;
-  line-height: 1.65;
-}
+    --primary: #6D5DFB;
+    --primary-soft: rgba(109, 93, 251, .08);
+    --primary-glow: rgba(109, 93, 251, .15);
 
-.journal-page *,
-.journal-page *::before,
-.journal-page *::after {
-  box-sizing: border-box;
-}
+    --text: #111111;
+    --muted: #6b7280;
+    --light-text: #777777;
 
-.journal-page img {
-  width: 100%;
-  display: block;
-}
+    --border: #ECECEC;
+    --surface: #FAFAFA;
 
-.journal-page a {
-  text-decoration: none;
-  color: inherit;
-}
+    --shadow: 0 30px 80px rgba(15, 23, 42, .08);
+    --card-shadow: 0 15px 40px rgba(0, 0, 0, .05);
 
-/* =========================
-GLOBAL TYPOGRAPHY
-========================= */
+    --radius: 32px;
+    --radius-large: 36px;
+    --radius-small: 24px;
 
-.journal-page h1,
-.journal-page h2,
-.journal-page h3,
-.journal-page p {
-  margin-top: 0;
-}
-
-/* Main H1 */
-.journal-page h1 {
-  font-size: 52px;
-  line-height: 1.08;
-  letter-spacing: -1.8px;
-  font-weight: 500;
-  color: #111;
-}
-
-/* Section H2 */
-.journal-page h2 {
-  font-size: 32px;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
-  font-weight: 500;
-  color: #111;
-}
-
-/* Card H3 */
-.journal-page h3 {
-  font-size: 22px;
-  line-height: 1.3;
-  letter-spacing: 0;
-  font-weight: 500;
-  color: #111;
-}
-
-/* Body */
-.journal-page p {
-  font-size: 18px;
-  line-height: 1.65;
-  color: #666;
-}
-
-/* =========================
-SHARED CONTENT CONTAINER
-========================= */
-
-.rility-journal-hero,
-.rility-feature__container,
-.rility-insights__container,
-.journal-slider-header {
-  width: 100%;
-  max-width: 1800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 32px;
-  padding-right: 32px;
-  box-sizing: border-box;
+    --page-width: min(1440px, 90%);
 }
 
 
-/*==================================================*
-- JOURNAL HERO
-*==================================================*/
-
-.rility-journal-hero {
-  position: relative;
-
-  width: 100%;
-  max-width: 1800px;
-
-  margin: 0 auto;
-
-  padding: 100px 32px 130px;
-
-  min-height: 650px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  overflow: visible;
-}
-
-
-/* =========================
-GLOW
-========================= */
-
-.rility-journal-hero__glow {
-  position: absolute;
-
-  width: 700px;
-  height: 700px;
-
-  top: -250px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(109, 93, 251, .18),
-      transparent 70%
-    );
-
-  filter: blur(30px);
-
-  pointer-events: none;
-}
-
-
-/* =========================
-HERO CONTENT
-========================= */
-
-.rility-journal-hero__content {
-  position: relative;
-
-  z-index: 3;
-
-  width: min(820px, 90%);
-
-  margin: 0 auto;
-}
-
-
-/* =========================
-KEYWORD / EYEBROW PILL
-========================= */
-
-.rility-journal-hero__badge {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 9px;
-
-  padding: 9px 15px;
-
-  border-radius: 999px;
-
-  background: rgba(109, 93, 251, .07);
-
-  border: 1px solid rgba(109, 93, 251, .16);
-
-  color: #6D5DFB;
-
-  font-size: 12px;
-  line-height: 1.3;
-
-  font-weight: 600;
-
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-
-
-/* ICON */
-
-.rility-journal-hero__badge
-.material-symbols-outlined {
-  color: #6D5DFB;
-
-  font-size: 16px;
-
-  line-height: 1;
-}
-
-
-/* =========================
-MAIN H1
-========================= */
-
-.rility-journal-hero__title {
-  margin: 30px 0 0;
-
-  max-width: 800px;
-
-  color: #111;
-
-  font-size: 58px;
-  line-height: 1.05;
-
-  letter-spacing: -2.2px;
-
-  font-weight: 500;
-}
-
-
-/* Highlighted keyword / phrase */
-
-.rility-journal-hero__title span {
-  display: block;
-
-  color: #6D5DFB;
-}
-
-
-/* =========================
-HERO PARAGRAPH
-========================= */
-
-.rility-journal-hero__text {
-  width: min(650px, 100%);
-
-  margin: 28px auto 0;
-
-  color: #666;
-
-  font-size: 19px;
-
-  line-height: 1.6;
-
-  font-weight: 400;
-}
-
-
-/*==================================================*
-- FLOATING PROPERTY CARDS
-*==================================================*/
-
-.rility-journal-hero-card {
-  position: absolute;
-
-  z-index: 2;
-
-  width: 260px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 14px;
-
-  padding: 14px;
-
-  background: rgba(255, 255, 255, .12);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  border: 1px solid rgba(255, 255, 255, .25);
-
-  border-radius: 24px;
-
-  color: white;
-
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, .18);
-
-  animation:
-    rilityJournalFloat 6s ease-in-out infinite;
-}
-
-
-.rility-journal-hero-card img {
-  width: 65px;
-  height: 65px;
-
-  flex-shrink: 0;
-
-  object-fit: cover;
-
-  border-radius: 16px;
-}
-
-
-.rility-journal-hero-card__content {
-  text-align: left;
-}
-
-
-.rility-journal-hero-card strong {
-  display: block;
-
-  color: white;
-
-  font-size: 15px;
-  line-height: 1.3;
-
-  font-weight: 600;
-}
-
-
-.rility-journal-hero-card span {
-  display: block;
-
-  margin-top: 4px;
-
-  color: rgba(255,255,255,.7);
-
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-
-/* =========================
-LEFT CARD
-========================= */
-
-.rility-journal-hero-card--left {
-  left: 2%;
-  top: 55%;
-}
-
-
-/* =========================
-RIGHT CARD
-========================= */
-
-.rility-journal-hero-card--right {
-  right: 2%;
-  top: 30%;
-
-  animation-delay: 1.5s;
-}
-
-
-/* =========================
-FLOAT ANIMATION
-========================= */
-
-@keyframes rilityJournalFloat {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-15px);
-  }
-
-}
-
-
-/*==================================================*
-- TABLET
-*==================================================*/
-
-@media (max-width: 1100px) {
-
-  .rility-journal-hero-card {
-    display: none;
-  }
-
-  .rility-journal-hero__title {
-    font-size: 52px;
-  }
-
-}
-
-
-/*==================================================*
-- MOBILE
-*==================================================*/
-
-@media (max-width: 768px) {
-
-  .rility-journal-hero {
-    width: 100%;
-
-    min-height: auto;
-
-    padding: 70px 20px 90px;
-  }
-
-
-  .rility-journal-hero__content {
-    width: 100%;
-  }
-
-
-  .rility-journal-hero__badge {
-    padding: 8px 13px;
-
-    font-size: 11px;
-  }
-
-
-  .rility-journal-hero__title {
-    margin-top: 24px;
-
-    font-size: 38px;
-
-    line-height: 1.08;
-
-    letter-spacing: -1.3px;
-  }
-
-
-  .rility-journal-hero__text {
-    margin-top: 24px;
-
-    font-size: 17px;
-
-    line-height: 1.55;
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-/* ==================================================
-RILITY — FEATURED ARTICLE
-================================================== */
-
-.rility-feature__container {
-    width: 100%;
-    max-width: 2200px;
-    margin: 0 auto;
-    padding: 0 32px;
-}
-
-
-/* =========================
-FEATURE CARD
-========================= */
-
-.rility-feature__card {
-
-  display: grid;
-
-  grid-template-columns:
-    1.1fr 1fr;
-
-  overflow: hidden;
-
-  background: white;
-
-  border: 1px solid #ececec;
-
-  border-radius: 28px;
-
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, .08);
-}
-
-
-/* =========================
-IMAGE
-========================= */
-
-.rility-feature__image {
-
-  min-height: 520px;
-
-  overflow: hidden;
-}
-
-
-.rility-feature__image img {
-
-  width: 100%;
-
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-}
-
-
-/* =========================
-CONTENT
-========================= */
-
-.rility-feature__content {
-
-  padding: 70px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  align-items: flex-start;
-}
-
-
-/* =========================
-TAG
-========================= */
-
-.rility-feature__tag {
-
-  display: inline-flex;
-
-  padding: 10px 18px;
-
-  border-radius: 999px;
-
-  background: rgba(109, 93, 251, .1);
-
-  color: #6D5DFB;
-
-  font-size: 14px;
-
-  line-height: 1.3;
-
-  font-weight: 700;
-}
-
-
-/* =========================
-H2
-========================= */
-
-.rility-feature__title {
-
-  margin: 25px 0 0;
-
-  color: #111;
-
-  font-size: 32px;
-
-  line-height: 1.2;
-
-  letter-spacing: -.5px;
-
-  font-weight: 500;
-}
-
-
-/* =========================
-BODY
-========================= */
-
-.rility-feature__text {
-
-  margin: 25px 0 0;
-
-  color: #666;
-
-  font-size: 18px;
-
-  line-height: 1.65;
-}
-
-
-/* =========================
-LINK
-========================= */
-
-.rility-feature__link {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  margin-top: 35px;
-
-  color: #6D5DFB;
-
-  font-size: 16px;
-
-  line-height: 1.4;
-
-  font-weight: 700;
-
-  text-decoration: none;
-
-  transition:
-    gap .25s ease;
-}
-
-
-.rility-feature__link:hover {
-
-  gap: 12px;
-}
-
-
-/* =========================
-TABLET
-========================= */
-
-@media (max-width: 1100px) {
-
-  .rility-feature__card {
-
-    grid-template-columns: 1fr;
-  }
-
-
-  .rility-feature__image {
-
-    min-height: 450px;
-
-    height: 450px;
-  }
-
-
-  .rility-feature__content {
-
-    padding: 55px;
-  }
-
-}
-
-
-/* =========================
-MOBILE
-========================= */
-
-@media (max-width: 768px) {
-
-  .rility-feature {
-
-    padding: 55px 0;
-  }
-
-
-  .rility-feature__container {
-
-    width: 90%;
-  }
-
-
-  .rility-feature__card {
-
-    border-radius: 24px;
-  }
-
-
-  .rility-feature__image {
-
-    min-height: 300px;
-
-    height: 300px;
-  }
-
-
-  .rility-feature__content {
-
-    padding: 35px;
-  }
-
-
-  .rility-feature__title {
-
-    font-size: 28px;
-
-    line-height: 1.2;
-
-    letter-spacing: -.5px;
-  }
-
-
-  .rility-feature__text {
-
-    margin-top: 20px;
-
-    font-size: 17px;
-
-    line-height: 1.65;
-  }
-
-
-  .rility-feature__link {
-
-    margin-top: 28px;
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/*==================================================*
-* SLIDER SECTION
-*==================================================*/
-/* ==================================================
-RILITY — INSIGHTS GRID
-================================================== */
-
-
-/* =========================
-SECTION
-========================= */
-
-.rility-insights {
-
-  width: 100%;
-
-  padding: 90px 0 100px;
-}
-
-
-/* =========================
-CONTAINER
-1440px / 90%
-========================= */
-
-.rility-insights__container {
-    width: 100%;
-    max-width: 2200px;
-    margin: 0 auto;
-    padding: 0 32px;
-}
-
-
-/* =========================
-HEADER
-========================= */
-
-.rility-insights__header {
-
-  margin-bottom: 50px;
-}
-
-
-.rility-insights__title {
-
-  margin: 0;
-
-  color: #111;
-
-  font-size: 32px;
-
-  line-height: 1.2;
-
-  letter-spacing: -.5px;
-
-  font-weight: 500;
-}
-
-
-.rility-insights__intro {
-
-  max-width: 600px;
-
-  margin: 15px 0 0;
-
-  color: #666;
-
-  font-size: 18px;
-
-  line-height: 1.65;
-}
-
-
-/* =========================
-GRID
-========================= */
-
-.rility-insights__grid {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 28px;
-}
-
-
-/* =========================
-CARD
-========================= */
-
-.rility-insights-card {
-
-  overflow: hidden;
-
-  background: white;
-
-  border: 1px solid #ececec;
-
-  border-radius: 26px;
-
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, .05);
-
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease;
-}
-
-
-.rility-insights-card:hover {
-
-  transform: translateY(-8px);
-
-  box-shadow:
-    0 40px 90px rgba(0, 0, 0, .10);
-}
-
-
-/* =========================
-CARD IMAGE
-========================= */
-
-.rility-insights-card__image {
-
-  width: 100%;
-
-  height: 240px;
-
-  overflow: hidden;
-}
-
-
-.rility-insights-card__image img {
-
-  width: 100%;
-
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  transition:
-    transform .5s ease;
-}
-
-
-.rility-insights-card:hover
-.rility-insights-card__image img {
-
-  transform: scale(1.04);
-}
-
-
-/* =========================
-CARD BODY
-========================= */
-
-.rility-insights-card__body {
-
-  padding: 30px;
-}
-
-
-/* CATEGORY */
-
-.rility-insights-card__category {
-
-  display: block;
-
-  color: #6D5DFB;
-
-  font-size: 14px;
-
-  line-height: 1.3;
-
-  font-weight: 700;
-}
-
-
-/* =========================
-CARD H3
-========================= */
-
-.rility-insights-card__title {
-
-  margin: 15px 0 0;
-
-  color: #111;
-
-  font-size: 22px;
-
-  line-height: 1.3;
-
-  font-weight: 500;
-}
-
-
-/* =========================
-CARD TEXT
-========================= */
-
-.rility-insights-card__text {
-
-  margin: 15px 0 0;
-
-  color: #666;
-
-  font-size: 18px;
-
-  line-height: 1.65;
-}
-
-
-/* =========================
-CARD LINK
-========================= */
-
-.rility-insights-card__link {
-
-  display: block;
-
-  margin-top: 25px;
-
-  color: #111;
-
-  font-size: 16px;
-
-  line-height: 1.4;
-
-  font-weight: 700;
-
-  text-decoration: none;
-}
-
-
-/* =========================
-TABLET
-========================= */
-
-@media (max-width: 1100px) {
-
-  .rility-insights__grid {
-
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
-    gap: 24px;
-  }
-}
-
-
-/* =========================
-MOBILE
-========================= */
-
-@media (max-width: 768px) {
-
-  .rility-insights {
-
-    padding: 65px 0 75px;
-  }
-
-
-  .rility-insights__container {
-
-    width: 90%;
-  }
-
-
-  .rility-insights__header {
-
-    margin-bottom: 35px;
-  }
-
-
-  .rility-insights__title {
-
-    font-size: 28px;
-
-    line-height: 1.2;
-
-    letter-spacing: -.5px;
-  }
-
-
-  .rility-insights__intro {
-
-    font-size: 17px;
-
-    line-height: 1.65;
-  }
-
-
-  .rility-insights__grid {
-
-    grid-template-columns: 1fr;
-
-    gap: 24px;
-  }
-
-
-  .rility-insights-card {
-
-    border-radius: 24px;
-  }
-
-
-  .rility-insights-card__image {
-
-    height: 220px;
-  }
-
-
-  .rility-insights-card__body {
-
-    padding: 26px;
-  }
-
-
-  .rility-insights-card__title {
-
-    font-size: 20px;
-
-    line-height: 1.3;
-  }
-
-
-  .rility-insights-card__text {
-
-    font-size: 17px;
-
-    line-height: 1.65;
-  }
-}
-
-
-
-
-
-
-
-
-/*==================================================*
-- SLIDER SECTION
-==================================================*/
-
-.journal-slider-section {
-    position: relative;
-    width: 100%;
-    padding: 90px 0 100px;
-    overflow: hidden;
-}
-
-
-/*==================================================*
-- HEADER
-==================================================*/
-
-.journal-slider-header {
-    width: 100%;
-    max-width: 2200px;
-    margin: 0 auto 45px;
-    padding: 0 32px;
-
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 30px;
-
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-
-/*==================================================*
-- HEADING
-==================================================*/
-
-.journal-slider-eyebrow {
-    display: block;
-
-    margin-bottom: 12px;
-
-    color: #6D5DFB;
-
-    font-size: 13px;
-    line-height: 1.3;
-    font-weight: 700;
-    letter-spacing: .08em;
+html {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.journal-slider-heading h2 {
+body {
+    width: 100%;
+    max-width: 100%;
     margin: 0;
 
-    color: #111;
+    font-family: "Inter", sans-serif;
 
-    font-size: 32px;
-    line-height: 1.2;
-    letter-spacing: -.5px;
-    font-weight: 500;
+    color: var(--text);
+    background: #fff;
+
+    overflow-x: clip;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    max-width: 100%;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+a {
+    color: inherit;
 }
 
 
-/*==================================================*
-- ARROWS
-==================================================*/
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
 
-.journal-slider-controls {
+.journal-page {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    background: #fff;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.rility-journal-hero {
+
+    position: relative;
+
+    width: 100%;
+    min-height: 720px;
+
     display: flex;
     align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
+    justify-content: center;
+
+    padding: 120px 0 130px;
+
+    overflow: hidden;
+
+    background: #fff;
 }
 
-.journal-slider-arrow {
-    width: 48px;
-    height: 48px;
 
-    display: grid;
-    place-items: center;
+/* =========================================================
+   HERO GLOW
+   ========================================================= */
 
-    padding: 0;
+.rility-journal-hero::before {
 
-    border: 1px solid #e6e6e6;
-    border-radius: 50%;
+    content: "";
 
-    background: white;
+    position: absolute;
+
+    width: 1100px;
+    height: 900px;
+
+    left: 50%;
+    top: -430px;
+
+    transform: translateX(-50%);
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(109, 93, 251, .16),
+        rgba(109, 93, 251, .07) 35%,
+        transparent 72%
+    );
+
+    filter: blur(40px);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+.rility-journal-hero__glow {
+
+    position: absolute;
+
+    width: 700px;
+    height: 500px;
+
+    left: 50%;
+    top: 180px;
+
+    transform: translateX(-50%);
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(109, 93, 251, .08),
+        transparent 70%
+    );
+
+    filter: blur(50px);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.rility-journal-hero__content {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: var(--page-width);
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   HERO BADGE
+   ========================================================= */
+
+.rility-journal-hero__badge {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 18px;
+
+    margin-bottom: 28px;
+
+    border-radius: 999px;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 700;
+
+    letter-spacing: .01em;
+}
+
+
+.rility-journal-hero__badge .material-symbols-outlined {
+
+    font-size: 17px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.rility-journal-hero__title {
+
+    margin: 0;
+
+    max-width: 850px;
+
+    font-size: 68px;
+    line-height: 1.08;
+
+    letter-spacing: -3px;
+
+    font-weight: 600;
+
     color: #111;
+}
+
+
+.rility-journal-hero__title span {
+
+    display: inline;
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.rility-journal-hero__text {
+
+    max-width: 700px;
+
+    margin: 34px auto 0;
 
     font-size: 20px;
-    line-height: 1;
+    line-height: 1.8;
 
-    cursor: pointer;
+    font-weight: 400;
 
-    transition:
-        background .25s ease,
-        color .25s ease,
-        transform .25s ease;
-}
-
-.journal-slider-arrow:hover {
-    background: #111;
-    color: white;
-    transform: translateY(-2px);
-}
-
-.journal-slider-arrow:disabled {
-    opacity: .35;
-    cursor: default;
-    transform: none;
+    color: var(--muted);
 }
 
 
-/*==================================================*
-- SLIDER
-==================================================*/
+/* =========================================================
+   FLOATING HERO PROPERTY CARDS
+   ========================================================= */
 
-/*
-The first card starts at the same 32px
-left edge as the rest of the desktop layout.
+.rility-journal-hero-card {
 
-The slider then continues all the way
-to the right edge of the browser.
-*/
+    position: absolute;
 
-.journal-slider {
-    width: calc(100% - 32px);
-    margin-left: 32px;
+    z-index: 2;
 
-    overflow: hidden;
-}
+    width: 240px;
 
+    background: #fff;
 
-/*==================================================*
-- TRACK
-==================================================*/
+    border: 1px solid rgba(236, 236, 236, .9);
 
-.journal-slider__track {
-    display: flex;
-
-    gap: 24px;
-
-    width: max-content;
-
-    padding-right: 40px;
-
-    transition:
-        transform .5s cubic-bezier(.22, .61, .36, 1);
-}
-
-
-/*==================================================*
-- CARD
-==================================================*/
-
-.journal-slider-card {
-    width: 300px;
-    height: 400px;
-
-    flex: 0 0 300px;
+    border-radius: 28px;
 
     overflow: hidden;
 
-    background: white;
-
-    border: 1px solid #e9e9e9;
-    border-radius: 26px;
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.045);
+    box-shadow: var(--shadow);
 
     transition:
         transform .35s ease,
         box-shadow .35s ease;
 }
 
-.journal-slider-card:hover {
-    transform: translateY(-7px);
+
+.rility-journal-hero-card:hover {
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,.09);
+        0 35px 90px rgba(15, 23, 42, .13);
+
 }
 
-.journal-slider-card a {
+
+.rility-journal-hero-card img {
+
+    display: block;
+
+    width: 100%;
+    height: 155px;
+
+    object-fit: cover;
+}
+
+
+.rility-journal-hero-card__content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 18px 20px 20px;
+}
+
+
+.rility-journal-hero-card__content strong {
+
+    font-size: 14px;
+    line-height: 1.4;
+
+    font-weight: 600;
+
+    color: #111;
+}
+
+
+.rility-journal-hero-card__content span {
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    font-weight: 400;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   LEFT FLOATING CARD
+   ========================================================= */
+
+.rility-journal-hero-card--left {
+
+    left: max(3%, calc((100vw - 1440px) / 2));
+
+    top: 185px;
+
+    transform: rotate(-4deg);
+}
+
+
+.rility-journal-hero-card--left:hover {
+
+    transform:
+        rotate(-2deg)
+        translateY(-8px);
+}
+
+
+/* =========================================================
+   RIGHT FLOATING CARD
+   ========================================================= */
+
+.rility-journal-hero-card--right {
+
+    right: max(3%, calc((100vw - 1440px) / 2));
+
+    bottom: 145px;
+
+    transform: rotate(4deg);
+}
+
+
+.rility-journal-hero-card--right:hover {
+
+    transform:
+        rotate(2deg)
+        translateY(-8px);
+}
+
+
+/* =========================================================
+   FEATURED ARTICLE
+   ========================================================= */
+
+.rility-feature {
+
+    width: 100%;
+
+    padding: 30px 0 120px;
+
+    background: #fff;
+}
+
+
+.rility-feature__container {
+
+    width: var(--page-width);
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   FEATURED CARD
+   ========================================================= */
+
+.rility-feature__card {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.08fr)
+        minmax(0, .92fr);
+
+    min-height: 570px;
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-large);
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   FEATURE IMAGE
+   ========================================================= */
+
+.rility-feature__image {
+
+    min-width: 0;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #f4f4f4;
+}
+
+
+.rility-feature__image img {
+
     display: block;
 
     width: 100%;
     height: 100%;
 
+    object-fit: cover;
+
+    transition: transform .6s ease;
+}
+
+
+.rility-feature__card:hover
+.rility-feature__image img {
+
+    transform: scale(1.035);
+}
+
+
+/* =========================================================
+   FEATURE CONTENT
+   ========================================================= */
+
+.rility-feature__content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 70px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   FEATURE TAG
+   ========================================================= */
+
+.rility-feature__tag {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 9px 16px;
+
+    margin-bottom: 26px;
+
+    border-radius: 999px;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FEATURE TITLE
+   ========================================================= */
+
+.rility-feature__title {
+
+    max-width: 570px;
+
+    margin: 0;
+
+    font-size: 44px;
+
+    line-height: 1.15;
+
+    letter-spacing: -1.5px;
+
+    font-weight: 600;
+
+    color: #111;
+}
+
+
+/* =========================================================
+   FEATURE TEXT
+   ========================================================= */
+
+.rility-feature__text {
+
+    max-width: 520px;
+
+    margin: 26px 0 0;
+
+    font-size: 18px;
+
+    line-height: 1.75;
+
+    font-weight: 400;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   FEATURE LINK
+   ========================================================= */
+
+.rility-feature__link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 34px;
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    font-weight: 600;
+
+    transition: color .25s ease;
+}
+
+
+.rility-feature__link span {
+
+    font-size: 18px;
+
+    transition: transform .25s ease;
+}
+
+
+.rility-feature__link:hover {
+
+    color: var(--primary);
+}
+
+
+.rility-feature__link:hover span {
+
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   INSIGHTS SECTION
+   ========================================================= */
+
+.rility-insights {
+
+    width: 100%;
+
+    padding: 20px 0 120px;
+
+    background: #fff;
+}
+
+
+.rility-insights__container {
+
+    width: var(--page-width);
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   INSIGHTS HEADER
+   ========================================================= */
+
+.rility-insights__header {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-bottom: 42px;
+}
+
+
+.rility-insights__heading {
+
+    max-width: 760px;
+}
+
+
+.rility-insights__title {
+
+    margin: 0;
+
+    font-size: 44px;
+
+    line-height: 1.15;
+
+    letter-spacing: -1.5px;
+
+    font-weight: 600;
+
+    color: #111;
+}
+
+
+.rility-insights__intro {
+
+    max-width: 620px;
+
+    margin: 16px 0 0;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   INSIGHTS GRID
+   ========================================================= */
+
+.rility-insights__grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+}
+
+
+/* =========================================================
+   INSIGHT CARD
+   ========================================================= */
+
+.rility-insights-card {
+
+    min-width: 0;
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+
+.rility-insights-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   INSIGHT IMAGE
+   ========================================================= */
+
+.rility-insights-card__image {
+
+    width: 100%;
+
+    height: 250px;
+
+    overflow: hidden;
+
+    background: #f4f4f4;
+}
+
+
+.rility-insights-card__image img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform .5s ease;
+}
+
+
+.rility-insights-card:hover
+.rility-insights-card__image img {
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   INSIGHT BODY
+   ========================================================= */
+
+.rility-insights-card__body {
+
+    padding: 30px;
+}
+
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+.rility-insights-card__category {
+
+    display: block;
+
+    margin-bottom: 15px;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   INSIGHT TITLE
+   ========================================================= */
+
+.rility-insights-card__title {
+
+    margin: 0;
+
+    font-size: 24px;
+
+    line-height: 1.25;
+
+    letter-spacing: -1px;
+
+    font-weight: 600;
+
+    color: #111;
+}
+
+
+/* =========================================================
+   INSIGHT TEXT
+   ========================================================= */
+
+.rility-insights-card__text {
+
+    margin: 16px 0 0;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   INSIGHT LINK
+   ========================================================= */
+
+.rility-insights-card__link {
+
+    display: inline-block;
+
+    margin-top: 24px;
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    font-weight: 600;
+
+    transition: color .25s ease;
+}
+
+
+.rility-insights-card__link:hover {
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   LATEST ARTICLES SLIDER
+   ========================================================= */
+
+.journal-slider-section {
+
+    width: var(--page-width);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 0 0 120px;
+}
+
+
+/* =========================================================
+   SLIDER HEADER
+   ========================================================= */
+
+.journal-slider-header {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+}
+
+
+.journal-slider-heading h2 {
+
+    margin: 0;
+
+    font-size: 44px;
+
+    line-height: 1.15;
+
+    letter-spacing: -1.5px;
+
+    font-weight: 600;
+
+    color: #111;
+}
+
+
+/* =========================================================
+   SLIDER CONTROLS
+   ========================================================= */
+
+.journal-slider-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.journal-slider-arrow {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid #ddd;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    color: #111;
+
+    cursor: pointer;
+
+    font-size: 19px;
+
+    line-height: 1;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease;
+}
+
+
+.journal-slider-arrow:hover:not(:disabled) {
+
+    background: #111;
+
+    border-color: #111;
+
+    color: #fff;
+}
+
+
+.journal-slider-arrow:disabled {
+
+    opacity: .35;
+
+    cursor: default;
+}
+
+
+/* =========================================================
+   SLIDER VIEWPORT
+   ========================================================= */
+
+.journal-slider {
+
+    width: 100%;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SLIDER TRACK
+   ========================================================= */
+
+.journal-slider__track {
+
+    display: flex;
+
+    gap: 28px;
+
+    width: max-content;
+
+    transition: transform .4s ease;
+
+    will-change: transform;
+}
+
+
+/* =========================================================
+   SLIDER CARD
+   ========================================================= */
+
+.journal-slider-card {
+
+    flex: 0 0 296px;
+
+    min-width: 0;
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+
+.journal-slider-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow: var(--shadow);
+}
+
+
+.journal-slider-card > a {
+
+    display: block;
+
     color: inherit;
+
     text-decoration: none;
 }
 
 
-/*==================================================*
-- IMAGE
-==================================================*/
+/* =========================================================
+   SLIDER IMAGE
+   ========================================================= */
 
 .journal-slider-card__image {
-    width: 300px;
-    height: 300px;
+
+    width: 100%;
+
+    height: 205px;
 
     overflow: hidden;
 
-    background: #eee;
+    background: #f4f4f4;
 }
 
+
 .journal-slider-card__image img {
-    width: 100%;
-    height: 100%;
 
     display: block;
 
+    width: 100%;
+    height: 100%;
+
     object-fit: cover;
 
-    transition:
-        transform .6s cubic-bezier(.22, .61, .36, 1);
+    transition: transform .5s ease;
 }
+
 
 .journal-slider-card:hover
 .journal-slider-card__image img {
-    transform: scale(1.04);
+
+    transform: scale(1.05);
 }
 
 
-/*==================================================*
-- CONTENT
-==================================================*/
+/* =========================================================
+   SLIDER CONTENT
+   ========================================================= */
 
 .journal-slider-card__content {
-    height: 100px;
 
-    padding: 16px 20px 14px;
-
-    display: flex;
-    flex-direction: column;
-
-    box-sizing: border-box;
+    padding: 26px 26px 28px;
 }
 
 
-/*==================================================*
-- TITLE
-==================================================*/
+.journal-slider-card__content h3 {
 
-/*
-Title is always allowed exactly 2 lines.
-
-Longer titles are clipped with an ellipsis.
-*/
-
-.journal-slider-card h3 {
     margin: 0;
 
+    font-size: 21px;
+
+    line-height: 1.3;
+
+    letter-spacing: -.7px;
+
+    font-weight: 600;
+
     color: #111;
-
-    font-size: 20px;
-    line-height: 1.25;
-    letter-spacing: 0;
-    font-weight: 500;
-
-    display: -webkit-box;
-
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-
-    overflow: hidden;
-
-    max-height: 50px;
 }
 
-
-/*==================================================*
-- DATE
-==================================================*/
 
 .journal-slider-card__meta {
-    margin-top: auto;
 
-    padding-top: 9px;
+    margin-top: 17px;
 
-    border-top: 1px solid #ededed;
-}
+    color: var(--muted);
 
-.journal-slider-card__meta span {
-    color: #888;
+    font-size: 11px;
 
-    font-size: 12px;
-    line-height: 1.3;
-    font-weight: 400;
+    line-height: 1.4;
+
+    font-weight: 500;
 }
 
 
-/*==================================================*
-- MOBILE
-==================================================*/
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .rility-journal-hero {
+
+        min-height: 680px;
+
+        padding-top: 100px;
+        padding-bottom: 110px;
+    }
+
+
+    .rility-journal-hero__title {
+
+        font-size: 58px;
+
+        letter-spacing: -2.5px;
+    }
+
+
+    .rility-journal-hero-card {
+
+        width: 205px;
+    }
+
+
+    .rility-journal-hero-card img {
+
+        height: 135px;
+    }
+
+
+    .rility-feature__content {
+
+        padding: 55px;
+    }
+
+
+    .rility-feature__title {
+
+        font-size: 40px;
+    }
+
+
+    .rility-insights__grid {
+
+        gap: 24px;
+    }
+
+
+    .rility-insights-card__body {
+
+        padding: 26px;
+    }
+
+
+    .rility-insights-card__title {
+
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 980px) {
+
+    .rility-journal-hero {
+
+        min-height: 650px;
+
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+
+    /* Hide decorative floating cards before mobile */
+
+    .rility-journal-hero-card {
+
+        opacity: .65;
+
+        transform: scale(.85);
+    }
+
+
+    .rility-journal-hero-card--left {
+
+        left: -30px;
+    }
+
+
+    .rility-journal-hero-card--right {
+
+        right: -30px;
+    }
+
+
+    .rility-feature__card {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .rility-feature__image {
+
+        height: 430px;
+    }
+
+
+    .rility-feature__content {
+
+        padding: 50px;
+    }
+
+
+    .rility-insights__grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   MOBILE — MAX 768PX
+   ========================================================= */
 
 @media (max-width: 768px) {
 
-    .journal-slider-section {
-        padding: 65px 0 75px;
-    }
 
+    /* ==========================================
+       PAGE / BODY
+       ========================================== */
 
-    /* HEADER */
+    html,
+    body {
 
-    .journal-slider-header {
         width: 100%;
+        max-width: 100%;
 
-        margin-bottom: 30px;
+        margin: 0;
+        padding: 0;
 
-        padding: 0 20px;
-
-        align-items: flex-end;
+        overflow-x: hidden;
     }
 
 
-    /* EYEBROW */
+    .journal-page {
 
-    .journal-slider-eyebrow {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        overflow-x: hidden;
+    }
+
+
+    /* ==========================================
+       GLOBAL MOBILE WIDTH
+       SAME 20PX SIDE PADDING
+       ========================================== */
+
+    .rility-feature__container,
+    .rility-insights__container,
+    .journal-slider-section {
+
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        margin-left: 0;
+        margin-right: 0;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /* ==========================================
+       HERO
+       ========================================== */
+
+    .rility-journal-hero {
+
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        min-height: 0;
+
+        padding: 70px 20px 75px;
+
+        overflow: hidden;
+    }
+
+
+    .rility-journal-hero::before {
+
+        width: 700px;
+        height: 600px;
+
+        top: -300px;
+    }
+
+
+    .rility-journal-hero__glow {
+
+        width: 500px;
+        height: 400px;
+
+        top: 150px;
+    }
+
+
+    /* ==========================================
+       HERO CONTENT
+       ========================================== */
+
+    .rility-journal-hero__content {
+
+        width: 100%;
+        max-width: 100%;
+
+        min-width: 0;
+
+        text-align: center;
+    }
+
+
+    /* ==========================================
+       HERO BADGE
+       ========================================== */
+
+    .rility-journal-hero__badge {
+
+        margin-bottom: 22px;
+
+        padding: 9px 15px;
+
         font-size: 11px;
-        margin-bottom: 8px;
     }
 
 
-    /* HEADING */
+    .rility-journal-hero__badge
+    .material-symbols-outlined {
 
-    .journal-slider-heading h2 {
-        font-size: 28px;
-        line-height: 1.2;
-        letter-spacing: -.5px;
+        font-size: 16px;
     }
 
 
-    /* CONTROLS */
+    /* ==========================================
+       HERO H1
+       ========================================== */
 
-    .journal-slider-controls {
-        gap: 7px;
+    .rility-journal-hero__title {
+
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 42px;
+
+        line-height: 1.1;
+
+        letter-spacing: -1.5px;
     }
 
-    .journal-slider-arrow {
-        width: 42px;
-        height: 42px;
+
+    /* ==========================================
+       HERO P
+       ========================================== */
+
+    .rility-journal-hero__text {
+
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 24px;
 
         font-size: 17px;
+
+        line-height: 1.7;
     }
 
 
-    /* SLIDER */
+    /* ==========================================
+       FLOATING CARDS
+       ========================================== */
+
+    .rility-journal-hero-card {
+
+        display: none;
+    }
+
+
+    /* ==========================================
+       FEATURE
+       ========================================== */
+
+    .rility-feature {
+
+        padding: 20px 0 80px;
+    }
+
+
+    .rility-feature__container {
+
+        width: 100%;
+    }
+
+
+    .rility-feature__card {
+
+        display: block;
+
+        width: 100%;
+
+        min-height: 0;
+
+        border-radius: 28px;
+
+        box-shadow:
+            0 20px 60px rgba(15, 23, 42, .07);
+    }
+
+
+    .rility-feature__image {
+
+        width: 100%;
+
+        height: 300px;
+    }
+
+
+    .rility-feature__content {
+
+        width: 100%;
+
+        padding: 30px 24px 34px;
+
+        align-items: flex-start;
+    }
+
+
+    .rility-feature__tag {
+
+        padding: 8px 14px;
+
+        margin-bottom: 20px;
+
+        font-size: 10px;
+    }
+
+
+    .rility-feature__title {
+
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 31px;
+
+        line-height: 1.18;
+
+        letter-spacing: -1px;
+    }
+
+
+    .rility-feature__text {
+
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 18px;
+
+        font-size: 17px;
+
+        line-height: 1.7;
+    }
+
+
+    .rility-feature__link {
+
+        margin-top: 26px;
+
+        font-size: 14px;
+    }
+
+
+    /* ==========================================
+       INSIGHTS
+       ========================================== */
+
+    .rility-insights {
+
+        padding: 0 0 80px;
+    }
+
+
+    .rility-insights__container {
+
+        width: 100%;
+    }
+
+
+    .rility-insights__header {
+
+        display: block;
+
+        margin-bottom: 28px;
+    }
+
+
+    .rility-insights__title {
+
+        font-size: 31px;
+
+        line-height: 1.2;
+
+        letter-spacing: -1px;
+    }
+
+
+    .rility-insights__intro {
+
+        margin-top: 13px;
+
+        font-size: 17px;
+
+        line-height: 1.7;
+    }
+
+
+    /* ==========================================
+       INSIGHT GRID
+       ========================================== */
+
+    .rility-insights__grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+
+    /* ==========================================
+       INSIGHT CARD
+       ========================================== */
+
+    .rility-insights-card {
+
+        width: 100%;
+        max-width: 100%;
+
+        border-radius: 26px;
+    }
+
+
+    .rility-insights-card__image {
+
+        height: 240px;
+    }
+
+
+    .rility-insights-card__body {
+
+        padding: 26px 24px 28px;
+    }
+
+
+    .rility-insights-card__category {
+
+        margin-bottom: 13px;
+
+        font-size: 10px;
+    }
+
+
+    .rility-insights-card__title {
+
+        font-size: 23px;
+
+        line-height: 1.25;
+
+        letter-spacing: -.8px;
+    }
+
+
+    .rility-insights-card__text {
+
+        margin-top: 14px;
+
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+
+    .rility-insights-card__link {
+
+        margin-top: 21px;
+
+        font-size: 14px;
+    }
+
+
+    /* ==========================================
+       LATEST ARTICLES
+       ========================================== */
+
+    .journal-slider-section {
+
+        width: 100%;
+
+        padding-top: 0;
+        padding-bottom: 80px;
+    }
+
+
+    .journal-slider-header {
+
+        margin-bottom: 24px;
+    }
+
+
+    .journal-slider-heading h2 {
+
+        font-size: 31px;
+
+        line-height: 1.2;
+
+        letter-spacing: -1px;
+    }
+
+
+    /* ==========================================
+       SLIDER CONTROLS
+       ========================================== */
+
+    .journal-slider-controls {
+
+        gap: 8px;
+    }
+
+
+    .journal-slider-arrow {
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+
+    /* ==========================================
+       SLIDER
+       ========================================== */
 
     .journal-slider {
-        width: calc(100% - 20px);
-        margin-left: 20px;
+
+        width: 100%;
+        max-width: 100%;
+
+        overflow: hidden;
     }
 
-
-    /* TRACK */
 
     .journal-slider__track {
+
         gap: 18px;
-        padding-right: 25px;
     }
 
 
-    /* CARD */
+    /* ==========================================
+       SLIDER CARD
+       ========================================== */
 
     .journal-slider-card {
-        width: 280px;
-        height: 380px;
 
-        flex-basis: 280px;
+        flex: 0 0 82vw;
+
+        max-width: 82vw;
+
+        border-radius: 26px;
+    }
+
+
+    .journal-slider-card__image {
+
+        height: 220px;
+    }
+
+
+    .journal-slider-card__content {
+
+        padding: 24px;
+    }
+
+
+    .journal-slider-card__content h3 {
+
+        font-size: 21px;
+
+        line-height: 1.3;
+
+        letter-spacing: -.7px;
+    }
+
+
+    .journal-slider-card__meta {
+
+        margin-top: 15px;
+
+        font-size: 11px;
+    }
+
+
+    /* ==========================================
+       PREVENT LONG CONTENT OVERFLOW
+       ========================================== */
+
+    .rility-journal-hero__title,
+    .rility-journal-hero__text,
+    .rility-feature__title,
+    .rility-feature__text,
+    .rility-insights-card__title,
+    .rility-insights-card__text,
+    .journal-slider-card__content h3 {
+
+        overflow-wrap: anywhere;
+
+        word-break: normal;
+    }
+
+
+    /* ==========================================
+       IMAGES
+       ========================================== */
+
+    .rility-journal-hero img,
+    .rility-feature img,
+    .rility-insights-card img,
+    .journal-slider-card img {
+
+        max-width: 100%;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE — MAX 480PX
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+
+    /* ==========================================
+       HERO
+       ========================================== */
+
+    .rility-journal-hero {
+
+        padding-top: 60px;
+        padding-bottom: 65px;
+    }
+
+
+    .rility-journal-hero__badge {
+
+        margin-bottom: 20px;
+
+        padding: 8px 14px;
+
+        font-size: 10px;
+    }
+
+
+    .rility-journal-hero__title {
+
+        font-size: 34px;
+
+        line-height: 1.1;
+
+        letter-spacing: -1px;
+    }
+
+
+    .rility-journal-hero__text {
+
+        font-size: 17px;
+
+        line-height: 1.65;
+    }
+
+
+    /* ==========================================
+       FEATURE
+       ========================================== */
+
+    .rility-feature {
+
+        padding-bottom: 70px;
+    }
+
+
+    .rility-feature__card {
+
+        border-radius: 25px;
+    }
+
+
+    .rility-feature__image {
+
+        height: 250px;
+    }
+
+
+    .rility-feature__content {
+
+        padding: 26px 22px 30px;
+    }
+
+
+    .rility-feature__title {
+
+        font-size: 28px;
+
+        line-height: 1.2;
+
+        letter-spacing: -.8px;
+    }
+
+
+    .rility-feature__text {
+
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+
+    /* ==========================================
+       INSIGHTS
+       ========================================== */
+
+    .rility-insights {
+
+        padding-bottom: 70px;
+    }
+
+
+    .rility-insights__title {
+
+        font-size: 28px;
+
+        line-height: 1.2;
+
+        letter-spacing: -.8px;
+    }
+
+
+    .rility-insights__intro {
+
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+
+    .rility-insights__grid {
+
+        gap: 18px;
+    }
+
+
+    .rility-insights-card {
 
         border-radius: 24px;
     }
 
 
-    /* IMAGE */
+    .rility-insights-card__image {
+
+        height: 220px;
+    }
+
+
+    .rility-insights-card__body {
+
+        padding: 24px 21px 27px;
+    }
+
+
+    .rility-insights-card__title {
+
+        font-size: 22px;
+
+        line-height: 1.25;
+    }
+
+
+    .rility-insights-card__text {
+
+        font-size: 16px;
+    }
+
+
+    /* ==========================================
+       LATEST
+       ========================================== */
+
+    .journal-slider-section {
+
+        padding-bottom: 70px;
+    }
+
+
+    .journal-slider-heading h2 {
+
+        font-size: 28px;
+
+        line-height: 1.2;
+
+        letter-spacing: -.8px;
+    }
+
+
+    .journal-slider-card {
+
+        flex: 0 0 84vw;
+
+        max-width: 84vw;
+
+        border-radius: 24px;
+    }
+
 
     .journal-slider-card__image {
-        width: 280px;
-        height: 280px;
+
+        height: 205px;
     }
 
-
-    /* CONTENT */
 
     .journal-slider-card__content {
-        height: 100px;
 
-        padding: 15px 18px 13px;
+        padding: 22px;
     }
 
 
-    /* TITLE */
+    .journal-slider-card__content h3 {
 
-    .journal-slider-card h3 {
-        font-size: 20px;
-        line-height: 1.25;
+        font-size: 21px;
 
-        max-height: 50px;
+        line-height: 1.3;
     }
 
-
-    /* DATE */
 
     .journal-slider-card__meta {
-        margin-top: auto;
-        padding-top: 8px;
-    }
 
-    .journal-slider-card__meta span {
-        font-size: 12px;
+        font-size: 10px;
     }
 }
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.rility-feature__link:focus-visible,
+.rility-insights-card__link:focus-visible,
+.journal-slider-card > a:focus-visible,
+.journal-slider-arrow:focus-visible {
+
+    outline: 3px solid rgba(109, 93, 251, .35);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
