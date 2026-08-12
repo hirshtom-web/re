@@ -955,862 +955,390 @@ SIDEBAR BUTTON
 
 
 
+
+
+
 /* ==========================================================
-   RESPONSIVE
-========================================================== */
-
-
-@media(max-width:1200px){
-
-
-.article-container{
-
-    grid-template-columns:
-
-    minmax(0,1fr)
-
-    280px;
-
-    gap:50px;
-
-}
-
-
-
-.article-hero h1{
-
-    font-size:62px;
-
-}
-
-
-}
-
-
-
-@media(max-width:980px){
-
-
-.article-container{
-
-    grid-template-columns:1fr;
-
-}
-
-
-.article-sidebar{
-
-    position:static;
-
-    order:2;
-
-}
-
-
-
-.article-hero-image{
-
-    height:480px;
-
-}
-
-
-}
-
-
-
-@media(max-width:768px){
-
-
-.article-width,
-.article-container,
-.article-author,
-.continue-reading{
-
-    width:calc(100% - 44px);
-
-}
-
-
-
-.article-hero{
-
-    padding:60px 0 40px;
-
-}
-
-
-
-.article-breadcrumbs{
-
-    font-size:11px;
-
-    flex-wrap:wrap;
-
-}
-
-
-
-.article-hero h1{
-
-    font-size:42px;
-
-    line-height:1.12;
-
-    letter-spacing:-1.5px;
-
-}
-
-
-
-.article-subtitle{
-
-    font-size:18px;
-
-    line-height:1.7;
-
-}
-
-
-
-.article-meta{
-
-    gap:14px;
-
-}
-
-
-
-.article-hero-image{
-
-    height:300px;
-
-    margin-top:45px;
-
-    border-radius:24px;
-
-}
-
-
-
-.article-container{
-
-    margin-top:60px;
-
-}
-
-
-
-.article-content{
-
-    font-size:17px;
-
-    line-height:1.85;
-
-}
-
-
-
-.article-content .lead{
-
-    font-size:22px;
-
-}
-
-
-
-.article-content h2{
-
-    font-size:40px;
-
-    margin-top:65px;
-
-}
-
-
-
-.article-content h3{
-
-    font-size:24px;
-
-}
-
-
-
-.article-content blockquote{
-
-    padding:25px;
-
-    font-size:22px;
-
-}
-
-
-
-.article-highlight{
-
-    padding:24px;
-
-}
-
-
-
-.article-author{
-
-    margin-top:70px;
-
-    padding:30px;
-
-    flex-direction:column;
-
-    text-align:center;
-
-}
-
-
-
-.article-author img{
-
-    width:80px;
-
-    height:80px;
-
-}
-
-
-
-.continue-header h2{
-
-    font-size:40px;
-
-}
-
-
-
-.continue-card{
-
-    flex:0 0 85%;
-
-}
-
-
-
-.continue-controls{
-
-    margin-top:30px;
-
-}
-
-
-}
-
-
-
-@media(max-width:480px){
-
-
-.article-hero h1{
-
-    font-size:34px;
-
-}
-
-
-
-.article-subtitle{
-
-    font-size:17px;
-
-}
-
-
-
-.continue-content h3{
-
-    font-size:21px;
-
-}
-
-
-}
-
-
-
-@media(max-width:768px){
-
-    .article-content blockquote{
-
-        margin:45px 0;
-
-        padding:26px;
-
-        border-radius:24px;
-
-        font-size:21px;
-
-        line-height:1.55;
-
+   MOBILE — MAX 768px
+   Existing values consolidated
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    /* ==========================================
+       PAGE / BODY
+       ========================================== */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .article-page,
+    .article-hero {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .article-page {
+        overflow-x: hidden;
     }
 
 
-    .article-highlight{
+    /* ==========================================
+       CONTENT — 20px EACH SIDE
+       ========================================== */
 
-        margin:45px 0;
+    .article-width,
+    .article-container,
+    .article-author,
+    .continue-reading {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
 
-        padding:26px;
+        margin-left: 0;
+        margin-right: 0;
 
-        border-radius:24px;
-
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
+
+    /* ==========================================
+       HERO
+       ========================================== */
+
+    .article-hero {
+        padding: 60px 0 40px;
+        overflow: hidden;
+    }
+
+    .article-breadcrumbs,
+    .article-hero h1,
+    .article-subtitle,
+    .article-meta,
+    .article-hero-image {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .article-breadcrumbs {
+        font-size: 11px;
+        line-height: 1.4;
+        flex-wrap: wrap;
+    }
+
+    .article-hero h1 {
+        font-size: 42px;
+        line-height: 1.1;
+        letter-spacing: -1.5px;
+    }
+
+    .article-subtitle {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .article-meta {
+        gap: 14px;
+        font-size: 11px;
+    }
+
+
+    /* ==========================================
+       HERO IMAGE
+       ========================================== */
+
+    .article-hero-image {
+        height: 260px;
+        margin-top: 45px;
+        border-radius: 24px;
+    }
+
+
+    /* ==========================================
+       MAIN ARTICLE
+       ========================================== */
+
+    .article-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+        margin-top: 60px;
+    }
+
+    .article-content,
+    .article-sidebar {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .article-content {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .article-content p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 23px;
+    }
+
+
+    /* ==========================================
+       HEADINGS
+       ========================================== */
+
+    .article-content h2 {
+        margin-top: 58px;
+        margin-bottom: 18px;
+
+        font-size: 31px;
+        line-height: 1.25;
+        letter-spacing: -1px;
+    }
+
+    .article-content h3 {
+        margin-top: 42px;
+        margin-bottom: 14px;
+
+        font-size: 23px;
+        line-height: 1.25;
+    }
+
+    .article-content h4 {
+        font-size: 18px;
+    }
+
+
+    /* ==========================================
+       LISTS
+       ========================================== */
+
+    .article-content ul,
+    .article-content ol {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        padding-left: 0;
+
+        font-size: 17px;
+        line-height: 1.65;
+    }
+
+    .article-content li {
+        padding-left: 30px;
+        margin-bottom: 10px;
+
+        min-width: 0;
+
+        font-size: 17px;
+        line-height: 1.65;
+    }
+
+    .article-content ul li::before {
+        left: 0;
+        top: 0.55em;
+        transform: translateY(-50%);
+
+        font-size: 18px;
+    }
+
+
+    /* ==========================================
+       BLOCKQUOTE
+       ========================================== */
+
+    .article-content blockquote {
+        margin: 36px 0;
+
+        padding-left: 20px;
+
+        font-size: 17px;
+        line-height: 1.65;
+    }
+
+
+    /* ==========================================
+       IMAGES / FIGURES / VIDEO
+       ========================================== */
+
+    .article-content img,
+    .article-content figure,
+    .article-content video,
+    .article-hero-image img {
+        max-width: 100%;
+    }
+
+    .article-content figure {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+
+    /* ==========================================
+       PREVENT LONG CONTENT FROM BREAKING WIDTH
+       ========================================== */
+
+    .article-content,
+    .article-content p,
+    .article-content li,
+    .article-content h2,
+    .article-content h3,
+    .article-content h4,
+    .article-subtitle {
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+
+    /* ==========================================
+       SIDEBAR
+       ========================================== */
+
+    .article-sidebar {
+        position: static;
+        top: auto;
+        transform: none;
+
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        margin-top: 60px;
+    }
+
+
+    /* ==========================================
+       CONTINUE READING
+       ========================================== */
+
+    .continue-reading {
+        overflow: hidden;
+    }
+
+    .continue-slider-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .continue-slider {
+        width: max-content;
+        max-width: none;
+    }
+
+    .continue-card {
+        flex: 0 0 85vw;
+        max-width: 85vw;
+    }
+
+    .continue-controls {
+        margin-top: 30px;
+    }
+
+
+    /* ==========================================
+       AUTHOR
+       ========================================== */
+
+    .article-author {
+        margin-top: 70px;
+        padding: 30px;
+        flex-direction: column;
+        text-align: center;
+
+        border-radius: 28px;
+        overflow: hidden;
+    }
+
+    .article-author img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .article-author p {
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+
+    /* ==========================================
+       HIGHLIGHTS
+       ========================================== */
+
+    .article-highlight {
+        margin: 45px 0;
+        padding: 26px;
+        border-radius: 24px;
+    }
 
     .article-highlight ul,
-    .article-highlight ol{
-
-        margin-left:18px;
-
-        padding-right:0;
-
+    .article-highlight ol {
+        margin-left: 18px;
+        padding-right: 0;
     }
 
 
-    .article-author{
-
-        width:calc(100% - 44px);
-
-        padding:30px 24px;
-
-        border-radius:28px;
-
-        overflow:hidden;
-
-    }
-
-
-    .article-author p{
-
-        font-size:15px;
-
-        line-height:1.7;
-
-    }
-
+    /* ==========================================
+       DECORATIVE ELEMENTS
+       ========================================== */
 
     .article-author::before,
     .article-highlight::before,
-    .article-content blockquote::before{
+    .article-content blockquote::before {
+        width: 180px;
+        height: 180px;
+    }
 
-        width:180px;
 
-        height:180px;
+    /* ==========================================
+       CONTINUE HEADER
+       ========================================== */
 
+    .continue-header h2 {
+        font-size: 40px;
     }
 
 }
 
 
-
 /* ==========================================================
-RESPONSIVE TYPOGRAPHY
-========================================================== */
-
-@media (max-width: 1200px) {
-
-  .article-hero h1 {
-    font-size: 58px;
-  }
-
-  .article-content h2 {
-    font-size: 36px;
-  }
-
-}
-
-
-@media (max-width: 768px) {
-
-  .article-content {
-    font-size: 17px;
-    line-height: 1.7;
-  }
-
-  .article-content p {
-    font-size: 17px;
-    line-height: 1.7;
-    margin-bottom: 23px;
-  }
-
-  .article-hero h1 {
-    font-size: 42px;
-    line-height: 1.1;
-    letter-spacing: -1.5px;
-  }
-
-  .article-subtitle {
-    font-size: 18px;
-    line-height: 1.55;
-  }
-
-  .article-content h2 {
-    margin-top: 58px;
-    margin-bottom: 18px;
-
-    font-size: 31px;
-    line-height: 1.18;
-
-    letter-spacing: -1px;
-  }
-
-  .article-content h3 {
-    margin-top: 42px;
-    margin-bottom: 14px;
-
-    font-size: 23px;
-    line-height: 1.25;
-  }
-
-  .article-content h4 {
-    font-size: 18px;
-  }
-
-  .article-content blockquote {
-    margin: 36px 0;
-
-    padding-left: 20px;
-
-    font-size: 17px;
-    line-height: 1.65;
-  }
-
-  .article-content ul,
-  .article-content ol {
-    font-size: 17px;
-    line-height: 1.65;
-  }
-
-  .article-breadcrumbs {
-    font-size: 11px;
-  }
-
-  .article-meta {
-    gap: 14px;
-    font-size: 11px;
-  }
-
-}
-
+   MOBILE — MAX 480px
+   Existing values only
+   ========================================================== */
 
 @media (max-width: 480px) {
 
-  .article-hero h1 {
-    font-size: 34px;
-    letter-spacing: -1px;
-  }
-
-  .article-subtitle {
-    font-size: 17px;
-  }
-
-  .article-content h2 {
-    font-size: 28px;
-  }
-
-  .article-content h3 {
-    font-size: 22px;
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  .article-width,
-  .article-container,
-  .article-author,
-  .continue-reading {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 22px;
-    padding-right: 22px;
-  }
-
-  /* Prevent text/content from creating overflow */
-  .article-content,
-  .article-hero,
-  .article-sidebar,
-  .article-author,
-  .continue-reading {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  /* Hero elements must stay inside the viewport */
-  .article-breadcrumbs,
-  .article-hero h1,
-  .article-subtitle,
-  .article-meta,
-  .article-hero-image {
-    max-width: 100%;
-  }
-
-  /* Images can never exceed their container */
-  img {
-    max-width: 100%;
-  }
-
-  /* Main article becomes one column */
-  .article-container {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
-  }
-
-  /* Sidebar returns below article */
-  .article-sidebar {
-    width: 100%;
-    min-width: 0;
-    position: static;
-  }
-
-  /* Prevent the slider itself from causing page overflow */
-  .continue-reading {
-    overflow: hidden;
-  }
-
-  .continue-slider-container {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-}
-
-
-
-
-@media (max-width: 768px) {
-
-  .article-content li {
-    padding-left: 28px;
-    margin-bottom: 10px;
-
-    font-size: 17px;
-    line-height: 1.65;
-  }
-
-  .article-content ul li::before {
-    font-size: 18px;
-  }
-
-}
-
-
-
-@media (max-width: 768px) {
-
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-
-  /* Full-width page/background */
-  .article-page {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow-x: hidden;
-  }
-
-  /* Full-width hero so the purple glow is NOT squeezed */
-  .article-hero {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow: hidden;
-  }
-
-  /*
-    90% content shell.
-    This gives 5% space on each side.
-  */
-  .article-width,
-  .article-container,
-  .article-author,
-  .continue-reading {
-    width: 90%;
-    max-width: 90%;
-    min-width: 0;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Prevent grid children from creating overflow */
-  .article-container {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
-  }
-
-  .article-content,
-  .article-sidebar {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  /*
-    Sidebar stays below the article on mobile.
-    Desktop sticky sidebar is NOT affected.
-  */
-  .article-sidebar {
-    position: static;
-    width: 100%;
-  }
-
-  /* Hero text cannot exceed the content area */
-  .article-breadcrumbs,
-  .article-hero h1,
-  .article-subtitle,
-  .article-meta {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  /* Hero image stays inside the 90% content shell */
-  .article-hero-image {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  /* Images can never push the page wider */
-  .article-content img,
-  .article-content figure,
-  .article-content video,
-  .article-hero-image img {
-    max-width: 100%;
-  }
-
-  .article-content figure {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /*
-    Continue Reading:
-    shell = 90%
-    slider viewport = 100% of shell
-    cards can slide horizontally INSIDE the slider,
-    but the page itself cannot scroll sideways.
-  */
-  .continue-reading {
-    overflow: hidden;
-  }
-
-  .continue-slider-container {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow: hidden;
-  }
-
-  .continue-slider {
-    width: max-content;
-    max-width: none;
-    min-width: 0;
-  }
-
-  /*
-    Important: cards are allowed to be wider than the
-    viewport because they belong to the slider.
-  */
-  .continue-card {
-    flex: 0 0 85vw;
-    max-width: 85vw;
-  }
-
-  /*
-    Long words / URLs / unbreakable content cannot
-    force the article wider.
-  */
-  .article-content,
-  .article-content p,
-  .article-content li,
-  .article-content h2,
-  .article-content h3,
-  .article-content h4,
-  .article-subtitle {
-    overflow-wrap: anywhere;
-    word-break: normal;
-  }
-
-  /* Lists */
-  .article-content ul,
-  .article-content ol {
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    padding-left: 0;
-  }
-
-  .article-content li {
-    padding-left: 30px;
-    min-width: 0;
-  }
-
-  /*
-    Checkmark stays centered against the text line.
-  */
-  .article-content ul li::before {
-    left: 0;
-    top: 0.55em;
-    transform: translateY(-50%);
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-
-  /* ==========================================
-     FULL-WIDTH PAGE / BACKGROUND
-     ========================================== */
-
-  .article-page,
-  .article-hero {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    margin: 0;
-  }
-
-  /* ==========================================
-     CONTENT — 20px EACH SIDE
-     ========================================== */
-
-  .article-width,
-  .article-container,
-  .article-author,
-  .continue-reading {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-
-    margin-left: 0;
-    margin-right: 0;
-
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  /* ==========================================
-     ARTICLE CONTENT
-     ========================================== */
-
-  .article-content,
-  .article-sidebar {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  /* ==========================================
-     MAIN ARTICLE → ONE COLUMN
-     ========================================== */
-
-  .article-container {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
-  }
-
-  /* ==========================================
-     MOBILE SIDEBAR
-     ========================================== */
-
-  .article-sidebar {
-    position: static;
-    width: 100%;
-  }
-
-  /* ==========================================
-     HERO CONTENT
-     ========================================== */
-
-  .article-breadcrumbs,
-  .article-hero h1,
-  .article-subtitle,
-  .article-meta,
-  .article-hero-image {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  /* ==========================================
-     IMAGES
-     ========================================== */
-
-  .article-content img,
-  .article-content figure,
-  .article-content video,
-  .article-hero-image img {
-    max-width: 100%;
-  }
-
-  .article-content figure {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  /* ==========================================
-     CONTINUE READING
-     ========================================== */
-
-  .continue-reading {
-    overflow: hidden;
-  }
-
-  .continue-slider-container {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow: hidden;
-  }
-
-  .continue-slider {
-    width: max-content;
-    max-width: none;
-  }
-
-  .continue-card {
-    flex: 0 0 85vw;
-    max-width: 85vw;
-  }
-
-  /* ==========================================
-     PREVENT LONG CONTENT FROM BREAKING WIDTH
-     ========================================== */
-
-  .article-content,
-  .article-content p,
-  .article-content li,
-  .article-content h2,
-  .article-content h3,
-  .article-content h4,
-  .article-subtitle {
-    overflow-wrap: anywhere;
-    word-break: normal;
-  }
+    .article-hero h1 {
+        font-size: 34px;
+        letter-spacing: -1px;
+    }
+
+    .article-subtitle {
+        font-size: 17px;
+    }
+
+    .article-content h2 {
+        font-size: 28px;
+    }
+
+    .article-content h3 {
+        font-size: 22px;
+    }
+
+    .continue-content h3 {
+        font-size: 21px;
+    }
 
 }
