@@ -205,7 +205,7 @@ HEADINGS
   margin: 60px 0 20px;
 
   font-family: "Inter", sans-serif;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1.25;
   letter-spacing: -1px;
   font-weight: 600;
@@ -504,147 +504,194 @@ font-size: 20px;
 
 
 /* =========================
-   SIDEBAR
+SIDEBAR
 ========================= */
 
-
-.article-sidebar{
-
-    position:sticky;
-    top:120px;
-    align-self:start;
-
+.article-sidebar {
+  position: sticky;
+  top: 120px;
+  align-self: start;
 }
 
 
-.sidebar-card{
+/* =========================
+SIDEBAR CARDS
+========================= */
 
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:28px;
-    padding:30px;
-    margin-bottom:24px;
-    box-shadow:0 15px 40px rgba(0,0,0,.05);
+.sidebar-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 28px;
 
+  padding: 30px;
+  margin-bottom: 24px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .05);
 }
 
 
-.article-content h4 {
-  margin: 20px 0 16px;
+/* =========================
+SIDEBAR TITLES
+Same title treatment
+========================= */
+
+.sidebar-card h4 {
+  margin: 0 0 16px;
 
   font-family: "Inter", sans-serif;
   font-size: 20px;
   line-height: 1.3;
   letter-spacing: -0.5px;
   font-weight: 600;
+
   color: #111;
 }
 
 
-.sidebar-card a{
+/* =========================
+SIDEBAR TEXT
+Same style everywhere
+========================= */
 
-    display:block;
-    margin-bottom:14px;
-    color:#666;
-    text-decoration:none;
-    transition:.25s;
+.sidebar-card p,
+.sidebar-card a,
+.ai-summary-card p {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
 
+  color: #666;
 }
 
 
-.sidebar-card a:hover{
+/* =========================
+SIDEBAR LINKS
+========================= */
 
-    color:var(--primary);
+.sidebar-card a {
+  display: block;
 
+  margin: 0 0 14px;
+
+  text-decoration: none;
+
+  transition: .25s;
+}
+
+.sidebar-card a:hover {
+  color: var(--primary);
 }
 
 
-.sidebar-card button{
-
-    width:100%;
-    height:54px;
-    border:none;
-    border-radius:999px;
-    background:#111;
-    color:#fff;
-    font-weight:600;
-    cursor:pointer;
-    transition:.25s;
-
-}
-
-
-.sidebar-card button:hover{
-
-    background:var(--primary);
-
-}
+/* =========================
+AI SUMMARY CARD
+========================= */
 
 .ai-summary-card {
-  padding: 20px;
+  padding: 30px;
 }
 
 .ai-summary-card h4 {
-  margin-bottom: 10px;
+  margin: 0 0 16px;
 }
 
 .ai-summary-card p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 15px;
+  margin: 0 0 20px;
 }
+
+
+/* =========================
+AI TOOLS
+========================= */
 
 .ai-tools {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
-.ai-tools{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
+.ai-tool {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 8px;
+
+  flex: 0 0 auto;
+  min-width: 130px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+
+  background: #fff;
+  color: #111;
+
+  text-decoration: none;
+
+  margin: 0 !important;
 }
 
-.ai-tool{
-    display:flex !important;
-    align-items:center;
-    justify-content:flex-start;
-    gap:8px;
-
-    flex: 0 0 auto;
-    min-width:130px;
-
-    padding:10px 12px;
-    border:1px solid #e7e7e7;
-    border-radius:12px;
-    background:#fff;
-    color:#111;
-    text-decoration:none;
-
-    margin:0 !important;
+.ai-tool:hover {
+  color: #111;
 }
 
-.ai-tool:hover{
-    background:#f5f5f5;
-    border-color:#e7e7e7;
-    color:#111;
+
+/* =========================
+AI TOOL ICON
+========================= */
+
+.ai-tool img {
+  width: 22px;
+  height: 22px;
+
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
-.ai-tool img{
-    width:22px;
-    height:22px;
-    object-fit:contain;
-    flex-shrink:0;
+
+/* =========================
+AI TOOL TEXT
+========================= */
+
+.ai-tool span {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 400;
+
+  color: #666;
 }
 
-.ai-tool span{
-    font-size:14px;
-    font-weight:500;
-    line-height:1;
-    color:#111;
+
+/* =========================
+SIDEBAR BUTTON
+========================= */
+
+.sidebar-card button {
+  width: 100%;
+  height: 54px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #111;
+  color: #fff;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: .25s;
 }
 
+.sidebar-card button:hover {
+  background: var(--primary);
+}
 
 
 
