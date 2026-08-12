@@ -40,15 +40,10 @@
 body{
 
     margin:0;
-
     font-family:"Inter",sans-serif;
-
     color:var(--text);
-
     background:#fff;
-
     overflow-x:clip;
-
     -webkit-font-smoothing:antialiased;
 
 }
@@ -66,9 +61,7 @@ body{
 .continue-reading{
 
     width:var(--page-width);
-
     margin-left:auto;
-
     margin-right:auto;
 
 }
@@ -83,7 +76,6 @@ body{
 .article-page{
 
     width:100%;
-
     background:#fff;
 
 }
@@ -98,9 +90,7 @@ body{
 .article-hero{
 
     position:relative;
-
     padding:90px 0 70px;
-
     text-align:left;
 
 }
@@ -112,21 +102,13 @@ body{
 .article-hero::before{
 
     content:"";
-
     position:absolute;
-
     width:900px;
-
     height:900px;
-
     left:50%;
-
     top:-420px;
-
     transform:translateX(-50%);
-
     border-radius:50%;
-
     background:
     radial-gradient(
         circle,
@@ -135,26 +117,20 @@ body{
     );
 
     filter:blur(40px);
-
     z-index:0;
 
 }
 
-
 .article-hero > *{
 
     position:relative;
-
     z-index:2;
 
 }
 
-
-
 /* =========================
    HERO TEXT WIDTH
 ========================= */
-
 
 .article-breadcrumbs,
 .article-hero h1,
@@ -165,47 +141,31 @@ body{
 
 }
 
-
-
 /* =========================
    BREADCRUMBS
 ========================= */
 
-
 .article-breadcrumbs{
 
     display:flex;
-
     align-items:center;
-
     gap:12px;
-
-    margin-bottom:28px;
-
+    margin-bottom:28px
     font-size:13px;
-
     color:var(--muted);
-
 }
-
 
 .article-breadcrumbs a{
 
     color:inherit;
-
     text-decoration:none;
-
     transition:.25s;
-
 }
-
 
 .article-breadcrumbs a:hover{
 
     color:var(--primary);
-
 }
-
 
 
 /* =========================
@@ -216,28 +176,16 @@ body{
 .article-tag{
 
     display:inline-flex;
-
     align-items:center;
-
     justify-content:center;
-
     padding:10px 18px;
-
     border-radius:999px;
-
     background:rgba(109,93,251,.08);
-
     color:var(--primary);
-
     font-size:13px;
-
     font-weight:700;
-
     margin-bottom:28px;
-
 }
-
-
 
 /* =========================
    TITLE
@@ -247,60 +195,37 @@ body{
 .article-hero h1{
 
     margin:0;
-
     font-size:68px;
-
     line-height:1.08;
-
     letter-spacing:-3px;
-
     font-weight:600;
 
 }
-
-
 
 /* =========================
    SUBTITLE
 ========================= */
 
-
 .article-subtitle{
-
     margin:34px 0;
-
-    font-size:22px;
-
+    font-size:20px;
     line-height:1.8;
-
     color:var(--muted);
-
 }
-
-
 
 /* =========================
    META
 ========================= */
 
-
 .article-meta{
 
     display:flex;
-
     flex-wrap:wrap;
-
     gap:28px;
-
     margin-top:35px;
-
     color:var(--muted);
-
-    font-size:14px;
-
+    font-size:13px;
 }
-
-
 
 /* =========================
    HERO IMAGE
@@ -321,11 +246,8 @@ body{
 .article-hero-image img{
 
     width:100%;
-
     height:100%;
-
     display:block;
-
     object-fit:cover;
 
 }
@@ -340,19 +262,12 @@ body{
 .article-container{
 
     margin-top:100px;
-
     margin-bottom:100px;
-
     display:grid;
-
     grid-template-columns:
-
     minmax(0,1fr)
-
     320px;
-
     gap:90px;
-
     align-items:start;
 
 }
