@@ -86,10 +86,9 @@ body{
         ellipse at center,
         rgba(109, 93, 251, .15),
         transparent 70%
-    );
+   );
 
     filter: blur(40px);
-
     pointer-events: none;
     z-index: 0;
 }
@@ -102,20 +101,10 @@ body{
 .article-hero {
     position: relative;
     z-index: 1;
-
     padding: 90px 0 70px;
     text-align: left;
 }
 
-
-.article-breadcrumbs,
-.article-hero h1,
-.article-subtitle,
-.article-meta{
-
-    max-width:850px;
-
-}
 
 /* =========================
    BREADCRUMBS
@@ -123,12 +112,20 @@ body{
 
 .article-breadcrumbs{
 
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:28px
-    font-size:13px;
-    color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:28px
+  font-size:13px;
+  color:var(--muted);
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--muted);
+  max-width:850px;
 }
 
 .article-breadcrumbs a{
@@ -145,9 +142,25 @@ body{
 
 
 /* =========================
-   TAG
+META - DATE + AUTHOR + READ TIME
 ========================= */
 
+.article-meta{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+    margin-top:30px;
+    color:var(--muted);
+    font-size:12px;
+    line-height: 1.4;
+    font-weight: 500;
+    max-width:850px;
+}
+
+/* =========================
+   TAG
+========================= */
 
 .article-tag{
 
@@ -158,50 +171,111 @@ body{
     border-radius:999px;
     background:rgba(109,93,251,.08);
     color:var(--primary);
-    font-size:13px;
+    font-size:12px;
     font-weight:700;
     margin-bottom:28px;
 }
 
 /* =========================
-   TITLE
+TITLES
 ========================= */
 
-
-.article-hero h1{
-
-    margin:0;
-    font-size:68px;
-    line-height:1.08;
-    letter-spacing:-3px;
-    font-weight:600;
-
+.article-hero h1 {
+    margin: 0;
+    font-size: 68px;
+    line-height: 1.08;
+    letter-spacing: -3px;
+    font-weight: 600;
+    max-width: 850px;
 }
 
 /* =========================
-   SUBTITLE
+HEADINGS
 ========================= */
 
-.article-subtitle{
-    margin:34px 0;
-    font-size:20px;
-    line-height:1.8;
-    color:var(--muted);
+.article-content h2 {
+    margin: 90px 0 26px;
+    font-size: 44px;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    color: #111;
+}
+
+.article-content h3 {
+    margin: 60px 0 20px;
+    font-size: 30px;
+    line-height: 1.25;
+    color: #111;
+}
+
+.article-content h4 {
+    margin: 40px 0 16px;
+    font-size: 22px;
 }
 
 /* =========================
-   META
+SUBTITLE
 ========================= */
 
-.article-meta{
-
-    display:flex;
-    flex-wrap:wrap;
-    gap:28px;
-    margin-top:35px;
-    color:var(--muted);
-    font-size:13px;
+.article-subtitle {
+    margin: 34px 0;
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 850px;
 }
+
+/* =========================
+CONTENT
+========================= */
+
+.article-content {
+    min-width: 0;
+    max-width: 850px;
+    width: 100%;
+
+    font-size: 20px;
+    line-height: 1.95;
+    color: #333;
+}
+
+.article-content > *:first-child {
+    margin-top: 0;
+}
+
+.article-content p {
+    margin: 0 0 34px;
+}
+
+/* =========================
+LINKS
+========================= */
+
+.article-content a {
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+    transition: .25s;
+}
+
+.article-content a:hover {
+    border-color: #111;
+}
+
+/* =========================
+LISTS
+========================= */
+
+.article-content ul,
+.article-content ol {
+    margin: 0 0 34px 24px;
+    line-height: 1.9;
+}
+
+.article-content li {
+    margin-bottom: 12px;
+}
+
 
 /* =========================
    HERO IMAGE
@@ -228,12 +302,9 @@ body{
 
 }
 
-
-
 /* =========================
    MAIN ARTICLE GRID
 ========================= */
-
 
 .article-container{
 
@@ -245,127 +316,6 @@ body{
     320px;
     gap:90px;
     align-items:start;
-
-}
-
-
-
-/* =========================
-   CONTENT
-========================= */
-
-
-.article-content{
-
-    min-width:0;
-    font-size:20px;
-    line-height:1.95;
-    color:#333;
-
-}
-
-.article-content{
-    min-width:0;
-    max-width:850px;   /* adjust to taste */
-    width:100%;
-}
-
-
-.article-content>*:first-child{
-
-    margin-top:0;
-
-}
-
-
-.article-content p{
-
-    margin:0 0 34px;
-
-}
-
-
-.article-content .lead{
-
-    font-size:28px;
-    line-height:1.75;
-    color:#111;
-
-}
-
-
-
-/* =========================
-   HEADINGS
-========================= */
-
-
-.article-content h2{
-
-    margin:90px 0 26px;
-    font-size:44px;
-    line-height:1.15;
-    letter-spacing:-1.5px;
-    color:#111;
-
-}
-
-
-.article-content h3{
-
-    margin:60px 0 20px;
-    font-size:30px;
-    line-height:1.25;
-    color:#111;
-
-}
-
-
-.article-content h4{
-
-    margin:40px 0 16px;
-    font-size:22px;
-
-}
-/* =========================
-   LINKS
-========================= */
-
-.article-content a{
-
-    color:#111;
-    text-decoration:none;
-    border-bottom:1px solid rgba(0,0,0,.12);
-    transition:.25s;
-
-}
-
-
-.article-content a:hover{
-
-    border-color:#111;
-
-}
-
-
-
-/* =========================
-   LISTS
-========================= */
-
-
-.article-content ul,
-.article-content ol{
-
-    margin:0 0 34px 24px;
-    line-height:1.9;
-
-}
-
-
-.article-content li{
-
-    margin-bottom:12px;
 
 }
 
@@ -487,6 +437,74 @@ body{
     background:var(--primary);
 
 }
+
+.ai-summary-card {
+  padding: 20px;
+}
+
+.ai-summary-card h4 {
+  margin-bottom: 10px;
+}
+
+.ai-summary-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.ai-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-tools{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.ai-tool{
+    display:flex !important;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+
+    flex: 0 0 auto;
+    min-width:130px;
+
+    padding:10px 12px;
+    border:1px solid #e7e7e7;
+    border-radius:12px;
+    background:#fff;
+    color:#111;
+    text-decoration:none;
+
+    margin:0 !important;
+}
+
+.ai-tool:hover{
+    background:#f5f5f5;
+    border-color:#e7e7e7;
+    color:#111;
+}
+
+.ai-tool img{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.ai-tool span{
+    font-size:14px;
+    font-weight:500;
+    line-height:1;
+    color:#111;
+}
+
+
+
 
 
 
@@ -709,274 +727,12 @@ body{
 
 
 
-.ai-summary-card {
-  padding: 20px;
-}
 
-.ai-summary-card h4 {
-  margin-bottom: 10px;
-}
 
-.ai-summary-card p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.ai-tools {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.ai-tools{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.ai-tool{
-    display:flex !important;
-    align-items:center;
-    justify-content:flex-start;
-    gap:8px;
-
-    flex: 0 0 auto;
-    min-width:130px;
-
-    padding:10px 12px;
-    border:1px solid #e7e7e7;
-    border-radius:12px;
-    background:#fff;
-    color:#111;
-    text-decoration:none;
-
-    margin:0 !important;
-}
-
-.ai-tool:hover{
-    background:#f5f5f5;
-    border-color:#e7e7e7;
-    color:#111;
-}
-
-.ai-tool img{
-    width:22px;
-    height:22px;
-    object-fit:contain;
-    flex-shrink:0;
-}
-
-.ai-tool span{
-    font-size:14px;
-    font-weight:500;
-    line-height:1;
-    color:#111;
-}
-
-
-/* =========================
-ARTICLE BODY
-========================= */
-
-.article-content {
-  min-width: 0;
-  max-width: 850px;
-  width: 100%;
-
-  font-size: 18px;
-  line-height: 1.72;
-
-  color: #333;
-}
-
-
-/* =========================
-PARAGRAPHS
-Tighter / cleaner reading
-========================= */
-
-.article-content p {
-  margin: 0 0 26px;
-
-  font-size: 20px;
-  line-height: 1.72;
-
-  font-weight: 400;
-  color: #6b7280;
-}
-
-
-/* Remove extra spacing from final paragraph */
-
-.article-content p:last-child {
-  margin-bottom: 0;
-}
-
-
-/* =========================
-MAIN TITLE — H1
-========================= */
-
-.article-hero h1 {
-  margin: 0;
-
-  max-width: 850px;
-
-  font-size: 64px;
-  line-height: 1.08;
-
-  letter-spacing: -2.8px;
-
-  font-weight: 600;
-
-  color: #111;
-}
-
-
-/* =========================
-SECTION TITLE — H2
-========================= */
-
-.article-content h2 {
-  margin: 72px 0 22px;
-
-  font-size: 40px;
-  line-height: 1.4;
-
-  letter-spacing: -1.4px;
-
-  font-weight: 600;
-
-  color: #111;
-}
-
-
-/* =========================
-SUBSECTION TITLE — H3
-========================= */
-
-.article-content h3 {
-  margin: 48px 0 16px;
-
-  font-size: 26px;
-  line-height: 1.25;
-
-  letter-spacing: -0.5px;
-
-  font-weight: 500;
-
-  color: #111;
-}
-
-
-/* =========================
-SMALL HEADING — H4
-========================= */
-
-.article-content h4 {
-  margin: 36px 0 14px;
-
-  font-size: 19px;
-  line-height: 1.35;
-
-  font-weight: 600;
-
-  color: #111;
-}
-
-
-/* =========================
-HERO SUBTITLE / INTRO
-========================= */
-
-.article-subtitle {
-  margin: 28px 0 0;
-
-  max-width: 760px;
-
-  font-size: 20px;
-  line-height: 1.55;
-
-  font-weight: 400;
-
-  color: var(--muted);
-}
-
-
-/* =========================
-BREADCRUMBS
-========================= */
-
-.article-breadcrumbs {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-
-  gap: 10px;
-
-  margin-bottom: 24px;
-
-  font-size: 12px;
-  line-height: 1.4;
-
-  font-weight: 500;
-
-  color: var(--muted);
-}
-
-.article-breadcrumbs a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.article-breadcrumbs a:hover {
-  color: var(--primary);
-}
-
-
-/* =========================
-META
-DATE / AUTHOR / READ TIME
-========================= */
-
-.article-meta {
-  display: flex;
-  flex-wrap: wrap;
-
-  gap: 22px;
-
-  margin-top: 26px;
-
-  font-size: 12px;
-  line-height: 1.4;
-
-  font-weight: 500;
-
-  color: var(--muted);
-}
-
-
-/* =========================
-LISTS
-========================= */
-
-.article-content ul,
-.article-content ol {
-  margin: 0 0 28px 24px;
-
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-.article-content li {
-  margin-bottom: 8px;
-}
 
 
 /* =========================
 BLOCKQUOTE
-Simple bullet-style quote
 ========================= */
 
 .article-content blockquote {
@@ -1010,21 +766,6 @@ Simple bullet-style quote
   display: none;
 }
 
-
-/* =========================
-LEAD
-Only use when you intentionally
-want a stronger opening paragraph
-========================= */
-
-.article-content .lead {
-  margin-bottom: 30px;
-
-  font-size: 21px;
-  line-height: 1.65;
-
-  color: #111;
-}
 
 
 /* ==========================================================
