@@ -219,9 +219,10 @@ SUBTITLE
 
 .article-subtitle {
     margin: 34px 0;
-    font-size: 20px;
-    line-height: 1.8;
-    color: var(--muted);
+    font-size: 18px;
+  line-height: 1.7;
+  font-weight: 500;
+  color:var(--muted);
     max-width: 850px;
 }
 
@@ -234,9 +235,10 @@ CONTENT
     max-width: 850px;
     width: 100%;
 
-    font-size: 20px;
-    line-height: 1.95;
-    color:var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 500;
+  color:var(--muted);
 }
 
 .article-content > *:first-child {
