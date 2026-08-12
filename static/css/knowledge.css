@@ -509,7 +509,8 @@ SIDEBAR
 
 .article-sidebar {
   position: sticky;
-  top: 120px;
+  top: 50%;
+  transform: translateY(-50%);
   align-self: start;
 }
 
