@@ -10,9 +10,9 @@
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  overflow-x: hidden;
 }
 
+/* Prevent grid children from creating page overflow */
 .article-width,
 .article-container,
 .article-content,
@@ -23,10 +23,32 @@
   max-width: 100%;
 }
 
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+/* Only clip the oversized purple glow */
 .article-hero {
   position: relative;
   overflow: hidden;
 }
+
+
+/* ==========================================================
+   STICKY SIDEBAR
+   ========================================================== */
+
+.article-sidebar {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+}
+
+
+/* ==========================================================
+   CONTINUE READING SLIDER
+   ========================================================== */
 
 .continue-slider-container {
   width: 100%;
@@ -34,6 +56,10 @@
   overflow: hidden;
 }
 
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
 
 @media (max-width: 768px) {
 
@@ -51,10 +77,6 @@
     width: 100%;
     max-width: 100%;
     min-width: 0;
-  }
-
-  .article-hero {
-    overflow: hidden;
   }
 
 }
