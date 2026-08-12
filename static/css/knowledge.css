@@ -2087,3 +2087,178 @@ PURPLE LINE
   }
 
 }
+
+
+/* ==========================================================
+   MOBILE — FINAL WIDTH / OVERFLOW FIX
+   Desktop remains untouched.
+   Background = 100%
+   Content = 90%
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* Full-width page/background */
+  .article-page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  /* Full-width hero so the purple glow is NOT squeezed */
+  .article-hero {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  /*
+    90% content shell.
+    This gives 5% space on each side.
+  */
+  .article-width,
+  .article-container,
+  .article-author,
+  .continue-reading {
+    width: 90%;
+    max-width: 90%;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Prevent grid children from creating overflow */
+  .article-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .article-content,
+  .article-sidebar {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /*
+    Sidebar stays below the article on mobile.
+    Desktop sticky sidebar is NOT affected.
+  */
+  .article-sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  /* Hero text cannot exceed the content area */
+  .article-breadcrumbs,
+  .article-hero h1,
+  .article-subtitle,
+  .article-meta {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Hero image stays inside the 90% content shell */
+  .article-hero-image {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Images can never push the page wider */
+  .article-content img,
+  .article-content figure,
+  .article-content video,
+  .article-hero-image img {
+    max-width: 100%;
+  }
+
+  .article-content figure {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /*
+    Continue Reading:
+    shell = 90%
+    slider viewport = 100% of shell
+    cards can slide horizontally INSIDE the slider,
+    but the page itself cannot scroll sideways.
+  */
+  .continue-reading {
+    overflow: hidden;
+  }
+
+  .continue-slider-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .continue-slider {
+    width: max-content;
+    max-width: none;
+    min-width: 0;
+  }
+
+  /*
+    Important: cards are allowed to be wider than the
+    viewport because they belong to the slider.
+  */
+  .continue-card {
+    flex: 0 0 85vw;
+    max-width: 85vw;
+  }
+
+  /*
+    Long words / URLs / unbreakable content cannot
+    force the article wider.
+  */
+  .article-content,
+  .article-content p,
+  .article-content li,
+  .article-content h2,
+  .article-content h3,
+  .article-content h4,
+  .article-subtitle {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  /* Lists */
+  .article-content ul,
+  .article-content ol {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .article-content li {
+    padding-left: 30px;
+    min-width: 0;
+  }
+
+  /*
+    Checkmark stays centered against the text line.
+  */
+  .article-content ul li::before {
+    left: 0;
+    top: 0.55em;
+    transform: translateY(-50%);
+  }
+
+}
