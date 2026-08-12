@@ -43,20 +43,6 @@ body {
 
 
 /* ==========================================================
-   GLOBAL CONTAINERS
-   ========================================================== */
-
-.article-width,
-.article-container,
-.article-author,
-.continue-reading {
-  width: var(--page-width);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-/* ==========================================================
    PAGE
    ========================================================== */
 
@@ -70,19 +56,17 @@ body {
    HERO
    ========================================================== */
 
+/* FULL-WIDTH HERO / PURPLE GLOW */
 .article-hero {
   position: relative;
   width: 100%;
-  padding: 90px 0 70px;
-  text-align: left;
+  max-width: 100%;
+  overflow: hidden;
 }
 
-
-/* Purple glow */
-
+/* Purple glow stays full-width */
 .article-hero::before {
   content: "";
-
   position: absolute;
 
   width: 900px;
@@ -90,21 +74,29 @@ body {
 
   left: 50%;
   top: -420px;
-
   transform: translateX(-50%);
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(109, 93, 251, .15),
-      transparent 70%
-    );
+  background: radial-gradient(
+    circle,
+    rgba(109, 93, 251, 0.15),
+    transparent 70%
+  );
 
   filter: blur(40px);
-
   z-index: 0;
+}
+
+/* CONTENT gets the spacing */
+.article-width,
+.article-container,
+.article-author,
+.continue-reading {
+  width: 90%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .article-hero > * {
@@ -1044,28 +1036,10 @@ body {
     overflow-x: hidden;
   }
 
-  /*
-     IMPORTANT:
-     Hero remains 100% width.
-     This prevents the purple glow/background
-     from being squeezed or cut off.
-  */
-
   .article-hero {
     width: 100%;
     max-width: 100%;
-    min-width: 0;
-
-    overflow: hidden;
-
-    padding: 60px 0 40px;
   }
-
-
-  /* ========================================================
-     CONTENT SHELL
-     90% WIDTH
-     ======================================================== */
 
   .article-width,
   .article-container,
@@ -1073,11 +1047,11 @@ body {
   .continue-reading {
     width: 90%;
     max-width: 90%;
-    min-width: 0;
-
     margin-left: auto;
     margin-right: auto;
   }
+
+}
 
 
   /* ========================================================
