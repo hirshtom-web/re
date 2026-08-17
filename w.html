@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Miami Market Intelligence | Rility</title>
+
+<style>
+:root {
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+    --border: #e5e9ef;
+
+    --text: #17202a;
+    --muted: #697586;
+
+    --navy: #132238;
+    --blue: #2563eb;
+    --blue-soft: #eaf1ff;
+
+    --green: #16845b;
+    --green-soft: #eaf8f2;
+
+    --red: #c83b3b;
+    --red-soft: #fff0f0;
+
+    --gold: #a66a00;
+    --gold-soft: #fff7df;
+
+    --shadow:
+        0 8px 30px rgba(15, 23, 42, .06);
+
+    --radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1440px;
+    margin: auto;
+    padding: 0 32px;
+}
+
+/* --------------------------------
+   HEADER
+-------------------------------- */
+
+.header {
+    background: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -.04em;
+}
+
+.nav {
+    display: flex;
+    gap: 28px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.nav a:hover {
+    color: var(--text);
+}
+
+.header-action {
+    border: 1px solid var(--border);
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* --------------------------------
+   HERO
+-------------------------------- */
+
+.hero {
+    background:
+        linear-gradient(
+            135deg,
+            #132238 0%,
+            #1d3555 55%,
+            #234c78 100%
+        );
+
+    color: white;
+    padding: 46px 0 50px;
+}
+
+.breadcrumb {
+    font-size: 13px;
+    color: #aebdd0;
+    margin-bottom: 22px;
+}
+
+.breadcrumb span {
+    margin: 0 8px;
+}
+
+.hero-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.05;
+    margin: 0 0 12px;
+    letter-spacing: -.04em;
+}
+
+.hero-subtitle {
+    color: #c8d4e3;
+    font-size: 16px;
+}
+
+.market-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.15);
+
+    padding: 10px 14px;
+    border-radius: 10px;
+
+    font-size: 13px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #44d39a;
+    border-radius: 50%;
+}
+
+/* --------------------------------
+   CONTROLS
+-------------------------------- */
+
+.controls {
+    margin-top: -22px;
+    position: relative;
+}
+
+.controls-card {
+    background: white;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.selector {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.selector button {
+    border: 1px solid var(--border);
+    background: white;
+
+    padding: 9px 14px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+    color: var(--muted);
+
+    cursor: pointer;
+}
+
+.selector button.active {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+}
+
+.updated {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* --------------------------------
+   SECTION
+-------------------------------- */
+
+.section {
+    padding: 42px 0 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-bottom: 18px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 750;
+    letter-spacing: -.02em;
+}
+
+.section-description {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* --------------------------------
+   SNAPSHOT CARDS
+-------------------------------- */
+
+.snapshot-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+.metric {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 20px;
+
+    box-shadow: 0 4px 18px rgba(15,23,42,.035);
+}
+
+.metric-label {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.metric-value {
+    font-size: 26px;
+    font-weight: 750;
+    letter-spacing: -.035em;
+}
+
+.metric-change {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.up {
+    color: var(--green);
+}
+
+.down {
+    color: var(--red);
+}
+
+.neutral {
+    color: var(--muted);
+}
+
+/* --------------------------------
+   MAIN GRID
+-------------------------------- */
+
+.two-column {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 2fr)
+        minmax(320px, 1fr);
+
+    gap: 18px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: 0 4px 18px rgba(15,23,42,.035);
+
+    padding: 24px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.card-subtitle {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* --------------------------------
+   CHART
+-------------------------------- */
+
+.chart {
+    height: 300px;
+    margin-top: 25px;
+
+    position: relative;
+
+    border-bottom: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 24%,
+            #edf0f4 25%,
+            transparent 26%,
+            transparent 49%,
+            #edf0f4 50%,
+            transparent 51%,
+            transparent 74%,
+            #edf0f4 75%,
+            transparent 76%
+        );
+}
+
+.chart svg {
+    width: 100%;
+    height: 100%;
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 8px;
+}
+
+/* --------------------------------
+   HEALTH
+-------------------------------- */
+
+.health-list {
+    margin-top: 20px;
+}
+
+.health-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.health-row:last-child {
+    border-bottom: 0;
+}
+
+.health-label {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.health-value {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.health-good {
+    color: var(--green);
+}
+
+.health-warning {
+    color: var(--gold);
+}
+
+.health-bad {
+    color: var(--red);
+}
+
+/* --------------------------------
+   PROPERTY TYPES
+-------------------------------- */
+
+.type-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.type {
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 17px;
+}
+
+.type-name {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.type-number {
+    margin-top: 8px;
+    font-size: 21px;
+    font-weight: 750;
+}
+
+.type-percent {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* --------------------------------
+   TABLE
+-------------------------------- */
+
+.table-card {
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.table th {
+    text-align: left;
+    font-size: 11px;
+    color: var(--muted);
+
+    font-weight: 600;
+
+    padding: 12px 10px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.table td {
+    padding: 15px 10px;
+
+    font-size: 13px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.table tr:last-child td {
+    border-bottom: 0;
+}
+
+.rank {
+    color: var(--muted);
+    width: 35px;
+}
+
+.location-name {
+    font-weight: 650;
+}
+
+.location-link {
+    color: var(--blue);
+}
+
+.trend {
+    font-weight: 650;
+}
+
+/* --------------------------------
+   INTELLIGENCE CARDS
+-------------------------------- */
+
+.intelligence-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.intelligence {
+    padding: 20px;
+
+    border-radius: 14px;
+
+    border: 1px solid var(--border);
+
+    background: white;
+}
+
+.intelligence-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--blue-soft);
+
+    color: var(--blue);
+
+    font-weight: 800;
+}
+
+.intelligence h3 {
+    font-size: 15px;
+    margin: 15px 0 7px;
+}
+
+.intelligence p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.intelligence-stat {
+    margin-top: 16px;
+
+    font-size: 23px;
+
+    font-weight: 750;
+}
+
+.intelligence-caption {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+/* --------------------------------
+   BUILDINGS
+-------------------------------- */
+
+.building-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.building {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    padding: 18px;
+}
+
+.building-name {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.building-address {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.building-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-top: 16px;
+}
+
+.building-stat {
+    background: var(--surface-soft);
+    padding: 10px;
+    border-radius: 9px;
+}
+
+.building-stat-label {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.building-stat-value {
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* --------------------------------
+   SALES
+-------------------------------- */
+
+.sale-row {
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 15px;
+
+    align-items: center;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.sale-row:last-child {
+    border-bottom: 0;
+}
+
+.sale-address {
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.sale-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+.sale-value {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* --------------------------------
+   FOOTER
+-------------------------------- */
+
+.footer {
+    margin-top: 70px;
+
+    padding: 35px 0;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+/* --------------------------------
+   RESPONSIVE
+-------------------------------- */
+
+@media (max-width: 1100px) {
+
+    .snapshot-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .building-grid,
+    .intelligence-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .container {
+        padding: 0 18px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .controls-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .snapshot-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .type-grid,
+    .building-grid,
+    .intelligence-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sale-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+
+        <div class="logo">
+            Rility
+        </div>
+
+        <nav class="nav">
+            <a href="#">Listings</a>
+            <a href="#">Markets</a>
+            <a href="#">Insights</a>
+            <a href="#">Tools</a>
+        </nav>
+
+        <a href="#" class="header-action">
+            Search Market
+        </a>
+
+    </div>
+</header>
+
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="breadcrumb">
+            Florida
+            <span>›</span>
+            Miami
+        </div>
+
+        <div class="hero-row">
+
+            <div>
+                <h1>Miami Market Intelligence</h1>
+
+                <div class="hero-subtitle">
+                    Real-time residential market analysis for Miami, Florida
+                </div>
+            </div>
+
+            <div class="market-status">
+                <span class="status-dot"></span>
+                Market currently active
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="container controls">
+
+    <div class="controls-card">
+
+        <div class="selector">
+
+            <button class="active">30 Days</button>
+            <button>90 Days</button>
+            <button>6 Months</button>
+            <button>1 Year</button>
+            <button>3 Years</button>
+
+        </div>
+
+        <div class="updated">
+            Data updated Aug 17, 2026
+        </div>
+
+    </div>
+
+</div>
+
+
+<main class="container">
+
+
+<!-- MARKET SNAPSHOT -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-title">
+                Market Snapshot
+            </div>
+
+            <div class="section-description">
+                Current conditions across the Miami residential market
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="snapshot-grid">
+
+        <div class="metric">
+            <div class="metric-label">
+                Median Asking Price
+            </div>
+
+            <div class="metric-value">
+                $675K
+            </div>
+
+            <div class="metric-change up">
+                ↑ 3.8% vs. last year
+            </div>
+        </div>
+
+
+        <div class="metric">
+            <div class="metric-label">
+                Active Listings
+            </div>
+
+            <div class="metric-value">
+                8,421
+            </div>
+
+            <div class="metric-change down">
+                ↓ 4.2%
+            </div>
+        </div>
+
+
+        <div class="metric">
+            <div class="metric-label">
+                New Listings
+            </div>
+
+            <div class="metric-value">
+                1,284
+            </div>
+
+            <div class="metric-change up">
+                ↑ 8.1%
+            </div>
+        </div>
+
+
+        <div class="metric">
+            <div class="metric-label">
+                Closed Sales
+            </div>
+
+            <div class="metric-value">
+                947
+            </div>
+
+            <div class="metric-change up">
+                ↑ 6.4%
+            </div>
+        </div>
+
+
+        <div class="metric">
+            <div class="metric-label">
+                Median $ / Sq Ft
+            </div>
+
+            <div class="metric-value">
+                $512
+            </div>
+
+            <div class="metric-change up">
+                ↑ 2.7%
+            </div>
+        </div>
+
+
+        <div class="metric">
+            <div class="metric-label">
+                Median Days
+            </div>
+
+            <div class="metric-value">
+                48
+            </div>
+
+            <div class="metric-change down">
+                ↓ 6 days
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CHART + HEALTH -->
+
+<section class="section">
+
+    <div class="two-column">
+
+
+        <div class="card">
+
+            <div class="card-title">
+                Median Sale Price
+            </div>
+
+            <div class="card-subtitle">
+                12-month trend
+            </div>
+
+
+            <div class="chart">
+
+                <svg viewBox="0 0 900 300"
+                     preserveAspectRatio="none">
+
+                    <defs>
+
+                        <linearGradient
+                            id="area"
+                            x1="0"
+                            y1="0"
+                            x2="0"
+                            y2="1">
+
+                            <stop
+                                offset="0%"
+                                stop-color="#2563eb"
+                                stop-opacity=".20"/>
+
+                            <stop
+                                offset="100%"
+                                stop-color="#2563eb"
+                                stop-opacity="0"/>
+
+                        </linearGradient>
+
+                    </defs>
+
+
+                    <path
+                        d="
+                        M0 230
+                        C80 225 100 215 150 220
+                        C210 225 250 190 300 200
+                        C350 210 390 170 440 180
+                        C500 190 520 150 580 160
+                        C640 170 680 130 730 145
+                        C780 160 820 105 900 115
+                        L900 300
+                        L0 300
+                        Z"
+                        fill="url(#area)"
+                    />
+
+
+                    <path
+                        d="
+                        M0 230
+                        C80 225 100 215 150 220
+                        C210 225 250 190 300 200
+                        C350 210 390 170 440 180
+                        C500 190 520 150 580 160
+                        C640 170 680 130 730 145
+                        C780 160 820 105 900 115"
+                        fill="none"
+                        stroke="#2563eb"
+                        stroke-width="4"
+                    />
+
+                </svg>
+
+            </div>
+
+            <div class="chart-labels">
+                <span>Aug 2025</span>
+                <span>Nov</span>
+                <span>Feb</span>
+                <span>May</span>
+                <span>Aug 2026</span>
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-title">
+                Market Health
+            </div>
+
+            <div class="card-subtitle">
+                Indicators of current market balance
+            </div>
+
+
+            <div class="health-list">
+
+                <div class="health-row">
+                    <span class="health-label">
+                        Months of Supply
+                    </span>
+
+                    <span class="health-value health-good">
+                        3.7 months
+                    </span>
+                </div>
+
+
+                <div class="health-row">
+                    <span class="health-label">
+                        Sale-to-List Ratio
+                    </span>
+
+                    <span class="health-value">
+                        97.8%
+                    </span>
+                </div>
+
+
+                <div class="health-row">
+                    <span class="health-label">
+                        Price Reductions
+                    </span>
+
+                    <span class="health-value health-warning">
+                        24.3%
+                    </span>
+                </div>
+
+
+                <div class="health-row">
+                    <span class="health-label">
+                        Pending / Active
+                    </span>
+
+                    <span class="health-value health-good">
+                        31.2%
+                    </span>
+                </div>
+
+
+                <div class="health-row">
+                    <span class="health-label">
+                        Inventory Trend
+                    </span>
+
+                    <span class="health-value health-good">
+                        ↓ Improving
+                    </span>
+                </div>
+
+
+                <div class="health-row">
+                    <span class="health-label">
+                        Market Direction
+                    </span>
+
+                    <span class="health-value health-good">
+                        Positive
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROPERTY TYPES -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-title">
+                Property Mix
+            </div>
+
+            <div class="section-description">
+                Active residential inventory by property type
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="type-grid">
+
+        <div class="type">
+            <div class="type-name">
+                Condos
+            </div>
+
+            <div class="type-number">
+                4,182
+            </div>
+
+            <div class="type-percent">
+                49.7% of inventory
+            </div>
+        </div>
+
+
+        <div class="type">
+            <div class="type-name">
+                Single Family
+            </div>
+
+            <div class="type-number">
+                3,021
+            </div>
+
+            <div class="type-percent">
+                35.9%
+            </div>
+        </div>
+
+
+        <div class="type">
+            <div class="type-name">
+                Townhomes
+            </div>
+
+            <div class="type-number">
+                831
+            </div>
+
+            <div class="type-percent">
+                9.9%
+            </div>
+        </div>
+
+
+        <div class="type">
+            <div class="type-name">
+                Multi-Family
+            </div>
+
+            <div class="type-number">
+                387
+            </div>
+
+            <div class="type-percent">
+                4.6%
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ZIP CODES -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-title">
+                ZIP Code Intelligence
+            </div>
+
+            <div class="section-description">
+                The most important market differences across Miami
+            </div>
+        </div>
+
+        <a href="#" class="location-link">
+            View all ZIP codes →
+        </a>
+
+    </div>
+
+
+    <div class="card table-card">
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+                    <th>#</th>
+                    <th>ZIP</th>
+                    <th>Median Price</th>
+                    <th>Active</th>
+                    <th>Sales</th>
+                    <th>$ / Sq Ft</th>
+                    <th>Trend</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td class="rank">1</td>
+                    <td class="location-name">33139</td>
+                    <td>$1.08M</td>
+                    <td>742</td>
+                    <td>118</td>
+                    <td>$1,012</td>
+                    <td class="trend up">+6.8%</td>
+                </tr>
+
+                <tr>
+                    <td class="rank">2</td>
+                    <td class="location-name">33131</td>
+                    <td>$892K</td>
+                    <td>681</td>
+                    <td>103</td>
+                    <td>$784</td>
+                    <td class="trend up">+4.9%</td>
+                </tr>
+
+                <tr>
+                    <td class="rank">3</td>
+                    <td class="location-name">33133</td>
+                    <td>$1.12M</td>
+                    <td>527</td>
+                    <td>82</td>
+                    <td>$711</td>
+                    <td class="trend up">+4.1%</td>
+                </tr>
+
+                <tr>
+                    <td class="rank">4</td>
+                    <td class="location-name">33129</td>
+                    <td>$795K</td>
+                    <td>486</td>
+                    <td>77</td>
+                    <td>$642</td>
+                    <td class="trend neutral">+0.8%</td>
+                </tr>
+
+                <tr>
+                    <td class="rank">5</td>
+                    <td class="location-name">33145</td>
+                    <td>$641K</td>
+                    <td>442</td>
+                    <td>71</td>
+                    <td>$498</td>
+                    <td class="trend down">-2.1%</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- MARKET OPPORTUNITIES -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-title">
+                Market Intelligence
+            </div>
+
+            <div class="section-description">
+                Signals identified from current market activity
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="intelligence-grid">
+
+
+        <div class="intelligence">
+
+            <div class="intelligence-icon">
+                ↓
+            </div>
+
+            <h3>
+                Biggest Price Declines
+            </h3>
+
+            <p>
+                ZIP codes where asking prices have
+                declined the most over the selected period.
+            </p>
+
+            <div class="intelligence-stat">
+                33145
+            </div>
+
+            <div class="intelligence-caption">
+                -2.1% median price
+            </div>
+
+        </div>
+
+
+        <div class="intelligence">
+
+            <div class="intelligence-icon">
+                ↑
+            </div>
+
+            <h3>
+                Strongest Markets
+            </h3>
+
+            <p>
+                Areas showing the strongest combination
+                of pricing and sales activity.
+            </p>
+
+            <div class="intelligence-stat">
+                33139
+            </div>
+
+            <div class="intelligence-caption">
+                +6.8% price growth
+            </div>
+
+        </div>
+
+
+        <div class="intelligence">
+
+            <div class="intelligence-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Fastest Moving
+            </h3>
+
+            <p>
+                Areas where properties are selling
+                significantly faster than the broader market.
+            </p>
+
+            <div class="intelligence-stat">
+                33131
+            </div>
+
+            <div class="intelligence-caption">
+                31 days median DOM
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- NEIGHBORHOODS -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-title">
+                Neighborhood Intelligence
+            </div>
+
+            <div class="section-description">
+                Local market performance within Miami
+            </div>
+        </div>
+
+        <a href="#" class="location-link">
+            Explore neighborhoods →
+        </a>
+
+    </div>
+
+
+    <div class="card table-card">
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+                    <th>Neighborhood</th>
+                    <th>Median Price</th>
+                    <th>Active</th>
+                    <th>Median DOM</th>
+                    <th>$ / Sq Ft</th>
+                    <th>Trend</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td class="location-name">Brickell</td>
+                    <td>$895K</td>
+                    <td>1,084</td>
+                    <td>42</td>
+                    <td>$786</td>
+                    <td class="trend up">+5.9%</td>
+                </tr>
+
+                <tr>
+                    <td class="location-name">Coconut Grove</td>
+                    <td>$1.34M</td>
+                    <td>421</td>
+                    <td>47</td>
+                    <td>$721</td>
+                    <td class="trend up">+4.2%</td>
+                </tr>
+
+                <tr>
+                    <td class="location-name">Coral Gables</td>
+                    <td>$1.18M</td>
+                    <td>516</td>
+                    <td>52</td>
+                    <td>$642</td>
+                    <td class="trend up">+2.9%</td>
+                </tr>
+
+                <tr>
+                    <td class="location-name">Edgewater</td>
+                    <td>$614K</td>
+                    <td>633</td>
+                    <td>61</td>
+                    <td>$583</td>
+                    <td class="trend neutral">+0.4%</td>
+                </tr>
+
+                <tr>
+                    <td class="location-name">Little Havana</td>
+                    <td>$481K</td>
+                    <td>389</td>
+                    <td>58</td>
+                    <td>$447</td>
+                    <td class="trend down">-1.8%</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- CONDO / BUILDINGS -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-title">
+                Condo & Building Intelligence
+            </div>
+
+            <div class="section-description">
+                Communities and buildings with significant market activity
+            </div>
+        </div>
+
+        <a href="#" class="location-link">
+            View all buildings →
+        </a>
+
+    </div>
+
+
+    <div class="building-grid">
+
+
+        <div class="building">
+
+            <div class="building-name">
+                Brickell Heights
+            </div>
+
+            <div class="building-address">
+                Brickell · Miami, FL
+            </div>
+
+
+            <div class="building-stats">
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        Active
+                    </div>
+
+                    <div class="building-stat-value">
+                        42
+                    </div>
+                </div>
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        Median Price
+                    </div>
+
+                    <div class="building-stat-value">
+                        $874K
+                    </div>
+                </div>
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        $ / Sq Ft
+                    </div>
+
+                    <div class="building-stat-value">
+                        $781
+                    </div>
+                </div>
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        Trend
+                    </div>
+
+                    <div class="building-stat-value up">
+                        +4.7%
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="building">
+
+            <div class="building-name">
+                Paramount Miami
+            </div>
+
+            <div class="building-address">
+                Downtown Miami
+            </div>
+
+
+            <div class="building-stats">
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        Active
+                    </div>
+
+                    <div class="building-stat-value">
+                        37
+                    </div>
+                </div>
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        Median Price
+                    </div>
+
+                    <div class="building-stat-value">
+                        $1.02M
+                    </div>
+                </div>
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        $ / Sq Ft
+                    </div>
+
+                    <div class="building-stat-value">
+                        $693
+                    </div>
+                </div>
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        Trend
+                    </div>
+
+                    <div class="building-stat-value up">
+                        +3.1%
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="building">
+
+            <div class="building-name">
+                The Plaza on Brickell
+            </div>
+
+            <div class="building-address">
+                Brickell · Miami, FL
+            </div>
+
+
+            <div class="building-stats">
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        Active
+                    </div>
+
+                    <div class="building-stat-value">
+                        31
+                    </div>
+                </div>
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        Median Price
+                    </div>
+
+                    <div class="building-stat-value">
+                        $628K
+                    </div>
+                </div>
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        $ / Sq Ft
+                    </div>
+
+                    <div class="building-stat-value">
+                        $562
+                    </div>
+                </div>
+
+                <div class="building-stat">
+                    <div class="building-stat-label">
+                        Trend
+                    </div>
+
+                    <div class="building-stat-value down">
+                        -1.4%
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RECENT SALES -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-title">
+                Recent Significant Sales
+            </div>
+
+            <div class="section-description">
+                Notable closed transactions in the market
+            </div>
+        </div>
+
+        <a href="#" class="location-link">
+            View recent sales →
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="sale-row">
+
+            <div>
+                <div class="sale-address">
+                    1000 Brickell Plaza #4201
+                </div>
+
+                <div class="sale-meta">
+                    Brickell · Condo · 2 bed · 2 bath
+                </div>
+            </div>
+
+            <div class="sale-value">
+                $1.42M
+            </div>
+
+            <div class="sale-value">
+                $1,034 / sqft
+            </div>
+
+            <div class="sale-value">
+                Aug 12
+            </div>
+
+        </div>
+
+
+        <div class="sale-row">
+
+            <div>
+                <div class="sale-address">
+                    2901 Collins Ave #1204
+                </div>
+
+                <div class="sale-meta">
+                    Miami Beach · Condo · 3 bed · 3 bath
+                </div>
+            </div>
+
+            <div class="sale-value">
+                $2.18M
+            </div>
+
+            <div class="sale-value">
+                $1,122 / sqft
+            </div>
+
+            <div class="sale-value">
+                Aug 9
+            </div>
+
+        </div>
+
+
+        <div class="sale-row">
+
+            <div>
+                <div class="sale-address">
+                    3200 Ponce De Leon Blvd
+                </div>
+
+                <div class="sale-meta">
+                    Coral Gables · Single Family · 4 bed
+                </div>
+            </div>
+
+            <div class="sale-value">
+                $1.87M
+            </div>
+
+            <div class="sale-value">
+                $698 / sqft
+            </div>
+
+            <div class="sale-value">
+                Aug 7
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- METHODOLOGY -->
+
+<section class="section">
+
+    <div class="card">
+
+        <div class="card-title">
+            About this market data
+        </div>
+
+        <div class="card-subtitle"
+             style="max-width:900px; line-height:1.7;">
+
+            Market statistics are calculated from available MLS
+            listing and transaction data. Metrics may vary depending
+            on property type, geographic boundary, reporting period,
+            and availability of historical records.
+
+            <br><br>
+
+            Rility continuously analyzes listing activity, pricing,
+            inventory, sales, price reductions, and market velocity
+            to identify meaningful changes in local real estate markets.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="container">
+
+        © 2026 Rility · Market Intelligence
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
