@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miami Beach, FL Real Estate & Neighborhood Guide (2026) | Rility</title>
+<meta name="description" content="Explore Miami Beach real estate: current homes for sale, rentals, prices by neighborhood, market trends, flood risk, and neighborhood scores for South Beach, Mid Beach, North Beach & South Pointe.">
+
+<!-- ============================================================
+  TEMPLATE NOTES FOR PROGRAMMATIC SEO (read me first)
+  This file is the MIAMI BEACH instance of a reusable neighborhood-guide
+  template. Anywhere you see {{double_brace}} tokens in the HTML comments,
+  that's a field that should come from your property/market database so
+  this scales to Fort Lauderdale, Brickell, Coral Gables, etc. without
+  hand-authoring each page. Actual visible copy stays real (no braces in
+  rendered text) so the mockup reads naturally.
+============================================================= -->
+
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<!-- Chart.js is NOT loaded here. Charts render as static server-side SVG
+     sparklines by default (zero JS, zero CLS). Chart.js is injected on
+     demand only when a visitor clicks "View interactive chart" — see
+     loadChartJS() at the bottom of this file. This is the single biggest
+     performance lever on a page with 4 charts + a map. -->
+
+<style>
+  :root{
+    --ink:#0F2A3D;
+    --sand:#FBF7EE;
+    --sand-deep:#F1E9D8;
+    --teal:#146B63;
+    --teal-deep:#0C4B45;
+    --coral:#E1613F;
+    --seafoam:#D8ECE6;
+    --slate:#5B6B70;
+    --line:#E4DCC8;
+    --white:#FFFFFF;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk','Archivo',sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0 0 .4em 0;
+    color:var(--ink);
+  }
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:.02em;
+  }
+  a{color:var(--teal-deep);}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--teal-deep);
+    display:flex;align-items:center;gap:8px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:18px;height:2px;background:var(--coral);
+  }
+
+  /* Art Deco stepped-sunburst divider — signature motif, echoes the
+     Ocean Drive facades referenced in the copy. Used between major
+     sections instead of a plain hairline. */
+  .deco-divider{
+    height:34px;
+    width:100%;
+    background:
+      repeating-linear-gradient(90deg,
+        transparent 0 46px,
+        var(--line) 46px 47px);
+    position:relative;
+    margin:0;
+  }
+  .deco-divider::before{
+    content:"";
+    position:absolute; left:50%; top:0; transform:translateX(-50%);
+    width:120px; height:34px;
+    background:
+      linear-gradient(var(--teal),var(--teal)) center/6px 34px no-repeat,
+      linear-gradient(var(--teal),var(--teal)) 24px 8px/6px 18px no-repeat,
+      linear-gradient(var(--teal),var(--teal)) 90px 8px/6px 18px no-repeat,
+      linear-gradient(var(--coral),var(--coral)) 48px 4px/6px 26px no-repeat,
+      linear-gradient(var(--coral),var(--coral)) 66px 4px/6px 26px no-repeat;
+    opacity:.85;
+  }
+
+  /* ---------- Header / breadcrumb ---------- */
+  header.site{
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+  }
+  .breadcrumb{
+    font-size:.82rem;
+    color:var(--slate);
+  }
+  .breadcrumb a{color:var(--slate); text-decoration:none;}
+  .breadcrumb a:hover{color:var(--teal-deep); text-decoration:underline;}
+  .breadcrumb span{margin:0 6px; color:#B9AF98;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:
+      radial-gradient(circle at 82% 20%, rgba(20,107,99,.14), transparent 55%),
+      var(--sand);
+    padding:56px 0 40px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{font-size:2.5rem; max-width:780px;}
+  .hero p.lede{font-size:1.08rem; color:var(--slate); max-width:680px;}
+  .search-cta{
+    margin-top:22px;
+    display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:13px 22px;
+    background:var(--teal-deep);
+    color:var(--white);
+    text-decoration:none;
+    font-weight:600;
+    font-size:.92rem;
+    border-radius:var(--radius);
+    border:1px solid var(--teal-deep);
+  }
+  .btn:hover{background:var(--teal);}
+  .btn.ghost{
+    background:transparent; color:var(--teal-deep); border:1px solid var(--teal-deep);
+  }
+
+  /* ---------- Stats strip ---------- */
+  .stats-strip{
+    background:var(--ink);
+    color:var(--sand);
+  }
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:0;
+  }
+  .stat{
+    padding:22px 18px;
+    border-right:1px solid rgba(255,255,255,.12);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .val{font-family:'Space Grotesk',sans-serif; font-size:1.55rem; font-weight:600;}
+  .stat .label{font-size:.72rem; color:#A9BFB9; text-transform:uppercase; letter-spacing:.08em; margin-top:4px;}
+  .stat .delta-up{color:#7FD9B0; font-size:.78rem;}
+  .live-tag{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'IBM Plex Mono',monospace; font-size:.68rem;
+    color:#7FD9B0; text-transform:uppercase; letter-spacing:.1em;
+  }
+  .live-dot{width:6px;height:6px;border-radius:50%;background:#7FD9B0; animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+  /* ---------- Sections ---------- */
+  section{padding:56px 0;}
+  .section-head{margin-bottom:26px; max-width:760px;}
+  .badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.65rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:3px 8px;
+    border:1px solid var(--teal);
+    color:var(--teal-deep);
+    border-radius:2px;
+    margin-bottom:10px;
+  }
+  .badge.live{border-color:var(--coral); color:var(--coral);}
+
+  /* ---------- Map module ---------- */
+  .map-shell{
+    border:1px solid var(--line);
+    background:var(--white);
+    overflow:hidden;
+  }
+  .map-canvas{
+    height:460px;
+    background:linear-gradient(180deg,#BFE0DE 0%, #A9D4CF 100%);
+    position:relative;
+  }
+  .map-canvas svg{width:100%; height:100%;}
+  .map-toolbar{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 16px; border-top:1px solid var(--line);
+    font-size:.82rem; color:var(--slate);
+    flex-wrap:wrap; gap:8px;
+  }
+  .layer-toggle{
+    display:flex; gap:6px; flex-wrap:wrap;
+  }
+  .layer-toggle span{
+    padding:4px 10px; border:1px solid var(--line); border-radius:14px;
+    font-size:.74rem; background:var(--sand);
+  }
+  .zone{cursor:pointer; transition:opacity .15s;}
+  .zone:hover{opacity:.75;}
+  .zone-label{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; fill:var(--ink); pointer-events:none;
+  }
+  .crawl-links{
+    margin-top:14px; font-size:.9rem; line-height:2.1;
+  }
+  .crawl-links a{margin-right:4px; text-decoration:none; color:var(--teal-deep); font-weight:600;}
+  .crawl-links a:hover{text-decoration:underline;}
+  .crawl-links .sep{color:#B9AF98; margin-right:4px;}
+
+  /* ---------- Comparison table ---------- */
+  table.compare{
+    width:100%; border-collapse:collapse; background:var(--white);
+    font-size:.92rem;
+  }
+  table.compare th, table.compare td{
+    padding:12px 14px; border-bottom:1px solid var(--line); text-align:left;
+  }
+  table.compare th{
+    font-family:'IBM Plex Mono',monospace; font-size:.7rem; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--slate); background:var(--sand-deep);
+  }
+  table.compare td.num, table.compare th.num{text-align:right; font-family:'IBM Plex Mono',monospace;}
+  table.compare tr:hover{background:var(--seafoam);}
+  table.compare a{font-weight:600; text-decoration:none;}
+  table.compare a:hover{text-decoration:underline;}
+  .up{color:var(--teal-deep);}
+  .down{color:var(--coral);}
+  .table-scroll{overflow-x:auto; border:1px solid var(--line);}
+
+  /* ---------- Charts ---------- */
+  .chart-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  .chart-card{
+    background:var(--white); border:1px solid var(--line); padding:18px 18px 8px;
+  }
+  .chart-card h3{font-size:1rem; margin-bottom:2px;}
+  .chart-meta{font-size:.76rem; color:var(--slate); margin-bottom:10px;}
+  .chart-meta .updated{color:var(--teal-deep); font-weight:600;}
+  canvas{max-height:220px;}
+  .sparkline-wrap{
+    aspect-ratio:16/7; /* reserved space = no layout shift when JS swaps in */
+    width:100%;
+  }
+  .sparkline-wrap svg{width:100%; height:100%; display:block;}
+  .load-interactive{
+    margin-top:10px;
+    background:none; border:1px solid var(--teal); color:var(--teal-deep);
+    font-family:'IBM Plex Mono',monospace; font-size:.72rem;
+    padding:6px 12px; cursor:pointer; border-radius:2px;
+  }
+  .load-interactive:hover{background:var(--seafoam);}
+  .perf-note{font-size:.68rem; color:#8B9497; margin-top:4px;}
+  .chart-alt{
+    font-size:.78rem; margin-top:8px;
+  }
+  .section-copy{color:var(--slate); max-width:760px; margin-top:14px; line-height:1.7;}
+  .section-copy p{margin:0 0 12px 0;}
+  .chart-alt summary{cursor:pointer; color:var(--teal-deep);}
+  .chart-alt table{width:100%; margin-top:8px; font-size:.78rem; border-collapse:collapse;}
+  .chart-alt td, .chart-alt th{padding:4px 6px; border-bottom:1px solid var(--line);}
+  .source-line{font-size:.72rem; color:#8B9497; margin-top:14px;}
+
+  /* ---------- Listings ---------- */
+  .listing-count{
+    font-family:'IBM Plex Mono',monospace; font-size:1.5rem; color:var(--teal-deep); font-weight:700;
+  }
+  .listing-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:20px;
+  }
+  .listing-card{
+    background:var(--white); border:1px solid var(--line); overflow:hidden;
+  }
+  .listing-photo{
+    height:130px;
+    background:linear-gradient(135deg,var(--seafoam),#BFDAD3);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--teal-deep); font-family:'IBM Plex Mono',monospace; font-size:.7rem;
+    position:relative;
+  }
+  .listing-photo .tag{
+    position:absolute; top:8px; left:8px; background:var(--coral); color:#fff;
+    font-size:.62rem; padding:2px 7px; border-radius:2px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.05em;
+  }
+  .listing-body{padding:12px 14px;}
+  .listing-price{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.15rem;}
+  .listing-specs{font-size:.78rem; color:var(--slate); margin:4px 0;}
+  .listing-addr{font-size:.8rem; color:var(--ink);}
+  .filter-row{
+    display:flex; gap:8px; flex-wrap:wrap; margin:16px 0;
+  }
+  .filter-row select, .filter-row input{
+    padding:8px 10px; border:1px solid var(--line); background:var(--white); font-size:.82rem;
+  }
+
+  /* ---------- Neighborhood profile cards ---------- */
+  .hood-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:8px;
+  }
+  .hood-card{
+    background:var(--white); border:1px solid var(--line); padding:22px;
+    position:relative;
+  }
+  .hood-card .best-for{
+    font-size:.8rem; color:var(--teal-deep); font-weight:600; margin:10px 0;
+  }
+  .hood-card h3{font-size:1.25rem;}
+  .hood-mini-stats{
+    display:flex; gap:18px; margin:12px 0; font-family:'IBM Plex Mono',monospace; font-size:.78rem;
+  }
+  .hood-mini-stats div span{display:block; color:var(--slate); font-size:.68rem;}
+
+  /* ---------- Scores ---------- */
+  .score-bars{display:grid; grid-template-columns:1fr 1fr; gap:10px 30px; margin-top:10px;}
+  .score-row{display:flex; align-items:center; gap:10px; font-size:.85rem;}
+  .score-row .name{width:150px; flex-shrink:0;}
+  .score-track{flex:1; height:8px; background:var(--sand-deep); border-radius:4px; overflow:hidden;}
+  .score-fill{height:100%; background:linear-gradient(90deg,var(--teal),var(--teal-deep));}
+  .score-val{width:26px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:.78rem;}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border-bottom:1px solid var(--line); padding:16px 0;}
+  .faq-item summary{
+    cursor:pointer; font-weight:600; font-family:'Space Grotesk',sans-serif; font-size:1.02rem;
+    list-style:none; display:flex; justify-content:space-between; align-items:center;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"+"; color:var(--coral); font-size:1.3rem; font-weight:400;}
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item p{margin:10px 0 0; color:var(--slate);}
+
+  footer.dev-note{
+    background:var(--ink); color:#A9BFB9; padding:26px 0; font-size:.78rem;
+  }
+  footer.dev-note code{color:#7FD9B0;}
+
+  @media (max-width: 900px){
+    .stats-grid{grid-template-columns:repeat(3,1fr);}
+    .stat:nth-child(3){border-right:none;}
+    .chart-grid, .hood-grid{grid-template-columns:1fr;}
+    .listing-grid{grid-template-columns:repeat(2,1fr);}
+    .hero h1{font-size:1.9rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER / BREADCRUMB (SEO: real anchors + BreadcrumbList schema) ================= -->
+<header class="site">
+  <div class="wrap breadcrumb">
+    <a href="/">Rility</a><span>/</span>
+    <a href="/florida">Florida</a><span>/</span>
+    <a href="/florida/miami-dade-county">Miami-Dade County</a><span>/</span>
+    <strong>Miami Beach</strong>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="eyebrow">South Florida &gt; Miami-Dade County &gt; Miami Beach</div>
+    <h1>Miami Beach, FL Real Estate &amp; Neighborhood Guide</h1>
+    <p class="lede">Miami Beach stretches from South Pointe through South Beach and Mid Beach to North Beach — beaches, Art Deco architecture, waterfront towers, and a year-round outdoor lifestyle. Compare current listings, prices, and neighborhood data side by side before you buy, rent, or invest.</p>
+    <div class="search-cta">
+      <a class="btn" href="/search?city=miami-beach">Search Miami Beach Properties</a>
+      <a class="btn ghost" href="/miami-beach/ai-search">Ask Rility AI about this market</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARKET SNAPSHOT — DYNAMIC ================= -->
+<div class="stats-strip">
+  <div class="wrap" style="padding-top:16px; padding-bottom:16px;">
+    <span class="live-tag"><span class="live-dot"></span>Live market snapshot · updated Aug 26, 2026</span>
+    <div class="stats-grid" style="margin-top:12px;">
+      <div class="stat"><div class="val mono">$630K</div><div class="label">Median Sale Price</div><div class="delta-up">▲ 4.5% YoY</div></div>
+      <div class="stat"><div class="val mono">$742</div><div class="label">Price / Sq. Ft.</div><div class="delta-up">▲ 2.1% YoY</div></div>
+      <div class="stat"><div class="val mono">1,486</div><div class="label">Homes for Sale</div></div>
+      <div class="stat"><div class="val mono">$3,950</div><div class="label">Median Rent</div><div class="delta-up">▲ 1.8% YoY</div></div>
+      <div class="stat"><div class="val mono">150</div><div class="label">Days on Market</div></div>
+      <div class="stat"><div class="val mono" style="color:#7FD9B0;">+4.5%</div><div class="label">YoY Change</div></div>
+    </div>
+  </div>
+</div>
+<div class="wrap" style="padding-top:18px; padding-bottom:6px;">
+  <p class="section-copy" style="max-width:900px;">Miami Beach's citywide median masks a wide spread: a Flamingo-Lummus studio near $299K sits in the same market as a South Pointe waterfront tower averaging $1.2M. The 150-day median days-on-market is also longer than most of Miami-Dade, driven by a heavy concentration of higher-priced condos that take longer to move than single-family inventory elsewhere in the county.</p>
+</div>
+
+<div class="deco-divider"></div>
+
+<!-- ================= INTERACTIVE MAP ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="badge live">Dynamic · interactive map component</span>
+      <h2>Explore Miami Beach by Neighborhood</h2>
+      <p style="color:var(--slate);">Click a zone to jump to that neighborhood's page, or use the links below the map.</p>
+      <p class="section-copy">Miami Beach sits on a barrier island between the Atlantic Ocean and Biscayne Bay, connected to the mainland by four causeways. That geography is why "waterfront" means two different things here: ocean-facing buildings on the east side command a premium over bay-facing addresses on the west, even within the same neighborhood.</p>
+    </div>
+
+    <div class="map-shell">
+      <div class="map-canvas">
+        <!-- PERFORMANCE PATTERN: this custom SVG (no tile library, ~2KB)
+             is the map for every first page load. A full Mapbox GL /
+             Google Maps instance with live listing pins only initializes
+             if the visitor clicks "Open full interactive map" below —
+             that's what actually costs JS weight and tile requests, and
+             most visitors browsing a neighborhood guide never need it. -->
+        <svg viewBox="0 0 600 460" preserveAspectRatio="xMidYMid meet">
+          <rect x="0" y="0" width="600" height="460" fill="#AFD8D3"/>
+          <!-- landmass silhouette -->
+          <path d="M250 20 L340 30 L360 100 L330 160 L350 220 L320 290 L340 360 L300 440 L240 440 L230 360 L250 300 L220 230 L240 160 L210 100 Z" fill="#F1E9D8" stroke="#D8CBA8" stroke-width="2"/>
+          <!-- North Beach -->
+          <g class="zone" data-hood="north-beach" onclick="window.location='/miami-beach/north-beach'">
+            <path d="M250 20 L340 30 L360 100 L330 160 L235 155 L228 95 Z" fill="#D8ECE6" stroke="#146B63" stroke-width="1.5"/>
+            <text x="270" y="90" class="zone-label">North Beach</text>
+          </g>
+          <!-- Mid Beach -->
+          <g class="zone" data-hood="mid-beach" onclick="window.location='/miami-beach/mid-beach'">
+            <path d="M235 155 L330 160 L350 220 L320 290 L245 285 L225 225 Z" fill="#BFE0DE" stroke="#146B63" stroke-width="1.5"/>
+            <text x="255" y="225" class="zone-label">Mid Beach</text>
+          </g>
+          <!-- South Beach -->
+          <g class="zone" data-hood="south-beach" onclick="window.location='/miami-beach/south-beach'">
+            <path d="M245 285 L320 290 L340 360 L300 415 L255 400 L235 340 Z" fill="#9FCFC9" stroke="#146B63" stroke-width="1.5"/>
+            <text x="255" y="345" class="zone-label">South Beach</text>
+          </g>
+          <!-- South Pointe -->
+          <g class="zone" data-hood="south-pointe" onclick="window.location='/miami-beach/south-pointe'">
+            <path d="M255 400 L300 415 L300 440 L260 440 Z" fill="#7FBDB6" stroke="#146B63" stroke-width="1.5"/>
+            <text x="255" y="432" class="zone-label" font-size="9">South Pointe</text>
+          </g>
+          <!-- sample listing pins -->
+          <circle cx="280" cy="70" r="4" fill="#E1613F"/>
+          <circle cx="300" cy="200" r="4" fill="#E1613F"/>
+          <circle cx="280" cy="330" r="4" fill="#E1613F"/>
+          <circle cx="270" cy="70" r="4" fill="#E1613F"/>
+        </svg>
+      </div>
+      <div class="map-toolbar">
+        <div class="layer-toggle">
+          <span>For Sale</span><span>For Rent</span><span>Waterfront</span><span>Schools</span><span>Transit</span><span>Flood Zones</span>
+        </div>
+        <div>Click a zone to open its neighborhood page →</div>
+      </div>
+    </div>
+    <button class="load-interactive" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">Open full interactive map (listings, transit, flood zones) →</button>
+    <p class="perf-note" style="display:none;">Loading full map experience — in production this mounts Mapbox GL / Google Maps here on demand.</p>
+
+    <!-- SEO rule: crawlable text links, never map-only navigation -->
+    <nav class="crawl-links" aria-label="Miami Beach neighborhoods">
+      <a href="/miami-beach/south-beach">South Beach</a><span class="sep">|</span>
+      <a href="/miami-beach/south-pointe">South Pointe</a><span class="sep">|</span>
+      <a href="/miami-beach/mid-beach">Mid Beach</a><span class="sep">|</span>
+      <a href="/miami-beach/north-beach">North Beach</a><span class="sep">|</span>
+      <a href="/miami-beach/sunset-harbour">Sunset Harbour</a><span class="sep">|</span>
+      <a href="/miami-beach/flamingo-lummus">Flamingo-Lummus</a><span class="sep">|</span>
+      <a href="/miami-beach/venetian-islands">Venetian Islands</a><span class="sep">|</span>
+      <a href="/miami-beach/star-island">Star Island</a>
+    </nav>
+  </div>
+</section>
+
+<div class="deco-divider"></div>
+
+<!-- ================= COMPARISON TABLE ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="badge live">Dynamic · database-driven</span>
+      <h2>Miami Beach Neighborhoods at a Glance</h2>
+      <p style="color:var(--slate);">Sortable by any column — click a header to re-rank. Every neighborhood name links to its own Rility page.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Neighborhood</th>
+            <th class="num">Median Price</th>
+            <th class="num">$ / Sq Ft</th>
+            <th class="num">Median Rent</th>
+            <th class="num">YoY</th>
+            <th class="num">Median DOM</th>
+            <th class="num">For Sale</th>
+            <th>Dominant Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="/miami-beach/south-beach">South Beach</a></td>
+            <td class="num">$499K</td><td class="num">$700</td><td class="num">$3,500</td>
+            <td class="num up">▲ 3.2%</td><td class="num">128</td><td class="num">412</td><td>Condo</td>
+          </tr>
+          <tr>
+            <td><a href="/miami-beach/mid-beach">Mid Beach</a></td>
+            <td class="num">$796K</td><td class="num">$709</td><td class="num">$4,250</td>
+            <td class="num up">▲ 5.1%</td><td class="num">142</td><td class="num">265</td><td>Condo</td>
+          </tr>
+          <tr>
+            <td><a href="/miami-beach/north-beach">North Beach</a></td>
+            <td class="num">$675K</td><td class="num">$639</td><td class="num">$2,800</td>
+            <td class="num up">▲ 2.4%</td><td class="num">167</td><td class="num">198</td><td>Mixed</td>
+          </tr>
+          <tr>
+            <td><a href="/miami-beach/south-pointe">South Pointe</a></td>
+            <td class="num">$1.2M</td><td class="num">$1,218</td><td class="num">$6,900</td>
+            <td class="num down">▼ 1.1%</td><td class="num">175</td><td class="num">89</td><td>Condo</td>
+          </tr>
+          <tr>
+            <td><a href="/miami-beach/flamingo-lummus">Flamingo-Lummus</a></td>
+            <td class="num">$299K</td><td class="num">$510</td><td class="num">$2,350</td>
+            <td class="num up">▲ 6.0%</td><td class="num">96</td><td class="num">157</td><td>Condo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-copy">South Pointe's price-per-square-foot runs nearly double South Beach's despite sitting a few blocks apart — the gap comes down to newer construction, full-service buildings, and direct Biscayne Bay or ocean frontage. Flamingo-Lummus, by contrast, is the entry point into South Beach proper: smaller, older buildings a short walk from the same beach and nightlife, at roughly a third of South Pointe's price per square foot.</p>
+  </div>
+</section>
+
+<div class="deco-divider"></div>
+
+<!-- ================= CHARTS ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="badge live">Dynamic · chart.js bound to your pricing API</span>
+      <h2>Miami Beach Home Price Trends</h2>
+      <p style="color:var(--slate);">As of June 2026, the citywide median sale price was approximately $630,000, up 4.5% year over year, with homes taking a median of about 150 days to sell — reinforcing why neighborhood-level data matters more than the citywide average.</p>
+    </div>
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>Median Sale Price</h3>
+        <div class="chart-meta">24-month trend · <span class="updated">Updated Aug 26, 2026</span></div>
+        <div class="sparkline-wrap" id="sparkPrice"><!-- static SVG injected server-side; placeholder built client-side here for the mockup --></div>
+        <button class="load-interactive" data-target="chartPrice" data-series="price" data-color="#146B63">View interactive chart →</button>
+        <details class="chart-alt">
+          <summary>View as table (accessible alternative)</summary>
+          <table><thead><tr><th>Month</th><th>Median Price</th></tr></thead>
+          <tbody id="tblPrice"></tbody></table>
+        </details>
+      </div>
+
+      <div class="chart-card">
+        <h3>Price per Sq. Ft.</h3>
+        <div class="chart-meta">24-month trend · <span class="updated">Updated Aug 26, 2026</span></div>
+        <div class="sparkline-wrap" id="sparkPsf"></div>
+        <button class="load-interactive" data-target="chartPsf" data-series="psf" data-color="#E1613F">View interactive chart →</button>
+        <details class="chart-alt">
+          <summary>View as table (accessible alternative)</summary>
+          <table><thead><tr><th>Month</th><th>$ / Sq Ft</th></tr></thead>
+          <tbody id="tblPsf"></tbody></table>
+        </details>
+      </div>
+
+      <div class="chart-card">
+        <h3>Active Inventory</h3>
+        <div class="chart-meta">Homes for sale, last 12 months · <span class="updated">Updated Aug 26, 2026</span></div>
+        <div class="sparkline-wrap" id="sparkInv"></div>
+        <button class="load-interactive" data-target="chartInv" data-series="inv" data-color="#0C4B45" data-type="bar">View interactive chart →</button>
+        <details class="chart-alt">
+          <summary>View as table (accessible alternative)</summary>
+          <table><thead><tr><th>Month</th><th>Active Listings</th></tr></thead>
+          <tbody id="tblInv"></tbody></table>
+        </details>
+      </div>
+
+      <div class="chart-card">
+        <h3>Days on Market</h3>
+        <div class="chart-meta">Median DOM, last 12 months · <span class="updated">Updated Aug 26, 2026</span></div>
+        <div class="sparkline-wrap" id="sparkDom"></div>
+        <button class="load-interactive" data-target="chartDom" data-series="dom" data-color="#0F2A3D">View interactive chart →</button>
+        <details class="chart-alt">
+          <summary>View as table (accessible alternative)</summary>
+          <table><thead><tr><th>Month</th><th>Median DOM</th></tr></thead>
+          <tbody id="tblDom"></tbody></table>
+        </details>
+      </div>
+    </div>
+    <p class="section-copy">Price and price-per-square-foot have climbed steadily for two straight years with no pullback, while inventory has grown faster than sales — a combination that typically signals a market shifting toward buyers even as headline prices keep rising. Days on market ticked up through 2025 before flattening in 2026, consistent with pricier listings sitting longer while entry-level condos still move quickly.</p>
+    <p class="source-line">Source: Rility market data, aggregated from MLS and public records. Methodology: <a href="/methodology">how we calculate these figures →</a></p>
+  </div>
+</section>
+
+<div class="deco-divider"></div>
+
+<!-- ================= HOMES FOR SALE — LIVE LISTINGS ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="badge live">Dynamic · live listing feed</span>
+      <h2>Homes for Sale in Miami Beach</h2>
+      <div class="listing-count">1,486 <span style="font-size:.9rem; color:var(--slate); font-weight:400;">properties found</span></div>
+      <p style="color:var(--slate); margin-top:8px;">Condos make up most of the Miami Beach market, alongside single-family homes, townhomes, and luxury waterfront residences. Filter by price, beds/baths, property type, neighborhood, waterfront access, square footage, year built, and HOA fees.</p>
+      <p class="section-copy">Building age matters more here than in most markets: many oceanfront condos were built between the 1960s and 1980s and are now subject to Florida's mandatory structural recertification and reserve-funding requirements, which can mean higher HOA dues or a special assessment. Newer construction and recently renovated buildings tend to carry a price premium partly for this reason — worth checking a building's most recent 40/50-year inspection before you tour.</p>
+    </div>
+
+    <div class="filter-row">
+      <select><option>Any Price</option></select>
+      <select><option>Any Beds</option></select>
+      <select><option>Property Type</option></select>
+      <select><option>Any Neighborhood</option></select>
+      <select><option>Waterfront Only</option></select>
+    </div>
+
+    <div class="listing-grid">
+      <div class="listing-card">
+        <div class="listing-photo"><span class="tag">New</span>Listing photo</div>
+        <div class="listing-body">
+          <div class="listing-price">$675,000</div>
+          <div class="listing-specs">2 bd · 2 ba · 1,180 sqft</div>
+          <div class="listing-addr">Sunset Harbour, Miami Beach</div>
+        </div>
+      </div>
+      <div class="listing-card">
+        <div class="listing-photo">Listing photo</div>
+        <div class="listing-body">
+          <div class="listing-price">$1,395,000</div>
+          <div class="listing-specs">3 bd · 3 ba · 1,940 sqft</div>
+          <div class="listing-addr">South Pointe, Miami Beach</div>
+        </div>
+      </div>
+      <div class="listing-card">
+        <div class="listing-photo"><span class="tag" style="background:var(--teal-deep);">Waterfront</span>Listing photo</div>
+        <div class="listing-body">
+          <div class="listing-price">$899,000</div>
+          <div class="listing-specs">2 bd · 2.5 ba · 1,410 sqft</div>
+          <div class="listing-addr">Mid Beach, Miami Beach</div>
+        </div>
+      </div>
+      <div class="listing-card">
+        <div class="listing-photo">Listing photo</div>
+        <div class="listing-body">
+          <div class="listing-price">$449,000</div>
+          <div class="listing-specs">1 bd · 1 ba · 720 sqft</div>
+          <div class="listing-addr">North Beach, Miami Beach</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:22px;">
+      <a class="btn" href="/search?city=miami-beach&status=for-sale">Explore All Miami Beach Homes for Sale →</a>
+    </div>
+  </div>
+</section>
+
+<div class="deco-divider"></div>
+
+<!-- ================= RECENTLY SOLD ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="badge live">Dynamic · closed-sale feed, updated daily</span>
+      <h2>Recently Sold in Miami Beach</h2>
+      <p style="color:var(--slate);">Closed sales are the clearest signal of what buyers are actually paying right now — more reliable than list price alone. This is also one of the highest-intent searches for buyers comparing a specific listing against the market.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="compare">
+        <thead>
+          <tr><th>Address</th><th>Neighborhood</th><th class="num">Sold Price</th><th class="num">$ / Sq Ft</th><th class="num">Days on Market</th><th class="num">Sold Date</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1500 Ocean Dr, Unit 8B</td><td><a href="/miami-beach/south-beach">South Beach</a></td><td class="num">$612,000</td><td class="num">$714</td><td class="num">96</td><td class="num">Aug 12, 2026</td></tr>
+          <tr><td>5445 Collins Ave, Unit 12A</td><td><a href="/miami-beach/mid-beach">Mid Beach</a></td><td class="num">$1,050,000</td><td class="num">$731</td><td class="num">134</td><td class="num">Aug 6, 2026</td></tr>
+          <tr><td>7900 Harding Ave, Unit 4</td><td><a href="/miami-beach/north-beach">North Beach</a></td><td class="num">$521,000</td><td class="num">$618</td><td class="num">159</td><td class="num">Jul 29, 2026</td></tr>
+          <tr><td>1 Washington Ave, Unit 2201</td><td><a href="/miami-beach/south-pointe">South Pointe</a></td><td class="num">$1,875,000</td><td class="num">$1,190</td><td class="num">201</td><td class="num">Jul 21, 2026</td></tr>
+          <tr><td>1250 West Ave, Unit 7C</td><td><a href="/miami-beach/flamingo-lummus">Flamingo-Lummus</a></td><td class="num">$342,000</td><td class="num">$527</td><td class="num">88</td><td class="num">Jul 15, 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="perf-note" style="margin-top:8px;">Sample rows shown for layout — wire this table to your closed-sales feed (MLS or public records) and paginate; 15–20 most recent is a reasonable default per neighborhood page.</p>
+  </div>
+</section>
+
+<div class="deco-divider"></div>
+
+<!-- ================= RENTALS ================= -->
+<section style="background:var(--sand-deep);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="badge live">Dynamic · live listing feed</span>
+      <h2>Miami Beach Rentals</h2>
+      <p style="color:var(--slate);">Miami Beach is one of South Florida's major rental markets, spanning studio apartments to luxury oceanfront residences. Filter by price, bedrooms, neighborhood, and property type.</p>
+    </div>
+    <a class="btn" href="/search?city=miami-beach&status=for-rent">Explore Miami Beach Rentals →</a>
+  </div>
+</section>
+
+<div class="deco-divider"></div>
+
+<!-- ================= NEIGHBORHOOD PROFILES ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Miami Beach Neighborhoods</h2>
+      <p style="color:var(--slate);">Miami Beach isn't one neighborhood — it's several. The city officially defines South Beach as south of 23rd Street, Mid Beach as 23rd to 63rd Street, and North Beach as north of 63rd Street, each with a distinct real estate profile.</p>
+    </div>
+
+    <!-- ============================================================
+      INTERNAL LINKING NOTE — read before building the sub-pages.
+      This hub page (/miami-beach) links DOWN to each neighborhood.
+      Each neighborhood sub-page (/miami-beach/south-beach, etc.) needs
+      to also link:
+        1) UP — breadcrumb back to this hub (Rility > Florida >
+           Miami-Dade County > Miami Beach > South Beach), same pattern
+           as the breadcrumb at the top of this file.
+        2) SIDEWAYS — to its 2-3 nearest sibling neighborhoods, with
+           real anchor text ("Compare to Mid Beach"), not just a repeat
+           of the same crawlable nav block. The "Compare to" links below
+           on each card are that sideways pattern — carry it onto the
+           actual sub-page templates, ideally contextual (South Pointe
+           should link Flamingo-Lummus and South Beach; North Beach
+           should link Mid Beach), not the full neighborhood list.
+        3) DOWN — to individual property/listing pages within that
+           neighborhood, and to any smaller micro-neighborhoods it
+           contains (e.g. South Beach > Flamingo-Lummus, Sunset Harbour).
+      Hub pages that only link down, and sub-pages that only link up,
+      create an orphaned linking structure — crawl depth increases and
+      link equity doesn't flow sideways between comparable pages, which
+      is exactly the internal-linking mistake programmatic SEO sites
+      most often make at scale.
+    ============================================================= -->
+
+    <div class="hood-grid">
+      <div class="hood-card">
+        <h3><a href="/miami-beach/south-beach">South Beach</a></h3>
+        <p>Miami Beach's best-known district — beaches, restaurants, nightlife, shopping, and the historic Art Deco District, built for a highly walkable, energetic lifestyle close to the city's major attractions.</p>
+        <div class="hood-mini-stats">
+          <div>$499K<span>Median Price</span></div>
+          <div>$3,500<span>Median Rent</span></div>
+          <div>412<span>For Sale</span></div>
+        </div>
+        <div class="best-for">Best for: walkability, nightlife, restaurants, culture, beach access</div>
+        <p style="font-size:.8rem; color:var(--slate); border-left:2px solid var(--coral); padding-left:10px; margin:10px 0;"><strong>Local tip:</strong> buildings east of Collins Ave carry an ocean-view premium over those just one block west on Washington Ave, even at the same square footage.</p>
+        <a href="/search?city=miami-beach&hood=south-beach">Explore South Beach Real Estate →</a>
+        <div style="margin-top:10px; font-size:.78rem;">Compare to: <a href="/miami-beach/south-pointe">South Pointe</a> · <a href="/miami-beach/mid-beach">Mid Beach</a></div>
+      </div>
+
+      <div class="hood-card">
+        <h3><a href="/miami-beach/south-pointe">South Pointe</a></h3>
+        <p>The southern tip of Miami Beach — luxury residential towers, waterfront views, South Pointe Park, and proximity to the South of Fifth dining district.</p>
+        <div class="hood-mini-stats">
+          <div>$1.2M<span>Median Price</span></div>
+          <div>$6,900<span>Median Rent</span></div>
+          <div>89<span>For Sale</span></div>
+        </div>
+        <div class="best-for">Best for: luxury condos, waterfront living, quieter South Beach living</div>
+        <p style="font-size:.8rem; color:var(--slate); border-left:2px solid var(--coral); padding-left:10px; margin:10px 0;"><strong>Local tip:</strong> the closer a building sits to South Pointe Park and the Government Cut jetty, the higher the price floor — even modest units there outprice larger South Beach condos.</p>
+        <a href="/search?city=miami-beach&hood=south-pointe">Explore South Pointe Real Estate →</a>
+        <div style="margin-top:10px; font-size:.78rem;">Compare to: <a href="/miami-beach/south-beach">South Beach</a> · <a href="/miami-beach/flamingo-lummus">Flamingo-Lummus</a></div>
+      </div>
+
+      <div class="hood-card">
+        <h3><a href="/miami-beach/mid-beach">Mid Beach</a></h3>
+        <p>Running from 23rd to 63rd Street — beachfront condominiums, luxury hotels, and residential towers with a quieter atmosphere than South Beach.</p>
+        <div class="hood-mini-stats">
+          <div>$796K<span>Median Price</span></div>
+          <div>$4,250<span>Median Rent</span></div>
+          <div>265<span>For Sale</span></div>
+        </div>
+        <div class="best-for">Best for: beachfront condos, ocean views, resort-style amenities</div>
+        <p style="font-size:.8rem; color:var(--slate); border-left:2px solid var(--coral); padding-left:10px; margin:10px 0;"><strong>Local tip:</strong> the stretch near the historic Faena and Fontainebleau corridor commands a hospitality-adjacent premium; a few blocks north around 40th–50th Street offers similar beach access at a noticeably lower $/sqft.</p>
+        <a href="/search?city=miami-beach&hood=mid-beach">Explore Mid Beach Real Estate →</a>
+        <div style="margin-top:10px; font-size:.78rem;">Compare to: <a href="/miami-beach/south-beach">South Beach</a> · <a href="/miami-beach/north-beach">North Beach</a></div>
+      </div>
+
+      <div class="hood-card">
+        <h3><a href="/miami-beach/north-beach">North Beach</a></h3>
+        <p>A more relaxed residential mix of condos, apartments, single-family homes, and MiMo architecture — currently undergoing significant redevelopment.</p>
+        <div class="hood-mini-stats">
+          <div>$675K<span>Median Price</span></div>
+          <div>$2,800<span>Median Rent</span></div>
+          <div>198<span>For Sale</span></div>
+        </div>
+        <div class="best-for">Best for: quieter lifestyle, value, families, local atmosphere</div>
+        <p style="font-size:.8rem; color:var(--slate); border-left:2px solid var(--coral); padding-left:10px; margin:10px 0;"><strong>Local tip:</strong> North Beach carries the most active redevelopment pipeline in the city right now — worth checking a building's specific block against current city planning notices before buying for the long term.</p>
+        <a href="/search?city=miami-beach&hood=north-beach">Explore North Beach Real Estate →</a>
+        <div style="margin-top:10px; font-size:.78rem;">Compare to: <a href="/miami-beach/mid-beach">Mid Beach</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="deco-divider"></div>
+
+<!-- ================= LIVING IN MIAMI BEACH ================= -->
+<section style="background:var(--sand-deep);">
+  <div class="wrap" style="max-width:820px;">
+    <h2>Living in Miami Beach</h2>
+    <p>Living in Miami Beach means having the beach and outdoor recreation at the center of everyday life. The city's seven-mile Beachwalk connects much of the oceanfront for walking and cycling, alongside a free trolley system, parks, and cultural attractions.</p>
+    <p>The lifestyle shifts block by block: South Beach is the most urban and energetic, Mid Beach leans resort-oriented and residential, and North Beach settles into a quieter, more local feel.</p>
+    <p>Looking past the purchase price matters here more than most markets — HOA fees, property taxes, insurance, building condition, special assessments, flood exposure, and rental restrictions can all move the true cost of ownership significantly.</p>
+  </div>
+</section>
+
+<div class="deco-divider"></div>
+
+<!-- ================= NEIGHBORHOOD SCORES ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="badge live">Dynamic · scored 0–10 from Rility's model</span>
+      <h2>Miami Beach Neighborhood Scores</h2>
+      <p style="color:var(--slate);">Compare Miami Beach areas on the factors that matter most when choosing where to live — scored the same way across every South Florida city on Rility.</p>
+    </div>
+    <div class="score-bars">
+      <div class="score-row"><div class="name">Walkability</div><div class="score-track"><div class="score-fill" style="width:92%;"></div></div><div class="score-val">9.2</div></div>
+      <div class="score-row"><div class="name">Beach Access</div><div class="score-track"><div class="score-fill" style="width:98%;"></div></div><div class="score-val">9.8</div></div>
+      <div class="score-row"><div class="name">Restaurants</div><div class="score-track"><div class="score-fill" style="width:94%;"></div></div><div class="score-val">9.4</div></div>
+      <div class="score-row"><div class="name">Nightlife</div><div class="score-track"><div class="score-fill" style="width:90%;"></div></div><div class="score-val">9.0</div></div>
+      <div class="score-row"><div class="name">Family Friendliness</div><div class="score-track"><div class="score-fill" style="width:58%;"></div></div><div class="score-val">5.8</div></div>
+      <div class="score-row"><div class="name">Public Transit</div><div class="score-track"><div class="score-fill" style="width:64%;"></div></div><div class="score-val">6.4</div></div>
+      <div class="score-row"><div class="name">Quietness</div><div class="score-track"><div class="score-fill" style="width:42%;"></div></div><div class="score-val">4.2</div></div>
+      <div class="score-row"><div class="name">Value</div><div class="score-track"><div class="score-fill" style="width:38%;"></div></div><div class="score-val">3.8</div></div>
+      <div class="score-row"><div class="name">Luxury</div><div class="score-track"><div class="score-fill" style="width:88%;"></div></div><div class="score-val">8.8</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="deco-divider"></div>
+
+<!-- ================= SCHOOLS & TRANSPORTATION ================= -->
+<section style="background:var(--sand-deep);">
+  <div class="wrap">
+    <div class="section-head" style="max-width:900px;">
+      <h2>Schools &amp; Transportation in Miami Beach</h2>
+      <p class="perf-note" style="margin-bottom:8px;">School and boundary data reviewed by Rility's local research team · last verified Aug 20, 2026</p>
+      <p style="color:var(--slate);">Miami Beach sits entirely within Miami-Dade County Public Schools, with one public high school serving the whole city and a small number of well-regarded private and Jewish day schools. Always verify current attendance boundaries directly with the district before deciding on a property — assignment areas can change and some listings market a "top-rated school" that isn't actually zoned for that address.</p>
+    </div>
+
+    <div class="hood-grid" style="margin-top:10px;">
+      <div class="hood-card">
+        <h3>Public Schools</h3>
+        <p style="font-size:.9rem; color:var(--slate); margin-bottom:10px;">All part of Miami-Dade County Public Schools (MDCPS).</p>
+        <table class="compare" style="font-size:.84rem;">
+          <thead><tr><th>School</th><th>Grades</th><th>Area</th></tr></thead>
+          <tbody>
+            <tr><td>South Pointe Elementary School</td><td>PK–5</td><td>South Beach</td></tr>
+            <tr><td>Fienberg/Fisher K-8 Center</td><td>PK–8</td><td>South Beach</td></tr>
+            <tr><td>Nautilus Middle School</td><td>6–8</td><td>Mid Beach</td></tr>
+            <tr><td>North Beach Elementary School</td><td>PK–5</td><td>North Beach</td></tr>
+            <tr><td>Biscayne Beach Elementary School</td><td>PK–5</td><td>North Beach</td></tr>
+            <tr><td>Miami Beach Senior High School</td><td>9–12</td><td>Mid Beach (Prairie Ave)</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.8rem; color:var(--slate); margin-top:10px;">Miami Beach Senior High is the city's only public high school — students citywide are zoned into it, so its attendance boundary matters less for buyers than at elementary and middle level, where South Beach, Mid Beach, and North Beach each have their own dedicated schools.</p>
+      </div>
+
+      <div class="hood-card">
+        <h3>Private &amp; Charter Options</h3>
+        <p style="font-size:.9rem; color:var(--slate); margin-bottom:10px;">A cluster of independent and Jewish day schools serve Miami Beach families directly.</p>
+        <ul style="font-size:.88rem; color:var(--ink); padding-left:18px; line-height:1.9;">
+          <li><strong>Rabbi Alexander S. Gross Hebrew Academy</strong> — Modern Orthodox Jewish day school, PK–12, founded 1947</li>
+          <li><strong>Fisher Island Day School</strong> — private, Fisher Island</li>
+          <li><strong>Temple Beth Sholom Innovative School</strong> — Reggio-inspired Jewish early education through 5th grade</li>
+          <li><strong>Gan Katan</strong> — private, PK–2, Jewish affiliation</li>
+          <li><strong>Mater Academy (Miami Beach)</strong> — public charter option</li>
+        </ul>
+        <p style="font-size:.8rem; color:var(--slate); margin-top:10px;">Most families weighing private options here are comparing a short walk or golf-cart ride against a mainland commute — a factor worth pricing into daily logistics as much as tuition.</p>
+      </div>
+    </div>
+
+    <div class="section-copy" style="margin-top:30px; max-width:900px;">
+      <h3 style="font-size:1.1rem;">Getting Around</h3>
+      <p>Getting around Miami Beach is realistic without a car for most day-to-day needs: the city's free trolley runs frequent routes through South Beach, Mid Beach, and North Beach, and the seven-mile Beachwalk gives pedestrians and cyclists a continuous, car-free oceanfront route from South Pointe up through North Beach. Four causeways — MacArthur, Venetian, Julia Tuttle, and 79th Street — connect the island to mainland Miami, with Julia Tuttle carrying the most direct car and bus route to Downtown and the airport. Rush-hour causeway traffic and limited parking in South Beach are the two things almost every longtime resident mentions first, which is part of why walkability and trolley access carry real weight in property values here, not just lifestyle appeal.</p>
+    </div>
+  </div>
+</section>
+
+<div class="deco-divider"></div>
+
+<!-- ================= FLOOD & CLIMATE RISK ================= -->
+<section>
+  <div class="wrap" style="max-width:820px;">
+    <span class="badge">Buyer diligence</span>
+    <h2>Miami Beach Flood &amp; Climate Risk</h2>
+    <p class="perf-note" style="margin-bottom:8px;">Reviewed by Rility's local research team · last verified Aug 20, 2026 · not a substitute for an official FEMA flood zone determination</p>
+    <p>Flood and climate considerations are especially important in Miami Beach's low-lying coastal setting. Before buying, evaluate flood zone designation, elevation, storm-surge exposure, insurance costs, and the specific building's drainage and resilience upgrades.</p>
+    <p>Rility surfaces these factors alongside property and neighborhood data so they're part of the decision from the start, not an afterthought after closing.</p>
+    <a class="btn ghost" href="/miami-beach/flood-risk">View Flood Zone Map for Miami Beach →</a>
+  </div>
+</section>
+
+<div class="deco-divider"></div>
+
+<!-- ================= FAQ (with FAQPage schema) ================= -->
+<section style="background:var(--sand-deep);">
+  <div class="wrap" style="max-width:820px;">
+    <h2>Frequently Asked Questions</h2>
+
+    <details class="faq-item" open>
+      <summary>Is Miami Beach a good place to live?</summary>
+      <p>Miami Beach suits people who prioritize beach access, outdoor living, restaurants, entertainment, and a walkable coastal lifestyle. The right neighborhood depends on budget and whether you want a lively, luxury, or quieter residential setting.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How much does a home cost in Miami Beach?</summary>
+      <p>The median sale price for all home types was approximately $630,000 as of June 2026, though prices vary substantially by neighborhood, property type, and building.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What are the best neighborhoods in Miami Beach?</summary>
+      <p>South Beach, South Pointe, Mid Beach, and North Beach each offer a different lifestyle — South Beach for walkability and entertainment, South Pointe for luxury waterfront living, Mid Beach for beachfront condos, and North Beach for a quieter atmosphere.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is Miami Beach expensive?</summary>
+      <p>Miami Beach is generally one of the pricier South Florida markets, but costs vary considerably by neighborhood and property type. Factor in HOA fees, insurance, and taxes alongside the purchase price.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is Miami Beach good for families?</summary>
+      <p>Some pockets of Miami Beach work well for families, particularly quieter residential areas near parks, beaches, and everyday amenities. Neighborhood-level data helps narrow down the best fit.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is Miami Beach good for investing?</summary>
+      <p>Investment potential depends on the specific property, building, purchase price, HOA, rental restrictions, taxes, insurance, and expected rental income. Rility's property and neighborhood data can help you compare these factors.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ================= JSON-LD structured data ================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is Miami Beach a good place to live?","acceptedAnswer":{"@type":"Answer","text":"Miami Beach suits people who prioritize beach access, outdoor living, restaurants, entertainment, and a walkable coastal lifestyle. The right neighborhood depends on budget and whether you want a lively, luxury, or quieter residential setting."}},
+    {"@type":"Question","name":"How much does a home cost in Miami Beach?","acceptedAnswer":{"@type":"Answer","text":"The median sale price for all home types was approximately $630,000 as of June 2026, though prices vary substantially by neighborhood, property type, and building."}},
+    {"@type":"Question","name":"What are the best neighborhoods in Miami Beach?","acceptedAnswer":{"@type":"Answer","text":"South Beach, South Pointe, Mid Beach, and North Beach each offer a different lifestyle."}},
+    {"@type":"Question","name":"Is Miami Beach expensive?","acceptedAnswer":{"@type":"Answer","text":"Miami Beach is generally one of the pricier South Florida markets, but costs vary considerably by neighborhood and property type."}},
+    {"@type":"Question","name":"Is Miami Beach good for families?","acceptedAnswer":{"@type":"Answer","text":"Some pockets of Miami Beach work well for families, particularly quieter residential areas near parks, beaches, and everyday amenities."}},
+    {"@type":"Question","name":"Is Miami Beach good for investing?","acceptedAnswer":{"@type":"Answer","text":"Investment potential depends on the specific property, building, HOA, rental restrictions, taxes, insurance, and expected rental income."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Rility","item":"https://rility.com/"},
+    {"@type":"ListItem","position":2,"name":"Florida","item":"https://rility.com/florida"},
+    {"@type":"ListItem","position":3,"name":"Miami-Dade County","item":"https://rility.com/florida/miami-dade-county"},
+    {"@type":"ListItem","position":4,"name":"Miami Beach","item":"https://rility.com/miami-beach"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Place",
+  "name": "Miami Beach, FL",
+  "containsPlace": [
+    {"@type":"Place","name":"South Beach"},
+    {"@type":"Place","name":"South Pointe"},
+    {"@type":"Place","name":"Mid Beach"},
+    {"@type":"Place","name":"North Beach"}
+  ]
+}
+</script>
+
+<footer class="dev-note">
+  <div class="wrap">
+    Build note: this is a static HTML mockup for design/content review. In production, the map, stats strip, comparison table, charts, and listing grid should be server-rendered or hydrated from <code>/api/markets/miami-beach</code> so the initial HTML already contains real numbers and links for crawlers — don't ship them as client-only JS.
+  </div>
+</footer>
+
+<script>
+// ---- Mock data standing in for your market API ----
+const months = ['Sep 24','Nov 24','Jan 25','Mar 25','May 25','Jul 25','Sep 25','Nov 25','Jan 26','Mar 26','May 26','Aug 26'];
+const price  = [572000,579000,584000,590000,598000,605000,611000,618000,621000,625000,628000,630000];
+const psf    = [681,686,690,697,703,709,715,721,726,731,737,742];
+const inv    = [1180,1210,1250,1340,1390,1420,1460,1510,1495,1470,1480,1486];
+const dom    = [128,131,135,140,145,148,151,155,152,150,149,150];
+
+function fillTable(id, labels, data, fmt){
+  const el = document.getElementById(id);
+  el.innerHTML = labels.map((m,i)=>`<tr><td>${m}</td><td>${fmt(data[i])}</td></tr>`).join('');
+}
+fillTable('tblPrice', months, price, v=>'$'+v.toLocaleString());
+fillTable('tblPsf', months, psf, v=>'$'+v);
+fillTable('tblInv', months, inv, v=>v.toLocaleString());
+fillTable('tblDom', months, dom, v=>v+' days');
+
+// ---- STATIC SPARKLINES (default state) ----
+// In production these are rendered server-side as plain SVG markup baked
+// into the HTML response — no JS required to see the trend at all. This
+// inline version just emulates that output for the mockup.
+function sparklineSVG(data, color, type){
+  const w=600, h=220, pad=10;
+  const max=Math.max(...data), min=Math.min(...data)*0.985;
+  const x = i => pad + i*((w-2*pad)/(data.length-1));
+  const y = v => h-pad - ((v-min)/(max-min))*(h-2*pad);
+  if(type==='bar'){
+    const bw=(w-2*pad)/data.length*0.6;
+    const bars=data.map((v,i)=>`<rect x="${x(i)-bw/2}" y="${y(v)}" width="${bw}" height="${h-pad-y(v)}" fill="${color}" rx="1"/>`).join('');
+    return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Chart">${bars}</svg>`;
+  }
+  const pts=data.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
+  const area=`${pad},${h-pad} ${pts} ${w-pad},${h-pad}`;
+  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Chart">
+    <polygon points="${area}" fill="${color}" opacity="0.12"/>
+    <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round"/>
+  </svg>`;
+}
+document.getElementById('sparkPrice').innerHTML = sparklineSVG(price, '#146B63');
+document.getElementById('sparkPsf').innerHTML   = sparklineSVG(psf, '#E1613F');
+document.getElementById('sparkInv').innerHTML   = sparklineSVG(inv, '#0C4B45', 'bar');
+document.getElementById('sparkDom').innerHTML   = sparklineSVG(dom, '#0F2A3D');
+
+// ---- LAZY-LOADED INTERACTIVE UPGRADE ----
+// Chart.js (≈70KB gzipped) only loads the first time someone actually
+// clicks "View interactive chart" on ANY card, then swaps each requested
+// sparkline for a real canvas with tooltips.
+let chartJsPromise = null;
+function loadChartJS(){
+  if(!chartJsPromise){
+    chartJsPromise = new Promise((resolve)=>{
+      const s=document.createElement('script');
+      s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';
+      s.onload=resolve;
+      document.head.appendChild(s);
+    });
+  }
+  return chartJsPromise;
+}
+const seriesMap = {price, psf, inv, dom};
+const baseOpts = {
+  responsive:true,
+  plugins:{legend:{display:false}},
+  scales:{
+    x:{grid:{display:false}, ticks:{font:{size:9}}},
+    y:{grid:{color:'#EFE9DA'}, ticks:{font:{size:9}}}
+  }
+};
+document.querySelectorAll('.load-interactive').forEach(btn=>{
+  btn.addEventListener('click', async ()=>{
+    btn.textContent = 'Loading…';
+    await loadChartJS();
+    const wrap = btn.previousElementSibling; // .sparkline-wrap
+    const canvas = document.createElement('canvas');
+    canvas.id = btn.dataset.target;
+    wrap.replaceWith(canvas);
+    const data = seriesMap[btn.dataset.series];
+    const color = btn.dataset.color;
+    new Chart(canvas, {
+      type: btn.dataset.type === 'bar' ? 'bar' : 'line',
+      data:{labels:months, datasets:[{data, borderColor:color, backgroundColor:btn.dataset.type==='bar'?color:color+'22', fill:btn.dataset.type!=='bar', tension:.3, pointRadius:2}]},
+      options: baseOpts
+    });
+    btn.remove();
+  });
+});
+</script>
+
+</body>
+</html>
